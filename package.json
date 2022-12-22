@@ -1,0 +1,19 @@
+{
+  "name": "finch-api",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Finch-API/finch-api-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Finch-API/finch-api-node/issues"
+  },
+  "homepage": "https://github.com/Finch-API/finch-api-node#readme"
+}
