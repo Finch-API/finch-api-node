@@ -1,6 +1,6 @@
 # Finch Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/finch-api.svg)](https://npmjs.org/package/finch-api)
+[![NPM version](https://img.shields.io/npm/v/tryfinch-finch-api.svg)](https://npmjs.org/package/tryfinch-finch-api)
 
 The Finch Node library provides convenient access to the Finch REST API from applications written in server-side JavaScript.
 It includes TypeScript definitions for all request params and response fields.
@@ -12,15 +12,15 @@ The API documentation can be found [here](https://developer.tryfinch.com/).
 ## Installation
 
 ```sh
-npm install --save finch-api
+npm install --save tryfinch-finch-api
 # or
-yarn add finch-api
+yarn add tryfinch-finch-api
 ```
 
 ## Usage
 
 ```js
-import Finch from 'finch-api';
+import Finch from 'tryfinch-finch-api';
 
 const finch = new Finch({
   accessToken: 'my access token',
@@ -40,7 +40,7 @@ Importing, instantiating, and interacting with the library are the same as above
 If you like, you may reference our types directly:
 
 ```ts
-import Finch from 'finch-api';
+import Finch from 'tryfinch-finch-api';
 
 const finch = new Finch({
   accessToken: 'my access token',
@@ -167,7 +167,7 @@ We automatically send the `Finch-API-Version` header set to `2020-09-17`.
 If you need to, you can override it by setting default headers on a per-request basis.
 
 ```ts
-import Finch from 'finch-api';
+import Finch from 'tryfinch-finch-api';
 
 const finch = new Finch();
 
@@ -215,6 +215,6 @@ The following runtimes are supported:
 
 - Node.js version 12 or higher.
 - Deno v1.28.0 or higher (experimental).
-  Use `import Finch from "npm:finch-api"`.
+  Use `import Finch from "npm:tryfinch-finch-api"`.
 
 If you are interested in other runtime environments, please open or upvote an issue on GitHub.

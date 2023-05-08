@@ -1,5 +1,5 @@
 {
-  "name": "finch-api",
+  "name": "tryfinch-finch-api",
   "version": "0.0.0",
   "description": "Client library for the Finch API",
   "author": "Finch <founders@tryfinch.com>",
@@ -30,7 +30,7 @@
     "qs": "^6.10.3"
   },
   "devDependencies": {
-    "finch-api": "link:.",
+    "tryfinch-finch-api": "link:.",
     "@types/jest": "^27.5.0",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
