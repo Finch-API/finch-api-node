@@ -948,7 +948,7 @@
     "@typescript-eslint/types" "5.45.0"
     eslint-visitor-keys "^3.3.0"
 
-"finch-api@link:.":
+"@tryfinch/finch-api@link:.":
   version "0.0.0"
   uid ""
 
