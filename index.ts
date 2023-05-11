@@ -15,6 +15,7 @@ type Config = {
   baseURL?: string;
   timeout?: number;
   httpAgent?: Agent;
+  maxRetries?: number;
   clientId?: string | null;
   clientSecret?: string | null;
 };
@@ -36,6 +37,7 @@ export class Finch extends Core.APIClient {
       baseURL: options.baseURL!,
       timeout: options.timeout,
       httpAgent: options.httpAgent,
+      maxRetries: options.maxRetries,
     });
     this.accessToken = options.accessToken || null;
 
