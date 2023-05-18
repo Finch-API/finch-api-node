@@ -16,6 +16,24 @@ describe('instantiate client', () => {
     process.env = env;
   });
 
+  describe('baseUrl', () => {
+    test('trailing slash', () => {
+      const client = new Finch({
+        baseURL: 'http://localhost:5000/custom/path/',
+        accessToken: 'my access token',
+      });
+      expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
+    });
+
+    test('no trailing slash', () => {
+      const client = new Finch({
+        baseURL: 'http://localhost:5000/custom/path',
+        accessToken: 'my access token',
+      });
+      expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
+    });
+  });
+
   test('maxRetries option is correctly set', () => {
     const client = new Finch({ maxRetries: 1, accessToken: 'my access token' });
     expect(client.maxRetries).toEqual(1);
