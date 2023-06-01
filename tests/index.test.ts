@@ -1,5 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
+import { Headers } from '~/core';
 import Finch from '../index';
 
 describe('instantiate client', () => {
@@ -14,6 +15,16 @@ describe('instantiate client', () => {
 
   afterEach(() => {
     process.env = env;
+  });
+
+  test('defaultHeaders are passed through', () => {
+    const client = new Finch({
+      defaultHeaders: { 'X-My-Default-Header': '2' },
+      accessToken: 'my access token',
+    });
+
+    const { req } = client.buildRequest({ path: '/foo', method: 'post' });
+    expect((req.headers as Headers)['X-My-Default-Header']).toEqual('2');
   });
 
   describe('baseUrl', () => {

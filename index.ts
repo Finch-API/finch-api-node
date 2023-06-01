@@ -16,6 +16,7 @@ type Config = {
   timeout?: number;
   httpAgent?: Agent;
   maxRetries?: number;
+  defaultHeaders?: Core.Headers;
   clientId?: string | null;
   clientSecret?: string | null;
 };
@@ -25,6 +26,8 @@ export class Finch extends Core.APIClient {
   accessToken: string | null;
   clientId?: string | null;
   clientSecret?: string | null;
+
+  private _options: Config;
 
   constructor(config?: Config) {
     const options: Config = {
@@ -40,6 +43,7 @@ export class Finch extends Core.APIClient {
       maxRetries: options.maxRetries,
     });
     this.accessToken = options.accessToken || null;
+    this._options = options;
 
     this.clientId = config?.clientId || process.env['FINCH_CLIENT_ID'] || null;
     this.clientSecret = config?.clientSecret || process.env['FINCH_CLIENT_SECRET'] || null;
@@ -108,6 +112,7 @@ export class Finch extends Core.APIClient {
     return {
       ...super.defaultHeaders(),
       'Finch-API-Version': '2020-09-17',
+      ...this._options.defaultHeaders,
     };
   }
 
