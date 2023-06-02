@@ -110,14 +110,6 @@ export interface IndividualRetrieveManyParams {
 }
 
 export namespace IndividualRetrieveManyParams {
-  export interface Requests {
-    individual_id?: string;
-  }
-
-  export interface Options {
-    include?: Array<string>;
-  }
-
   export interface Options {
     include?: Array<string>;
   }

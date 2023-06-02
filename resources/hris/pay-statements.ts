@@ -231,21 +231,4 @@ export namespace PayStatementRetrieveManyParams {
      */
     offset?: number;
   }
-
-  export interface Requests {
-    /**
-     * A stable Finch `id` (UUID v4) for a payment.
-     */
-    payment_id: string;
-
-    /**
-     * Number of pay statements to return (defaults to all).
-     */
-    limit?: number;
-
-    /**
-     * Index to start from.
-     */
-    offset?: number;
-  }
 }
