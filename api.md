@@ -158,7 +158,7 @@ Models:
 
 Methods:
 
-- <code title="post /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./resources/hris/benefits/individuals.ts">enrollMany</a>(benefitId) -> EnrolledIndividualsSinglePage</code>
+- <code title="post /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./resources/hris/benefits/individuals.ts">enrollMany</a>(benefitId, [ ...individuals ]) -> EnrolledIndividualsSinglePage</code>
 - <code title="get /employer/benefits/{benefit_id}/enrolled">client.hris.benefits.individuals.<a href="./resources/hris/benefits/individuals.ts">enrolledIds</a>(benefitId) -> IndividualEnrolledIDsResponse</code>
 - <code title="get /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./resources/hris/benefits/individuals.ts">retrieveManyBenefits</a>(benefitId, { ...params }) -> IndividualBenefitsSinglePage</code>
 - <code title="delete /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./resources/hris/benefits/individuals.ts">unenroll</a>(benefitId, { ...params }) -> UnenrolledIndividualsSinglePage</code>

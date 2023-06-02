@@ -5,8 +5,16 @@ import Finch from '~/index';
 const finch = new Finch({ accessToken: 'something1234', baseURL: 'http://127.0.0.1:4010' });
 
 describe('resource individuals', () => {
-  test('enrollMany', async () => {
+  test('enrollMany: only required params', async () => {
     const response = await finch.hris.benefits.individuals.enrollMany('string', [{}, {}, {}]);
+  });
+
+  test('enrollMany: required and optional params', async () => {
+    const response = await finch.hris.benefits.individuals.enrollMany('string', [
+      { individual_id: 'string' },
+      { individual_id: 'string' },
+      { individual_id: 'string' },
+    ]);
   });
 
   test('enrolledIds', async () => {
