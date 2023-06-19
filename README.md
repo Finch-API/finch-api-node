@@ -27,9 +27,9 @@ const finch = new Finch({
 });
 
 async function main() {
-  const page = await finch.hris.directory.listIndividuals();
-  const directory = page.individuals[0];
-  console.log(directory.ein);
+  const candidate = await finch.ats.candidates.retrieve();
+
+  console.log(candidate.first_name);
 }
 main().catch(console.error);
 ```
@@ -47,7 +47,7 @@ const finch = new Finch({
 });
 
 async function main() {
-  const [directory]: [Finch.IndividualInDirectory] = await finch.hris.directory.listIndividuals();
+  const candidate: Finch.Candidate = await finch.ats.candidates.retrieve();
 }
 main().catch(console.error);
 ```
@@ -171,10 +171,9 @@ import Finch from '@tryfinch/finch-api';
 
 const finch = new Finch();
 
-const page = await finch.hris.directory.listIndividuals({
+const candidate = await finch.ats.candidates.retrieve({
   headers: { 'Finch-API-Version': 'My-Custom-Value' },
 });
-const directory = page.individuals[0];
 ```
 
 ## Configuring an HTTP(S) Agent (e.g., for proxies)
