@@ -3,6 +3,7 @@
 import * as Core from '~/core';
 import { APIResource } from '~/resource';
 import * as HRIS from '~/resources/hris';
+import * as API from './';
 
 export class CompanyResource extends APIResource {
   /**
@@ -124,4 +125,8 @@ export namespace Company {
      */
     routing_number?: string | null;
   }
+}
+
+export namespace CompanyResource {
+  export import Company = API.Company;
 }

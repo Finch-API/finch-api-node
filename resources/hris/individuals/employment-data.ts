@@ -3,6 +3,7 @@
 import * as Core from '~/core';
 import { APIResource } from '~/resource';
 import * as HRIS from '~/resources/hris';
+import * as API from './';
 import { ResponsesPage } from '~/pagination';
 
 export class EmploymentData extends APIResource {
@@ -176,4 +177,11 @@ export namespace EmploymentDataRetrieveManyParams {
      */
     individual_id: string;
   }
+}
+
+export namespace EmploymentData {
+  export import EmploymentData = API.EmploymentData;
+  export import EmploymentDataResponse = API.EmploymentDataResponse;
+  export import EmploymentDataResponsesResponsesPage = API.EmploymentDataResponsesResponsesPage;
+  export import EmploymentDataRetrieveManyParams = API.EmploymentDataRetrieveManyParams;
 }

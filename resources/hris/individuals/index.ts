@@ -11,4 +11,5 @@ export {
   IndividualResponse,
   IndividualRetrieveManyParams,
   IndividualResponsesResponsesPage,
+  Individuals,
 } from './individuals';

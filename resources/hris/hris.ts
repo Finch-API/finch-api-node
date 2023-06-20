@@ -7,6 +7,7 @@ import { PayStatements } from './pay-statements';
 import { Directory } from './directory';
 import { Individuals } from './individuals/individuals';
 import { Benefits } from './benefits/benefits';
+import * as API from './';
 
 export class HRIS extends APIResource {
   company: CompanyResource = new CompanyResource(this.client);
@@ -110,4 +111,49 @@ export interface Paging {
    * The current start index of the returned list of elements
    */
   offset?: number;
+}
+
+export namespace HRIS {
+  export import Income = API.Income;
+  export import Location = API.Location;
+  export import Money = API.Money;
+  export import Paging = API.Paging;
+
+  export import CompanyResource = API.CompanyResource;
+  export import Company = API.Company;
+
+  export import Payments = API.Payments;
+  export import Payment = API.Payment;
+  export import PaymentsSinglePage = API.PaymentsSinglePage;
+  export import PaymentListParams = API.PaymentListParams;
+
+  export import PayStatements = API.PayStatements;
+  export import PayStatement = API.PayStatement;
+  export import PayStatementResponse = API.PayStatementResponse;
+  export import PayStatementResponseBody = API.PayStatementResponseBody;
+  export import PayStatementResponsesResponsesPage = API.PayStatementResponsesResponsesPage;
+  export import PayStatementRetrieveManyParams = API.PayStatementRetrieveManyParams;
+
+  export import Directory = API.Directory;
+  export import IndividualInDirectory = API.IndividualInDirectory;
+  export import DirectoryListIndividualsParams = API.DirectoryListIndividualsParams;
+
+  export import Individuals = API.Individuals;
+  export import Individual = API.Individual;
+  export import IndividualResponse = API.IndividualResponse;
+  export import IndividualResponsesResponsesPage = API.IndividualResponsesResponsesPage;
+  export import IndividualRetrieveManyParams = API.IndividualRetrieveManyParams;
+
+  export import Benefits = API.Benefits;
+  export import BenefitFrequency = API.BenefitFrequency;
+  export import BenefitType = API.BenefitType;
+  export import BenfitContribution = API.BenfitContribution;
+  export import CompanyBenefit = API.CompanyBenefit;
+  export import CreateCompanyBenefitsResponse = API.CreateCompanyBenefitsResponse;
+  export import SupportedBenefit = API.SupportedBenefit;
+  export import UpdateCompanyBenefitResponse = API.UpdateCompanyBenefitResponse;
+  export import CompanyBenefitsSinglePage = API.CompanyBenefitsSinglePage;
+  export import SupportedBenefitsSinglePage = API.SupportedBenefitsSinglePage;
+  export import BenefitCreateParams = API.BenefitCreateParams;
+  export import BenefitUpdateParams = API.BenefitUpdateParams;
 }

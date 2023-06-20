@@ -4,6 +4,7 @@ import * as Core from '~/core';
 import { APIResource } from '~/resource';
 import { isRequestOptions } from '~/core';
 import * as Stages from '~/resources/ats/stages';
+import * as API from './';
 import { ApplicationsPage, ApplicationsPageParams } from '~/pagination';
 
 export class Applications extends APIResource {
@@ -53,3 +54,8 @@ export namespace Application {
 }
 
 export interface ApplicationListParams extends ApplicationsPageParams {}
+
+export namespace Applications {
+  export import Application = API.Application;
+  export import ApplicationListParams = API.ApplicationListParams;
+}
