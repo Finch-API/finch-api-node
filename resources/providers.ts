@@ -2,6 +2,7 @@
 
 import * as Core from '~/core';
 import { APIResource } from '~/resource';
+import * as API from './';
 import { SinglePage } from '~/pagination';
 
 export class Providers extends APIResource {
@@ -56,4 +57,9 @@ export interface Provider {
    * The list of Finch products supported on this payroll provider.
    */
   products?: Array<string>;
+}
+
+export namespace Providers {
+  export import Provider = API.Provider;
+  export import ProvidersSinglePage = API.ProvidersSinglePage;
 }

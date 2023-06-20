@@ -3,6 +3,7 @@
 import * as Core from '~/core';
 import { APIResource } from '~/resource';
 import { isRequestOptions } from '~/core';
+import * as API from './';
 import { OffersPage, OffersPageParams } from '~/pagination';
 
 export class Offers extends APIResource {
@@ -55,3 +56,8 @@ export interface Offer {
 }
 
 export interface OfferListParams extends OffersPageParams {}
+
+export namespace Offers {
+  export import Offer = API.Offer;
+  export import OfferListParams = API.OfferListParams;
+}

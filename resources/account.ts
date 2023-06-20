@@ -2,6 +2,7 @@
 
 import * as Core from '~/core';
 import { APIResource } from '~/resource';
+import * as API from './';
 
 export class Account extends APIResource {
   /**
@@ -60,4 +61,9 @@ export interface Introspection {
    * The account username used for login associated with the `access_token`.
    */
   username: string;
+}
+
+export namespace Account {
+  export import DisconnectResponse = API.DisconnectResponse;
+  export import Introspection = API.Introspection;
 }

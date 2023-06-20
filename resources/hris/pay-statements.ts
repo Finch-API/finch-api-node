@@ -4,6 +4,7 @@ import * as Core from '~/core';
 import { APIResource } from '~/resource';
 import * as HRIS from '~/resources/hris';
 import * as Benefits from '~/resources/hris/benefits';
+import * as API from './';
 import { ResponsesPage } from '~/pagination';
 
 export class PayStatements extends APIResource {
@@ -231,4 +232,12 @@ export namespace PayStatementRetrieveManyParams {
      */
     offset?: number;
   }
+}
+
+export namespace PayStatements {
+  export import PayStatement = API.PayStatement;
+  export import PayStatementResponse = API.PayStatementResponse;
+  export import PayStatementResponseBody = API.PayStatementResponseBody;
+  export import PayStatementResponsesResponsesPage = API.PayStatementResponsesResponsesPage;
+  export import PayStatementRetrieveManyParams = API.PayStatementRetrieveManyParams;
 }

@@ -5,6 +5,7 @@ import { APIResource } from '~/resource';
 import { isRequestOptions } from '~/core';
 import * as HRIS from '~/resources/hris';
 import { EmploymentData } from './employment-data';
+import * as API from './';
 import { ResponsesPage } from '~/pagination';
 
 export class Individuals extends APIResource {
@@ -117,4 +118,16 @@ export namespace IndividualRetrieveManyParams {
   export interface Requests {
     individual_id?: string;
   }
+}
+
+export namespace Individuals {
+  export import Individual = API.Individual;
+  export import IndividualResponse = API.IndividualResponse;
+  export import IndividualResponsesResponsesPage = API.IndividualResponsesResponsesPage;
+  export import IndividualRetrieveManyParams = API.IndividualRetrieveManyParams;
+
+  export import EmploymentData = API.EmploymentData;
+  export import EmploymentDataResponse = API.EmploymentDataResponse;
+  export import EmploymentDataResponsesResponsesPage = API.EmploymentDataResponsesResponsesPage;
+  export import EmploymentDataRetrieveManyParams = API.EmploymentDataRetrieveManyParams;
 }

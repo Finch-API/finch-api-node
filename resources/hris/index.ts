@@ -12,21 +12,24 @@ export {
   BenefitUpdateParams,
   CompanyBenefitsSinglePage,
   SupportedBenefitsSinglePage,
+  Benefits,
 } from './benefits';
-export { Company } from './company';
-export { Income, Location, Money, Paging } from './hris';
+export { Company, CompanyResource } from './company';
+export { Income, Location, Money, Paging, HRIS } from './hris';
 export {
   Individual,
   IndividualResponse,
   IndividualRetrieveManyParams,
   IndividualResponsesResponsesPage,
+  Individuals,
 } from './individuals';
-export { IndividualInDirectory, DirectoryListIndividualsParams } from './directory';
+export { IndividualInDirectory, DirectoryListIndividualsParams, Directory } from './directory';
 export {
   PayStatement,
   PayStatementResponse,
   PayStatementResponseBody,
   PayStatementRetrieveManyParams,
   PayStatementResponsesResponsesPage,
+  PayStatements,
 } from './pay-statements';
-export { Payment, PaymentListParams, PaymentsSinglePage } from './payments';
+export { Payment, PaymentListParams, PaymentsSinglePage, Payments } from './payments';

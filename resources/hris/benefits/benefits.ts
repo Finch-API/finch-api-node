@@ -4,6 +4,7 @@ import * as Core from '~/core';
 import { APIResource } from '~/resource';
 import { isRequestOptions } from '~/core';
 import { Individuals } from './individuals';
+import * as API from './';
 import { SinglePage } from '~/pagination';
 
 export class Benefits extends APIResource {
@@ -211,4 +212,30 @@ export interface BenefitUpdateParams {
    * Updated name or description.
    */
   description?: string;
+}
+
+export namespace Benefits {
+  export import BenefitFrequency = API.BenefitFrequency;
+  export import BenefitType = API.BenefitType;
+  export import BenfitContribution = API.BenfitContribution;
+  export import CompanyBenefit = API.CompanyBenefit;
+  export import CreateCompanyBenefitsResponse = API.CreateCompanyBenefitsResponse;
+  export import SupportedBenefit = API.SupportedBenefit;
+  export import UpdateCompanyBenefitResponse = API.UpdateCompanyBenefitResponse;
+  export import CompanyBenefitsSinglePage = API.CompanyBenefitsSinglePage;
+  export import SupportedBenefitsSinglePage = API.SupportedBenefitsSinglePage;
+  export import BenefitCreateParams = API.BenefitCreateParams;
+  export import BenefitUpdateParams = API.BenefitUpdateParams;
+
+  export import Individuals = API.Individuals;
+  export import EnrolledIndividual = API.EnrolledIndividual;
+  export import IndividualBenefit = API.IndividualBenefit;
+  export import UnenrolledIndividual = API.UnenrolledIndividual;
+  export import IndividualEnrolledIDsResponse = API.IndividualEnrolledIDsResponse;
+  export import EnrolledIndividualsSinglePage = API.EnrolledIndividualsSinglePage;
+  export import IndividualBenefitsSinglePage = API.IndividualBenefitsSinglePage;
+  export import UnenrolledIndividualsSinglePage = API.UnenrolledIndividualsSinglePage;
+  export import IndividualEnrollManyParams = API.IndividualEnrollManyParams;
+  export import IndividualRetrieveManyBenefitsParams = API.IndividualRetrieveManyBenefitsParams;
+  export import IndividualUnenrollParams = API.IndividualUnenrollParams;
 }

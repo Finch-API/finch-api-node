@@ -3,6 +3,7 @@
 import * as Core from '~/core';
 import { APIResource } from '~/resource';
 import { isRequestOptions } from '~/core';
+import * as API from './';
 import { CandidatesPage, CandidatesPageParams } from '~/pagination';
 
 export class Candidates extends APIResource {
@@ -72,3 +73,8 @@ export namespace Candidate {
 }
 
 export interface CandidateListParams extends CandidatesPageParams {}
+
+export namespace Candidates {
+  export import Candidate = API.Candidate;
+  export import CandidateListParams = API.CandidateListParams;
+}

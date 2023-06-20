@@ -3,6 +3,7 @@
 import * as Core from '~/core';
 import { APIResource } from '~/resource';
 import * as HRIS from '~/resources/hris';
+import * as API from './';
 import { SinglePage } from '~/pagination';
 
 export class Payments extends APIResource {
@@ -70,4 +71,10 @@ export interface PaymentListParams {
    * format.
    */
   start_date: string;
+}
+
+export namespace Payments {
+  export import Payment = API.Payment;
+  export import PaymentsSinglePage = API.PaymentsSinglePage;
+  export import PaymentListParams = API.PaymentListParams;
 }
