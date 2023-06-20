@@ -27,7 +27,7 @@ const finch = new Finch({
 });
 
 async function main() {
-  const candidate = await finch.ats.candidates.retrieve();
+  const candidate = await finch.ats.candidates.retrieve('<candidate id>');
 
   console.log(candidate.first_name);
 }
@@ -47,7 +47,7 @@ const finch = new Finch({
 });
 
 async function main() {
-  const candidate: Finch.Candidate = await finch.ats.candidates.retrieve();
+  const candidate: Finch.Candidate = await finch.ats.candidates.retrieve('<candidate id>');
 }
 main().catch(console.error);
 ```
@@ -171,7 +171,7 @@ import Finch from '@tryfinch/finch-api';
 
 const finch = new Finch();
 
-const candidate = await finch.ats.candidates.retrieve({
+const candidate = await finch.ats.candidates.retrieve('<candidate id>', {
   headers: { 'Finch-API-Version': 'My-Custom-Value' },
 });
 ```
