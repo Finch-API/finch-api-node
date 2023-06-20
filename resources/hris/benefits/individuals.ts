@@ -4,6 +4,7 @@ import * as Core from '~/core';
 import { APIResource } from '~/resource';
 import { isRequestOptions } from '~/core';
 import * as Benefits from '~/resources/hris/benefits';
+import * as API from './';
 import { SinglePage } from '~/pagination';
 
 export class Individuals extends APIResource {
@@ -231,4 +232,17 @@ export interface IndividualUnenrollParams {
    * Array of individual_ids to unenroll.
    */
   individual_ids?: Array<string>;
+}
+
+export namespace Individuals {
+  export import EnrolledIndividual = API.EnrolledIndividual;
+  export import IndividualBenefit = API.IndividualBenefit;
+  export import UnenrolledIndividual = API.UnenrolledIndividual;
+  export import IndividualEnrolledIDsResponse = API.IndividualEnrolledIDsResponse;
+  export import EnrolledIndividualsSinglePage = API.EnrolledIndividualsSinglePage;
+  export import IndividualBenefitsSinglePage = API.IndividualBenefitsSinglePage;
+  export import UnenrolledIndividualsSinglePage = API.UnenrolledIndividualsSinglePage;
+  export import IndividualEnrollManyParams = API.IndividualEnrollManyParams;
+  export import IndividualRetrieveManyBenefitsParams = API.IndividualRetrieveManyBenefitsParams;
+  export import IndividualUnenrollParams = API.IndividualUnenrollParams;
 }

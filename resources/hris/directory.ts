@@ -3,6 +3,7 @@
 import * as Core from '~/core';
 import { APIResource } from '~/resource';
 import { isRequestOptions } from '~/core';
+import * as API from './';
 import { IndividualsPage, IndividualsPageParams } from '~/pagination';
 
 export class Directory extends APIResource {
@@ -85,3 +86,8 @@ export namespace IndividualInDirectory {
 }
 
 export interface DirectoryListIndividualsParams extends IndividualsPageParams {}
+
+export namespace Directory {
+  export import IndividualInDirectory = API.IndividualInDirectory;
+  export import DirectoryListIndividualsParams = API.DirectoryListIndividualsParams;
+}

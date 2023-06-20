@@ -12,6 +12,7 @@ export {
   BenefitUpdateParams,
   CompanyBenefitsSinglePage,
   SupportedBenefitsSinglePage,
+  Benefits,
 } from './benefits';
 export {
   EnrolledIndividual,
@@ -24,4 +25,5 @@ export {
   EnrolledIndividualsSinglePage,
   IndividualBenefitsSinglePage,
   UnenrolledIndividualsSinglePage,
+  Individuals,
 } from './individuals';

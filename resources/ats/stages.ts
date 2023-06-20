@@ -2,6 +2,7 @@
 
 import * as Core from '~/core';
 import { APIResource } from '~/resource';
+import * as API from './';
 import { SinglePage } from '~/pagination';
 
 export class Stages extends APIResource {
@@ -28,4 +29,9 @@ export interface Stage {
   job_id?: string | null;
 
   name?: string | null;
+}
+
+export namespace Stages {
+  export import Stage = API.Stage;
+  export import StagesSinglePage = API.StagesSinglePage;
 }

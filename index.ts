@@ -200,14 +200,19 @@ export namespace Finch {
   export import OffersPageParams = Pagination.OffersPageParams;
   export import OffersPageResponse = Pagination.OffersPageResponse;
 
+  export import ATS = API.ATS;
+
+  export import HRIS = API.HRIS;
   export import Income = API.Income;
   export import Location = API.Location;
   export import Money = API.Money;
   export import Paging = API.Paging;
 
+  export import Providers = API.Providers;
   export import Provider = API.Provider;
   export import ProvidersSinglePage = API.ProvidersSinglePage;
 
+  export import Account = API.Account;
   export import DisconnectResponse = API.DisconnectResponse;
   export import Introspection = API.Introspection;
 }

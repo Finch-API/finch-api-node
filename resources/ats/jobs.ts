@@ -3,6 +3,7 @@
 import * as Core from '~/core';
 import { APIResource } from '~/resource';
 import { isRequestOptions } from '~/core';
+import * as API from './';
 import { JobsPage, JobsPageParams } from '~/pagination';
 
 export class Jobs extends APIResource {
@@ -68,3 +69,8 @@ export namespace Job {
 }
 
 export interface JobListParams extends JobsPageParams {}
+
+export namespace Jobs {
+  export import Job = API.Job;
+  export import JobListParams = API.JobListParams;
+}
