@@ -39,7 +39,7 @@ export class IndividualResponsesResponsesPage extends ResponsesPage<IndividualRe
 export interface Individual {
   dob?: string | null;
 
-  emails?: Array<Individual.Emails> | null;
+  emails?: Array<Individual.Email> | null;
 
   /**
    * The legal first name of the individual.
@@ -66,7 +66,7 @@ export interface Individual {
    */
   middle_name?: string | null;
 
-  phone_numbers?: Array<Individual.PhoneNumbers | null> | null;
+  phone_numbers?: Array<Individual.PhoneNumber | null> | null;
 
   /**
    * The preferred name of the individual.
@@ -83,13 +83,13 @@ export interface Individual {
 }
 
 export namespace Individual {
-  export interface Emails {
+  export interface Email {
     data?: string;
 
     type?: 'work' | 'personal';
   }
 
-  export interface PhoneNumbers {
+  export interface PhoneNumber {
     data?: string | null;
 
     type?: 'work' | 'personal' | null;
@@ -107,7 +107,7 @@ export interface IndividualResponse {
 export interface IndividualRetrieveManyParams {
   options?: IndividualRetrieveManyParams.Options | null;
 
-  requests?: Array<IndividualRetrieveManyParams.Requests>;
+  requests?: Array<IndividualRetrieveManyParams.Request>;
 }
 
 export namespace IndividualRetrieveManyParams {
@@ -115,7 +115,7 @@ export namespace IndividualRetrieveManyParams {
     include?: Array<string>;
   }
 
-  export interface Requests {
+  export interface Request {
     individual_id?: string;
   }
 }
