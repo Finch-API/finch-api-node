@@ -18,12 +18,12 @@ export interface Company {
   /**
    * An array of bank account objects associated with the payroll/HRIS system.
    */
-  accounts: Array<Company.Accounts> | null;
+  accounts: Array<Company.Account> | null;
 
   /**
    * The array of company departments.
    */
-  departments: Array<Company.Departments | null> | null;
+  departments: Array<Company.Department | null> | null;
 
   /**
    * The employer identification number.
@@ -74,7 +74,7 @@ export namespace Company {
     type?: 'llc' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative' | null;
   }
 
-  export interface Departments {
+  export interface Department {
     /**
      * The department name.
      */
@@ -83,10 +83,10 @@ export namespace Company {
     /**
      * The parent department, if present.
      */
-    parent?: Departments.Parent | null;
+    parent?: Department.Parent | null;
   }
 
-  export namespace Departments {
+  export namespace Department {
     /**
      * The parent department, if present.
      */
@@ -98,7 +98,7 @@ export namespace Company {
     }
   }
 
-  export interface Accounts {
+  export interface Account {
     /**
      * The name of the bank associated in the payroll/HRIS system.
      */

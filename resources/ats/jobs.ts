@@ -52,17 +52,17 @@ export namespace Job {
   }
 
   export interface HiringTeam {
-    hiring_managers?: Array<HiringTeam.HiringManagers> | null;
+    hiring_managers?: Array<HiringTeam.HiringManager> | null;
 
-    recruiters?: Array<HiringTeam.Recruiters> | null;
+    recruiters?: Array<HiringTeam.Recruiter> | null;
   }
 
   export namespace HiringTeam {
-    export interface HiringManagers {
+    export interface HiringManager {
       name?: string;
     }
 
-    export interface Recruiters {
+    export interface Recruiter {
       name?: string;
     }
   }
