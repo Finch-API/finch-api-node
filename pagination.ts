@@ -98,7 +98,10 @@ export class IndividualsPage
   implements IndividualsPageResponse
 {
   paging: HRIS.Paging;
-  /** The array of employees. */
+
+  /**
+   * The array of employees.
+   */
   individuals: Array<HRIS.IndividualInDirectory>;
 
   constructor(

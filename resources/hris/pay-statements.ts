@@ -32,14 +32,14 @@ export interface PayStatement {
   /**
    * The array of earnings objects associated with this pay statement
    */
-  earnings?: Array<PayStatement.Earnings | null> | null;
+  earnings?: Array<PayStatement.Earning | null> | null;
 
   /**
    * The array of deductions objects associated with this pay statement.
    */
-  employee_deductions?: Array<PayStatement.EmployeeDeductions | null> | null;
+  employee_deductions?: Array<PayStatement.EmployeeDeduction | null> | null;
 
-  employer_contributions?: Array<PayStatement.EmployerContributions | null> | null;
+  employer_contributions?: Array<PayStatement.EmployerContribution | null> | null;
 
   gross_pay?: HRIS.Money | null;
 
@@ -58,7 +58,7 @@ export interface PayStatement {
   /**
    * The array of taxes objects associated with this pay statement.
    */
-  taxes?: Array<PayStatement.Taxes | null> | null;
+  taxes?: Array<PayStatement.Tax | null> | null;
 
   /**
    * The number of hours worked for this pay period
@@ -72,7 +72,7 @@ export interface PayStatement {
 }
 
 export namespace PayStatement {
-  export interface Earnings {
+  export interface Earning {
     /**
      * The earnings amount in cents.
      */
@@ -114,7 +114,7 @@ export namespace PayStatement {
       | null;
   }
 
-  export interface Taxes {
+  export interface Tax {
     /**
      * The tax amount in cents.
      */
@@ -141,7 +141,7 @@ export namespace PayStatement {
     type?: 'state' | 'federal' | 'local' | 'fica' | null;
   }
 
-  export interface EmployeeDeductions {
+  export interface EmployeeDeduction {
     /**
      * The deduction amount in cents.
      */
@@ -168,7 +168,7 @@ export namespace PayStatement {
     type?: Benefits.BenefitType | null;
   }
 
-  export interface EmployerContributions {
+  export interface EmployerContribution {
     /**
      * The contribution amount in cents.
      */
@@ -212,11 +212,11 @@ export interface PayStatementRetrieveManyParams {
   /**
    * The array of batch requests.
    */
-  requests: Array<PayStatementRetrieveManyParams.Requests>;
+  requests: Array<PayStatementRetrieveManyParams.Request>;
 }
 
 export namespace PayStatementRetrieveManyParams {
-  export interface Requests {
+  export interface Request {
     /**
      * A stable Finch `id` (UUID v4) for a payment.
      */

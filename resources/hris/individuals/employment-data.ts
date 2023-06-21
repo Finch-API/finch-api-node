@@ -165,11 +165,11 @@ export interface EmploymentDataRetrieveManyParams {
   /**
    * The array of batch requests.
    */
-  requests: Array<EmploymentDataRetrieveManyParams.Requests>;
+  requests: Array<EmploymentDataRetrieveManyParams.Request>;
 }
 
 export namespace EmploymentDataRetrieveManyParams {
-  export interface Requests {
+  export interface Request {
     /**
      * A stable Finch `id` (UUID v4) for an individual in the company. There is no
      * limit to the number of `individual_id` to send per request. It is preferantial

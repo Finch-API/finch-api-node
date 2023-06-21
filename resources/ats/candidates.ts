@@ -43,7 +43,7 @@ export interface Candidate {
 
   created_at: string;
 
-  emails: Array<Candidate.Emails>;
+  emails: Array<Candidate.Email>;
 
   first_name: string | null;
 
@@ -55,17 +55,17 @@ export interface Candidate {
 
   last_name: string | null;
 
-  phone_numbers: Array<Candidate.PhoneNumbers>;
+  phone_numbers: Array<Candidate.PhoneNumber>;
 }
 
 export namespace Candidate {
-  export interface Emails {
+  export interface Email {
     data?: string | null;
 
     type?: string | null;
   }
 
-  export interface PhoneNumbers {
+  export interface PhoneNumber {
     data?: string | null;
 
     type?: string | null;
