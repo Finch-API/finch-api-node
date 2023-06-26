@@ -166,6 +166,8 @@ We automatically send the `Finch-API-Version` header set to `2020-09-17`.
 
 If you need to, you can override it by setting default headers on a per-request basis.
 
+Be aware that doing so may result in incorrect types and other unexpected or undefined behavior in the SDK.
+
 ```ts
 import Finch from '@tryfinch/finch-api';
 
