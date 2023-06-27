@@ -4,9 +4,9 @@ import qs from 'qs';
 import * as Core from './core';
 import * as Pagination from './pagination';
 import * as API from './resources';
-import * as Errors from '~/error';
+import * as Errors from './error';
 import type { Agent } from 'http';
-import * as FileFromPath from 'formdata-node/file-from-path';
+import * as Uploads from './uploads';
 
 type Config = {
   /**
@@ -168,11 +168,13 @@ export const {
   UnprocessableEntityError,
 } = Errors;
 
-export import fileFromPath = FileFromPath.fileFromPath;
+export import toFile = Uploads.toFile;
+export import fileFromPath = Uploads.fileFromPath;
 
 export namespace Finch {
   // Helper functions
-  export import fileFromPath = FileFromPath.fileFromPath;
+  export import toFile = Uploads.toFile;
+  export import fileFromPath = Uploads.fileFromPath;
 
   export import SinglePage = Pagination.SinglePage;
   export import SinglePageResponse = Pagination.SinglePageResponse;
@@ -216,6 +218,4 @@ export namespace Finch {
   export import DisconnectResponse = API.DisconnectResponse;
   export import Introspection = API.Introspection;
 }
-
-exports = module.exports = Finch;
 export default Finch;
