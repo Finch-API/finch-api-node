@@ -28,6 +28,11 @@ export class Directory extends APIResource {
 
 export interface IndividualInDirectory {
   /**
+   * A stable Finch id (UUID v4) for an individual in the company.
+   */
+  id?: string;
+
+  /**
    * The department object.
    */
   department?: IndividualInDirectory.Department | null;
@@ -36,11 +41,6 @@ export interface IndividualInDirectory {
    * The legal first name of the individual.
    */
   first_name?: string | null;
-
-  /**
-   * A stable Finch id (UUID v4) for an individual in the company.
-   */
-  id?: string;
 
   /**
    * `true` if the individual is an active employee or contractor at the company.
@@ -65,16 +65,6 @@ export interface IndividualInDirectory {
 
 export namespace IndividualInDirectory {
   /**
-   * The manager object.
-   */
-  export interface Manager {
-    /**
-     * A stable Finch `id` (UUID v4) for an individual in the company.
-     */
-    id?: string;
-  }
-
-  /**
    * The department object.
    */
   export interface Department {
@@ -82,6 +72,16 @@ export namespace IndividualInDirectory {
      * The name of the department.
      */
     name?: string | null;
+  }
+
+  /**
+   * The manager object.
+   */
+  export interface Manager {
+    /**
+     * A stable Finch `id` (UUID v4) for an individual in the company.
+     */
+    id?: string;
   }
 }
 

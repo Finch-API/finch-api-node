@@ -18,6 +18,11 @@ export class ProvidersSinglePage extends SinglePage<Provider> {}
 
 export interface Provider {
   /**
+   * The id of the payroll provider used in Connect.
+   */
+  id?: string;
+
+  /**
    * The display name of the payroll provider.
    */
   display_name?: string;
@@ -26,11 +31,6 @@ export interface Provider {
    * The url to the official icon of the payroll provider.
    */
   icon?: string;
-
-  /**
-   * The id of the payroll provider used in Connect.
-   */
-  id?: string;
 
   /**
    * The url to the official logo of the payroll provider.

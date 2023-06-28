@@ -16,6 +16,11 @@ export class CompanyResource extends APIResource {
 
 export interface Company {
   /**
+   * A stable Finch `id` (UUID v4) for the company.
+   */
+  id: string;
+
+  /**
    * An array of bank account objects associated with the payroll/HRIS system.
    */
   accounts: Array<Company.Account> | null;
@@ -36,11 +41,6 @@ export interface Company {
   entity: Company.Entity | null;
 
   /**
-   * A stable Finch `id` (UUID v4) for the company.
-   */
-  id: string;
-
-  /**
    * The legal name of the company.
    */
   legal_name: string | null;
@@ -59,45 +59,6 @@ export interface Company {
 }
 
 export namespace Company {
-  /**
-   * The entity type object.
-   */
-  export interface Entity {
-    /**
-     * The tax payer subtype of the company.
-     */
-    subtype?: 's_corporation' | 'c_corporation' | 'b_corporation' | null;
-
-    /**
-     * The tax payer type of the company.
-     */
-    type?: 'llc' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative' | null;
-  }
-
-  export interface Department {
-    /**
-     * The department name.
-     */
-    name?: string | null;
-
-    /**
-     * The parent department, if present.
-     */
-    parent?: Department.Parent | null;
-  }
-
-  export namespace Department {
-    /**
-     * The parent department, if present.
-     */
-    export interface Parent {
-      /**
-       * The parent department's name.
-       */
-      name?: string | null;
-    }
-  }
-
   export interface Account {
     /**
      * The name of the bank associated in the payroll/HRIS system.
@@ -124,6 +85,45 @@ export namespace Company {
      * opened.
      */
     routing_number?: string | null;
+  }
+
+  export interface Department {
+    /**
+     * The department name.
+     */
+    name?: string | null;
+
+    /**
+     * The parent department, if present.
+     */
+    parent?: Department.Parent | null;
+  }
+
+  export namespace Department {
+    /**
+     * The parent department, if present.
+     */
+    export interface Parent {
+      /**
+       * The parent department's name.
+       */
+      name?: string | null;
+    }
+  }
+
+  /**
+   * The entity type object.
+   */
+  export interface Entity {
+    /**
+     * The tax payer subtype of the company.
+     */
+    subtype?: 's_corporation' | 'c_corporation' | 'b_corporation' | null;
+
+    /**
+     * The tax payer type of the company.
+     */
+    type?: 'llc' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative' | null;
   }
 }
 

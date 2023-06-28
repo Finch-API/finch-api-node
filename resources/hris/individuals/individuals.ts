@@ -37,6 +37,11 @@ export class Individuals extends APIResource {
 export class IndividualResponsesResponsesPage extends ResponsesPage<IndividualResponse> {}
 
 export interface Individual {
+  /**
+   * A stable Finch `id` (UUID v4) for an individual in the company.
+   */
+  id?: string;
+
   dob?: string | null;
 
   emails?: Array<Individual.Email> | null;
@@ -50,11 +55,6 @@ export interface Individual {
    * The gender of the individual.
    */
   gender?: 'female' | 'male' | 'other' | 'decline_to_specify' | null;
-
-  /**
-   * A stable Finch `id` (UUID v4) for an individual in the company.
-   */
-  id?: string;
 
   /**
    * The legal last name of the individual.
