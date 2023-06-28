@@ -31,13 +31,13 @@ export class Offers extends APIResource {
 }
 
 export interface Offer {
+  id: string;
+
   application_id: string;
 
   candidate_id: string;
 
   created_at: string;
-
-  id: string;
 
   job_id: string;
 

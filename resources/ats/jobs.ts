@@ -31,6 +31,8 @@ export class Jobs extends APIResource {
 }
 
 export interface Job {
+  id: string;
+
   closed_at: string | null;
 
   created_at: string | null;
@@ -38,8 +40,6 @@ export interface Job {
   department: Job.Department;
 
   hiring_team: Job.HiringTeam;
-
-  id: string;
 
   name: string | null;
 
