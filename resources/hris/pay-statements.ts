@@ -114,33 +114,6 @@ export namespace PayStatement {
       | null;
   }
 
-  export interface Tax {
-    /**
-     * The tax amount in cents.
-     */
-    amount?: number | null;
-
-    /**
-     * The currency code.
-     */
-    currency?: string | null;
-
-    /**
-     * `true` if the amount is paid by the employers.
-     */
-    employer?: boolean | null;
-
-    /**
-     * The exact name of tax from the pay statement.
-     */
-    name?: string | null;
-
-    /**
-     * The type of taxes.
-     */
-    type?: 'state' | 'federal' | 'local' | 'fica' | null;
-  }
-
   export interface EmployeeDeduction {
     /**
      * The deduction amount in cents.
@@ -188,6 +161,33 @@ export namespace PayStatement {
      * Type of benefit.
      */
     type?: Benefits.BenefitType | null;
+  }
+
+  export interface Tax {
+    /**
+     * The tax amount in cents.
+     */
+    amount?: number | null;
+
+    /**
+     * The currency code.
+     */
+    currency?: string | null;
+
+    /**
+     * `true` if the amount is paid by the employers.
+     */
+    employer?: boolean | null;
+
+    /**
+     * The exact name of tax from the pay statement.
+     */
+    name?: string | null;
+
+    /**
+     * The type of taxes.
+     */
+    type?: 'state' | 'federal' | 'local' | 'fica' | null;
   }
 }
 

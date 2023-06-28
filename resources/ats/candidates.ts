@@ -36,6 +36,8 @@ export class Candidates extends APIResource {
  * A candidate represents an individual associated with one or more applications.
  */
 export interface Candidate {
+  id: string;
+
   /**
    * Array of Finch uuids corresponding to `application`s for this individual
    */
@@ -48,8 +50,6 @@ export interface Candidate {
   first_name: string | null;
 
   full_name: string | null;
-
-  id: string;
 
   last_activity_at: string;
 

@@ -18,6 +18,11 @@ export class Payments extends APIResource {
 export class PaymentsSinglePage extends SinglePage<Payment> {}
 
 export interface Payment {
+  /**
+   * The unique id for the payment.
+   */
+  id?: string;
+
   company_debit?: HRIS.Money | null;
 
   debit_date?: string | null;
@@ -27,11 +32,6 @@ export interface Payment {
   employer_taxes?: HRIS.Money | null;
 
   gross_pay?: HRIS.Money | null;
-
-  /**
-   * The unique id for the payment.
-   */
-  id?: string;
 
   /**
    * Array of every individual on this payment.

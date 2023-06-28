@@ -32,9 +32,9 @@ export class Applications extends APIResource {
 }
 
 export interface Application {
-  candidate_id: string;
-
   id: string;
+
+  candidate_id: string;
 
   job_id: string;
 

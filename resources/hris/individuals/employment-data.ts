@@ -30,6 +30,11 @@ export class EmploymentDataResponsesResponsesPage extends ResponsesPage<Employme
 
 export interface EmploymentData {
   /**
+   * string A stable Finch `id` (UUID v4) for an individual in the company.
+   */
+  id?: string;
+
+  /**
    * Worker's compensation classification code for this employee
    */
   class_code?: string | null;
@@ -50,11 +55,6 @@ export interface EmploymentData {
    * The legal first name of the individual.
    */
   first_name?: string | null;
-
-  /**
-   * string A stable Finch `id` (UUID v4) for an individual in the company.
-   */
-  id?: string;
 
   /**
    * The employee's income as reported by the provider. This may not always be
@@ -118,16 +118,6 @@ export interface EmploymentData {
 
 export namespace EmploymentData {
   /**
-   * The manager object representing the manager of the individual within the org.
-   */
-  export interface Manager {
-    /**
-     * A stable Finch `id` (UUID v4) for an individual in the company.
-     */
-    id?: string;
-  }
-
-  /**
    * The department object.
    */
   export interface Department {
@@ -150,6 +140,16 @@ export namespace EmploymentData {
      * The main employment type of the individual.
      */
     type?: 'employee' | 'contractor' | null;
+  }
+
+  /**
+   * The manager object representing the manager of the individual within the org.
+   */
+  export interface Manager {
+    /**
+     * A stable Finch `id` (UUID v4) for an individual in the company.
+     */
+    id?: string;
   }
 }
 
