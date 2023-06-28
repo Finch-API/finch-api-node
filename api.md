@@ -2,7 +2,7 @@
 
 ## Candidates
 
-Models:
+Types:
 
 - <code><a href="./resources/ats/candidates.ts">Candidate</a></code>
 
@@ -13,7 +13,7 @@ Methods:
 
 ## Applications
 
-Models:
+Types:
 
 - <code><a href="./resources/ats/applications.ts">Application</a></code>
 
@@ -24,7 +24,7 @@ Methods:
 
 ## Stages
 
-Models:
+Types:
 
 - <code><a href="./resources/ats/stages.ts">Stage</a></code>
 
@@ -34,7 +34,7 @@ Methods:
 
 ## Jobs
 
-Models:
+Types:
 
 - <code><a href="./resources/ats/jobs.ts">Job</a></code>
 
@@ -45,7 +45,7 @@ Methods:
 
 ## Offers
 
-Models:
+Types:
 
 - <code><a href="./resources/ats/offers.ts">Offer</a></code>
 
@@ -56,7 +56,7 @@ Methods:
 
 # HRIS
 
-Models:
+Types:
 
 - <code><a href="./resources/hris/hris.ts">Income</a></code>
 - <code><a href="./resources/hris/hris.ts">Location</a></code>
@@ -65,7 +65,7 @@ Models:
 
 ## CompanyResource
 
-Models:
+Types:
 
 - <code><a href="./resources/hris/company.ts">Company</a></code>
 
@@ -75,7 +75,7 @@ Methods:
 
 ## Payments
 
-Models:
+Types:
 
 - <code><a href="./resources/hris/payments.ts">Payment</a></code>
 
@@ -85,7 +85,7 @@ Methods:
 
 ## PayStatements
 
-Models:
+Types:
 
 - <code><a href="./resources/hris/pay-statements.ts">PayStatement</a></code>
 - <code><a href="./resources/hris/pay-statements.ts">PayStatementResponse</a></code>
@@ -97,7 +97,7 @@ Methods:
 
 ## Directory
 
-Models:
+Types:
 
 - <code><a href="./resources/hris/directory.ts">IndividualInDirectory</a></code>
 
@@ -107,7 +107,7 @@ Methods:
 
 ## Individuals
 
-Models:
+Types:
 
 - <code><a href="./resources/hris/individuals/individuals.ts">Individual</a></code>
 - <code><a href="./resources/hris/individuals/individuals.ts">IndividualResponse</a></code>
@@ -118,7 +118,7 @@ Methods:
 
 ### EmploymentData
 
-Models:
+Types:
 
 - <code><a href="./resources/hris/individuals/employment-data.ts">EmploymentData</a></code>
 - <code><a href="./resources/hris/individuals/employment-data.ts">EmploymentDataResponse</a></code>
@@ -129,7 +129,7 @@ Methods:
 
 ## Benefits
 
-Models:
+Types:
 
 - <code><a href="./resources/hris/benefits/benefits.ts">BenefitFrequency</a></code>
 - <code><a href="./resources/hris/benefits/benefits.ts">BenefitType</a></code>
@@ -149,7 +149,7 @@ Methods:
 
 ### Individuals
 
-Models:
+Types:
 
 - <code><a href="./resources/hris/benefits/individuals.ts">EnrolledIndividual</a></code>
 - <code><a href="./resources/hris/benefits/individuals.ts">IndividualBenefit</a></code>
@@ -165,7 +165,7 @@ Methods:
 
 # Providers
 
-Models:
+Types:
 
 - <code><a href="./resources/providers.ts">Provider</a></code>
 
@@ -175,7 +175,7 @@ Methods:
 
 # Account
 
-Models:
+Types:
 
 - <code><a href="./resources/account.ts">DisconnectResponse</a></code>
 - <code><a href="./resources/account.ts">Introspection</a></code>
