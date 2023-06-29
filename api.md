@@ -1,3 +1,10 @@
+# Finch
+
+Methods:
+
+- <code>client.<a href="./index.ts">getAccessToken</a>(...args) -> Promise<string></code>
+- <code>client.<a href="./index.ts">getAuthURL</a>(...args) -> string</code>
+
 # ATS
 
 ## Candidates
