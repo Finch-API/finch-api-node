@@ -79,6 +79,7 @@ export class Finch extends Core.APIClient {
       },
     }).then((response) => response.access_token);
   }
+
   /**
    * Returns the authorization url which can be visited in order to obtain an
    * authorization code from Finch. The autorization code can then be exchanged for
