@@ -1,5 +1,55 @@
 # Changelog
 
+## [2.0.0](https://github.com/Finch-API/finch-api-node/compare/v1.1.0...v2.0.0) (2023-06-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* **types:** singularize array item types ([#39](https://github.com/Finch-API/finch-api-node/issues/39))
+* drop official support for EOL Node versions (Node 12, 13, 14, 15) ([#30](https://github.com/Finch-API/finch-api-node/issues/30))
+
+### Features
+
+* support ESM and web platform runtimes; easier file uploads ([#41](https://github.com/Finch-API/finch-api-node/issues/41)) ([a9de794](https://github.com/Finch-API/finch-api-node/commit/a9de794b0e67e2d2e743c47bbd5070f14cca5dae))
+* **types:** export nested types through the root client export ([#38](https://github.com/Finch-API/finch-api-node/issues/38)) ([a524a6d](https://github.com/Finch-API/finch-api-node/commit/a524a6d301c5aaf58e1fe8c8fa818a4c17903506))
+
+
+### Bug Fixes
+
+* **form-data:** strip out undefined properties ([#36](https://github.com/Finch-API/finch-api-node/issues/36)) ([3263e7a](https://github.com/Finch-API/finch-api-node/commit/3263e7a61818e9ee3099659d9179e0b1818c6e6c))
+* **internal:** improve stream cancellation handling of abort controllers ([#29](https://github.com/Finch-API/finch-api-node/issues/29)) ([a429beb](https://github.com/Finch-API/finch-api-node/commit/a429beb88a8283b675558b38249817107e0dc720))
+
+
+### Build System
+
+* add `.github` folder to `.npmignore` ([#31](https://github.com/Finch-API/finch-api-node/issues/31)) ([e354911](https://github.com/Finch-API/finch-api-node/commit/e354911b6c2c3189b047a3486daa17f6135293a7))
+
+
+### Refactors
+
+* move error type definitions to error.ts ([#28](https://github.com/Finch-API/finch-api-node/issues/28)) ([b102084](https://github.com/Finch-API/finch-api-node/commit/b102084e8f0dad200b78d9fb7812c359214585f8))
+* **types:** singularize array item types ([#39](https://github.com/Finch-API/finch-api-node/issues/39)) ([b1e6ca9](https://github.com/Finch-API/finch-api-node/commit/b1e6ca908f7692e08e8259d1fe018b30af351777))
+
+
+### Styles
+
+* minor reordering of types and properties ([#42](https://github.com/Finch-API/finch-api-node/issues/42)) ([733d237](https://github.com/Finch-API/finch-api-node/commit/733d2372009be671f4c5d92af82c0103e7f4f54e))
+
+
+### Chores
+
+* **internal:** improve SSE decoding of lines ([#26](https://github.com/Finch-API/finch-api-node/issues/26)) ([a5c427e](https://github.com/Finch-API/finch-api-node/commit/a5c427e305faf75ebcb497ed731c23a48946b683))
+* speed up build script slightly ([#43](https://github.com/Finch-API/finch-api-node/issues/43)) ([d407434](https://github.com/Finch-API/finch-api-node/commit/d40743443e5148c73fa89050c342144c6ee40ce9))
+
+
+### Documentation
+
+* drop official support for EOL Node versions (Node 12, 13, 14, 15) ([#30](https://github.com/Finch-API/finch-api-node/issues/30)) ([9ddd198](https://github.com/Finch-API/finch-api-node/commit/9ddd198dcfb273725f5be01f8935a765ed6d5ec0))
+* **readme:** add note about updating the default version header ([#40](https://github.com/Finch-API/finch-api-node/issues/40)) ([1ca9421](https://github.com/Finch-API/finch-api-node/commit/1ca9421774c4c222c00e01b330ba4fcb8c68d329))
+* **readme:** fix main example snippet ([#35](https://github.com/Finch-API/finch-api-node/issues/35)) ([4e84f2a](https://github.com/Finch-API/finch-api-node/commit/4e84f2a5ef5089d740d8c42e0df11450b02f4f0f))
+* **readme:** update main example ([#33](https://github.com/Finch-API/finch-api-node/issues/33)) ([d38a664](https://github.com/Finch-API/finch-api-node/commit/d38a6649a868059c6a3080948e57545f55c92b32))
+* rearrange sections in api.md ([#44](https://github.com/Finch-API/finch-api-node/issues/44)) ([da103bc](https://github.com/Finch-API/finch-api-node/commit/da103bce5a5716fb73f11d65ec0c1818c0f43ac4))
+
 ## [1.1.0](https://github.com/Finch-API/finch-api-node/compare/v1.0.0...v1.1.0) (2023-06-13)
 
 
