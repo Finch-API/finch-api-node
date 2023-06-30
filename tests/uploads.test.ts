@@ -1,6 +1,5 @@
 import fs from 'fs';
-import { toFile } from '~/uploads';
-import { ResponseLike } from '@tryfinch/finch-api/_shims/uploadable';
+import { toFile, type ResponseLike } from '@tryfinch/finch-api/uploads';
 import { File } from '@tryfinch/finch-api/_shims/formdata';
 
 class MyClass {
