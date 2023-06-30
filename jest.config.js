@@ -3,8 +3,9 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   moduleNameMapper: {
-    '^~/(.*)$': '<rootDir>/$1',
-    '^@tryfinch/finch-api/_shims/(.*)$': '<rootDir>/_shims/$1.node',
+    '^@tryfinch/finch-api$': '<rootDir>/src/index.ts',
+    '^@tryfinch/finch-api/_shims/(.*)$': '<rootDir>/src/_shims/$1.node',
+    '^@tryfinch/finch-api/(.*)$': '<rootDir>/src/$1',
   },
-  modulePathIgnorePatterns: ['<rootDir>/ecosystem-tests/'],
+  modulePathIgnorePatterns: ['<rootDir>/ecosystem-tests/', '<rootDir>/dist/'],
 };

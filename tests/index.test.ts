@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import { Headers } from '~/core';
-import Finch from '../index';
+import { Headers } from '@tryfinch/finch-api/core';
+import Finch from '@tryfinch/finch-api';
 
 describe('instantiate client', () => {
   const env = process.env;

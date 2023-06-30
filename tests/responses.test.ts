@@ -1,4 +1,4 @@
-import { createResponseHeaders } from '../core';
+import { createResponseHeaders } from '@tryfinch/finch-api/core';
 import { Headers } from '@tryfinch/finch-api/_shims/fetch';
 
 describe('response parsing', () => {

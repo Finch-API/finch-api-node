@@ -1,16 +1,17 @@
 {
-  "exclude": ["dist", "ecosystem-tests"],
+  "include": ["src", "tests", "examples"],
   "compilerOptions": {
     "target": "es2019",
     "lib": ["es2020"],
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "rootDir": "./",
+    "rootDir": "./src",
     "baseUrl": "./",
     "paths": {
-      "~/*": ["*"],
-      "@tryfinch/finch-api/_shims/*": ["_shims/*.node"],
+      "@tryfinch/finch-api/_shims/*": ["src/_shims/*.node"],
+      "@tryfinch/finch-api": ["src/index.ts"],
+      "@tryfinch/finch-api/*": ["src/*"],
       "digest-fetch": ["./typings/digest-fetch"]
     },
 
