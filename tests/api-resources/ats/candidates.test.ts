@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import Finch from '~/index';
+import Finch from '@tryfinch/finch-api';
 
 const finch = new Finch({ accessToken: 'something1234', baseURL: 'http://127.0.0.1:4010' });
 

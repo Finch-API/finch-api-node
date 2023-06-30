@@ -1,4 +1,4 @@
-import { multipartFormRequestOptions, createForm } from '../core';
+import { multipartFormRequestOptions, createForm } from '@tryfinch/finch-api/core';
 import { Blob } from '@tryfinch/finch-api/_shims/formdata';
 import { toFile } from '@tryfinch/finch-api';
 
