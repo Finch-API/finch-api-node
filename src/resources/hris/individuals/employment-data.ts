@@ -27,6 +27,8 @@ export class EmploymentData extends APIResource {
 }
 
 export class EmploymentDataResponsesResponsesPage extends ResponsesPage<EmploymentDataResponse> {}
+// alias so we can export it in the namespace
+type _EmploymentDataResponsesResponsesPage = EmploymentDataResponsesResponsesPage;
 
 export interface EmploymentData {
   /**
@@ -182,6 +184,6 @@ export namespace EmploymentDataRetrieveManyParams {
 export namespace EmploymentData {
   export import EmploymentData = API.EmploymentData;
   export import EmploymentDataResponse = API.EmploymentDataResponse;
-  export import EmploymentDataResponsesResponsesPage = API.EmploymentDataResponsesResponsesPage;
+  export type EmploymentDataResponsesResponsesPage = _EmploymentDataResponsesResponsesPage;
   export import EmploymentDataRetrieveManyParams = API.EmploymentDataRetrieveManyParams;
 }

@@ -86,8 +86,12 @@ export class Benefits extends APIResource {
 }
 
 export class CompanyBenefitsSinglePage extends SinglePage<CompanyBenefit> {}
+// alias so we can export it in the namespace
+type _CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
 
 export class SupportedBenefitsSinglePage extends SinglePage<SupportedBenefit> {}
+// alias so we can export it in the namespace
+type _SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
 
 export type BenefitFrequency = 'one_time' | 'every_paycheck' | null;
 
@@ -222,8 +226,8 @@ export namespace Benefits {
   export import CreateCompanyBenefitsResponse = API.CreateCompanyBenefitsResponse;
   export import SupportedBenefit = API.SupportedBenefit;
   export import UpdateCompanyBenefitResponse = API.UpdateCompanyBenefitResponse;
-  export import CompanyBenefitsSinglePage = API.CompanyBenefitsSinglePage;
-  export import SupportedBenefitsSinglePage = API.SupportedBenefitsSinglePage;
+  export type CompanyBenefitsSinglePage = _CompanyBenefitsSinglePage;
+  export type SupportedBenefitsSinglePage = _SupportedBenefitsSinglePage;
   export import BenefitCreateParams = API.BenefitCreateParams;
   export import BenefitUpdateParams = API.BenefitUpdateParams;
 

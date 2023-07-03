@@ -35,6 +35,8 @@ export class Individuals extends APIResource {
 }
 
 export class IndividualResponsesResponsesPage extends ResponsesPage<IndividualResponse> {}
+// alias so we can export it in the namespace
+type _IndividualResponsesResponsesPage = IndividualResponsesResponsesPage;
 
 export interface Individual {
   /**
@@ -123,7 +125,7 @@ export namespace IndividualRetrieveManyParams {
 export namespace Individuals {
   export import Individual = API.Individual;
   export import IndividualResponse = API.IndividualResponse;
-  export import IndividualResponsesResponsesPage = API.IndividualResponsesResponsesPage;
+  export type IndividualResponsesResponsesPage = _IndividualResponsesResponsesPage;
   export import IndividualRetrieveManyParams = API.IndividualRetrieveManyParams;
 
   export import EmploymentData = API.EmploymentData;

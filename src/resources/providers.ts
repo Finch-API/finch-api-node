@@ -15,6 +15,8 @@ export class Providers extends APIResource {
 }
 
 export class ProvidersSinglePage extends SinglePage<Provider> {}
+// alias so we can export it in the namespace
+type _ProvidersSinglePage = ProvidersSinglePage;
 
 export interface Provider {
   /**
@@ -61,5 +63,5 @@ export interface Provider {
 
 export namespace Providers {
   export import Provider = API.Provider;
-  export import ProvidersSinglePage = API.ProvidersSinglePage;
+  export type ProvidersSinglePage = _ProvidersSinglePage;
 }

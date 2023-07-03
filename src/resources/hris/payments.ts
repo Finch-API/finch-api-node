@@ -16,6 +16,8 @@ export class Payments extends APIResource {
 }
 
 export class PaymentsSinglePage extends SinglePage<Payment> {}
+// alias so we can export it in the namespace
+type _PaymentsSinglePage = PaymentsSinglePage;
 
 export interface Payment {
   /**
@@ -75,6 +77,6 @@ export interface PaymentListParams {
 
 export namespace Payments {
   export import Payment = API.Payment;
-  export import PaymentsSinglePage = API.PaymentsSinglePage;
+  export type PaymentsSinglePage = _PaymentsSinglePage;
   export import PaymentListParams = API.PaymentListParams;
 }
