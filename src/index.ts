@@ -18,6 +18,7 @@ type Config = {
   httpAgent?: Agent;
   maxRetries?: number;
   defaultHeaders?: Core.Headers;
+  defaultQuery?: Core.DefaultQuery;
   clientId?: string | null;
   clientSecret?: string | null;
 };
@@ -108,6 +109,10 @@ export class Finch extends Core.APIClient {
       this.qsOptions(),
     );
     return url.toString();
+  }
+
+  protected override defaultQuery(): Core.DefaultQuery | undefined {
+    return this._options.defaultQuery;
   }
 
   protected override defaultHeaders(): Core.Headers {
