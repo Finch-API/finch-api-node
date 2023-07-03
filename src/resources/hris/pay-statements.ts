@@ -27,6 +27,8 @@ export class PayStatements extends APIResource {
 }
 
 export class PayStatementResponsesResponsesPage extends ResponsesPage<PayStatementResponse> {}
+// alias so we can export it in the namespace
+type _PayStatementResponsesResponsesPage = PayStatementResponsesResponsesPage;
 
 export interface PayStatement {
   /**
@@ -238,6 +240,6 @@ export namespace PayStatements {
   export import PayStatement = API.PayStatement;
   export import PayStatementResponse = API.PayStatementResponse;
   export import PayStatementResponseBody = API.PayStatementResponseBody;
-  export import PayStatementResponsesResponsesPage = API.PayStatementResponsesResponsesPage;
+  export type PayStatementResponsesResponsesPage = _PayStatementResponsesResponsesPage;
   export import PayStatementRetrieveManyParams = API.PayStatementRetrieveManyParams;
 }

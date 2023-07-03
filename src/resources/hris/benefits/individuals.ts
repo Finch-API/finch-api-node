@@ -103,10 +103,16 @@ export class Individuals extends APIResource {
 }
 
 export class EnrolledIndividualsSinglePage extends SinglePage<EnrolledIndividual> {}
+// alias so we can export it in the namespace
+type _EnrolledIndividualsSinglePage = EnrolledIndividualsSinglePage;
 
 export class IndividualBenefitsSinglePage extends SinglePage<IndividualBenefit> {}
+// alias so we can export it in the namespace
+type _IndividualBenefitsSinglePage = IndividualBenefitsSinglePage;
 
 export class UnenrolledIndividualsSinglePage extends SinglePage<UnenrolledIndividual> {}
+// alias so we can export it in the namespace
+type _UnenrolledIndividualsSinglePage = UnenrolledIndividualsSinglePage;
 
 export interface EnrolledIndividual {
   body?: EnrolledIndividual.Body;
@@ -239,9 +245,9 @@ export namespace Individuals {
   export import IndividualBenefit = API.IndividualBenefit;
   export import UnenrolledIndividual = API.UnenrolledIndividual;
   export import IndividualEnrolledIDsResponse = API.IndividualEnrolledIDsResponse;
-  export import EnrolledIndividualsSinglePage = API.EnrolledIndividualsSinglePage;
-  export import IndividualBenefitsSinglePage = API.IndividualBenefitsSinglePage;
-  export import UnenrolledIndividualsSinglePage = API.UnenrolledIndividualsSinglePage;
+  export type EnrolledIndividualsSinglePage = _EnrolledIndividualsSinglePage;
+  export type IndividualBenefitsSinglePage = _IndividualBenefitsSinglePage;
+  export type UnenrolledIndividualsSinglePage = _UnenrolledIndividualsSinglePage;
   export import IndividualEnrollManyParams = API.IndividualEnrollManyParams;
   export import IndividualRetrieveManyBenefitsParams = API.IndividualRetrieveManyBenefitsParams;
   export import IndividualUnenrollParams = API.IndividualUnenrollParams;
