@@ -18,6 +18,8 @@ export class Stages extends APIResource {
 }
 
 export class StagesSinglePage extends SinglePage<Stage> {}
+// alias so we can export it in the namespace
+type _StagesSinglePage = StagesSinglePage;
 
 export interface Stage {
   id?: string;
@@ -33,5 +35,5 @@ export interface Stage {
 
 export namespace Stages {
   export import Stage = API.Stage;
-  export import StagesSinglePage = API.StagesSinglePage;
+  export type StagesSinglePage = _StagesSinglePage;
 }
