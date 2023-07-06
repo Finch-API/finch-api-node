@@ -47,7 +47,7 @@ const finch = new Finch({
 });
 
 async function main() {
-  const candidate: Finch.Candidate = await finch.ats.candidates.retrieve('<candidate id>');
+  const candidate: Finch.ATS.Candidate = await finch.ats.candidates.retrieve('<candidate id>');
 }
 main().catch(console.error);
 ```
