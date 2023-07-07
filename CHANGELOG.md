@@ -1,5 +1,46 @@
 # Changelog
 
+## [3.0.0](https://github.com/Finch-API/finch-api-node/compare/v2.0.0...v3.0.0) (2023-07-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* import issue with ESM ([#53](https://github.com/Finch-API/finch-api-node/issues/53))
+
+### Features
+
+* **client:** add support for `defaultQuery` option ([#51](https://github.com/Finch-API/finch-api-node/issues/51)) ([3c66c1a](https://github.com/Finch-API/finch-api-node/commit/3c66c1a8208e5ab9cf0521c6e58d105fdb653052))
+
+
+### Bug Fixes
+
+* import issue with ESM ([#53](https://github.com/Finch-API/finch-api-node/issues/53)) ([cbb7736](https://github.com/Finch-API/finch-api-node/commit/cbb7736e3080731a6c9b6876c4743ead625bbfd4))
+
+
+### Styles
+
+* add more whitespace ([#45](https://github.com/Finch-API/finch-api-node/issues/45)) ([5b8f0a6](https://github.com/Finch-API/finch-api-node/commit/5b8f0a682d866acd9bd2c3a12cb8a783065b166a))
+
+
+### Refactors
+
+* mark `.responseHeaders` and `.response` as deprecated ([#56](https://github.com/Finch-API/finch-api-node/issues/56)) ([30b93bc](https://github.com/Finch-API/finch-api-node/commit/30b93bcb85c1dd7ef2b1ac282d0e1c432cbc8136))
+* move to src directory, improve ecosystem compatibility ([#49](https://github.com/Finch-API/finch-api-node/issues/49)) ([492a91a](https://github.com/Finch-API/finch-api-node/commit/492a91a5147a446b8a0ddc0c3d140dd4fdf372ab))
+
+
+### Chores
+
+* **internal:** fix tsc usage ([#55](https://github.com/Finch-API/finch-api-node/issues/55)) ([c74b4b0](https://github.com/Finch-API/finch-api-node/commit/c74b4b04096895ceb7e13a972a7dfa93c2f8bcfc))
+* set `noEmit: true` in `tsconfig.json`, since it's for typechecking only ([#57](https://github.com/Finch-API/finch-api-node/issues/57)) ([430a6fc](https://github.com/Finch-API/finch-api-node/commit/430a6fc734c69adf2e9869abe2638c01b18e7a75))
+
+
+### Documentation
+
+* **api.md:** fix links not referencing `src` directory ([#52](https://github.com/Finch-API/finch-api-node/issues/52)) ([a243a2e](https://github.com/Finch-API/finch-api-node/commit/a243a2ea2dd7eb1a74a07fe1424d66cdb6c21dc0))
+* **api.md:** minor restructuring ([#47](https://github.com/Finch-API/finch-api-node/issues/47)) ([cde08a6](https://github.com/Finch-API/finch-api-node/commit/cde08a68b7b6c3f7598f84e0017a2fa25a6019ad))
+* **client:** improve documentation for client options ([#54](https://github.com/Finch-API/finch-api-node/issues/54)) ([0e6387b](https://github.com/Finch-API/finch-api-node/commit/0e6387b2946d717d4192099bcac45e0c20e34fa3))
+* **readme:** fix typescript usage example response types ([#58](https://github.com/Finch-API/finch-api-node/issues/58)) ([365edfd](https://github.com/Finch-API/finch-api-node/commit/365edfdc7c5968aefaeee57a83246c5b84c897d8))
+
 ## [2.0.0](https://github.com/Finch-API/finch-api-node/compare/v1.1.0...v2.0.0) (2023-06-29)
 
 
