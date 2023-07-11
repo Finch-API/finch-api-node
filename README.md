@@ -31,7 +31,8 @@ async function main() {
 
   console.log(candidate.first_name);
 }
-main().catch(console.error);
+
+main();
 ```
 
 ### Usage with TypeScript
@@ -49,7 +50,8 @@ const finch = new Finch({
 async function main() {
   const candidate: Finch.ATS.Candidate = await finch.ats.candidates.retrieve('<candidate id>');
 }
-main().catch(console.error);
+
+main();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -68,10 +70,13 @@ async function main() {
       console.log(err.name); // BadRequestError
 
       console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
     }
   });
 }
-main().catch(console.error);
+
+main();
 ```
 
 Error codes are as followed:
@@ -103,7 +108,7 @@ const finch = new Finch({
 });
 
 // Or, configure per-request:
-finch.hris.directory.listIndividuals({
+await finch.hris.directory.listIndividuals({
   maxRetries: 5,
 });
 ```
@@ -120,7 +125,7 @@ const finch = new Finch({
 });
 
 // Override per-request:
-finch.hris.directory.listIndividuals({
+await finch.hris.directory.listIndividuals({
   timeout: 5 * 1000,
 });
 ```
@@ -195,7 +200,7 @@ const finch = new Finch({
 });
 
 // Override per-request:
-finch.hris.directory.listIndividuals({
+await finch.hris.directory.listIndividuals({
   baseURL: 'http://localhost:8080/test-api',
   httpAgent: new http.Agent({ keepAlive: false }),
 })
