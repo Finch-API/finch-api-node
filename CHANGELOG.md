@@ -1,5 +1,41 @@
 # Changelog
 
+## [3.1.0](https://github.com/Finch-API/finch-api-node/compare/v3.0.0...v3.1.0) (2023-07-12)
+
+
+### Features
+
+* **client:** add support for passing a `signal` request option ([#73](https://github.com/Finch-API/finch-api-node/issues/73)) ([268e403](https://github.com/Finch-API/finch-api-node/commit/268e4039284a5375bddbfa2c7f1d8f24e38de781))
+* **client:** improve timeout handling to reuse agent ([#66](https://github.com/Finch-API/finch-api-node/issues/66)) ([93f1971](https://github.com/Finch-API/finch-api-node/commit/93f197103c99051824fd124099098a91916b1ba7))
+* **client:** support passing a custom `fetch` function ([#69](https://github.com/Finch-API/finch-api-node/issues/69)) ([7afb2cf](https://github.com/Finch-API/finch-api-node/commit/7afb2cf15e41b49709d3eac9cfde4ccefb7fc4de))
+
+
+### Bug Fixes
+
+* **client:** properly handle multi-byte characters in Content-Length ([#70](https://github.com/Finch-API/finch-api-node/issues/70)) ([0f3992a](https://github.com/Finch-API/finch-api-node/commit/0f3992ac0edbe72981c10643d3a2a34bb9d91326))
+* fix errors in package source files when users go to definition in VSCode ([#65](https://github.com/Finch-API/finch-api-node/issues/65)) ([5df4494](https://github.com/Finch-API/finch-api-node/commit/5df4494a6753e3ed8b382857453f80080e5980c1))
+* include README.md, LICENSE and CHANGELOG.md in published package ([#62](https://github.com/Finch-API/finch-api-node/issues/62)) ([349b3f4](https://github.com/Finch-API/finch-api-node/commit/349b3f4f20ff2e22faeb0b60999c3b49588a0d7c))
+* **streaming:** do not abort successfully completed streams ([#72](https://github.com/Finch-API/finch-api-node/issues/72)) ([29c397c](https://github.com/Finch-API/finch-api-node/commit/29c397ce06489d280d844424bd429a21303e3156))
+* **streaming:** fix response body streaming in non-Chrome environments ([#67](https://github.com/Finch-API/finch-api-node/issues/67)) ([6444271](https://github.com/Finch-API/finch-api-node/commit/6444271698ef127752a914ddb5dccd7a030fcfb2))
+* **streaming:** polyfill ReadableStream async iterator and text decoding ([#61](https://github.com/Finch-API/finch-api-node/issues/61)) ([40d413d](https://github.com/Finch-API/finch-api-node/commit/40d413d7b50725bf6aae89c05b1d8b275899773c))
+* support `PromiseLike` input to `toFile` ([#64](https://github.com/Finch-API/finch-api-node/issues/64)) ([8f3c827](https://github.com/Finch-API/finch-api-node/commit/8f3c827943205e2f43734106235794f6484d3724))
+
+
+### Chores
+
+* **internal:** fix release please version config ([#59](https://github.com/Finch-API/finch-api-node/issues/59)) ([dc04d72](https://github.com/Finch-API/finch-api-node/commit/dc04d72e5642986f47954853e2d915c6785a48bc))
+
+
+### Refactors
+
+* improve streaming implementation ([#63](https://github.com/Finch-API/finch-api-node/issues/63)) ([45fd9b8](https://github.com/Finch-API/finch-api-node/commit/45fd9b82c9f215405f496c63d7e42de035aab10e))
+* **streaming:** make response body streaming polyfill more spec-compliant ([#68](https://github.com/Finch-API/finch-api-node/issues/68)) ([9ff63e7](https://github.com/Finch-API/finch-api-node/commit/9ff63e712647abb58deec5acfff033695b97465a))
+
+
+### Documentation
+
+* **readme:** minor improvements ([#71](https://github.com/Finch-API/finch-api-node/issues/71)) ([3cd7f5c](https://github.com/Finch-API/finch-api-node/commit/3cd7f5c809b574f1805d0b3b69596588827f6981))
+
 ## [3.0.0](https://github.com/Finch-API/finch-api-node/compare/v2.0.0...v3.0.0) (2023-07-07)
 
 
