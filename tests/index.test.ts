@@ -1,8 +1,9 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import { Headers } from '@tryfinch/finch-api/core';
 import Finch from '@tryfinch/finch-api';
-import { Response } from '@tryfinch/finch-api/_shims/fetch';
+import { APIUserAbortError } from '@tryfinch/finch-api';
+import { Headers } from '@tryfinch/finch-api/core';
+import { Response, fetch as defaultFetch } from '@tryfinch/finch-api/_shims/fetch';
 
 describe('instantiate client', () => {
   const env = process.env;
@@ -93,6 +94,32 @@ describe('instantiate client', () => {
 
     const response = await client.get('/foo');
     expect(response).toEqual({ url: 'http://localhost:5000/foo', custom: true });
+  });
+
+  test('custom signal', async () => {
+    const client = new Finch({
+      baseURL: 'http://127.0.0.1:4010',
+      accessToken: 'my access token',
+      fetch: (...args) => {
+        return new Promise((resolve, reject) =>
+          setTimeout(
+            () =>
+              defaultFetch(...args)
+                .then(resolve)
+                .catch(reject),
+            300,
+          ),
+        );
+      },
+    });
+
+    const controller = new AbortController();
+    setTimeout(() => controller.abort(), 200);
+
+    const spy = jest.spyOn(client, 'request');
+
+    await expect(client.get('/foo', { signal: controller.signal })).rejects.toThrowError(APIUserAbortError);
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
   describe('baseUrl', () => {
