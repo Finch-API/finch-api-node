@@ -201,6 +201,7 @@ export class Finch extends Core.APIClient {
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
+  static APIUserAbortError = Errors.APIUserAbortError;
   static NotFoundError = Errors.NotFoundError;
   static ConflictError = Errors.ConflictError;
   static RateLimitError = Errors.RateLimitError;
@@ -215,6 +216,7 @@ export const {
   APIError,
   APIConnectionError,
   APIConnectionTimeoutError,
+  APIUserAbortError,
   NotFoundError,
   ConflictError,
   RateLimitError,
