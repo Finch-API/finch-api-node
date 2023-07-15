@@ -198,6 +198,8 @@ export class Finch extends Core.APIClient {
     return { arrayFormat: 'comma' };
   }
 
+  static Finch = this;
+
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
