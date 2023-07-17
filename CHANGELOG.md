@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.1.1](https://github.com/Finch-API/finch-api-node/compare/v3.1.0...v3.1.1) (2023-07-17)
+
+
+### Bug Fixes
+
+* fix errors with "named" client export in CJS ([#80](https://github.com/Finch-API/finch-api-node/issues/80)) ([9ed2ab5](https://github.com/Finch-API/finch-api-node/commit/9ed2ab595f4a56b570a80b1e91cb77783dac33bb))
+
+
+### Chores
+
+* **internal:** add helper function for b64 ([#78](https://github.com/Finch-API/finch-api-node/issues/78)) ([1777d0f](https://github.com/Finch-API/finch-api-node/commit/1777d0f5ddccbdd8bd5dfddd825ccff26ad22236))
+* **internal:** let `toFile` helper accept promises to objects with name/type properties ([#79](https://github.com/Finch-API/finch-api-node/issues/79)) ([cc800bb](https://github.com/Finch-API/finch-api-node/commit/cc800bb11a5e5d346a3829a5b0bc70ee72205fdc))
+* **internal:** remove unused streaming implementation ([#76](https://github.com/Finch-API/finch-api-node/issues/76)) ([d4ab2eb](https://github.com/Finch-API/finch-api-node/commit/d4ab2eb249d9b625a70f4cc9389e1e4e0b0e4a60))
+
 ## [3.1.0](https://github.com/Finch-API/finch-api-node/compare/v3.0.0...v3.1.0) (2023-07-12)
 
 
