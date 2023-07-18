@@ -1,6 +1,5 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import * as qs from 'qs';
 import * as Core from './core';
 import * as Pagination from './pagination';
 import * as API from './resources/index';
@@ -150,15 +149,12 @@ export class Finch extends Core.APIClient {
       throw new Error('Expected the clientId to be set in order to call getAuthUrl');
     }
     const url = new URL('/authorize', 'https://connect.tryfinch.com/authorize');
-    url.search = qs.stringify(
-      {
-        client_id: this.clientId,
-        products: products,
-        redirect_uri: redirectUri,
-        sandbox: sandbox,
-      },
-      this.qsOptions(),
-    );
+    url.search = this.stringifyQuery({
+      client_id: this.clientId,
+      products: products,
+      redirect_uri: redirectUri,
+      sandbox: sandbox,
+    });
     return url.toString();
   }
 
@@ -192,10 +188,6 @@ export class Finch extends Core.APIClient {
       return {};
     }
     return { Authorization: `Bearer ${this.accessToken}` };
-  }
-
-  protected override qsOptions(): qs.IStringifyOptions {
-    return { arrayFormat: 'comma' };
   }
 
   static Finch = this;
