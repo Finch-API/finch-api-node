@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.2](https://github.com/Finch-API/finch-api-node/compare/v3.1.1...v3.1.2) (2023-07-22)
+
+
+### Chores
+
+* **client:** improve compatibility ([#83](https://github.com/Finch-API/finch-api-node/issues/83)) ([b25f382](https://github.com/Finch-API/finch-api-node/commit/b25f382b16952a3ce13eff3e870c9f030bf5f33d))
+
 ## [3.1.1](https://github.com/Finch-API/finch-api-node/compare/v3.1.0...v3.1.1) (2023-07-17)
 
 
