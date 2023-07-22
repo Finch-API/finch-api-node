@@ -1,6 +1,5 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import * as qs from 'qs';
 import * as Core from './core';
 import * as Pagination from './pagination';
 import * as API from './resources/index';
@@ -8,7 +7,7 @@ import * as Errors from './error';
 import type { Agent } from '@tryfinch/finch-api/_shims/agent';
 import * as Uploads from './uploads';
 
-type Config = {
+export interface ClientOptions {
   /**
    * Set it to null if you want to send unauthenticated requests.
    */
@@ -71,7 +70,7 @@ type Config = {
   clientId?: string | null;
 
   clientSecret?: string | null;
-};
+}
 
 /** Instantiate the API Client. */
 export class Finch extends Core.APIClient {
@@ -79,13 +78,13 @@ export class Finch extends Core.APIClient {
   clientId?: string | null;
   clientSecret?: string | null;
 
-  private _options: Config;
+  private _options: ClientOptions;
 
-  constructor(config?: Config) {
-    const options: Config = {
+  constructor(opts?: ClientOptions) {
+    const options: ClientOptions = {
       accessToken: null,
       baseURL: 'https://api.tryfinch.com',
-      ...config,
+      ...opts,
     };
 
     super({
@@ -98,8 +97,8 @@ export class Finch extends Core.APIClient {
     this.accessToken = options.accessToken || null;
     this._options = options;
 
-    this.clientId = config?.clientId || process.env['FINCH_CLIENT_ID'] || null;
-    this.clientSecret = config?.clientSecret || process.env['FINCH_CLIENT_SECRET'] || null;
+    this.clientId = opts?.clientId || process.env['FINCH_CLIENT_ID'] || null;
+    this.clientSecret = opts?.clientSecret || process.env['FINCH_CLIENT_SECRET'] || null;
   }
 
   ats: API.ATS = new API.ATS(this);
@@ -150,15 +149,12 @@ export class Finch extends Core.APIClient {
       throw new Error('Expected the clientId to be set in order to call getAuthUrl');
     }
     const url = new URL('/authorize', 'https://connect.tryfinch.com/authorize');
-    url.search = qs.stringify(
-      {
-        client_id: this.clientId,
-        products: products,
-        redirect_uri: redirectUri,
-        sandbox: sandbox,
-      },
-      this.qsOptions(),
-    );
+    url.search = this.stringifyQuery({
+      client_id: this.clientId,
+      products: products,
+      redirect_uri: redirectUri,
+      sandbox: sandbox,
+    });
     return url.toString();
   }
 
@@ -194,9 +190,7 @@ export class Finch extends Core.APIClient {
     return { Authorization: `Bearer ${this.accessToken}` };
   }
 
-  protected override qsOptions(): qs.IStringifyOptions {
-    return { arrayFormat: 'comma' };
-  }
+  static Finch = this;
 
   static Finch = this;
 
