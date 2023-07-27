@@ -97,8 +97,8 @@ export class Finch extends Core.APIClient {
     this.accessToken = options.accessToken || null;
     this._options = options;
 
-    this.clientId = opts?.clientId || process.env['FINCH_CLIENT_ID'] || null;
-    this.clientSecret = opts?.clientSecret || process.env['FINCH_CLIENT_SECRET'] || null;
+    this.clientId = options.clientId || Core.readEnv('FINCH_CLIENT_ID') || null;
+    this.clientSecret = options.clientSecret || Core.readEnv('FINCH_CLIENT_SECRET') || null;
   }
 
   ats: API.ATS = new API.ATS(this);
