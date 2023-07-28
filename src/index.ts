@@ -80,11 +80,16 @@ export class Finch extends Core.APIClient {
 
   private _options: ClientOptions;
 
-  constructor(opts?: ClientOptions) {
+  constructor(opts: ClientOptions = {}) {
+    const clientId = opts.clientId || Core.readEnv('FINCH_CLIENT_ID') || null;
+    const clientSecret = opts.clientSecret || Core.readEnv('FINCH_CLIENT_SECRET') || null;
+
     const options: ClientOptions = {
       accessToken: null,
-      baseURL: 'https://api.tryfinch.com',
+      baseURL: `https://api.tryfinch.com`,
       ...opts,
+      clientId,
+      clientSecret,
     };
 
     super({
@@ -97,8 +102,8 @@ export class Finch extends Core.APIClient {
     this.accessToken = options.accessToken || null;
     this._options = options;
 
-    this.clientId = options.clientId || Core.readEnv('FINCH_CLIENT_ID') || null;
-    this.clientSecret = options.clientSecret || Core.readEnv('FINCH_CLIENT_SECRET') || null;
+    this.clientId = clientId;
+    this.clientSecret = clientSecret;
   }
 
   ats: API.ATS = new API.ATS(this);
