@@ -4,7 +4,7 @@ import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
 import { isRequestOptions } from '@tryfinch/finch-api/core';
 import { Individuals } from './individuals';
-import * as API from './';
+import * as API from './index';
 import { SinglePage } from '@tryfinch/finch-api/pagination';
 
 export class Benefits extends APIResource {

@@ -7,7 +7,7 @@ import { PayStatements } from './pay-statements';
 import { Directory } from './directory';
 import { Individuals } from './individuals/individuals';
 import { Benefits } from './benefits/benefits';
-import * as API from './';
+import * as API from './index';
 
 export class HRIS extends APIResource {
   company: CompanyResource = new CompanyResource(this.client);

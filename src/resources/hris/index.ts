@@ -13,7 +13,7 @@ export {
   CompanyBenefitsSinglePage,
   SupportedBenefitsSinglePage,
   Benefits,
-} from './benefits';
+} from './benefits/index';
 export { Company, CompanyResource } from './company';
 export { Income, Location, Money, Paging, HRIS } from './hris';
 export {
@@ -22,7 +22,7 @@ export {
   IndividualRetrieveManyParams,
   IndividualResponsesResponsesPage,
   Individuals,
-} from './individuals';
+} from './individuals/index';
 export { IndividualInDirectory, DirectoryListIndividualsParams, Directory } from './directory';
 export {
   PayStatement,

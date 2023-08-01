@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["deno"],
+  "exclude": [],
+  "compilerOptions": {
+    "rootDir": "./deno",
+    "lib": ["es2020", "DOM"],
+    "paths": {
+      "@tryfinch/finch-api/_shims/*": ["deno/_shims/*"],
+      "@tryfinch/finch-api": ["deno/index.ts"],
+      "@tryfinch/finch-api/*": ["deno/*"],
+      "digest-fetch": ["./typings/digest-fetch"]
+    },
+    "noEmit": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "deno",
+    "pretty": true,
+    "sourceMap": true
+  }
+}

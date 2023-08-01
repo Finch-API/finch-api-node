@@ -6,7 +6,7 @@ import { Applications } from './applications';
 import { Stages } from './stages';
 import { Jobs } from './jobs';
 import { Offers } from './offers';
-import * as API from './';
+import * as API from './index';
 
 export class ATS extends APIResource {
   candidates: Candidates = new Candidates(this.client);

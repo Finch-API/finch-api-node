@@ -3,7 +3,7 @@
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
 import { isRequestOptions } from '@tryfinch/finch-api/core';
-import * as API from './';
+import * as API from './index';
 import { JobsPage, JobsPageParams } from '@tryfinch/finch-api/pagination';
 
 export class Jobs extends APIResource {
