@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless.
 
 import { AbstractPage, APIResponse, APIClient, FinalRequestOptions, PageInfo } from './core';
-import * as HRIS from './resources/hris';
-import * as ATS from './resources/ats';
+import * as HRIS from './resources/hris/index';
+import * as ATS from './resources/ats/index';
 
 export type SinglePageResponse<Item> = Item[];
 

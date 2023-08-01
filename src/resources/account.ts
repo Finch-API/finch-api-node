@@ -2,7 +2,7 @@
 
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
-import * as API from './';
+import * as API from './index';
 
 export class Account extends APIResource {
   /**

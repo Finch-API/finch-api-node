@@ -3,7 +3,7 @@
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
 import * as HRIS from '@tryfinch/finch-api/resources/hris/index';
-import * as API from './';
+import * as API from './index';
 import { SinglePage } from '@tryfinch/finch-api/pagination';
 
 export class Payments extends APIResource {
