@@ -1,5 +1,26 @@
 # Changelog
 
+## [3.1.3](https://github.com/Finch-API/finch-api-node/compare/v3.1.2...v3.1.3) (2023-08-01)
+
+
+### Bug Fixes
+
+* **client:** handle undefined process in more places ([#96](https://github.com/Finch-API/finch-api-node/issues/96)) ([3fa25a2](https://github.com/Finch-API/finch-api-node/commit/3fa25a29af8958292159e0193249385516dec78b))
+* fix undefined message in errors ([#94](https://github.com/Finch-API/finch-api-node/issues/94)) ([b4f1e34](https://github.com/Finch-API/finch-api-node/commit/b4f1e34145a122daa8431dd1db787721899732fe))
+
+
+### Chores
+
+* **internal:** allow the build script to be run without yarn installed ([#99](https://github.com/Finch-API/finch-api-node/issues/99)) ([f8ce4ec](https://github.com/Finch-API/finch-api-node/commit/f8ce4ece26f9ea832f8ede4e9a6a0fd0ef351d7c))
+* **internal:** minor refactoring of client instantiation ([#97](https://github.com/Finch-API/finch-api-node/issues/97)) ([c9658e3](https://github.com/Finch-API/finch-api-node/commit/c9658e37d8a1b2c0ac02ed010c9e244fdd50992e))
+* **internal:** remove duplicate assignment ([#91](https://github.com/Finch-API/finch-api-node/issues/91)) ([578c305](https://github.com/Finch-API/finch-api-node/commit/578c3059e237175f665b9799377a12053da07214))
+
+
+### Refactors
+
+* create build for deno.land ([#100](https://github.com/Finch-API/finch-api-node/issues/100)) ([02af2ec](https://github.com/Finch-API/finch-api-node/commit/02af2ec33a3e572b3c74b36f77c92d532141556b))
+* use destructuring arguments in client constructor and respect false values ([#98](https://github.com/Finch-API/finch-api-node/issues/98)) ([5eba1d1](https://github.com/Finch-API/finch-api-node/commit/5eba1d1c314aedbdb62fa225eea85412cfa57eaa))
+
 ## [3.1.2](https://github.com/Finch-API/finch-api-node/compare/v3.1.1...v3.1.2) (2023-07-22)
 
 
