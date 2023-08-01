@@ -5,7 +5,7 @@ import { APIResource } from '@tryfinch/finch-api/resource';
 import { isRequestOptions } from '@tryfinch/finch-api/core';
 import * as HRIS from '@tryfinch/finch-api/resources/hris/index';
 import { EmploymentData } from './employment-data';
-import * as API from './';
+import * as API from './index';
 import { ResponsesPage } from '@tryfinch/finch-api/pagination';
 
 export class Individuals extends APIResource {
