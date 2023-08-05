@@ -2,8 +2,8 @@
 
 Methods:
 
-- <code>client.<a href="./src/index.ts">getAccessToken</a>(...args) -> Promise<string></code>
-- <code>client.<a href="./src/index.ts">getAuthURL</a>(...args) -> string</code>
+- <code>client.<a href="./src/index.ts">getAccessToken</a>(code, { redirectUri }) -> Promise&lt;string&gt;</code>
+- <code>client.<a href="./src/index.ts">getAuthURL</a>({ products, redirectUri, sandbox }) -> string</code>
 
 # ATS
 
