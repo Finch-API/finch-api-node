@@ -24,7 +24,7 @@ export class Individuals extends APIResource {
     benefitId: string,
     body: IndividualEnrollManyParams,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<EnrolledIndividualsSinglePage> {
+  ): Core.PagePromise<EnrolledIndividualsSinglePage, EnrolledIndividual> {
     return this.getAPIList(`/employer/benefits/${benefitId}/individuals`, EnrolledIndividualsSinglePage, {
       body,
       method: 'post',
@@ -40,7 +40,7 @@ export class Individuals extends APIResource {
   enrolledIds(
     benefitId: string,
     options?: Core.RequestOptions,
-  ): Promise<Core.APIResponse<IndividualEnrolledIDsResponse>> {
+  ): Core.APIPromise<IndividualEnrolledIDsResponse> {
     return this.get(`/employer/benefits/${benefitId}/enrolled`, options);
   }
 
@@ -53,16 +53,16 @@ export class Individuals extends APIResource {
     benefitId: string,
     query?: IndividualRetrieveManyBenefitsParams,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualBenefitsSinglePage>;
+  ): Core.PagePromise<IndividualBenefitsSinglePage, IndividualBenefit>;
   retrieveManyBenefits(
     benefitId: string,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualBenefitsSinglePage>;
+  ): Core.PagePromise<IndividualBenefitsSinglePage, IndividualBenefit>;
   retrieveManyBenefits(
     benefitId: string,
     query: IndividualRetrieveManyBenefitsParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualBenefitsSinglePage> {
+  ): Core.PagePromise<IndividualBenefitsSinglePage, IndividualBenefit> {
     if (isRequestOptions(query)) {
       return this.retrieveManyBenefits(benefitId, {}, query);
     }
@@ -81,16 +81,16 @@ export class Individuals extends APIResource {
     benefitId: string,
     body?: IndividualUnenrollParams,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<UnenrolledIndividualsSinglePage>;
+  ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual>;
   unenroll(
     benefitId: string,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<UnenrolledIndividualsSinglePage>;
+  ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual>;
   unenroll(
     benefitId: string,
     body: IndividualUnenrollParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.PagePromise<UnenrolledIndividualsSinglePage> {
+  ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual> {
     if (isRequestOptions(body)) {
       return this.unenroll(benefitId, {}, body);
     }

@@ -10,19 +10,19 @@ export class Offers extends APIResource {
   /**
    * Get a single offer from an organization.
    */
-  retrieve(offerId: string, options?: Core.RequestOptions): Promise<Core.APIResponse<Offer>> {
+  retrieve(offerId: string, options?: Core.RequestOptions): Core.APIPromise<Offer> {
     return this.get(`/ats/offers/${offerId}`, options);
   }
 
   /**
    * Get all offers put out by an organization.
    */
-  list(query?: OfferListParams, options?: Core.RequestOptions): Core.PagePromise<OffersPage>;
-  list(options?: Core.RequestOptions): Core.PagePromise<OffersPage>;
+  list(query?: OfferListParams, options?: Core.RequestOptions): Core.PagePromise<OffersPage, Offer>;
+  list(options?: Core.RequestOptions): Core.PagePromise<OffersPage, Offer>;
   list(
     query: OfferListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.PagePromise<OffersPage> {
+  ): Core.PagePromise<OffersPage, Offer> {
     if (isRequestOptions(query)) {
       return this.list({}, query);
     }

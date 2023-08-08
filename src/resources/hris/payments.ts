@@ -10,7 +10,10 @@ export class Payments extends APIResource {
   /**
    * Read payroll and contractor related payments by the company.
    */
-  list(query: PaymentListParams, options?: Core.RequestOptions): Core.PagePromise<PaymentsSinglePage> {
+  list(
+    query: PaymentListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<PaymentsSinglePage, Payment> {
     return this.getAPIList('/employer/payment', PaymentsSinglePage, { query, ...options });
   }
 }

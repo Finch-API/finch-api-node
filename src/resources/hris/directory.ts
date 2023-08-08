@@ -13,12 +13,12 @@ export class Directory extends APIResource {
   listIndividuals(
     query?: DirectoryListIndividualsParams,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualsPage>;
-  listIndividuals(options?: Core.RequestOptions): Core.PagePromise<IndividualsPage>;
+  ): Core.PagePromise<IndividualsPage, IndividualInDirectory>;
+  listIndividuals(options?: Core.RequestOptions): Core.PagePromise<IndividualsPage, IndividualInDirectory>;
   listIndividuals(
     query: DirectoryListIndividualsParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualsPage> {
+  ): Core.PagePromise<IndividualsPage, IndividualInDirectory> {
     if (isRequestOptions(query)) {
       return this.listIndividuals({}, query);
     }

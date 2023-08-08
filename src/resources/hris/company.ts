@@ -9,7 +9,7 @@ export class CompanyResource extends APIResource {
   /**
    * Read basic company data
    */
-  retrieve(options?: Core.RequestOptions): Promise<Core.APIResponse<Company>> {
+  retrieve(options?: Core.RequestOptions): Core.APIPromise<Company> {
     return this.get('/employer/company', options);
   }
 }
