@@ -11,19 +11,22 @@ export class Applications extends APIResource {
   /**
    * Gets an application from an organization.
    */
-  retrieve(applicationId: string, options?: Core.RequestOptions): Promise<Core.APIResponse<Application>> {
+  retrieve(applicationId: string, options?: Core.RequestOptions): Core.APIPromise<Application> {
     return this.get(`/ats/applications/${applicationId}`, options);
   }
 
   /**
    * Gets all of an organization's applications.
    */
-  list(query?: ApplicationListParams, options?: Core.RequestOptions): Core.PagePromise<ApplicationsPage>;
-  list(options?: Core.RequestOptions): Core.PagePromise<ApplicationsPage>;
+  list(
+    query?: ApplicationListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<ApplicationsPage, Application>;
+  list(options?: Core.RequestOptions): Core.PagePromise<ApplicationsPage, Application>;
   list(
     query: ApplicationListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.PagePromise<ApplicationsPage> {
+  ): Core.PagePromise<ApplicationsPage, Application> {
     if (isRequestOptions(query)) {
       return this.list({}, query);
     }

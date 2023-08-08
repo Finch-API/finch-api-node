@@ -12,7 +12,7 @@ export class Stages extends APIResource {
    * in the system. Use the `job_id` to determine whether a job applies specifically
    * to a job.
    */
-  list(options?: Core.RequestOptions): Core.PagePromise<StagesSinglePage> {
+  list(options?: Core.RequestOptions): Core.PagePromise<StagesSinglePage, Stage> {
     return this.getAPIList('/ats/stages', StagesSinglePage, options);
   }
 }

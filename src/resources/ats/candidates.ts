@@ -11,7 +11,7 @@ export class Candidates extends APIResource {
    * Gets a candidate from an organization. A candidate represents an individual
    * associated with one or more applications.
    */
-  retrieve(candidateId: string, options?: Core.RequestOptions): Promise<Core.APIResponse<Candidate>> {
+  retrieve(candidateId: string, options?: Core.RequestOptions): Core.APIPromise<Candidate> {
     return this.get(`/ats/candidates/${candidateId}`, options);
   }
 
@@ -19,12 +19,15 @@ export class Candidates extends APIResource {
    * Gets all of an organization's candidates. A candidate represents an individual
    * associated with one or more applications.
    */
-  list(query?: CandidateListParams, options?: Core.RequestOptions): Core.PagePromise<CandidatesPage>;
-  list(options?: Core.RequestOptions): Core.PagePromise<CandidatesPage>;
+  list(
+    query?: CandidateListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<CandidatesPage, Candidate>;
+  list(options?: Core.RequestOptions): Core.PagePromise<CandidatesPage, Candidate>;
   list(
     query: CandidateListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.PagePromise<CandidatesPage> {
+  ): Core.PagePromise<CandidatesPage, Candidate> {
     if (isRequestOptions(query)) {
       return this.list({}, query);
     }
