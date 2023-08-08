@@ -1,12 +1,20 @@
 // File generated from our OpenAPI spec by Stainless.
 
 import Finch from '@tryfinch/finch-api';
+import { Response } from 'node-fetch';
 
 const finch = new Finch({ accessToken: 'something1234', baseURL: 'http://127.0.0.1:4010' });
 
 describe('resource individuals', () => {
   test('enrollMany: only required params', async () => {
-    const response = await finch.hris.benefits.individuals.enrollMany('string', [{}, {}, {}]);
+    const responsePromise = finch.hris.benefits.individuals.enrollMany('string', [{}, {}, {}]);
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
   });
 
   test('enrollMany: required and optional params', async () => {
@@ -18,7 +26,14 @@ describe('resource individuals', () => {
   });
 
   test('enrolledIds', async () => {
-    const response = await finch.hris.benefits.individuals.enrolledIds('string');
+    const responsePromise = finch.hris.benefits.individuals.enrolledIds('string');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
   });
 
   test('enrolledIds: request options instead of params are passed correctly', async () => {
@@ -29,7 +44,14 @@ describe('resource individuals', () => {
   });
 
   test('retrieveManyBenefits', async () => {
-    const response = await finch.hris.benefits.individuals.retrieveManyBenefits('string');
+    const responsePromise = finch.hris.benefits.individuals.retrieveManyBenefits('string');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
   });
 
   test('retrieveManyBenefits: request options instead of params are passed correctly', async () => {
@@ -51,7 +73,14 @@ describe('resource individuals', () => {
   });
 
   test('unenroll', async () => {
-    const response = await finch.hris.benefits.individuals.unenroll('string');
+    const responsePromise = finch.hris.benefits.individuals.unenroll('string');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
   });
 
   test('unenroll: request options instead of params are passed correctly', async () => {

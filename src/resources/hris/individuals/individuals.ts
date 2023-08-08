@@ -17,12 +17,14 @@ export class Individuals extends APIResource {
   retrieveMany(
     body?: IndividualRetrieveManyParams,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualResponsesResponsesPage>;
-  retrieveMany(options?: Core.RequestOptions): Core.PagePromise<IndividualResponsesResponsesPage>;
+  ): Core.PagePromise<IndividualResponsesResponsesPage, IndividualResponse>;
+  retrieveMany(
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<IndividualResponsesResponsesPage, IndividualResponse>;
   retrieveMany(
     body: IndividualRetrieveManyParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualResponsesResponsesPage> {
+  ): Core.PagePromise<IndividualResponsesResponsesPage, IndividualResponse> {
     if (isRequestOptions(body)) {
       return this.retrieveMany({}, body);
     }

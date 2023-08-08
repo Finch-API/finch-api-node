@@ -10,19 +10,19 @@ export class Jobs extends APIResource {
   /**
    * Gets a job from an organization.
    */
-  retrieve(jobId: string, options?: Core.RequestOptions): Promise<Core.APIResponse<Job>> {
+  retrieve(jobId: string, options?: Core.RequestOptions): Core.APIPromise<Job> {
     return this.get(`/ats/jobs/${jobId}`, options);
   }
 
   /**
    * Gets all of an organization's jobs.
    */
-  list(query?: JobListParams, options?: Core.RequestOptions): Core.PagePromise<JobsPage>;
-  list(options?: Core.RequestOptions): Core.PagePromise<JobsPage>;
+  list(query?: JobListParams, options?: Core.RequestOptions): Core.PagePromise<JobsPage, Job>;
+  list(options?: Core.RequestOptions): Core.PagePromise<JobsPage, Job>;
   list(
     query: JobListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.PagePromise<JobsPage> {
+  ): Core.PagePromise<JobsPage, Job> {
     if (isRequestOptions(query)) {
       return this.list({}, query);
     }

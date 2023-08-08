@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import { AbstractPage, APIResponse, APIClient, FinalRequestOptions, PageInfo } from './core';
+import { AbstractPage, Response, APIClient, FinalRequestOptions, PageInfo } from './core';
 import * as HRIS from './resources/hris/index';
 import * as ATS from './resources/ats/index';
 
@@ -11,12 +11,13 @@ export class SinglePage<Item> extends AbstractPage<Item> {
 
   constructor(
     client: APIClient,
-    response: APIResponse<SinglePageResponse<Item>>,
+    response: Response,
+    body: SinglePageResponse<Item>,
     options: FinalRequestOptions,
   ) {
-    super(client, response, options);
+    super(client, response, body, options);
 
-    this.items = response || [];
+    this.items = body || [];
   }
 
   getPaginatedItems(): Item[] {
@@ -46,12 +47,13 @@ export class ResponsesPage<Item> extends AbstractPage<Item> implements Responses
 
   constructor(
     client: APIClient,
-    response: APIResponse<ResponsesPageResponse<Item>>,
+    response: Response,
+    body: ResponsesPageResponse<Item>,
     options: FinalRequestOptions,
   ) {
-    super(client, response, options);
+    super(client, response, body, options);
 
-    this.responses = response.responses;
+    this.responses = body.responses;
   }
 
   getPaginatedItems(): Item[] {
@@ -106,13 +108,14 @@ export class IndividualsPage
 
   constructor(
     client: APIClient,
-    response: APIResponse<IndividualsPageResponse>,
+    response: Response,
+    body: IndividualsPageResponse,
     options: FinalRequestOptions,
   ) {
-    super(client, response, options);
+    super(client, response, body, options);
 
-    this.paging = response.paging;
-    this.individuals = response.individuals;
+    this.paging = body.paging;
+    this.individuals = body.individuals;
   }
 
   getPaginatedItems(): HRIS.IndividualInDirectory[] {
@@ -172,13 +175,14 @@ export class CandidatesPage extends AbstractPage<ATS.Candidate> implements Candi
 
   constructor(
     client: APIClient,
-    response: APIResponse<CandidatesPageResponse>,
+    response: Response,
+    body: CandidatesPageResponse,
     options: FinalRequestOptions,
   ) {
-    super(client, response, options);
+    super(client, response, body, options);
 
-    this.paging = response.paging;
-    this.candidates = response.candidates;
+    this.paging = body.paging;
+    this.candidates = body.candidates;
   }
 
   getPaginatedItems(): ATS.Candidate[] {
@@ -238,13 +242,14 @@ export class ApplicationsPage extends AbstractPage<ATS.Application> implements A
 
   constructor(
     client: APIClient,
-    response: APIResponse<ApplicationsPageResponse>,
+    response: Response,
+    body: ApplicationsPageResponse,
     options: FinalRequestOptions,
   ) {
-    super(client, response, options);
+    super(client, response, body, options);
 
-    this.paging = response.paging;
-    this.applications = response.applications;
+    this.paging = body.paging;
+    this.applications = body.applications;
   }
 
   getPaginatedItems(): ATS.Application[] {
@@ -302,11 +307,11 @@ export class JobsPage extends AbstractPage<ATS.Job> implements JobsPageResponse 
 
   jobs: Array<ATS.Job>;
 
-  constructor(client: APIClient, response: APIResponse<JobsPageResponse>, options: FinalRequestOptions) {
-    super(client, response, options);
+  constructor(client: APIClient, response: Response, body: JobsPageResponse, options: FinalRequestOptions) {
+    super(client, response, body, options);
 
-    this.paging = response.paging;
-    this.jobs = response.jobs;
+    this.paging = body.paging;
+    this.jobs = body.jobs;
   }
 
   getPaginatedItems(): ATS.Job[] {
@@ -364,11 +369,11 @@ export class OffersPage extends AbstractPage<ATS.Offer> implements OffersPageRes
 
   offers: Array<ATS.Offer>;
 
-  constructor(client: APIClient, response: APIResponse<OffersPageResponse>, options: FinalRequestOptions) {
-    super(client, response, options);
+  constructor(client: APIClient, response: Response, body: OffersPageResponse, options: FinalRequestOptions) {
+    super(client, response, body, options);
 
-    this.paging = response.paging;
-    this.offers = response.offers;
+    this.paging = body.paging;
+    this.offers = body.offers;
   }
 
   getPaginatedItems(): ATS.Offer[] {

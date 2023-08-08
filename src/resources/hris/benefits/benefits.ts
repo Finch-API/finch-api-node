@@ -19,12 +19,12 @@ export class Benefits extends APIResource {
   create(
     body?: BenefitCreateParams,
     options?: Core.RequestOptions,
-  ): Promise<Core.APIResponse<CreateCompanyBenefitsResponse>>;
-  create(options?: Core.RequestOptions): Promise<Core.APIResponse<CreateCompanyBenefitsResponse>>;
+  ): Core.APIPromise<CreateCompanyBenefitsResponse>;
+  create(options?: Core.RequestOptions): Core.APIPromise<CreateCompanyBenefitsResponse>;
   create(
     body: BenefitCreateParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Promise<Core.APIResponse<CreateCompanyBenefitsResponse>> {
+  ): Core.APIPromise<CreateCompanyBenefitsResponse> {
     if (isRequestOptions(body)) {
       return this.create({}, body);
     }
@@ -36,7 +36,7 @@ export class Benefits extends APIResource {
    *
    * Lists benefit information for a given benefit
    */
-  retrieve(benefitId: string, options?: Core.RequestOptions): Promise<Core.APIResponse<CompanyBenefit>> {
+  retrieve(benefitId: string, options?: Core.RequestOptions): Core.APIPromise<CompanyBenefit> {
     return this.get(`/employer/benefits/${benefitId}`, options);
   }
 
@@ -49,16 +49,13 @@ export class Benefits extends APIResource {
     benefitId: string,
     body?: BenefitUpdateParams,
     options?: Core.RequestOptions,
-  ): Promise<Core.APIResponse<UpdateCompanyBenefitResponse>>;
-  update(
-    benefitId: string,
-    options?: Core.RequestOptions,
-  ): Promise<Core.APIResponse<UpdateCompanyBenefitResponse>>;
+  ): Core.APIPromise<UpdateCompanyBenefitResponse>;
+  update(benefitId: string, options?: Core.RequestOptions): Core.APIPromise<UpdateCompanyBenefitResponse>;
   update(
     benefitId: string,
     body: BenefitUpdateParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Promise<Core.APIResponse<UpdateCompanyBenefitResponse>> {
+  ): Core.APIPromise<UpdateCompanyBenefitResponse> {
     if (isRequestOptions(body)) {
       return this.update(benefitId, {}, body);
     }
@@ -70,7 +67,7 @@ export class Benefits extends APIResource {
    *
    * List all company-wide benefits.
    */
-  list(options?: Core.RequestOptions): Core.PagePromise<CompanyBenefitsSinglePage> {
+  list(options?: Core.RequestOptions): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit> {
     return this.getAPIList('/employer/benefits', CompanyBenefitsSinglePage, options);
   }
 
@@ -80,7 +77,9 @@ export class Benefits extends APIResource {
    * Lists available types and configurations for the provider associated with the
    * access token.
    */
-  listSupportedBenefits(options?: Core.RequestOptions): Core.PagePromise<SupportedBenefitsSinglePage> {
+  listSupportedBenefits(
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit> {
     return this.getAPIList('/employer/benefits/meta', SupportedBenefitsSinglePage, options);
   }
 }

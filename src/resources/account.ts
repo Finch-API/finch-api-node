@@ -10,14 +10,14 @@ export class Account extends APIResource {
    * associated with the employer. We require applications to implement the
    * Disconnect endpoint for billing and security purposes.
    */
-  disconnect(options?: Core.RequestOptions): Promise<Core.APIResponse<DisconnectResponse>> {
+  disconnect(options?: Core.RequestOptions): Core.APIPromise<DisconnectResponse> {
     return this.post('/disconnect', options);
   }
 
   /**
    * Read account information associated with an `access_token`
    */
-  introspect(options?: Core.RequestOptions): Promise<Core.APIResponse<Introspection>> {
+  introspect(options?: Core.RequestOptions): Core.APIPromise<Introspection> {
     return this.get('/introspect', options);
   }
 }
