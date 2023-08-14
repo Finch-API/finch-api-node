@@ -56,6 +56,7 @@
       "hidden": true
     }
   ],
+  "reviewers": ["yjp20"],
   "release-type": "node",
   "extra-files": ["src/version.ts"]
 }
