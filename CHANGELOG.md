@@ -1,5 +1,40 @@
 # Changelog
 
+## [4.0.0](https://github.com/Finch-API/finch-api-node/compare/v3.1.3...v4.0.0) (2023-08-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* **client:** support accessing raw response + remove deprecated features ([#114](https://github.com/Finch-API/finch-api-node/issues/114))
+
+### Features
+
+* allow a default timeout to be set for clients ([#117](https://github.com/Finch-API/finch-api-node/issues/117)) ([5264bb7](https://github.com/Finch-API/finch-api-node/commit/5264bb7b27e4d0801e994dbd095f0f9497f77569))
+* **client:** detect browser usage ([#106](https://github.com/Finch-API/finch-api-node/issues/106)) ([0a322ae](https://github.com/Finch-API/finch-api-node/commit/0a322aeff94c482784c001a7b8b898f574efbecd))
+* **client:** support accessing raw response + remove deprecated features ([#114](https://github.com/Finch-API/finch-api-node/issues/114)) ([31c306b](https://github.com/Finch-API/finch-api-node/commit/31c306b15dbfffacee1dac360a70d126447a24fb))
+* **streaming:** add `.toReadableStream()` method ([#109](https://github.com/Finch-API/finch-api-node/issues/109)) ([7715977](https://github.com/Finch-API/finch-api-node/commit/77159777775af0a3ac5708426d13d3d02a6076e9))
+
+
+### Documentation
+
+* **api:** improve custom method arguments ([#108](https://github.com/Finch-API/finch-api-node/issues/108)) ([f9bc372](https://github.com/Finch-API/finch-api-node/commit/f9bc372b44398715cd2cbe99313fcd92d73f9749))
+* **readme:** minor updates ([#115](https://github.com/Finch-API/finch-api-node/issues/115)) ([575b46c](https://github.com/Finch-API/finch-api-node/commit/575b46cf6103b12404c964e07884f89ce6198167))
+* **readme:** remove beta status + document versioning policy ([#105](https://github.com/Finch-API/finch-api-node/issues/105)) ([bc2c0c0](https://github.com/Finch-API/finch-api-node/commit/bc2c0c07f7280364fbb5ffe77ec136f8d31a861c))
+
+
+### Chores
+
+* assign default reviewers to release PRs ([#118](https://github.com/Finch-API/finch-api-node/issues/118)) ([f114455](https://github.com/Finch-API/finch-api-node/commit/f1144553f95e74f16c57a287848c615893c2acea))
+* **internal:** change jest exclude patterns ([#113](https://github.com/Finch-API/finch-api-node/issues/113)) ([54e17f0](https://github.com/Finch-API/finch-api-node/commit/54e17f0928d88b125f1670efb539f5703788515c))
+* **internal:** conditionally include bin during build output ([#116](https://github.com/Finch-API/finch-api-node/issues/116)) ([f5ac09f](https://github.com/Finch-API/finch-api-node/commit/f5ac09fd5b33f19474e1facc987c9eff92c3b030))
+* **internal:** fix deno build ([#102](https://github.com/Finch-API/finch-api-node/issues/102)) ([0a8e4b6](https://github.com/Finch-API/finch-api-node/commit/0a8e4b6a0cfaf921ba86949d69c1df4ef878d56c))
+* **internal:** fix deno build ([#104](https://github.com/Finch-API/finch-api-node/issues/104)) ([e0aa74a](https://github.com/Finch-API/finch-api-node/commit/e0aa74a57b0f513acb02291609a89969da99751c))
+* **internal:** fix error happening in CloudFlare pages ([#119](https://github.com/Finch-API/finch-api-node/issues/119)) ([312ea9c](https://github.com/Finch-API/finch-api-node/commit/312ea9c3eba9eb82da6ba06f7cb24aa0734f1910))
+* **internal:** remove deno build ([#107](https://github.com/Finch-API/finch-api-node/issues/107)) ([15dff8a](https://github.com/Finch-API/finch-api-node/commit/15dff8aca63439aebcb9f3fba25c34c750c5885b))
+* **internal:** update eslint ([#111](https://github.com/Finch-API/finch-api-node/issues/111)) ([3cf152d](https://github.com/Finch-API/finch-api-node/commit/3cf152dc4e9c9cbe23ed493eb0cf22db6c1e8397))
+* **internal:** update tsconfig-paths dep ([#112](https://github.com/Finch-API/finch-api-node/issues/112)) ([032c38b](https://github.com/Finch-API/finch-api-node/commit/032c38b1e0f069cfaa8dbee65cb9b55bb807baaa))
+* **internal:** update typescript ([#110](https://github.com/Finch-API/finch-api-node/issues/110)) ([d16061a](https://github.com/Finch-API/finch-api-node/commit/d16061ac1d68d0aacb322d8e339ab14479ec7740))
+
 ## [3.1.3](https://github.com/Finch-API/finch-api-node/compare/v3.1.2...v3.1.3) (2023-08-01)
 
 
