@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.1.0](https://github.com/Finch-API/finch-api-node/compare/v4.0.0...v4.1.0) (2023-08-17)
+
+
+### Features
+
+* **client:** improve compatibility with Bun ([#124](https://github.com/Finch-API/finch-api-node/issues/124)) ([6a9c632](https://github.com/Finch-API/finch-api-node/commit/6a9c632da15ac8977c83ead6c2af15ad106de0a6))
+* **docs:** add documentation to the client constructor ([#123](https://github.com/Finch-API/finch-api-node/issues/123)) ([747855e](https://github.com/Finch-API/finch-api-node/commit/747855ea266438dd28f45e3471f7cc24025cf65f))
+
+
+### Bug Fixes
+
+* **client:** fix TypeError when a request gets retried ([#121](https://github.com/Finch-API/finch-api-node/issues/121)) ([25de6e2](https://github.com/Finch-API/finch-api-node/commit/25de6e2e3c63812a024ad2b011f722d031ae187e))
+
 ## [4.0.0](https://github.com/Finch-API/finch-api-node/compare/v3.1.3...v4.0.0) (2023-08-16)
 
 
