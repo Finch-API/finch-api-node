@@ -252,6 +252,8 @@ export namespace Finch {
   export import toFile = Uploads.toFile;
   export import fileFromPath = Uploads.fileFromPath;
 
+  export import RequestOptions = Core.RequestOptions;
+
   export import SinglePage = Pagination.SinglePage;
   export import SinglePageResponse = Pagination.SinglePageResponse;
 
