@@ -1,5 +1,24 @@
 # Changelog
 
+## [4.2.0](https://github.com/Finch-API/finch-api-node/compare/v4.1.0...v4.2.0) (2023-08-24)
+
+
+### Features
+
+* **types:** export RequestOptions type ([#131](https://github.com/Finch-API/finch-api-node/issues/131)) ([6977ab0](https://github.com/Finch-API/finch-api-node/commit/6977ab0f2c729e4744d123b9324c48778a55bb5e))
+
+
+### Bug Fixes
+
+* **core:** fix navigator check for strange environments ([#129](https://github.com/Finch-API/finch-api-node/issues/129)) ([74edc8d](https://github.com/Finch-API/finch-api-node/commit/74edc8d37c9c4f48f1d1afef8e9403ab1e35d166))
+
+
+### Chores
+
+* **internal:** add missing eslint-plugin-prettier ([#128](https://github.com/Finch-API/finch-api-node/issues/128)) ([1000bd6](https://github.com/Finch-API/finch-api-node/commit/1000bd65c0a08b6b93d6475abaa4a2c8ddc366b3))
+* **internal:** export HeadersInit type shim ([#132](https://github.com/Finch-API/finch-api-node/issues/132)) ([60b23ca](https://github.com/Finch-API/finch-api-node/commit/60b23cab1511c6991078132003403ee0df185baf))
+* **internal:** minor reformatting of code ([#126](https://github.com/Finch-API/finch-api-node/issues/126)) ([ee3c2fc](https://github.com/Finch-API/finch-api-node/commit/ee3c2fc92e9db0976cf91b8a9cb1cd745ecdd63f))
+
 ## [4.1.0](https://github.com/Finch-API/finch-api-node/compare/v4.0.0...v4.1.0) (2023-08-17)
 
 
