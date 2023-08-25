@@ -183,9 +183,9 @@ export class Finch extends Core.APIClient {
     return this._options.defaultQuery;
   }
 
-  protected override defaultHeaders(): Core.Headers {
+  protected override defaultHeaders(opts: Core.FinalRequestOptions): Core.Headers {
     return {
-      ...super.defaultHeaders(),
+      ...super.defaultHeaders(opts),
       'Finch-API-Version': '2020-09-17',
       ...this._options.defaultHeaders,
     };
@@ -204,7 +204,7 @@ export class Finch extends Core.APIClient {
     );
   }
 
-  protected override authHeaders(): Core.Headers {
+  protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
     if (this.accessToken == null) {
       return {};
     }
