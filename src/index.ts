@@ -100,8 +100,6 @@ export class Finch extends Core.APIClient {
     clientSecret = Core.readEnv('FINCH_CLIENT_SECRET') ?? null,
     ...opts
   }: ClientOptions = {}) {
-    undefined;
-
     const options: ClientOptions = {
       accessToken,
       clientId,
