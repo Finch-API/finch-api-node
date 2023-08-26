@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.2.1](https://github.com/Finch-API/finch-api-node/compare/v4.2.0...v4.2.1) (2023-08-26)
+
+
+### Refactors
+
+* remove unnecessary line in constructor ([#134](https://github.com/Finch-API/finch-api-node/issues/134)) ([39f814f](https://github.com/Finch-API/finch-api-node/commit/39f814fe0a8be2c9e6ead55401ce65ca96b0d4d3))
+
+
+### Chores
+
+* **internal:** add helper method ([#137](https://github.com/Finch-API/finch-api-node/issues/137)) ([676e907](https://github.com/Finch-API/finch-api-node/commit/676e9074689c11260e9f04818531b79ab495de89))
+* **internal:** remove reviewer ([#136](https://github.com/Finch-API/finch-api-node/issues/136)) ([7fecce1](https://github.com/Finch-API/finch-api-node/commit/7fecce17da938489e3c9906019f778e836625d17))
+
 ## [4.2.0](https://github.com/Finch-API/finch-api-node/compare/v4.1.0...v4.2.0) (2023-08-24)
 
 
