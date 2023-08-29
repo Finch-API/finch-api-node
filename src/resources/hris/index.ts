@@ -15,6 +15,13 @@ export {
   Benefits,
 } from './benefits/index';
 export { Company, CompanyResource } from './company';
+export {
+  EmploymentData,
+  EmploymentDataResponse,
+  EmploymentRetrieveManyParams,
+  EmploymentDataResponsesResponsesPage,
+  Employments,
+} from './employments';
 export { Income, Location, Money, Paging, HRIS } from './hris';
 export {
   Individual,
@@ -22,7 +29,7 @@ export {
   IndividualRetrieveManyParams,
   IndividualResponsesResponsesPage,
   Individuals,
-} from './individuals/index';
+} from './individuals';
 export { IndividualInDirectory, DirectoryListIndividualsParams, Directory } from './directory';
 export {
   PayStatement,

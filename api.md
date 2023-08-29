@@ -5,6 +5,115 @@ Methods:
 - <code>client.<a href="./src/index.ts">getAccessToken</a>(code, { redirectUri }) -> Promise&lt;string&gt;</code>
 - <code>client.<a href="./src/index.ts">getAuthURL</a>({ products, redirectUri, sandbox }) -> string</code>
 
+# HRIS
+
+Types:
+
+- <code><a href="./src/resources/hris/hris.ts">Income</a></code>
+- <code><a href="./src/resources/hris/hris.ts">Location</a></code>
+- <code><a href="./src/resources/hris/hris.ts">Money</a></code>
+- <code><a href="./src/resources/hris/hris.ts">Paging</a></code>
+
+## Company
+
+Types:
+
+- <code><a href="./src/resources/hris/company.ts">Company</a></code>
+
+Methods:
+
+- <code title="get /employer/company">client.hris.company.<a href="./src/resources/hris/company.ts">retrieve</a>() -> Company</code>
+
+## Directory
+
+Types:
+
+- <code><a href="./src/resources/hris/directory.ts">IndividualInDirectory</a></code>
+
+Methods:
+
+- <code title="get /employer/directory">client.hris.directory.<a href="./src/resources/hris/directory.ts">listIndividuals</a>({ ...params }) -> IndividualsPage</code>
+
+## Individuals
+
+Types:
+
+- <code><a href="./src/resources/hris/individuals.ts">Individual</a></code>
+- <code><a href="./src/resources/hris/individuals.ts">IndividualResponse</a></code>
+
+Methods:
+
+- <code title="post /employer/individual">client.hris.individuals.<a href="./src/resources/hris/individuals.ts">retrieveMany</a>({ ...params }) -> IndividualResponsesResponsesPage</code>
+
+## Employments
+
+Types:
+
+- <code><a href="./src/resources/hris/employments.ts">EmploymentData</a></code>
+- <code><a href="./src/resources/hris/employments.ts">EmploymentDataResponse</a></code>
+
+Methods:
+
+- <code title="post /employer/employment">client.hris.employments.<a href="./src/resources/hris/employments.ts">retrieveMany</a>({ ...params }) -> EmploymentDataResponsesResponsesPage</code>
+
+## Payments
+
+Types:
+
+- <code><a href="./src/resources/hris/payments.ts">Payment</a></code>
+
+Methods:
+
+- <code title="get /employer/payment">client.hris.payments.<a href="./src/resources/hris/payments.ts">list</a>({ ...params }) -> PaymentsSinglePage</code>
+
+## PayStatements
+
+Types:
+
+- <code><a href="./src/resources/hris/pay-statements.ts">PayStatement</a></code>
+- <code><a href="./src/resources/hris/pay-statements.ts">PayStatementResponse</a></code>
+- <code><a href="./src/resources/hris/pay-statements.ts">PayStatementResponseBody</a></code>
+
+Methods:
+
+- <code title="post /employer/pay-statement">client.hris.payStatements.<a href="./src/resources/hris/pay-statements.ts">retrieveMany</a>({ ...params }) -> PayStatementResponsesResponsesPage</code>
+
+## Benefits
+
+Types:
+
+- <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitFrequency</a></code>
+- <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitType</a></code>
+- <code><a href="./src/resources/hris/benefits/benefits.ts">BenfitContribution</a></code>
+- <code><a href="./src/resources/hris/benefits/benefits.ts">CompanyBenefit</a></code>
+- <code><a href="./src/resources/hris/benefits/benefits.ts">CreateCompanyBenefitsResponse</a></code>
+- <code><a href="./src/resources/hris/benefits/benefits.ts">SupportedBenefit</a></code>
+- <code><a href="./src/resources/hris/benefits/benefits.ts">UpdateCompanyBenefitResponse</a></code>
+
+Methods:
+
+- <code title="post /employer/benefits">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">create</a>({ ...params }) -> CreateCompanyBenefitsResponse</code>
+- <code title="get /employer/benefits/{benefit_id}">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">retrieve</a>(benefitId) -> CompanyBenefit</code>
+- <code title="post /employer/benefits/{benefit_id}">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">update</a>(benefitId, { ...params }) -> UpdateCompanyBenefitResponse</code>
+- <code title="get /employer/benefits">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">list</a>() -> CompanyBenefitsSinglePage</code>
+- <code title="get /employer/benefits/meta">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">listSupportedBenefits</a>() -> SupportedBenefitsSinglePage</code>
+
+### Individuals
+
+Types:
+
+- <code><a href="./src/resources/hris/benefits/individuals.ts">EnrolledIndividual</a></code>
+- <code><a href="./src/resources/hris/benefits/individuals.ts">IndividualBenefit</a></code>
+- <code><a href="./src/resources/hris/benefits/individuals.ts">UnenrolledIndividual</a></code>
+- <code><a href="./src/resources/hris/benefits/individuals.ts">IndividualEnrolledIDsResponse</a></code>
+
+Methods:
+
+- <code title="post /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">enrollMany</a>(benefitId, [ ...individuals ]) -> EnrolledIndividualsSinglePage</code>
+- <code title="get /employer/benefits/{benefit_id}/enrolled">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">enrolledIds</a>(benefitId) -> IndividualEnrolledIDsResponse</code>
+- <code title="get /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">retrieveManyBenefits</a>(benefitId, { ...params }) -> IndividualBenefitsSinglePage</code>
+- <code title="delete /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">unenrollMany</a>(benefitId, { ...params }) -> UnenrolledIndividualsSinglePage</code>
+
 # ATS
 
 ## Candidates
@@ -60,115 +169,6 @@ Methods:
 
 - <code title="get /ats/offers/{offer_id}">client.ats.offers.<a href="./src/resources/ats/offers.ts">retrieve</a>(offerId) -> Offer</code>
 - <code title="get /ats/offers">client.ats.offers.<a href="./src/resources/ats/offers.ts">list</a>({ ...params }) -> OffersPage</code>
-
-# HRIS
-
-Types:
-
-- <code><a href="./src/resources/hris/hris.ts">Income</a></code>
-- <code><a href="./src/resources/hris/hris.ts">Location</a></code>
-- <code><a href="./src/resources/hris/hris.ts">Money</a></code>
-- <code><a href="./src/resources/hris/hris.ts">Paging</a></code>
-
-## CompanyResource
-
-Types:
-
-- <code><a href="./src/resources/hris/company.ts">Company</a></code>
-
-Methods:
-
-- <code title="get /employer/company">client.hris.company.<a href="./src/resources/hris/company.ts">retrieve</a>() -> Company</code>
-
-## Payments
-
-Types:
-
-- <code><a href="./src/resources/hris/payments.ts">Payment</a></code>
-
-Methods:
-
-- <code title="get /employer/payment">client.hris.payments.<a href="./src/resources/hris/payments.ts">list</a>({ ...params }) -> PaymentsSinglePage</code>
-
-## PayStatements
-
-Types:
-
-- <code><a href="./src/resources/hris/pay-statements.ts">PayStatement</a></code>
-- <code><a href="./src/resources/hris/pay-statements.ts">PayStatementResponse</a></code>
-- <code><a href="./src/resources/hris/pay-statements.ts">PayStatementResponseBody</a></code>
-
-Methods:
-
-- <code title="post /employer/pay-statement">client.hris.payStatements.<a href="./src/resources/hris/pay-statements.ts">retrieveMany</a>({ ...params }) -> PayStatementResponsesResponsesPage</code>
-
-## Directory
-
-Types:
-
-- <code><a href="./src/resources/hris/directory.ts">IndividualInDirectory</a></code>
-
-Methods:
-
-- <code title="get /employer/directory">client.hris.directory.<a href="./src/resources/hris/directory.ts">listIndividuals</a>({ ...params }) -> IndividualsPage</code>
-
-## Individuals
-
-Types:
-
-- <code><a href="./src/resources/hris/individuals/individuals.ts">Individual</a></code>
-- <code><a href="./src/resources/hris/individuals/individuals.ts">IndividualResponse</a></code>
-
-Methods:
-
-- <code title="post /employer/individual">client.hris.individuals.<a href="./src/resources/hris/individuals/individuals.ts">retrieveMany</a>({ ...params }) -> IndividualResponsesResponsesPage</code>
-
-### EmploymentData
-
-Types:
-
-- <code><a href="./src/resources/hris/individuals/employment-data.ts">EmploymentData</a></code>
-- <code><a href="./src/resources/hris/individuals/employment-data.ts">EmploymentDataResponse</a></code>
-
-Methods:
-
-- <code title="post /employer/employment">client.hris.individuals.employmentData.<a href="./src/resources/hris/individuals/employment-data.ts">retrieveMany</a>({ ...params }) -> EmploymentDataResponsesResponsesPage</code>
-
-## Benefits
-
-Types:
-
-- <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitFrequency</a></code>
-- <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitType</a></code>
-- <code><a href="./src/resources/hris/benefits/benefits.ts">BenfitContribution</a></code>
-- <code><a href="./src/resources/hris/benefits/benefits.ts">CompanyBenefit</a></code>
-- <code><a href="./src/resources/hris/benefits/benefits.ts">CreateCompanyBenefitsResponse</a></code>
-- <code><a href="./src/resources/hris/benefits/benefits.ts">SupportedBenefit</a></code>
-- <code><a href="./src/resources/hris/benefits/benefits.ts">UpdateCompanyBenefitResponse</a></code>
-
-Methods:
-
-- <code title="post /employer/benefits">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">create</a>({ ...params }) -> CreateCompanyBenefitsResponse</code>
-- <code title="get /employer/benefits/{benefit_id}">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">retrieve</a>(benefitId) -> CompanyBenefit</code>
-- <code title="post /employer/benefits/{benefit_id}">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">update</a>(benefitId, { ...params }) -> UpdateCompanyBenefitResponse</code>
-- <code title="get /employer/benefits">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">list</a>() -> CompanyBenefitsSinglePage</code>
-- <code title="get /employer/benefits/meta">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">listSupportedBenefits</a>() -> SupportedBenefitsSinglePage</code>
-
-### Individuals
-
-Types:
-
-- <code><a href="./src/resources/hris/benefits/individuals.ts">EnrolledIndividual</a></code>
-- <code><a href="./src/resources/hris/benefits/individuals.ts">IndividualBenefit</a></code>
-- <code><a href="./src/resources/hris/benefits/individuals.ts">UnenrolledIndividual</a></code>
-- <code><a href="./src/resources/hris/benefits/individuals.ts">IndividualEnrolledIDsResponse</a></code>
-
-Methods:
-
-- <code title="post /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">enrollMany</a>(benefitId, [ ...individuals ]) -> EnrolledIndividualsSinglePage</code>
-- <code title="get /employer/benefits/{benefit_id}/enrolled">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">enrolledIds</a>(benefitId) -> IndividualEnrolledIDsResponse</code>
-- <code title="get /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">retrieveManyBenefits</a>(benefitId, { ...params }) -> IndividualBenefitsSinglePage</code>
-- <code title="delete /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">unenroll</a>(benefitId, { ...params }) -> UnenrolledIndividualsSinglePage</code>
 
 # Providers
 

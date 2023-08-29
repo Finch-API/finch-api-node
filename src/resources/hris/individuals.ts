@@ -4,13 +4,10 @@ import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
 import { isRequestOptions } from '@tryfinch/finch-api/core';
 import * as HRIS from '@tryfinch/finch-api/resources/hris/index';
-import { EmploymentData } from './employment-data';
 import * as API from './index';
 import { ResponsesPage } from '@tryfinch/finch-api/pagination';
 
 export class Individuals extends APIResource {
-  employmentData: EmploymentData = new EmploymentData(this.client);
-
   /**
    * Read individual data, excluding income and employment data
    */
@@ -129,9 +126,4 @@ export namespace Individuals {
   export import IndividualResponse = API.IndividualResponse;
   export type IndividualResponsesResponsesPage = _IndividualResponsesResponsesPage;
   export import IndividualRetrieveManyParams = API.IndividualRetrieveManyParams;
-
-  export import EmploymentData = API.EmploymentData;
-  export import EmploymentDataResponse = API.EmploymentDataResponse;
-  export import EmploymentDataResponsesResponsesPage = API.EmploymentDataResponsesResponsesPage;
-  export import EmploymentDataRetrieveManyParams = API.EmploymentDataRetrieveManyParams;
 }
