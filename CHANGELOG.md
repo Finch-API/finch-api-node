@@ -1,5 +1,33 @@
 # Changelog
 
+## 5.0.0 (2023-08-29)
+
+Full Changelog: [v4.2.1...v5.0.0](https://github.com/Finch-API/finch-api-node/compare/v4.2.1...v5.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* rename response page types ([#144](https://github.com/Finch-API/finch-api-node/issues/144))
+* **client:** restructure some methods ([#143](https://github.com/Finch-API/finch-api-node/issues/143))
+
+### Features
+
+* **client:** restructure some methods ([#143](https://github.com/Finch-API/finch-api-node/issues/143)) ([31573ea](https://github.com/Finch-API/finch-api-node/commit/31573ea58f1a0c55c2b973ee6bad589ccc34325d))
+
+
+### Bug Fixes
+
+* **types:** improve getNextPage() return type ([#141](https://github.com/Finch-API/finch-api-node/issues/141)) ([159c7c3](https://github.com/Finch-API/finch-api-node/commit/159c7c3d0361ec697eceeba8c8d54e6acafffb28))
+
+
+### Chores
+
+* **ci:** setup workflows to create releases and release PRs ([#139](https://github.com/Finch-API/finch-api-node/issues/139)) ([d969e30](https://github.com/Finch-API/finch-api-node/commit/d969e307ac4a76eb056a7de560c109804d4e3a17))
+
+
+### Refactors
+
+* rename response page types ([#144](https://github.com/Finch-API/finch-api-node/issues/144)) ([c911250](https://github.com/Finch-API/finch-api-node/commit/c911250c616024b9b3d2e02d3e55fa2279a707f4))
+
 ## [4.2.1](https://github.com/Finch-API/finch-api-node/compare/v4.2.0...v4.2.1) (2023-08-26)
 
 
