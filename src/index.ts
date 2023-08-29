@@ -122,8 +122,8 @@ export class Finch extends Core.APIClient {
     this.clientSecret = clientSecret;
   }
 
-  ats: API.ATS = new API.ATS(this);
   hris: API.HRIS = new API.HRIS(this);
+  ats: API.ATS = new API.ATS(this);
   providers: API.Providers = new API.Providers(this);
   account: API.Account = new API.Account(this);
 
@@ -278,13 +278,13 @@ export namespace Finch {
   export import OffersPageParams = Pagination.OffersPageParams;
   export import OffersPageResponse = Pagination.OffersPageResponse;
 
-  export import ATS = API.ATS;
-
   export import HRIS = API.HRIS;
   export import Income = API.Income;
   export import Location = API.Location;
   export import Money = API.Money;
   export import Paging = API.Paging;
+
+  export import ATS = API.ATS;
 
   export import Providers = API.Providers;
   export import Provider = API.Provider;

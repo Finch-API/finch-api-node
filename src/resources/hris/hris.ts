@@ -2,19 +2,21 @@
 
 import { APIResource } from '@tryfinch/finch-api/resource';
 import { CompanyResource } from './company';
+import { Directory } from './directory';
+import { Individuals } from './individuals';
+import { Employments } from './employments';
 import { Payments } from './payments';
 import { PayStatements } from './pay-statements';
-import { Directory } from './directory';
-import { Individuals } from './individuals/individuals';
 import { Benefits } from './benefits/benefits';
 import * as API from './index';
 
 export class HRIS extends APIResource {
   company: CompanyResource = new CompanyResource(this.client);
-  payments: Payments = new Payments(this.client);
-  payStatements: PayStatements = new PayStatements(this.client);
   directory: Directory = new Directory(this.client);
   individuals: Individuals = new Individuals(this.client);
+  employments: Employments = new Employments(this.client);
+  payments: Payments = new Payments(this.client);
+  payStatements: PayStatements = new PayStatements(this.client);
   benefits: Benefits = new Benefits(this.client);
 }
 
@@ -122,6 +124,22 @@ export namespace HRIS {
   export import CompanyResource = API.CompanyResource;
   export import Company = API.Company;
 
+  export import Directory = API.Directory;
+  export import IndividualInDirectory = API.IndividualInDirectory;
+  export import DirectoryListIndividualsParams = API.DirectoryListIndividualsParams;
+
+  export import Individuals = API.Individuals;
+  export import Individual = API.Individual;
+  export import IndividualResponse = API.IndividualResponse;
+  export import IndividualResponsesResponsesPage = API.IndividualResponsesResponsesPage;
+  export import IndividualRetrieveManyParams = API.IndividualRetrieveManyParams;
+
+  export import Employments = API.Employments;
+  export import EmploymentData = API.EmploymentData;
+  export import EmploymentDataResponse = API.EmploymentDataResponse;
+  export import EmploymentDataResponsesResponsesPage = API.EmploymentDataResponsesResponsesPage;
+  export import EmploymentRetrieveManyParams = API.EmploymentRetrieveManyParams;
+
   export import Payments = API.Payments;
   export import Payment = API.Payment;
   export import PaymentsSinglePage = API.PaymentsSinglePage;
@@ -133,16 +151,6 @@ export namespace HRIS {
   export import PayStatementResponseBody = API.PayStatementResponseBody;
   export import PayStatementResponsesResponsesPage = API.PayStatementResponsesResponsesPage;
   export import PayStatementRetrieveManyParams = API.PayStatementRetrieveManyParams;
-
-  export import Directory = API.Directory;
-  export import IndividualInDirectory = API.IndividualInDirectory;
-  export import DirectoryListIndividualsParams = API.DirectoryListIndividualsParams;
-
-  export import Individuals = API.Individuals;
-  export import Individual = API.Individual;
-  export import IndividualResponse = API.IndividualResponse;
-  export import IndividualResponsesResponsesPage = API.IndividualResponsesResponsesPage;
-  export import IndividualRetrieveManyParams = API.IndividualRetrieveManyParams;
 
   export import Benefits = API.Benefits;
   export import BenefitFrequency = API.BenefitFrequency;
