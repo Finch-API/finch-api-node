@@ -17,8 +17,8 @@ export class PayStatements extends APIResource {
   retrieveMany(
     body: PayStatementRetrieveManyParams,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<PayStatementResponsesResponsesPage, PayStatementResponse> {
-    return this.getAPIList('/employer/pay-statement', PayStatementResponsesResponsesPage, {
+  ): Core.PagePromise<PayStatementResponsesPage, PayStatementResponse> {
+    return this.getAPIList('/employer/pay-statement', PayStatementResponsesPage, {
       body,
       method: 'post',
       ...options,
@@ -26,9 +26,9 @@ export class PayStatements extends APIResource {
   }
 }
 
-export class PayStatementResponsesResponsesPage extends ResponsesPage<PayStatementResponse> {}
+export class PayStatementResponsesPage extends ResponsesPage<PayStatementResponse> {}
 // alias so we can export it in the namespace
-type _PayStatementResponsesResponsesPage = PayStatementResponsesResponsesPage;
+type _PayStatementResponsesPage = PayStatementResponsesPage;
 
 export interface PayStatement {
   /**
@@ -240,6 +240,6 @@ export namespace PayStatements {
   export import PayStatement = API.PayStatement;
   export import PayStatementResponse = API.PayStatementResponse;
   export import PayStatementResponseBody = API.PayStatementResponseBody;
-  export type PayStatementResponsesResponsesPage = _PayStatementResponsesResponsesPage;
+  export type PayStatementResponsesPage = _PayStatementResponsesPage;
   export import PayStatementRetrieveManyParams = API.PayStatementRetrieveManyParams;
 }

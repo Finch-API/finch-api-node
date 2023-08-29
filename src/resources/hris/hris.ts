@@ -131,13 +131,13 @@ export namespace HRIS {
   export import Individuals = API.Individuals;
   export import Individual = API.Individual;
   export import IndividualResponse = API.IndividualResponse;
-  export import IndividualResponsesResponsesPage = API.IndividualResponsesResponsesPage;
+  export import IndividualResponsesPage = API.IndividualResponsesPage;
   export import IndividualRetrieveManyParams = API.IndividualRetrieveManyParams;
 
   export import Employments = API.Employments;
   export import EmploymentData = API.EmploymentData;
   export import EmploymentDataResponse = API.EmploymentDataResponse;
-  export import EmploymentDataResponsesResponsesPage = API.EmploymentDataResponsesResponsesPage;
+  export import EmploymentDataResponsesPage = API.EmploymentDataResponsesPage;
   export import EmploymentRetrieveManyParams = API.EmploymentRetrieveManyParams;
 
   export import Payments = API.Payments;
@@ -149,7 +149,7 @@ export namespace HRIS {
   export import PayStatement = API.PayStatement;
   export import PayStatementResponse = API.PayStatementResponse;
   export import PayStatementResponseBody = API.PayStatementResponseBody;
-  export import PayStatementResponsesResponsesPage = API.PayStatementResponsesResponsesPage;
+  export import PayStatementResponsesPage = API.PayStatementResponsesPage;
   export import PayStatementRetrieveManyParams = API.PayStatementRetrieveManyParams;
 
   export import Benefits = API.Benefits;
