@@ -14,18 +14,16 @@ export class Individuals extends APIResource {
   retrieveMany(
     body?: IndividualRetrieveManyParams,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualResponsesResponsesPage, IndividualResponse>;
-  retrieveMany(
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualResponsesResponsesPage, IndividualResponse>;
+  ): Core.PagePromise<IndividualResponsesPage, IndividualResponse>;
+  retrieveMany(options?: Core.RequestOptions): Core.PagePromise<IndividualResponsesPage, IndividualResponse>;
   retrieveMany(
     body: IndividualRetrieveManyParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualResponsesResponsesPage, IndividualResponse> {
+  ): Core.PagePromise<IndividualResponsesPage, IndividualResponse> {
     if (isRequestOptions(body)) {
       return this.retrieveMany({}, body);
     }
-    return this.getAPIList('/employer/individual', IndividualResponsesResponsesPage, {
+    return this.getAPIList('/employer/individual', IndividualResponsesPage, {
       body,
       method: 'post',
       ...options,
@@ -33,9 +31,9 @@ export class Individuals extends APIResource {
   }
 }
 
-export class IndividualResponsesResponsesPage extends ResponsesPage<IndividualResponse> {}
+export class IndividualResponsesPage extends ResponsesPage<IndividualResponse> {}
 // alias so we can export it in the namespace
-type _IndividualResponsesResponsesPage = IndividualResponsesResponsesPage;
+type _IndividualResponsesPage = IndividualResponsesPage;
 
 export interface Individual {
   /**
@@ -124,6 +122,6 @@ export namespace IndividualRetrieveManyParams {
 export namespace Individuals {
   export import Individual = API.Individual;
   export import IndividualResponse = API.IndividualResponse;
-  export type IndividualResponsesResponsesPage = _IndividualResponsesResponsesPage;
+  export type IndividualResponsesPage = _IndividualResponsesPage;
   export import IndividualRetrieveManyParams = API.IndividualRetrieveManyParams;
 }
