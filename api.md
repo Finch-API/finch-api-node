@@ -43,7 +43,7 @@ Types:
 
 Methods:
 
-- <code title="post /employer/individual">client.hris.individuals.<a href="./src/resources/hris/individuals.ts">retrieveMany</a>({ ...params }) -> IndividualResponsesResponsesPage</code>
+- <code title="post /employer/individual">client.hris.individuals.<a href="./src/resources/hris/individuals.ts">retrieveMany</a>({ ...params }) -> IndividualResponsesPage</code>
 
 ## Employments
 
@@ -54,7 +54,7 @@ Types:
 
 Methods:
 
-- <code title="post /employer/employment">client.hris.employments.<a href="./src/resources/hris/employments.ts">retrieveMany</a>({ ...params }) -> EmploymentDataResponsesResponsesPage</code>
+- <code title="post /employer/employment">client.hris.employments.<a href="./src/resources/hris/employments.ts">retrieveMany</a>({ ...params }) -> EmploymentDataResponsesPage</code>
 
 ## Payments
 
@@ -76,7 +76,7 @@ Types:
 
 Methods:
 
-- <code title="post /employer/pay-statement">client.hris.payStatements.<a href="./src/resources/hris/pay-statements.ts">retrieveMany</a>({ ...params }) -> PayStatementResponsesResponsesPage</code>
+- <code title="post /employer/pay-statement">client.hris.payStatements.<a href="./src/resources/hris/pay-statements.ts">retrieveMany</a>({ ...params }) -> PayStatementResponsesPage</code>
 
 ## Benefits
 

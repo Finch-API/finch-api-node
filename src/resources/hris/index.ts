@@ -19,7 +19,7 @@ export {
   EmploymentData,
   EmploymentDataResponse,
   EmploymentRetrieveManyParams,
-  EmploymentDataResponsesResponsesPage,
+  EmploymentDataResponsesPage,
   Employments,
 } from './employments';
 export { Income, Location, Money, Paging, HRIS } from './hris';
@@ -27,7 +27,7 @@ export {
   Individual,
   IndividualResponse,
   IndividualRetrieveManyParams,
-  IndividualResponsesResponsesPage,
+  IndividualResponsesPage,
   Individuals,
 } from './individuals';
 export { IndividualInDirectory, DirectoryListIndividualsParams, Directory } from './directory';
@@ -36,7 +36,7 @@ export {
   PayStatementResponse,
   PayStatementResponseBody,
   PayStatementRetrieveManyParams,
-  PayStatementResponsesResponsesPage,
+  PayStatementResponsesPage,
   PayStatements,
 } from './pay-statements';
 export { Payment, PaymentListParams, PaymentsSinglePage, Payments } from './payments';

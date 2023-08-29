@@ -17,8 +17,8 @@ export class Employments extends APIResource {
   retrieveMany(
     body: EmploymentRetrieveManyParams,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<EmploymentDataResponsesResponsesPage, EmploymentDataResponse> {
-    return this.getAPIList('/employer/employment', EmploymentDataResponsesResponsesPage, {
+  ): Core.PagePromise<EmploymentDataResponsesPage, EmploymentDataResponse> {
+    return this.getAPIList('/employer/employment', EmploymentDataResponsesPage, {
       body,
       method: 'post',
       ...options,
@@ -26,9 +26,9 @@ export class Employments extends APIResource {
   }
 }
 
-export class EmploymentDataResponsesResponsesPage extends ResponsesPage<EmploymentDataResponse> {}
+export class EmploymentDataResponsesPage extends ResponsesPage<EmploymentDataResponse> {}
 // alias so we can export it in the namespace
-type _EmploymentDataResponsesResponsesPage = EmploymentDataResponsesResponsesPage;
+type _EmploymentDataResponsesPage = EmploymentDataResponsesPage;
 
 export interface EmploymentData {
   /**
@@ -184,6 +184,6 @@ export namespace EmploymentRetrieveManyParams {
 export namespace Employments {
   export import EmploymentData = API.EmploymentData;
   export import EmploymentDataResponse = API.EmploymentDataResponse;
-  export type EmploymentDataResponsesResponsesPage = _EmploymentDataResponsesResponsesPage;
+  export type EmploymentDataResponsesPage = _EmploymentDataResponsesPage;
   export import EmploymentRetrieveManyParams = API.EmploymentRetrieveManyParams;
 }
