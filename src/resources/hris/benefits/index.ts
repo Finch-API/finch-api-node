@@ -21,7 +21,7 @@ export {
   IndividualEnrolledIDsResponse,
   IndividualEnrollManyParams,
   IndividualRetrieveManyBenefitsParams,
-  IndividualUnenrollParams,
+  IndividualUnenrollManyParams,
   EnrolledIndividualsSinglePage,
   IndividualBenefitsSinglePage,
   UnenrolledIndividualsSinglePage,

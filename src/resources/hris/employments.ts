@@ -6,7 +6,7 @@ import * as HRIS from '@tryfinch/finch-api/resources/hris/index';
 import * as API from './index';
 import { ResponsesPage } from '@tryfinch/finch-api/pagination';
 
-export class EmploymentData extends APIResource {
+export class Employments extends APIResource {
   /**
    * Read individual employment and income data
    *
@@ -15,7 +15,7 @@ export class EmploymentData extends APIResource {
    * daily, etc, depending on what information the provider returns.
    */
   retrieveMany(
-    body: EmploymentDataRetrieveManyParams,
+    body: EmploymentRetrieveManyParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<EmploymentDataResponsesResponsesPage, EmploymentDataResponse> {
     return this.getAPIList('/employer/employment', EmploymentDataResponsesResponsesPage, {
@@ -163,14 +163,14 @@ export interface EmploymentDataResponse {
   individual_id?: string;
 }
 
-export interface EmploymentDataRetrieveManyParams {
+export interface EmploymentRetrieveManyParams {
   /**
    * The array of batch requests.
    */
-  requests: Array<EmploymentDataRetrieveManyParams.Request>;
+  requests: Array<EmploymentRetrieveManyParams.Request>;
 }
 
-export namespace EmploymentDataRetrieveManyParams {
+export namespace EmploymentRetrieveManyParams {
   export interface Request {
     /**
      * A stable Finch `id` (UUID v4) for an individual in the company. There is no
@@ -181,9 +181,9 @@ export namespace EmploymentDataRetrieveManyParams {
   }
 }
 
-export namespace EmploymentData {
+export namespace Employments {
   export import EmploymentData = API.EmploymentData;
   export import EmploymentDataResponse = API.EmploymentDataResponse;
   export type EmploymentDataResponsesResponsesPage = _EmploymentDataResponsesResponsesPage;
-  export import EmploymentDataRetrieveManyParams = API.EmploymentDataRetrieveManyParams;
+  export import EmploymentRetrieveManyParams = API.EmploymentRetrieveManyParams;
 }

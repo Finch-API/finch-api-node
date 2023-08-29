@@ -5,9 +5,9 @@ import { Response } from 'node-fetch';
 
 const finch = new Finch({ accessToken: 'something1234', baseURL: 'http://127.0.0.1:4010' });
 
-describe('resource employmentData', () => {
+describe('resource employments', () => {
   test('retrieveMany: only required params', async () => {
-    const responsePromise = finch.hris.individuals.employmentData.retrieveMany({
+    const responsePromise = finch.hris.employments.retrieveMany({
       requests: [{ individual_id: 'string' }, { individual_id: 'string' }, { individual_id: 'string' }],
     });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource employmentData', () => {
   });
 
   test('retrieveMany: required and optional params', async () => {
-    const response = await finch.hris.individuals.employmentData.retrieveMany({
+    const response = await finch.hris.employments.retrieveMany({
       requests: [{ individual_id: 'string' }, { individual_id: 'string' }, { individual_id: 'string' }],
     });
   });

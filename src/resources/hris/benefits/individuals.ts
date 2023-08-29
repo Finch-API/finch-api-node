@@ -77,22 +77,22 @@ export class Individuals extends APIResource {
    *
    * Unenroll individuals from a benefit
    */
-  unenroll(
+  unenrollMany(
     benefitId: string,
-    body?: IndividualUnenrollParams,
+    body?: IndividualUnenrollManyParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual>;
-  unenroll(
+  unenrollMany(
     benefitId: string,
     options?: Core.RequestOptions,
   ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual>;
-  unenroll(
+  unenrollMany(
     benefitId: string,
-    body: IndividualUnenrollParams | Core.RequestOptions = {},
+    body: IndividualUnenrollManyParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual> {
     if (isRequestOptions(body)) {
-      return this.unenroll(benefitId, {}, body);
+      return this.unenrollMany(benefitId, {}, body);
     }
     return this.getAPIList(`/employer/benefits/${benefitId}/individuals`, UnenrolledIndividualsSinglePage, {
       body,
@@ -233,7 +233,7 @@ export interface IndividualRetrieveManyBenefitsParams {
   individual_ids?: string;
 }
 
-export interface IndividualUnenrollParams {
+export interface IndividualUnenrollManyParams {
   /**
    * Array of individual_ids to unenroll.
    */
@@ -250,5 +250,5 @@ export namespace Individuals {
   export type UnenrolledIndividualsSinglePage = _UnenrolledIndividualsSinglePage;
   export import IndividualEnrollManyParams = API.IndividualEnrollManyParams;
   export import IndividualRetrieveManyBenefitsParams = API.IndividualRetrieveManyBenefitsParams;
-  export import IndividualUnenrollParams = API.IndividualUnenrollParams;
+  export import IndividualUnenrollManyParams = API.IndividualUnenrollManyParams;
 }

@@ -240,5 +240,5 @@ export namespace Benefits {
   export import UnenrolledIndividualsSinglePage = API.UnenrolledIndividualsSinglePage;
   export import IndividualEnrollManyParams = API.IndividualEnrollManyParams;
   export import IndividualRetrieveManyBenefitsParams = API.IndividualRetrieveManyBenefitsParams;
-  export import IndividualUnenrollParams = API.IndividualUnenrollParams;
+  export import IndividualUnenrollManyParams = API.IndividualUnenrollManyParams;
 }
