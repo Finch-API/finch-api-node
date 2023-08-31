@@ -19,9 +19,9 @@ describe('resource individuals', () => {
 
   test('enrollMany: required and optional params', async () => {
     const response = await finch.hris.benefits.individuals.enrollMany('string', [
-      { individual_id: 'string' },
-      { individual_id: 'string' },
-      { individual_id: 'string' },
+      { individual_id: 'string', configuration: {} },
+      { individual_id: 'string', configuration: {} },
+      { individual_id: 'string', configuration: {} },
     ]);
   });
 
