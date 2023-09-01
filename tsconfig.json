@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@tryfinch/finch-api/_shims/*": ["src/_shims/*.node"],
+      "@tryfinch/finch-api/_shims/*": ["src/_shims/*-node"],
       "@tryfinch/finch-api": ["src/index.ts"],
       "@tryfinch/finch-api/*": ["src/*"],
       "digest-fetch": ["./typings/digest-fetch"]
