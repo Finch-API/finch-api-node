@@ -1,7 +1,7 @@
 import { type RequestOptions } from './core';
 import { type Readable } from '@tryfinch/finch-api/_shims/node-readable';
 import { type BodyInit } from '@tryfinch/finch-api/_shims/fetch';
-import { FormData, File, type Blob, type FilePropertyBag } from '@tryfinch/finch-api/_shims/formdata';
+import { FormData, File, type Blob, type FilePropertyBag } from '@tryfinch/finch-api/_shims/form-data';
 import { getMultipartRequestOptions } from '@tryfinch/finch-api/_shims/getMultipartRequestOptions';
 import { fileFromPath } from '@tryfinch/finch-api/_shims/fileFromPath';
 import { type FsReadStream, isFsReadStream } from '@tryfinch/finch-api/_shims/node-readable';
