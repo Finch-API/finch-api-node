@@ -104,8 +104,8 @@ export class Finch extends Core.APIClient {
       accessToken,
       clientId,
       clientSecret,
-      baseURL: `https://api.tryfinch.com`,
       ...opts,
+      baseURL: opts.baseURL ?? `https://api.tryfinch.com`,
     };
 
     super({
