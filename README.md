@@ -16,7 +16,7 @@ yarn add @tryfinch/finch-api
 
 ## Usage
 
-The full API of this library can be found in [api.md](https://www.github.com/Finch-API/finch-api-node/blob/master/api.md).
+The full API of this library can be found in [api.md](https://www.github.com/Finch-API/finch-api-node/blob/main/api.md).
 
 ```js
 import Finch from '@tryfinch/finch-api';
