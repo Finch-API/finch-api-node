@@ -70,6 +70,8 @@ export interface ClientOptions {
   clientId?: string | null;
 
   clientSecret?: string | null;
+
+  webhookSecret?: string | null;
 }
 
 /** API Client for interfacing with the Finch API. */
@@ -77,6 +79,7 @@ export class Finch extends Core.APIClient {
   accessToken: string | null;
   clientId?: string | null;
   clientSecret?: string | null;
+  webhookSecret?: string | null;
 
   private _options: ClientOptions;
 
@@ -93,17 +96,20 @@ export class Finch extends Core.APIClient {
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    * @param {string | null} [opts.clientId]
    * @param {string | null} [opts.clientSecret]
+   * @param {string | null} [opts.webhookSecret]
    */
   constructor({
     accessToken = null,
     clientId = Core.readEnv('FINCH_CLIENT_ID') ?? null,
     clientSecret = Core.readEnv('FINCH_CLIENT_SECRET') ?? null,
+    webhookSecret = Core.readEnv('FINCH_WEBHOOK_SECRET') ?? null,
     ...opts
   }: ClientOptions = {}) {
     const options: ClientOptions = {
       accessToken,
       clientId,
       clientSecret,
+      webhookSecret,
       ...opts,
       baseURL: opts.baseURL ?? `https://api.tryfinch.com`,
     };
@@ -120,12 +126,14 @@ export class Finch extends Core.APIClient {
     this.accessToken = accessToken;
     this.clientId = clientId;
     this.clientSecret = clientSecret;
+    this.webhookSecret = webhookSecret;
   }
 
   hris: API.HRIS = new API.HRIS(this);
   ats: API.ATS = new API.ATS(this);
   providers: API.Providers = new API.Providers(this);
   account: API.Account = new API.Account(this);
+  webhooks: API.Webhooks = new API.Webhooks(this);
 
   /**
    * Returns an access token for the Finch API given an authorization code. An
@@ -293,6 +301,8 @@ export namespace Finch {
   export import Account = API.Account;
   export import DisconnectResponse = API.DisconnectResponse;
   export import Introspection = API.Introspection;
+
+  export import Webhooks = API.Webhooks;
 }
 
 export default Finch;
