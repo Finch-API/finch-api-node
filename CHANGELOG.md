@@ -1,5 +1,34 @@
 # Changelog
 
+## 5.1.0 (2023-09-08)
+
+Full Changelog: [v5.0.0...v5.1.0](https://github.com/Finch-API/finch-api-node/compare/v5.0.0...v5.1.0)
+
+### Features
+
+* add webhook verification methods ([#153](https://github.com/Finch-API/finch-api-node/issues/153)) ([bbcd2d3](https://github.com/Finch-API/finch-api-node/commit/bbcd2d397493d9697ae8f91cc4b878cb4767ee78))
+* **package:** add Bun export map ([#145](https://github.com/Finch-API/finch-api-node/issues/145)) ([a30eed3](https://github.com/Finch-API/finch-api-node/commit/a30eed30dbd6988855df99b969c9d38f438aeb9b))
+
+
+### Bug Fixes
+
+* **client:** fix TS errors that appear when users Go to Source in VSCode ([#150](https://github.com/Finch-API/finch-api-node/issues/150)) ([81cf41d](https://github.com/Finch-API/finch-api-node/commit/81cf41daa58ae151856655df3c28da642f24b014))
+* **client:** handle case where the client is instantiated with a undefined baseURL ([#151](https://github.com/Finch-API/finch-api-node/issues/151)) ([45c409c](https://github.com/Finch-API/finch-api-node/commit/45c409c1896920f2a01ae219c9fe41f86bf001a6))
+* **client:** use explicit file extensions in _shims imports ([#149](https://github.com/Finch-API/finch-api-node/issues/149)) ([5484933](https://github.com/Finch-API/finch-api-node/commit/54849335187d3639bd92afe67fccda1925073c26))
+* fix module not found errors in Vercel edge ([#156](https://github.com/Finch-API/finch-api-node/issues/156)) ([e39458c](https://github.com/Finch-API/finch-api-node/commit/e39458c3522e406ac246276daa4685549ace8393))
+* **readme:** update link to api.md to use the correct branch ([#154](https://github.com/Finch-API/finch-api-node/issues/154)) ([312a217](https://github.com/Finch-API/finch-api-node/commit/312a2172cfbf0e21af7759315c1247e97fd8ec92))
+
+
+### Chores
+
+* **internal:** add example for configuration ([#147](https://github.com/Finch-API/finch-api-node/issues/147)) ([ac9de99](https://github.com/Finch-API/finch-api-node/commit/ac9de99f30dc2cb31bf4361f68382f33c9a1ed9d))
+* **internal:** export helper from core ([#155](https://github.com/Finch-API/finch-api-node/issues/155)) ([46233a7](https://github.com/Finch-API/finch-api-node/commit/46233a78c56a25f5300f0766e47d8f90cc603733))
+
+
+### Documentation
+
+* **readme:** add link to api.md ([#152](https://github.com/Finch-API/finch-api-node/issues/152)) ([601c2ba](https://github.com/Finch-API/finch-api-node/commit/601c2ba9cc95cc9c06f55b652309828f6c5ddc1f))
+
 ## 5.0.0 (2023-08-29)
 
 Full Changelog: [v4.2.1...v5.0.0](https://github.com/Finch-API/finch-api-node/compare/v4.2.1...v5.0.0)
