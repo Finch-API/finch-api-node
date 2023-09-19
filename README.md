@@ -26,9 +26,9 @@ const finch = new Finch({
 });
 
 async function main() {
-  const candidate = await finch.ats.candidates.retrieve('<candidate id>');
-
-  console.log(candidate.first_name);
+  const page = await finch.hris.directory.listIndividuals();
+  const directory = page.individuals[0];
+  console.log(directory.first_name);
 }
 
 main();
@@ -46,7 +46,7 @@ const finch = new Finch({
 });
 
 async function main() {
-  const candidate: Finch.ATS.Candidate = await finch.ats.candidates.retrieve('<candidate id>');
+  const [directory]: [Finch.HRIS.IndividualInDirectory] = await finch.hris.directory.listIndividuals();
 }
 
 main();
@@ -138,22 +138,22 @@ List methods in the Finch API are paginated.
 You can use `for await … of` syntax to iterate through items across all pages:
 
 ```ts
-async function fetchAllATSJobs(params) {
-  const allATSJobs = [];
+async function fetchAllHRISDirectories(params) {
+  const allHRISDirectories = [];
   // Automatically fetches more pages as needed.
-  for await (const job of finch.ats.jobs.list()) {
-    allATSJobs.push(job);
+  for await (const directory of finch.hris.directory.listIndividuals()) {
+    allHRISDirectories.push(directory);
   }
-  return allATSJobs;
+  return allHRISDirectories;
 }
 ```
 
 Alternatively, you can make request a single page at a time:
 
 ```ts
-let page = await finch.ats.jobs.list();
-for (const job of page.jobs) {
-  console.log(job);
+let page = await finch.hris.directory.listIndividuals();
+for (const directory of page.individuals) {
+  console.log(directory);
 }
 
 // Convenience methods are provided for manually paginating:
@@ -176,9 +176,10 @@ import Finch from '@tryfinch/finch-api';
 
 const finch = new Finch();
 
-const candidate = await finch.ats.candidates.retrieve('<candidate id>', {
+const page = await finch.hris.directory.listIndividuals({
   headers: { 'Finch-API-Version': 'My-Custom-Value' },
 });
+const directory = page.individuals[0];
 ```
 
 ## Webhook Verification
@@ -221,15 +222,13 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const finch = new Finch();
 
-const response = await finch.ats.candidates.retrieve('<candidate id>').asResponse();
+const response = await finch.hris.directory.listIndividuals().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: candidates, response: raw } = await finch.ats.candidates
-  .retrieve('<candidate id>')
-  .withResponse();
+const { data: directory, response: raw } = await finch.hris.directory.listIndividuals().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(candidates.first_name);
+console.log(directory.first_name);
 ```
 
 ## Configuring an HTTP(S) Agent (e.g., for proxies)
