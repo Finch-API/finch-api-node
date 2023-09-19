@@ -130,7 +130,6 @@ export class Finch extends Core.APIClient {
   }
 
   hris: API.HRIS = new API.HRIS(this);
-  ats: API.ATS = new API.ATS(this);
   providers: API.Providers = new API.Providers(this);
   account: API.Account = new API.Account(this);
   webhooks: API.Webhooks = new API.Webhooks(this);
@@ -270,29 +269,11 @@ export namespace Finch {
   export import IndividualsPageParams = Pagination.IndividualsPageParams;
   export import IndividualsPageResponse = Pagination.IndividualsPageResponse;
 
-  export import CandidatesPage = Pagination.CandidatesPage;
-  export import CandidatesPageParams = Pagination.CandidatesPageParams;
-  export import CandidatesPageResponse = Pagination.CandidatesPageResponse;
-
-  export import ApplicationsPage = Pagination.ApplicationsPage;
-  export import ApplicationsPageParams = Pagination.ApplicationsPageParams;
-  export import ApplicationsPageResponse = Pagination.ApplicationsPageResponse;
-
-  export import JobsPage = Pagination.JobsPage;
-  export import JobsPageParams = Pagination.JobsPageParams;
-  export import JobsPageResponse = Pagination.JobsPageResponse;
-
-  export import OffersPage = Pagination.OffersPage;
-  export import OffersPageParams = Pagination.OffersPageParams;
-  export import OffersPageResponse = Pagination.OffersPageResponse;
-
   export import HRIS = API.HRIS;
   export import Income = API.Income;
   export import Location = API.Location;
   export import Money = API.Money;
   export import Paging = API.Paging;
-
-  export import ATS = API.ATS;
 
   export import Providers = API.Providers;
   export import Provider = API.Provider;
