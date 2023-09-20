@@ -3,12 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { APIUserAbortError } from '@tryfinch/finch-api';
 import { Headers } from '@tryfinch/finch-api/core';
-import {
-  Response,
-  fetch as defaultFetch,
-  type RequestInit,
-  type RequestInfo,
-} from '@tryfinch/finch-api/_shims/fetch';
+import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
 
 describe('instantiate client', () => {
   const env = process.env;

@@ -6,9 +6,9 @@
     "rootDir": "./deno",
     "lib": ["es2020", "DOM"],
     "paths": {
-      "@tryfinch/finch-api/_shims/*": ["deno/_shims/*"],
-      "@tryfinch/finch-api": ["deno/index.ts"],
+      "@tryfinch/finch-api/_shims/auto/*": ["deno/_shims/auto/*-deno"],
       "@tryfinch/finch-api/*": ["deno/*"],
+      "@tryfinch/finch-api": ["deno/index.ts"],
       "digest-fetch": ["./typings/digest-fetch"]
     },
     "noEmit": true,
