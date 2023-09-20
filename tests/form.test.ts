@@ -1,5 +1,5 @@
 import { multipartFormRequestOptions, createForm } from '@tryfinch/finch-api/core';
-import { Blob } from '@tryfinch/finch-api/_shims/form-data';
+import { Blob } from '@tryfinch/finch-api/_shims/index';
 import { toFile } from '@tryfinch/finch-api';
 
 describe('form data validation', () => {

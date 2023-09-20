@@ -1,5 +1,5 @@
 import { createResponseHeaders } from '@tryfinch/finch-api/core';
-import { Headers } from '@tryfinch/finch-api/_shims/fetch';
+import { Headers } from '@tryfinch/finch-api/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters
