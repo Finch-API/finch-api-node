@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { toFile, type ResponseLike } from '@tryfinch/finch-api/uploads';
-import { File } from '@tryfinch/finch-api/_shims/form-data';
+import { File } from '@tryfinch/finch-api/_shims/index';
 
 class MyClass {
   name: string = 'foo';
