@@ -1,5 +1,27 @@
 # Changelog
 
+## 5.2.0 (2023-09-21)
+
+Full Changelog: [v5.1.0...v5.2.0](https://github.com/Finch-API/finch-api-node/compare/v5.1.0...v5.2.0)
+
+### Features
+
+* **client:** retry on 408 Request Timeout ([#159](https://github.com/Finch-API/finch-api-node/issues/159)) ([b28c579](https://github.com/Finch-API/finch-api-node/commit/b28c57911bac472b249d23aa373c175a02877b20))
+* **client:** support importing node or web shims manually ([#166](https://github.com/Finch-API/finch-api-node/issues/166)) ([8812dcc](https://github.com/Finch-API/finch-api-node/commit/8812dccf79d3f9d9e3b6c026b4049f4eb0c7df35))
+* **errors:** add status code to error message ([#163](https://github.com/Finch-API/finch-api-node/issues/163)) ([edea234](https://github.com/Finch-API/finch-api-node/commit/edea234ee18e89e9313dcc3b49c172bdc3b750b8))
+
+
+### Chores
+
+* **api:** remove deprecated & unused ATS API ([#164](https://github.com/Finch-API/finch-api-node/issues/164)) ([e9377e8](https://github.com/Finch-API/finch-api-node/commit/e9377e81b26c08d023c64d1ec6fb7b160a1b92bf))
+
+
+### Documentation
+
+* declare Bun 1.0 officially supported ([#162](https://github.com/Finch-API/finch-api-node/issues/162)) ([b082f06](https://github.com/Finch-API/finch-api-node/commit/b082f06fb881e69331beed46ded0a7b2bbdb6235))
+* **README:** fix variable names in some examples ([#167](https://github.com/Finch-API/finch-api-node/issues/167)) ([7e83bae](https://github.com/Finch-API/finch-api-node/commit/7e83bae3434dc75b0cc10e647d56a11857a7fdab))
+* **readme:** remove incorrect wording in opening ([#165](https://github.com/Finch-API/finch-api-node/issues/165)) ([ec99ddb](https://github.com/Finch-API/finch-api-node/commit/ec99ddb8e80c94f47f591789981884813b54a837))
+
 ## 5.1.0 (2023-09-08)
 
 Full Changelog: [v5.0.0...v5.1.0](https://github.com/Finch-API/finch-api-node/compare/v5.0.0...v5.1.0)
