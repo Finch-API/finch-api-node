@@ -27,8 +27,9 @@ const finch = new Finch({
 
 async function main() {
   const page = await finch.hris.directory.listIndividuals();
-  const directory = page.individuals[0];
-  console.log(directory.first_name);
+  const individualInDirectory = page.individuals[0];
+
+  console.log(individualInDirectory.first_name);
 }
 
 main();
@@ -46,7 +47,8 @@ const finch = new Finch({
 });
 
 async function main() {
-  const [directory]: [Finch.HRIS.IndividualInDirectory] = await finch.hris.directory.listIndividuals();
+  const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] =
+    await finch.hris.directory.listIndividuals();
 }
 
 main();
@@ -141,8 +143,8 @@ You can use `for await … of` syntax to iterate through items across all pages:
 async function fetchAllHRISDirectories(params) {
   const allHRISDirectories = [];
   // Automatically fetches more pages as needed.
-  for await (const directory of finch.hris.directory.listIndividuals()) {
-    allHRISDirectories.push(directory);
+  for await (const individualInDirectory of finch.hris.directory.listIndividuals()) {
+    allHRISDirectories.push(individualInDirectory);
   }
   return allHRISDirectories;
 }
@@ -152,8 +154,8 @@ Alternatively, you can make request a single page at a time:
 
 ```ts
 let page = await finch.hris.directory.listIndividuals();
-for (const directory of page.individuals) {
-  console.log(directory);
+for (const individualInDirectory of page.individuals) {
+  console.log(individualInDirectory);
 }
 
 // Convenience methods are provided for manually paginating:
@@ -179,7 +181,7 @@ const finch = new Finch();
 const page = await finch.hris.directory.listIndividuals({
   headers: { 'Finch-API-Version': 'My-Custom-Value' },
 });
-const directory = page.individuals[0];
+const individualInDirectory = page.individuals[0];
 ```
 
 ## Webhook Verification
@@ -226,9 +228,11 @@ const response = await finch.hris.directory.listIndividuals().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: directory, response: raw } = await finch.hris.directory.listIndividuals().withResponse();
+const { data: page, response: raw } = await finch.hris.directory.listIndividuals().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(directory.first_name);
+for await (const individualInDirectory of page) {
+  console.log(individualInDirectory.first_name);
+}
 ```
 
 ## Configuring an HTTP(S) Agent (e.g., for proxies)
