@@ -57,6 +57,11 @@
       "hidden": true
     }
   ],
+  "reviewers": [
+    "jordanbrauer",
+    "M-Shehu",
+    "johnny-finch"
+  ],
   "release-type": "node",
   "extra-files": [
     "src/version.ts"
