@@ -220,6 +220,7 @@ export class Finch extends Core.APIClient {
 
   static Finch = this;
 
+  static FinchError = Errors.FinchError;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -235,6 +236,7 @@ export class Finch extends Core.APIClient {
 }
 
 export const {
+  FinchError,
   APIError,
   APIConnectionError,
   APIConnectionTimeoutError,
