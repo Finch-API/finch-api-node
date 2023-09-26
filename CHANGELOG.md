@@ -1,5 +1,26 @@
 # Changelog
 
+## 5.3.0 (2023-09-26)
+
+Full Changelog: [v5.2.0...v5.3.0](https://github.com/Finch-API/finch-api-node/compare/v5.2.0...v5.3.0)
+
+### Features
+
+* **ci:** add reviewers ([#170](https://github.com/Finch-API/finch-api-node/issues/170)) ([a29194d](https://github.com/Finch-API/finch-api-node/commit/a29194d11ceb8afbe8c9a98ddeadbf8c569bf068))
+* **client:** handle retry-after with a date ([#174](https://github.com/Finch-API/finch-api-node/issues/174)) ([747a82b](https://github.com/Finch-API/finch-api-node/commit/747a82b615fb85674922c630e6047c8e1b5f1306))
+* **package:** export a root error type ([#171](https://github.com/Finch-API/finch-api-node/issues/171)) ([1be7dc7](https://github.com/Finch-API/finch-api-node/commit/1be7dc713869cb5b27be34cd7b0876c0e2001827))
+
+
+### Chores
+
+* **internal:** update lock file ([#173](https://github.com/Finch-API/finch-api-node/issues/173)) ([0e92b0c](https://github.com/Finch-API/finch-api-node/commit/0e92b0cf0c7b21eea82965445ce0a8590d2b3205))
+* **internal:** update lock file ([#175](https://github.com/Finch-API/finch-api-node/issues/175)) ([bf8578e](https://github.com/Finch-API/finch-api-node/commit/bf8578e847c12ae95f5b019ee216daa02de14513))
+
+
+### Documentation
+
+* **api.md:** add shared models ([#168](https://github.com/Finch-API/finch-api-node/issues/168)) ([bd33a59](https://github.com/Finch-API/finch-api-node/commit/bd33a59358f131618262dd57fcfc38c18014d1a1))
+
 ## 5.2.0 (2023-09-21)
 
 Full Changelog: [v5.1.0...v5.2.0](https://github.com/Finch-API/finch-api-node/compare/v5.1.0...v5.2.0)
