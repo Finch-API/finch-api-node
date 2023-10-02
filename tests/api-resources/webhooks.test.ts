@@ -2,7 +2,10 @@
 
 import Finch from '@tryfinch/finch-api';
 
-const finch = new Finch({ accessToken: 'something1234', baseURL: 'http://127.0.0.1:4010' });
+const finch = new Finch({
+  accessToken: 'something1234',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+});
 
 describe('resource webhooks', () => {
   const payload = `{"company_id":"720be419-0293-4d32-a707-32179b0827ab"}`;
