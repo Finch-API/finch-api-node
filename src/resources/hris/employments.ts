@@ -98,6 +98,11 @@ export interface EmploymentData {
    */
   pay_group_ids?: Array<string> | null;
 
+  /**
+   * The source system's unique employment identifier for this individual
+   */
+  source_id?: string | null;
+
   start_date?: string | null;
 
   /**
