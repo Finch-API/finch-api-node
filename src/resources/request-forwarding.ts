@@ -83,8 +83,8 @@ export namespace RequestForwardingForwardResponse {
 
 export interface RequestForwardingForwardParams {
   /**
-   * The HTTP method for the forwarded request. Valid values include: `GET` , `POST`
-   * , `PUT` , `DELETE` , and `PATCH`.
+   * The HTTP method for the forwarded request. Valid values include: `GET`, `POST`,
+   * `PUT`, `DELETE`, and `PATCH`.
    */
   method: string;
 
