@@ -98,7 +98,7 @@ export interface Money {
   /**
    * Amount for money object (in cents)
    */
-  amount?: number;
+  amount?: number | null;
 
   currency?: string;
 }

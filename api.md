@@ -142,3 +142,13 @@ Methods:
 
 - <code>client.webhooks.<a href="./src/resources/webhooks.ts">unwrap</a>(payload, headers, secret) -> Object</code>
 - <code>client.webhooks.<a href="./src/resources/webhooks.ts">verifySignature</a>(body, headers, secret) -> void</code>
+
+# RequestForwarding
+
+Types:
+
+- <code><a href="./src/resources/request-forwarding.ts">RequestForwardingForwardResponse</a></code>
+
+Methods:
+
+- <code title="post /forward">client.requestForwarding.<a href="./src/resources/request-forwarding.ts">forward</a>({ ...params }) -> RequestForwardingForwardResponse</code>
