@@ -1,7 +1,12 @@
 # Finch
 
+Types:
+
+- <code><a href="./src/resources/top-level.ts">ForwardResponse</a></code>
+
 Methods:
 
+- <code title="post /forward">client.<a href="./src/index.ts">forward</a>({ ...params }) -> ForwardResponse</code>
 - <code>client.<a href="./src/index.ts">getAccessToken</a>(code, { redirectUri }) -> Promise&lt;string&gt;</code>
 - <code>client.<a href="./src/index.ts">getAuthURL</a>({ products, redirectUri, sandbox }) -> string</code>
 
@@ -118,6 +123,7 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/providers.ts">BenefitSupportType</a></code>
 - <code><a href="./src/resources/providers.ts">Provider</a></code>
 
 Methods:
@@ -142,3 +148,15 @@ Methods:
 
 - <code>client.webhooks.<a href="./src/resources/webhooks.ts">unwrap</a>(payload, headers, secret) -> Object</code>
 - <code>client.webhooks.<a href="./src/resources/webhooks.ts">verifySignature</a>(body, headers, secret) -> void</code>
+
+# Employer
+
+## Benefits
+
+Types:
+
+- <code><a href="./src/resources/employer/benefits.ts">RegisterCompanyBenefitsResponse</a></code>
+
+Methods:
+
+- <code title="post /employer/benefits/register">client.employer.benefits.<a href="./src/resources/employer/benefits.ts">register</a>({ ...params }) -> RegisterCompanyBenefitsResponse</code>

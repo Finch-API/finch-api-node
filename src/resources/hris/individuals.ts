@@ -46,6 +46,20 @@ export interface Individual {
   emails?: Array<Individual.Email> | null;
 
   /**
+   * The EEOC-defined ethnicity of the individual.
+   */
+  ethnicity?:
+    | 'asian'
+    | 'white'
+    | 'black_or_african_american'
+    | 'native_hawaiian_or_pacific_islander'
+    | 'american_indian_or_alaska_native'
+    | 'hispanic_or_latino'
+    | 'two_or_more_races'
+    | 'decline_to_specify'
+    | null;
+
+  /**
    * The legal first name of the individual.
    */
   first_name?: string | null;

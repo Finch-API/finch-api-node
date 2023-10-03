@@ -133,6 +133,17 @@ export class Finch extends Core.APIClient {
   providers: API.Providers = new API.Providers(this);
   account: API.Account = new API.Account(this);
   webhooks: API.Webhooks = new API.Webhooks(this);
+  employer: API.Employer = new API.Employer(this);
+
+  /**
+   * The Forward API allows you to make direct requests to an employment system. If
+   * Finch’s unified API doesn’t have a data model that cleanly fits your needs, then
+   * Forward allows you to push or pull data models directly against an integration’s
+   * API.
+   */
+  forward(body: Finch.ForwardParams, options?: Core.RequestOptions): Core.APIPromise<Finch.ForwardResponse> {
+    return this.post('/forward', { body, ...options });
+  }
 
   /**
    * Returns an access token for the Finch API given an authorization code. An
@@ -271,6 +282,9 @@ export namespace Finch {
   export import IndividualsPageParams = Pagination.IndividualsPageParams;
   export import IndividualsPageResponse = Pagination.IndividualsPageResponse;
 
+  export import ForwardResponse = API.ForwardResponse;
+  export import ForwardParams = API.ForwardParams;
+
   export import HRIS = API.HRIS;
   export import Income = API.Income;
   export import Location = API.Location;
@@ -278,6 +292,7 @@ export namespace Finch {
   export import Paging = API.Paging;
 
   export import Providers = API.Providers;
+  export import BenefitSupportType = API.BenefitSupportType;
   export import Provider = API.Provider;
   export import ProvidersSinglePage = API.ProvidersSinglePage;
 
@@ -286,6 +301,8 @@ export namespace Finch {
   export import Introspection = API.Introspection;
 
   export import Webhooks = API.Webhooks;
+
+  export import Employer = API.Employer;
 }
 
 export default Finch;

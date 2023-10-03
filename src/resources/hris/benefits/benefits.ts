@@ -92,7 +92,7 @@ export class SupportedBenefitsSinglePage extends SinglePage<SupportedBenefit> {}
 // alias so we can export it in the namespace
 type _SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
 
-export type BenefitFrequency = 'one_time' | 'every_paycheck' | null;
+export type BenefitFrequency = 'one_time' | 'every_paycheck' | 'monthly' | null;
 
 /**
  * Type of benefit.

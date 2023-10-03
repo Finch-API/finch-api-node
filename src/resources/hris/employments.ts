@@ -42,6 +42,12 @@ export interface EmploymentData {
   class_code?: string | null;
 
   /**
+   * Custom fields for the individual. These are fields which are defined by the
+   * employer in the system.
+   */
+  custom_fields?: Array<EmploymentData.CustomField> | null;
+
+  /**
    * The department object.
    */
   department?: EmploymentData.Department | null;
@@ -98,6 +104,11 @@ export interface EmploymentData {
    */
   pay_group_ids?: Array<string> | null;
 
+  /**
+   * The source system's unique employment identifier for this individual
+   */
+  source_id?: string | null;
+
   start_date?: string | null;
 
   /**
@@ -119,6 +130,12 @@ export interface EmploymentData {
 }
 
 export namespace EmploymentData {
+  export interface CustomField {
+    name?: string;
+
+    value?: unknown;
+  }
+
   /**
    * The department object.
    */
