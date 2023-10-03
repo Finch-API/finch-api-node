@@ -10,7 +10,7 @@ const finch = new Finch({
 
 describe('resource individuals', () => {
   test('enrollMany: only required params', async () => {
-    const responsePromise = finch.hris.benefits.individuals.enrollMany('string', [{}, {}, {}]);
+    const responsePromise = finch.hris.benefits.individuals.enrollMany('string', [{}]);
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,9 +22,15 @@ describe('resource individuals', () => {
 
   test('enrollMany: required and optional params', async () => {
     const response = await finch.hris.benefits.individuals.enrollMany('string', [
-      { individual_id: 'string', configuration: {} },
-      { individual_id: 'string', configuration: {} },
-      { individual_id: 'string', configuration: {} },
+      {
+        individual_id: 'd02a6346-1f08-4312-a064-49ff3cafaa7a',
+        configuration: {
+          employee_deduction: { type: 'percent', amount: 1000 },
+          company_contribution: { type: 'percent', amount: 400 },
+          catch_up: false,
+          annual_maximum: 500000,
+        },
+      },
     ]);
   });
 
