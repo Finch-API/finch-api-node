@@ -1,5 +1,21 @@
 # Changelog
 
+## 5.4.0 (2023-10-03)
+
+Full Changelog: [v5.3.0...v5.4.0](https://github.com/Finch-API/finch-api-node/compare/v5.3.0...v5.4.0)
+
+### Features
+
+* **api:** add `/forward` endpoint and other updates ([#181](https://github.com/Finch-API/finch-api-node/issues/181)) ([cb720d9](https://github.com/Finch-API/finch-api-node/commit/cb720d939f06d24707185dff50483433237b1401))
+
+
+### Chores
+
+* **docs:** adjust some docstrings ([#182](https://github.com/Finch-API/finch-api-node/issues/182)) ([7ae0d7f](https://github.com/Finch-API/finch-api-node/commit/7ae0d7f2874fc75191d588029c3d056293daf26d))
+* **docs:** adjust some docstrings ([#184](https://github.com/Finch-API/finch-api-node/issues/184)) ([161c7e0](https://github.com/Finch-API/finch-api-node/commit/161c7e062e870f25ce860868792b025037f22a21))
+* **internal:** update lock file ([#176](https://github.com/Finch-API/finch-api-node/issues/176)) ([1bfc032](https://github.com/Finch-API/finch-api-node/commit/1bfc03219892e0a19dc60d8703b6f8afcf13af87))
+* **tests:** update test examples ([#183](https://github.com/Finch-API/finch-api-node/issues/183)) ([6865f9f](https://github.com/Finch-API/finch-api-node/commit/6865f9f3a52ef342ca85fdc202e0609949cfabc8))
+
 ## 5.3.0 (2023-09-26)
 
 Full Changelog: [v5.2.0...v5.3.0](https://github.com/Finch-API/finch-api-node/compare/v5.2.0...v5.3.0)
