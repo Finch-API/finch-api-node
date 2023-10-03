@@ -40,9 +40,8 @@ export interface Provider {
   logo?: string;
 
   /**
-   * [DEPRECATED] Whether the Finch integration with this provider uses the Assisted
-   * Connect Flow by default. This field is now deprecated. Please check for a `type`
-   * of `assisted` in the `authentication_methods` field instead.
+   * Whether the Finch integration with this provider uses the Assisted Connect Flow
+   * by default.
    */
   manual?: boolean;
 
