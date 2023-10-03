@@ -64,7 +64,7 @@ export namespace RequestForwardingForwardResponse {
 
     /**
      * The HTTP method that was specified for the forwarded request. Valid values
-     * include: `GET` , `POST` , `PUT` , `DELETE` , and `PATCH`.
+     * include: `GET`, `POST`, `PUT` , `DELETE`, and `PATCH`.
      */
     method: string;
 
