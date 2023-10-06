@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.4.2 (2023-10-06)
+
+Full Changelog: [v5.4.1...v5.4.2](https://github.com/Finch-API/finch-api-node/compare/v5.4.1...v5.4.2)
+
+### Bug Fixes
+
+* prevent ReferenceError, update compatibility to ES2020 and Node 18+ ([#187](https://github.com/Finch-API/finch-api-node/issues/187)) ([92eb90f](https://github.com/Finch-API/finch-api-node/commit/92eb90f393e52b00f565c8af7bdf0dc7df8bf183))
+
 ## 5.4.1 (2023-10-06)
 
 Full Changelog: [v5.4.0...v5.4.1](https://github.com/finch-api/finch-api-node/compare/v5.4.0...v5.4.1)
