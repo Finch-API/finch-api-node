@@ -4,7 +4,7 @@
 
 This library provides convenient access to the Finch REST API from server-side TypeScript or JavaScript.
 
-The API documentation can be found [here](https://developer.tryfinch.com/).
+The API documentation can be found [in the Finch Documentation Center](https://developer.tryfinch.com/).
 
 ## Installation
 
@@ -26,7 +26,7 @@ const finch = new Finch({
 });
 
 async function main() {
-  const page = await finch.hris.directory.listIndividuals();
+  const page = await finch.hris.directory.list();
   const individualInDirectory = page.individuals[0];
 
   console.log(individualInDirectory.first_name);
@@ -47,8 +47,7 @@ const finch = new Finch({
 });
 
 async function main() {
-  const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] =
-    await finch.hris.directory.listIndividuals();
+  const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] = await finch.hris.directory.list();
 }
 
 main();
@@ -64,7 +63,7 @@ a subclass of `APIError` will be thrown:
 
 ```ts
 async function main() {
-  const directory = await finch.hris.directory.listIndividuals().catch((err) => {
+  const directory = await finch.hris.directory.list().catch((err) => {
     if (err instanceof Finch.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -108,7 +107,7 @@ const finch = new Finch({
 });
 
 // Or, configure per-request:
-await finch.hris.directory.listIndividuals({
+await finch.hris.directory.list({
   maxRetries: 5,
 });
 ```
@@ -125,7 +124,7 @@ const finch = new Finch({
 });
 
 // Override per-request:
-await finch.hris.directory.listIndividuals({
+await finch.hris.directory.list({
   timeout: 5 * 1000,
 });
 ```
@@ -143,7 +142,7 @@ You can use `for await … of` syntax to iterate through items across all pages:
 async function fetchAllHRISDirectories(params) {
   const allHRISDirectories = [];
   // Automatically fetches more pages as needed.
-  for await (const individualInDirectory of finch.hris.directory.listIndividuals()) {
+  for await (const individualInDirectory of finch.hris.directory.list()) {
     allHRISDirectories.push(individualInDirectory);
   }
   return allHRISDirectories;
@@ -153,7 +152,7 @@ async function fetchAllHRISDirectories(params) {
 Alternatively, you can make request a single page at a time:
 
 ```ts
-let page = await finch.hris.directory.listIndividuals();
+let page = await finch.hris.directory.list();
 for (const individualInDirectory of page.individuals) {
   console.log(individualInDirectory);
 }
@@ -178,9 +177,7 @@ import Finch from '@tryfinch/finch-api';
 
 const finch = new Finch();
 
-const page = await finch.hris.directory.listIndividuals({
-  headers: { 'Finch-API-Version': 'My-Custom-Value' },
-});
+const page = await finch.hris.directory.list({ headers: { 'Finch-API-Version': 'My-Custom-Value' } });
 const individualInDirectory = page.individuals[0];
 ```
 
@@ -224,11 +221,11 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const finch = new Finch();
 
-const response = await finch.hris.directory.listIndividuals().asResponse();
+const response = await finch.hris.directory.list().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: page, response: raw } = await finch.hris.directory.listIndividuals().withResponse();
+const { data: page, response: raw } = await finch.hris.directory.list().withResponse();
 console.log(raw.headers.get('X-My-Header'));
 for await (const individualInDirectory of page) {
   console.log(individualInDirectory.first_name);
@@ -252,7 +249,7 @@ const finch = new Finch({
 });
 
 // Override per-request:
-await finch.hris.directory.listIndividuals({
+await finch.hris.directory.list({
   baseURL: 'http://localhost:8080/test-api',
   httpAgent: new http.Agent({ keepAlive: false }),
 })
@@ -260,7 +257,7 @@ await finch.hris.directory.listIndividuals({
 
 ## Semantic Versioning
 
-This package generally attempts to follow [SemVer](https://semver.org/spec/v2.0.0.html) conventions, though certain backwards-incompatible changes may be released as minor versions:
+This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) conventions, though certain backwards-incompatible changes may be released as minor versions:
 
 1. Changes that only affect static types, without breaking runtime behavior.
 2. Changes to library internals which are technically public but not intended or documented for external use. _(Please open a GitHub issue to let us know if you are relying on such internals)_.

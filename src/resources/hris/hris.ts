@@ -124,6 +124,7 @@ export namespace HRIS {
   export import Company = CompanyAPI.Company;
   export import Directory = DirectoryAPI.Directory;
   export import IndividualInDirectory = DirectoryAPI.IndividualInDirectory;
+  export import DirectoryListParams = DirectoryAPI.DirectoryListParams;
   export import DirectoryListIndividualsParams = DirectoryAPI.DirectoryListIndividualsParams;
   export import Individuals = IndividualsAPI.Individuals;
   export import Individual = IndividualsAPI.Individual;
@@ -146,8 +147,12 @@ export namespace HRIS {
   export import PayStatementResponsesPage = PayStatementsAPI.PayStatementResponsesPage;
   export import PayStatementRetrieveManyParams = PayStatementsAPI.PayStatementRetrieveManyParams;
   export import Benefits = BenefitsAPI.Benefits;
+  export import BenefitContribution = BenefitsAPI.BenefitContribution;
   export import BenefitFrequency = BenefitsAPI.BenefitFrequency;
   export import BenefitType = BenefitsAPI.BenefitType;
+  /**
+   * @deprecated use `BenefitContribution` instead
+   */
   export import BenfitContribution = BenefitsAPI.BenfitContribution;
   export import CompanyBenefit = BenefitsAPI.CompanyBenefit;
   export import CreateCompanyBenefitsResponse = BenefitsAPI.CreateCompanyBenefitsResponse;
