@@ -2,9 +2,9 @@
 
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
-import * as HRIS from '@tryfinch/finch-api/resources/hris/index';
-import * as Benefits from '@tryfinch/finch-api/resources/hris/benefits/index';
-import * as API from './index';
+import * as PayStatementsAPI from '@tryfinch/finch-api/resources/hris/pay-statements';
+import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
+import * as BenefitsAPI from '@tryfinch/finch-api/resources/hris/benefits/benefits';
 import { ResponsesPage } from '@tryfinch/finch-api/pagination';
 
 export class PayStatements extends APIResource {
@@ -27,8 +27,6 @@ export class PayStatements extends APIResource {
 }
 
 export class PayStatementResponsesPage extends ResponsesPage<PayStatementResponse> {}
-// alias so we can export it in the namespace
-type _PayStatementResponsesPage = PayStatementResponsesPage;
 
 export interface PayStatement {
   /**
@@ -43,14 +41,14 @@ export interface PayStatement {
 
   employer_contributions?: Array<PayStatement.EmployerContribution | null> | null;
 
-  gross_pay?: HRIS.Money | null;
+  gross_pay?: HRISAPI.Money | null;
 
   /**
    * A stable Finch `id` (UUID v4) for an individual in the company
    */
   individual_id?: string;
 
-  net_pay?: HRIS.Money | null;
+  net_pay?: HRISAPI.Money | null;
 
   /**
    * The payment method.
@@ -140,7 +138,7 @@ export namespace PayStatement {
     /**
      * Type of benefit.
      */
-    type?: Benefits.BenefitType | null;
+    type?: BenefitsAPI.BenefitType | null;
   }
 
   export interface EmployerContribution {
@@ -162,7 +160,7 @@ export namespace PayStatement {
     /**
      * Type of benefit.
      */
-    type?: Benefits.BenefitType | null;
+    type?: BenefitsAPI.BenefitType | null;
   }
 
   export interface Tax {
@@ -202,7 +200,7 @@ export interface PayStatementResponse {
 }
 
 export interface PayStatementResponseBody {
-  paging?: HRIS.Paging;
+  paging?: HRISAPI.Paging;
 
   /**
    * The array of pay statements for the current payment.
@@ -237,9 +235,9 @@ export namespace PayStatementRetrieveManyParams {
 }
 
 export namespace PayStatements {
-  export import PayStatement = API.PayStatement;
-  export import PayStatementResponse = API.PayStatementResponse;
-  export import PayStatementResponseBody = API.PayStatementResponseBody;
-  export type PayStatementResponsesPage = _PayStatementResponsesPage;
-  export import PayStatementRetrieveManyParams = API.PayStatementRetrieveManyParams;
+  export type PayStatement = PayStatementsAPI.PayStatement;
+  export type PayStatementResponse = PayStatementsAPI.PayStatementResponse;
+  export type PayStatementResponseBody = PayStatementsAPI.PayStatementResponseBody;
+  export import PayStatementResponsesPage = PayStatementsAPI.PayStatementResponsesPage;
+  export type PayStatementRetrieveManyParams = PayStatementsAPI.PayStatementRetrieveManyParams;
 }

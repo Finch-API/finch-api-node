@@ -2,7 +2,7 @@
 
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
-import * as API from './index';
+import * as ProvidersAPI from '@tryfinch/finch-api/resources/providers';
 import { SinglePage } from '@tryfinch/finch-api/pagination';
 
 export class Providers extends APIResource {
@@ -15,8 +15,6 @@ export class Providers extends APIResource {
 }
 
 export class ProvidersSinglePage extends SinglePage<Provider> {}
-// alias so we can export it in the namespace
-type _ProvidersSinglePage = ProvidersSinglePage;
 
 export interface Provider {
   /**
@@ -62,6 +60,6 @@ export interface Provider {
 }
 
 export namespace Providers {
-  export import Provider = API.Provider;
-  export type ProvidersSinglePage = _ProvidersSinglePage;
+  export type Provider = ProvidersAPI.Provider;
+  export import ProvidersSinglePage = ProvidersAPI.ProvidersSinglePage;
 }

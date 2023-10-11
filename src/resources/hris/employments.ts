@@ -2,8 +2,8 @@
 
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
-import * as HRIS from '@tryfinch/finch-api/resources/hris/index';
-import * as API from './index';
+import * as EmploymentsAPI from '@tryfinch/finch-api/resources/hris/employments';
+import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
 import { ResponsesPage } from '@tryfinch/finch-api/pagination';
 
 export class Employments extends APIResource {
@@ -27,8 +27,6 @@ export class Employments extends APIResource {
 }
 
 export class EmploymentDataResponsesPage extends ResponsesPage<EmploymentDataResponse> {}
-// alias so we can export it in the namespace
-type _EmploymentDataResponsesPage = EmploymentDataResponsesPage;
 
 export interface EmploymentData {
   /**
@@ -63,12 +61,12 @@ export interface EmploymentData {
    * annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc,
    * depending on what information the provider returns.
    */
-  income?: HRIS.Income | null;
+  income?: HRISAPI.Income | null;
 
   /**
    * The array of income history.
    */
-  income_history?: Array<HRIS.Income | null> | null;
+  income_history?: Array<HRISAPI.Income | null> | null;
 
   /**
    * `true` if the individual an an active employee or contractor at the company.
@@ -80,7 +78,7 @@ export interface EmploymentData {
    */
   last_name?: string | null;
 
-  location?: HRIS.Location | null;
+  location?: HRISAPI.Location | null;
 
   /**
    * The manager object representing the manager of the individual within the org.
@@ -187,8 +185,8 @@ export namespace EmploymentRetrieveManyParams {
 }
 
 export namespace Employments {
-  export import EmploymentData = API.EmploymentData;
-  export import EmploymentDataResponse = API.EmploymentDataResponse;
-  export type EmploymentDataResponsesPage = _EmploymentDataResponsesPage;
-  export import EmploymentRetrieveManyParams = API.EmploymentRetrieveManyParams;
+  export type EmploymentData = EmploymentsAPI.EmploymentData;
+  export type EmploymentDataResponse = EmploymentsAPI.EmploymentDataResponse;
+  export import EmploymentDataResponsesPage = EmploymentsAPI.EmploymentDataResponsesPage;
+  export type EmploymentRetrieveManyParams = EmploymentsAPI.EmploymentRetrieveManyParams;
 }

@@ -1,7 +1,8 @@
 // File generated from our OpenAPI spec by Stainless.
 
 import { AbstractPage, Response, APIClient, FinalRequestOptions, PageInfo } from './core';
-import * as HRIS from './resources/hris/index';
+import * as DirectoryAPI from '@tryfinch/finch-api/resources/hris/directory';
+import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
 
 export type SinglePageResponse<Item> = Item[];
 
@@ -77,9 +78,9 @@ export interface IndividualsPageResponse {
   /**
    * The array of employees.
    */
-  individuals: Array<HRIS.IndividualInDirectory>;
+  individuals: Array<DirectoryAPI.IndividualInDirectory>;
 
-  paging: HRIS.Paging;
+  paging: HRISAPI.Paging;
 }
 
 export interface IndividualsPageParams {
@@ -95,15 +96,15 @@ export interface IndividualsPageParams {
 }
 
 export class IndividualsPage
-  extends AbstractPage<HRIS.IndividualInDirectory>
+  extends AbstractPage<DirectoryAPI.IndividualInDirectory>
   implements IndividualsPageResponse
 {
-  paging: HRIS.Paging;
+  paging: HRISAPI.Paging;
 
   /**
    * The array of employees.
    */
-  individuals: Array<HRIS.IndividualInDirectory>;
+  individuals: Array<DirectoryAPI.IndividualInDirectory>;
 
   constructor(
     client: APIClient,
@@ -117,7 +118,7 @@ export class IndividualsPage
     this.individuals = body.individuals;
   }
 
-  getPaginatedItems(): HRIS.IndividualInDirectory[] {
+  getPaginatedItems(): DirectoryAPI.IndividualInDirectory[] {
     return this.individuals;
   }
 
