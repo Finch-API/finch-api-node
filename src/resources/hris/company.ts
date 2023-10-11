@@ -128,5 +128,5 @@ export namespace Company {
 }
 
 export namespace CompanyResource {
-  export type Company = CompanyAPI.Company;
+  export import Company = CompanyAPI.Company;
 }
