@@ -2,8 +2,8 @@
 
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
-import * as HRIS from '@tryfinch/finch-api/resources/hris/index';
-import * as API from './index';
+import * as CompanyAPI from '@tryfinch/finch-api/resources/hris/company';
+import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
 
 export class CompanyResource extends APIResource {
   /**
@@ -45,7 +45,7 @@ export interface Company {
    */
   legal_name: string | null;
 
-  locations: Array<HRIS.Location | null> | null;
+  locations: Array<HRISAPI.Location | null> | null;
 
   /**
    * The email of the main administrator on the account.
@@ -128,5 +128,5 @@ export namespace Company {
 }
 
 export namespace CompanyResource {
-  export import Company = API.Company;
+  export type Company = CompanyAPI.Company;
 }

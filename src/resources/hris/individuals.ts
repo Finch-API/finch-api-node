@@ -3,8 +3,8 @@
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
 import { isRequestOptions } from '@tryfinch/finch-api/core';
-import * as HRIS from '@tryfinch/finch-api/resources/hris/index';
-import * as API from './index';
+import * as IndividualsAPI from '@tryfinch/finch-api/resources/hris/individuals';
+import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
 import { ResponsesPage } from '@tryfinch/finch-api/pagination';
 
 export class Individuals extends APIResource {
@@ -32,8 +32,6 @@ export class Individuals extends APIResource {
 }
 
 export class IndividualResponsesPage extends ResponsesPage<IndividualResponse> {}
-// alias so we can export it in the namespace
-type _IndividualResponsesPage = IndividualResponsesPage;
 
 export interface Individual {
   /**
@@ -72,7 +70,7 @@ export interface Individual {
    */
   preferred_name?: string | null;
 
-  residence?: HRIS.Location | null;
+  residence?: HRISAPI.Location | null;
 
   /**
    * Note: This property is only available if enabled for your account. Please reach
@@ -120,8 +118,8 @@ export namespace IndividualRetrieveManyParams {
 }
 
 export namespace Individuals {
-  export import Individual = API.Individual;
-  export import IndividualResponse = API.IndividualResponse;
-  export type IndividualResponsesPage = _IndividualResponsesPage;
-  export import IndividualRetrieveManyParams = API.IndividualRetrieveManyParams;
+  export type Individual = IndividualsAPI.Individual;
+  export type IndividualResponse = IndividualsAPI.IndividualResponse;
+  export import IndividualResponsesPage = IndividualsAPI.IndividualResponsesPage;
+  export type IndividualRetrieveManyParams = IndividualsAPI.IndividualRetrieveManyParams;
 }

@@ -3,12 +3,12 @@
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
 import { isRequestOptions } from '@tryfinch/finch-api/core';
-import { Individuals } from './individuals';
-import * as API from './index';
+import * as BenefitsAPI from '@tryfinch/finch-api/resources/hris/benefits/benefits';
+import * as IndividualsAPI from '@tryfinch/finch-api/resources/hris/benefits/individuals';
 import { SinglePage } from '@tryfinch/finch-api/pagination';
 
 export class Benefits extends APIResource {
-  individuals: Individuals = new Individuals(this.client);
+  individuals: IndividualsAPI.Individuals = new IndividualsAPI.Individuals(this.client);
 
   /**
    * **Availability: Automated and Assisted Benefits providers**
@@ -85,12 +85,8 @@ export class Benefits extends APIResource {
 }
 
 export class CompanyBenefitsSinglePage extends SinglePage<CompanyBenefit> {}
-// alias so we can export it in the namespace
-type _CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
 
 export class SupportedBenefitsSinglePage extends SinglePage<SupportedBenefit> {}
-// alias so we can export it in the namespace
-type _SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
 
 export type BenefitFrequency = 'one_time' | 'every_paycheck' | null;
 
@@ -218,27 +214,26 @@ export interface BenefitUpdateParams {
 }
 
 export namespace Benefits {
-  export import BenefitFrequency = API.BenefitFrequency;
-  export import BenefitType = API.BenefitType;
-  export import BenfitContribution = API.BenfitContribution;
-  export import CompanyBenefit = API.CompanyBenefit;
-  export import CreateCompanyBenefitsResponse = API.CreateCompanyBenefitsResponse;
-  export import SupportedBenefit = API.SupportedBenefit;
-  export import UpdateCompanyBenefitResponse = API.UpdateCompanyBenefitResponse;
-  export type CompanyBenefitsSinglePage = _CompanyBenefitsSinglePage;
-  export type SupportedBenefitsSinglePage = _SupportedBenefitsSinglePage;
-  export import BenefitCreateParams = API.BenefitCreateParams;
-  export import BenefitUpdateParams = API.BenefitUpdateParams;
-
-  export import Individuals = API.Individuals;
-  export import EnrolledIndividual = API.EnrolledIndividual;
-  export import IndividualBenefit = API.IndividualBenefit;
-  export import UnenrolledIndividual = API.UnenrolledIndividual;
-  export import IndividualEnrolledIDsResponse = API.IndividualEnrolledIDsResponse;
-  export import EnrolledIndividualsSinglePage = API.EnrolledIndividualsSinglePage;
-  export import IndividualBenefitsSinglePage = API.IndividualBenefitsSinglePage;
-  export import UnenrolledIndividualsSinglePage = API.UnenrolledIndividualsSinglePage;
-  export import IndividualEnrollManyParams = API.IndividualEnrollManyParams;
-  export import IndividualRetrieveManyBenefitsParams = API.IndividualRetrieveManyBenefitsParams;
-  export import IndividualUnenrollManyParams = API.IndividualUnenrollManyParams;
+  export type BenefitFrequency = BenefitsAPI.BenefitFrequency;
+  export type BenefitType = BenefitsAPI.BenefitType;
+  export type BenfitContribution = BenefitsAPI.BenfitContribution;
+  export type CompanyBenefit = BenefitsAPI.CompanyBenefit;
+  export type CreateCompanyBenefitsResponse = BenefitsAPI.CreateCompanyBenefitsResponse;
+  export type SupportedBenefit = BenefitsAPI.SupportedBenefit;
+  export type UpdateCompanyBenefitResponse = BenefitsAPI.UpdateCompanyBenefitResponse;
+  export import CompanyBenefitsSinglePage = BenefitsAPI.CompanyBenefitsSinglePage;
+  export import SupportedBenefitsSinglePage = BenefitsAPI.SupportedBenefitsSinglePage;
+  export type BenefitCreateParams = BenefitsAPI.BenefitCreateParams;
+  export type BenefitUpdateParams = BenefitsAPI.BenefitUpdateParams;
+  export import Individuals = IndividualsAPI.Individuals;
+  export type EnrolledIndividual = IndividualsAPI.EnrolledIndividual;
+  export type IndividualBenefit = IndividualsAPI.IndividualBenefit;
+  export type UnenrolledIndividual = IndividualsAPI.UnenrolledIndividual;
+  export type IndividualEnrolledIDsResponse = IndividualsAPI.IndividualEnrolledIDsResponse;
+  export import EnrolledIndividualsSinglePage = IndividualsAPI.EnrolledIndividualsSinglePage;
+  export import IndividualBenefitsSinglePage = IndividualsAPI.IndividualBenefitsSinglePage;
+  export import UnenrolledIndividualsSinglePage = IndividualsAPI.UnenrolledIndividualsSinglePage;
+  export type IndividualEnrollManyParams = IndividualsAPI.IndividualEnrollManyParams;
+  export type IndividualRetrieveManyBenefitsParams = IndividualsAPI.IndividualRetrieveManyBenefitsParams;
+  export type IndividualUnenrollManyParams = IndividualsAPI.IndividualUnenrollManyParams;
 }

@@ -1,23 +1,23 @@
 // File generated from our OpenAPI spec by Stainless.
 
 import { APIResource } from '@tryfinch/finch-api/resource';
-import { CompanyResource } from './company';
-import { Directory } from './directory';
-import { Individuals } from './individuals';
-import { Employments } from './employments';
-import { Payments } from './payments';
-import { PayStatements } from './pay-statements';
-import { Benefits } from './benefits/benefits';
-import * as API from './index';
+import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
+import * as CompanyAPI from '@tryfinch/finch-api/resources/hris/company';
+import * as DirectoryAPI from '@tryfinch/finch-api/resources/hris/directory';
+import * as EmploymentsAPI from '@tryfinch/finch-api/resources/hris/employments';
+import * as IndividualsAPI from '@tryfinch/finch-api/resources/hris/individuals';
+import * as PayStatementsAPI from '@tryfinch/finch-api/resources/hris/pay-statements';
+import * as PaymentsAPI from '@tryfinch/finch-api/resources/hris/payments';
+import * as BenefitsAPI from '@tryfinch/finch-api/resources/hris/benefits/benefits';
 
 export class HRIS extends APIResource {
-  company: CompanyResource = new CompanyResource(this.client);
-  directory: Directory = new Directory(this.client);
-  individuals: Individuals = new Individuals(this.client);
-  employments: Employments = new Employments(this.client);
-  payments: Payments = new Payments(this.client);
-  payStatements: PayStatements = new PayStatements(this.client);
-  benefits: Benefits = new Benefits(this.client);
+  company: CompanyAPI.CompanyResource = new CompanyAPI.CompanyResource(this.client);
+  directory: DirectoryAPI.Directory = new DirectoryAPI.Directory(this.client);
+  individuals: IndividualsAPI.Individuals = new IndividualsAPI.Individuals(this.client);
+  employments: EmploymentsAPI.Employments = new EmploymentsAPI.Employments(this.client);
+  payments: PaymentsAPI.Payments = new PaymentsAPI.Payments(this.client);
+  payStatements: PayStatementsAPI.PayStatements = new PayStatementsAPI.PayStatements(this.client);
+  benefits: BenefitsAPI.Benefits = new BenefitsAPI.Benefits(this.client);
 }
 
 /**
@@ -116,52 +116,45 @@ export interface Paging {
 }
 
 export namespace HRIS {
-  export import Income = API.Income;
-  export import Location = API.Location;
-  export import Money = API.Money;
-  export import Paging = API.Paging;
-
-  export import CompanyResource = API.CompanyResource;
-  export import Company = API.Company;
-
-  export import Directory = API.Directory;
-  export import IndividualInDirectory = API.IndividualInDirectory;
-  export import DirectoryListIndividualsParams = API.DirectoryListIndividualsParams;
-
-  export import Individuals = API.Individuals;
-  export import Individual = API.Individual;
-  export import IndividualResponse = API.IndividualResponse;
-  export import IndividualResponsesPage = API.IndividualResponsesPage;
-  export import IndividualRetrieveManyParams = API.IndividualRetrieveManyParams;
-
-  export import Employments = API.Employments;
-  export import EmploymentData = API.EmploymentData;
-  export import EmploymentDataResponse = API.EmploymentDataResponse;
-  export import EmploymentDataResponsesPage = API.EmploymentDataResponsesPage;
-  export import EmploymentRetrieveManyParams = API.EmploymentRetrieveManyParams;
-
-  export import Payments = API.Payments;
-  export import Payment = API.Payment;
-  export import PaymentsSinglePage = API.PaymentsSinglePage;
-  export import PaymentListParams = API.PaymentListParams;
-
-  export import PayStatements = API.PayStatements;
-  export import PayStatement = API.PayStatement;
-  export import PayStatementResponse = API.PayStatementResponse;
-  export import PayStatementResponseBody = API.PayStatementResponseBody;
-  export import PayStatementResponsesPage = API.PayStatementResponsesPage;
-  export import PayStatementRetrieveManyParams = API.PayStatementRetrieveManyParams;
-
-  export import Benefits = API.Benefits;
-  export import BenefitFrequency = API.BenefitFrequency;
-  export import BenefitType = API.BenefitType;
-  export import BenfitContribution = API.BenfitContribution;
-  export import CompanyBenefit = API.CompanyBenefit;
-  export import CreateCompanyBenefitsResponse = API.CreateCompanyBenefitsResponse;
-  export import SupportedBenefit = API.SupportedBenefit;
-  export import UpdateCompanyBenefitResponse = API.UpdateCompanyBenefitResponse;
-  export import CompanyBenefitsSinglePage = API.CompanyBenefitsSinglePage;
-  export import SupportedBenefitsSinglePage = API.SupportedBenefitsSinglePage;
-  export import BenefitCreateParams = API.BenefitCreateParams;
-  export import BenefitUpdateParams = API.BenefitUpdateParams;
+  export type Income = HRISAPI.Income;
+  export type Location = HRISAPI.Location;
+  export type Money = HRISAPI.Money;
+  export type Paging = HRISAPI.Paging;
+  export import CompanyResource = CompanyAPI.CompanyResource;
+  export type Company = CompanyAPI.Company;
+  export import Directory = DirectoryAPI.Directory;
+  export type IndividualInDirectory = DirectoryAPI.IndividualInDirectory;
+  export type DirectoryListIndividualsParams = DirectoryAPI.DirectoryListIndividualsParams;
+  export import Individuals = IndividualsAPI.Individuals;
+  export type Individual = IndividualsAPI.Individual;
+  export type IndividualResponse = IndividualsAPI.IndividualResponse;
+  export import IndividualResponsesPage = IndividualsAPI.IndividualResponsesPage;
+  export type IndividualRetrieveManyParams = IndividualsAPI.IndividualRetrieveManyParams;
+  export import Employments = EmploymentsAPI.Employments;
+  export type EmploymentData = EmploymentsAPI.EmploymentData;
+  export type EmploymentDataResponse = EmploymentsAPI.EmploymentDataResponse;
+  export import EmploymentDataResponsesPage = EmploymentsAPI.EmploymentDataResponsesPage;
+  export type EmploymentRetrieveManyParams = EmploymentsAPI.EmploymentRetrieveManyParams;
+  export import Payments = PaymentsAPI.Payments;
+  export type Payment = PaymentsAPI.Payment;
+  export import PaymentsSinglePage = PaymentsAPI.PaymentsSinglePage;
+  export type PaymentListParams = PaymentsAPI.PaymentListParams;
+  export import PayStatements = PayStatementsAPI.PayStatements;
+  export type PayStatement = PayStatementsAPI.PayStatement;
+  export type PayStatementResponse = PayStatementsAPI.PayStatementResponse;
+  export type PayStatementResponseBody = PayStatementsAPI.PayStatementResponseBody;
+  export import PayStatementResponsesPage = PayStatementsAPI.PayStatementResponsesPage;
+  export type PayStatementRetrieveManyParams = PayStatementsAPI.PayStatementRetrieveManyParams;
+  export import Benefits = BenefitsAPI.Benefits;
+  export type BenefitFrequency = BenefitsAPI.BenefitFrequency;
+  export type BenefitType = BenefitsAPI.BenefitType;
+  export type BenfitContribution = BenefitsAPI.BenfitContribution;
+  export type CompanyBenefit = BenefitsAPI.CompanyBenefit;
+  export type CreateCompanyBenefitsResponse = BenefitsAPI.CreateCompanyBenefitsResponse;
+  export type SupportedBenefit = BenefitsAPI.SupportedBenefit;
+  export type UpdateCompanyBenefitResponse = BenefitsAPI.UpdateCompanyBenefitResponse;
+  export import CompanyBenefitsSinglePage = BenefitsAPI.CompanyBenefitsSinglePage;
+  export import SupportedBenefitsSinglePage = BenefitsAPI.SupportedBenefitsSinglePage;
+  export type BenefitCreateParams = BenefitsAPI.BenefitCreateParams;
+  export type BenefitUpdateParams = BenefitsAPI.BenefitUpdateParams;
 }

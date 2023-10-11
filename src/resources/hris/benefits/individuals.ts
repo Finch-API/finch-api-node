@@ -3,8 +3,8 @@
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
 import { isRequestOptions } from '@tryfinch/finch-api/core';
-import * as Benefits from '@tryfinch/finch-api/resources/hris/benefits/index';
-import * as API from './index';
+import * as IndividualsAPI from '@tryfinch/finch-api/resources/hris/benefits/individuals';
+import * as BenefitsAPI from '@tryfinch/finch-api/resources/hris/benefits/benefits';
 import { SinglePage } from '@tryfinch/finch-api/pagination';
 
 export class Individuals extends APIResource {
@@ -103,16 +103,10 @@ export class Individuals extends APIResource {
 }
 
 export class EnrolledIndividualsSinglePage extends SinglePage<EnrolledIndividual> {}
-// alias so we can export it in the namespace
-type _EnrolledIndividualsSinglePage = EnrolledIndividualsSinglePage;
 
 export class IndividualBenefitsSinglePage extends SinglePage<IndividualBenefit> {}
-// alias so we can export it in the namespace
-type _IndividualBenefitsSinglePage = IndividualBenefitsSinglePage;
 
 export class UnenrolledIndividualsSinglePage extends SinglePage<UnenrolledIndividual> {}
-// alias so we can export it in the namespace
-type _UnenrolledIndividualsSinglePage = UnenrolledIndividualsSinglePage;
 
 export interface EnrolledIndividual {
   body?: EnrolledIndividual.Body;
@@ -165,9 +159,9 @@ export namespace IndividualBenefit {
      */
     catch_up?: boolean | null;
 
-    company_contribution?: Benefits.BenfitContribution | null;
+    company_contribution?: BenefitsAPI.BenfitContribution | null;
 
-    employee_deduction?: Benefits.BenfitContribution | null;
+    employee_deduction?: BenefitsAPI.BenfitContribution | null;
 
     /**
      * Type for HSA contribution limit if the benefit is a HSA.
@@ -241,14 +235,14 @@ export interface IndividualUnenrollManyParams {
 }
 
 export namespace Individuals {
-  export import EnrolledIndividual = API.EnrolledIndividual;
-  export import IndividualBenefit = API.IndividualBenefit;
-  export import UnenrolledIndividual = API.UnenrolledIndividual;
-  export import IndividualEnrolledIDsResponse = API.IndividualEnrolledIDsResponse;
-  export type EnrolledIndividualsSinglePage = _EnrolledIndividualsSinglePage;
-  export type IndividualBenefitsSinglePage = _IndividualBenefitsSinglePage;
-  export type UnenrolledIndividualsSinglePage = _UnenrolledIndividualsSinglePage;
-  export import IndividualEnrollManyParams = API.IndividualEnrollManyParams;
-  export import IndividualRetrieveManyBenefitsParams = API.IndividualRetrieveManyBenefitsParams;
-  export import IndividualUnenrollManyParams = API.IndividualUnenrollManyParams;
+  export type EnrolledIndividual = IndividualsAPI.EnrolledIndividual;
+  export type IndividualBenefit = IndividualsAPI.IndividualBenefit;
+  export type UnenrolledIndividual = IndividualsAPI.UnenrolledIndividual;
+  export type IndividualEnrolledIDsResponse = IndividualsAPI.IndividualEnrolledIDsResponse;
+  export import EnrolledIndividualsSinglePage = IndividualsAPI.EnrolledIndividualsSinglePage;
+  export import IndividualBenefitsSinglePage = IndividualsAPI.IndividualBenefitsSinglePage;
+  export import UnenrolledIndividualsSinglePage = IndividualsAPI.UnenrolledIndividualsSinglePage;
+  export type IndividualEnrollManyParams = IndividualsAPI.IndividualEnrollManyParams;
+  export type IndividualRetrieveManyBenefitsParams = IndividualsAPI.IndividualRetrieveManyBenefitsParams;
+  export type IndividualUnenrollManyParams = IndividualsAPI.IndividualUnenrollManyParams;
 }
