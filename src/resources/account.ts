@@ -64,6 +64,6 @@ export interface Introspection {
 }
 
 export namespace Account {
-  export type DisconnectResponse = AccountAPI.DisconnectResponse;
-  export type Introspection = AccountAPI.Introspection;
+  export import DisconnectResponse = AccountAPI.DisconnectResponse;
+  export import Introspection = AccountAPI.Introspection;
 }

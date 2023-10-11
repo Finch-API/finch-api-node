@@ -116,6 +116,6 @@ export interface RequestForwardingForwardParams {
 }
 
 export namespace RequestForwarding {
-  export type RequestForwardingForwardResponse = RequestForwardingAPI.RequestForwardingForwardResponse;
-  export type RequestForwardingForwardParams = RequestForwardingAPI.RequestForwardingForwardParams;
+  export import RequestForwardingForwardResponse = RequestForwardingAPI.RequestForwardingForwardResponse;
+  export import RequestForwardingForwardParams = RequestForwardingAPI.RequestForwardingForwardParams;
 }

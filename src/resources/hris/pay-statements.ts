@@ -235,9 +235,9 @@ export namespace PayStatementRetrieveManyParams {
 }
 
 export namespace PayStatements {
-  export type PayStatement = PayStatementsAPI.PayStatement;
-  export type PayStatementResponse = PayStatementsAPI.PayStatementResponse;
-  export type PayStatementResponseBody = PayStatementsAPI.PayStatementResponseBody;
+  export import PayStatement = PayStatementsAPI.PayStatement;
+  export import PayStatementResponse = PayStatementsAPI.PayStatementResponse;
+  export import PayStatementResponseBody = PayStatementsAPI.PayStatementResponseBody;
   export import PayStatementResponsesPage = PayStatementsAPI.PayStatementResponsesPage;
-  export type PayStatementRetrieveManyParams = PayStatementsAPI.PayStatementRetrieveManyParams;
+  export import PayStatementRetrieveManyParams = PayStatementsAPI.PayStatementRetrieveManyParams;
 }

@@ -235,14 +235,14 @@ export interface IndividualUnenrollManyParams {
 }
 
 export namespace Individuals {
-  export type EnrolledIndividual = IndividualsAPI.EnrolledIndividual;
-  export type IndividualBenefit = IndividualsAPI.IndividualBenefit;
-  export type UnenrolledIndividual = IndividualsAPI.UnenrolledIndividual;
-  export type IndividualEnrolledIDsResponse = IndividualsAPI.IndividualEnrolledIDsResponse;
+  export import EnrolledIndividual = IndividualsAPI.EnrolledIndividual;
+  export import IndividualBenefit = IndividualsAPI.IndividualBenefit;
+  export import UnenrolledIndividual = IndividualsAPI.UnenrolledIndividual;
+  export import IndividualEnrolledIDsResponse = IndividualsAPI.IndividualEnrolledIDsResponse;
   export import EnrolledIndividualsSinglePage = IndividualsAPI.EnrolledIndividualsSinglePage;
   export import IndividualBenefitsSinglePage = IndividualsAPI.IndividualBenefitsSinglePage;
   export import UnenrolledIndividualsSinglePage = IndividualsAPI.UnenrolledIndividualsSinglePage;
-  export type IndividualEnrollManyParams = IndividualsAPI.IndividualEnrollManyParams;
-  export type IndividualRetrieveManyBenefitsParams = IndividualsAPI.IndividualRetrieveManyBenefitsParams;
-  export type IndividualUnenrollManyParams = IndividualsAPI.IndividualUnenrollManyParams;
+  export import IndividualEnrollManyParams = IndividualsAPI.IndividualEnrollManyParams;
+  export import IndividualRetrieveManyBenefitsParams = IndividualsAPI.IndividualRetrieveManyBenefitsParams;
+  export import IndividualUnenrollManyParams = IndividualsAPI.IndividualUnenrollManyParams;
 }

@@ -273,24 +273,24 @@ export namespace Finch {
   export import IndividualsPageResponse = Pagination.IndividualsPageResponse;
 
   export import HRIS = API.HRIS;
-  export type Income = API.Income;
-  export type Location = API.Location;
-  export type Money = API.Money;
-  export type Paging = API.Paging;
+  export import Income = API.Income;
+  export import Location = API.Location;
+  export import Money = API.Money;
+  export import Paging = API.Paging;
 
   export import Providers = API.Providers;
-  export type Provider = API.Provider;
+  export import Provider = API.Provider;
   export import ProvidersSinglePage = API.ProvidersSinglePage;
 
   export import Account = API.Account;
-  export type DisconnectResponse = API.DisconnectResponse;
-  export type Introspection = API.Introspection;
+  export import DisconnectResponse = API.DisconnectResponse;
+  export import Introspection = API.Introspection;
 
   export import Webhooks = API.Webhooks;
 
   export import RequestForwarding = API.RequestForwarding;
-  export type RequestForwardingForwardResponse = API.RequestForwardingForwardResponse;
-  export type RequestForwardingForwardParams = API.RequestForwardingForwardParams;
+  export import RequestForwardingForwardResponse = API.RequestForwardingForwardResponse;
+  export import RequestForwardingForwardParams = API.RequestForwardingForwardParams;
 }
 
 export default Finch;
