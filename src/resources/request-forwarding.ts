@@ -2,7 +2,7 @@
 
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
-import * as API from './index';
+import * as RequestForwardingAPI from '@tryfinch/finch-api/resources/request-forwarding';
 
 export class RequestForwarding extends APIResource {
   /**
@@ -116,6 +116,6 @@ export interface RequestForwardingForwardParams {
 }
 
 export namespace RequestForwarding {
-  export import RequestForwardingForwardResponse = API.RequestForwardingForwardResponse;
-  export import RequestForwardingForwardParams = API.RequestForwardingForwardParams;
+  export type RequestForwardingForwardResponse = RequestForwardingAPI.RequestForwardingForwardResponse;
+  export type RequestForwardingForwardParams = RequestForwardingAPI.RequestForwardingForwardParams;
 }

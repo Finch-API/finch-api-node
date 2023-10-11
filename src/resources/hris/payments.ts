@@ -2,8 +2,8 @@
 
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
-import * as HRIS from '@tryfinch/finch-api/resources/hris/index';
-import * as API from './index';
+import * as PaymentsAPI from '@tryfinch/finch-api/resources/hris/payments';
+import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
 import { SinglePage } from '@tryfinch/finch-api/pagination';
 
 export class Payments extends APIResource {
@@ -19,8 +19,6 @@ export class Payments extends APIResource {
 }
 
 export class PaymentsSinglePage extends SinglePage<Payment> {}
-// alias so we can export it in the namespace
-type _PaymentsSinglePage = PaymentsSinglePage;
 
 export interface Payment {
   /**
@@ -28,22 +26,22 @@ export interface Payment {
    */
   id?: string;
 
-  company_debit?: HRIS.Money | null;
+  company_debit?: HRISAPI.Money | null;
 
   debit_date?: string | null;
 
-  employee_taxes?: HRIS.Money | null;
+  employee_taxes?: HRISAPI.Money | null;
 
-  employer_taxes?: HRIS.Money | null;
+  employer_taxes?: HRISAPI.Money | null;
 
-  gross_pay?: HRIS.Money | null;
+  gross_pay?: HRISAPI.Money | null;
 
   /**
    * Array of every individual on this payment.
    */
   individual_ids?: Array<string> | null;
 
-  net_pay?: HRIS.Money | null;
+  net_pay?: HRISAPI.Money | null;
 
   pay_date?: string | null;
 
@@ -79,7 +77,7 @@ export interface PaymentListParams {
 }
 
 export namespace Payments {
-  export import Payment = API.Payment;
-  export type PaymentsSinglePage = _PaymentsSinglePage;
-  export import PaymentListParams = API.PaymentListParams;
+  export type Payment = PaymentsAPI.Payment;
+  export import PaymentsSinglePage = PaymentsAPI.PaymentsSinglePage;
+  export type PaymentListParams = PaymentsAPI.PaymentListParams;
 }

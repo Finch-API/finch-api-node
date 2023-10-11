@@ -2,7 +2,7 @@
 
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
-import * as API from './index';
+import * as AccountAPI from '@tryfinch/finch-api/resources/account';
 
 export class Account extends APIResource {
   /**
@@ -64,6 +64,6 @@ export interface Introspection {
 }
 
 export namespace Account {
-  export import DisconnectResponse = API.DisconnectResponse;
-  export import Introspection = API.Introspection;
+  export type DisconnectResponse = AccountAPI.DisconnectResponse;
+  export type Introspection = AccountAPI.Introspection;
 }

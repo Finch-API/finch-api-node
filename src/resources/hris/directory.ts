@@ -3,8 +3,8 @@
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
 import { isRequestOptions } from '@tryfinch/finch-api/core';
-import * as API from './index';
-import { IndividualsPage, IndividualsPageParams } from '@tryfinch/finch-api/pagination';
+import * as DirectoryAPI from '@tryfinch/finch-api/resources/hris/directory';
+import { IndividualsPage, type IndividualsPageParams } from '@tryfinch/finch-api/pagination';
 
 export class Directory extends APIResource {
   /**
@@ -88,6 +88,6 @@ export namespace IndividualInDirectory {
 export interface DirectoryListIndividualsParams extends IndividualsPageParams {}
 
 export namespace Directory {
-  export import IndividualInDirectory = API.IndividualInDirectory;
-  export import DirectoryListIndividualsParams = API.DirectoryListIndividualsParams;
+  export type IndividualInDirectory = DirectoryAPI.IndividualInDirectory;
+  export type DirectoryListIndividualsParams = DirectoryAPI.DirectoryListIndividualsParams;
 }

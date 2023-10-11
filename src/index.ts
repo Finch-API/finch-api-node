@@ -2,10 +2,10 @@
 
 import * as Core from './core';
 import * as Pagination from './pagination';
-import * as API from './resources/index';
 import * as Errors from './error';
 import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
+import * as API from '@tryfinch/finch-api/resources/index';
 
 export interface ClientOptions {
   /**
@@ -273,24 +273,24 @@ export namespace Finch {
   export import IndividualsPageResponse = Pagination.IndividualsPageResponse;
 
   export import HRIS = API.HRIS;
-  export import Income = API.Income;
-  export import Location = API.Location;
-  export import Money = API.Money;
-  export import Paging = API.Paging;
+  export type Income = API.Income;
+  export type Location = API.Location;
+  export type Money = API.Money;
+  export type Paging = API.Paging;
 
   export import Providers = API.Providers;
-  export import Provider = API.Provider;
+  export type Provider = API.Provider;
   export import ProvidersSinglePage = API.ProvidersSinglePage;
 
   export import Account = API.Account;
-  export import DisconnectResponse = API.DisconnectResponse;
-  export import Introspection = API.Introspection;
+  export type DisconnectResponse = API.DisconnectResponse;
+  export type Introspection = API.Introspection;
 
   export import Webhooks = API.Webhooks;
 
   export import RequestForwarding = API.RequestForwarding;
-  export import RequestForwardingForwardResponse = API.RequestForwardingForwardResponse;
-  export import RequestForwardingForwardParams = API.RequestForwardingForwardParams;
+  export type RequestForwardingForwardResponse = API.RequestForwardingForwardResponse;
+  export type RequestForwardingForwardParams = API.RequestForwardingForwardParams;
 }
 
 export default Finch;
