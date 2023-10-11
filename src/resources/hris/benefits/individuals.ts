@@ -159,9 +159,9 @@ export namespace IndividualBenefit {
      */
     catch_up?: boolean | null;
 
-    company_contribution?: BenefitsAPI.BenfitContribution | null;
+    company_contribution?: BenefitsAPI.BenefitContribution | null;
 
-    employee_deduction?: BenefitsAPI.BenfitContribution | null;
+    employee_deduction?: BenefitsAPI.BenefitContribution | null;
 
     /**
      * Type for HSA contribution limit if the benefit is a HSA.

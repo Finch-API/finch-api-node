@@ -32,7 +32,7 @@ Types:
 
 Methods:
 
-- <code title="get /employer/directory">client.hris.directory.<a href="./src/resources/hris/directory.ts">listIndividuals</a>({ ...params }) -> IndividualsPage</code>
+- <code title="get /employer/directory">client.hris.directory.<a href="./src/resources/hris/directory.ts">list</a>({ ...params }) -> IndividualsPage</code>
 
 ## Individuals
 
@@ -82,6 +82,7 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitContribution</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitFrequency</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitType</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenfitContribution</a></code>

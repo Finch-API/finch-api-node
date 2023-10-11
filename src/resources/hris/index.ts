@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless.
 
 export {
+  BenefitContribution,
   BenefitFrequency,
   BenefitType,
   BenfitContribution,
@@ -30,7 +31,12 @@ export {
   IndividualResponsesPage,
   Individuals,
 } from './individuals';
-export { IndividualInDirectory, DirectoryListIndividualsParams, Directory } from './directory';
+export {
+  IndividualInDirectory,
+  DirectoryListParams,
+  DirectoryListIndividualsParams,
+  Directory,
+} from './directory';
 export {
   PayStatement,
   PayStatementResponse,

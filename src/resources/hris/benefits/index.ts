@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless.
 
 export {
+  BenefitContribution,
   BenefitFrequency,
   BenefitType,
   BenfitContribution,
