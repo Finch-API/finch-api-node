@@ -77,7 +77,7 @@ export interface PaymentListParams {
 }
 
 export namespace Payments {
-  export type Payment = PaymentsAPI.Payment;
+  export import Payment = PaymentsAPI.Payment;
   export import PaymentsSinglePage = PaymentsAPI.PaymentsSinglePage;
-  export type PaymentListParams = PaymentsAPI.PaymentListParams;
+  export import PaymentListParams = PaymentsAPI.PaymentListParams;
 }

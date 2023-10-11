@@ -185,8 +185,8 @@ export namespace EmploymentRetrieveManyParams {
 }
 
 export namespace Employments {
-  export type EmploymentData = EmploymentsAPI.EmploymentData;
-  export type EmploymentDataResponse = EmploymentsAPI.EmploymentDataResponse;
+  export import EmploymentData = EmploymentsAPI.EmploymentData;
+  export import EmploymentDataResponse = EmploymentsAPI.EmploymentDataResponse;
   export import EmploymentDataResponsesPage = EmploymentsAPI.EmploymentDataResponsesPage;
-  export type EmploymentRetrieveManyParams = EmploymentsAPI.EmploymentRetrieveManyParams;
+  export import EmploymentRetrieveManyParams = EmploymentsAPI.EmploymentRetrieveManyParams;
 }

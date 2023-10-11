@@ -60,6 +60,6 @@ export interface Provider {
 }
 
 export namespace Providers {
-  export type Provider = ProvidersAPI.Provider;
+  export import Provider = ProvidersAPI.Provider;
   export import ProvidersSinglePage = ProvidersAPI.ProvidersSinglePage;
 }

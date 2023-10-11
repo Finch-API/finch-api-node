@@ -88,6 +88,6 @@ export namespace IndividualInDirectory {
 export interface DirectoryListIndividualsParams extends IndividualsPageParams {}
 
 export namespace Directory {
-  export type IndividualInDirectory = DirectoryAPI.IndividualInDirectory;
-  export type DirectoryListIndividualsParams = DirectoryAPI.DirectoryListIndividualsParams;
+  export import IndividualInDirectory = DirectoryAPI.IndividualInDirectory;
+  export import DirectoryListIndividualsParams = DirectoryAPI.DirectoryListIndividualsParams;
 }

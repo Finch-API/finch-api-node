@@ -118,8 +118,8 @@ export namespace IndividualRetrieveManyParams {
 }
 
 export namespace Individuals {
-  export type Individual = IndividualsAPI.Individual;
-  export type IndividualResponse = IndividualsAPI.IndividualResponse;
+  export import Individual = IndividualsAPI.Individual;
+  export import IndividualResponse = IndividualsAPI.IndividualResponse;
   export import IndividualResponsesPage = IndividualsAPI.IndividualResponsesPage;
-  export type IndividualRetrieveManyParams = IndividualsAPI.IndividualRetrieveManyParams;
+  export import IndividualRetrieveManyParams = IndividualsAPI.IndividualRetrieveManyParams;
 }
