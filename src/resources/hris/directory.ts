@@ -10,20 +10,25 @@ export class Directory extends APIResource {
   /**
    * Read company directory and organization structure
    */
-  listIndividuals(
-    query?: DirectoryListIndividualsParams,
+  list(
+    query?: DirectoryListParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<IndividualsPage, IndividualInDirectory>;
-  listIndividuals(options?: Core.RequestOptions): Core.PagePromise<IndividualsPage, IndividualInDirectory>;
-  listIndividuals(
-    query: DirectoryListIndividualsParams | Core.RequestOptions = {},
+  list(options?: Core.RequestOptions): Core.PagePromise<IndividualsPage, IndividualInDirectory>;
+  list(
+    query: DirectoryListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.PagePromise<IndividualsPage, IndividualInDirectory> {
     if (isRequestOptions(query)) {
-      return this.listIndividuals({}, query);
+      return this.list({}, query);
     }
     return this.getAPIList('/employer/directory', IndividualsPage, { query, ...options });
   }
+
+  /**
+   * @deprecated use `list` instead
+   */
+  listIndividuals = this.list;
 }
 
 export interface IndividualInDirectory {
@@ -85,9 +90,12 @@ export namespace IndividualInDirectory {
   }
 }
 
+export interface DirectoryListParams extends IndividualsPageParams {}
+
 export interface DirectoryListIndividualsParams extends IndividualsPageParams {}
 
 export namespace Directory {
   export import IndividualInDirectory = DirectoryAPI.IndividualInDirectory;
+  export import DirectoryListParams = DirectoryAPI.DirectoryListParams;
   export import DirectoryListIndividualsParams = DirectoryAPI.DirectoryListIndividualsParams;
 }

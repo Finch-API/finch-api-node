@@ -88,6 +88,18 @@ export class CompanyBenefitsSinglePage extends SinglePage<CompanyBenefit> {}
 
 export class SupportedBenefitsSinglePage extends SinglePage<SupportedBenefit> {}
 
+export interface BenefitContribution {
+  /**
+   * Contribution amount in cents (if `fixed`) or basis points (if `percent`).
+   */
+  amount?: number | null;
+
+  /**
+   * Contribution type.
+   */
+  type?: 'fixed' | 'percent' | null;
+}
+
 export type BenefitFrequency = 'one_time' | 'every_paycheck' | null;
 
 /**
@@ -115,26 +127,19 @@ export type BenefitType =
   | 'custom_pre_tax'
   | null;
 
-export interface BenfitContribution {
-  /**
-   * Contribution amount in cents (if `fixed`) or basis points (if `percent`).
-   */
-  amount?: number | null;
-
-  /**
-   * Contribution type.
-   */
-  type?: 'fixed' | 'percent' | null;
-}
+/**
+ * @deprecated use `BenefitContribution` instead
+ */
+export type BenfitContribution = BenefitContribution | null;
 
 export interface CompanyBenefit {
   benefit_id: string;
 
-  company_contribution: BenfitContribution | null;
+  company_contribution: BenefitContribution | null;
 
   description: string | null;
 
-  employee_deduction: BenfitContribution | null;
+  employee_deduction: BenefitContribution | null;
 
   frequency: BenefitFrequency | null;
 
@@ -214,8 +219,12 @@ export interface BenefitUpdateParams {
 }
 
 export namespace Benefits {
+  export import BenefitContribution = BenefitsAPI.BenefitContribution;
   export import BenefitFrequency = BenefitsAPI.BenefitFrequency;
   export import BenefitType = BenefitsAPI.BenefitType;
+  /**
+   * @deprecated use `BenefitContribution` instead
+   */
   export import BenfitContribution = BenefitsAPI.BenfitContribution;
   export import CompanyBenefit = BenefitsAPI.CompanyBenefit;
   export import CreateCompanyBenefitsResponse = BenefitsAPI.CreateCompanyBenefitsResponse;
