@@ -22,7 +22,7 @@ The full API of this library can be found in [api.md](https://www.github.com/Fin
 import Finch from '@tryfinch/finch-api';
 
 const finch = new Finch({
-  accessToken: 'my access token',
+  accessToken: 'My Access Token',
 });
 
 async function main() {
@@ -43,7 +43,7 @@ This library includes TypeScript definitions for all request params and response
 import Finch from '@tryfinch/finch-api';
 
 const finch = new Finch({
-  accessToken: 'my access token',
+  accessToken: 'My Access Token',
 });
 
 async function main() {

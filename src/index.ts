@@ -8,10 +8,22 @@ import * as Uploads from './uploads';
 import * as API from '@tryfinch/finch-api/resources/index';
 
 export interface ClientOptions {
-  /**
-   * Set it to null if you want to send unauthenticated requests.
-   */
   accessToken?: string | null;
+
+  /**
+   * Defaults to process.env['FINCH_CLIENT_ID'].
+   */
+  clientId?: string | null;
+
+  /**
+   * Defaults to process.env['FINCH_CLIENT_SECRET'].
+   */
+  clientSecret?: string | null;
+
+  /**
+   * Defaults to process.env['FINCH_WEBHOOK_SECRET'].
+   */
+  webhookSecret?: string | null;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -66,27 +78,24 @@ export interface ClientOptions {
    * param to `undefined` in request options.
    */
   defaultQuery?: Core.DefaultQuery;
-
-  clientId?: string | null;
-
-  clientSecret?: string | null;
-
-  webhookSecret?: string | null;
 }
 
 /** API Client for interfacing with the Finch API. */
 export class Finch extends Core.APIClient {
   accessToken: string | null;
-  clientId?: string | null;
-  clientSecret?: string | null;
-  webhookSecret?: string | null;
+  clientId: string | null;
+  clientSecret: string | null;
+  webhookSecret: string | null;
 
   private _options: ClientOptions;
 
   /**
    * API Client for interfacing with the Finch API.
    *
-   * @param {string | null} opts.accessToken - The Access Token to send to the API.
+   * @param {string | null} [opts.accessToken]
+   * @param {string | null} [opts.clientId==process.env['FINCH_CLIENT_ID'] ?? null]
+   * @param {string | null} [opts.clientSecret==process.env['FINCH_CLIENT_SECRET'] ?? null]
+   * @param {string | null} [opts.webhookSecret==process.env['FINCH_WEBHOOK_SECRET'] ?? null]
    * @param {string} [opts.baseURL] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
@@ -94,9 +103,6 @@ export class Finch extends Core.APIClient {
    * @param {number} [opts.maxRetries=2] - The maximum number of times the client will retry a request.
    * @param {Core.Headers} opts.defaultHeaders - Default headers to include with every request to the API.
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
-   * @param {string | null} [opts.clientId]
-   * @param {string | null} [opts.clientSecret]
-   * @param {string | null} [opts.webhookSecret]
    */
   constructor({
     accessToken = null,
