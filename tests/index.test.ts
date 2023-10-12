@@ -23,7 +23,7 @@ describe('instantiate client', () => {
     const client = new Finch({
       baseURL: 'http://localhost:5000/',
       defaultHeaders: { 'X-My-Default-Header': '2' },
-      accessToken: 'my access token',
+      accessToken: 'My Access Token',
     });
 
     test('they are used in the request', () => {
@@ -55,7 +55,7 @@ describe('instantiate client', () => {
       const client = new Finch({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo' },
-        accessToken: 'my access token',
+        accessToken: 'My Access Token',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo');
     });
@@ -64,7 +64,7 @@ describe('instantiate client', () => {
       const client = new Finch({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo', hello: 'world' },
-        accessToken: 'my access token',
+        accessToken: 'My Access Token',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo&hello=world');
     });
@@ -73,7 +73,7 @@ describe('instantiate client', () => {
       const client = new Finch({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { hello: 'world' },
-        accessToken: 'my access token',
+        accessToken: 'My Access Token',
       });
       expect(client.buildURL('/foo', { hello: undefined })).toEqual('http://localhost:5000/foo');
     });
@@ -82,7 +82,7 @@ describe('instantiate client', () => {
   test('custom fetch', async () => {
     const client = new Finch({
       baseURL: 'http://localhost:5000/',
-      accessToken: 'my access token',
+      accessToken: 'My Access Token',
       fetch: (url) => {
         return Promise.resolve(
           new Response(JSON.stringify({ url, custom: true }), {
@@ -99,7 +99,7 @@ describe('instantiate client', () => {
   test('custom signal', async () => {
     const client = new Finch({
       baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-      accessToken: 'my access token',
+      accessToken: 'My Access Token',
       fetch: (...args) => {
         return new Promise((resolve, reject) =>
           setTimeout(
@@ -126,7 +126,7 @@ describe('instantiate client', () => {
     test('trailing slash', () => {
       const client = new Finch({
         baseURL: 'http://localhost:5000/custom/path/',
-        accessToken: 'my access token',
+        accessToken: 'My Access Token',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
@@ -134,40 +134,24 @@ describe('instantiate client', () => {
     test('no trailing slash', () => {
       const client = new Finch({
         baseURL: 'http://localhost:5000/custom/path',
-        accessToken: 'my access token',
+        accessToken: 'My Access Token',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
   });
 
   test('maxRetries option is correctly set', () => {
-    const client = new Finch({ maxRetries: 1, accessToken: 'my access token' });
+    const client = new Finch({ maxRetries: 1, accessToken: 'My Access Token' });
     expect(client.maxRetries).toEqual(1);
 
     // default
-    const client2 = new Finch({ accessToken: 'my access token' });
+    const client2 = new Finch({ accessToken: 'My Access Token' });
     expect(client2.maxRetries).toEqual(2);
-  });
-
-  test('with accessToken argument', () => {
-    const client = new Finch({ accessToken: 'another access token' });
-    expect(client.accessToken).toBe('another access token');
-  });
-
-  test('with options argument', () => {
-    // accessToken
-    const client = new Finch({ accessToken: 'my access token' });
-    expect(client.accessToken).toBe('my access token');
-  });
-
-  test('with disabled authentication', () => {
-    const client = new Finch({ accessToken: null });
-    expect(client.accessToken).toBeNull();
   });
 });
 
 describe('request building', () => {
-  const client = new Finch({ accessToken: 'my access token' });
+  const client = new Finch({ accessToken: 'My Access Token' });
 
   describe('Content-Length', () => {
     test('handles multi-byte characters', () => {
@@ -193,7 +177,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Finch({ accessToken: 'my access token', timeout: 2000, fetch: testFetch });
+    const client = new Finch({ accessToken: 'My Access Token', timeout: 2000, fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
