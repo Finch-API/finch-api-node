@@ -2,7 +2,7 @@
 
 import { APIResource } from '@tryfinch/finch-api/resource';
 import { createHmac } from 'crypto';
-import { getHeader, HeadersLike } from '@tryfinch/finch-api/core';
+import { getRequiredHeader, HeadersLike } from '@tryfinch/finch-api/core';
 
 export class Webhooks extends APIResource {
   /**
@@ -90,20 +90,9 @@ export class Webhooks extends APIResource {
   ): void {
     const parsedSecret = this.parseSecret(secret);
 
-    const eventId = getHeader(headers, 'finch-event-id');
-    if (!eventId) {
-      throw new Error('Could not find finch-event-id header');
-    }
-
-    const msgTimestamp = getHeader(headers, 'finch-timestamp');
-    if (!msgTimestamp) {
-      throw new Error('Could not find finch-timestamp header');
-    }
-
-    const msgSignature = getHeader(headers, 'finch-signature');
-    if (!msgSignature) {
-      throw new Error('Could not find finch-signature header');
-    }
+    const eventId = getRequiredHeader(headers, 'finch-event-id');
+    const msgTimestamp = getRequiredHeader(headers, 'finch-timestamp');
+    const msgSignature = getRequiredHeader(headers, 'finch-signature');
 
     const now = Math.floor(Date.now() / 1000);
     const timestampSeconds = parseInt(msgTimestamp, 10);

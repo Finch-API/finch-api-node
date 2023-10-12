@@ -12,7 +12,7 @@ describe('resource webhooks', () => {
   const signature = 'm7y0TV2C+hlHxU42wCieApTSTaA8/047OAplBqxIV/s=';
   const timestamp = '1676312382';
   const headers = {
-    'finch-event-id': 'msg_2Lh9KRb0pzN4LePd3XiA4v12Axj',
+    'Finch-Event-Id': 'msg_2Lh9KRb0pzN4LePd3XiA4v12Axj',
     'finch-timestamp': timestamp,
     'finch-signature': `v1,${signature}`,
   };
