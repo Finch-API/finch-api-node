@@ -1,5 +1,38 @@
 # Changelog
 
+## 5.5.0 (2023-10-17)
+
+Full Changelog: [v5.4.2...v5.5.0](https://github.com/Finch-API/finch-api-node/compare/v5.4.2...v5.5.0)
+
+### Features
+
+* make webhook headers case insensitive ([#196](https://github.com/Finch-API/finch-api-node/issues/196)) ([bf48e89](https://github.com/Finch-API/finch-api-node/commit/bf48e8919409ac8609fbc4416cf9252ffb2afa6d))
+
+
+### Bug Fixes
+
+* **client:** eliminate circular imports, which cause runtime errors in webpack dev bundles ([#189](https://github.com/Finch-API/finch-api-node/issues/189)) ([6977468](https://github.com/Finch-API/finch-api-node/commit/6977468570b7bbcb1d509872ac3164ddd77c9820))
+* correct benfits to benefits ([#192](https://github.com/Finch-API/finch-api-node/issues/192)) ([a31d068](https://github.com/Finch-API/finch-api-node/commit/a31d068568545b2e1ab8e61a8f205c91037e014d))
+* fix namespace exports regression ([#191](https://github.com/Finch-API/finch-api-node/issues/191)) ([c7b90b2](https://github.com/Finch-API/finch-api-node/commit/c7b90b299135d0947603e9055a2bb72bdea7d1c2))
+* import web-streams-polyfill without overriding globals ([#200](https://github.com/Finch-API/finch-api-node/issues/200)) ([e8ab145](https://github.com/Finch-API/finch-api-node/commit/e8ab1453849f74938b161966de039b24a2e566e2))
+* improve status code in error messages ([#198](https://github.com/Finch-API/finch-api-node/issues/198)) ([836a552](https://github.com/Finch-API/finch-api-node/commit/836a5524d6b37cb0537629a9f76cc25fe9df5f2d))
+
+
+### Chores
+
+* **internal:** refactor status code printing in error ([#193](https://github.com/Finch-API/finch-api-node/issues/193)) ([51b5d57](https://github.com/Finch-API/finch-api-node/commit/51b5d5767ac489449795081c3c76e772cb860414))
+* update comment ([#197](https://github.com/Finch-API/finch-api-node/issues/197)) ([05dfcb8](https://github.com/Finch-API/finch-api-node/commit/05dfcb8166d0466f9b5611d14422ff78137532c8))
+
+
+### Documentation
+
+* organisation -&gt; organization (UK to US English) ([#199](https://github.com/Finch-API/finch-api-node/issues/199)) ([7dd52a3](https://github.com/Finch-API/finch-api-node/commit/7dd52a34f726fce396a5ff4cc8579d86ad1f2416))
+
+
+### Refactors
+
+* **test:** refactor authentication tests ([#194](https://github.com/Finch-API/finch-api-node/issues/194)) ([68d1562](https://github.com/Finch-API/finch-api-node/commit/68d1562eaf8d076c619545f2b0a1f8dafe57fe02))
+
 ## 5.4.2 (2023-10-06)
 
 Full Changelog: [v5.4.1...v5.4.2](https://github.com/Finch-API/finch-api-node/compare/v5.4.1...v5.4.2)
