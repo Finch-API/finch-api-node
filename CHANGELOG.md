@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.6.0 (2023-10-19)
+
+Full Changelog: [v5.5.1...v5.6.0](https://github.com/Finch-API/finch-api-node/compare/v5.5.1...v5.6.0)
+
+### Features
+
+* handle 204 No Content gracefully ([#203](https://github.com/Finch-API/finch-api-node/issues/203)) ([dfe54d0](https://github.com/Finch-API/finch-api-node/commit/dfe54d02f1592735727dce2ec1e05100c9e7f87d))
+
 ## 5.5.1 (2023-10-19)
 
 Full Changelog: [v5.5.0...v5.5.1](https://github.com/Finch-API/finch-api-node/compare/v5.5.0...v5.5.1)
