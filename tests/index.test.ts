@@ -141,8 +141,8 @@ describe('instantiate client', () => {
   });
 
   test('maxRetries option is correctly set', () => {
-    const client = new Finch({ maxRetries: 1, accessToken: 'My Access Token' });
-    expect(client.maxRetries).toEqual(1);
+    const client = new Finch({ maxRetries: 4, accessToken: 'My Access Token' });
+    expect(client.maxRetries).toEqual(4);
 
     // default
     const client2 = new Finch({ accessToken: 'My Access Token' });
