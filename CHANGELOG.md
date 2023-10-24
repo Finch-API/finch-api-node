@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.7.1 (2023-10-24)
+
+Full Changelog: [v5.7.0...v5.7.1](https://github.com/Finch-API/finch-api-node/compare/v5.7.0...v5.7.1)
+
 ## 5.7.0 (2023-10-24)
 
 Full Changelog: [v5.6.0...v5.7.0](https://github.com/Finch-API/finch-api-node/compare/v5.6.0...v5.7.0)
