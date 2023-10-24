@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.7.0 (2023-10-24)
+
+Full Changelog: [v5.6.0...v5.7.0](https://github.com/Finch-API/finch-api-node/compare/v5.6.0...v5.7.0)
+
+### Features
+
+* **client:** adjust retry behavior to be exponential backoff ([#205](https://github.com/Finch-API/finch-api-node/issues/205)) ([c5423fe](https://github.com/Finch-API/finch-api-node/commit/c5423fef84320fd86a1e16ec67e9f969563cac8f))
+
 ## 5.6.0 (2023-10-19)
 
 Full Changelog: [v5.5.1...v5.6.0](https://github.com/Finch-API/finch-api-node/compare/v5.5.1...v5.6.0)
