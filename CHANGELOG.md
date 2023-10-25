@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.7.2 (2023-10-25)
+
+Full Changelog: [v5.7.1...v5.7.2](https://github.com/Finch-API/finch-api-node/compare/v5.7.1...v5.7.2)
+
+### Bug Fixes
+
+* typo in build script ([#209](https://github.com/Finch-API/finch-api-node/issues/209)) ([e991d97](https://github.com/Finch-API/finch-api-node/commit/e991d97fdc63c0efd364806a780c7dcd7192592b))
+
 ## 5.7.1 (2023-10-24)
 
 Full Changelog: [v5.7.0...v5.7.1](https://github.com/Finch-API/finch-api-node/compare/v5.7.0...v5.7.1)
