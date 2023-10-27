@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.7.3 (2023-10-27)
+
+Full Changelog: [v5.7.2...v5.7.3](https://github.com/Finch-API/finch-api-node/compare/v5.7.2...v5.7.3)
+
+### Chores
+
+* **internal:** update gitignore ([#211](https://github.com/Finch-API/finch-api-node/issues/211)) ([4172782](https://github.com/Finch-API/finch-api-node/commit/4172782342d2648a6091d9c1a8cf92401efebda2))
+
 ## 5.7.2 (2023-10-25)
 
 Full Changelog: [v5.7.1...v5.7.2](https://github.com/Finch-API/finch-api-node/compare/v5.7.1...v5.7.2)
