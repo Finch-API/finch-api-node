@@ -1,6 +1,6 @@
 {
   "name": "@tryfinch/finch-api",
-  "version": "5.7.2",
+  "version": "5.7.3",
   "description": "Client library for the Finch API",
   "author": "Finch <founders@tryfinch.com>",
   "types": "dist/index.d.ts",
