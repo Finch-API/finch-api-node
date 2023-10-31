@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.8.0 (2023-10-31)
+
+Full Changelog: [v5.7.3...v5.8.0](https://github.com/Finch-API/finch-api-node/compare/v5.7.3...v5.8.0)
+
+### Features
+
+* **github:** include a devcontainer setup ([#213](https://github.com/Finch-API/finch-api-node/issues/213)) ([c0cc335](https://github.com/Finch-API/finch-api-node/commit/c0cc335d2f776409b40e2ca7406ac87874824c8d))
+
 ## 5.7.3 (2023-10-27)
 
 Full Changelog: [v5.7.2...v5.7.3](https://github.com/Finch-API/finch-api-node/compare/v5.7.2...v5.7.3)
