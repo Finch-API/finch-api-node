@@ -1,5 +1,19 @@
 # Changelog
 
+## 5.9.0 (2023-11-05)
+
+Full Changelog: [v5.8.0...v5.9.0](https://github.com/Finch-API/finch-api-node/compare/v5.8.0...v5.9.0)
+
+### Features
+
+* **client:** allow binary returns ([#215](https://github.com/Finch-API/finch-api-node/issues/215)) ([1a28957](https://github.com/Finch-API/finch-api-node/commit/1a28957c4d83aeb948882aae6b39c43b7272c5a5))
+
+
+### Documentation
+
+* document customizing fetch ([#217](https://github.com/Finch-API/finch-api-node/issues/217)) ([ac4e4a6](https://github.com/Finch-API/finch-api-node/commit/ac4e4a62cf26e724dd9d6ecf1950c57659d5e852))
+* **readme:** remove redundant whitespace ([#218](https://github.com/Finch-API/finch-api-node/issues/218)) ([82f3f79](https://github.com/Finch-API/finch-api-node/commit/82f3f797837d5799540488df9ad2f83adfb4aac8))
+
 ## 5.8.0 (2023-10-31)
 
 Full Changelog: [v5.7.3...v5.8.0](https://github.com/Finch-API/finch-api-node/compare/v5.7.3...v5.8.0)
