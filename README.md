@@ -29,7 +29,7 @@ async function main() {
   const page = await finch.hris.directory.list();
   const individualInDirectory = page.individuals[0];
 
-  console.log(individualInDirectory.first_name);
+  console.log(individualInDirectory.id);
 }
 
 main();
@@ -63,11 +63,10 @@ a subclass of `APIError` will be thrown:
 
 ```ts
 async function main() {
-  const directory = await finch.hris.directory.list().catch((err) => {
+  const company = await finch.hris.company.retrieve().catch((err) => {
     if (err instanceof Finch.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
-
       console.log(err.headers); // {server: 'nginx', ...}
     } else {
       throw err;
@@ -228,7 +227,7 @@ console.log(response.statusText); // access the underlying Response object
 const { data: page, response: raw } = await finch.hris.directory.list().withResponse();
 console.log(raw.headers.get('X-My-Header'));
 for await (const individualInDirectory of page) {
-  console.log(individualInDirectory.first_name);
+  console.log(individualInDirectory.id);
 }
 ```
 
