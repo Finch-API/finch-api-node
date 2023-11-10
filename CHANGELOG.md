@@ -1,5 +1,17 @@
 # Changelog
 
+## 5.9.1 (2023-11-10)
+
+Full Changelog: [v5.9.0...v5.9.1](https://github.com/Finch-API/finch-api-node/compare/v5.9.0...v5.9.1)
+
+### Chores
+
+* **ci:** update release-please config ([#220](https://github.com/Finch-API/finch-api-node/issues/220)) ([07f9e0f](https://github.com/Finch-API/finch-api-node/commit/07f9e0f9738bff822feec6066bb7e7058cafe751))
+* **docs:** fix github links ([#223](https://github.com/Finch-API/finch-api-node/issues/223)) ([9621b0e](https://github.com/Finch-API/finch-api-node/commit/9621b0e7313d514434847ff330d2df19454c7e76))
+* **docs:** fix some typos ([#222](https://github.com/Finch-API/finch-api-node/issues/222)) ([5eb553b](https://github.com/Finch-API/finch-api-node/commit/5eb553b89ca72c8fdbc9d1c9e9e5edf191274e0b))
+* **internal:** update jest config ([#225](https://github.com/Finch-API/finch-api-node/issues/225)) ([9cc65d2](https://github.com/Finch-API/finch-api-node/commit/9cc65d23ce328242798886d7a1a334be9341db94))
+* **internal:** update tsconfig ([#224](https://github.com/Finch-API/finch-api-node/issues/224)) ([e7e60e2](https://github.com/Finch-API/finch-api-node/commit/e7e60e2610fa259959f916ab33c8afb3d9d7dd9d))
+
 ## 5.9.0 (2023-11-05)
 
 Full Changelog: [v5.8.0...v5.9.0](https://github.com/Finch-API/finch-api-node/compare/v5.8.0...v5.9.0)
