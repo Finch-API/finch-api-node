@@ -7,5 +7,10 @@ module.exports = {
     '^@tryfinch/finch-api/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
     '^@tryfinch/finch-api/(.*)$': '<rootDir>/src/$1',
   },
-  modulePathIgnorePatterns: ['<rootDir>/ecosystem-tests/', '<rootDir>/dist/', '<rootDir>/deno_tests/'],
+  modulePathIgnorePatterns: [
+    '<rootDir>/ecosystem-tests/',
+    '<rootDir>/dist/',
+    '<rootDir>/deno/',
+    '<rootDir>/deno_tests/',
+  ],
 };
