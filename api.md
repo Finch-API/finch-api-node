@@ -5,6 +5,13 @@ Methods:
 - <code>client.<a href="./src/index.ts">getAccessToken</a>(code, { redirectUri }) -> Promise&lt;string&gt;</code>
 - <code>client.<a href="./src/index.ts">getAuthURL</a>({ products, redirectUri, sandbox }) -> string</code>
 
+# Shared
+
+Types:
+
+- <code><a href="./src/resources/shared.ts">OperationSupport</a></code>
+- <code><a href="./src/resources/shared.ts">OperationSupportMatrix</a></code>
+
 # HRIS
 
 Types:
@@ -83,11 +90,14 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitContribution</a></code>
+- <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitFeaturesAndOperations</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitFrequency</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitType</a></code>
+- <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitsSupport</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenfitContribution</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">CompanyBenefit</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">CreateCompanyBenefitsResponse</a></code>
+- <code><a href="./src/resources/hris/benefits/benefits.ts">SupportPerBenefitType</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">SupportedBenefit</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">UpdateCompanyBenefitResponse</a></code>
 

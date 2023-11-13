@@ -2,11 +2,14 @@
 
 export {
   BenefitContribution,
+  BenefitFeaturesAndOperations,
   BenefitFrequency,
   BenefitType,
+  BenefitsSupport,
   BenfitContribution,
   CompanyBenefit,
   CreateCompanyBenefitsResponse,
+  SupportPerBenefitType,
   SupportedBenefit,
   UpdateCompanyBenefitResponse,
   BenefitCreateParams,

@@ -297,6 +297,9 @@ export namespace Finch {
   export import RequestForwarding = API.RequestForwarding;
   export import RequestForwardingForwardResponse = API.RequestForwardingForwardResponse;
   export import RequestForwardingForwardParams = API.RequestForwardingForwardParams;
+
+  export import OperationSupport = API.OperationSupport;
+  export import OperationSupportMatrix = API.OperationSupportMatrix;
 }
 
 export default Finch;

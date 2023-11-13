@@ -148,14 +148,17 @@ export namespace HRIS {
   export import PayStatementRetrieveManyParams = PayStatementsAPI.PayStatementRetrieveManyParams;
   export import Benefits = BenefitsAPI.Benefits;
   export import BenefitContribution = BenefitsAPI.BenefitContribution;
+  export import BenefitFeaturesAndOperations = BenefitsAPI.BenefitFeaturesAndOperations;
   export import BenefitFrequency = BenefitsAPI.BenefitFrequency;
   export import BenefitType = BenefitsAPI.BenefitType;
+  export import BenefitsSupport = BenefitsAPI.BenefitsSupport;
   /**
    * @deprecated use `BenefitContribution` instead
    */
   export import BenfitContribution = BenefitsAPI.BenfitContribution;
   export import CompanyBenefit = BenefitsAPI.CompanyBenefit;
   export import CreateCompanyBenefitsResponse = BenefitsAPI.CreateCompanyBenefitsResponse;
+  export import SupportPerBenefitType = BenefitsAPI.SupportPerBenefitType;
   export import SupportedBenefit = BenefitsAPI.SupportedBenefit;
   export import UpdateCompanyBenefitResponse = BenefitsAPI.UpdateCompanyBenefitResponse;
   export import CompanyBenefitsSinglePage = BenefitsAPI.CompanyBenefitsSinglePage;

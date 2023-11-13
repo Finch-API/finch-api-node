@@ -40,6 +40,12 @@ export interface EmploymentData {
   class_code?: string | null;
 
   /**
+   * Custom fields for the individual. These are fields which are defined by the
+   * employer in the system.
+   */
+  custom_fields?: Array<EmploymentData.CustomField> | null;
+
+  /**
    * The department object.
    */
   department?: EmploymentData.Department | null;
@@ -122,6 +128,12 @@ export interface EmploymentData {
 }
 
 export namespace EmploymentData {
+  export interface CustomField {
+    name?: string;
+
+    value?: unknown;
+  }
+
   /**
    * The department object.
    */

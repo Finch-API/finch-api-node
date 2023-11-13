@@ -4,6 +4,7 @@ import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
 import { isRequestOptions } from '@tryfinch/finch-api/core';
 import * as BenefitsAPI from '@tryfinch/finch-api/resources/hris/benefits/benefits';
+import * as Shared from '@tryfinch/finch-api/resources/shared';
 import * as IndividualsAPI from '@tryfinch/finch-api/resources/hris/benefits/individuals';
 import { SinglePage } from '@tryfinch/finch-api/pagination';
 
@@ -100,7 +101,53 @@ export interface BenefitContribution {
   type?: 'fixed' | 'percent' | null;
 }
 
-export type BenefitFrequency = 'one_time' | 'every_paycheck' | null;
+export interface BenefitFeaturesAndOperations {
+  supported_features?: BenefitFeaturesAndOperations.SupportedFeatures;
+
+  supported_operations?: SupportPerBenefitType;
+}
+
+export namespace BenefitFeaturesAndOperations {
+  export interface SupportedFeatures {
+    /**
+     * Whether the provider supports an annual maximum for this benefit.
+     */
+    annual_maximum?: boolean | null;
+
+    /**
+     * Whether the provider supports catch up for this benefit. This field will only be
+     * true for retirement benefits.
+     */
+    catch_up?: boolean | null;
+
+    /**
+     * Supported contribution types. An empty array indicates contributions are not
+     * supported.
+     */
+    company_contribution?: Array<'fixed' | 'percent'> | null;
+
+    description?: string | null;
+
+    /**
+     * Supported deduction types. An empty array indicates deductions are not
+     * supported.
+     */
+    employee_deduction?: Array<'fixed' | 'percent'> | null;
+
+    /**
+     * The list of frequencies supported by the provider for this benefit
+     */
+    frequencies?: Array<BenefitsAPI.BenefitFrequency | null>;
+
+    /**
+     * Whether the provider supports HSA contribution limits. Empty if this feature is
+     * not supported for the benefit. This array only has values for HSA benefits.
+     */
+    hsa_contribution_limit?: Array<'individual' | 'family'> | null;
+  }
+}
+
+export type BenefitFrequency = 'one_time' | 'every_paycheck' | 'monthly' | null;
 
 /**
  * Type of benefit.
@@ -128,6 +175,37 @@ export type BenefitType =
   | null;
 
 /**
+ * Each benefit type and their supported features. If the benefit type is not
+ * supported, the property will be null
+ */
+export interface BenefitsSupport {
+  commuter?: BenefitFeaturesAndOperations | null;
+
+  custom_post_tax?: BenefitFeaturesAndOperations | null;
+
+  custom_pre_tax?: BenefitFeaturesAndOperations | null;
+
+  fsa_dependent_care?: BenefitFeaturesAndOperations | null;
+
+  fsa_medical?: BenefitFeaturesAndOperations | null;
+
+  hsa_post?: BenefitFeaturesAndOperations | null;
+
+  hsa_pre?: BenefitFeaturesAndOperations | null;
+
+  s125_dental?: BenefitFeaturesAndOperations | null;
+
+  s125_medical?: BenefitFeaturesAndOperations | null;
+
+  s125_vision?: BenefitFeaturesAndOperations | null;
+
+  simple?: BenefitFeaturesAndOperations | null;
+
+  simple_ira?: BenefitFeaturesAndOperations | null;
+  [k: string]: BenefitFeaturesAndOperations | null;
+}
+
+/**
  * @deprecated use `BenefitContribution` instead
  */
 export type BenfitContribution = BenefitContribution | null;
@@ -151,6 +229,12 @@ export interface CompanyBenefit {
 
 export interface CreateCompanyBenefitsResponse {
   benefit_id: string;
+}
+
+export interface SupportPerBenefitType {
+  company_benefits?: Shared.OperationSupportMatrix;
+
+  individual_benefits?: Shared.OperationSupportMatrix;
 }
 
 export interface SupportedBenefit {
@@ -220,14 +304,17 @@ export interface BenefitUpdateParams {
 
 export namespace Benefits {
   export import BenefitContribution = BenefitsAPI.BenefitContribution;
+  export import BenefitFeaturesAndOperations = BenefitsAPI.BenefitFeaturesAndOperations;
   export import BenefitFrequency = BenefitsAPI.BenefitFrequency;
   export import BenefitType = BenefitsAPI.BenefitType;
+  export import BenefitsSupport = BenefitsAPI.BenefitsSupport;
   /**
    * @deprecated use `BenefitContribution` instead
    */
   export import BenfitContribution = BenefitsAPI.BenfitContribution;
   export import CompanyBenefit = BenefitsAPI.CompanyBenefit;
   export import CreateCompanyBenefitsResponse = BenefitsAPI.CreateCompanyBenefitsResponse;
+  export import SupportPerBenefitType = BenefitsAPI.SupportPerBenefitType;
   export import SupportedBenefit = BenefitsAPI.SupportedBenefit;
   export import UpdateCompanyBenefitResponse = BenefitsAPI.UpdateCompanyBenefitResponse;
   export import CompanyBenefitsSinglePage = BenefitsAPI.CompanyBenefitsSinglePage;

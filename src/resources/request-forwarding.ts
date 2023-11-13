@@ -6,7 +6,10 @@ import * as RequestForwardingAPI from '@tryfinch/finch-api/resources/request-for
 
 export class RequestForwarding extends APIResource {
   /**
-   * The Forward API allows you to make direct requests to an employment system.
+   * The Forward API allows you to make direct requests to an employment system. If
+   * Finch’s unified API doesn’t have a data model that cleanly fits your needs, then
+   * Forward allows you to push or pull data models directly against an integration’s
+   * API.
    */
   forward(
     body: RequestForwardingForwardParams,
@@ -64,7 +67,7 @@ export namespace RequestForwardingForwardResponse {
 
     /**
      * The HTTP method that was specified for the forwarded request. Valid values
-     * include: `GET`, `POST`, `PUT` , `DELETE`, and `PATCH`.
+     * include: `GET` , `POST` , `PUT` , `DELETE` , and `PATCH`.
      */
     method: string;
 
@@ -83,8 +86,8 @@ export namespace RequestForwardingForwardResponse {
 
 export interface RequestForwardingForwardParams {
   /**
-   * The HTTP method for the forwarded request. Valid values include: `GET`, `POST`,
-   * `PUT`, `DELETE`, and `PATCH`.
+   * The HTTP method for the forwarded request. Valid values include: `GET` , `POST`
+   * , `PUT` , `DELETE` , and `PATCH`.
    */
   method: string;
 
