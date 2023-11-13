@@ -31,6 +31,11 @@ export interface DisconnectResponse {
 
 export interface Introspection {
   /**
+   * The Finch uuid of the account used to connect this company.
+   */
+  account_id: string;
+
+  /**
    * The client id of the application associated with the `access_token`.
    */
   client_id: string;
