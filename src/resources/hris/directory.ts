@@ -22,7 +22,7 @@ export class Directory extends APIResource {
     if (isRequestOptions(query)) {
       return this.list({}, query);
     }
-    return this.getAPIList('/employer/directory', IndividualsPage, { query, ...options });
+    return this._client.getAPIList('/employer/directory', IndividualsPage, { query, ...options });
   }
 
   /**

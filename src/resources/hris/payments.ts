@@ -14,7 +14,7 @@ export class Payments extends APIResource {
     query: PaymentListParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<PaymentsSinglePage, Payment> {
-    return this.getAPIList('/employer/payment', PaymentsSinglePage, { query, ...options });
+    return this._client.getAPIList('/employer/payment', PaymentsSinglePage, { query, ...options });
   }
 }
 

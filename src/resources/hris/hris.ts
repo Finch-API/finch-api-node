@@ -11,13 +11,13 @@ import * as PaymentsAPI from '@tryfinch/finch-api/resources/hris/payments';
 import * as BenefitsAPI from '@tryfinch/finch-api/resources/hris/benefits/benefits';
 
 export class HRIS extends APIResource {
-  company: CompanyAPI.CompanyResource = new CompanyAPI.CompanyResource(this.client);
-  directory: DirectoryAPI.Directory = new DirectoryAPI.Directory(this.client);
-  individuals: IndividualsAPI.Individuals = new IndividualsAPI.Individuals(this.client);
-  employments: EmploymentsAPI.Employments = new EmploymentsAPI.Employments(this.client);
-  payments: PaymentsAPI.Payments = new PaymentsAPI.Payments(this.client);
-  payStatements: PayStatementsAPI.PayStatements = new PayStatementsAPI.PayStatements(this.client);
-  benefits: BenefitsAPI.Benefits = new BenefitsAPI.Benefits(this.client);
+  company: CompanyAPI.CompanyResource = new CompanyAPI.CompanyResource(this._client);
+  directory: DirectoryAPI.Directory = new DirectoryAPI.Directory(this._client);
+  individuals: IndividualsAPI.Individuals = new IndividualsAPI.Individuals(this._client);
+  employments: EmploymentsAPI.Employments = new EmploymentsAPI.Employments(this._client);
+  payments: PaymentsAPI.Payments = new PaymentsAPI.Payments(this._client);
+  payStatements: PayStatementsAPI.PayStatements = new PayStatementsAPI.PayStatements(this._client);
+  benefits: BenefitsAPI.Benefits = new BenefitsAPI.Benefits(this._client);
 }
 
 /**

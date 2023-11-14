@@ -11,14 +11,14 @@ export class Account extends APIResource {
    * Disconnect endpoint for billing and security purposes.
    */
   disconnect(options?: Core.RequestOptions): Core.APIPromise<DisconnectResponse> {
-    return this.post('/disconnect', options);
+    return this._client.post('/disconnect', options);
   }
 
   /**
    * Read account information associated with an `access_token`
    */
   introspect(options?: Core.RequestOptions): Core.APIPromise<Introspection> {
-    return this.get('/introspect', options);
+    return this._client.get('/introspect', options);
   }
 }
 
