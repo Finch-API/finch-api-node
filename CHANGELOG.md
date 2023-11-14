@@ -1,5 +1,18 @@
 # Changelog
 
+## 5.10.0 (2023-11-14)
+
+Full Changelog: [v5.9.1...v5.10.0](https://github.com/Finch-API/finch-api-node/compare/v5.9.1...v5.10.0)
+
+### Features
+
+* **api:** updates ([#226](https://github.com/Finch-API/finch-api-node/issues/226)) ([02081ab](https://github.com/Finch-API/finch-api-node/commit/02081abdec5b6833ad6eb1df68b949dd1741e8ca))
+
+
+### Chores
+
+* **internal:** update APIResource structure ([#228](https://github.com/Finch-API/finch-api-node/issues/228)) ([8955d3a](https://github.com/Finch-API/finch-api-node/commit/8955d3ab051c6b382b0453ea7e9f55adb54d8dc5))
+
 ## 5.9.1 (2023-11-10)
 
 Full Changelog: [v5.9.0...v5.9.1](https://github.com/Finch-API/finch-api-node/compare/v5.9.0...v5.9.1)
