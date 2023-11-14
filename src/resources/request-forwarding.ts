@@ -15,7 +15,7 @@ export class RequestForwarding extends APIResource {
     body: RequestForwardingForwardParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<RequestForwardingForwardResponse> {
-    return this.post('/forward', { body, ...options });
+    return this._client.post('/forward', { body, ...options });
   }
 }
 

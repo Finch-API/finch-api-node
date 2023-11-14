@@ -18,7 +18,7 @@ export class Employments extends APIResource {
     body: EmploymentRetrieveManyParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<EmploymentDataResponsesPage, EmploymentDataResponse> {
-    return this.getAPIList('/employer/employment', EmploymentDataResponsesPage, {
+    return this._client.getAPIList('/employer/employment', EmploymentDataResponsesPage, {
       body,
       method: 'post',
       ...options,
