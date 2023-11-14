@@ -11,7 +11,7 @@ export class Providers extends APIResource {
    * Return details on all available payroll and HR systems.
    */
   list(options?: Core.RequestOptions): Core.PagePromise<ProvidersSinglePage, Provider> {
-    return this.getAPIList('/providers', ProvidersSinglePage, options);
+    return this._client.getAPIList('/providers', ProvidersSinglePage, options);
   }
 }
 

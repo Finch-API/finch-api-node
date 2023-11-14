@@ -25,11 +25,11 @@ export class Individuals extends APIResource {
     body: IndividualEnrollManyParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<EnrolledIndividualsSinglePage, EnrolledIndividual> {
-    return this.getAPIList(`/employer/benefits/${benefitId}/individuals`, EnrolledIndividualsSinglePage, {
-      body,
-      method: 'post',
-      ...options,
-    });
+    return this._client.getAPIList(
+      `/employer/benefits/${benefitId}/individuals`,
+      EnrolledIndividualsSinglePage,
+      { body, method: 'post', ...options },
+    );
   }
 
   /**
@@ -41,7 +41,7 @@ export class Individuals extends APIResource {
     benefitId: string,
     options?: Core.RequestOptions,
   ): Core.APIPromise<IndividualEnrolledIDsResponse> {
-    return this.get(`/employer/benefits/${benefitId}/enrolled`, options);
+    return this._client.get(`/employer/benefits/${benefitId}/enrolled`, options);
   }
 
   /**
@@ -66,10 +66,11 @@ export class Individuals extends APIResource {
     if (isRequestOptions(query)) {
       return this.retrieveManyBenefits(benefitId, {}, query);
     }
-    return this.getAPIList(`/employer/benefits/${benefitId}/individuals`, IndividualBenefitsSinglePage, {
-      query,
-      ...options,
-    });
+    return this._client.getAPIList(
+      `/employer/benefits/${benefitId}/individuals`,
+      IndividualBenefitsSinglePage,
+      { query, ...options },
+    );
   }
 
   /**
@@ -94,11 +95,11 @@ export class Individuals extends APIResource {
     if (isRequestOptions(body)) {
       return this.unenrollMany(benefitId, {}, body);
     }
-    return this.getAPIList(`/employer/benefits/${benefitId}/individuals`, UnenrolledIndividualsSinglePage, {
-      body,
-      method: 'delete',
-      ...options,
-    });
+    return this._client.getAPIList(
+      `/employer/benefits/${benefitId}/individuals`,
+      UnenrolledIndividualsSinglePage,
+      { body, method: 'delete', ...options },
+    );
   }
 }
 

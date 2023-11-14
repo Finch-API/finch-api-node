@@ -18,7 +18,7 @@ export class PayStatements extends APIResource {
     body: PayStatementRetrieveManyParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<PayStatementResponsesPage, PayStatementResponse> {
-    return this.getAPIList('/employer/pay-statement', PayStatementResponsesPage, {
+    return this._client.getAPIList('/employer/pay-statement', PayStatementResponsesPage, {
       body,
       method: 'post',
       ...options,

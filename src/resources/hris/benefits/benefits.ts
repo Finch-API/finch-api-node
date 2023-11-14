@@ -9,7 +9,7 @@ import * as IndividualsAPI from '@tryfinch/finch-api/resources/hris/benefits/ind
 import { SinglePage } from '@tryfinch/finch-api/pagination';
 
 export class Benefits extends APIResource {
-  individuals: IndividualsAPI.Individuals = new IndividualsAPI.Individuals(this.client);
+  individuals: IndividualsAPI.Individuals = new IndividualsAPI.Individuals(this._client);
 
   /**
    * **Availability: Automated and Assisted Benefits providers**
@@ -29,7 +29,7 @@ export class Benefits extends APIResource {
     if (isRequestOptions(body)) {
       return this.create({}, body);
     }
-    return this.post('/employer/benefits', { body, ...options });
+    return this._client.post('/employer/benefits', { body, ...options });
   }
 
   /**
@@ -38,7 +38,7 @@ export class Benefits extends APIResource {
    * Lists benefit information for a given benefit
    */
   retrieve(benefitId: string, options?: Core.RequestOptions): Core.APIPromise<CompanyBenefit> {
-    return this.get(`/employer/benefits/${benefitId}`, options);
+    return this._client.get(`/employer/benefits/${benefitId}`, options);
   }
 
   /**
@@ -60,7 +60,7 @@ export class Benefits extends APIResource {
     if (isRequestOptions(body)) {
       return this.update(benefitId, {}, body);
     }
-    return this.post(`/employer/benefits/${benefitId}`, { body, ...options });
+    return this._client.post(`/employer/benefits/${benefitId}`, { body, ...options });
   }
 
   /**
@@ -69,7 +69,7 @@ export class Benefits extends APIResource {
    * List all company-wide benefits.
    */
   list(options?: Core.RequestOptions): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit> {
-    return this.getAPIList('/employer/benefits', CompanyBenefitsSinglePage, options);
+    return this._client.getAPIList('/employer/benefits', CompanyBenefitsSinglePage, options);
   }
 
   /**
@@ -81,7 +81,7 @@ export class Benefits extends APIResource {
   listSupportedBenefits(
     options?: Core.RequestOptions,
   ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit> {
-    return this.getAPIList('/employer/benefits/meta', SupportedBenefitsSinglePage, options);
+    return this._client.getAPIList('/employer/benefits/meta', SupportedBenefitsSinglePage, options);
   }
 }
 

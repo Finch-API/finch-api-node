@@ -23,7 +23,7 @@ export class Individuals extends APIResource {
     if (isRequestOptions(body)) {
       return this.retrieveMany({}, body);
     }
-    return this.getAPIList('/employer/individual', IndividualResponsesPage, {
+    return this._client.getAPIList('/employer/individual', IndividualResponsesPage, {
       body,
       method: 'post',
       ...options,
