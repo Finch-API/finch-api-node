@@ -1,5 +1,19 @@
 # Changelog
 
+## 5.11.0 (2023-11-21)
+
+Full Changelog: [v5.10.0...v5.11.0](https://github.com/Finch-API/finch-api-node/compare/v5.10.0...v5.11.0)
+
+### Features
+
+* allow installing package directly from github ([#231](https://github.com/Finch-API/finch-api-node/issues/231)) ([2bd1250](https://github.com/Finch-API/finch-api-node/commit/2bd12500a193f1a088d58d7a7a94e1258a07ccfd))
+* **api:** updates ([#229](https://github.com/Finch-API/finch-api-node/issues/229)) ([55eddee](https://github.com/Finch-API/finch-api-node/commit/55eddeeeef882a657e293e573249127bf8fb2813))
+
+
+### Chores
+
+* **internal:** don't call prepare in dist ([#232](https://github.com/Finch-API/finch-api-node/issues/232)) ([ab65376](https://github.com/Finch-API/finch-api-node/commit/ab653763178d27f2d63c124264081dc074bd2478))
+
 ## 5.10.0 (2023-11-14)
 
 Full Changelog: [v5.9.1...v5.10.0](https://github.com/Finch-API/finch-api-node/compare/v5.9.1...v5.10.0)
