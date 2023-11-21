@@ -44,6 +44,12 @@ export interface Individual {
   emails?: Array<Individual.Email> | null;
 
   /**
+   * Note: This property is only available if enabled for your account. Please reach
+   * out to your Finch representative if you would like access.
+   */
+  encrypted_ssn?: string | null;
+
+  /**
    * The EEOC-defined ethnicity of the individual.
    */
   ethnicity?:

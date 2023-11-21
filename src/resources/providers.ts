@@ -231,7 +231,7 @@ export namespace Provider {
 
         location?: Employment.Location;
 
-        manager?: unknown;
+        manager?: Employment.Manager;
 
         middle_name?: boolean;
 
@@ -272,6 +272,10 @@ export namespace Provider {
 
           state?: boolean;
         }
+
+        export interface Manager {
+          id?: boolean;
+        }
       }
 
       export interface Individual {
@@ -280,6 +284,8 @@ export namespace Provider {
         dob?: boolean;
 
         emails?: Individual.Emails;
+
+        encrypted_ssn?: boolean;
 
         ethnicity?: boolean;
 
