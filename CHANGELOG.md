@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.11.1 (2023-11-24)
+
+Full Changelog: [v5.11.0...v5.11.1](https://github.com/Finch-API/finch-api-node/compare/v5.11.0...v5.11.1)
+
+### Chores
+
+* **internal:** remove file import and conditionally run prepare ([#233](https://github.com/Finch-API/finch-api-node/issues/233)) ([b01e6ba](https://github.com/Finch-API/finch-api-node/commit/b01e6badb2a8d6fabf259d3a7ad70278c4a7f7c7))
+
 ## 5.11.0 (2023-11-21)
 
 Full Changelog: [v5.10.0...v5.11.0](https://github.com/Finch-API/finch-api-node/compare/v5.10.0...v5.11.0)
