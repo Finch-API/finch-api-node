@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.12.0 (2023-11-30)
+
+Full Changelog: [v5.11.2...v5.12.0](https://github.com/Finch-API/finch-api-node/compare/v5.11.2...v5.12.0)
+
+### Features
+
+* **client:** support reading the base url from an env variable ([#237](https://github.com/Finch-API/finch-api-node/issues/237)) ([c813a07](https://github.com/Finch-API/finch-api-node/commit/c813a07ccd5e5ba2660d12c279ebc17be24301ae))
+
 ## 5.11.2 (2023-11-28)
 
 Full Changelog: [v5.11.1...v5.11.2](https://github.com/Finch-API/finch-api-node/compare/v5.11.1...v5.11.2)
