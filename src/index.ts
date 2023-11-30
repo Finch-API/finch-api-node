@@ -27,8 +27,10 @@ export interface ClientOptions {
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
+   *
+   * Defaults to process.env['FINCH_BASE_URL'].
    */
-  baseURL?: string;
+  baseURL?: string | null | undefined;
 
   /**
    * The maximum amount of time (in milliseconds) that the client should wait for a response
@@ -93,10 +95,10 @@ export class Finch extends Core.APIClient {
    * API Client for interfacing with the Finch API.
    *
    * @param {string | null} [opts.accessToken]
-   * @param {string | null} [opts.clientId==process.env['FINCH_CLIENT_ID'] ?? null]
-   * @param {string | null} [opts.clientSecret==process.env['FINCH_CLIENT_SECRET'] ?? null]
-   * @param {string | null} [opts.webhookSecret==process.env['FINCH_WEBHOOK_SECRET'] ?? null]
-   * @param {string} [opts.baseURL] - Override the default base URL for the API.
+   * @param {string | null} [opts.clientId=process.env['FINCH_CLIENT_ID'] ?? null]
+   * @param {string | null} [opts.clientSecret=process.env['FINCH_CLIENT_SECRET'] ?? null]
+   * @param {string | null} [opts.webhookSecret=process.env['FINCH_WEBHOOK_SECRET'] ?? null]
+   * @param {string} [opts.baseURL=process.env['FINCH_BASE_URL'] ?? https://api.tryfinch.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
    * @param {Core.Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -105,6 +107,7 @@ export class Finch extends Core.APIClient {
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
   constructor({
+    baseURL = Core.readEnv('FINCH_BASE_URL'),
     accessToken = null,
     clientId = Core.readEnv('FINCH_CLIENT_ID') ?? null,
     clientSecret = Core.readEnv('FINCH_CLIENT_SECRET') ?? null,
@@ -117,7 +120,7 @@ export class Finch extends Core.APIClient {
       clientSecret,
       webhookSecret,
       ...opts,
-      baseURL: opts.baseURL ?? `https://api.tryfinch.com`,
+      baseURL: baseURL ?? `https://api.tryfinch.com`,
     };
 
     super({
