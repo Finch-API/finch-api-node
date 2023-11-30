@@ -138,6 +138,21 @@ describe('instantiate client', () => {
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
+
+    afterEach(() => {
+      process.env['SINK_BASE_URL'] = undefined;
+    });
+
+    test('explicit option', () => {
+      const client = new Finch({ baseURL: 'https://example.com', accessToken: 'My Access Token' });
+      expect(client.baseURL).toEqual('https://example.com');
+    });
+
+    test('env variable', () => {
+      process.env['FINCH_BASE_URL'] = 'https://example.com/from_env';
+      const client = new Finch({ accessToken: 'My Access Token' });
+      expect(client.baseURL).toEqual('https://example.com/from_env');
+    });
   });
 
   test('maxRetries option is correctly set', () => {
