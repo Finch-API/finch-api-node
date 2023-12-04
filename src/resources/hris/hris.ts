@@ -103,23 +103,10 @@ export interface Money {
   currency?: string;
 }
 
-export interface Paging {
-  /**
-   * The total number of elements for the entire query (not just the given page)
-   */
-  count?: number;
-
-  /**
-   * The current start index of the returned list of elements
-   */
-  offset?: number;
-}
-
 export namespace HRIS {
   export import Income = HRISAPI.Income;
   export import Location = HRISAPI.Location;
   export import Money = HRISAPI.Money;
-  export import Paging = HRISAPI.Paging;
   export import CompanyResource = CompanyAPI.CompanyResource;
   export import Company = CompanyAPI.Company;
   export import Directory = DirectoryAPI.Directory;

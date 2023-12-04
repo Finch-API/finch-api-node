@@ -11,6 +11,7 @@ Types:
 
 - <code><a href="./src/resources/shared.ts">OperationSupport</a></code>
 - <code><a href="./src/resources/shared.ts">OperationSupportMatrix</a></code>
+- <code><a href="./src/resources/shared.ts">Paging</a></code>
 
 # HRIS
 
@@ -19,7 +20,6 @@ Types:
 - <code><a href="./src/resources/hris/hris.ts">Income</a></code>
 - <code><a href="./src/resources/hris/hris.ts">Location</a></code>
 - <code><a href="./src/resources/hris/hris.ts">Money</a></code>
-- <code><a href="./src/resources/hris/hris.ts">Paging</a></code>
 
 ## Company
 
@@ -163,3 +163,28 @@ Types:
 Methods:
 
 - <code title="post /forward">client.requestForwarding.<a href="./src/resources/request-forwarding.ts">forward</a>({ ...params }) -> RequestForwardingForwardResponse</code>
+
+# Jobs
+
+## Automated
+
+Types:
+
+- <code><a href="./src/resources/jobs/automated.ts">AutomatedAsyncJob</a></code>
+- <code><a href="./src/resources/jobs/automated.ts">AutomatedCreateResponse</a></code>
+
+Methods:
+
+- <code title="post /jobs/automated">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">create</a>({ ...params }) -> AutomatedCreateResponse</code>
+- <code title="get /jobs/automated/{job_id}">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">retrieve</a>(jobId) -> AutomatedAsyncJob</code>
+- <code title="get /jobs/automated">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">list</a>({ ...params }) -> AutomatedAsyncJobsPage</code>
+
+## Manual
+
+Types:
+
+- <code><a href="./src/resources/jobs/manual.ts">ManualAsyncJob</a></code>
+
+Methods:
+
+- <code title="get /jobs/manual/{job_id}">client.jobs.manual.<a href="./src/resources/jobs/manual.ts">retrieve</a>(jobId) -> ManualAsyncJob</code>

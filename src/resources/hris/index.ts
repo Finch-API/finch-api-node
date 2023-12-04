@@ -26,7 +26,7 @@ export {
   EmploymentDataResponsesPage,
   Employments,
 } from './employments';
-export { Income, Location, Money, Paging, HRIS } from './hris';
+export { Income, Location, Money, HRIS } from './hris';
 export {
   Individual,
   IndividualResponse,
