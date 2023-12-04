@@ -3,6 +3,7 @@
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
 import * as PayStatementsAPI from '@tryfinch/finch-api/resources/hris/pay-statements';
+import * as Shared from '@tryfinch/finch-api/resources/shared';
 import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
 import * as BenefitsAPI from '@tryfinch/finch-api/resources/hris/benefits/benefits';
 import { ResponsesPage } from '@tryfinch/finch-api/pagination';
@@ -200,7 +201,7 @@ export interface PayStatementResponse {
 }
 
 export interface PayStatementResponseBody {
-  paging?: HRISAPI.Paging;
+  paging?: Shared.Paging;
 
   /**
    * The array of pay statements for the current payment.

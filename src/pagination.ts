@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless.
 
 import { AbstractPage, Response, APIClient, FinalRequestOptions, PageInfo } from './core';
+import * as Shared from '@tryfinch/finch-api/resources/shared';
 import * as DirectoryAPI from '@tryfinch/finch-api/resources/hris/directory';
-import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
 
 export type SinglePageResponse<Item> = Item[];
 
@@ -80,7 +80,7 @@ export interface IndividualsPageResponse {
    */
   individuals: Array<DirectoryAPI.IndividualInDirectory>;
 
-  paging: HRISAPI.Paging;
+  paging: Shared.Paging;
 }
 
 export interface IndividualsPageParams {
@@ -99,7 +99,7 @@ export class IndividualsPage
   extends AbstractPage<DirectoryAPI.IndividualInDirectory>
   implements IndividualsPageResponse
 {
-  paging: HRISAPI.Paging;
+  paging: Shared.Paging;
 
   /**
    * The array of employees.
@@ -137,6 +137,68 @@ export class IndividualsPage
     if (!offset) return null;
 
     const length = this.individuals.length;
+    const currentCount = offset + length;
+
+    const totalCount = this.paging.count;
+    if (!totalCount) return null;
+
+    if (currentCount < totalCount) {
+      return { params: { offset: currentCount } };
+    }
+
+    return null;
+  }
+}
+
+export interface PageResponse<Item> {
+  paging: Shared.Paging;
+
+  data?: Array<Item>;
+}
+
+export interface PageParams {
+  /**
+   * Number of employees to return (defaults to all)
+   */
+  limit?: number;
+
+  /**
+   * Index to start from (defaults to 0)
+   */
+  offset?: number;
+}
+
+export class Page<Item> extends AbstractPage<Item> implements PageResponse<Item> {
+  paging: Shared.Paging;
+
+  data: Array<Item>;
+
+  constructor(client: APIClient, response: Response, body: PageResponse<Item>, options: FinalRequestOptions) {
+    super(client, response, body, options);
+
+    this.paging = body.paging;
+    this.data = body.data || [];
+  }
+
+  getPaginatedItems(): Item[] {
+    return this.data;
+  }
+
+  // @deprecated Please use `nextPageInfo()` instead
+  nextPageParams(): Partial<PageParams> | null {
+    const info = this.nextPageInfo();
+    if (!info) return null;
+    if ('params' in info) return info.params;
+    const params = Object.fromEntries(info.url.searchParams);
+    if (!Object.keys(params).length) return null;
+    return params;
+  }
+
+  nextPageInfo(): PageInfo | null {
+    const offset = this.paging.offset;
+    if (!offset) return null;
+
+    const length = this.data.length;
     const currentCount = offset + length;
 
     const totalCount = this.paging.count;

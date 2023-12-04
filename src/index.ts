@@ -143,6 +143,7 @@ export class Finch extends Core.APIClient {
   account: API.Account = new API.Account(this);
   webhooks: API.Webhooks = new API.Webhooks(this);
   requestForwarding: API.RequestForwarding = new API.RequestForwarding(this);
+  jobs: API.Jobs = new API.Jobs(this);
 
   /**
    * Returns an access token for the Finch API given an authorization code. An
@@ -281,11 +282,14 @@ export namespace Finch {
   export import IndividualsPageParams = Pagination.IndividualsPageParams;
   export import IndividualsPageResponse = Pagination.IndividualsPageResponse;
 
+  export import Page = Pagination.Page;
+  export import PageParams = Pagination.PageParams;
+  export import PageResponse = Pagination.PageResponse;
+
   export import HRIS = API.HRIS;
   export import Income = API.Income;
   export import Location = API.Location;
   export import Money = API.Money;
-  export import Paging = API.Paging;
 
   export import Providers = API.Providers;
   export import Provider = API.Provider;
@@ -301,8 +305,11 @@ export namespace Finch {
   export import RequestForwardingForwardResponse = API.RequestForwardingForwardResponse;
   export import RequestForwardingForwardParams = API.RequestForwardingForwardParams;
 
+  export import Jobs = API.Jobs;
+
   export import OperationSupport = API.OperationSupport;
   export import OperationSupportMatrix = API.OperationSupportMatrix;
+  export import Paging = API.Paging;
 }
 
 export default Finch;
