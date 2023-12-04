@@ -2,7 +2,8 @@
 
 export * from './shared';
 export { DisconnectResponse, Introspection, Account } from './account';
-export { Income, Location, Money, Paging, HRIS } from './hris/hris';
+export { Income, Location, Money, HRIS } from './hris/hris';
+export { Jobs } from './jobs/jobs';
 export { Provider, ProvidersSinglePage, Providers } from './providers';
 export {
   RequestForwardingForwardResponse,
