@@ -41,9 +41,20 @@ export interface Introspection {
   client_id: string;
 
   /**
+   * The type of application associated with a token.
+   */
+  client_type: 'production' | 'development' | 'sandbox';
+
+  /**
    * The Finch uuid of the company associated with the `access_token`.
    */
   company_id: string;
+
+  /**
+   * The type of the connection associated with the token.<br> `provider` -
+   * connection to an external provider<br> `finch` - finch-generated data.
+   */
+  connection_type: 'provider' | 'finch';
 
   /**
    * Whether the connection associated with the `access_token` uses the Assisted
