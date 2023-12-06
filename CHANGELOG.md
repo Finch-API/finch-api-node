@@ -1,5 +1,14 @@
 # Changelog
 
+## 5.13.0 (2023-12-06)
+
+Full Changelog: [v5.12.1...v5.13.0](https://github.com/Finch-API/finch-api-node/compare/v5.12.1...v5.13.0)
+
+### Features
+
+* **api:** add `/jobs` endpoints ([#241](https://github.com/Finch-API/finch-api-node/issues/241)) ([8dc8f9d](https://github.com/Finch-API/finch-api-node/commit/8dc8f9d5b54a45d1240bb7cfda0646badce970b7))
+* **api:** add `client_type` and `connection_type` to introspection ([#243](https://github.com/Finch-API/finch-api-node/issues/243)) ([5f0f755](https://github.com/Finch-API/finch-api-node/commit/5f0f755371dacace56442d4cb90bb620ceb3d0d7))
+
 ## 5.12.1 (2023-12-04)
 
 Full Changelog: [v5.12.0...v5.12.1](https://github.com/Finch-API/finch-api-node/compare/v5.12.0...v5.12.1)
