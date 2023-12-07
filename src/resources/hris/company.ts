@@ -123,7 +123,15 @@ export namespace Company {
     /**
      * The tax payer type of the company.
      */
-    type?: 'llc' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative' | null;
+    type?:
+      | 'llc'
+      | 'lp'
+      | 'corporation'
+      | 'sole_proprietor'
+      | 'non_profit'
+      | 'partnership'
+      | 'cooperative'
+      | null;
   }
 }
 
