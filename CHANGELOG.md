@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.14.0 (2023-12-07)
+
+Full Changelog: [v5.13.0...v5.14.0](https://github.com/Finch-API/finch-api-node/compare/v5.13.0...v5.14.0)
+
+### Features
+
+* **api:** add `lp` tax payer type enum value ([#245](https://github.com/Finch-API/finch-api-node/issues/245)) ([81f7cfd](https://github.com/Finch-API/finch-api-node/commit/81f7cfd732b013b4d225b8cbf12eec45da669cfd))
+
 ## 5.13.0 (2023-12-06)
 
 Full Changelog: [v5.12.1...v5.13.0](https://github.com/Finch-API/finch-api-node/compare/v5.12.1...v5.13.0)
