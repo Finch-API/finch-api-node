@@ -147,8 +147,7 @@ export class Finch extends Core.APIClient {
 
   /**
    * Returns an access token for the Finch API given an authorization code. An
-   * authorization code can be obtained by visiting the url returned by
-   * get_auth_url().
+   * authorization code can be obtained by visiting the url returned by getAuthURL().
    */
   getAccessToken(code: string, { redirectUri }: { redirectUri: string }): Promise<string> {
     if (!this.clientId) {
