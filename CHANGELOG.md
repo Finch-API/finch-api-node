@@ -1,5 +1,26 @@
 # Changelog
 
+## 5.14.1 (2023-12-17)
+
+Full Changelog: [v5.14.0...v5.14.1](https://github.com/Finch-API/finch-api-node/compare/v5.14.0...v5.14.1)
+
+### Chores
+
+* **ci:** run release workflow once per day ([#252](https://github.com/Finch-API/finch-api-node/issues/252)) ([b14c751](https://github.com/Finch-API/finch-api-node/commit/b14c751de2c5060f17e0225dba9c038b43d4b092))
+* **deps:** update dependency ts-jest to v29.1.1 ([#253](https://github.com/Finch-API/finch-api-node/issues/253)) ([3c3ed3f](https://github.com/Finch-API/finch-api-node/commit/3c3ed3fa3b5a13242444f619b11d6ad22b5ccf38))
+* update dependencies ([#251](https://github.com/Finch-API/finch-api-node/issues/251)) ([28ce45a](https://github.com/Finch-API/finch-api-node/commit/28ce45a5b90746f0165a52b785079f3f0d69588d))
+* update prettier ([#250](https://github.com/Finch-API/finch-api-node/issues/250)) ([f5136d8](https://github.com/Finch-API/finch-api-node/commit/f5136d8dc494361985d15347e1b938430d0c1276))
+
+
+### Documentation
+
+* fix typo in docstring ([#249](https://github.com/Finch-API/finch-api-node/issues/249)) ([2f47957](https://github.com/Finch-API/finch-api-node/commit/2f47957b25e99f356c62b87cfabb4586ad1bb008))
+
+
+### Build System
+
+* specify `packageManager: yarn` ([#247](https://github.com/Finch-API/finch-api-node/issues/247)) ([cb3e03f](https://github.com/Finch-API/finch-api-node/commit/cb3e03f474a96a05e1a4a0e09918fa232d19533e))
+
 ## 5.14.0 (2023-12-07)
 
 Full Changelog: [v5.13.0...v5.14.0](https://github.com/Finch-API/finch-api-node/compare/v5.13.0...v5.14.0)
