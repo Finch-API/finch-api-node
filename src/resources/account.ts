@@ -51,8 +51,11 @@ export interface Introspection {
   company_id: string;
 
   /**
-   * The type of the connection associated with the token.<br> `provider` -
-   * connection to an external provider<br> `finch` - finch-generated data.
+   * The type of the connection associated with the token.
+   *
+   * `provider` - connection to an external provider
+   *
+   * `finch` - finch-generated data.
    */
   connection_type: 'provider' | 'finch';
 
