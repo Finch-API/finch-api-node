@@ -1,5 +1,18 @@
 # Changelog
 
+## 5.14.2 (2023-12-19)
+
+Full Changelog: [v5.14.1...v5.14.2](https://github.com/Finch-API/finch-api-node/compare/v5.14.1...v5.14.2)
+
+### Chores
+
+* **deps:** update jest ([#254](https://github.com/Finch-API/finch-api-node/issues/254)) ([2e9e648](https://github.com/Finch-API/finch-api-node/commit/2e9e648d9fd234d18b9d04c0dc20052b70ad43e8))
+
+
+### Documentation
+
+* replace &lt;br&gt; tags with newlines ([#256](https://github.com/Finch-API/finch-api-node/issues/256)) ([53245a5](https://github.com/Finch-API/finch-api-node/commit/53245a5eddd523bc8f376a84d4a29b172b4308a2))
+
 ## 5.14.1 (2023-12-17)
 
 Full Changelog: [v5.14.0...v5.14.1](https://github.com/Finch-API/finch-api-node/compare/v5.14.0...v5.14.1)
