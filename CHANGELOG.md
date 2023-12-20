@@ -1,5 +1,18 @@
 # Changelog
 
+## 5.14.3 (2023-12-20)
+
+Full Changelog: [v5.14.2...v5.14.3](https://github.com/Finch-API/finch-api-node/compare/v5.14.2...v5.14.3)
+
+### Documentation
+
+* reformat README.md ([#259](https://github.com/Finch-API/finch-api-node/issues/259)) ([aeadd81](https://github.com/Finch-API/finch-api-node/commit/aeadd812236bad61610280946b98db000e27aad3))
+
+
+### Refactors
+
+* write jest config in typescript ([#257](https://github.com/Finch-API/finch-api-node/issues/257)) ([b19f8be](https://github.com/Finch-API/finch-api-node/commit/b19f8be4a71e4b0ae70d198fb6fde1656ed562b3))
+
 ## 5.14.2 (2023-12-19)
 
 Full Changelog: [v5.14.1...v5.14.2](https://github.com/Finch-API/finch-api-node/compare/v5.14.1...v5.14.2)
