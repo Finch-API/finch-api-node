@@ -209,10 +209,10 @@ export class Finch extends Core.APIClient {
   }
 
   protected override validateHeaders(headers: Core.Headers, customHeaders: Core.Headers) {
-    if (this.accessToken && headers['Authorization']) {
+    if (this.accessToken && headers['authorization']) {
       return;
     }
-    if (customHeaders['Authorization'] === null) {
+    if (customHeaders['authorization'] === null) {
       return;
     }
 
