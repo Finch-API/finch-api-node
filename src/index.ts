@@ -138,6 +138,7 @@ export class Finch extends Core.APIClient {
     this.webhookSecret = webhookSecret;
   }
 
+  accessTokens: API.AccessTokens = new API.AccessTokens(this);
   hris: API.HRIS = new API.HRIS(this);
   providers: API.Providers = new API.Providers(this);
   account: API.Account = new API.Account(this);
@@ -194,6 +195,14 @@ export class Finch extends Core.APIClient {
       sandbox: sandbox,
     });
     return url.toString();
+  }
+
+  /**
+   * Returns a copy of the current Finch client with the given access token for
+   * authentication.
+   */
+  withAccessToken(accessToken: string): Finch {
+    return new Finch({ ...this._options, accessToken });
   }
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
@@ -284,6 +293,10 @@ export namespace Finch {
   export import Page = Pagination.Page;
   export import PageParams = Pagination.PageParams;
   export import PageResponse = Pagination.PageResponse;
+
+  export import AccessTokens = API.AccessTokens;
+  export import CreateAccessTokenResponse = API.CreateAccessTokenResponse;
+  export import AccessTokenCreateParams = API.AccessTokenCreateParams;
 
   export import HRIS = API.HRIS;
   export import Income = API.Income;

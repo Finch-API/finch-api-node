@@ -4,6 +4,7 @@ Methods:
 
 - <code>client.<a href="./src/index.ts">getAccessToken</a>(code, { redirectUri }) -> Promise&lt;string&gt;</code>
 - <code>client.<a href="./src/index.ts">getAuthURL</a>({ products, redirectUri, sandbox }) -> string</code>
+- <code>client.<a href="./src/index.ts">withAccessToken</a>(accessToken) -> Finch</code>
 
 # Shared
 
@@ -12,6 +13,16 @@ Types:
 - <code><a href="./src/resources/shared.ts">OperationSupport</a></code>
 - <code><a href="./src/resources/shared.ts">OperationSupportMatrix</a></code>
 - <code><a href="./src/resources/shared.ts">Paging</a></code>
+
+# AccessTokens
+
+Types:
+
+- <code><a href="./src/resources/access-tokens.ts">CreateAccessTokenResponse</a></code>
+
+Methods:
+
+- <code title="post /auth/token">client.accessTokens.<a href="./src/resources/access-tokens.ts">create</a>({ ...params }) -> CreateAccessTokenResponse</code>
 
 # HRIS
 
