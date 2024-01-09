@@ -9,7 +9,8 @@ const finch = new Finch({
 });
 
 describe('resource accounts', () => {
-  test('create: only required params', async () => {
+  // Auth isn't setup correctly in this test
+  test.skip('create: only required params', async () => {
     const responsePromise = finch.sandbox.connections.accounts.create({
       company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       provider_id: 'string',
@@ -23,7 +24,8 @@ describe('resource accounts', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('create: required and optional params', async () => {
+  // Auth isn't setup correctly in this test
+  test.skip('create: required and optional params', async () => {
     const response = await finch.sandbox.connections.accounts.create({
       company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       provider_id: 'string',
