@@ -145,6 +145,8 @@ export class Finch extends Core.APIClient {
   webhooks: API.Webhooks = new API.Webhooks(this);
   requestForwarding: API.RequestForwarding = new API.RequestForwarding(this);
   jobs: API.Jobs = new API.Jobs(this);
+  auth: API.Auth = new API.Auth(this);
+  sandbox: API.Sandbox = new API.Sandbox(this);
 
   /**
    * Returns an access token for the Finch API given an authorization code. An
@@ -319,6 +321,12 @@ export namespace Finch {
 
   export import Jobs = API.Jobs;
 
+  export import Auth = API.Auth;
+  export import AuthCreateTokenParams = API.AuthCreateTokenParams;
+
+  export import Sandbox = API.Sandbox;
+
+  export import IntrospectResponseConnectionStatus = API.IntrospectResponseConnectionStatus;
   export import OperationSupport = API.OperationSupport;
   export import OperationSupportMatrix = API.OperationSupportMatrix;
   export import Paging = API.Paging;

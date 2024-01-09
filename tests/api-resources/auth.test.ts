@@ -8,9 +8,14 @@ const finch = new Finch({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource payStatements', () => {
-  test('retrieveMany: only required params', async () => {
-    const responsePromise = finch.hris.payStatements.retrieveMany({ requests: [{ payment_id: 'string' }] });
+describe('resource auth', () => {
+  test('createToken: only required params', async () => {
+    const responsePromise = finch.auth.createToken({
+      client_id: '<your_client_id>',
+      client_secret: '<your_client_secret>',
+      code: '<your_authorization_code>',
+      redirect_uri: 'https://example.com',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -20,9 +25,12 @@ describe('resource payStatements', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('retrieveMany: required and optional params', async () => {
-    const response = await finch.hris.payStatements.retrieveMany({
-      requests: [{ payment_id: 'string', limit: 0, offset: 0 }],
+  test('createToken: required and optional params', async () => {
+    const response = await finch.auth.createToken({
+      client_id: '<your_client_id>',
+      client_secret: '<your_client_secret>',
+      code: '<your_authorization_code>',
+      redirect_uri: 'https://example.com',
     });
   });
 });
