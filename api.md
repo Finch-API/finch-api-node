@@ -201,12 +201,6 @@ Methods:
 
 - <code title="get /jobs/manual/{job_id}">client.jobs.manual.<a href="./src/resources/jobs/manual.ts">retrieve</a>(jobId) -> ManualAsyncJob</code>
 
-# Auth
-
-Methods:
-
-- <code title="post /auth/token">client.auth.<a href="./src/resources/auth.ts">createToken</a>({ ...params }) -> CreateAccessTokenResponse</code>
-
 # Sandbox
 
 ## Connections
