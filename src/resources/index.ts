@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
 export * from './shared';
-export { AuthCreateTokenParams, Auth } from './auth';
 export { CreateAccessTokenResponse, AccessTokenCreateParams, AccessTokens } from './access-tokens';
 export { DisconnectResponse, Introspection, Account } from './account';
 export { Income, Location, Money, HRIS } from './hris/hris';
