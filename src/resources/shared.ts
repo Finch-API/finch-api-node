@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-export type IntrospectResponseConnectionStatus =
+export type ConnectionStatusType =
   | 'pending'
   | 'processing'
   | 'connected'

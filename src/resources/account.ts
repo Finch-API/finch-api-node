@@ -96,7 +96,7 @@ export namespace Introspection {
     export interface ConnectionStatus {
       message?: string;
 
-      status?: Shared.IntrospectResponseConnectionStatus;
+      status?: Shared.ConnectionStatusType;
     }
   }
 }
