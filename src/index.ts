@@ -326,7 +326,7 @@ export namespace Finch {
 
   export import Sandbox = API.Sandbox;
 
-  export import IntrospectResponseConnectionStatus = API.IntrospectResponseConnectionStatus;
+  export import ConnectionStatusType = API.ConnectionStatusType;
   export import OperationSupport = API.OperationSupport;
   export import OperationSupportMatrix = API.OperationSupportMatrix;
   export import Paging = API.Paging;

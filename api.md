@@ -10,7 +10,7 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/shared.ts">IntrospectResponseConnectionStatus</a></code>
+- <code><a href="./src/resources/shared.ts">ConnectionStatusType</a></code>
 - <code><a href="./src/resources/shared.ts">OperationSupport</a></code>
 - <code><a href="./src/resources/shared.ts">OperationSupportMatrix</a></code>
 - <code><a href="./src/resources/shared.ts">Paging</a></code>

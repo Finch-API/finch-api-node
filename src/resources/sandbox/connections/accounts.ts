@@ -72,7 +72,7 @@ export interface AccountCreateParams {
 }
 
 export interface AccountUpdateParams {
-  connection_status?: Shared.IntrospectResponseConnectionStatus;
+  connection_status?: Shared.ConnectionStatusType;
 }
 
 export namespace Accounts {
