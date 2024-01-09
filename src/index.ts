@@ -246,16 +246,51 @@ export class Finch extends Core.APIClient {
       return;
     }
 
+    if (this.sandboxClientId && this.sandboxClientSecret && headers['authorization']) {
+      return;
+    }
+    if (customHeaders['authorization'] === null) {
+      return;
+    }
+
     throw new Error(
-      'Could not resolve authentication method. Expected the accessToken to be set. Or for the "Authorization" headers to be explicitly omitted',
+      'Could not resolve authentication method. Expected either accessToken, sandboxClientId or sandboxClientSecret to be set. Or for one of the "Authorization" or "Authorization" headers to be explicitly omitted',
     );
   }
 
   protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
+    const bearerAuth = this.bearerAuth(opts);
+    const basicAuth = this.basicAuth(opts);
+
+    if (bearerAuth != null && !Core.isEmptyObj(bearerAuth)) {
+      return bearerAuth;
+    }
+
+    if (basicAuth != null && !Core.isEmptyObj(basicAuth)) {
+      return basicAuth;
+    }
+    return {};
+  }
+
+  protected bearerAuth(opts: Core.FinalRequestOptions): Core.Headers {
     if (this.accessToken == null) {
       return {};
     }
     return { Authorization: `Bearer ${this.accessToken}` };
+  }
+
+  protected basicAuth(opts: Core.FinalRequestOptions): Core.Headers {
+    if (!this.sandboxClientId) {
+      return {};
+    }
+
+    if (!this.sandboxClientSecret) {
+      return {};
+    }
+
+    const credentials = `${this.sandboxClientId}:${this.sandboxClientSecret}`;
+    const Authorization = `Basic ${Core.toBase64(credentials)}`;
+    return { Authorization };
   }
 
   static Finch = this;
