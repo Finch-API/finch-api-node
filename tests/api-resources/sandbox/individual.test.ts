@@ -33,7 +33,7 @@ describe('resource individual', () => {
       finch.sandbox.individual.update(
         'string',
         {
-          dob: 'string',
+          dob: '12/20/1989',
           emails: [
             { data: 'string', type: 'work' },
             { data: 'string', type: 'work' },
