@@ -21,6 +21,16 @@ export interface ClientOptions {
   clientSecret?: string | null;
 
   /**
+   * Defaults to process.env['FINCH_SANDBOX_CLIENT_ID'].
+   */
+  sandboxClientId?: string | null;
+
+  /**
+   * Defaults to process.env['FINCH_SANDBOX_CLIENT_SECRET'].
+   */
+  sandboxClientSecret?: string | null;
+
+  /**
    * Defaults to process.env['FINCH_WEBHOOK_SECRET'].
    */
   webhookSecret?: string | null;
@@ -87,6 +97,8 @@ export class Finch extends Core.APIClient {
   accessToken: string | null;
   clientId: string | null;
   clientSecret: string | null;
+  sandboxClientId: string | null;
+  sandboxClientSecret: string | null;
   webhookSecret: string | null;
 
   private _options: ClientOptions;
@@ -97,6 +109,8 @@ export class Finch extends Core.APIClient {
    * @param {string | null} [opts.accessToken]
    * @param {string | null} [opts.clientId=process.env['FINCH_CLIENT_ID'] ?? null]
    * @param {string | null} [opts.clientSecret=process.env['FINCH_CLIENT_SECRET'] ?? null]
+   * @param {string | null} [opts.sandboxClientId=process.env['FINCH_SANDBOX_CLIENT_ID'] ?? null]
+   * @param {string | null} [opts.sandboxClientSecret=process.env['FINCH_SANDBOX_CLIENT_SECRET'] ?? null]
    * @param {string | null} [opts.webhookSecret=process.env['FINCH_WEBHOOK_SECRET'] ?? null]
    * @param {string} [opts.baseURL=process.env['FINCH_BASE_URL'] ?? https://api.tryfinch.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
@@ -111,6 +125,8 @@ export class Finch extends Core.APIClient {
     accessToken = null,
     clientId = Core.readEnv('FINCH_CLIENT_ID') ?? null,
     clientSecret = Core.readEnv('FINCH_CLIENT_SECRET') ?? null,
+    sandboxClientId = Core.readEnv('FINCH_SANDBOX_CLIENT_ID') ?? null,
+    sandboxClientSecret = Core.readEnv('FINCH_SANDBOX_CLIENT_SECRET') ?? null,
     webhookSecret = Core.readEnv('FINCH_WEBHOOK_SECRET') ?? null,
     ...opts
   }: ClientOptions = {}) {
@@ -118,6 +134,8 @@ export class Finch extends Core.APIClient {
       accessToken,
       clientId,
       clientSecret,
+      sandboxClientId,
+      sandboxClientSecret,
       webhookSecret,
       ...opts,
       baseURL: baseURL ?? `https://api.tryfinch.com`,
@@ -135,6 +153,8 @@ export class Finch extends Core.APIClient {
     this.accessToken = accessToken;
     this.clientId = clientId;
     this.clientSecret = clientSecret;
+    this.sandboxClientId = sandboxClientId;
+    this.sandboxClientSecret = sandboxClientSecret;
     this.webhookSecret = webhookSecret;
   }
 
@@ -145,7 +165,6 @@ export class Finch extends Core.APIClient {
   webhooks: API.Webhooks = new API.Webhooks(this);
   requestForwarding: API.RequestForwarding = new API.RequestForwarding(this);
   jobs: API.Jobs = new API.Jobs(this);
-  auth: API.Auth = new API.Auth(this);
   sandbox: API.Sandbox = new API.Sandbox(this);
 
   /**
@@ -320,9 +339,6 @@ export namespace Finch {
   export import RequestForwardingForwardParams = API.RequestForwardingForwardParams;
 
   export import Jobs = API.Jobs;
-
-  export import Auth = API.Auth;
-  export import AuthCreateTokenParams = API.AuthCreateTokenParams;
 
   export import Sandbox = API.Sandbox;
 
