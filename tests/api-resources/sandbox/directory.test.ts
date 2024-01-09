@@ -10,7 +10,7 @@ const finch = new Finch({
 
 describe('resource directory', () => {
   test('create: only required params', async () => {
-    const responsePromise = finch.sandbox.directory.create([{}, {}, {}]);
+    const responsePromise = finch.sandbox.directory.create([{}]);
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,9 +23,9 @@ describe('resource directory', () => {
   test('create: required and optional params', async () => {
     const response = await finch.sandbox.directory.create([
       {
-        first_name: 'string',
+        first_name: 'John',
         middle_name: 'string',
-        last_name: 'string',
+        last_name: 'Smith',
         preferred_name: 'string',
         emails: [
           { data: 'string', type: 'work' },
@@ -39,129 +39,7 @@ describe('resource directory', () => {
         ],
         gender: 'female',
         ethnicity: 'asian',
-        dob: 'string',
-        ssn: 'string',
-        encrypted_ssn: 'string',
-        residence: {
-          line1: 'string',
-          line2: 'string',
-          city: 'string',
-          state: 'string',
-          postal_code: 'string',
-          country: 'string',
-          name: 'string',
-          source_id: 'string',
-        },
-        title: 'string',
-        manager: { id: 'string' },
-        department: { name: 'string' },
-        employment: { type: 'employee', subtype: 'full_time' },
-        start_date: 'string',
-        end_date: 'string',
-        is_active: true,
-        class_code: 'string',
-        location: {
-          line1: 'string',
-          line2: 'string',
-          city: 'string',
-          state: 'string',
-          postal_code: 'string',
-          country: 'string',
-          name: 'string',
-          source_id: 'string',
-        },
-        income: { unit: 'yearly', amount: 0, currency: 'string', effective_date: 'string' },
-        income_history: [
-          { unit: 'yearly', amount: 0, currency: 'string', effective_date: 'string' },
-          { unit: 'yearly', amount: 0, currency: 'string', effective_date: 'string' },
-          { unit: 'yearly', amount: 0, currency: 'string', effective_date: 'string' },
-        ],
-        custom_fields: [
-          { name: 'string', value: {} },
-          { name: 'string', value: {} },
-          { name: 'string', value: {} },
-        ],
-        source_id: 'string',
-      },
-      {
-        first_name: 'string',
-        middle_name: 'string',
-        last_name: 'string',
-        preferred_name: 'string',
-        emails: [
-          { data: 'string', type: 'work' },
-          { data: 'string', type: 'work' },
-          { data: 'string', type: 'work' },
-        ],
-        phone_numbers: [
-          { data: 'string', type: 'work' },
-          { data: 'string', type: 'work' },
-          { data: 'string', type: 'work' },
-        ],
-        gender: 'female',
-        ethnicity: 'asian',
-        dob: 'string',
-        ssn: 'string',
-        encrypted_ssn: 'string',
-        residence: {
-          line1: 'string',
-          line2: 'string',
-          city: 'string',
-          state: 'string',
-          postal_code: 'string',
-          country: 'string',
-          name: 'string',
-          source_id: 'string',
-        },
-        title: 'string',
-        manager: { id: 'string' },
-        department: { name: 'string' },
-        employment: { type: 'employee', subtype: 'full_time' },
-        start_date: 'string',
-        end_date: 'string',
-        is_active: true,
-        class_code: 'string',
-        location: {
-          line1: 'string',
-          line2: 'string',
-          city: 'string',
-          state: 'string',
-          postal_code: 'string',
-          country: 'string',
-          name: 'string',
-          source_id: 'string',
-        },
-        income: { unit: 'yearly', amount: 0, currency: 'string', effective_date: 'string' },
-        income_history: [
-          { unit: 'yearly', amount: 0, currency: 'string', effective_date: 'string' },
-          { unit: 'yearly', amount: 0, currency: 'string', effective_date: 'string' },
-          { unit: 'yearly', amount: 0, currency: 'string', effective_date: 'string' },
-        ],
-        custom_fields: [
-          { name: 'string', value: {} },
-          { name: 'string', value: {} },
-          { name: 'string', value: {} },
-        ],
-        source_id: 'string',
-      },
-      {
-        first_name: 'string',
-        middle_name: 'string',
-        last_name: 'string',
-        preferred_name: 'string',
-        emails: [
-          { data: 'string', type: 'work' },
-          { data: 'string', type: 'work' },
-          { data: 'string', type: 'work' },
-        ],
-        phone_numbers: [
-          { data: 'string', type: 'work' },
-          { data: 'string', type: 'work' },
-          { data: 'string', type: 'work' },
-        ],
-        gender: 'female',
-        ethnicity: 'asian',
-        dob: 'string',
+        dob: '01/01/2000',
         ssn: 'string',
         encrypted_ssn: 'string',
         residence: {
