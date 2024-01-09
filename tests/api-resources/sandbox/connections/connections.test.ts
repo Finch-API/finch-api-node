@@ -8,9 +8,9 @@ const finch = new Finch({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource payStatements', () => {
-  test('retrieveMany: only required params', async () => {
-    const responsePromise = finch.hris.payStatements.retrieveMany({ requests: [{ payment_id: 'string' }] });
+describe('resource connections', () => {
+  test('create: only required params', async () => {
+    const responsePromise = finch.sandbox.connections.create({ provider_id: 'string' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -20,9 +20,12 @@ describe('resource payStatements', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('retrieveMany: required and optional params', async () => {
-    const response = await finch.hris.payStatements.retrieveMany({
-      requests: [{ payment_id: 'string', limit: 0, offset: 0 }],
+  test('create: required and optional params', async () => {
+    const response = await finch.sandbox.connections.create({
+      provider_id: 'string',
+      authentication_type: 'credentials',
+      employer_size: 0,
+      products: ['string', 'string', 'string'],
     });
   });
 });
