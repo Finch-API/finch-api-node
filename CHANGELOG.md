@@ -1,5 +1,27 @@
 # Changelog
 
+## 5.15.0 (2024-01-09)
+
+Full Changelog: [v5.14.3...v5.15.0](https://github.com/Finch-API/finch-api-node/compare/v5.14.3...v5.15.0)
+
+### Features
+
+* **api:** add method to create access token ([#264](https://github.com/Finch-API/finch-api-node/issues/264)) ([ca0af62](https://github.com/Finch-API/finch-api-node/commit/ca0af623e1f6d2352dc6606fc142bce23ababd5f))
+* **api:** add sandbox APIs ([#266](https://github.com/Finch-API/finch-api-node/issues/266)) ([25351a2](https://github.com/Finch-API/finch-api-node/commit/25351a25a79456659a7e3b10f1920d7a4f20b889))
+
+
+### Bug Fixes
+
+* **headers:** always send lowercase headers and strip undefined (BREAKING in rare cases) ([#262](https://github.com/Finch-API/finch-api-node/issues/262)) ([2fab66d](https://github.com/Finch-API/finch-api-node/commit/2fab66d500babc803b2d3558adea36e11796cdd8))
+
+
+### Chores
+
+* add .keep files for examples and custom code directories ([#265](https://github.com/Finch-API/finch-api-node/issues/265)) ([3290e79](https://github.com/Finch-API/finch-api-node/commit/3290e79fff61ad1062884ce4b60d67db3061b974))
+* **internal:** bump license ([#260](https://github.com/Finch-API/finch-api-node/issues/260)) ([adf6d44](https://github.com/Finch-API/finch-api-node/commit/adf6d44c1bf71f5b4cd3da78ead100c19a57b6c6))
+* **internal:** improve type signatures ([#263](https://github.com/Finch-API/finch-api-node/issues/263)) ([1a7f266](https://github.com/Finch-API/finch-api-node/commit/1a7f266045010133185aca29d514dc79969ed2a4))
+* **test:** update examples ([#267](https://github.com/Finch-API/finch-api-node/issues/267)) ([e23e91b](https://github.com/Finch-API/finch-api-node/commit/e23e91bca3a209e12ef13cc25cb859554195fc14))
+
 ## 5.14.3 (2023-12-20)
 
 Full Changelog: [v5.14.2...v5.14.3](https://github.com/Finch-API/finch-api-node/compare/v5.14.2...v5.14.3)
