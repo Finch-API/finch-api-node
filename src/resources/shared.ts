@@ -1,5 +1,13 @@
 // File generated from our OpenAPI spec by Stainless.
 
+export type IntrospectResponseConnectionStatus =
+  | 'pending'
+  | 'processing'
+  | 'connected'
+  | 'error_no_account_setup'
+  | 'error_permissions'
+  | 'reauth';
+
 /**
  * - `supported`: This operation is supported by both the provider and Finch
  *

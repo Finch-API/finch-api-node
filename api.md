@@ -10,6 +10,7 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/shared.ts">IntrospectResponseConnectionStatus</a></code>
 - <code><a href="./src/resources/shared.ts">OperationSupport</a></code>
 - <code><a href="./src/resources/shared.ts">OperationSupportMatrix</a></code>
 - <code><a href="./src/resources/shared.ts">Paging</a></code>
@@ -199,3 +200,97 @@ Types:
 Methods:
 
 - <code title="get /jobs/manual/{job_id}">client.jobs.manual.<a href="./src/resources/jobs/manual.ts">retrieve</a>(jobId) -> ManualAsyncJob</code>
+
+# Auth
+
+Methods:
+
+- <code title="post /auth/token">client.auth.<a href="./src/resources/auth.ts">createToken</a>({ ...params }) -> CreateAccessTokenResponse</code>
+
+# Sandbox
+
+## Connections
+
+Types:
+
+- <code><a href="./src/resources/sandbox/connections/connections.ts">ConnectionCreateResponse</a></code>
+
+Methods:
+
+- <code title="post /sandbox/connections">client.sandbox.connections.<a href="./src/resources/sandbox/connections/connections.ts">create</a>({ ...params }) -> ConnectionCreateResponse</code>
+
+### Accounts
+
+Types:
+
+- <code><a href="./src/resources/sandbox/connections/accounts.ts">AccountCreateResponse</a></code>
+- <code><a href="./src/resources/sandbox/connections/accounts.ts">AccountUpdateResponse</a></code>
+
+Methods:
+
+- <code title="post /sandbox/connections/accounts">client.sandbox.connections.accounts.<a href="./src/resources/sandbox/connections/accounts.ts">create</a>({ ...params }) -> AccountCreateResponse</code>
+- <code title="put /sandbox/connections/accounts">client.sandbox.connections.accounts.<a href="./src/resources/sandbox/connections/accounts.ts">update</a>({ ...params }) -> AccountUpdateResponse</code>
+
+## Company
+
+Types:
+
+- <code><a href="./src/resources/sandbox/company.ts">CompanyUpdateResponse</a></code>
+
+Methods:
+
+- <code title="put /sandbox/company">client.sandbox.company.<a href="./src/resources/sandbox/company.ts">update</a>({ ...params }) -> CompanyUpdateResponse</code>
+
+## Directory
+
+Types:
+
+- <code><a href="./src/resources/sandbox/directory.ts">DirectoryCreateResponse</a></code>
+
+Methods:
+
+- <code title="post /sandbox/directory">client.sandbox.directory.<a href="./src/resources/sandbox/directory.ts">create</a>([ ...body ]) -> DirectoryCreateResponse</code>
+
+## Individual
+
+Types:
+
+- <code><a href="./src/resources/sandbox/individual.ts">IndividualUpdateResponse</a></code>
+
+Methods:
+
+- <code title="put /sandbox/individual/{individual_id}">client.sandbox.individual.<a href="./src/resources/sandbox/individual.ts">update</a>(individualId, { ...params }) -> IndividualUpdateResponse</code>
+
+## Employment
+
+Types:
+
+- <code><a href="./src/resources/sandbox/employment.ts">EmploymentUpdateResponse</a></code>
+
+Methods:
+
+- <code title="put /sandbox/employment/{individual_id}">client.sandbox.employment.<a href="./src/resources/sandbox/employment.ts">update</a>(individualId, { ...params }) -> EmploymentUpdateResponse</code>
+
+## Payment
+
+Types:
+
+- <code><a href="./src/resources/sandbox/payment.ts">PaymentCreateResponse</a></code>
+
+Methods:
+
+- <code title="post /sandbox/payment">client.sandbox.payment.<a href="./src/resources/sandbox/payment.ts">create</a>({ ...params }) -> PaymentCreateResponse</code>
+
+## Jobs
+
+### Configuration
+
+Types:
+
+- <code><a href="./src/resources/sandbox/jobs/configuration.ts">SandboxJobConfiguration</a></code>
+- <code><a href="./src/resources/sandbox/jobs/configuration.ts">ConfigurationRetrieveResponse</a></code>
+
+Methods:
+
+- <code title="get /sandbox/jobs/configuration">client.sandbox.jobs.configuration.<a href="./src/resources/sandbox/jobs/configuration.ts">retrieve</a>() -> ConfigurationRetrieveResponse</code>
+- <code title="put /sandbox/jobs/configuration">client.sandbox.jobs.configuration.<a href="./src/resources/sandbox/jobs/configuration.ts">update</a>({ ...params }) -> SandboxJobConfiguration</code>

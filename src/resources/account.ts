@@ -3,6 +3,7 @@
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
 import * as AccountAPI from '@tryfinch/finch-api/resources/account';
+import * as Shared from '@tryfinch/finch-api/resources/shared';
 
 export class Account extends APIResource {
   /**
@@ -34,6 +35,8 @@ export interface Introspection {
    * The Finch uuid of the account used to connect this company.
    */
   account_id: string;
+
+  authentication_methods: Introspection.AuthenticationMethods;
 
   /**
    * The client id of the application associated with the `access_token`.
@@ -80,6 +83,22 @@ export interface Introspection {
    * The account username used for login associated with the `access_token`.
    */
   username: string;
+}
+
+export namespace Introspection {
+  export interface AuthenticationMethods {
+    connection_status?: AuthenticationMethods.ConnectionStatus;
+
+    type?: string;
+  }
+
+  export namespace AuthenticationMethods {
+    export interface ConnectionStatus {
+      message?: string;
+
+      status?: Shared.IntrospectResponseConnectionStatus;
+    }
+  }
 }
 
 export namespace Account {
