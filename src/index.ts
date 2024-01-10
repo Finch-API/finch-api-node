@@ -138,7 +138,7 @@ export class Finch extends Core.APIClient {
       sandboxClientSecret,
       webhookSecret,
       ...opts,
-      baseURL: baseURL ?? `https://api.tryfinch.com`,
+      baseURL: baseURL || `https://api.tryfinch.com`,
     };
 
     super({
