@@ -140,7 +140,7 @@ describe('instantiate client', () => {
     });
 
     afterEach(() => {
-      process.env['SINK_BASE_URL'] = undefined;
+      process.env['FINCH_BASE_URL'] = undefined;
     });
 
     test('explicit option', () => {
@@ -152,6 +152,18 @@ describe('instantiate client', () => {
       process.env['FINCH_BASE_URL'] = 'https://example.com/from_env';
       const client = new Finch({ accessToken: 'My Access Token' });
       expect(client.baseURL).toEqual('https://example.com/from_env');
+    });
+
+    test('empty env variable', () => {
+      process.env['FINCH_BASE_URL'] = ''; // empty
+      const client = new Finch({ accessToken: 'My Access Token' });
+      expect(client.baseURL).toEqual('https://api.tryfinch.com');
+    });
+
+    test('blank env variable', () => {
+      process.env['FINCH_BASE_URL'] = '  '; // blank
+      const client = new Finch({ accessToken: 'My Access Token' });
+      expect(client.baseURL).toEqual('https://api.tryfinch.com');
     });
   });
 
