@@ -161,9 +161,22 @@ Methods:
 
 # Webhooks
 
+Types:
+
+- <code><a href="./src/resources/webhooks.ts">AccountUpdateEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">BaseWebhookEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">CompanyEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">DirectoryEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">EmploymentEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">IndividualEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">JobCompletionEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">PayStatementEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">PaymentEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">WebhookEvent</a></code>
+
 Methods:
 
-- <code>client.webhooks.<a href="./src/resources/webhooks.ts">unwrap</a>(payload, headers, secret) -> Object</code>
+- <code>client.webhooks.<a href="./src/resources/webhooks.ts">unwrap</a>(payload, headers, secret) -> WebhookEvent</code>
 - <code>client.webhooks.<a href="./src/resources/webhooks.ts">verifySignature</a>(body, headers, secret) -> void</code>
 
 # RequestForwarding
