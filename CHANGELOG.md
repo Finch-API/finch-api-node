@@ -1,5 +1,24 @@
 # Changelog
 
+## 5.16.0 (2024-01-11)
+
+Full Changelog: [v5.15.0...v5.16.0](https://github.com/Finch-API/finch-api-node/compare/v5.15.0...v5.16.0)
+
+### Features
+
+* **client:** hook up sandbox auth ([#271](https://github.com/Finch-API/finch-api-node/issues/271)) ([ffba918](https://github.com/Finch-API/finch-api-node/commit/ffba9185df0a2652052574aebd145c710943ca39))
+* remove redundant endpoint, add sandbox client options (not yet used) ([#270](https://github.com/Finch-API/finch-api-node/issues/270)) ([d49613c](https://github.com/Finch-API/finch-api-node/commit/d49613cd6bc7658b59bc11e955d72588a73c4856))
+
+
+### Bug Fixes
+
+* use default base url if BASE_URL env var is blank ([#272](https://github.com/Finch-API/finch-api-node/issues/272)) ([3d89ada](https://github.com/Finch-API/finch-api-node/commit/3d89ada8c22bd7ff8272e55d6115a304a548998f))
+
+
+### Chores
+
+* **internal:** rename unreleased connection status type ([#268](https://github.com/Finch-API/finch-api-node/issues/268)) ([2b070f8](https://github.com/Finch-API/finch-api-node/commit/2b070f8305a630654f655248986f2d752534cd66))
+
 ## 5.15.0 (2024-01-09)
 
 Full Changelog: [v5.14.3...v5.15.0](https://github.com/Finch-API/finch-api-node/compare/v5.14.3...v5.15.0)
