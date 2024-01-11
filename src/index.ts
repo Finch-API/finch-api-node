@@ -368,6 +368,16 @@ export namespace Finch {
   export import Introspection = API.Introspection;
 
   export import Webhooks = API.Webhooks;
+  export import AccountUpdateEvent = API.AccountUpdateEvent;
+  export import BaseWebhookEvent = API.BaseWebhookEvent;
+  export import CompanyEvent = API.CompanyEvent;
+  export import DirectoryEvent = API.DirectoryEvent;
+  export import EmploymentEvent = API.EmploymentEvent;
+  export import IndividualEvent = API.IndividualEvent;
+  export import JobCompletionEvent = API.JobCompletionEvent;
+  export import PayStatementEvent = API.PayStatementEvent;
+  export import PaymentEvent = API.PaymentEvent;
+  export import WebhookEvent = API.WebhookEvent;
 
   export import RequestForwarding = API.RequestForwarding;
   export import RequestForwardingForwardResponse = API.RequestForwardingForwardResponse;
