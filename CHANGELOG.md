@@ -1,5 +1,23 @@
 # Changelog
 
+## 5.17.0 (2024-01-12)
+
+Full Changelog: [v5.16.0...v5.17.0](https://github.com/Finch-API/finch-api-node/compare/v5.16.0...v5.17.0)
+
+### Features
+
+* **webhooks:** add types to the `unwrap` method ([#273](https://github.com/Finch-API/finch-api-node/issues/273)) ([52be237](https://github.com/Finch-API/finch-api-node/commit/52be2376e996353197185130d52ce15b21d592df))
+
+
+### Chores
+
+* **internal:** narrow type into stringifyQuery ([#275](https://github.com/Finch-API/finch-api-node/issues/275)) ([8ed3d63](https://github.com/Finch-API/finch-api-node/commit/8ed3d630ca4ef00604a2fa697e5a348eac5f8690))
+
+
+### Documentation
+
+* **readme:** improve api reference ([#276](https://github.com/Finch-API/finch-api-node/issues/276)) ([ccc6aec](https://github.com/Finch-API/finch-api-node/commit/ccc6aec4ac0d082fd17ac11901ee805ea689afa3))
+
 ## 5.16.0 (2024-01-11)
 
 Full Changelog: [v5.15.0...v5.16.0](https://github.com/Finch-API/finch-api-node/compare/v5.15.0...v5.16.0)
