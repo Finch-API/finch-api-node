@@ -261,8 +261,8 @@ import { fetch } from 'undici'; // as one example
 import Finch from '@tryfinch/finch-api';
 
 const client = new Finch({
-  fetch: (url: RequestInfo, init?: RequestInfo): Response => {
-    console.log('About to make request', url, init);
+  fetch: async (url: RequestInfo, init?: RequestInfo): Promise<Response> => {
+    console.log('About to make a request', url, init);
     const response = await fetch(url, init);
     console.log('Got response', response);
     return response;
