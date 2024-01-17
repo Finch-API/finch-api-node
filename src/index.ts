@@ -8,32 +8,32 @@ import * as Uploads from './uploads';
 import * as API from '@tryfinch/finch-api/resources/index';
 
 export interface ClientOptions {
-  accessToken?: string | null;
+  accessToken?: string | null | undefined;
 
   /**
    * Defaults to process.env['FINCH_CLIENT_ID'].
    */
-  clientId?: string | null;
+  clientId?: string | null | undefined;
 
   /**
    * Defaults to process.env['FINCH_CLIENT_SECRET'].
    */
-  clientSecret?: string | null;
+  clientSecret?: string | null | undefined;
 
   /**
    * Defaults to process.env['FINCH_SANDBOX_CLIENT_ID'].
    */
-  sandboxClientId?: string | null;
+  sandboxClientId?: string | null | undefined;
 
   /**
    * Defaults to process.env['FINCH_SANDBOX_CLIENT_SECRET'].
    */
-  sandboxClientSecret?: string | null;
+  sandboxClientSecret?: string | null | undefined;
 
   /**
    * Defaults to process.env['FINCH_WEBHOOK_SECRET'].
    */
-  webhookSecret?: string | null;
+  webhookSecret?: string | null | undefined;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -106,12 +106,12 @@ export class Finch extends Core.APIClient {
   /**
    * API Client for interfacing with the Finch API.
    *
-   * @param {string | null} [opts.accessToken]
-   * @param {string | null} [opts.clientId=process.env['FINCH_CLIENT_ID'] ?? null]
-   * @param {string | null} [opts.clientSecret=process.env['FINCH_CLIENT_SECRET'] ?? null]
-   * @param {string | null} [opts.sandboxClientId=process.env['FINCH_SANDBOX_CLIENT_ID'] ?? null]
-   * @param {string | null} [opts.sandboxClientSecret=process.env['FINCH_SANDBOX_CLIENT_SECRET'] ?? null]
-   * @param {string | null} [opts.webhookSecret=process.env['FINCH_WEBHOOK_SECRET'] ?? null]
+   * @param {string | null | undefined} [opts.accessToken]
+   * @param {string | null | undefined} [opts.clientId=process.env['FINCH_CLIENT_ID'] ?? null]
+   * @param {string | null | undefined} [opts.clientSecret=process.env['FINCH_CLIENT_SECRET'] ?? null]
+   * @param {string | null | undefined} [opts.sandboxClientId=process.env['FINCH_SANDBOX_CLIENT_ID'] ?? null]
+   * @param {string | null | undefined} [opts.sandboxClientSecret=process.env['FINCH_SANDBOX_CLIENT_SECRET'] ?? null]
+   * @param {string | null | undefined} [opts.webhookSecret=process.env['FINCH_WEBHOOK_SECRET'] ?? null]
    * @param {string} [opts.baseURL=process.env['FINCH_BASE_URL'] ?? https://api.tryfinch.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
