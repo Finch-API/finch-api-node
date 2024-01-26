@@ -36,7 +36,7 @@ export interface AccountCreateResponse {
 
   account_id: string;
 
-  authentication_type: 'credentials' | 'api_token' | 'oauth' | 'assisted';
+  authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted';
 
   company_id: string;
 
@@ -48,7 +48,7 @@ export interface AccountCreateResponse {
 export interface AccountUpdateResponse {
   account_id: string;
 
-  authentication_type: 'credentials' | 'api_token' | 'oauth' | 'assisted';
+  authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted';
 
   company_id: string;
 
@@ -62,7 +62,7 @@ export interface AccountCreateParams {
 
   provider_id: string;
 
-  authentication_type?: 'credentials' | 'api_token' | 'oauth' | 'assisted';
+  authentication_type?: 'credential' | 'api_token' | 'oauth' | 'assisted';
 
   /**
    * Optional, defaults to Organization products (`company`, `directory`,

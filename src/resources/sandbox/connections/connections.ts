@@ -24,7 +24,7 @@ export interface ConnectionCreateResponse {
 
   account_id: string;
 
-  authentication_type: 'credentials' | 'api_token' | 'oauth' | 'assisted';
+  authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted';
 
   company_id: string;
 
@@ -36,7 +36,7 @@ export interface ConnectionCreateResponse {
 export interface ConnectionCreateParams {
   provider_id: string;
 
-  authentication_type?: 'credentials' | 'api_token' | 'oauth' | 'assisted';
+  authentication_type?: 'credential' | 'api_token' | 'oauth' | 'assisted';
 
   /**
    * Optional: the size of the employer to be created with this connection. Defaults
