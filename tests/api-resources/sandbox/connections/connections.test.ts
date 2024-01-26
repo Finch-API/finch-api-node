@@ -25,7 +25,7 @@ describe('resource connections', () => {
   test.skip('create: required and optional params', async () => {
     const response = await finch.sandbox.connections.create({
       provider_id: 'string',
-      authentication_type: 'credentials',
+      authentication_type: 'credential',
       employer_size: 0,
       products: ['string', 'string', 'string'],
     });
