@@ -42,7 +42,7 @@ export interface ConnectionCreateParams {
    * Optional: the size of the employer to be created with this connection. Defaults
    * to 20
    */
-  employer_size?: number;
+  employee_size?: number;
 
   products?: Array<string>;
 }

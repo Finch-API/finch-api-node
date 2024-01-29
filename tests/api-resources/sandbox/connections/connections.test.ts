@@ -26,7 +26,7 @@ describe('resource connections', () => {
     const response = await finch.sandbox.connections.create({
       provider_id: 'string',
       authentication_type: 'credential',
-      employer_size: 0,
+      employee_size: 0,
       products: ['string', 'string', 'string'],
     });
   });
