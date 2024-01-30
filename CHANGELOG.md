@@ -1,5 +1,33 @@
 # Changelog
 
+## 5.17.1 (2024-01-30)
+
+Full Changelog: [v5.17.0...v5.17.1](https://github.com/Finch-API/finch-api-node/compare/v5.17.0...v5.17.1)
+
+### Features
+
+* **api:** add employer_contributions field ([#282](https://github.com/Finch-API/finch-api-node/issues/282)) ([98c1da0](https://github.com/Finch-API/finch-api-node/commit/98c1da07b0a63d590aceb6c7a431367a6e7b6069))
+
+
+### Bug Fixes
+
+* allow body type in RequestOptions to be null ([#284](https://github.com/Finch-API/finch-api-node/issues/284)) ([d948729](https://github.com/Finch-API/finch-api-node/commit/d948729156f0abaceaac671069786f4a1764f235))
+* **api:** fix authentication_type enum ([#286](https://github.com/Finch-API/finch-api-node/issues/286)) ([6ff8af1](https://github.com/Finch-API/finch-api-node/commit/6ff8af17c77e966e069d1290c153d6371412f255))
+* **api:** update `employer_size` parameter to `employee_size` ([#287](https://github.com/Finch-API/finch-api-node/issues/287)) ([cbb933f](https://github.com/Finch-API/finch-api-node/commit/cbb933f2f147021d461d943133727748d2ae2468))
+* **types:** accept undefined for optional client options ([#280](https://github.com/Finch-API/finch-api-node/issues/280)) ([169ddc6](https://github.com/Finch-API/finch-api-node/commit/169ddc6702dd3b11c8fb8f810d45227bd6375ea9))
+
+
+### Chores
+
+* **ci:** rely on Stainless GitHub App for releases ([#281](https://github.com/Finch-API/finch-api-node/issues/281)) ([fac02eb](https://github.com/Finch-API/finch-api-node/commit/fac02eb20b886703e63f879021dcbe18f65617e3))
+* **internal:** add internal helpers & improve build scripts ([#285](https://github.com/Finch-API/finch-api-node/issues/285)) ([fb91cd8](https://github.com/Finch-API/finch-api-node/commit/fb91cd841b7f3f927ce9c3abf33b0b56ed406d9a))
+* **internal:** debug logging for retries; speculative retry-after-ms support ([#279](https://github.com/Finch-API/finch-api-node/issues/279)) ([90b0dad](https://github.com/Finch-API/finch-api-node/commit/90b0dadde179f58073c8b88c9de9de1bc187d8f6))
+
+
+### Documentation
+
+* fix missing async in readme code sample ([#277](https://github.com/Finch-API/finch-api-node/issues/277)) ([893f7cc](https://github.com/Finch-API/finch-api-node/commit/893f7cc9e2d0bb3bd2472b485a88170768f9b78d))
+
 ## 5.17.0 (2024-01-12)
 
 Full Changelog: [v5.16.0...v5.17.0](https://github.com/Finch-API/finch-api-node/compare/v5.16.0...v5.17.0)
