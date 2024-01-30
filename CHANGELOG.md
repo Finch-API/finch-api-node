@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.17.2 (2024-01-30)
+
+Full Changelog: [v5.17.1...v5.17.2](https://github.com/Finch-API/finch-api-node/compare/v5.17.1...v5.17.2)
+
+### Chores
+
+* **internal:** support pre-release versioning ([#288](https://github.com/Finch-API/finch-api-node/issues/288)) ([d97d778](https://github.com/Finch-API/finch-api-node/commit/d97d7780bfae0e3a577d9c0630c57fda1683035d))
+
 ## 5.17.1 (2024-01-30)
 
 Full Changelog: [v5.17.0...v5.17.1](https://github.com/Finch-API/finch-api-node/compare/v5.17.0...v5.17.1)
