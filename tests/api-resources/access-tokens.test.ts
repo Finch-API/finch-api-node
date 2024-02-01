@@ -5,14 +5,14 @@ import { Response } from 'node-fetch';
 
 const finch = new Finch({
   accessToken: 'My Access Token',
+  clientId: 'My Client ID',
+  clientSecret: 'My Client Secret',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource accessTokens', () => {
   test('create: only required params', async () => {
     const responsePromise = finch.accessTokens.create({
-      client_id: '<your_client_id>',
-      client_secret: '<your_client_secret>',
       code: '<your_authorization_code>',
       redirect_uri: 'https://example.com',
     });
@@ -27,10 +27,10 @@ describe('resource accessTokens', () => {
 
   test('create: required and optional params', async () => {
     const response = await finch.accessTokens.create({
-      client_id: '<your_client_id>',
-      client_secret: '<your_client_secret>',
       code: '<your_authorization_code>',
       redirect_uri: 'https://example.com',
+      client_id: '<your_client_id>',
+      client_secret: '<your_client_secret>',
     });
   });
 });
