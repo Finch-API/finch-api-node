@@ -1,5 +1,18 @@
 # Changelog
 
+## 5.18.0 (2024-02-02)
+
+Full Changelog: [v5.17.2...v5.18.0](https://github.com/Finch-API/finch-api-node/compare/v5.17.2...v5.18.0)
+
+### Features
+
+* **api:** create access token reads client opts if not provided ([#290](https://github.com/Finch-API/finch-api-node/issues/290)) ([8cd787e](https://github.com/Finch-API/finch-api-node/commit/8cd787e107c7ffb2b850d095ab49c6b8144e2c04))
+
+
+### Chores
+
+* **interal:** make link to api.md relative ([#292](https://github.com/Finch-API/finch-api-node/issues/292)) ([12dd552](https://github.com/Finch-API/finch-api-node/commit/12dd552314f7d83eae9d51e8a67a33710e506f32))
+
 ## 5.17.2 (2024-01-30)
 
 Full Changelog: [v5.17.1...v5.17.2](https://github.com/Finch-API/finch-api-node/compare/v5.17.1...v5.17.2)
