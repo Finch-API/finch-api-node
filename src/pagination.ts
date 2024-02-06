@@ -21,7 +21,7 @@ export class SinglePage<Item> extends AbstractPage<Item> {
   }
 
   getPaginatedItems(): Item[] {
-    return this.items;
+    return this.items ?? [];
   }
 
   // @deprecated Please use `nextPageInfo()` instead
@@ -53,11 +53,11 @@ export class ResponsesPage<Item> extends AbstractPage<Item> implements Responses
   ) {
     super(client, response, body, options);
 
-    this.responses = body.responses;
+    this.responses = body.responses || [];
   }
 
   getPaginatedItems(): Item[] {
-    return this.responses;
+    return this.responses ?? [];
   }
 
   // @deprecated Please use `nextPageInfo()` instead
@@ -99,12 +99,12 @@ export class IndividualsPage
   extends AbstractPage<DirectoryAPI.IndividualInDirectory>
   implements IndividualsPageResponse
 {
-  paging: Shared.Paging;
-
   /**
    * The array of employees.
    */
   individuals: Array<DirectoryAPI.IndividualInDirectory>;
+
+  paging: Shared.Paging;
 
   constructor(
     client: APIClient,
@@ -114,12 +114,12 @@ export class IndividualsPage
   ) {
     super(client, response, body, options);
 
+    this.individuals = body.individuals || [];
     this.paging = body.paging;
-    this.individuals = body.individuals;
   }
 
   getPaginatedItems(): DirectoryAPI.IndividualInDirectory[] {
-    return this.individuals;
+    return this.individuals ?? [];
   }
 
   // @deprecated Please use `nextPageInfo()` instead
@@ -134,13 +134,17 @@ export class IndividualsPage
 
   nextPageInfo(): PageInfo | null {
     const offset = this.paging.offset;
-    if (!offset) return null;
+    if (!offset) {
+      return null;
+    }
 
-    const length = this.individuals.length;
+    const length = this.getPaginatedItems().length;
     const currentCount = offset + length;
 
     const totalCount = this.paging.count;
-    if (!totalCount) return null;
+    if (!totalCount) {
+      return null;
+    }
 
     if (currentCount < totalCount) {
       return { params: { offset: currentCount } };
@@ -151,14 +155,14 @@ export class IndividualsPage
 }
 
 export interface PageResponse<Item> {
-  paging: Shared.Paging;
+  data: Array<Item>;
 
-  data?: Array<Item>;
+  paging: Shared.Paging;
 }
 
 export interface PageParams {
   /**
-   * Number of employees to return (defaults to all)
+   * Number of entries to return (defaults to all)
    */
   limit?: number;
 
@@ -169,19 +173,19 @@ export interface PageParams {
 }
 
 export class Page<Item> extends AbstractPage<Item> implements PageResponse<Item> {
-  paging: Shared.Paging;
-
   data: Array<Item>;
+
+  paging: Shared.Paging;
 
   constructor(client: APIClient, response: Response, body: PageResponse<Item>, options: FinalRequestOptions) {
     super(client, response, body, options);
 
-    this.paging = body.paging;
     this.data = body.data || [];
+    this.paging = body.paging;
   }
 
   getPaginatedItems(): Item[] {
-    return this.data;
+    return this.data ?? [];
   }
 
   // @deprecated Please use `nextPageInfo()` instead
@@ -196,13 +200,17 @@ export class Page<Item> extends AbstractPage<Item> implements PageResponse<Item>
 
   nextPageInfo(): PageInfo | null {
     const offset = this.paging.offset;
-    if (!offset) return null;
+    if (!offset) {
+      return null;
+    }
 
-    const length = this.data.length;
+    const length = this.getPaginatedItems().length;
     const currentCount = offset + length;
 
     const totalCount = this.paging.count;
-    if (!totalCount) return null;
+    if (!totalCount) {
+      return null;
+    }
 
     if (currentCount < totalCount) {
       return { params: { offset: currentCount } };

@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless.
 
 import * as Core from './core';
-import * as Pagination from './pagination';
 import * as Errors from './error';
 import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
+import * as Pagination from '@tryfinch/finch-api/pagination';
 import * as API from '@tryfinch/finch-api/resources/index';
 
 export interface ClientOptions {
