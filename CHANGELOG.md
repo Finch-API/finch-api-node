@@ -1,5 +1,21 @@
 # Changelog
 
+## 5.18.1 (2024-02-08)
+
+Full Changelog: [v5.18.0...v5.18.1](https://github.com/Finch-API/finch-api-node/compare/v5.18.0...v5.18.1)
+
+### Chores
+
+* **internal:** enable building when git installed ([#293](https://github.com/Finch-API/finch-api-node/issues/293)) ([3e9c578](https://github.com/Finch-API/finch-api-node/commit/3e9c578ab6bdd73b53a4d164b566f7ba814ca0bf))
+* **internal:** minor pagination restructuring ([#296](https://github.com/Finch-API/finch-api-node/issues/296)) ([1553843](https://github.com/Finch-API/finch-api-node/commit/1553843d1f49f2dce99062a80907e828cc21de4c))
+* **internal:** update package.json formatting ([#298](https://github.com/Finch-API/finch-api-node/issues/298)) ([c053279](https://github.com/Finch-API/finch-api-node/commit/c0532797e9410d918b19db0b7a8f7577f9170f36))
+* respect `application/vnd.api+json` content-type header ([#297](https://github.com/Finch-API/finch-api-node/issues/297)) ([80c3c95](https://github.com/Finch-API/finch-api-node/commit/80c3c95a1256da5f60e5dc37730cbde3f73345d9))
+
+
+### Documentation
+
+* add a CONTRIBUTING.md ([#295](https://github.com/Finch-API/finch-api-node/issues/295)) ([4bb24b5](https://github.com/Finch-API/finch-api-node/commit/4bb24b59f073fe66ff4b1fabaa44abadc774265b))
+
 ## 5.18.0 (2024-02-02)
 
 Full Changelog: [v5.17.2...v5.18.0](https://github.com/Finch-API/finch-api-node/compare/v5.17.2...v5.18.0)
