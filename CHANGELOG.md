@@ -1,5 +1,117 @@
 # Changelog
 
+## 0.0.1 (2024-02-15)
+
+Full Changelog: [...abc-v0.0.1](https://github.com/Finch-API/finch-api-node/compare/...abc-v0.0.1)
+
+### ⚠ BREAKING CHANGES
+
+* rename response page types ([#144](https://github.com/Finch-API/finch-api-node/issues/144))
+* **client:** restructure some methods ([#143](https://github.com/Finch-API/finch-api-node/issues/143))
+* **client:** support accessing raw response + remove deprecated features ([#114](https://github.com/Finch-API/finch-api-node/issues/114))
+* import issue with ESM ([#53](https://github.com/Finch-API/finch-api-node/issues/53))
+* **types:** singularize array item types ([#39](https://github.com/Finch-API/finch-api-node/issues/39))
+* drop official support for EOL Node versions (Node 12, 13, 14, 15) ([#30](https://github.com/Finch-API/finch-api-node/issues/30))
+
+### Features
+
+* add webhook verification methods ([#153](https://github.com/Finch-API/finch-api-node/issues/153)) ([23124b7](https://github.com/Finch-API/finch-api-node/commit/23124b7ae119bab50ff555531cae4b82de31bcaa))
+* allow a default timeout to be set for clients ([#117](https://github.com/Finch-API/finch-api-node/issues/117)) ([5264bb7](https://github.com/Finch-API/finch-api-node/commit/5264bb7b27e4d0801e994dbd095f0f9497f77569))
+* allow installing package directly from github ([#231](https://github.com/Finch-API/finch-api-node/issues/231)) ([c773ed5](https://github.com/Finch-API/finch-api-node/commit/c773ed58dcdbbfa3bbcfbdb3639d0758ee7a02e4))
+* **api:** add `/forward` endpoint and other updates ([#181](https://github.com/Finch-API/finch-api-node/issues/181)) ([12e49a9](https://github.com/Finch-API/finch-api-node/commit/12e49a92037f905024a9e1b8f29e5c5e2411123f))
+* **api:** add `/jobs` endpoints ([#241](https://github.com/Finch-API/finch-api-node/issues/241)) ([06bf86c](https://github.com/Finch-API/finch-api-node/commit/06bf86cfc7e3a5bc54861bf1fd67101101e8b5ba))
+* **api:** add `client_type` and `connection_type` to introspection ([#243](https://github.com/Finch-API/finch-api-node/issues/243)) ([5a0edca](https://github.com/Finch-API/finch-api-node/commit/5a0edca1d2494dea28977b0665cf80d2dc0d1a89))
+* **api:** add `lp` tax payer type enum value ([#245](https://github.com/Finch-API/finch-api-node/issues/245)) ([1c93cab](https://github.com/Finch-API/finch-api-node/commit/1c93cabc63e738ec23fa0c804f02bfaba4dde904))
+* **api:** add employer_contributions field ([#282](https://github.com/Finch-API/finch-api-node/issues/282)) ([5dec35a](https://github.com/Finch-API/finch-api-node/commit/5dec35aea396e35d62ca9fc15865ab17273dd5b2))
+* **api:** add method to create access token ([#264](https://github.com/Finch-API/finch-api-node/issues/264)) ([7eccc04](https://github.com/Finch-API/finch-api-node/commit/7eccc0473b308030e673d21a64e07036b6e8b6b0))
+* **api:** add sandbox APIs ([#266](https://github.com/Finch-API/finch-api-node/issues/266)) ([48e3a39](https://github.com/Finch-API/finch-api-node/commit/48e3a3961c15a97d1a1772a4003c022723250d99))
+* **api:** create access token reads client opts if not provided ([#290](https://github.com/Finch-API/finch-api-node/issues/290)) ([ccd7418](https://github.com/Finch-API/finch-api-node/commit/ccd741808aebe51435b3d5af9a93b39d1996c03e))
+* **api:** updates ([#226](https://github.com/Finch-API/finch-api-node/issues/226)) ([299b894](https://github.com/Finch-API/finch-api-node/commit/299b894203fb54b31caa53653c74b9de0081da73))
+* **api:** updates ([#229](https://github.com/Finch-API/finch-api-node/issues/229)) ([a0d19b5](https://github.com/Finch-API/finch-api-node/commit/a0d19b50cf1f97f0418b46ee1463f72ac8c9bfaa))
+* **ci:** add reviewers ([#170](https://github.com/Finch-API/finch-api-node/issues/170)) ([0c694c4](https://github.com/Finch-API/finch-api-node/commit/0c694c4c269423fb1ef4d6cd93f3c4965b4d7d68))
+* **client:** add support for `defaultQuery` option ([#51](https://github.com/Finch-API/finch-api-node/issues/51)) ([3c66c1a](https://github.com/Finch-API/finch-api-node/commit/3c66c1a8208e5ab9cf0521c6e58d105fdb653052))
+* **client:** add support for passing a `signal` request option ([#73](https://github.com/Finch-API/finch-api-node/issues/73)) ([268e403](https://github.com/Finch-API/finch-api-node/commit/268e4039284a5375bddbfa2c7f1d8f24e38de781))
+* **client:** add support for specifying client-level default headers ([#19](https://github.com/Finch-API/finch-api-node/issues/19)) ([9dbd8ee](https://github.com/Finch-API/finch-api-node/commit/9dbd8ee4facd4298dbf295820b3b5539f8f12315))
+* **client:** adjust retry behavior to be exponential backoff ([#205](https://github.com/Finch-API/finch-api-node/issues/205)) ([18cbf69](https://github.com/Finch-API/finch-api-node/commit/18cbf697388d410f8cbf104dafa47c8038e1b846))
+* **client:** allow binary returns ([#215](https://github.com/Finch-API/finch-api-node/issues/215)) ([429ed91](https://github.com/Finch-API/finch-api-node/commit/429ed910f4c8c9f4a887b8f3e7dec26f2f1a8ee4))
+* **client:** detect browser usage ([#106](https://github.com/Finch-API/finch-api-node/issues/106)) ([0a322ae](https://github.com/Finch-API/finch-api-node/commit/0a322aeff94c482784c001a7b8b898f574efbecd))
+* **client:** handle retry-after with a date ([#174](https://github.com/Finch-API/finch-api-node/issues/174)) ([604c133](https://github.com/Finch-API/finch-api-node/commit/604c13311d26f93f1ffe016627a3d22b77d41562))
+* **client:** handle trailing slash in base url properly ([#16](https://github.com/Finch-API/finch-api-node/issues/16)) ([06d9f24](https://github.com/Finch-API/finch-api-node/commit/06d9f24b812336ed9673e678ce9f01f2dc952f7b))
+* **client:** hook up sandbox auth ([#271](https://github.com/Finch-API/finch-api-node/issues/271)) ([22e66e0](https://github.com/Finch-API/finch-api-node/commit/22e66e08d5d848deabf190e2334e00eb4645d723))
+* **client:** improve compatibility with Bun ([#124](https://github.com/Finch-API/finch-api-node/issues/124)) ([6a9c632](https://github.com/Finch-API/finch-api-node/commit/6a9c632da15ac8977c83ead6c2af15ad106de0a6))
+* **client:** improve timeout handling to reuse agent ([#66](https://github.com/Finch-API/finch-api-node/issues/66)) ([93f1971](https://github.com/Finch-API/finch-api-node/commit/93f197103c99051824fd124099098a91916b1ba7))
+* **client:** restructure some methods ([#143](https://github.com/Finch-API/finch-api-node/issues/143)) ([9026c04](https://github.com/Finch-API/finch-api-node/commit/9026c0426ee4f15525bdba25f27a54a722fa906e))
+* **client:** retry on 408 Request Timeout ([#159](https://github.com/Finch-API/finch-api-node/issues/159)) ([0aa6699](https://github.com/Finch-API/finch-api-node/commit/0aa6699d3390e9898ed935c8f01bb02831a7888c))
+* **client:** support accessing raw response + remove deprecated features ([#114](https://github.com/Finch-API/finch-api-node/issues/114)) ([31c306b](https://github.com/Finch-API/finch-api-node/commit/31c306b15dbfffacee1dac360a70d126447a24fb))
+* **client:** support importing node or web shims manually ([#166](https://github.com/Finch-API/finch-api-node/issues/166)) ([e742ae5](https://github.com/Finch-API/finch-api-node/commit/e742ae5f99a6248b6cda97bff89f45ebaa7a3afc))
+* **client:** support passing a custom `fetch` function ([#69](https://github.com/Finch-API/finch-api-node/issues/69)) ([7afb2cf](https://github.com/Finch-API/finch-api-node/commit/7afb2cf15e41b49709d3eac9cfde4ccefb7fc4de))
+* **client:** support reading the base url from an env variable ([#237](https://github.com/Finch-API/finch-api-node/issues/237)) ([12ae57e](https://github.com/Finch-API/finch-api-node/commit/12ae57edc2e92367d76ed60b8c0cbd360c6b88be))
+* **docs:** add documentation to the client constructor ([#123](https://github.com/Finch-API/finch-api-node/issues/123)) ([747855e](https://github.com/Finch-API/finch-api-node/commit/747855ea266438dd28f45e3471f7cc24025cf65f))
+* **errors:** add status code to error message ([#163](https://github.com/Finch-API/finch-api-node/issues/163)) ([53b8a6a](https://github.com/Finch-API/finch-api-node/commit/53b8a6adb07a2f7574d278026cff331b04a7c292))
+* **github:** include a devcontainer setup ([#213](https://github.com/Finch-API/finch-api-node/issues/213)) ([d274971](https://github.com/Finch-API/finch-api-node/commit/d27497128806d783e2e20fb361ba1d7d28656c97))
+* handle 204 No Content gracefully ([#203](https://github.com/Finch-API/finch-api-node/issues/203)) ([4376d47](https://github.com/Finch-API/finch-api-node/commit/4376d47faeaae1f9e63ee433b368f10879466af2))
+* initial commit ([#1](https://github.com/Finch-API/finch-api-node/issues/1)) ([b4f5de4](https://github.com/Finch-API/finch-api-node/commit/b4f5de48f19520325dc847c5fa529ba0a28b430a))
+* make webhook headers case insensitive ([#196](https://github.com/Finch-API/finch-api-node/issues/196)) ([2ad0c76](https://github.com/Finch-API/finch-api-node/commit/2ad0c76a656b85275aaa9b616b0e91f74440990d))
+* **package:** add Bun export map ([#145](https://github.com/Finch-API/finch-api-node/issues/145)) ([ba0b3fd](https://github.com/Finch-API/finch-api-node/commit/ba0b3fd86ee87b91df5cc5fda85f1267bf4010c2))
+* **package:** export a root error type ([#171](https://github.com/Finch-API/finch-api-node/issues/171)) ([734d710](https://github.com/Finch-API/finch-api-node/commit/734d7100f0347d9788e77581a3662df400aa6158))
+* remove redundant endpoint, add sandbox client options (not yet used) ([#270](https://github.com/Finch-API/finch-api-node/issues/270)) ([bdcc3c5](https://github.com/Finch-API/finch-api-node/commit/bdcc3c57f95843b277eaf5e4385b2e28aa8fa231))
+* **streaming:** add `.toReadableStream()` method ([#109](https://github.com/Finch-API/finch-api-node/issues/109)) ([7715977](https://github.com/Finch-API/finch-api-node/commit/77159777775af0a3ac5708426d13d3d02a6076e9))
+* support ESM and web platform runtimes; easier file uploads ([#41](https://github.com/Finch-API/finch-api-node/issues/41)) ([a9de794](https://github.com/Finch-API/finch-api-node/commit/a9de794b0e67e2d2e743c47bbd5070f14cca5dae))
+* **types:** export nested types through the root client export ([#38](https://github.com/Finch-API/finch-api-node/issues/38)) ([a524a6d](https://github.com/Finch-API/finch-api-node/commit/a524a6d301c5aaf58e1fe8c8fa818a4c17903506))
+* **types:** export RequestOptions type ([#131](https://github.com/Finch-API/finch-api-node/issues/131)) ([6977ab0](https://github.com/Finch-API/finch-api-node/commit/6977ab0f2c729e4744d123b9324c48778a55bb5e))
+* **webhooks:** add types to the `unwrap` method ([#273](https://github.com/Finch-API/finch-api-node/issues/273)) ([c902e03](https://github.com/Finch-API/finch-api-node/commit/c902e03d0aed4aa60f54be6f28db5ad41c265df1))
+
+
+### Bug Fixes
+
+* allow body type in RequestOptions to be null ([#284](https://github.com/Finch-API/finch-api-node/issues/284)) ([f4be20e](https://github.com/Finch-API/finch-api-node/commit/f4be20e85985da2a5fe4dfdc1690e228dfa43f7c))
+* **api:** fix authentication_type enum ([#286](https://github.com/Finch-API/finch-api-node/issues/286)) ([7c2b01a](https://github.com/Finch-API/finch-api-node/commit/7c2b01aff3a490464b152c9e36a2a060103cf03f))
+* **api:** update `employer_size` parameter to `employee_size` ([#287](https://github.com/Finch-API/finch-api-node/issues/287)) ([cfa9719](https://github.com/Finch-API/finch-api-node/commit/cfa97190a77f76d56d36cd50f2d1952ae13fea5f))
+* **client:** eliminate circular imports, which cause runtime errors in webpack dev bundles ([#189](https://github.com/Finch-API/finch-api-node/issues/189)) ([f09e38a](https://github.com/Finch-API/finch-api-node/commit/f09e38ae7e58e4a7a9e4562302c004742de154e8))
+* **client:** fix TS errors that appear when users Go to Source in VSCode ([#150](https://github.com/Finch-API/finch-api-node/issues/150)) ([bd312ca](https://github.com/Finch-API/finch-api-node/commit/bd312ca4f0ff0cbf4d0ce1a9882404698cd394ae))
+* **client:** fix TypeError when a request gets retried ([#121](https://github.com/Finch-API/finch-api-node/issues/121)) ([25de6e2](https://github.com/Finch-API/finch-api-node/commit/25de6e2e3c63812a024ad2b011f722d031ae187e))
+* **client:** handle case where the client is instantiated with a undefined baseURL ([#151](https://github.com/Finch-API/finch-api-node/issues/151)) ([8cfcea8](https://github.com/Finch-API/finch-api-node/commit/8cfcea8bb018606e7c543641d11e3f696b4ec69d))
+* **client:** handle undefined process in more places ([#96](https://github.com/Finch-API/finch-api-node/issues/96)) ([3fa25a2](https://github.com/Finch-API/finch-api-node/commit/3fa25a29af8958292159e0193249385516dec78b))
+* **client:** properly expose `maxRetries` option ([#11](https://github.com/Finch-API/finch-api-node/issues/11)) ([4912955](https://github.com/Finch-API/finch-api-node/commit/491295582bd404f9f9a1fa7df1a35886edfef605))
+* **client:** properly handle multi-byte characters in Content-Length ([#70](https://github.com/Finch-API/finch-api-node/issues/70)) ([0f3992a](https://github.com/Finch-API/finch-api-node/commit/0f3992ac0edbe72981c10643d3a2a34bb9d91326))
+* **client:** use explicit file extensions in _shims imports ([#149](https://github.com/Finch-API/finch-api-node/issues/149)) ([df8f97e](https://github.com/Finch-API/finch-api-node/commit/df8f97eb1769b695aadf35ccc1ea75f7fa5e1723))
+* **core:** fix navigator check for strange environments ([#129](https://github.com/Finch-API/finch-api-node/issues/129)) ([74edc8d](https://github.com/Finch-API/finch-api-node/commit/74edc8d37c9c4f48f1d1afef8e9403ab1e35d166))
+* correct benfits to benefits ([#192](https://github.com/Finch-API/finch-api-node/issues/192)) ([af656ef](https://github.com/Finch-API/finch-api-node/commit/af656ef5605e804eb5ed6c992e37539d7c3e084c))
+* fix errors in package source files when users go to definition in VSCode ([#65](https://github.com/Finch-API/finch-api-node/issues/65)) ([5df4494](https://github.com/Finch-API/finch-api-node/commit/5df4494a6753e3ed8b382857453f80080e5980c1))
+* fix errors with "named" client export in CJS ([#80](https://github.com/Finch-API/finch-api-node/issues/80)) ([9ed2ab5](https://github.com/Finch-API/finch-api-node/commit/9ed2ab595f4a56b570a80b1e91cb77783dac33bb))
+* fix module not found errors in Vercel edge ([#156](https://github.com/Finch-API/finch-api-node/issues/156)) ([ab6c909](https://github.com/Finch-API/finch-api-node/commit/ab6c90958c7b0d294d7cbf2e2fb260426f9cb429))
+* fix namespace exports regression ([#191](https://github.com/Finch-API/finch-api-node/issues/191)) ([eb56220](https://github.com/Finch-API/finch-api-node/commit/eb56220b5603b4d9cc2dbd902c3b165bf60bc888))
+* fix undefined message in errors ([#94](https://github.com/Finch-API/finch-api-node/issues/94)) ([b4f1e34](https://github.com/Finch-API/finch-api-node/commit/b4f1e34145a122daa8431dd1db787721899732fe))
+* **form-data:** strip out undefined properties ([#36](https://github.com/Finch-API/finch-api-node/issues/36)) ([3263e7a](https://github.com/Finch-API/finch-api-node/commit/3263e7a61818e9ee3099659d9179e0b1818c6e6c))
+* **headers:** always send lowercase headers and strip undefined (BREAKING in rare cases) ([#262](https://github.com/Finch-API/finch-api-node/issues/262)) ([2b90e56](https://github.com/Finch-API/finch-api-node/commit/2b90e568f47423e004168d199cf98b8981895935))
+* import issue with ESM ([#53](https://github.com/Finch-API/finch-api-node/issues/53)) ([cbb7736](https://github.com/Finch-API/finch-api-node/commit/cbb7736e3080731a6c9b6876c4743ead625bbfd4))
+* import web-streams-polyfill without overriding globals ([#200](https://github.com/Finch-API/finch-api-node/issues/200)) ([538a234](https://github.com/Finch-API/finch-api-node/commit/538a2340e6136b311c0ab0b28d6617f91f82b756))
+* improve status code in error messages ([#198](https://github.com/Finch-API/finch-api-node/issues/198)) ([9def765](https://github.com/Finch-API/finch-api-node/commit/9def765d04be9466da95c262831148c138fccaab))
+* include README.md, LICENSE and CHANGELOG.md in published package ([#62](https://github.com/Finch-API/finch-api-node/issues/62)) ([349b3f4](https://github.com/Finch-API/finch-api-node/commit/349b3f4f20ff2e22faeb0b60999c3b49588a0d7c))
+* **internal:** improve stream cancellation handling of abort controllers ([#29](https://github.com/Finch-API/finch-api-node/issues/29)) ([a429beb](https://github.com/Finch-API/finch-api-node/commit/a429beb88a8283b675558b38249817107e0dc720))
+* prevent ReferenceError, update compatibility to ES2020 and Node 18+ ([#187](https://github.com/Finch-API/finch-api-node/issues/187)) ([7216352](https://github.com/Finch-API/finch-api-node/commit/72163529e57750a8a8be4637bcc541ed3c22117a))
+* **readme:** update link to api.md to use the correct branch ([#154](https://github.com/Finch-API/finch-api-node/issues/154)) ([fbb64b2](https://github.com/Finch-API/finch-api-node/commit/fbb64b247a55e3863bb8f64d9c460ebc1f633728))
+* **sse:** handle server-sent events more robustly ([#17](https://github.com/Finch-API/finch-api-node/issues/17)) ([78720c8](https://github.com/Finch-API/finch-api-node/commit/78720c815d35ea88af10034f75807945699b4c4f))
+* **streaming:** do not abort successfully completed streams ([#72](https://github.com/Finch-API/finch-api-node/issues/72)) ([29c397c](https://github.com/Finch-API/finch-api-node/commit/29c397ce06489d280d844424bd429a21303e3156))
+* **streaming:** fix response body streaming in non-Chrome environments ([#67](https://github.com/Finch-API/finch-api-node/issues/67)) ([6444271](https://github.com/Finch-API/finch-api-node/commit/6444271698ef127752a914ddb5dccd7a030fcfb2))
+* **streaming:** polyfill ReadableStream async iterator and text decoding ([#61](https://github.com/Finch-API/finch-api-node/issues/61)) ([40d413d](https://github.com/Finch-API/finch-api-node/commit/40d413d7b50725bf6aae89c05b1d8b275899773c))
+* support `PromiseLike` input to `toFile` ([#64](https://github.com/Finch-API/finch-api-node/issues/64)) ([8f3c827](https://github.com/Finch-API/finch-api-node/commit/8f3c827943205e2f43734106235794f6484d3724))
+* **types:** accept undefined for optional client options ([#280](https://github.com/Finch-API/finch-api-node/issues/280)) ([1cfd748](https://github.com/Finch-API/finch-api-node/commit/1cfd748c24ef0615a4e80f952381aa8502ba8420))
+* **types:** improve getNextPage() return type ([#141](https://github.com/Finch-API/finch-api-node/issues/141)) ([2198098](https://github.com/Finch-API/finch-api-node/commit/21980989fae1133cde31f7f1a276a3614ff8d318))
+* typo in build script ([#209](https://github.com/Finch-API/finch-api-node/issues/209)) ([7a1249a](https://github.com/Finch-API/finch-api-node/commit/7a1249a7550d26e51f3fa8e02fdf48bb3c70a1ee))
+* use default base url if BASE_URL env var is blank ([#272](https://github.com/Finch-API/finch-api-node/issues/272)) ([e925ca5](https://github.com/Finch-API/finch-api-node/commit/e925ca5e4915878c03d79e139fa5d689842b8ac7))
+
+
+### Documentation
+
+* drop official support for EOL Node versions (Node 12, 13, 14, 15) ([#30](https://github.com/Finch-API/finch-api-node/issues/30)) ([9ddd198](https://github.com/Finch-API/finch-api-node/commit/9ddd198dcfb273725f5be01f8935a765ed6d5ec0))
+
+
+### Code Refactoring
+
+* rename response page types ([#144](https://github.com/Finch-API/finch-api-node/issues/144)) ([b270171](https://github.com/Finch-API/finch-api-node/commit/b270171188f2bb6516cb4b02cf971314101e4f3a))
+* **types:** singularize array item types ([#39](https://github.com/Finch-API/finch-api-node/issues/39)) ([b1e6ca9](https://github.com/Finch-API/finch-api-node/commit/b1e6ca908f7692e08e8259d1fe018b30af351777))
+
 ## 5.18.1 (2024-02-08)
 
 Full Changelog: [v5.18.0...v5.18.1](https://github.com/Finch-API/finch-api-node/compare/v5.18.0...v5.18.1)
