@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.18.2 (2024-02-15)
+
+Full Changelog: [v5.18.1...v5.18.2](https://github.com/Finch-API/finch-api-node/compare/v5.18.1...v5.18.2)
+
+### Chores
+
+* **internal:** refactor release environment script ([#299](https://github.com/Finch-API/finch-api-node/issues/299)) ([3147fb7](https://github.com/Finch-API/finch-api-node/commit/3147fb7e739df2b93ca2104f68d74c06ddc9a5c9))
+
 ## 5.18.1 (2024-02-08)
 
 Full Changelog: [v5.18.0...v5.18.1](https://github.com/Finch-API/finch-api-node/compare/v5.18.0...v5.18.1)
