@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-export { Jobs } from './jobs';
+export { JobCreateResponse, JobCreateParams, Jobs } from './jobs';
 export {
   SandboxJobConfiguration,
   ConfigurationRetrieveResponse,

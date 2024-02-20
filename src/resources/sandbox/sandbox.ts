@@ -39,4 +39,6 @@ export namespace Sandbox {
   export import PaymentCreateResponse = PaymentAPI.PaymentCreateResponse;
   export import PaymentCreateParams = PaymentAPI.PaymentCreateParams;
   export import Jobs = JobsAPI.Jobs;
+  export import JobCreateResponse = JobsAPI.JobCreateResponse;
+  export import JobCreateParams = JobsAPI.JobCreateParams;
 }
