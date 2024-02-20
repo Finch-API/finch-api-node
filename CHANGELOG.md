@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.19.0 (2024-02-20)
+
+Full Changelog: [v5.18.2...v5.19.0](https://github.com/Finch-API/finch-api-node/compare/v5.18.2...v5.19.0)
+
+### Features
+
+* **api:** create new sandbox job ([#302](https://github.com/Finch-API/finch-api-node/issues/302)) ([30247e3](https://github.com/Finch-API/finch-api-node/commit/30247e358e89f3aa751a951538a41fdeeb909e4f))
+
 ## 5.18.2 (2024-02-15)
 
 Full Changelog: [v5.18.1...v5.18.2](https://github.com/Finch-API/finch-api-node/compare/v5.18.1...v5.18.2)
