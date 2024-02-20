@@ -290,6 +290,14 @@ Methods:
 
 ## Jobs
 
+Types:
+
+- <code><a href="./src/resources/sandbox/jobs/jobs.ts">JobCreateResponse</a></code>
+
+Methods:
+
+- <code title="post /sandbox/jobs">client.sandbox.jobs.<a href="./src/resources/sandbox/jobs/jobs.ts">create</a>({ ...params }) -> JobCreateResponse</code>
+
 ### Configuration
 
 Types:
