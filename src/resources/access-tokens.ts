@@ -38,7 +38,7 @@ export interface CreateAccessTokenResponse {
 export interface AccessTokenCreateParams {
   code: string;
 
-  redirect_uri: string;
+  redirect_uri?: string;
 
   client_id?: string;
 
