@@ -10,8 +10,12 @@ const finch = new Finch({
 });
 
 describe('top level methods', () => {
-  test('getAccessToken', async () => {
-    // TODO
+  test('getAccessToken with redirect', async () => {
+    const response = await finch.getAccessToken('my-authorization-code', { redirectUri: '/my-app/redirect' });
+  });
+
+  test('getAccessToken without redirect', async () => {
+    const response = await finch.getAccessToken('my-authorization-code');
   });
 
   test('getAuthUrl', async () => {

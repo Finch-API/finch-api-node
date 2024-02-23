@@ -12,10 +12,7 @@ const finch = new Finch({
 
 describe('resource accessTokens', () => {
   test('create: only required params', async () => {
-    const responsePromise = finch.accessTokens.create({
-      code: '<your_authorization_code>',
-      redirect_uri: 'https://example.com',
-    });
+    const responsePromise = finch.accessTokens.create({ code: '<your_authorization_code>' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -28,9 +25,9 @@ describe('resource accessTokens', () => {
   test('create: required and optional params', async () => {
     const response = await finch.accessTokens.create({
       code: '<your_authorization_code>',
-      redirect_uri: 'https://example.com',
       client_id: '<your_client_id>',
       client_secret: '<your_client_secret>',
+      redirect_uri: 'https://example.com',
     });
   });
 });
