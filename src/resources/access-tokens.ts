@@ -38,11 +38,11 @@ export interface CreateAccessTokenResponse {
 export interface AccessTokenCreateParams {
   code: string;
 
-  redirect_uri: string;
-
   client_id?: string;
 
   client_secret?: string;
+
+  redirect_uri?: string;
 }
 
 export namespace AccessTokens {
