@@ -9,6 +9,7 @@ The REST API documentation can be found [in the Finch Documentation Center](http
 ## Installation
 
 ```sh
+# install from NPM
 npm install --save @tryfinch/finch-api
 # or
 yarn add @tryfinch/finch-api
