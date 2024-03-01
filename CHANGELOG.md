@@ -1,5 +1,26 @@
 # Changelog
 
+## 5.20.0 (2024-03-01)
+
+Full Changelog: [v5.19.0...v5.20.0](https://github.com/Finch-API/finch-api-node/compare/v5.19.0...v5.20.0)
+
+### Features
+
+* **api:** make redirect_uri optional ([#309](https://github.com/Finch-API/finch-api-node/issues/309)) ([dece0b1](https://github.com/Finch-API/finch-api-node/commit/dece0b197d3dcdef8e4d942dd63c9116f0993b9e))
+
+
+### Chores
+
+* **ci:** update actions/setup-node action to v4 ([#306](https://github.com/Finch-API/finch-api-node/issues/306)) ([264cd84](https://github.com/Finch-API/finch-api-node/commit/264cd84d0612cd7c38f668c3f6bd7915797c7cea))
+* **docs:** mention install from git repo ([#312](https://github.com/Finch-API/finch-api-node/issues/312)) ([179ba5f](https://github.com/Finch-API/finch-api-node/commit/179ba5f0fe3949bdb5931cec7c9e84ab908857da))
+* **internal:** update deps ([#308](https://github.com/Finch-API/finch-api-node/issues/308)) ([86633d4](https://github.com/Finch-API/finch-api-node/commit/86633d4edecb98d6915f1a580795f2fa92e4e58d))
+
+
+### Documentation
+
+* **contributing:** improve wording ([#310](https://github.com/Finch-API/finch-api-node/issues/310)) ([bef514c](https://github.com/Finch-API/finch-api-node/commit/bef514c4bfd856472d349c751f1d98f2ea16a101))
+* **readme:** fix typo in custom fetch implementation ([#311](https://github.com/Finch-API/finch-api-node/issues/311)) ([5b8010f](https://github.com/Finch-API/finch-api-node/commit/5b8010ffd678dae1a695b2f739a56e9a68ea23d7))
+
 ## 5.19.0 (2024-02-20)
 
 Full Changelog: [v5.18.2...v5.19.0](https://github.com/Finch-API/finch-api-node/compare/v5.18.2...v5.19.0)
