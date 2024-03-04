@@ -9,16 +9,10 @@ import { SinglePage } from '@tryfinch/finch-api/pagination';
 
 export class Individuals extends APIResource {
   /**
-   * **Availability: Automated and Assisted Benefits providers**
-   *
-   * Enroll an individual into a benefit. If the employee is already enrolled, the
-   * enrollment amounts will be adjusted.
-   *
-   * <!-- theme: warning -->
-   *
-   * > Making changes to an individual's benefits may have tax consequences based on
-   * > IRS regulations. Please consult a tax expert to ensure all changes being made
-   * > to the system are compliant with local, state, and federal law.
+   * Enroll an individual into a deduction or contribution. This is an overwrite
+   * operation. If the employee is already enrolled, the enrollment amounts will be
+   * adjusted. Making the same request multiple times will not create new
+   * enrollments, but will continue to set the state of the existing enrollment.
    */
   enrollMany(
     benefitId: string,
@@ -33,9 +27,7 @@ export class Individuals extends APIResource {
   }
 
   /**
-   * **Availability: Automated Benefits providers only**
-   *
-   * Lists individuals currently enrolled in a given benefit.
+   * Lists individuals currently enrolled in a given deduction.
    */
   enrolledIds(
     benefitId: string,
@@ -45,9 +37,7 @@ export class Individuals extends APIResource {
   }
 
   /**
-   * **Availability: Automated Benefits providers only**
-   *
-   * Get enrolled benefit information for the given individuals.
+   * Get enrollment information for the given individuals.
    */
   retrieveManyBenefits(
     benefitId: string,
@@ -74,9 +64,7 @@ export class Individuals extends APIResource {
   }
 
   /**
-   * **Availability: Automated and Assisted Benefits providers**
-   *
-   * Unenroll individuals from a benefit
+   * Unenroll individuals from a deduction or contribution
    */
   unenrollMany(
     benefitId: string,
