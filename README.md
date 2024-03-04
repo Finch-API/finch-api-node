@@ -67,7 +67,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const company = await finch.hris.company.retrieve().catch((err) => {
+  const company = await finch.hris.company.retrieve().catch(async (err) => {
     if (err instanceof Finch.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
