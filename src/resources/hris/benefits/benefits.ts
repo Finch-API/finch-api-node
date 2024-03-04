@@ -12,10 +12,8 @@ export class Benefits extends APIResource {
   individuals: IndividualsAPI.Individuals = new IndividualsAPI.Individuals(this._client);
 
   /**
-   * **Availability: Automated and Assisted Benefits providers**
-   *
-   * Creates a new company-wide benefit. Please use the `/meta` endpoint to view
-   * available types for each provider.
+   * Creates a new company-wide deduction or contribution. Please use the
+   * `/providers` endpoint to view available types for each provider.
    */
   create(
     body?: BenefitCreateParams,
@@ -33,18 +31,14 @@ export class Benefits extends APIResource {
   }
 
   /**
-   * **Availability: Automated Benefits providers only**
-   *
-   * Lists benefit information for a given benefit
+   * Lists deductions and contributions information for a given item
    */
   retrieve(benefitId: string, options?: Core.RequestOptions): Core.APIPromise<CompanyBenefit> {
     return this._client.get(`/employer/benefits/${benefitId}`, options);
   }
 
   /**
-   * **Availability: Automated and Assisted Benefits providers**
-   *
-   * Updates an existing company-wide benefit
+   * Updates an existing company-wide deduction or contribution
    */
   update(
     benefitId: string,
@@ -64,19 +58,14 @@ export class Benefits extends APIResource {
   }
 
   /**
-   * **Availability: Automated Benefits providers only**
-   *
-   * List all company-wide benefits.
+   * List all company-wide deductions and contributions.
    */
   list(options?: Core.RequestOptions): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit> {
     return this._client.getAPIList('/employer/benefits', CompanyBenefitsSinglePage, options);
   }
 
   /**
-   * **Availability: Automated and Assisted Benefits providers**
-   *
-   * Lists available types and configurations for the provider associated with the
-   * access token.
+   * Get deductions metadata
    */
   listSupportedBenefits(
     options?: Core.RequestOptions,

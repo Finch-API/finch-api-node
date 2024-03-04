@@ -13,7 +13,7 @@ export class PayStatements extends APIResource {
    * Read detailed pay statements for each individual.
    *
    * Deduction and contribution types are supported by the payroll systems that
-   * support Benefits.
+   * supports Benefits.
    */
   retrieveMany(
     body: PayStatementRetrieveManyParams,
