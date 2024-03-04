@@ -7,9 +7,7 @@ import * as Shared from '@tryfinch/finch-api/resources/shared';
 
 export class Account extends APIResource {
   /**
-   * Disconnect an employer from your application and invalidate all `access_token`s
-   * associated with the employer. We require applications to implement the
-   * Disconnect endpoint for billing and security purposes.
+   * Disconnect one or more `access_token`s from your application.
    */
   disconnect(options?: Core.RequestOptions): Core.APIPromise<DisconnectResponse> {
     return this._client.post('/disconnect', options);
