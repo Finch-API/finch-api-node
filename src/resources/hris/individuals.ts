@@ -44,8 +44,9 @@ export interface Individual {
   emails?: Array<Individual.Email> | null;
 
   /**
-   * Note: This property is only available if enabled for your account. Please reach
-   * out to your Finch representative if you would like access.
+   * Social Security Number of the individual in **encrypted** format. This field is
+   * only available with the `ssn` scope enabled and the
+   * `options: { include: ['ssn'] }` param set in the body.
    */
   encrypted_ssn?: string | null;
 
@@ -93,8 +94,9 @@ export interface Individual {
   residence?: HRISAPI.Location | null;
 
   /**
-   * Note: This property is only available if enabled for your account. Please reach
-   * out to your Finch representative if you would like access.
+   * Social Security Number of the individual. This field is only available with the
+   * `ssn` scope enabled and the `options: { include: ['ssn'] }` param set in the
+   * body.
    */
   ssn?: string | null;
 }
