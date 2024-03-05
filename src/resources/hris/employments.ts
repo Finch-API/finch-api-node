@@ -93,12 +93,6 @@ export interface EmploymentData {
   middle_name?: string | null;
 
   /**
-   * Note: This property is only available if enabled for your account. Please reach
-   * out to your Finch representative if you would like access.
-   */
-  pay_group_ids?: Array<string> | null;
-
-  /**
    * The source system's unique employment identifier for this individual
    */
   source_id?: string | null;
