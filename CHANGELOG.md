@@ -1,5 +1,21 @@
 # Changelog
 
+## 5.20.1 (2024-03-05)
+
+Full Changelog: [v5.20.0...v5.20.1](https://github.com/Finch-API/finch-api-node/compare/v5.20.0...v5.20.1)
+
+### Chores
+
+* fix error handler in readme ([#315](https://github.com/Finch-API/finch-api-node/issues/315)) ([60a49fc](https://github.com/Finch-API/finch-api-node/commit/60a49fcdf213b78913ad98b9e26ad4f120616c2e))
+* remove internal-only field ([#318](https://github.com/Finch-API/finch-api-node/issues/318)) ([d5df915](https://github.com/Finch-API/finch-api-node/commit/d5df9156803f63f225c6d9cbf72187c1d973bd2f))
+* update some doc strings ([#313](https://github.com/Finch-API/finch-api-node/issues/313)) ([cbb8ab2](https://github.com/Finch-API/finch-api-node/commit/cbb8ab2e7f9fa204d2b96f1d571d38edee7062fa))
+
+
+### Documentation
+
+* **readme:** fix https proxy example ([#317](https://github.com/Finch-API/finch-api-node/issues/317)) ([e87c189](https://github.com/Finch-API/finch-api-node/commit/e87c18942e95aea6d9ba50a783944eb4fea9ee63))
+* update some doc strings ([#316](https://github.com/Finch-API/finch-api-node/issues/316)) ([d0c0cc0](https://github.com/Finch-API/finch-api-node/commit/d0c0cc09bdb3308f2b1030b80818709365e407f5))
+
 ## 5.20.0 (2024-03-01)
 
 Full Changelog: [v5.19.0...v5.20.0](https://github.com/Finch-API/finch-api-node/compare/v5.19.0...v5.20.0)
