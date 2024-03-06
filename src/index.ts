@@ -168,8 +168,7 @@ export class Finch extends Core.APIClient {
   sandbox: API.Sandbox = new API.Sandbox(this);
 
   /**
-   * Returns an access token for the Finch API given an authorization code. An
-   * authorization code can be obtained by visiting the url returned by getAuthURL().
+   * DEPRECATED: use client.accessTokens.create instead.
    */
   getAccessToken(code: string, options?: { redirectUri: string }): Promise<string> {
     if (!this.clientId) {
