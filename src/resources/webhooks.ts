@@ -1,4 +1,4 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '@tryfinch/finch-api/resource';
 import { createHmac } from 'crypto';
@@ -444,7 +444,7 @@ export namespace AccountUpdateEvent {
             employer_contributions?: PayStatements.EmployerContributions;
 
             /**
-             * [DEPRECATED] Use `employer_contributions` instead
+             * @deprecated: [DEPRECATED] Use `employer_contributions` instead
              */
             employer_deductions?: PayStatements.EmployerDeductions;
 
@@ -495,7 +495,7 @@ export namespace AccountUpdateEvent {
             }
 
             /**
-             * [DEPRECATED] Use `employer_contributions` instead
+             * @deprecated: [DEPRECATED] Use `employer_contributions` instead
              */
             export interface EmployerDeductions {
               amount?: boolean;

@@ -2,7 +2,6 @@
 
 Methods:
 
-- <code>client.<a href="./src/index.ts">getAccessToken</a>(code, options?) -> Promise&lt;string&gt;</code>
 - <code>client.<a href="./src/index.ts">getAuthURL</a>({ products, redirectUri, sandbox }) -> string</code>
 - <code>client.<a href="./src/index.ts">withAccessToken</a>(accessToken) -> Finch</code>
 

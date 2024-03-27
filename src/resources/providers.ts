@@ -1,4 +1,4 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
@@ -355,7 +355,7 @@ export namespace Provider {
           employer_contributions?: PayStatements.EmployerContributions;
 
           /**
-           * [DEPRECATED] Use `employer_contributions` instead
+           * @deprecated: [DEPRECATED] Use `employer_contributions` instead
            */
           employer_deductions?: PayStatements.EmployerDeductions;
 
@@ -406,7 +406,7 @@ export namespace Provider {
           }
 
           /**
-           * [DEPRECATED] Use `employer_contributions` instead
+           * @deprecated: [DEPRECATED] Use `employer_contributions` instead
            */
           export interface EmployerDeductions {
             amount?: boolean;
