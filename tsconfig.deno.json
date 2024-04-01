@@ -9,7 +9,6 @@
       "@tryfinch/finch-api/_shims/auto/*": ["deno/_shims/auto/*-deno"],
       "@tryfinch/finch-api/*": ["deno/*"],
       "@tryfinch/finch-api": ["deno/index.ts"],
-      "digest-fetch": ["./typings/digest-fetch"]
     },
     "noEmit": true,
     "declaration": true,
