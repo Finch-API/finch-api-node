@@ -1,5 +1,34 @@
 # Changelog
 
+## 5.20.2 (2024-04-02)
+
+Full Changelog: [v5.20.1...v5.20.2](https://github.com/Finch-API/finch-api-node/compare/v5.20.1...v5.20.2)
+
+### Bug Fixes
+
+* **client:** correctly send deno version header ([#330](https://github.com/Finch-API/finch-api-node/issues/330)) ([1a6a391](https://github.com/Finch-API/finch-api-node/commit/1a6a3917773135c9df219b48d9c58a0f2077b86e))
+* handle process.env being undefined in debug func ([#329](https://github.com/Finch-API/finch-api-node/issues/329)) ([eece7be](https://github.com/Finch-API/finch-api-node/commit/eece7be004ff2c0af0347c7f0b490c4d7f187683))
+* **internal:** make toFile use input file's options ([#326](https://github.com/Finch-API/finch-api-node/issues/326)) ([d186ce5](https://github.com/Finch-API/finch-api-node/commit/d186ce54ab5b36ce407fa6cd7b2e9592c539501c))
+
+
+### Chores
+
+* **deps:** bump yarn to v1.22.22 ([#334](https://github.com/Finch-API/finch-api-node/issues/334)) ([430f174](https://github.com/Finch-API/finch-api-node/commit/430f174bfe073b1455278870e17b6bcd730dcdfb))
+* **deps:** remove unused dependency digest-fetch ([#333](https://github.com/Finch-API/finch-api-node/issues/333)) ([708bb25](https://github.com/Finch-API/finch-api-node/commit/708bb25b4756afe00195ddb388803a1955f423c6))
+* **internal:** update generated pragma comment ([#325](https://github.com/Finch-API/finch-api-node/issues/325)) ([d02405e](https://github.com/Finch-API/finch-api-node/commit/d02405e96e118dca7c957559da6c3388b2d8776e))
+* revert temporary commit ([c8eaa32](https://github.com/Finch-API/finch-api-node/commit/c8eaa32783402ac574fc9e75708c49f981646697))
+* temporary commit ([#331](https://github.com/Finch-API/finch-api-node/issues/331)) ([3eed917](https://github.com/Finch-API/finch-api-node/commit/3eed9170aad5040de36b9ff67ee84d2570472550))
+
+
+### Documentation
+
+* deprecate old access token getter ([#319](https://github.com/Finch-API/finch-api-node/issues/319)) ([ecc280e](https://github.com/Finch-API/finch-api-node/commit/ecc280ea6ffff0a438797553cd85cf9d94589cf0))
+* fix typo in CONTRIBUTING.md ([#324](https://github.com/Finch-API/finch-api-node/issues/324)) ([80f40f0](https://github.com/Finch-API/finch-api-node/commit/80f40f05eaaabb9d7c9b5661eed7aa13319cccdc))
+* **readme:** consistent use of sentence case in headings ([#327](https://github.com/Finch-API/finch-api-node/issues/327)) ([7ce1750](https://github.com/Finch-API/finch-api-node/commit/7ce175022727b7c02498f3711a691d3bcab0fb68))
+* **readme:** document how to make undocumented requests ([#328](https://github.com/Finch-API/finch-api-node/issues/328)) ([be65719](https://github.com/Finch-API/finch-api-node/commit/be65719a447e39f14e13df2be1c4cb8be2321f00))
+* remove extraneous --save and yarn install instructions ([#321](https://github.com/Finch-API/finch-api-node/issues/321)) ([9a8955f](https://github.com/Finch-API/finch-api-node/commit/9a8955f15abfb18ca4bab84bfe576e0af9396a3f))
+* use [@deprecated](https://github.com/deprecated) decorator for deprecated params ([#322](https://github.com/Finch-API/finch-api-node/issues/322)) ([9af6cec](https://github.com/Finch-API/finch-api-node/commit/9af6cecaee25b4e8220b6501f0710b6d5d9b9d2d))
+
 ## 5.20.1 (2024-03-05)
 
 Full Changelog: [v5.20.0...v5.20.1](https://github.com/Finch-API/finch-api-node/compare/v5.20.0...v5.20.1)
