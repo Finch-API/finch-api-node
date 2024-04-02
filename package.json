@@ -1,6 +1,6 @@
 {
   "name": "@tryfinch/finch-api",
-  "version": "5.20.1",
+  "version": "5.20.2",
   "description": "The official TypeScript library for the Finch API",
   "author": "Finch <founders@tryfinch.com>",
   "types": "dist/index.d.ts",
