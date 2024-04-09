@@ -168,7 +168,7 @@ export namespace DirectoryCreateParams {
     export interface Email {
       data?: string;
 
-      type?: 'work' | 'personal';
+      type?: 'work' | 'personal' | null;
     }
 
     /**
@@ -199,7 +199,7 @@ export namespace DirectoryCreateParams {
     export interface PhoneNumber {
       data?: string;
 
-      type?: 'work' | 'personal';
+      type?: 'work' | 'personal' | null;
     }
   }
 }
