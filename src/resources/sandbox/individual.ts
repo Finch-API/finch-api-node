@@ -100,13 +100,13 @@ export namespace IndividualUpdateResponse {
   export interface Email {
     data?: string;
 
-    type?: 'work' | 'personal';
+    type?: 'work' | 'personal' | null;
   }
 
   export interface PhoneNumber {
     data?: string;
 
-    type?: 'work' | 'personal';
+    type?: 'work' | 'personal' | null;
   }
 }
 
@@ -177,13 +177,13 @@ export namespace IndividualUpdateParams {
   export interface Email {
     data?: string;
 
-    type?: 'work' | 'personal';
+    type?: 'work' | 'personal' | null;
   }
 
   export interface PhoneNumber {
     data?: string;
 
-    type?: 'work' | 'personal';
+    type?: 'work' | 'personal' | null;
   }
 }
 
