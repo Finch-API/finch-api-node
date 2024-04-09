@@ -105,7 +105,7 @@ export namespace Individual {
   export interface Email {
     data?: string;
 
-    type?: 'work' | 'personal';
+    type?: 'work' | 'personal' | null;
   }
 
   export interface PhoneNumber {
