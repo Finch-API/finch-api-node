@@ -113,7 +113,7 @@ export namespace BenefitFeaturesAndOperations {
      * Supported contribution types. An empty array indicates contributions are not
      * supported.
      */
-    company_contribution?: Array<'fixed' | 'percent'> | null;
+    company_contribution?: Array<'fixed' | 'percent' | null> | null;
 
     description?: string | null;
 
@@ -121,7 +121,7 @@ export namespace BenefitFeaturesAndOperations {
      * Supported deduction types. An empty array indicates deductions are not
      * supported.
      */
-    employee_deduction?: Array<'fixed' | 'percent'> | null;
+    employee_deduction?: Array<'fixed' | 'percent' | null> | null;
 
     /**
      * The list of frequencies supported by the provider for this benefit
@@ -132,7 +132,7 @@ export namespace BenefitFeaturesAndOperations {
      * Whether the provider supports HSA contribution limits. Empty if this feature is
      * not supported for the benefit. This array only has values for HSA benefits.
      */
-    hsa_contribution_limit?: Array<'individual' | 'family'> | null;
+    hsa_contribution_limit?: Array<'individual' | 'family' | null> | null;
   }
 }
 
@@ -242,7 +242,7 @@ export interface SupportedBenefit {
    * Supported contribution types. An empty array indicates contributions are not
    * supported.
    */
-  company_contribution?: Array<'fixed' | 'percent'> | null;
+  company_contribution?: Array<'fixed' | 'percent' | null> | null;
 
   description?: string | null;
 
@@ -250,7 +250,7 @@ export interface SupportedBenefit {
    * Supported deduction types. An empty array indicates deductions are not
    * supported.
    */
-  employee_deduction?: Array<'fixed' | 'percent'> | null;
+  employee_deduction?: Array<'fixed' | 'percent' | null> | null;
 
   /**
    * The list of frequencies supported by the provider for this benefit
@@ -261,7 +261,7 @@ export interface SupportedBenefit {
    * Whether the provider supports HSA contribution limits. Empty if this feature is
    * not supported for the benefit. This array only has values for HSA benefits.
    */
-  hsa_contribution_limit?: Array<'individual' | 'family'> | null;
+  hsa_contribution_limit?: Array<'individual' | 'family' | null> | null;
 
   /**
    * Type of benefit.
