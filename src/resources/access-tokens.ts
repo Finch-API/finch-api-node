@@ -18,6 +18,39 @@ export class AccessTokens extends APIResource {
 
 export interface CreateAccessTokenResponse {
   access_token: string;
+
+  /**
+   * The Finch uuid of the account used to connect this company.
+   */
+  account_id: string;
+
+  /**
+   * The type of application associated with a token.
+   */
+  client_type: 'production' | 'development' | 'sandbox';
+
+  /**
+   * The Finch uuid of the company associated with the `access_token`.
+   */
+  company_id: string;
+
+  /**
+   * The type of the connection associated with the token.
+   *
+   * - `provider` - connection to an external provider
+   * - `finch` - finch-generated data.
+   */
+  connection_type: 'provider' | 'finch';
+
+  /**
+   * An array of the authorized products associated with the `access_token`.
+   */
+  products: Array<string>;
+
+  /**
+   * The payroll provider associated with the `access_token`.
+   */
+  provider_id: string;
 }
 
 export interface AccessTokenCreateParams {
