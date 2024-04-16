@@ -1,5 +1,24 @@
 # Changelog
 
+## 5.22.0 (2024-04-16)
+
+Full Changelog: [v5.21.0...v5.22.0](https://github.com/Finch-API/finch-api-node/compare/v5.21.0...v5.22.0)
+
+### Features
+
+* **api:** updates ([#341](https://github.com/Finch-API/finch-api-node/issues/341)) ([8afb72f](https://github.com/Finch-API/finch-api-node/commit/8afb72fcffac287d80d8fb905ebf4890a9837571))
+
+
+### Chores
+
+* **internal:** formatting ([#342](https://github.com/Finch-API/finch-api-node/issues/342)) ([38263ef](https://github.com/Finch-API/finch-api-node/commit/38263ef0762688d7ebe285945ba78787b7dea453))
+* **internal:** update gitignore ([#339](https://github.com/Finch-API/finch-api-node/issues/339)) ([8250f7b](https://github.com/Finch-API/finch-api-node/commit/8250f7b4e3678ecdcadb3d74b3ea902b66973756))
+
+
+### Build System
+
+* configure UTF-8 locale in devcontainer ([#343](https://github.com/Finch-API/finch-api-node/issues/343)) ([52fec36](https://github.com/Finch-API/finch-api-node/commit/52fec36bf493e26a7a2e216eea0637a3024bd0b5))
+
 ## 5.21.0 (2024-04-09)
 
 Full Changelog: [v5.20.3...v5.21.0](https://github.com/Finch-API/finch-api-node/compare/v5.20.3...v5.21.0)
