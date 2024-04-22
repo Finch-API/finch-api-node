@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.22.1 (2024-04-22)
+
+Full Changelog: [v5.22.0...v5.22.1](https://github.com/Finch-API/finch-api-node/compare/v5.22.0...v5.22.1)
+
+### Chores
+
+* **internal:** use @swc/jest for running tests ([#344](https://github.com/Finch-API/finch-api-node/issues/344)) ([ea531ff](https://github.com/Finch-API/finch-api-node/commit/ea531ff0f7e883f7ec5aad047b871fa2c6984462))
+
 ## 5.22.0 (2024-04-16)
 
 Full Changelog: [v5.21.0...v5.22.0](https://github.com/Finch-API/finch-api-node/compare/v5.21.0...v5.22.0)
