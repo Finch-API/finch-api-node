@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.22.2 (2024-04-24)
+
+Full Changelog: [v5.22.1...v5.22.2](https://github.com/Finch-API/finch-api-node/compare/v5.22.1...v5.22.2)
+
+### Chores
+
+* **internal:** use actions/checkout@v4 for codeflow ([#346](https://github.com/Finch-API/finch-api-node/issues/346)) ([956404e](https://github.com/Finch-API/finch-api-node/commit/956404e1751efc2e1bc5f7ea6d94e93987368d8c))
+
 ## 5.22.1 (2024-04-22)
 
 Full Changelog: [v5.22.0...v5.22.1](https://github.com/Finch-API/finch-api-node/compare/v5.22.0...v5.22.1)
