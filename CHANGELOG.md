@@ -1,5 +1,18 @@
 # Changelog
 
+## 5.22.3 (2024-04-26)
+
+Full Changelog: [v5.22.2...v5.22.3](https://github.com/Finch-API/finch-api-node/compare/v5.22.2...v5.22.3)
+
+### Chores
+
+* **internal:** add scripts/test and scripts/mock ([#350](https://github.com/Finch-API/finch-api-node/issues/350)) ([5e9a279](https://github.com/Finch-API/finch-api-node/commit/5e9a279282ba88aca221538c8317b062a92541a2))
+
+
+### Documentation
+
+* clarify behavior around employee_size ([#348](https://github.com/Finch-API/finch-api-node/issues/348)) ([0c634a7](https://github.com/Finch-API/finch-api-node/commit/0c634a7748823e4e7448b32390f0e0f20faaec1e))
+
 ## 5.22.2 (2024-04-24)
 
 Full Changelog: [v5.22.1...v5.22.2](https://github.com/Finch-API/finch-api-node/compare/v5.22.1...v5.22.2)
