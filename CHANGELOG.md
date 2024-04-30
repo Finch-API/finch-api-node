@@ -1,5 +1,15 @@
 # Changelog
 
+## 5.22.4 (2024-04-30)
+
+Full Changelog: [v5.22.3...v5.22.4](https://github.com/Finch-API/finch-api-node/compare/v5.22.3...v5.22.4)
+
+### Chores
+
+* **internal:** add link to openapi spec ([#353](https://github.com/Finch-API/finch-api-node/issues/353)) ([f165e11](https://github.com/Finch-API/finch-api-node/commit/f165e11411a78cabf9cf99f8be4168290773738a))
+* **internal:** add scripts/test, scripts/mock and add ci job ([#354](https://github.com/Finch-API/finch-api-node/issues/354)) ([e33e4af](https://github.com/Finch-API/finch-api-node/commit/e33e4afc2cb1c2f2bdb41d1857f921b288a1f9c9))
+* **internal:** refactor scripts ([#351](https://github.com/Finch-API/finch-api-node/issues/351)) ([2c6d68a](https://github.com/Finch-API/finch-api-node/commit/2c6d68a1f010d7f93bb63232741a88f0e39cd711))
+
 ## 5.22.3 (2024-04-26)
 
 Full Changelog: [v5.22.2...v5.22.3](https://github.com/Finch-API/finch-api-node/compare/v5.22.2...v5.22.3)
