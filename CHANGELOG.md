@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.22.5 (2024-05-01)
+
+Full Changelog: [v5.22.4...v5.22.5](https://github.com/Finch-API/finch-api-node/compare/v5.22.4...v5.22.5)
+
+### Chores
+
+* **internal:** forward arguments in scripts/test ([#355](https://github.com/Finch-API/finch-api-node/issues/355)) ([b17aadc](https://github.com/Finch-API/finch-api-node/commit/b17aadc62f2803b97da79f1a67fd701255e74050))
+
 ## 5.22.4 (2024-04-30)
 
 Full Changelog: [v5.22.3...v5.22.4](https://github.com/Finch-API/finch-api-node/compare/v5.22.3...v5.22.4)
