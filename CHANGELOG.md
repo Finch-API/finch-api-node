@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.22.7 (2024-05-02)
+
+Full Changelog: [v5.22.6...v5.22.7](https://github.com/Finch-API/finch-api-node/compare/v5.22.6...v5.22.7)
+
+### Bug Fixes
+
+* **package:** add exports back in ([231a9a7](https://github.com/Finch-API/finch-api-node/commit/231a9a772d543d6a9d4e1b4411bb6ad06a615aa7))
+
 ## 5.22.6 (2024-05-02)
 
 Full Changelog: [v5.22.5...v5.22.6](https://github.com/Finch-API/finch-api-node/compare/v5.22.5...v5.22.6)
