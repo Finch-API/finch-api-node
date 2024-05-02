@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.22.6 (2024-05-02)
+
+Full Changelog: [v5.22.5...v5.22.6](https://github.com/Finch-API/finch-api-node/compare/v5.22.5...v5.22.6)
+
+### Chores
+
+* **internal:** move client class to separate file ([#357](https://github.com/Finch-API/finch-api-node/issues/357)) ([a8ea8e2](https://github.com/Finch-API/finch-api-node/commit/a8ea8e2891c40ea9c19b2ccca32024dd93612a8a))
+
 ## 5.22.5 (2024-05-01)
 
 Full Changelog: [v5.22.4...v5.22.5](https://github.com/Finch-API/finch-api-node/compare/v5.22.4...v5.22.5)
