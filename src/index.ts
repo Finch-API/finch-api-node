@@ -4,6 +4,8 @@ import * as Errors from './error';
 import * as Uploads from './uploads';
 import { Finch } from './client';
 
+export { Finch };
+export default Finch;
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
