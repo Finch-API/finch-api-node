@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.22.8 (2024-05-03)
+
+Full Changelog: [v5.22.7...v5.22.8](https://github.com/Finch-API/finch-api-node/compare/v5.22.7...v5.22.8)
+
+### Bug Fixes
+
+* **package:** revert recent client file change ([#362](https://github.com/Finch-API/finch-api-node/issues/362)) ([97d9b40](https://github.com/Finch-API/finch-api-node/commit/97d9b40534535f673b993d8da1d5f35f7ff7428e))
+
 ## 5.22.7 (2024-05-02)
 
 Full Changelog: [v5.22.6...v5.22.7](https://github.com/Finch-API/finch-api-node/compare/v5.22.6...v5.22.7)
