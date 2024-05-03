@@ -1,5 +1,132 @@
 # Changelog
 
+## 5.22.7 (2024-05-02)
+
+Full Changelog: [v5.22.6...v5.22.7](https://github.com/Finch-API/finch-api-node/compare/v5.22.6...v5.22.7)
+
+### Bug Fixes
+
+* **package:** add exports back in ([231a9a7](https://github.com/Finch-API/finch-api-node/commit/231a9a772d543d6a9d4e1b4411bb6ad06a615aa7))
+
+## 5.22.6 (2024-05-02)
+
+Full Changelog: [v5.22.5...v5.22.6](https://github.com/Finch-API/finch-api-node/compare/v5.22.5...v5.22.6)
+
+### Chores
+
+* **internal:** move client class to separate file ([#357](https://github.com/Finch-API/finch-api-node/issues/357)) ([a8ea8e2](https://github.com/Finch-API/finch-api-node/commit/a8ea8e2891c40ea9c19b2ccca32024dd93612a8a))
+
+## 5.22.5 (2024-05-01)
+
+Full Changelog: [v5.22.4...v5.22.5](https://github.com/Finch-API/finch-api-node/compare/v5.22.4...v5.22.5)
+
+### Chores
+
+* **internal:** forward arguments in scripts/test ([#355](https://github.com/Finch-API/finch-api-node/issues/355)) ([b17aadc](https://github.com/Finch-API/finch-api-node/commit/b17aadc62f2803b97da79f1a67fd701255e74050))
+
+## 5.22.4 (2024-04-30)
+
+Full Changelog: [v5.22.3...v5.22.4](https://github.com/Finch-API/finch-api-node/compare/v5.22.3...v5.22.4)
+
+### Chores
+
+* **internal:** add link to openapi spec ([#353](https://github.com/Finch-API/finch-api-node/issues/353)) ([f165e11](https://github.com/Finch-API/finch-api-node/commit/f165e11411a78cabf9cf99f8be4168290773738a))
+* **internal:** add scripts/test, scripts/mock and add ci job ([#354](https://github.com/Finch-API/finch-api-node/issues/354)) ([e33e4af](https://github.com/Finch-API/finch-api-node/commit/e33e4afc2cb1c2f2bdb41d1857f921b288a1f9c9))
+* **internal:** refactor scripts ([#351](https://github.com/Finch-API/finch-api-node/issues/351)) ([2c6d68a](https://github.com/Finch-API/finch-api-node/commit/2c6d68a1f010d7f93bb63232741a88f0e39cd711))
+
+## 5.22.3 (2024-04-26)
+
+Full Changelog: [v5.22.2...v5.22.3](https://github.com/Finch-API/finch-api-node/compare/v5.22.2...v5.22.3)
+
+### Chores
+
+* **internal:** add scripts/test and scripts/mock ([#350](https://github.com/Finch-API/finch-api-node/issues/350)) ([5e9a279](https://github.com/Finch-API/finch-api-node/commit/5e9a279282ba88aca221538c8317b062a92541a2))
+
+
+### Documentation
+
+* clarify behavior around employee_size ([#348](https://github.com/Finch-API/finch-api-node/issues/348)) ([0c634a7](https://github.com/Finch-API/finch-api-node/commit/0c634a7748823e4e7448b32390f0e0f20faaec1e))
+
+## 5.22.2 (2024-04-24)
+
+Full Changelog: [v5.22.1...v5.22.2](https://github.com/Finch-API/finch-api-node/compare/v5.22.1...v5.22.2)
+
+### Chores
+
+* **internal:** use actions/checkout@v4 for codeflow ([#346](https://github.com/Finch-API/finch-api-node/issues/346)) ([956404e](https://github.com/Finch-API/finch-api-node/commit/956404e1751efc2e1bc5f7ea6d94e93987368d8c))
+
+## 5.22.1 (2024-04-22)
+
+Full Changelog: [v5.22.0...v5.22.1](https://github.com/Finch-API/finch-api-node/compare/v5.22.0...v5.22.1)
+
+### Chores
+
+* **internal:** use @swc/jest for running tests ([#344](https://github.com/Finch-API/finch-api-node/issues/344)) ([ea531ff](https://github.com/Finch-API/finch-api-node/commit/ea531ff0f7e883f7ec5aad047b871fa2c6984462))
+
+## 5.22.0 (2024-04-16)
+
+Full Changelog: [v5.21.0...v5.22.0](https://github.com/Finch-API/finch-api-node/compare/v5.21.0...v5.22.0)
+
+### Features
+
+* **api:** updates ([#341](https://github.com/Finch-API/finch-api-node/issues/341)) ([8afb72f](https://github.com/Finch-API/finch-api-node/commit/8afb72fcffac287d80d8fb905ebf4890a9837571))
+
+
+### Chores
+
+* **internal:** formatting ([#342](https://github.com/Finch-API/finch-api-node/issues/342)) ([38263ef](https://github.com/Finch-API/finch-api-node/commit/38263ef0762688d7ebe285945ba78787b7dea453))
+* **internal:** update gitignore ([#339](https://github.com/Finch-API/finch-api-node/issues/339)) ([8250f7b](https://github.com/Finch-API/finch-api-node/commit/8250f7b4e3678ecdcadb3d74b3ea902b66973756))
+
+
+### Build System
+
+* configure UTF-8 locale in devcontainer ([#343](https://github.com/Finch-API/finch-api-node/issues/343)) ([52fec36](https://github.com/Finch-API/finch-api-node/commit/52fec36bf493e26a7a2e216eea0637a3024bd0b5))
+
+## 5.21.0 (2024-04-09)
+
+Full Changelog: [v5.20.3...v5.21.0](https://github.com/Finch-API/finch-api-node/compare/v5.20.3...v5.21.0)
+
+### Features
+
+* **api:** updates ([#337](https://github.com/Finch-API/finch-api-node/issues/337)) ([18d4cbf](https://github.com/Finch-API/finch-api-node/commit/18d4cbf657415f66016621057d52f034db264750))
+
+## 5.20.3 (2024-04-04)
+
+Full Changelog: [v5.20.2...v5.20.3](https://github.com/Finch-API/finch-api-node/compare/v5.20.2...v5.20.3)
+
+### Chores
+
+* **api:** improve descriptions ([#335](https://github.com/Finch-API/finch-api-node/issues/335)) ([4423c16](https://github.com/Finch-API/finch-api-node/commit/4423c1655414ba9efe63dba4d244c2c56e7acb7e))
+
+## 5.20.2 (2024-04-02)
+
+Full Changelog: [v5.20.1...v5.20.2](https://github.com/Finch-API/finch-api-node/compare/v5.20.1...v5.20.2)
+
+### Bug Fixes
+
+* **client:** correctly send deno version header ([#330](https://github.com/Finch-API/finch-api-node/issues/330)) ([1a6a391](https://github.com/Finch-API/finch-api-node/commit/1a6a3917773135c9df219b48d9c58a0f2077b86e))
+* handle process.env being undefined in debug func ([#329](https://github.com/Finch-API/finch-api-node/issues/329)) ([eece7be](https://github.com/Finch-API/finch-api-node/commit/eece7be004ff2c0af0347c7f0b490c4d7f187683))
+* **internal:** make toFile use input file's options ([#326](https://github.com/Finch-API/finch-api-node/issues/326)) ([d186ce5](https://github.com/Finch-API/finch-api-node/commit/d186ce54ab5b36ce407fa6cd7b2e9592c539501c))
+
+
+### Chores
+
+* **deps:** bump yarn to v1.22.22 ([#334](https://github.com/Finch-API/finch-api-node/issues/334)) ([430f174](https://github.com/Finch-API/finch-api-node/commit/430f174bfe073b1455278870e17b6bcd730dcdfb))
+* **deps:** remove unused dependency digest-fetch ([#333](https://github.com/Finch-API/finch-api-node/issues/333)) ([708bb25](https://github.com/Finch-API/finch-api-node/commit/708bb25b4756afe00195ddb388803a1955f423c6))
+* **internal:** update generated pragma comment ([#325](https://github.com/Finch-API/finch-api-node/issues/325)) ([d02405e](https://github.com/Finch-API/finch-api-node/commit/d02405e96e118dca7c957559da6c3388b2d8776e))
+* revert temporary commit ([c8eaa32](https://github.com/Finch-API/finch-api-node/commit/c8eaa32783402ac574fc9e75708c49f981646697))
+* temporary commit ([#331](https://github.com/Finch-API/finch-api-node/issues/331)) ([3eed917](https://github.com/Finch-API/finch-api-node/commit/3eed9170aad5040de36b9ff67ee84d2570472550))
+
+
+### Documentation
+
+* deprecate old access token getter ([#319](https://github.com/Finch-API/finch-api-node/issues/319)) ([ecc280e](https://github.com/Finch-API/finch-api-node/commit/ecc280ea6ffff0a438797553cd85cf9d94589cf0))
+* fix typo in CONTRIBUTING.md ([#324](https://github.com/Finch-API/finch-api-node/issues/324)) ([80f40f0](https://github.com/Finch-API/finch-api-node/commit/80f40f05eaaabb9d7c9b5661eed7aa13319cccdc))
+* **readme:** consistent use of sentence case in headings ([#327](https://github.com/Finch-API/finch-api-node/issues/327)) ([7ce1750](https://github.com/Finch-API/finch-api-node/commit/7ce175022727b7c02498f3711a691d3bcab0fb68))
+* **readme:** document how to make undocumented requests ([#328](https://github.com/Finch-API/finch-api-node/issues/328)) ([be65719](https://github.com/Finch-API/finch-api-node/commit/be65719a447e39f14e13df2be1c4cb8be2321f00))
+* remove extraneous --save and yarn install instructions ([#321](https://github.com/Finch-API/finch-api-node/issues/321)) ([9a8955f](https://github.com/Finch-API/finch-api-node/commit/9a8955f15abfb18ca4bab84bfe576e0af9396a3f))
+* use [@deprecated](https://github.com/deprecated) decorator for deprecated params ([#322](https://github.com/Finch-API/finch-api-node/issues/322)) ([9af6cec](https://github.com/Finch-API/finch-api-node/commit/9af6cecaee25b4e8220b6501f0710b6d5d9b9d2d))
+
 ## 5.20.1 (2024-03-05)
 
 Full Changelog: [v5.20.0...v5.20.1](https://github.com/Finch-API/finch-api-node/compare/v5.20.0...v5.20.1)
