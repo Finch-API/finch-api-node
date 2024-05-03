@@ -167,6 +167,64 @@ export class Finch extends Core.APIClient {
   jobs: API.Jobs = new API.Jobs(this);
   sandbox: API.Sandbox = new API.Sandbox(this);
 
+  /**
+   * DEPRECATED: use client.accessTokens.create instead.
+   */
+  getAccessToken(code: string, options?: { redirectUri: string }): Promise<string> {
+    if (!this.clientId) {
+      throw new Error('Expected the clientId to be set in order to call getAccessToken');
+    }
+    if (!this.clientSecret) {
+      throw new Error('Expected the clientSecret to be set in order to call getAccessToken');
+    }
+    return this.post<Record<string, any>, { access_token: string }>('/auth/token', {
+      body: {
+        client_id: this.clientId,
+        client_secret: this.clientSecret,
+        code: code,
+        redirect_uri: options?.redirectUri,
+      },
+      headers: {
+        authorization: null,
+      },
+    }).then((response) => response.access_token);
+  }
+
+  /**
+   * Returns the authorization url which can be visited in order to obtain an
+   * authorization code from Finch. The authorization code can then be exchanged for
+   * an access token for the Finch api by calling get_access_token().
+   */
+  getAuthURL({
+    products,
+    redirectUri,
+    sandbox,
+  }: {
+    products: string;
+    redirectUri: string;
+    sandbox: boolean;
+  }): string {
+    if (!this.clientId) {
+      throw new Error('Expected the clientId to be set in order to call getAuthUrl');
+    }
+    const url = new URL('/authorize', 'https://connect.tryfinch.com/authorize');
+    url.search = this.stringifyQuery({
+      client_id: this.clientId,
+      products: products,
+      redirect_uri: redirectUri,
+      sandbox: sandbox,
+    });
+    return url.toString();
+  }
+
+  /**
+   * Returns a copy of the current Finch client with the given access token for
+   * authentication.
+   */
+  withAccessToken(accessToken: string): Finch {
+    return new Finch({ ...this._options, accessToken });
+  }
+
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
   }
