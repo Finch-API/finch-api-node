@@ -80,6 +80,8 @@ export interface EmploymentData {
    */
   last_name?: string | null;
 
+  latest_rehire_date?: string | null;
+
   location?: HRISAPI.Location | null;
 
   /**
