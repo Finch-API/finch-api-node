@@ -34,7 +34,7 @@ export interface Introspection {
    */
   account_id: string;
 
-  authentication_methods: Introspection.AuthenticationMethods;
+  authentication_methods: Array<Introspection.AuthenticationMethod>;
 
   /**
    * The client id of the application associated with the `access_token`.
@@ -83,13 +83,13 @@ export interface Introspection {
 }
 
 export namespace Introspection {
-  export interface AuthenticationMethods {
-    connection_status?: AuthenticationMethods.ConnectionStatus;
+  export interface AuthenticationMethod {
+    connection_status?: AuthenticationMethod.ConnectionStatus;
 
     type?: string;
   }
 
-  export namespace AuthenticationMethods {
+  export namespace AuthenticationMethod {
     export interface ConnectionStatus {
       message?: string;
 
