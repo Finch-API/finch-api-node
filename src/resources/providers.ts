@@ -29,6 +29,11 @@ export interface Provider {
   authentication_methods?: Array<Provider.AuthenticationMethod>;
 
   /**
+   * `true` if the integration is in a beta state, `false` otherwise
+   */
+  beta?: boolean;
+
+  /**
    * The display name of the payroll provider.
    */
   display_name?: string;
