@@ -24,7 +24,7 @@ describe('instantiate client', () => {
       baseURL: 'http://localhost:5000/',
       defaultHeaders: { 'X-My-Default-Header': '2' },
       accessToken: 'My Access Token',
-      clientId: 'My Client ID',
+      clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
       clientSecret: 'My Client Secret',
     });
 
@@ -58,7 +58,7 @@ describe('instantiate client', () => {
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo' },
         accessToken: 'My Access Token',
-        clientId: 'My Client ID',
+        clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
         clientSecret: 'My Client Secret',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo');
@@ -69,7 +69,7 @@ describe('instantiate client', () => {
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo', hello: 'world' },
         accessToken: 'My Access Token',
-        clientId: 'My Client ID',
+        clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
         clientSecret: 'My Client Secret',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo&hello=world');
@@ -80,7 +80,7 @@ describe('instantiate client', () => {
         baseURL: 'http://localhost:5000/',
         defaultQuery: { hello: 'world' },
         accessToken: 'My Access Token',
-        clientId: 'My Client ID',
+        clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
         clientSecret: 'My Client Secret',
       });
       expect(client.buildURL('/foo', { hello: undefined })).toEqual('http://localhost:5000/foo');
@@ -91,7 +91,7 @@ describe('instantiate client', () => {
     const client = new Finch({
       baseURL: 'http://localhost:5000/',
       accessToken: 'My Access Token',
-      clientId: 'My Client ID',
+      clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
       clientSecret: 'My Client Secret',
       fetch: (url) => {
         return Promise.resolve(
@@ -110,7 +110,7 @@ describe('instantiate client', () => {
     const client = new Finch({
       baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
       accessToken: 'My Access Token',
-      clientId: 'My Client ID',
+      clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
       clientSecret: 'My Client Secret',
       fetch: (...args) => {
         return new Promise((resolve, reject) =>
@@ -139,7 +139,7 @@ describe('instantiate client', () => {
       const client = new Finch({
         baseURL: 'http://localhost:5000/custom/path/',
         accessToken: 'My Access Token',
-        clientId: 'My Client ID',
+        clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
         clientSecret: 'My Client Secret',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
@@ -149,7 +149,7 @@ describe('instantiate client', () => {
       const client = new Finch({
         baseURL: 'http://localhost:5000/custom/path',
         accessToken: 'My Access Token',
-        clientId: 'My Client ID',
+        clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
         clientSecret: 'My Client Secret',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
@@ -163,7 +163,7 @@ describe('instantiate client', () => {
       const client = new Finch({
         baseURL: 'https://example.com',
         accessToken: 'My Access Token',
-        clientId: 'My Client ID',
+        clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
         clientSecret: 'My Client Secret',
       });
       expect(client.baseURL).toEqual('https://example.com');
@@ -173,7 +173,7 @@ describe('instantiate client', () => {
       process.env['FINCH_BASE_URL'] = 'https://example.com/from_env';
       const client = new Finch({
         accessToken: 'My Access Token',
-        clientId: 'My Client ID',
+        clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
         clientSecret: 'My Client Secret',
       });
       expect(client.baseURL).toEqual('https://example.com/from_env');
@@ -183,7 +183,7 @@ describe('instantiate client', () => {
       process.env['FINCH_BASE_URL'] = ''; // empty
       const client = new Finch({
         accessToken: 'My Access Token',
-        clientId: 'My Client ID',
+        clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
         clientSecret: 'My Client Secret',
       });
       expect(client.baseURL).toEqual('https://api.tryfinch.com');
@@ -193,7 +193,7 @@ describe('instantiate client', () => {
       process.env['FINCH_BASE_URL'] = '  '; // blank
       const client = new Finch({
         accessToken: 'My Access Token',
-        clientId: 'My Client ID',
+        clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
         clientSecret: 'My Client Secret',
       });
       expect(client.baseURL).toEqual('https://api.tryfinch.com');
@@ -204,7 +204,7 @@ describe('instantiate client', () => {
     const client = new Finch({
       maxRetries: 4,
       accessToken: 'My Access Token',
-      clientId: 'My Client ID',
+      clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
       clientSecret: 'My Client Secret',
     });
     expect(client.maxRetries).toEqual(4);
@@ -212,7 +212,7 @@ describe('instantiate client', () => {
     // default
     const client2 = new Finch({
       accessToken: 'My Access Token',
-      clientId: 'My Client ID',
+      clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
       clientSecret: 'My Client Secret',
     });
     expect(client2.maxRetries).toEqual(2);
@@ -220,25 +220,25 @@ describe('instantiate client', () => {
 
   test('with environment variable arguments', () => {
     // set options via env var
-    process.env['FINCH_CLIENT_ID'] = 'My Client ID';
+    process.env['FINCH_CLIENT_ID'] = '4ab15e51-11ad-49f4-acae-f343b7794375';
     process.env['FINCH_CLIENT_SECRET'] = 'My Client Secret';
     const client = new Finch({ accessToken: 'My Access Token' });
     expect(client.accessToken).toBe('My Access Token');
-    expect(client.clientId).toBe('My Client ID');
+    expect(client.clientId).toBe('4ab15e51-11ad-49f4-acae-f343b7794375');
     expect(client.clientSecret).toBe('My Client Secret');
   });
 
   test('with overriden environment variable arguments', () => {
     // set options via env var
-    process.env['FINCH_CLIENT_ID'] = 'another My Client ID';
+    process.env['FINCH_CLIENT_ID'] = 'another 4ab15e51-11ad-49f4-acae-f343b7794375';
     process.env['FINCH_CLIENT_SECRET'] = 'another My Client Secret';
     const client = new Finch({
       accessToken: 'My Access Token',
-      clientId: 'My Client ID',
+      clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
       clientSecret: 'My Client Secret',
     });
     expect(client.accessToken).toBe('My Access Token');
-    expect(client.clientId).toBe('My Client ID');
+    expect(client.clientId).toBe('4ab15e51-11ad-49f4-acae-f343b7794375');
     expect(client.clientSecret).toBe('My Client Secret');
   });
 });
@@ -246,7 +246,7 @@ describe('instantiate client', () => {
 describe('request building', () => {
   const client = new Finch({
     accessToken: 'My Access Token',
-    clientId: 'My Client ID',
+    clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
     clientSecret: 'My Client Secret',
   });
 
@@ -292,7 +292,7 @@ describe('retries', () => {
 
     const client = new Finch({
       accessToken: 'My Access Token',
-      clientId: 'My Client ID',
+      clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
       clientSecret: 'My Client Secret',
       timeout: 10,
       fetch: testFetch,
@@ -325,7 +325,7 @@ describe('retries', () => {
 
     const client = new Finch({
       accessToken: 'My Access Token',
-      clientId: 'My Client ID',
+      clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
       clientSecret: 'My Client Secret',
       fetch: testFetch,
     });
@@ -357,7 +357,7 @@ describe('retries', () => {
 
     const client = new Finch({
       accessToken: 'My Access Token',
-      clientId: 'My Client ID',
+      clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
       clientSecret: 'My Client Secret',
       fetch: testFetch,
     });
