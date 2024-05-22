@@ -191,7 +191,7 @@ export interface BenefitsSupport {
   simple?: BenefitFeaturesAndOperations | null;
 
   simple_ira?: BenefitFeaturesAndOperations | null;
-  [k: string]: BenefitFeaturesAndOperations | null;
+  [k: string]: BenefitFeaturesAndOperations | null | undefined;
 }
 
 /**
