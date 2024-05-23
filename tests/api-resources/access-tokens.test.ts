@@ -25,7 +25,7 @@ describe('resource accessTokens', () => {
   test('create: required and optional params', async () => {
     const response = await finch.accessTokens.create({
       code: '<your_authorization_code>',
-      client_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+      client_id: '6d28c315-5eaa-4071-8ea5-f030eb45edbc',
       client_secret: '<your_client_secret>',
       redirect_uri: 'https://example.com',
     });
