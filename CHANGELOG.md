@@ -1,5 +1,27 @@
 # Changelog
 
+## 5.22.9 (2024-05-24)
+
+Full Changelog: [v5.22.8...v5.22.9](https://github.com/Finch-API/finch-api-node/compare/v5.22.8...v5.22.9)
+
+### Bug Fixes
+
+* **api:** correct authentication methods type ([#370](https://github.com/Finch-API/finch-api-node/issues/370)) ([98a5860](https://github.com/Finch-API/finch-api-node/commit/98a5860e2434fe478f1fa2b7dabf7db1a40bdbda))
+* **tests:** replace outdated example values ([3554d3f](https://github.com/Finch-API/finch-api-node/commit/3554d3fbe3d1f6f92f07339e79a60f1e2f81bf2b))
+* **types:** correct index signature type ([#376](https://github.com/Finch-API/finch-api-node/issues/376)) ([5321060](https://github.com/Finch-API/finch-api-node/commit/5321060b3ec4899cd1aa53a1fa4df7e2b6666064))
+
+
+### Chores
+
+* **docs:** add SECURITY.md ([#366](https://github.com/Finch-API/finch-api-node/issues/366)) ([bf1afea](https://github.com/Finch-API/finch-api-node/commit/bf1afead23076a071970e170d65dcea9a4ab3517))
+* **internal:** add slightly better logging to scripts ([#372](https://github.com/Finch-API/finch-api-node/issues/372)) ([84de6c1](https://github.com/Finch-API/finch-api-node/commit/84de6c1226235041fe50455dfb89cbff1ca4fbd8))
+* **internal:** minor updates ([#369](https://github.com/Finch-API/finch-api-node/issues/369)) ([98d4f39](https://github.com/Finch-API/finch-api-node/commit/98d4f3971e15433d613f2e07adb3575cf5cd5366))
+* **internal:** remove empty file ([c199638](https://github.com/Finch-API/finch-api-node/commit/c1996384384c9ba6085b78732801851b116b2edd))
+* **internal:** resolve spec formatting issue ([#375](https://github.com/Finch-API/finch-api-node/issues/375)) ([c102ea6](https://github.com/Finch-API/finch-api-node/commit/c102ea6e9fedd347850d5f382d613c8f3818b6d2))
+* **tests:** example client_id ([#377](https://github.com/Finch-API/finch-api-node/issues/377)) ([4d21a7a](https://github.com/Finch-API/finch-api-node/commit/4d21a7afff7456a5e9a24e6ba5ba64bd1c8af0e5))
+* **tests:** update client ID example value ([#371](https://github.com/Finch-API/finch-api-node/issues/371)) ([bf3aac1](https://github.com/Finch-API/finch-api-node/commit/bf3aac155b19f0e009cf679fcc877e56557d487f))
+* **tests:** update some example values ([#374](https://github.com/Finch-API/finch-api-node/issues/374)) ([d469723](https://github.com/Finch-API/finch-api-node/commit/d469723be418afe661fbb967a3cd01acb54def2c))
+
 ## 5.22.8 (2024-05-03)
 
 Full Changelog: [v5.22.7...v5.22.8](https://github.com/Finch-API/finch-api-node/compare/v5.22.7...v5.22.8)
