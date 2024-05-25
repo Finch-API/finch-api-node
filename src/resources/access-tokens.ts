@@ -34,7 +34,7 @@ export class AccessTokens extends APIResource {
     return this._client.post('/auth/token', {
       body: bodyWithReplacements,
       ...options,
-      headers: headersWithReplacements
+      headers: headersWithReplacements,
     });
   }
 }
