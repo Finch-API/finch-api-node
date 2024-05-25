@@ -27,7 +27,15 @@ export class AccessTokens extends APIResource {
       client_id: clientID,
       client_secret: clientSecret,
     };
-    return this._client.post('/auth/token', { body: bodyWithReplacements, ...options });
+    const headersWithReplacements = {
+      ...options?.headers,
+      authorization: null,
+    };
+    return this._client.post('/auth/token', {
+      body: bodyWithReplacements,
+      ...options,
+      headers: headersWithReplacements
+    });
   }
 }
 
