@@ -1,5 +1,14 @@
 # Changelog
 
+## 5.22.10 (2024-05-25)
+
+Full Changelog: [v5.22.9...v5.22.10](https://github.com/Finch-API/finch-api-node/compare/v5.22.9...v5.22.10)
+
+### Bug Fixes
+
+* fix bug access tokens create should set the authorization header to null ([4eb197e](https://github.com/Finch-API/finch-api-node/commit/4eb197e7e886a1a6c3a951a53a600d8d0db2c708))
+* fix lint issue ([a240b14](https://github.com/Finch-API/finch-api-node/commit/a240b1416ed9bb798c079ca4262ed62848604a4f))
+
 ## 5.22.9 (2024-05-24)
 
 Full Changelog: [v5.22.8...v5.22.9](https://github.com/Finch-API/finch-api-node/compare/v5.22.8...v5.22.9)
