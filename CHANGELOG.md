@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.22.11 (2024-05-28)
+
+Full Changelog: [v5.22.10...v5.22.11](https://github.com/Finch-API/finch-api-node/compare/v5.22.10...v5.22.11)
+
+### Documentation
+
+* **readme:** add bundle size badge ([#380](https://github.com/Finch-API/finch-api-node/issues/380)) ([6cae00a](https://github.com/Finch-API/finch-api-node/commit/6cae00a925c9dda3d4eb289d6ea78c87b3f80c33))
+
 ## 5.22.10 (2024-05-25)
 
 Full Changelog: [v5.22.9...v5.22.10](https://github.com/Finch-API/finch-api-node/compare/v5.22.9...v5.22.10)
