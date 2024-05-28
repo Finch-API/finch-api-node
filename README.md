@@ -1,6 +1,6 @@
 # Finch Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/@tryfinch/finch-api.svg)](https://npmjs.org/package/@tryfinch/finch-api)
+[![NPM version](https://img.shields.io/npm/v/@tryfinch/finch-api.svg)](https://npmjs.org/package/@tryfinch/finch-api) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@tryfinch/finch-api)
 
 This library provides convenient access to the Finch REST API from server-side TypeScript or JavaScript.
 
