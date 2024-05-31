@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.22.12 (2024-05-31)
+
+Full Changelog: [v5.22.11...v5.22.12](https://github.com/Finch-API/finch-api-node/compare/v5.22.11...v5.22.12)
+
+### Bug Fixes
+
+* allow git imports for pnpm ([#382](https://github.com/Finch-API/finch-api-node/issues/382)) ([b95f1d5](https://github.com/Finch-API/finch-api-node/commit/b95f1d5ab89aa15d0a5529fbf57340bcaa5c9de1))
+
 ## 5.22.11 (2024-05-28)
 
 Full Changelog: [v5.22.10...v5.22.11](https://github.com/Finch-API/finch-api-node/compare/v5.22.10...v5.22.11)
