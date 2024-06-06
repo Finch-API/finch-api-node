@@ -308,3 +308,17 @@ Methods:
 
 - <code title="get /sandbox/jobs/configuration">client.sandbox.jobs.configuration.<a href="./src/resources/sandbox/jobs/configuration.ts">retrieve</a>() -> ConfigurationRetrieveResponse</code>
 - <code title="put /sandbox/jobs/configuration">client.sandbox.jobs.configuration.<a href="./src/resources/sandbox/jobs/configuration.ts">update</a>({ ...params }) -> SandboxJobConfiguration</code>
+
+# Payroll
+
+## PayGroups
+
+Types:
+
+- <code><a href="./src/resources/payroll/pay-groups.ts">PayGroupRetrieveResponse</a></code>
+- <code><a href="./src/resources/payroll/pay-groups.ts">PayGroupListResponse</a></code>
+
+Methods:
+
+- <code title="get /employer/pay-group/{pay_group_id}">client.payroll.payGroups.<a href="./src/resources/payroll/pay-groups.ts">retrieve</a>(payGroupId) -> PayGroupRetrieveResponse</code>
+- <code title="get /employer/pay-groups">client.payroll.payGroups.<a href="./src/resources/payroll/pay-groups.ts">list</a>({ ...params }) -> PayGroupListResponsesSinglePage</code>
