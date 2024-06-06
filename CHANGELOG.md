@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.23.0 (2024-06-06)
+
+Full Changelog: [v5.22.12...v5.23.0](https://github.com/Finch-API/finch-api-node/compare/v5.22.12...v5.23.0)
+
+### Features
+
+* **api:** updates ([#384](https://github.com/Finch-API/finch-api-node/issues/384)) ([226caaa](https://github.com/Finch-API/finch-api-node/commit/226caaad82bb510655021cb1b738d77b0a3d0ea1))
+
 ## 5.22.12 (2024-05-31)
 
 Full Changelog: [v5.22.11...v5.22.12](https://github.com/Finch-API/finch-api-node/compare/v5.22.11...v5.22.12)
