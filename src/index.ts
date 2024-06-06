@@ -4,6 +4,7 @@ import * as Core from './core';
 import * as Errors from './error';
 import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
+import * as qs from 'qs';
 import * as Pagination from '@tryfinch/finch-api/pagination';
 import * as API from '@tryfinch/finch-api/resources/index';
 
@@ -166,6 +167,7 @@ export class Finch extends Core.APIClient {
   requestForwarding: API.RequestForwarding = new API.RequestForwarding(this);
   jobs: API.Jobs = new API.Jobs(this);
   sandbox: API.Sandbox = new API.Sandbox(this);
+  payroll: API.Payroll = new API.Payroll(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -228,6 +230,10 @@ export class Finch extends Core.APIClient {
     const credentials = `${this.sandboxClientId}:${this.sandboxClientSecret}`;
     const Authorization = `Basic ${Core.toBase64(credentials)}`;
     return { Authorization };
+  }
+
+  protected override stringifyQuery(query: Record<string, unknown>): string {
+    return qs.stringify(query, { arrayFormat: 'comma' });
   }
 
   static Finch = this;
@@ -322,6 +328,8 @@ export namespace Finch {
   export import Jobs = API.Jobs;
 
   export import Sandbox = API.Sandbox;
+
+  export import Payroll = API.Payroll;
 
   export import ConnectionStatusType = API.ConnectionStatusType;
   export import OperationSupport = API.OperationSupport;
