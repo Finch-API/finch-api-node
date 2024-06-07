@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.23.1 (2024-06-07)
+
+Full Changelog: [v5.23.0...v5.23.1](https://github.com/Finch-API/finch-api-node/compare/v5.23.0...v5.23.1)
+
+### Bug Fixes
+
+* rename pay groups endpoint ([#386](https://github.com/Finch-API/finch-api-node/issues/386)) ([4936a68](https://github.com/Finch-API/finch-api-node/commit/4936a68fd4d93c1bc3e9e08cf97e3637ccf8ab4d))
+
 ## 5.23.0 (2024-06-06)
 
 Full Changelog: [v5.22.12...v5.23.0](https://github.com/Finch-API/finch-api-node/compare/v5.22.12...v5.23.0)
