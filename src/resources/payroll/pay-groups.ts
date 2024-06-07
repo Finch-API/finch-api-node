@@ -11,7 +11,7 @@ export class PayGroups extends APIResource {
    * Read information from a single pay group
    */
   retrieve(payGroupId: string, options?: Core.RequestOptions): Core.APIPromise<PayGroupRetrieveResponse> {
-    return this._client.get(`/employer/pay-group/${payGroupId}`, options);
+    return this._client.get(`/employer/pay-groups/${payGroupId}`, options);
   }
 
   /**
