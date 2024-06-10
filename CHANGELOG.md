@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.24.0 (2024-06-10)
+
+Full Changelog: [v5.23.1...v5.24.0](https://github.com/Finch-API/finch-api-node/compare/v5.23.1...v5.24.0)
+
+### Features
+
+* support `application/octet-stream` request bodies ([#388](https://github.com/Finch-API/finch-api-node/issues/388)) ([29a9339](https://github.com/Finch-API/finch-api-node/commit/29a9339da380b1f8289f0b2ecce283a0919ff4ec))
+
 ## 5.23.1 (2024-06-07)
 
 Full Changelog: [v5.23.0...v5.23.1](https://github.com/Finch-API/finch-api-node/compare/v5.23.0...v5.23.1)
