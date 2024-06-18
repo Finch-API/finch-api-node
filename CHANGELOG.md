@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.24.1 (2024-06-18)
+
+Full Changelog: [v5.24.0...v5.24.1](https://github.com/Finch-API/finch-api-node/compare/v5.24.0...v5.24.1)
+
+### Chores
+
+* **deps:** bump braces from 3.0.2 to 3.0.3 ([784423d](https://github.com/Finch-API/finch-api-node/commit/784423dc4745db3eb4530c2ec7c96808e8720013))
+
 ## 5.24.0 (2024-06-10)
 
 Full Changelog: [v5.23.1...v5.24.0](https://github.com/Finch-API/finch-api-node/compare/v5.23.1...v5.24.0)
