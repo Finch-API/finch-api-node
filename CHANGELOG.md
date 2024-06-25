@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.24.2 (2024-06-25)
+
+Full Changelog: [v5.24.1...v5.24.2](https://github.com/Finch-API/finch-api-node/compare/v5.24.1...v5.24.2)
+
+### Chores
+
+* **internal:** minor reformatting ([#392](https://github.com/Finch-API/finch-api-node/issues/392)) ([8097a38](https://github.com/Finch-API/finch-api-node/commit/8097a38682d6fd8edd27e25298fd9a3c981b1b33))
+
 ## 5.24.1 (2024-06-18)
 
 Full Changelog: [v5.24.0...v5.24.1](https://github.com/Finch-API/finch-api-node/compare/v5.24.0...v5.24.1)
