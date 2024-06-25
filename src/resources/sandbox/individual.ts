@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
 import { isRequestOptions } from '@tryfinch/finch-api/core';
+import * as Core from '@tryfinch/finch-api/core';
 import * as IndividualAPI from '@tryfinch/finch-api/resources/sandbox/individual';
 import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
 
