@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
+import * as Core from '@tryfinch/finch-api/core';
 import * as ConnectionsAPI from '@tryfinch/finch-api/resources/sandbox/connections/connections';
 import * as AccountsAPI from '@tryfinch/finch-api/resources/sandbox/connections/accounts';
 

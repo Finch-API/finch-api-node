@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@tryfinch/finch-api/core';
 import { APIResource } from '@tryfinch/finch-api/resource';
+import * as Core from '@tryfinch/finch-api/core';
 import * as ManualAPI from '@tryfinch/finch-api/resources/jobs/manual';
 
 export class Manual extends APIResource {
