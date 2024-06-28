@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.24.3 (2024-06-28)
+
+Full Changelog: [v5.24.2...v5.24.3](https://github.com/Finch-API/finch-api-node/compare/v5.24.2...v5.24.3)
+
+### Chores
+
+* gitignore test server logs ([#394](https://github.com/Finch-API/finch-api-node/issues/394)) ([a49b018](https://github.com/Finch-API/finch-api-node/commit/a49b0181eef5915133ccea79e327ea37bf7001ae))
+
 ## 5.24.2 (2024-06-25)
 
 Full Changelog: [v5.24.1...v5.24.2](https://github.com/Finch-API/finch-api-node/compare/v5.24.1...v5.24.2)
