@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.24.4 (2024-07-01)
+
+Full Changelog: [v5.24.3...v5.24.4](https://github.com/Finch-API/finch-api-node/compare/v5.24.3...v5.24.4)
+
+### Chores
+
+* sync openapi spec ([#396](https://github.com/Finch-API/finch-api-node/issues/396)) ([6571ba1](https://github.com/Finch-API/finch-api-node/commit/6571ba1476f115af8add7f187053cdc37e9d020c))
+
 ## 5.24.3 (2024-06-28)
 
 Full Changelog: [v5.24.2...v5.24.3](https://github.com/Finch-API/finch-api-node/compare/v5.24.2...v5.24.3)
