@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource individuals', () => {
   test('enrollMany: only required params', async () => {
-    const responsePromise = finch.hris.benefits.individuals.enrollMany('string', [{}]);
+    const responsePromise = finch.hris.benefits.individuals.enrollMany('benefit_id', [{}]);
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,7 +23,7 @@ describe('resource individuals', () => {
   });
 
   test('enrollMany: required and optional params', async () => {
-    const response = await finch.hris.benefits.individuals.enrollMany('string', [
+    const response = await finch.hris.benefits.individuals.enrollMany('benefit_id', [
       {
         individual_id: 'd02a6346-1f08-4312-a064-49ff3cafaa7a',
         configuration: {
@@ -37,7 +37,7 @@ describe('resource individuals', () => {
   });
 
   test('enrolledIds', async () => {
-    const responsePromise = finch.hris.benefits.individuals.enrolledIds('string');
+    const responsePromise = finch.hris.benefits.individuals.enrolledIds('benefit_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -50,12 +50,12 @@ describe('resource individuals', () => {
   test('enrolledIds: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.hris.benefits.individuals.enrolledIds('string', { path: '/_stainless_unknown_path' }),
+      finch.hris.benefits.individuals.enrolledIds('benefit_id', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
   test('retrieveManyBenefits', async () => {
-    const responsePromise = finch.hris.benefits.individuals.retrieveManyBenefits('string');
+    const responsePromise = finch.hris.benefits.individuals.retrieveManyBenefits('benefit_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -68,7 +68,9 @@ describe('resource individuals', () => {
   test('retrieveManyBenefits: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.hris.benefits.individuals.retrieveManyBenefits('string', { path: '/_stainless_unknown_path' }),
+      finch.hris.benefits.individuals.retrieveManyBenefits('benefit_id', {
+        path: '/_stainless_unknown_path',
+      }),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
@@ -76,7 +78,7 @@ describe('resource individuals', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       finch.hris.benefits.individuals.retrieveManyBenefits(
-        'string',
+        'benefit_id',
         { individual_ids: 'd675d2b7-6d7b-41a8-b2d3-001eb3fb88f6,d02a6346-1f08-4312-a064-49ff3cafaa7a' },
         { path: '/_stainless_unknown_path' },
       ),
@@ -84,7 +86,7 @@ describe('resource individuals', () => {
   });
 
   test('unenrollMany', async () => {
-    const responsePromise = finch.hris.benefits.individuals.unenrollMany('string');
+    const responsePromise = finch.hris.benefits.individuals.unenrollMany('benefit_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -97,7 +99,7 @@ describe('resource individuals', () => {
   test('unenrollMany: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.hris.benefits.individuals.unenrollMany('string', { path: '/_stainless_unknown_path' }),
+      finch.hris.benefits.individuals.unenrollMany('benefit_id', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
@@ -105,7 +107,7 @@ describe('resource individuals', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       finch.hris.benefits.individuals.unenrollMany(
-        'string',
+        'benefit_id',
         { individual_ids: ['string', 'string', 'string'] },
         { path: '/_stainless_unknown_path' },
       ),

@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource individual', () => {
   test('update', async () => {
-    const responsePromise = finch.sandbox.individual.update('string');
+    const responsePromise = finch.sandbox.individual.update('individual_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,7 +25,7 @@ describe('resource individual', () => {
   test('update: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.sandbox.individual.update('string', { path: '/_stainless_unknown_path' }),
+      finch.sandbox.individual.update('individual_id', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
@@ -33,37 +33,37 @@ describe('resource individual', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       finch.sandbox.individual.update(
-        'string',
+        'individual_id',
         {
           dob: '12/20/1989',
           emails: [
-            { data: 'string', type: 'work' },
-            { data: 'string', type: 'work' },
-            { data: 'string', type: 'work' },
+            { data: 'data', type: 'work' },
+            { data: 'data', type: 'work' },
+            { data: 'data', type: 'work' },
           ],
-          encrypted_ssn: 'string',
+          encrypted_ssn: 'encrypted_ssn',
           ethnicity: 'asian',
-          first_name: 'string',
+          first_name: 'first_name',
           gender: 'female',
-          last_name: 'string',
-          middle_name: 'string',
+          last_name: 'last_name',
+          middle_name: 'middle_name',
           phone_numbers: [
-            { data: 'string', type: 'work' },
-            { data: 'string', type: 'work' },
-            { data: 'string', type: 'work' },
+            { data: 'data', type: 'work' },
+            { data: 'data', type: 'work' },
+            { data: 'data', type: 'work' },
           ],
-          preferred_name: 'string',
+          preferred_name: 'preferred_name',
           residence: {
-            line1: 'string',
-            line2: 'string',
-            city: 'string',
-            state: 'string',
-            postal_code: 'string',
-            country: 'string',
-            name: 'string',
-            source_id: 'string',
+            line1: 'line1',
+            line2: 'line2',
+            city: 'city',
+            state: 'state',
+            postal_code: 'postal_code',
+            country: 'country',
+            name: 'name',
+            source_id: 'source_id',
           },
-          ssn: 'string',
+          ssn: 'ssn',
         },
         { path: '/_stainless_unknown_path' },
       ),

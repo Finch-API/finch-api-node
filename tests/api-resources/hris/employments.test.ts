@@ -13,7 +13,11 @@ const finch = new Finch({
 describe('resource employments', () => {
   test('retrieveMany: only required params', async () => {
     const responsePromise = finch.hris.employments.retrieveMany({
-      requests: [{ individual_id: 'string' }, { individual_id: 'string' }, { individual_id: 'string' }],
+      requests: [
+        { individual_id: 'individual_id' },
+        { individual_id: 'individual_id' },
+        { individual_id: 'individual_id' },
+      ],
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -26,7 +30,11 @@ describe('resource employments', () => {
 
   test('retrieveMany: required and optional params', async () => {
     const response = await finch.hris.employments.retrieveMany({
-      requests: [{ individual_id: 'string' }, { individual_id: 'string' }, { individual_id: 'string' }],
+      requests: [
+        { individual_id: 'individual_id' },
+        { individual_id: 'individual_id' },
+        { individual_id: 'individual_id' },
+      ],
     });
   });
 });
