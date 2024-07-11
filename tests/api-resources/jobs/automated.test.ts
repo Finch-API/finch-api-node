@@ -27,7 +27,7 @@ describe('resource automated', () => {
   });
 
   test('retrieve', async () => {
-    const responsePromise = finch.jobs.automated.retrieve('string');
+    const responsePromise = finch.jobs.automated.retrieve('job_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -40,7 +40,7 @@ describe('resource automated', () => {
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.jobs.automated.retrieve('string', { path: '/_stainless_unknown_path' }),
+      finch.jobs.automated.retrieve('job_id', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 

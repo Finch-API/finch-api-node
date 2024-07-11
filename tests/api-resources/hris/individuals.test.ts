@@ -35,7 +35,11 @@ describe('resource individuals', () => {
       finch.hris.individuals.retrieveMany(
         {
           options: { include: ['string', 'string', 'string'] },
-          requests: [{ individual_id: 'string' }, { individual_id: 'string' }, { individual_id: 'string' }],
+          requests: [
+            { individual_id: 'individual_id' },
+            { individual_id: 'individual_id' },
+            { individual_id: 'individual_id' },
+          ],
         },
         { path: '/_stainless_unknown_path' },
       ),

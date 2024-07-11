@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource payGroups', () => {
   test('retrieve', async () => {
-    const responsePromise = finch.payroll.payGroups.retrieve('string');
+    const responsePromise = finch.payroll.payGroups.retrieve('pay_group_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,7 +25,7 @@ describe('resource payGroups', () => {
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.payroll.payGroups.retrieve('string', { path: '/_stainless_unknown_path' }),
+      finch.payroll.payGroups.retrieve('pay_group_id', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 

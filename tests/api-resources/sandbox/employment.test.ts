@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource employment', () => {
   test('update', async () => {
-    const responsePromise = finch.sandbox.employment.update('string');
+    const responsePromise = finch.sandbox.employment.update('individual_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,7 +25,7 @@ describe('resource employment', () => {
   test('update: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.sandbox.employment.update('string', { path: '/_stainless_unknown_path' }),
+      finch.sandbox.employment.update('individual_id', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
@@ -33,41 +33,41 @@ describe('resource employment', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       finch.sandbox.employment.update(
-        'string',
+        'individual_id',
         {
-          class_code: 'string',
+          class_code: 'class_code',
           custom_fields: [
-            { name: 'string', value: {} },
-            { name: 'string', value: {} },
-            { name: 'string', value: {} },
+            { name: 'name', value: {} },
+            { name: 'name', value: {} },
+            { name: 'name', value: {} },
           ],
-          department: { name: 'string' },
+          department: { name: 'name' },
           employment: { type: 'employee', subtype: 'full_time' },
-          end_date: 'string',
-          first_name: 'string',
-          income: { unit: 'yearly', amount: 0, currency: 'string', effective_date: 'string' },
+          end_date: 'end_date',
+          first_name: 'first_name',
+          income: { unit: 'yearly', amount: 0, currency: 'currency', effective_date: 'effective_date' },
           income_history: [
-            { unit: 'yearly', amount: 0, currency: 'string', effective_date: 'string' },
-            { unit: 'yearly', amount: 0, currency: 'string', effective_date: 'string' },
-            { unit: 'yearly', amount: 0, currency: 'string', effective_date: 'string' },
+            { unit: 'yearly', amount: 0, currency: 'currency', effective_date: 'effective_date' },
+            { unit: 'yearly', amount: 0, currency: 'currency', effective_date: 'effective_date' },
+            { unit: 'yearly', amount: 0, currency: 'currency', effective_date: 'effective_date' },
           ],
           is_active: true,
-          last_name: 'string',
+          last_name: 'last_name',
           location: {
-            line1: 'string',
-            line2: 'string',
-            city: 'string',
-            state: 'string',
-            postal_code: 'string',
-            country: 'string',
-            name: 'string',
-            source_id: 'string',
+            line1: 'line1',
+            line2: 'line2',
+            city: 'city',
+            state: 'state',
+            postal_code: 'postal_code',
+            country: 'country',
+            name: 'name',
+            source_id: 'source_id',
           },
-          manager: { id: 'string' },
-          middle_name: 'string',
-          source_id: 'string',
+          manager: { id: 'id' },
+          middle_name: 'middle_name',
+          source_id: 'source_id',
           start_date: '3/4/2020',
-          title: 'string',
+          title: 'title',
         },
         { path: '/_stainless_unknown_path' },
       ),
