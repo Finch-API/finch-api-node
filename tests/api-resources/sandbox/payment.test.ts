@@ -34,36 +34,36 @@ describe('resource payment', () => {
     await expect(
       finch.sandbox.payment.create(
         {
-          end_date: 'string',
+          end_date: 'end_date',
           pay_statements: [
             {
               individual_id: 'b2338cfb-472f-4f72-9faa-e028c083144a',
               type: 'regular_payroll',
               payment_method: 'check',
               total_hours: 0,
-              gross_pay: { amount: 0, currency: 'string' },
-              net_pay: { amount: 0, currency: 'string' },
+              gross_pay: { amount: 0, currency: 'currency' },
+              net_pay: { amount: 0, currency: 'currency' },
               earnings: [
-                { type: 'salary', name: 'string', amount: 0, currency: 'string', hours: 0 },
-                { type: 'salary', name: 'string', amount: 0, currency: 'string', hours: 0 },
-                { type: 'salary', name: 'string', amount: 0, currency: 'string', hours: 0 },
+                { type: 'salary', name: 'name', amount: 0, currency: 'currency', hours: 0 },
+                { type: 'salary', name: 'name', amount: 0, currency: 'currency', hours: 0 },
+                { type: 'salary', name: 'name', amount: 0, currency: 'currency', hours: 0 },
               ],
               taxes: [
-                { type: 'state', name: 'string', employer: true, amount: 0, currency: 'string' },
-                { type: 'state', name: 'string', employer: true, amount: 0, currency: 'string' },
-                { type: 'state', name: 'string', employer: true, amount: 0, currency: 'string' },
+                { type: 'state', name: 'name', employer: true, amount: 0, currency: 'currency' },
+                { type: 'state', name: 'name', employer: true, amount: 0, currency: 'currency' },
+                { type: 'state', name: 'name', employer: true, amount: 0, currency: 'currency' },
               ],
               employee_deductions: [
                 { name: '401k test', amount: 2000, currency: 'usd', pre_tax: true, type: '401k' },
               ],
               employer_contributions: [
-                { name: 'string', amount: 0, currency: 'string', type: '401k' },
-                { name: 'string', amount: 0, currency: 'string', type: '401k' },
-                { name: 'string', amount: 0, currency: 'string', type: '401k' },
+                { name: 'name', amount: 0, currency: 'currency', type: '401k' },
+                { name: 'name', amount: 0, currency: 'currency', type: '401k' },
+                { name: 'name', amount: 0, currency: 'currency', type: '401k' },
               ],
             },
           ],
-          start_date: 'string',
+          start_date: 'start_date',
         },
         { path: '/_stainless_unknown_path' },
       ),

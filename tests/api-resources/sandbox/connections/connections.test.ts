@@ -13,7 +13,7 @@ const finch = new Finch({
 describe('resource connections', () => {
   // Auth isn't setup correctly in this test
   test.skip('create: only required params', async () => {
-    const responsePromise = finch.sandbox.connections.create({ provider_id: 'string' });
+    const responsePromise = finch.sandbox.connections.create({ provider_id: 'provider_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -26,7 +26,7 @@ describe('resource connections', () => {
   // Auth isn't setup correctly in this test
   test.skip('create: required and optional params', async () => {
     const response = await finch.sandbox.connections.create({
-      provider_id: 'string',
+      provider_id: 'provider_id',
       authentication_type: 'credential',
       employee_size: 0,
       products: ['string', 'string', 'string'],
