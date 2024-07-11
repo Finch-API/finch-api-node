@@ -1,5 +1,18 @@
 # Changelog
 
+## 5.24.5 (2024-07-11)
+
+Full Changelog: [v5.24.4...v5.24.5](https://github.com/Finch-API/finch-api-node/compare/v5.24.4...v5.24.5)
+
+### Chores
+
+* **ci:** also run workflows for PRs targeting `next` ([#398](https://github.com/Finch-API/finch-api-node/issues/398)) ([0ff02b9](https://github.com/Finch-API/finch-api-node/commit/0ff02b995f8defa751ae21c5746811e45cfef893))
+
+
+### Documentation
+
+* **examples:** update example values ([#400](https://github.com/Finch-API/finch-api-node/issues/400)) ([3f659b9](https://github.com/Finch-API/finch-api-node/commit/3f659b9e5d24e531294aa8bc91746334d472ea7a))
+
 ## 5.24.4 (2024-07-01)
 
 Full Changelog: [v5.24.3...v5.24.4](https://github.com/Finch-API/finch-api-node/compare/v5.24.3...v5.24.4)
