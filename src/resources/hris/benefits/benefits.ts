@@ -202,11 +202,7 @@ export type BenfitContribution = BenefitContribution | null;
 export interface CompanyBenefit {
   benefit_id: string;
 
-  company_contribution: BenefitContribution | null;
-
   description: string | null;
-
-  employee_deduction: BenefitContribution | null;
 
   frequency: BenefitFrequency | null;
 
@@ -274,6 +270,11 @@ export interface UpdateCompanyBenefitResponse {
 }
 
 export interface BenefitCreateParams {
+  /**
+   * Name of the benefit as it appears in the provider and pay statements. Recommend
+   * limiting this to <30 characters due to limitations in specific providers (e.g.
+   * Justworks).
+   */
   description?: string;
 
   frequency?: BenefitFrequency | null;
