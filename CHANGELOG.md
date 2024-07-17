@@ -1,5 +1,20 @@
 # Changelog
 
+## 5.24.6 (2024-07-17)
+
+Full Changelog: [v5.24.5...v5.24.6](https://github.com/Finch-API/finch-api-node/compare/v5.24.5...v5.24.6)
+
+### Bug Fixes
+
+* **api:** remove unused fields ([#401](https://github.com/Finch-API/finch-api-node/issues/401)) ([3ad92b3](https://github.com/Finch-API/finch-api-node/commit/3ad92b3a8357b34e137ae558cc7e5842d75fbce5))
+
+
+### Chores
+
+* **docs:** mention support of web browser runtimes ([#404](https://github.com/Finch-API/finch-api-node/issues/404)) ([46c211c](https://github.com/Finch-API/finch-api-node/commit/46c211cddc68b351fd801f1bed03fded8a89cd89))
+* **docs:** minor update to formatting of API link in README ([#403](https://github.com/Finch-API/finch-api-node/issues/403)) ([09dda49](https://github.com/Finch-API/finch-api-node/commit/09dda49a1046fea01547a431abf7b6c56048cd40))
+* **internal:** codegen related update ([#405](https://github.com/Finch-API/finch-api-node/issues/405)) ([4281cc6](https://github.com/Finch-API/finch-api-node/commit/4281cc6b33526ea16ddf9a93c81415078061aacb))
+
 ## 5.24.5 (2024-07-11)
 
 Full Changelog: [v5.24.4...v5.24.5](https://github.com/Finch-API/finch-api-node/compare/v5.24.4...v5.24.5)
