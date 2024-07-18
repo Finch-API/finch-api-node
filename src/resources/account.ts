@@ -86,7 +86,10 @@ export namespace Introspection {
   export interface AuthenticationMethod {
     connection_status?: AuthenticationMethod.ConnectionStatus;
 
-    type?: string;
+    /**
+     * The type of authentication method.
+     */
+    type?: 'assisted' | 'credential' | 'api_token' | 'api_credential' | 'oauth';
   }
 
   export namespace AuthenticationMethod {
