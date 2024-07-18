@@ -4,7 +4,7 @@
 
 This library provides convenient access to the Finch REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found on [developer.tryfinch.com](https://developer.tryfinch.com/). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found [in the Finch Documentation Center](https://developer.tryfinch.com/). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
