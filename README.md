@@ -20,7 +20,7 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import Finch from '@tryfinch/finch-api';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
 });
 
@@ -42,7 +42,7 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import Finch from '@tryfinch/finch-api';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
 });
 
@@ -102,7 +102,7 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const finch = new Finch({
+const client = new Finch({
   maxRetries: 0, // default is 2
 });
 
@@ -119,7 +119,7 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const finch = new Finch({
+const client = new Finch({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
@@ -175,7 +175,7 @@ Be aware that doing so may result in incorrect types and other unexpected or und
 ```ts
 import Finch from '@tryfinch/finch-api';
 
-const finch = new Finch();
+const client = new Finch();
 
 const page = await finch.hris.directory.list({ headers: { 'Finch-API-Version': 'My-Custom-Value' } });
 const individualInDirectory = page.individuals[0];
@@ -220,7 +220,7 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 
 <!-- prettier-ignore -->
 ```ts
-const finch = new Finch();
+const client = new Finch();
 
 const response = await finch.hris.directory.list().asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -329,7 +329,7 @@ import http from 'http';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Configure the default for all requests:
-const finch = new Finch({
+const client = new Finch({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
 });
 
