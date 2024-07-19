@@ -1,5 +1,24 @@
 # Changelog
 
+## 6.0.0 (2024-07-19)
+
+Full Changelog: [v5.24.6...v6.0.0](https://github.com/Finch-API/finch-api-node/compare/v5.24.6...v6.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* **api:** authentication method type is an enum, not a plain string ([#409](https://github.com/Finch-API/finch-api-node/issues/409))
+
+### Bug Fixes
+
+* **api:** authentication method type is an enum, not a plain string ([#409](https://github.com/Finch-API/finch-api-node/issues/409)) ([7faec13](https://github.com/Finch-API/finch-api-node/commit/7faec13318ac7d22c233e8b1082af3274177a95a))
+
+
+### Chores
+
+* **ci:** limit release doctor target branches ([#410](https://github.com/Finch-API/finch-api-node/issues/410)) ([e0fa95b](https://github.com/Finch-API/finch-api-node/commit/e0fa95b7993e18cf1abd04cd7dec7c42206dd08b))
+* **docs:** improve docstrings ([#411](https://github.com/Finch-API/finch-api-node/issues/411)) ([c738d0c](https://github.com/Finch-API/finch-api-node/commit/c738d0c425bdeaefa03602de55dc1cf6db66954e))
+* **docs:** use client instead of package name in Node examples ([#406](https://github.com/Finch-API/finch-api-node/issues/406)) ([c392bca](https://github.com/Finch-API/finch-api-node/commit/c392bca19d3c13f3d7ca38e728146221882233b2))
+
 ## 5.24.6 (2024-07-17)
 
 Full Changelog: [v5.24.5...v5.24.6](https://github.com/Finch-API/finch-api-node/compare/v5.24.5...v5.24.6)
