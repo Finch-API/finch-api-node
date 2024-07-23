@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import * as PayGroupsAPI from '@tryfinch/finch-api/resources/payroll/pay-groups';
+import { APIResource } from '../../resource';
+import * as PayGroupsAPI from './pay-groups';
 
 export class Payroll extends APIResource {
   payGroups: PayGroupsAPI.PayGroups = new PayGroupsAPI.PayGroups(this._client);

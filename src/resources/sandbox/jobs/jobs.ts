@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import * as Core from '@tryfinch/finch-api/core';
-import * as JobsAPI from '@tryfinch/finch-api/resources/sandbox/jobs/jobs';
-import * as ConfigurationAPI from '@tryfinch/finch-api/resources/sandbox/jobs/configuration';
+import { APIResource } from '../../../resource';
+import * as Core from '../../../core';
+import * as JobsAPI from './jobs';
+import * as ConfigurationAPI from './configuration';
 
 export class Jobs extends APIResource {
   configuration: ConfigurationAPI.Configuration = new ConfigurationAPI.Configuration(this._client);

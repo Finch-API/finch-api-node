@@ -1,12 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import { isRequestOptions } from '@tryfinch/finch-api/core';
-import * as Core from '@tryfinch/finch-api/core';
-import * as BenefitsAPI from '@tryfinch/finch-api/resources/hris/benefits/benefits';
-import * as Shared from '@tryfinch/finch-api/resources/shared';
-import * as IndividualsAPI from '@tryfinch/finch-api/resources/hris/benefits/individuals';
-import { SinglePage } from '@tryfinch/finch-api/pagination';
+import { APIResource } from '../../../resource';
+import { isRequestOptions } from '../../../core';
+import * as Core from '../../../core';
+import * as BenefitsAPI from './benefits';
+import * as Shared from '../../shared';
+import * as IndividualsAPI from './individuals';
+import { SinglePage } from '../../../pagination';
 
 export class Benefits extends APIResource {
   individuals: IndividualsAPI.Individuals = new IndividualsAPI.Individuals(this._client);

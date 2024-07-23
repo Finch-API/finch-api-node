@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import { isRequestOptions } from '@tryfinch/finch-api/core';
-import * as Core from '@tryfinch/finch-api/core';
-import * as DirectoryAPI from '@tryfinch/finch-api/resources/hris/directory';
-import { IndividualsPage, type IndividualsPageParams } from '@tryfinch/finch-api/pagination';
+import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import * as Core from '../../core';
+import * as DirectoryAPI from './directory';
+import { IndividualsPage, type IndividualsPageParams } from '../../pagination';
 
 export class Directory extends APIResource {
   /**
