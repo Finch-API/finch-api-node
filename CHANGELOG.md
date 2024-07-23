@@ -1,5 +1,18 @@
 # Changelog
 
+## 6.0.1 (2024-07-23)
+
+Full Changelog: [v6.0.0...v6.0.1](https://github.com/Finch-API/finch-api-node/compare/v6.0.0...v6.0.1)
+
+### Bug Fixes
+
+* use relative paths ([#414](https://github.com/Finch-API/finch-api-node/issues/414)) ([8766ead](https://github.com/Finch-API/finch-api-node/commit/8766ead3d55da0e093cc203cc0ae8e4da5417936))
+
+
+### Chores
+
+* **tests:** update prism version ([#412](https://github.com/Finch-API/finch-api-node/issues/412)) ([d0c775f](https://github.com/Finch-API/finch-api-node/commit/d0c775ff27891ea0eb724bc1564b9f1aba313f7c))
+
 ## 6.0.0 (2024-07-19)
 
 Full Changelog: [v5.24.6...v6.0.0](https://github.com/Finch-API/finch-api-node/compare/v5.24.6...v6.0.0)
