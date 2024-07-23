@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import { isRequestOptions } from '@tryfinch/finch-api/core';
-import * as Core from '@tryfinch/finch-api/core';
-import * as PaymentAPI from '@tryfinch/finch-api/resources/sandbox/payment';
-import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
-import * as BenefitsAPI from '@tryfinch/finch-api/resources/hris/benefits/benefits';
+import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import * as Core from '../../core';
+import * as PaymentAPI from './payment';
+import * as HRISAPI from '../hris/hris';
+import * as BenefitsAPI from '../hris/benefits/benefits';
 
 export class Payment extends APIResource {
   /**

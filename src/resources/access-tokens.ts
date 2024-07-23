@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import * as Core from '@tryfinch/finch-api/core';
-import * as AccessTokensAPI from '@tryfinch/finch-api/resources/access-tokens';
+import { APIResource } from '../resource';
+import * as Core from '../core';
+import * as AccessTokensAPI from './access-tokens';
 
 export class AccessTokens extends APIResource {
   /**

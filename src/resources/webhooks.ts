@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import * as WebhooksAPI from '@tryfinch/finch-api/resources/webhooks';
-import * as Shared from '@tryfinch/finch-api/resources/shared';
-import * as BenefitsAPI from '@tryfinch/finch-api/resources/hris/benefits/benefits';
+import { APIResource } from '../resource';
+import * as WebhooksAPI from './webhooks';
+import * as Shared from './shared';
+import * as BenefitsAPI from './hris/benefits/benefits';
 
 export class Webhooks extends APIResource {}
 

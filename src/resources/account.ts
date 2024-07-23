@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import * as Core from '@tryfinch/finch-api/core';
-import * as AccountAPI from '@tryfinch/finch-api/resources/account';
-import * as Shared from '@tryfinch/finch-api/resources/shared';
+import { APIResource } from '../resource';
+import * as Core from '../core';
+import * as AccountAPI from './account';
+import * as Shared from './shared';
 
 export class Account extends APIResource {
   /**

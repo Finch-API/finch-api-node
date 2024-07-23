@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { AbstractPage, Response, APIClient, FinalRequestOptions, PageInfo } from './core';
-import * as Shared from '@tryfinch/finch-api/resources/shared';
-import * as DirectoryAPI from '@tryfinch/finch-api/resources/hris/directory';
+import * as Shared from './resources/shared';
+import * as DirectoryAPI from './resources/hris/directory';
 
 export type SinglePageResponse<Item> = Item[];
 
