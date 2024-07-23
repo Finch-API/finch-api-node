@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import * as Core from '@tryfinch/finch-api/core';
-import * as CompanyAPI from '@tryfinch/finch-api/resources/hris/company';
-import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
+import * as CompanyAPI from './company';
+import * as HRISAPI from './hris';
 
 export class CompanyResource extends APIResource {
   /**

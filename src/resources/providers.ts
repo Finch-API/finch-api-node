@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import * as Core from '@tryfinch/finch-api/core';
-import * as ProvidersAPI from '@tryfinch/finch-api/resources/providers';
-import * as BenefitsAPI from '@tryfinch/finch-api/resources/hris/benefits/benefits';
-import { SinglePage } from '@tryfinch/finch-api/pagination';
+import { APIResource } from '../resource';
+import * as Core from '../core';
+import * as ProvidersAPI from './providers';
+import * as BenefitsAPI from './hris/benefits/benefits';
+import { SinglePage } from '../pagination';
 
 export class Providers extends APIResource {
   /**

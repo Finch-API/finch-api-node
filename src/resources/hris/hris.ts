@@ -1,14 +1,14 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
-import * as CompanyAPI from '@tryfinch/finch-api/resources/hris/company';
-import * as DirectoryAPI from '@tryfinch/finch-api/resources/hris/directory';
-import * as EmploymentsAPI from '@tryfinch/finch-api/resources/hris/employments';
-import * as IndividualsAPI from '@tryfinch/finch-api/resources/hris/individuals';
-import * as PayStatementsAPI from '@tryfinch/finch-api/resources/hris/pay-statements';
-import * as PaymentsAPI from '@tryfinch/finch-api/resources/hris/payments';
-import * as BenefitsAPI from '@tryfinch/finch-api/resources/hris/benefits/benefits';
+import { APIResource } from '../../resource';
+import * as HRISAPI from './hris';
+import * as CompanyAPI from './company';
+import * as DirectoryAPI from './directory';
+import * as EmploymentsAPI from './employments';
+import * as IndividualsAPI from './individuals';
+import * as PayStatementsAPI from './pay-statements';
+import * as PaymentsAPI from './payments';
+import * as BenefitsAPI from './benefits/benefits';
 
 export class HRIS extends APIResource {
   company: CompanyAPI.CompanyResource = new CompanyAPI.CompanyResource(this._client);

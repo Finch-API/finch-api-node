@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import * as AutomatedAPI from '@tryfinch/finch-api/resources/jobs/automated';
-import * as ManualAPI from '@tryfinch/finch-api/resources/jobs/manual';
+import { APIResource } from '../../resource';
+import * as AutomatedAPI from './automated';
+import * as ManualAPI from './manual';
 
 export class Jobs extends APIResource {
   automated: AutomatedAPI.Automated = new AutomatedAPI.Automated(this._client);

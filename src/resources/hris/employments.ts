@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import * as Core from '@tryfinch/finch-api/core';
-import * as EmploymentsAPI from '@tryfinch/finch-api/resources/hris/employments';
-import * as HRISAPI from '@tryfinch/finch-api/resources/hris/hris';
-import { ResponsesPage } from '@tryfinch/finch-api/pagination';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
+import * as EmploymentsAPI from './employments';
+import * as HRISAPI from './hris';
+import { ResponsesPage } from '../../pagination';
 
 export class Employments extends APIResource {
   /**
