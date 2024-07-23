@@ -1,13 +1,13 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@tryfinch/finch-api/resource';
-import * as CompanyAPI from '@tryfinch/finch-api/resources/sandbox/company';
-import * as DirectoryAPI from '@tryfinch/finch-api/resources/sandbox/directory';
-import * as EmploymentAPI from '@tryfinch/finch-api/resources/sandbox/employment';
-import * as IndividualAPI from '@tryfinch/finch-api/resources/sandbox/individual';
-import * as PaymentAPI from '@tryfinch/finch-api/resources/sandbox/payment';
-import * as ConnectionsAPI from '@tryfinch/finch-api/resources/sandbox/connections/connections';
-import * as JobsAPI from '@tryfinch/finch-api/resources/sandbox/jobs/jobs';
+import { APIResource } from '../../resource';
+import * as CompanyAPI from './company';
+import * as DirectoryAPI from './directory';
+import * as EmploymentAPI from './employment';
+import * as IndividualAPI from './individual';
+import * as PaymentAPI from './payment';
+import * as ConnectionsAPI from './connections/connections';
+import * as JobsAPI from './jobs/jobs';
 
 export class Sandbox extends APIResource {
   connections: ConnectionsAPI.Connections = new ConnectionsAPI.Connections(this._client);
