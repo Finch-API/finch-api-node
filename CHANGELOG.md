@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.0.2 (2024-07-25)
+
+Full Changelog: [v6.0.1...v6.0.2](https://github.com/Finch-API/finch-api-node/compare/v6.0.1...v6.0.2)
+
+### Bug Fixes
+
+* **compat:** remove ReadableStream polyfill redundant since node v16 ([#416](https://github.com/Finch-API/finch-api-node/issues/416)) ([bbbc6f4](https://github.com/Finch-API/finch-api-node/commit/bbbc6f49fa7941841ed899229761ba19d1101914))
+
 ## 6.0.1 (2024-07-23)
 
 Full Changelog: [v6.0.0...v6.0.1](https://github.com/Finch-API/finch-api-node/compare/v6.0.0...v6.0.1)
