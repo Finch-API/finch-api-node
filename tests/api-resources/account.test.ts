@@ -3,7 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { Response } from 'node-fetch';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
   clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource account', () => {
   test('disconnect', async () => {
-    const responsePromise = finch.account.disconnect();
+    const responsePromise = client.account.disconnect();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -24,13 +24,13 @@ describe('resource account', () => {
 
   test('disconnect: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(finch.account.disconnect({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.account.disconnect({ path: '/_stainless_unknown_path' })).rejects.toThrow(
       Finch.NotFoundError,
     );
   });
 
   test('introspect', async () => {
-    const responsePromise = finch.account.introspect();
+    const responsePromise = client.account.introspect();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -42,7 +42,7 @@ describe('resource account', () => {
 
   test('introspect: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(finch.account.introspect({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.account.introspect({ path: '/_stainless_unknown_path' })).rejects.toThrow(
       Finch.NotFoundError,
     );
   });

@@ -3,7 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { Response } from 'node-fetch';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
   clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
@@ -13,7 +13,7 @@ const finch = new Finch({
 describe('resource connections', () => {
   // Auth isn't setup correctly in this test
   test.skip('create: only required params', async () => {
-    const responsePromise = finch.sandbox.connections.create({ provider_id: 'provider_id' });
+    const responsePromise = client.sandbox.connections.create({ provider_id: 'provider_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,7 +25,7 @@ describe('resource connections', () => {
 
   // Auth isn't setup correctly in this test
   test.skip('create: required and optional params', async () => {
-    const response = await finch.sandbox.connections.create({
+    const response = await client.sandbox.connections.create({
       provider_id: 'provider_id',
       authentication_type: 'credential',
       employee_size: 0,
