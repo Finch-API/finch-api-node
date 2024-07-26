@@ -1,5 +1,18 @@
 # Changelog
 
+## 6.1.0 (2024-07-26)
+
+Full Changelog: [v6.0.2...v6.1.0](https://github.com/Finch-API/finch-api-node/compare/v6.0.2...v6.1.0)
+
+### Features
+
+* **api:** add 'payment frequencies' and 'pay group ids' to payment model ([#420](https://github.com/Finch-API/finch-api-node/issues/420)) ([2d5eb58](https://github.com/Finch-API/finch-api-node/commit/2d5eb587254503a9b4329150823dde0ecb5938a5))
+
+
+### Chores
+
+* **docs:** fix incorrect client var names ([#418](https://github.com/Finch-API/finch-api-node/issues/418)) ([18d13b0](https://github.com/Finch-API/finch-api-node/commit/18d13b0b56b6daea83e2536f4370054df602ab1c))
+
 ## 6.0.2 (2024-07-25)
 
 Full Changelog: [v6.0.1...v6.0.2](https://github.com/Finch-API/finch-api-node/compare/v6.0.1...v6.0.2)
