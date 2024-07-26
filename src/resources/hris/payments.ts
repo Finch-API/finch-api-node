@@ -46,6 +46,26 @@ export interface Payment {
   pay_date?: string | null;
 
   /**
+   * List of pay frequencies associated with this payment.
+   */
+  pay_frequencies?: Array<
+    | 'annually'
+    | 'semi_annually'
+    | 'quarterly'
+    | 'monthly'
+    | 'semi_monthly'
+    | 'bi_weekly'
+    | 'weekly'
+    | 'daily'
+    | 'other'
+  > | null;
+
+  /**
+   * Array of the Finch id (uuidv4) of every pay group associated with this payment.
+   */
+  pay_group_ids?: Array<string> | null;
+
+  /**
    * The pay period object.
    */
   pay_period?: Payment.PayPeriod | null;

@@ -403,6 +403,10 @@ export namespace AccountUpdateEvent {
 
           pay_date?: boolean;
 
+          pay_frequencies?: boolean;
+
+          pay_group_ids?: boolean;
+
           pay_period?: Payment.PayPeriod;
         }
 
