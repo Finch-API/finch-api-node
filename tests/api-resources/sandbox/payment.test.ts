@@ -3,7 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { Response } from 'node-fetch';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
   clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource payment', () => {
   test('create', async () => {
-    const responsePromise = finch.sandbox.payment.create();
+    const responsePromise = client.sandbox.payment.create();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -24,7 +24,7 @@ describe('resource payment', () => {
 
   test('create: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(finch.sandbox.payment.create({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.sandbox.payment.create({ path: '/_stainless_unknown_path' })).rejects.toThrow(
       Finch.NotFoundError,
     );
   });
@@ -32,7 +32,7 @@ describe('resource payment', () => {
   test('create: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.sandbox.payment.create(
+      client.sandbox.payment.create(
         {
           end_date: 'end_date',
           pay_statements: [

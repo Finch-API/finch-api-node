@@ -25,7 +25,7 @@ const client = new Finch({
 });
 
 async function main() {
-  const page = await finch.hris.directory.list();
+  const page = await client.hris.directory.list();
   const individualInDirectory = page.individuals[0];
 
   console.log(individualInDirectory.id);
@@ -47,7 +47,7 @@ const client = new Finch({
 });
 
 async function main() {
-  const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] = await finch.hris.directory.list();
+  const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] = await client.hris.directory.list();
 }
 
 main();
@@ -64,7 +64,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const company = await finch.hris.company.retrieve().catch(async (err) => {
+  const company = await client.hris.company.retrieve().catch(async (err) => {
     if (err instanceof Finch.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -107,7 +107,7 @@ const client = new Finch({
 });
 
 // Or, configure per-request:
-await finch.hris.directory.list({
+await client.hris.directory.list({
   maxRetries: 5,
 });
 ```
@@ -124,7 +124,7 @@ const client = new Finch({
 });
 
 // Override per-request:
-await finch.hris.directory.list({
+await client.hris.directory.list({
   timeout: 5 * 1000,
 });
 ```
@@ -142,7 +142,7 @@ You can use `for await … of` syntax to iterate through items across all pages:
 async function fetchAllHRISDirectories(params) {
   const allHRISDirectories = [];
   // Automatically fetches more pages as needed.
-  for await (const individualInDirectory of finch.hris.directory.list()) {
+  for await (const individualInDirectory of client.hris.directory.list()) {
     allHRISDirectories.push(individualInDirectory);
   }
   return allHRISDirectories;
@@ -152,7 +152,7 @@ async function fetchAllHRISDirectories(params) {
 Alternatively, you can make request a single page at a time:
 
 ```ts
-let page = await finch.hris.directory.list();
+let page = await client.hris.directory.list();
 for (const individualInDirectory of page.individuals) {
   console.log(individualInDirectory);
 }
@@ -177,7 +177,7 @@ import Finch from '@tryfinch/finch-api';
 
 const client = new Finch();
 
-const page = await finch.hris.directory.list({ headers: { 'Finch-API-Version': 'My-Custom-Value' } });
+const page = await client.hris.directory.list({ headers: { 'Finch-API-Version': 'My-Custom-Value' } });
 const individualInDirectory = page.individuals[0];
 ```
 
@@ -222,11 +222,11 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new Finch();
 
-const response = await finch.hris.directory.list().asResponse();
+const response = await client.hris.directory.list().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: page, response: raw } = await finch.hris.directory.list().withResponse();
+const { data: page, response: raw } = await client.hris.directory.list().withResponse();
 console.log(raw.headers.get('X-My-Header'));
 for await (const individualInDirectory of page) {
   console.log(individualInDirectory.id);
@@ -334,7 +334,7 @@ const client = new Finch({
 });
 
 // Override per-request:
-await finch.hris.directory.list({
+await client.hris.directory.list({
   httpAgent: new http.Agent({ keepAlive: false }),
 });
 ```

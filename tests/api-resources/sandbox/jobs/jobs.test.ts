@@ -3,7 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { Response } from 'node-fetch';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
   clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource jobs', () => {
   test('create: only required params', async () => {
-    const responsePromise = finch.sandbox.jobs.create({ type: 'data_sync_all' });
+    const responsePromise = client.sandbox.jobs.create({ type: 'data_sync_all' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,6 +23,6 @@ describe('resource jobs', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await finch.sandbox.jobs.create({ type: 'data_sync_all' });
+    const response = await client.sandbox.jobs.create({ type: 'data_sync_all' });
   });
 });
