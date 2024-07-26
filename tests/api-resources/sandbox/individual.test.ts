@@ -3,7 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { Response } from 'node-fetch';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
   clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource individual', () => {
   test('update', async () => {
-    const responsePromise = finch.sandbox.individual.update('individual_id');
+    const responsePromise = client.sandbox.individual.update('individual_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,14 +25,14 @@ describe('resource individual', () => {
   test('update: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.sandbox.individual.update('individual_id', { path: '/_stainless_unknown_path' }),
+      client.sandbox.individual.update('individual_id', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
   test('update: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.sandbox.individual.update(
+      client.sandbox.individual.update(
         'individual_id',
         {
           dob: '12/20/1989',

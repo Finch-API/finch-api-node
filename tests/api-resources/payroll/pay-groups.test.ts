@@ -3,7 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { Response } from 'node-fetch';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
   clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource payGroups', () => {
   test('retrieve', async () => {
-    const responsePromise = finch.payroll.payGroups.retrieve('pay_group_id');
+    const responsePromise = client.payroll.payGroups.retrieve('pay_group_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,12 +25,12 @@ describe('resource payGroups', () => {
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.payroll.payGroups.retrieve('pay_group_id', { path: '/_stainless_unknown_path' }),
+      client.payroll.payGroups.retrieve('pay_group_id', { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
   test('list', async () => {
-    const responsePromise = finch.payroll.payGroups.list();
+    const responsePromise = client.payroll.payGroups.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -42,7 +42,7 @@ describe('resource payGroups', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(finch.payroll.payGroups.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+    await expect(client.payroll.payGroups.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
       Finch.NotFoundError,
     );
   });
@@ -50,7 +50,7 @@ describe('resource payGroups', () => {
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.payroll.payGroups.list(
+      client.payroll.payGroups.list(
         {
           individual_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
           pay_frequencies: ['string', 'string', 'string'],

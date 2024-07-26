@@ -3,7 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { Response } from 'node-fetch';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
   clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource payments', () => {
   test('list: only required params', async () => {
-    const responsePromise = finch.hris.payments.list({ end_date: '2021-01-01', start_date: '2021-01-01' });
+    const responsePromise = client.hris.payments.list({ end_date: '2021-01-01', start_date: '2021-01-01' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,6 +23,6 @@ describe('resource payments', () => {
   });
 
   test('list: required and optional params', async () => {
-    const response = await finch.hris.payments.list({ end_date: '2021-01-01', start_date: '2021-01-01' });
+    const response = await client.hris.payments.list({ end_date: '2021-01-01', start_date: '2021-01-01' });
   });
 });
