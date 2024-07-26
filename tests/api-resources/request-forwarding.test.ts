@@ -3,7 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { Response } from 'node-fetch';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
   clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource requestForwarding', () => {
   test('forward: only required params', async () => {
-    const responsePromise = finch.requestForwarding.forward({ method: 'POST', route: '/people/search' });
+    const responsePromise = client.requestForwarding.forward({ method: 'POST', route: '/people/search' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,7 +23,7 @@ describe('resource requestForwarding', () => {
   });
 
   test('forward: required and optional params', async () => {
-    const response = await finch.requestForwarding.forward({
+    const response = await client.requestForwarding.forward({
       method: 'POST',
       route: '/people/search',
       data: null,

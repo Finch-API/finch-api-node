@@ -3,7 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { Response } from 'node-fetch';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
   clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
@@ -13,7 +13,7 @@ const finch = new Finch({
 describe('resource accounts', () => {
   // Auth isn't setup correctly in this test
   test.skip('create: only required params', async () => {
-    const responsePromise = finch.sandbox.connections.accounts.create({
+    const responsePromise = client.sandbox.connections.accounts.create({
       company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       provider_id: 'provider_id',
     });
@@ -28,7 +28,7 @@ describe('resource accounts', () => {
 
   // Auth isn't setup correctly in this test
   test.skip('create: required and optional params', async () => {
-    const response = await finch.sandbox.connections.accounts.create({
+    const response = await client.sandbox.connections.accounts.create({
       company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       provider_id: 'provider_id',
       authentication_type: 'credential',
@@ -37,7 +37,7 @@ describe('resource accounts', () => {
   });
 
   test('update', async () => {
-    const responsePromise = finch.sandbox.connections.accounts.update();
+    const responsePromise = client.sandbox.connections.accounts.update();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -50,14 +50,14 @@ describe('resource accounts', () => {
   test('update: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.sandbox.connections.accounts.update({ path: '/_stainless_unknown_path' }),
+      client.sandbox.connections.accounts.update({ path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
   test('update: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      finch.sandbox.connections.accounts.update(
+      client.sandbox.connections.accounts.update(
         { connection_status: 'reauth' },
         { path: '/_stainless_unknown_path' },
       ),

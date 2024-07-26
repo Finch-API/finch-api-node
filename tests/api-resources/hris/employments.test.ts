@@ -3,7 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { Response } from 'node-fetch';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
   clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource employments', () => {
   test('retrieveMany: only required params', async () => {
-    const responsePromise = finch.hris.employments.retrieveMany({
+    const responsePromise = client.hris.employments.retrieveMany({
       requests: [
         { individual_id: 'individual_id' },
         { individual_id: 'individual_id' },
@@ -29,7 +29,7 @@ describe('resource employments', () => {
   });
 
   test('retrieveMany: required and optional params', async () => {
-    const response = await finch.hris.employments.retrieveMany({
+    const response = await client.hris.employments.retrieveMany({
       requests: [
         { individual_id: 'individual_id' },
         { individual_id: 'individual_id' },

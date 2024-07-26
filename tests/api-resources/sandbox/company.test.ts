@@ -3,7 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { Response } from 'node-fetch';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
   clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource company', () => {
   test('update: only required params', async () => {
-    const responsePromise = finch.sandbox.company.update({
+    const responsePromise = client.sandbox.company.update({
       accounts: [{}, {}, {}],
       departments: [{}, {}, {}],
       ein: 'ein',
@@ -32,7 +32,7 @@ describe('resource company', () => {
   });
 
   test('update: required and optional params', async () => {
-    const response = await finch.sandbox.company.update({
+    const response = await client.sandbox.company.update({
       accounts: [
         {
           routing_number: 'routing_number',

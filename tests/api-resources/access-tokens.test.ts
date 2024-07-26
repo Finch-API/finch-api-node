@@ -3,7 +3,7 @@
 import Finch from '@tryfinch/finch-api';
 import { Response } from 'node-fetch';
 
-const finch = new Finch({
+const client = new Finch({
   accessToken: 'My Access Token',
   clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
@@ -12,7 +12,7 @@ const finch = new Finch({
 
 describe('resource accessTokens', () => {
   test('create: only required params', async () => {
-    const responsePromise = finch.accessTokens.create({ code: '<your_authorization_code>' });
+    const responsePromise = client.accessTokens.create({ code: '<your_authorization_code>' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,7 +23,7 @@ describe('resource accessTokens', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await finch.accessTokens.create({
+    const response = await client.accessTokens.create({
       code: '<your_authorization_code>',
       client_id: '6d28c315-5eaa-4071-8ea5-f030eb45edbc',
       client_secret: '<your_client_secret>',
