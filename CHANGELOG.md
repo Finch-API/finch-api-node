@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.1.1 (2024-07-29)
+
+Full Changelog: [v6.1.0...v6.1.1](https://github.com/Finch-API/finch-api-node/compare/v6.1.0...v6.1.1)
+
+### Chores
+
+* **internal:** add constant for default timeout ([#421](https://github.com/Finch-API/finch-api-node/issues/421)) ([de2ded0](https://github.com/Finch-API/finch-api-node/commit/de2ded037f7e057668589633197ee125a180a8a0))
+
 ## 6.1.0 (2024-07-26)
 
 Full Changelog: [v6.0.2...v6.1.0](https://github.com/Finch-API/finch-api-node/compare/v6.0.2...v6.1.0)
