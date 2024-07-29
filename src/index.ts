@@ -240,6 +240,7 @@ export class Finch extends Core.APIClient {
   }
 
   static Finch = this;
+  static DEFAULT_TIMEOUT = 60000; // 1 minute
 
   static FinchError = Errors.FinchError;
   static APIError = Errors.APIError;
