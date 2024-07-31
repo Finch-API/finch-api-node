@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.1.2 (2024-07-31)
+
+Full Changelog: [v6.1.1...v6.1.2](https://github.com/Finch-API/finch-api-node/compare/v6.1.1...v6.1.2)
+
+### Chores
+
+* **ci:** correctly tag pre-release npm packages ([#423](https://github.com/Finch-API/finch-api-node/issues/423)) ([18a11dc](https://github.com/Finch-API/finch-api-node/commit/18a11dcd900ecdf692b6598990ba2614b25bb399))
+
 ## 6.1.1 (2024-07-29)
 
 Full Changelog: [v6.1.0...v6.1.1](https://github.com/Finch-API/finch-api-node/compare/v6.1.0...v6.1.1)
