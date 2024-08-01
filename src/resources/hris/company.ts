@@ -7,7 +7,7 @@ import * as HRISAPI from './hris';
 
 export class CompanyResource extends APIResource {
   /**
-   * Read basic company data
+   * Read basic company data.
    */
   retrieve(options?: Core.RequestOptions): Core.APIPromise<Company> {
     return this._client.get('/employer/company', options);
