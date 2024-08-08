@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.1.4 (2024-08-08)
+
+Full Changelog: [v6.1.3...v6.1.4](https://github.com/Finch-API/finch-api-node/compare/v6.1.3...v6.1.4)
+
+### Chores
+
+* **internal:** updates ([#428](https://github.com/Finch-API/finch-api-node/issues/428)) ([e7224a2](https://github.com/Finch-API/finch-api-node/commit/e7224a289ef0a03624c640c7f0b72c2a3939630c))
+
 ## 6.1.3 (2024-08-01)
 
 Full Changelog: [v6.1.2...v6.1.3](https://github.com/Finch-API/finch-api-node/compare/v6.1.2...v6.1.3)
