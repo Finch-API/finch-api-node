@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.1.6 (2024-08-09)
+
+Full Changelog: [v6.1.5...v6.1.6](https://github.com/Finch-API/finch-api-node/compare/v6.1.5...v6.1.6)
+
+### Chores
+
+* **ci:** bump prism mock server version ([#432](https://github.com/Finch-API/finch-api-node/issues/432)) ([1cf1db0](https://github.com/Finch-API/finch-api-node/commit/1cf1db0614e740a653cc85f27822bd9d8151e6b2))
+
 ## 6.1.5 (2024-08-09)
 
 Full Changelog: [v6.1.4...v6.1.5](https://github.com/Finch-API/finch-api-node/compare/v6.1.4...v6.1.5)
