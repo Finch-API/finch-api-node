@@ -25,13 +25,13 @@ describe('resource individuals', () => {
   test('enrollMany: required and optional params', async () => {
     const response = await client.hris.benefits.individuals.enrollMany('benefit_id', [
       {
-        individual_id: 'd02a6346-1f08-4312-a064-49ff3cafaa7a',
         configuration: {
           employee_deduction: { type: 'percent', amount: 1000 },
           company_contribution: { type: 'percent', amount: 400 },
           catch_up: false,
           annual_maximum: 500000,
         },
+        individual_id: 'd02a6346-1f08-4312-a064-49ff3cafaa7a',
       },
     ]);
   });
