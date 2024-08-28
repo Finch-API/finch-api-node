@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.3.0 (2024-08-28)
+
+Full Changelog: [v6.2.0...v6.3.0](https://github.com/Finch-API/finch-api-node/compare/v6.2.0...v6.3.0)
+
+### Features
+
+* chore: update reviewers for new teams ([#439](https://github.com/Finch-API/finch-api-node/issues/439)) ([a4dc6bd](https://github.com/Finch-API/finch-api-node/commit/a4dc6bdade0b379a482cd60a6b94fef18fcfdc08))
+
 ## 6.2.0 (2024-08-13)
 
 Full Changelog: [v6.1.7...v6.2.0](https://github.com/Finch-API/finch-api-node/compare/v6.1.7...v6.2.0)
