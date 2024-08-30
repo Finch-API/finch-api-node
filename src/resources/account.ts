@@ -30,14 +30,15 @@ export interface DisconnectResponse {
 
 export interface Introspection {
   /**
-   * The Finch uuid of the account used to connect this company.
+   * @deprecated: [DEPRECATED] Use `connection_id` to associate tokens with a Finch
+   * connection instead of this account ID.
    */
   account_id: string;
 
   authentication_methods: Array<Introspection.AuthenticationMethod>;
 
   /**
-   * The client id of the application associated with the `access_token`.
+   * The client ID of the application associated with the `access_token`.
    */
   client_id: string;
 
@@ -47,9 +48,17 @@ export interface Introspection {
   client_type: 'production' | 'development' | 'sandbox';
 
   /**
-   * The Finch uuid of the company associated with the `access_token`.
+   * @deprecated: [DEPRECATED] Use `connection_id` to associate tokens with a Finch
+   * connection instead of this company ID.
    */
   company_id: string;
+
+  /**
+   * The Finch UUID of the connection associated with the `access_token`.
+   */
+  connection_id: string;
+
+  connection_status: Introspection.ConnectionStatus;
 
   /**
    * The type of the connection associated with the token.
@@ -67,7 +76,8 @@ export interface Introspection {
   manual: boolean;
 
   /**
-   * The payroll provider associated with the `access_token`.
+   * @deprecated: [DEPRECATED] Use `provider_id` to identify the provider instead of
+   * this payroll provider ID.
    */
   payroll_provider_id: string;
 
@@ -75,6 +85,11 @@ export interface Introspection {
    * An array of the authorized products associated with the `access_token`.
    */
   products: Array<string>;
+
+  /**
+   * The ID of the provider associated with the `access_token`.
+   */
+  provider_id: string;
 
   /**
    * The account username used for login associated with the `access_token`.
@@ -85,6 +100,11 @@ export interface Introspection {
 export namespace Introspection {
   export interface AuthenticationMethod {
     connection_status?: AuthenticationMethod.ConnectionStatus;
+
+    /**
+     * An array of the authorized products associated with the `access_token`.
+     */
+    products?: Array<string>;
 
     /**
      * The type of authentication method.
@@ -98,6 +118,12 @@ export namespace Introspection {
 
       status?: Shared.ConnectionStatusType;
     }
+  }
+
+  export interface ConnectionStatus {
+    message?: string;
+
+    status?: Shared.ConnectionStatusType;
   }
 }
 
