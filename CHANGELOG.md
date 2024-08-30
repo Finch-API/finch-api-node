@@ -1,5 +1,20 @@
 # Changelog
 
+## 6.4.0 (2024-08-30)
+
+Full Changelog: [v6.3.0...v6.4.0](https://github.com/Finch-API/finch-api-node/compare/v6.3.0...v6.4.0)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#445](https://github.com/Finch-API/finch-api-node/issues/445)) ([e852d45](https://github.com/Finch-API/finch-api-node/commit/e852d45e0eeee556d9b9990cfdf20da09c02ece3))
+
+
+### Chores
+
+* **ci:** check for build errors ([#443](https://github.com/Finch-API/finch-api-node/issues/443)) ([c4939f3](https://github.com/Finch-API/finch-api-node/commit/c4939f393973e1f6100e638be9f0ddaedc2e3934))
+* **ci:** install deps via ./script/bootstrap ([#447](https://github.com/Finch-API/finch-api-node/issues/447)) ([63bcd7d](https://github.com/Finch-API/finch-api-node/commit/63bcd7d7e372bf2e29a5cefd9cf8bf1848507f7e))
+* run tsc as part of lint script ([#446](https://github.com/Finch-API/finch-api-node/issues/446)) ([9623ca4](https://github.com/Finch-API/finch-api-node/commit/9623ca41542e9110a17c050d20d2655c3ec3837f))
+
 ## 6.3.0 (2024-08-28)
 
 Full Changelog: [v6.2.0...v6.3.0](https://github.com/Finch-API/finch-api-node/compare/v6.2.0...v6.3.0)
