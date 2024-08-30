@@ -40,10 +40,14 @@ export class AccessTokens extends APIResource {
 }
 
 export interface CreateAccessTokenResponse {
+  /**
+   * The access token for the connection.
+   */
   access_token: string;
 
   /**
-   * The Finch uuid of the account used to connect this company.
+   * @deprecated: [DEPRECATED] Use `connection_id` to identify the connection instead
+   * of this account ID.
    */
   account_id: string;
 
@@ -53,9 +57,15 @@ export interface CreateAccessTokenResponse {
   client_type: 'production' | 'development' | 'sandbox';
 
   /**
-   * The Finch uuid of the company associated with the `access_token`.
+   * @deprecated: [DEPRECATED] Use `connection_id` to identify the connection instead
+   * of this company ID.
    */
   company_id: string;
+
+  /**
+   * The Finch UUID of the connection associated with the `access_token`.
+   */
+  connection_id: string;
 
   /**
    * The type of the connection associated with the token.
@@ -71,7 +81,7 @@ export interface CreateAccessTokenResponse {
   products: Array<string>;
 
   /**
-   * The payroll provider associated with the `access_token`.
+   * The ID of the provider associated with the `access_token`.
    */
   provider_id: string;
 }

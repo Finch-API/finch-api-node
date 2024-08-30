@@ -22,18 +22,37 @@ export class Connections extends APIResource {
 export interface ConnectionCreateResponse {
   access_token: string;
 
+  /**
+   * @deprecated: [DEPRECATED] Use `connection_id` to associate a connection with an
+   * access token
+   */
   account_id: string;
 
   authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted';
 
+  /**
+   * @deprecated: [DEPRECATED] Use `connection_id` to associate a connection with an
+   * access token
+   */
   company_id: string;
+
+  /**
+   * The ID of the new connection
+   */
+  connection_id: string;
 
   products: Array<string>;
 
+  /**
+   * The ID of the provider associated with the `access_token`.
+   */
   provider_id: string;
 }
 
 export interface ConnectionCreateParams {
+  /**
+   * The provider associated with the connection
+   */
   provider_id: string;
 
   authentication_type?: 'credential' | 'api_token' | 'oauth' | 'assisted';
