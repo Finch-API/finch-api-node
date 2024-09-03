@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.4.1 (2024-09-03)
+
+Full Changelog: [v6.4.0...v6.4.1](https://github.com/Finch-API/finch-api-node/compare/v6.4.0...v6.4.1)
+
+### Bug Fixes
+
+* **client:** correct File construction from node-fetch Responses ([#449](https://github.com/Finch-API/finch-api-node/issues/449)) ([29bd830](https://github.com/Finch-API/finch-api-node/commit/29bd83081f11a78d346bf82944eab4b8215c3b99))
+
 ## 6.4.0 (2024-08-30)
 
 Full Changelog: [v6.3.0...v6.4.0](https://github.com/Finch-API/finch-api-node/compare/v6.3.0...v6.4.0)
