@@ -633,12 +633,12 @@ export interface JobCompletionEvent extends BaseWebhookEvent {
   data?: JobCompletionEvent.Data;
 
   event_type?:
-    | 'job.benefit_create.updated'
-    | 'job.benefit_enroll.updated'
-    | 'job.benefit_register.updated'
-    | 'job.benefit_unenroll.updated'
-    | 'job.benefit_update.updated'
-    | 'job.data_sync_all.updated';
+    | 'job.benefit_create.completed'
+    | 'job.benefit_enroll.completed'
+    | 'job.benefit_register.completed'
+    | 'job.benefit_unenroll.completed'
+    | 'job.benefit_update.completed'
+    | 'job.data_sync_all.completed';
 }
 
 export namespace JobCompletionEvent {
