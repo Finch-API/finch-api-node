@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.5.0 (2024-09-03)
+
+Full Changelog: [v6.4.1...v6.5.0](https://github.com/Finch-API/finch-api-node/compare/v6.4.1...v6.5.0)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#452](https://github.com/Finch-API/finch-api-node/issues/452)) ([5215d71](https://github.com/Finch-API/finch-api-node/commit/5215d71799fca77eb6b8861c4c9b1bde967dd469))
+
 ## 6.4.1 (2024-09-03)
 
 Full Changelog: [v6.4.0...v6.4.1](https://github.com/Finch-API/finch-api-node/compare/v6.4.0...v6.4.1)
