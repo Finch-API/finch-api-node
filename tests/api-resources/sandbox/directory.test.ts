@@ -52,6 +52,7 @@ describe('resource directory', () => {
         ],
         is_active: true,
         last_name: 'Smith',
+        latest_rehire_date: 'latest_rehire_date',
         location: {
           city: 'city',
           country: 'country',
