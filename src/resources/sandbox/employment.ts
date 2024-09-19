@@ -85,6 +85,8 @@ export interface EmploymentUpdateResponse {
    */
   last_name?: string | null;
 
+  latest_rehire_date?: string | null;
+
   location?: HRISAPI.Location | null;
 
   /**
@@ -204,6 +206,8 @@ export interface EmploymentUpdateParams {
    * The legal last name of the individual.
    */
   last_name?: string | null;
+
+  latest_rehire_date?: string | null;
 
   location?: HRISAPI.Location | null;
 
