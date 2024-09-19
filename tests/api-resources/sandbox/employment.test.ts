@@ -53,6 +53,7 @@ describe('resource employment', () => {
           ],
           is_active: true,
           last_name: 'last_name',
+          latest_rehire_date: 'latest_rehire_date',
           location: {
             city: 'city',
             country: 'country',
