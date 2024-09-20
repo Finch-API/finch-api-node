@@ -14,6 +14,7 @@ export {
   WebhookEvent,
   Webhooks,
 } from './webhooks';
+export { Connect } from './connect/connect';
 export { CreateAccessTokenResponse, AccessTokenCreateParams, AccessTokens } from './access-tokens';
 export { DisconnectResponse, Introspection, Account } from './account';
 export { Income, Location, Money, HRIS } from './hris/hris';
