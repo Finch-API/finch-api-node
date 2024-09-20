@@ -310,3 +310,17 @@ Methods:
 
 - <code title="get /employer/pay-groups/{pay_group_id}">client.payroll.payGroups.<a href="./src/resources/payroll/pay-groups.ts">retrieve</a>(payGroupId) -> PayGroupRetrieveResponse</code>
 - <code title="get /employer/pay-groups">client.payroll.payGroups.<a href="./src/resources/payroll/pay-groups.ts">list</a>({ ...params }) -> PayGroupListResponsesSinglePage</code>
+
+# Connect
+
+## Sessions
+
+Types:
+
+- <code><a href="./src/resources/connect/sessions.ts">SessionNewResponse</a></code>
+- <code><a href="./src/resources/connect/sessions.ts">SessionReauthenticateResponse</a></code>
+
+Methods:
+
+- <code title="post /connect/sessions">client.connect.sessions.<a href="./src/resources/connect/sessions.ts">new</a>({ ...params }) -> SessionNewResponse</code>
+- <code title="post /connect/sessions/reauthenticate">client.connect.sessions.<a href="./src/resources/connect/sessions.ts">reauthenticate</a>({ ...params }) -> SessionReauthenticateResponse</code>

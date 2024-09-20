@@ -171,6 +171,7 @@ export class Finch extends Core.APIClient {
   jobs: API.Jobs = new API.Jobs(this);
   sandbox: API.Sandbox = new API.Sandbox(this);
   payroll: API.Payroll = new API.Payroll(this);
+  connect: API.Connect = new API.Connect(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -334,6 +335,8 @@ export namespace Finch {
   export import Sandbox = API.Sandbox;
 
   export import Payroll = API.Payroll;
+
+  export import Connect = API.Connect;
 
   export import ConnectionStatusType = API.ConnectionStatusType;
   export import OperationSupport = API.OperationSupport;
