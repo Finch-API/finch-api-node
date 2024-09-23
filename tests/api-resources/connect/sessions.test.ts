@@ -11,7 +11,8 @@ const client = new Finch({
 });
 
 describe('resource sessions', () => {
-  test('new: only required params', async () => {
+  // authentication setup doesn't currently work with the mock server
+  test.skip('new: only required params', async () => {
     const responsePromise = client.connect.sessions.new({
       customer_id: 'x',
       customer_name: 'x',
@@ -26,7 +27,8 @@ describe('resource sessions', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('new: required and optional params', async () => {
+  // authentication setup doesn't currently work with the mock server
+  test.skip('new: required and optional params', async () => {
     const response = await client.connect.sessions.new({
       customer_id: 'x',
       customer_name: 'x',
@@ -40,7 +42,8 @@ describe('resource sessions', () => {
     });
   });
 
-  test('reauthenticate: only required params', async () => {
+  // authentication setup doesn't currently work with the mock server
+  test.skip('reauthenticate: only required params', async () => {
     const responsePromise = client.connect.sessions.reauthenticate({ connection_id: 'connection_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -51,7 +54,8 @@ describe('resource sessions', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('reauthenticate: required and optional params', async () => {
+  // authentication setup doesn't currently work with the mock server
+  test.skip('reauthenticate: required and optional params', async () => {
     const response = await client.connect.sessions.reauthenticate({
       connection_id: 'connection_id',
       minutes_to_expire: 0,
