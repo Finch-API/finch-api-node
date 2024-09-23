@@ -11,8 +11,7 @@ const client = new Finch({
 });
 
 describe('resource connections', () => {
-  // Auth isn't setup correctly in this test
-  test.skip('create: only required params', async () => {
+  test('create: only required params', async () => {
     const responsePromise = client.sandbox.connections.create({ provider_id: 'provider_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -23,8 +22,7 @@ describe('resource connections', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Auth isn't setup correctly in this test
-  test.skip('create: required and optional params', async () => {
+  test('create: required and optional params', async () => {
     const response = await client.sandbox.connections.create({
       provider_id: 'provider_id',
       authentication_type: 'credential',

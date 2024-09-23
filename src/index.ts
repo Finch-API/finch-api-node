@@ -22,16 +22,6 @@ export interface ClientOptions {
   clientSecret?: string | null | undefined;
 
   /**
-   * Defaults to process.env['FINCH_SANDBOX_CLIENT_ID'].
-   */
-  sandboxClientId?: string | null | undefined;
-
-  /**
-   * Defaults to process.env['FINCH_SANDBOX_CLIENT_SECRET'].
-   */
-  sandboxClientSecret?: string | null | undefined;
-
-  /**
    * Defaults to process.env['FINCH_WEBHOOK_SECRET'].
    */
   webhookSecret?: string | null | undefined;
@@ -100,8 +90,6 @@ export class Finch extends Core.APIClient {
   accessToken: string | null;
   clientId: string | null;
   clientSecret: string | null;
-  sandboxClientId: string | null;
-  sandboxClientSecret: string | null;
   webhookSecret: string | null;
 
   private _options: ClientOptions;
@@ -112,8 +100,6 @@ export class Finch extends Core.APIClient {
    * @param {string | null | undefined} [opts.accessToken]
    * @param {string | null | undefined} [opts.clientId=process.env['FINCH_CLIENT_ID'] ?? null]
    * @param {string | null | undefined} [opts.clientSecret=process.env['FINCH_CLIENT_SECRET'] ?? null]
-   * @param {string | null | undefined} [opts.sandboxClientId=process.env['FINCH_SANDBOX_CLIENT_ID'] ?? null]
-   * @param {string | null | undefined} [opts.sandboxClientSecret=process.env['FINCH_SANDBOX_CLIENT_SECRET'] ?? null]
    * @param {string | null | undefined} [opts.webhookSecret=process.env['FINCH_WEBHOOK_SECRET'] ?? null]
    * @param {string} [opts.baseURL=process.env['FINCH_BASE_URL'] ?? https://api.tryfinch.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
@@ -128,8 +114,6 @@ export class Finch extends Core.APIClient {
     accessToken = null,
     clientId = Core.readEnv('FINCH_CLIENT_ID') ?? null,
     clientSecret = Core.readEnv('FINCH_CLIENT_SECRET') ?? null,
-    sandboxClientId = Core.readEnv('FINCH_SANDBOX_CLIENT_ID') ?? null,
-    sandboxClientSecret = Core.readEnv('FINCH_SANDBOX_CLIENT_SECRET') ?? null,
     webhookSecret = Core.readEnv('FINCH_WEBHOOK_SECRET') ?? null,
     ...opts
   }: ClientOptions = {}) {
@@ -137,8 +121,6 @@ export class Finch extends Core.APIClient {
       accessToken,
       clientId,
       clientSecret,
-      sandboxClientId,
-      sandboxClientSecret,
       webhookSecret,
       ...opts,
       baseURL: baseURL || `https://api.tryfinch.com`,
@@ -157,8 +139,6 @@ export class Finch extends Core.APIClient {
     this.accessToken = accessToken;
     this.clientId = clientId;
     this.clientSecret = clientSecret;
-    this.sandboxClientId = sandboxClientId;
-    this.sandboxClientSecret = sandboxClientSecret;
     this.webhookSecret = webhookSecret;
   }
 
@@ -193,7 +173,7 @@ export class Finch extends Core.APIClient {
       return;
     }
 
-    if (this.sandboxClientId && this.sandboxClientSecret && headers['authorization']) {
+    if (this.clientId && this.clientSecret && headers['authorization']) {
       return;
     }
     if (customHeaders['authorization'] === null) {
@@ -201,7 +181,7 @@ export class Finch extends Core.APIClient {
     }
 
     throw new Error(
-      'Could not resolve authentication method. Expected either accessToken, sandboxClientId or sandboxClientSecret to be set. Or for one of the "Authorization" or "Authorization" headers to be explicitly omitted',
+      'Could not resolve authentication method. Expected either accessToken, clientId or clientSecret to be set. Or for one of the "Authorization" or "Authorization" headers to be explicitly omitted',
     );
   }
 
@@ -223,15 +203,15 @@ export class Finch extends Core.APIClient {
   }
 
   protected basicAuth(opts: Core.FinalRequestOptions): Core.Headers {
-    if (!this.sandboxClientId) {
+    if (!this.clientId) {
       return {};
     }
 
-    if (!this.sandboxClientSecret) {
+    if (!this.clientSecret) {
       return {};
     }
 
-    const credentials = `${this.sandboxClientId}:${this.sandboxClientSecret}`;
+    const credentials = `${this.clientId}:${this.clientSecret}`;
     const Authorization = `Basic ${Core.toBase64(credentials)}`;
     return { Authorization };
   }
