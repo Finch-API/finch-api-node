@@ -63,7 +63,7 @@ export interface SessionNewParams {
   manual?: boolean | null;
 
   /**
-   * The number of minutes until the session expires (defaults to 10,080, which is 7
+   * The number of minutes until the session expires (defaults to 20,160, which is 14
    * days)
    */
   minutes_to_expire?: number | null;
@@ -88,7 +88,7 @@ export interface SessionReauthenticateParams {
   connection_id: string;
 
   /**
-   * The number of minutes until the session expires (defaults to 10,080, which is 7
+   * The number of minutes until the session expires (defaults to 20,160, which is 14
    * days)
    */
   minutes_to_expire?: number | null;
