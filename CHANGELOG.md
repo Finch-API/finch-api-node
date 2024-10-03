@@ -1,5 +1,37 @@
 # Changelog
 
+## 6.6.0 (2024-10-03)
+
+Full Changelog: [v6.5.0...v6.6.0](https://github.com/Finch-API/finch-api-node/compare/v6.5.0...v6.6.0)
+
+### Features
+
+* **api:** Add connect sessions endpoints ([#463](https://github.com/Finch-API/finch-api-node/issues/463)) ([95be502](https://github.com/Finch-API/finch-api-node/commit/95be502e0843736a88ba36eb2b4e93870d77eff7))
+* **api:** api update ([#468](https://github.com/Finch-API/finch-api-node/issues/468)) ([4cb1b50](https://github.com/Finch-API/finch-api-node/commit/4cb1b50846e41a2533a0eb2ed1b805a990680de0))
+* **api:** manual updates ([#465](https://github.com/Finch-API/finch-api-node/issues/465)) ([3185de2](https://github.com/Finch-API/finch-api-node/commit/3185de23efd45b00525af140d7192e9c23d37dd8))
+* **api:** manual updates ([#466](https://github.com/Finch-API/finch-api-node/issues/466)) ([0af0d80](https://github.com/Finch-API/finch-api-node/commit/0af0d805fc6f6d349f2277ea4fc03345d3311d13))
+* **api:** OpenAPI spec update via Stainless API ([#455](https://github.com/Finch-API/finch-api-node/issues/455)) ([49f8211](https://github.com/Finch-API/finch-api-node/commit/49f8211d9fb5597ef5eb139f6c3183edf51e487a))
+* **api:** OpenAPI spec update via Stainless API ([#462](https://github.com/Finch-API/finch-api-node/issues/462)) ([61f387c](https://github.com/Finch-API/finch-api-node/commit/61f387c92d1d86f36ef4467d412f231f6b1b55ed))
+
+
+### Bug Fixes
+
+* **tests:** add required clientId/clientSecret ([d1a8f2d](https://github.com/Finch-API/finch-api-node/commit/d1a8f2d56dbe68620e9f0395f86e6724b4c22992))
+
+
+### Chores
+
+* **internal:** add dev dependency ([#459](https://github.com/Finch-API/finch-api-node/issues/459)) ([3ae63ed](https://github.com/Finch-API/finch-api-node/commit/3ae63edc8fb7afa689aabbbf42390819e405f25d))
+* **internal:** codegen related update ([#457](https://github.com/Finch-API/finch-api-node/issues/457)) ([3135a5d](https://github.com/Finch-API/finch-api-node/commit/3135a5d754001c1da3ca610846f5fc86e7d95f2b))
+* **internal:** codegen related update ([#467](https://github.com/Finch-API/finch-api-node/issues/467)) ([b4ae8f1](https://github.com/Finch-API/finch-api-node/commit/b4ae8f1462a9386db5495f7b2e4909a641962350))
+* **internal:** fix some types ([#461](https://github.com/Finch-API/finch-api-node/issues/461)) ([baea5ff](https://github.com/Finch-API/finch-api-node/commit/baea5ff10f68f18bb46e4d81bcfa1272a5701e61))
+* **internal:** skip failing tests ([#464](https://github.com/Finch-API/finch-api-node/issues/464)) ([8fb5250](https://github.com/Finch-API/finch-api-node/commit/8fb525024ccc396561d1d7c6ea4e9c398272a339))
+
+
+### Documentation
+
+* update CONTRIBUTING.md ([#458](https://github.com/Finch-API/finch-api-node/issues/458)) ([020fcd4](https://github.com/Finch-API/finch-api-node/commit/020fcd4f3da93f7a6afcb237cb5a8165c4a309a2))
+
 ## 6.5.0 (2024-09-03)
 
 Full Changelog: [v6.4.1...v6.5.0](https://github.com/Finch-API/finch-api-node/compare/v6.4.1...v6.5.0)
