@@ -69,6 +69,24 @@ export interface Introspection {
   connection_type: 'provider' | 'finch';
 
   /**
+   * The email of your customer you provided to Finch when a connect session was
+   * created for this connection.
+   */
+  customer_email: string | null;
+
+  /**
+   * The ID of your customer you provided to Finch when a connect session was created
+   * for this connection.
+   */
+  customer_id: string | null;
+
+  /**
+   * The name of your customer you provided to Finch when a connect session was
+   * created for this connection.
+   */
+  customer_name: string | null;
+
+  /**
    * Whether the connection associated with the `access_token` uses the Assisted
    * Connect Flow. (`true` if using Assisted Connect, `false` if connection is
    * automated)

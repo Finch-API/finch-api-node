@@ -61,6 +61,12 @@ export interface CreateAccessTokenResponse {
    * The ID of the provider associated with the `access_token`.
    */
   provider_id: string;
+
+  /**
+   * The ID of your customer you provided to Finch when a connect session was created
+   * for this connection.
+   */
+  customer_id?: string | null;
 }
 
 export interface AccessTokenCreateParams {
