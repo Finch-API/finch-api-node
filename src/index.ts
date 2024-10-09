@@ -192,6 +192,10 @@ export class Finch extends Core.APIClient {
     if (bearerAuth != null && !Core.isEmptyObj(bearerAuth)) {
       return bearerAuth;
     }
+
+    if (basicAuth != null && !Core.isEmptyObj(basicAuth)) {
+      return basicAuth;
+    }
     return {};
   }
 
