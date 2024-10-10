@@ -1,5 +1,18 @@
 # Changelog
 
+## 6.7.0 (2024-10-10)
+
+Full Changelog: [v6.6.0...v6.7.0](https://github.com/Finch-API/finch-api-node/compare/v6.6.0...v6.7.0)
+
+### Features
+
+* **api:** api update ([#471](https://github.com/Finch-API/finch-api-node/issues/471)) ([a44dce6](https://github.com/Finch-API/finch-api-node/commit/a44dce636bca6e4523b2a440e34a6fc1b13a71cb))
+
+
+### Bug Fixes
+
+* **tests:** adjust to use basic auth ([0e42757](https://github.com/Finch-API/finch-api-node/commit/0e427577ca2c6d6cad48e551d71ea1e4f10c3aa8))
+
 ## 6.6.0 (2024-10-03)
 
 Full Changelog: [v6.5.0...v6.6.0](https://github.com/Finch-API/finch-api-node/compare/v6.5.0...v6.6.0)
