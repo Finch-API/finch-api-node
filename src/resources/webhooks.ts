@@ -308,11 +308,6 @@ export namespace AccountUpdateEvent {
 
             employer_contributions?: PayStatements.EmployerContributions;
 
-            /**
-             * @deprecated: [DEPRECATED] Use `employer_contributions` instead
-             */
-            employer_deductions?: PayStatements.EmployerDeductions;
-
             gross_pay?: boolean;
 
             individual_id?: boolean;
@@ -352,17 +347,6 @@ export namespace AccountUpdateEvent {
             }
 
             export interface EmployerContributions {
-              amount?: boolean;
-
-              currency?: boolean;
-
-              name?: boolean;
-            }
-
-            /**
-             * @deprecated: [DEPRECATED] Use `employer_contributions` instead
-             */
-            export interface EmployerDeductions {
               amount?: boolean;
 
               currency?: boolean;
