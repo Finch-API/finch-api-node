@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as PayGroupsAPI from './pay-groups';
 import { SinglePage } from '../../pagination';
 
 export class PayGroups extends APIResource {
@@ -102,9 +101,13 @@ export interface PayGroupListParams {
   pay_frequencies?: Array<string>;
 }
 
-export namespace PayGroups {
-  export import PayGroupRetrieveResponse = PayGroupsAPI.PayGroupRetrieveResponse;
-  export import PayGroupListResponse = PayGroupsAPI.PayGroupListResponse;
-  export import PayGroupListResponsesSinglePage = PayGroupsAPI.PayGroupListResponsesSinglePage;
-  export import PayGroupListParams = PayGroupsAPI.PayGroupListParams;
+PayGroups.PayGroupListResponsesSinglePage = PayGroupListResponsesSinglePage;
+
+export declare namespace PayGroups {
+  export {
+    type PayGroupRetrieveResponse as PayGroupRetrieveResponse,
+    type PayGroupListResponse as PayGroupListResponse,
+    PayGroupListResponsesSinglePage as PayGroupListResponsesSinglePage,
+    type PayGroupListParams as PayGroupListParams,
+  };
 }

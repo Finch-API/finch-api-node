@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as AutomatedAPI from './automated';
 import { Page, type PageParams } from '../../pagination';
 
 export class Automated extends APIResource {
@@ -130,10 +129,14 @@ export interface AutomatedCreateParams {
 
 export interface AutomatedListParams extends PageParams {}
 
-export namespace Automated {
-  export import AutomatedAsyncJob = AutomatedAPI.AutomatedAsyncJob;
-  export import AutomatedCreateResponse = AutomatedAPI.AutomatedCreateResponse;
-  export import AutomatedAsyncJobsPage = AutomatedAPI.AutomatedAsyncJobsPage;
-  export import AutomatedCreateParams = AutomatedAPI.AutomatedCreateParams;
-  export import AutomatedListParams = AutomatedAPI.AutomatedListParams;
+Automated.AutomatedAsyncJobsPage = AutomatedAsyncJobsPage;
+
+export declare namespace Automated {
+  export {
+    type AutomatedAsyncJob as AutomatedAsyncJob,
+    type AutomatedCreateResponse as AutomatedCreateResponse,
+    AutomatedAsyncJobsPage as AutomatedAsyncJobsPage,
+    type AutomatedCreateParams as AutomatedCreateParams,
+    type AutomatedListParams as AutomatedListParams,
+  };
 }

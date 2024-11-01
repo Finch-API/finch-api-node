@@ -3,7 +3,6 @@
 import { APIResource } from '../../../resource';
 import { isRequestOptions } from '../../../core';
 import * as Core from '../../../core';
-import * as IndividualsAPI from './individuals';
 import * as BenefitsAPI from './benefits';
 import { SinglePage } from '../../../pagination';
 
@@ -223,15 +222,21 @@ export interface IndividualUnenrollManyParams {
   individual_ids?: Array<string>;
 }
 
-export namespace Individuals {
-  export import EnrolledIndividual = IndividualsAPI.EnrolledIndividual;
-  export import IndividualBenefit = IndividualsAPI.IndividualBenefit;
-  export import UnenrolledIndividual = IndividualsAPI.UnenrolledIndividual;
-  export import IndividualEnrolledIDsResponse = IndividualsAPI.IndividualEnrolledIDsResponse;
-  export import EnrolledIndividualsSinglePage = IndividualsAPI.EnrolledIndividualsSinglePage;
-  export import IndividualBenefitsSinglePage = IndividualsAPI.IndividualBenefitsSinglePage;
-  export import UnenrolledIndividualsSinglePage = IndividualsAPI.UnenrolledIndividualsSinglePage;
-  export import IndividualEnrollManyParams = IndividualsAPI.IndividualEnrollManyParams;
-  export import IndividualRetrieveManyBenefitsParams = IndividualsAPI.IndividualRetrieveManyBenefitsParams;
-  export import IndividualUnenrollManyParams = IndividualsAPI.IndividualUnenrollManyParams;
+Individuals.EnrolledIndividualsSinglePage = EnrolledIndividualsSinglePage;
+Individuals.IndividualBenefitsSinglePage = IndividualBenefitsSinglePage;
+Individuals.UnenrolledIndividualsSinglePage = UnenrolledIndividualsSinglePage;
+
+export declare namespace Individuals {
+  export {
+    type EnrolledIndividual as EnrolledIndividual,
+    type IndividualBenefit as IndividualBenefit,
+    type UnenrolledIndividual as UnenrolledIndividual,
+    type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
+    EnrolledIndividualsSinglePage as EnrolledIndividualsSinglePage,
+    IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
+    UnenrolledIndividualsSinglePage as UnenrolledIndividualsSinglePage,
+    type IndividualEnrollManyParams as IndividualEnrollManyParams,
+    type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
+    type IndividualUnenrollManyParams as IndividualUnenrollManyParams,
+  };
 }

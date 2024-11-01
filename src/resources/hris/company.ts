@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as CompanyAPI from './company';
 import * as HRISAPI from './hris';
 
 export class CompanyResource extends APIResource {
@@ -135,6 +134,6 @@ export namespace Company {
   }
 }
 
-export namespace CompanyResource {
-  export import Company = CompanyAPI.Company;
+export declare namespace CompanyResource {
+  export { type Company as Company };
 }

@@ -2,15 +2,27 @@
 
 import { APIResource } from '../../resource';
 import * as PayGroupsAPI from './pay-groups';
+import {
+  PayGroupListParams,
+  PayGroupListResponse,
+  PayGroupListResponsesSinglePage,
+  PayGroupRetrieveResponse,
+  PayGroups,
+} from './pay-groups';
 
 export class Payroll extends APIResource {
   payGroups: PayGroupsAPI.PayGroups = new PayGroupsAPI.PayGroups(this._client);
 }
 
-export namespace Payroll {
-  export import PayGroups = PayGroupsAPI.PayGroups;
-  export import PayGroupRetrieveResponse = PayGroupsAPI.PayGroupRetrieveResponse;
-  export import PayGroupListResponse = PayGroupsAPI.PayGroupListResponse;
-  export import PayGroupListResponsesSinglePage = PayGroupsAPI.PayGroupListResponsesSinglePage;
-  export import PayGroupListParams = PayGroupsAPI.PayGroupListParams;
+Payroll.PayGroups = PayGroups;
+Payroll.PayGroupListResponsesSinglePage = PayGroupListResponsesSinglePage;
+
+export declare namespace Payroll {
+  export {
+    PayGroups as PayGroups,
+    type PayGroupRetrieveResponse as PayGroupRetrieveResponse,
+    type PayGroupListResponse as PayGroupListResponse,
+    PayGroupListResponsesSinglePage as PayGroupListResponsesSinglePage,
+    type PayGroupListParams as PayGroupListParams,
+  };
 }

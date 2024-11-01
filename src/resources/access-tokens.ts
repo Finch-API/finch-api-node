@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as AccessTokensAPI from './access-tokens';
 
 export class AccessTokens extends APIResource {
   /**
@@ -102,7 +101,9 @@ export interface AccessTokenCreateParams {
   redirect_uri?: string;
 }
 
-export namespace AccessTokens {
-  export import CreateAccessTokenResponse = AccessTokensAPI.CreateAccessTokenResponse;
-  export import AccessTokenCreateParams = AccessTokensAPI.AccessTokenCreateParams;
+export declare namespace AccessTokens {
+  export {
+    type CreateAccessTokenResponse as CreateAccessTokenResponse,
+    type AccessTokenCreateParams as AccessTokenCreateParams,
+  };
 }

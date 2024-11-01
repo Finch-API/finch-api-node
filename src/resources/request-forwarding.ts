@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as RequestForwardingAPI from './request-forwarding';
 
 export class RequestForwarding extends APIResource {
   /**
@@ -118,7 +117,9 @@ export interface RequestForwardingForwardParams {
   params?: unknown | null;
 }
 
-export namespace RequestForwarding {
-  export import RequestForwardingForwardResponse = RequestForwardingAPI.RequestForwardingForwardResponse;
-  export import RequestForwardingForwardParams = RequestForwardingAPI.RequestForwardingForwardParams;
+export declare namespace RequestForwarding {
+  export {
+    type RequestForwardingForwardResponse as RequestForwardingForwardResponse,
+    type RequestForwardingForwardParams as RequestForwardingForwardParams,
+  };
 }

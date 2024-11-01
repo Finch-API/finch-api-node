@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as ProvidersAPI from './providers';
 import * as BenefitsAPI from './hris/benefits/benefits';
 import { SinglePage } from '../pagination';
 
@@ -102,6 +101,8 @@ export namespace Provider {
       employment?: SupportedFields.Employment;
 
       individual?: SupportedFields.Individual;
+
+      pay_group?: SupportedFields.PayGroup;
 
       pay_statement?: SupportedFields.PayStatement;
 
@@ -339,6 +340,16 @@ export namespace Provider {
         }
       }
 
+      export interface PayGroup {
+        id?: boolean;
+
+        individual_ids?: boolean;
+
+        name?: boolean;
+
+        pay_frequencies?: boolean;
+      }
+
       export interface PayStatement {
         paging?: PayStatement.Paging;
 
@@ -456,7 +467,8 @@ export namespace Provider {
   }
 }
 
-export namespace Providers {
-  export import Provider = ProvidersAPI.Provider;
-  export import ProvidersSinglePage = ProvidersAPI.ProvidersSinglePage;
+Providers.ProvidersSinglePage = ProvidersSinglePage;
+
+export declare namespace Providers {
+  export { type Provider as Provider, ProvidersSinglePage as ProvidersSinglePage };
 }

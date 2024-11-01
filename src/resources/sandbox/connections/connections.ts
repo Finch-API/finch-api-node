@@ -2,8 +2,14 @@
 
 import { APIResource } from '../../../resource';
 import * as Core from '../../../core';
-import * as ConnectionsAPI from './connections';
 import * as AccountsAPI from './accounts';
+import {
+  AccountCreateParams,
+  AccountCreateResponse,
+  AccountUpdateParams,
+  AccountUpdateResponse,
+  Accounts,
+} from './accounts';
 
 export class Connections extends APIResource {
   accounts: AccountsAPI.Accounts = new AccountsAPI.Accounts(this._client);
@@ -67,12 +73,19 @@ export interface ConnectionCreateParams {
   products?: Array<string>;
 }
 
-export namespace Connections {
-  export import ConnectionCreateResponse = ConnectionsAPI.ConnectionCreateResponse;
-  export import ConnectionCreateParams = ConnectionsAPI.ConnectionCreateParams;
-  export import Accounts = AccountsAPI.Accounts;
-  export import AccountCreateResponse = AccountsAPI.AccountCreateResponse;
-  export import AccountUpdateResponse = AccountsAPI.AccountUpdateResponse;
-  export import AccountCreateParams = AccountsAPI.AccountCreateParams;
-  export import AccountUpdateParams = AccountsAPI.AccountUpdateParams;
+Connections.Accounts = Accounts;
+
+export declare namespace Connections {
+  export {
+    type ConnectionCreateResponse as ConnectionCreateResponse,
+    type ConnectionCreateParams as ConnectionCreateParams,
+  };
+
+  export {
+    Accounts as Accounts,
+    type AccountCreateResponse as AccountCreateResponse,
+    type AccountUpdateResponse as AccountUpdateResponse,
+    type AccountCreateParams as AccountCreateParams,
+    type AccountUpdateParams as AccountUpdateParams,
+  };
 }
