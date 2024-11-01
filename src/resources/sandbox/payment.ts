@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as PaymentAPI from './payment';
 import * as HRISAPI from '../hris/hris';
 import * as BenefitsAPI from '../hris/benefits/benefits';
 
@@ -209,7 +208,9 @@ export namespace PaymentCreateParams {
   }
 }
 
-export namespace Payment {
-  export import PaymentCreateResponse = PaymentAPI.PaymentCreateResponse;
-  export import PaymentCreateParams = PaymentAPI.PaymentCreateParams;
+export declare namespace Payment {
+  export {
+    type PaymentCreateResponse as PaymentCreateResponse,
+    type PaymentCreateParams as PaymentCreateParams,
+  };
 }

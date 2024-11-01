@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as DirectoryAPI from './directory';
 import { IndividualsPage, type IndividualsPageParams } from '../../pagination';
 
 export class Directory extends APIResource {
@@ -94,8 +93,10 @@ export interface DirectoryListParams extends IndividualsPageParams {}
 
 export interface DirectoryListIndividualsParams extends IndividualsPageParams {}
 
-export namespace Directory {
-  export import IndividualInDirectory = DirectoryAPI.IndividualInDirectory;
-  export import DirectoryListParams = DirectoryAPI.DirectoryListParams;
-  export import DirectoryListIndividualsParams = DirectoryAPI.DirectoryListIndividualsParams;
+export declare namespace Directory {
+  export {
+    type IndividualInDirectory as IndividualInDirectory,
+    type DirectoryListParams as DirectoryListParams,
+    type DirectoryListIndividualsParams as DirectoryListIndividualsParams,
+  };
 }

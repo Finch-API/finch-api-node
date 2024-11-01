@@ -6,6 +6,19 @@ import * as Core from '../../../core';
 import * as BenefitsAPI from './benefits';
 import * as Shared from '../../shared';
 import * as IndividualsAPI from './individuals';
+import {
+  EnrolledIndividual,
+  EnrolledIndividualsSinglePage,
+  IndividualBenefit,
+  IndividualBenefitsSinglePage,
+  IndividualEnrollManyParams,
+  IndividualEnrolledIDsResponse,
+  IndividualRetrieveManyBenefitsParams,
+  IndividualUnenrollManyParams,
+  Individuals,
+  UnenrolledIndividual,
+  UnenrolledIndividualsSinglePage,
+} from './individuals';
 import { SinglePage } from '../../../pagination';
 
 export class Benefits extends APIResource {
@@ -292,34 +305,43 @@ export interface BenefitUpdateParams {
   description?: string;
 }
 
-export namespace Benefits {
-  export import BenefitContribution = BenefitsAPI.BenefitContribution;
-  export import BenefitFeaturesAndOperations = BenefitsAPI.BenefitFeaturesAndOperations;
-  export import BenefitFrequency = BenefitsAPI.BenefitFrequency;
-  export import BenefitType = BenefitsAPI.BenefitType;
-  export import BenefitsSupport = BenefitsAPI.BenefitsSupport;
-  /**
-   * @deprecated use `BenefitContribution` instead
-   */
-  export import BenfitContribution = BenefitsAPI.BenfitContribution;
-  export import CompanyBenefit = BenefitsAPI.CompanyBenefit;
-  export import CreateCompanyBenefitsResponse = BenefitsAPI.CreateCompanyBenefitsResponse;
-  export import SupportPerBenefitType = BenefitsAPI.SupportPerBenefitType;
-  export import SupportedBenefit = BenefitsAPI.SupportedBenefit;
-  export import UpdateCompanyBenefitResponse = BenefitsAPI.UpdateCompanyBenefitResponse;
-  export import CompanyBenefitsSinglePage = BenefitsAPI.CompanyBenefitsSinglePage;
-  export import SupportedBenefitsSinglePage = BenefitsAPI.SupportedBenefitsSinglePage;
-  export import BenefitCreateParams = BenefitsAPI.BenefitCreateParams;
-  export import BenefitUpdateParams = BenefitsAPI.BenefitUpdateParams;
-  export import Individuals = IndividualsAPI.Individuals;
-  export import EnrolledIndividual = IndividualsAPI.EnrolledIndividual;
-  export import IndividualBenefit = IndividualsAPI.IndividualBenefit;
-  export import UnenrolledIndividual = IndividualsAPI.UnenrolledIndividual;
-  export import IndividualEnrolledIDsResponse = IndividualsAPI.IndividualEnrolledIDsResponse;
-  export import EnrolledIndividualsSinglePage = IndividualsAPI.EnrolledIndividualsSinglePage;
-  export import IndividualBenefitsSinglePage = IndividualsAPI.IndividualBenefitsSinglePage;
-  export import UnenrolledIndividualsSinglePage = IndividualsAPI.UnenrolledIndividualsSinglePage;
-  export import IndividualEnrollManyParams = IndividualsAPI.IndividualEnrollManyParams;
-  export import IndividualRetrieveManyBenefitsParams = IndividualsAPI.IndividualRetrieveManyBenefitsParams;
-  export import IndividualUnenrollManyParams = IndividualsAPI.IndividualUnenrollManyParams;
+Benefits.CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
+Benefits.SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
+Benefits.Individuals = Individuals;
+Benefits.EnrolledIndividualsSinglePage = EnrolledIndividualsSinglePage;
+Benefits.IndividualBenefitsSinglePage = IndividualBenefitsSinglePage;
+Benefits.UnenrolledIndividualsSinglePage = UnenrolledIndividualsSinglePage;
+
+export declare namespace Benefits {
+  export {
+    type BenefitContribution as BenefitContribution,
+    type BenefitFeaturesAndOperations as BenefitFeaturesAndOperations,
+    type BenefitFrequency as BenefitFrequency,
+    type BenefitType as BenefitType,
+    type BenefitsSupport as BenefitsSupport,
+    type BenfitContribution as BenfitContribution,
+    type CompanyBenefit as CompanyBenefit,
+    type CreateCompanyBenefitsResponse as CreateCompanyBenefitsResponse,
+    type SupportPerBenefitType as SupportPerBenefitType,
+    type SupportedBenefit as SupportedBenefit,
+    type UpdateCompanyBenefitResponse as UpdateCompanyBenefitResponse,
+    CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
+    SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
+    type BenefitCreateParams as BenefitCreateParams,
+    type BenefitUpdateParams as BenefitUpdateParams,
+  };
+
+  export {
+    Individuals as Individuals,
+    type EnrolledIndividual as EnrolledIndividual,
+    type IndividualBenefit as IndividualBenefit,
+    type UnenrolledIndividual as UnenrolledIndividual,
+    type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
+    EnrolledIndividualsSinglePage as EnrolledIndividualsSinglePage,
+    IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
+    UnenrolledIndividualsSinglePage as UnenrolledIndividualsSinglePage,
+    type IndividualEnrollManyParams as IndividualEnrollManyParams,
+    type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
+    type IndividualUnenrollManyParams as IndividualUnenrollManyParams,
+  };
 }

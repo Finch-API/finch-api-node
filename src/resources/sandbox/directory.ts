@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as DirectoryAPI from './directory';
 import * as HRISAPI from '../hris/hris';
 
 export class Directory extends APIResource {
@@ -207,7 +206,9 @@ export namespace DirectoryCreateParams {
   }
 }
 
-export namespace Directory {
-  export import DirectoryCreateResponse = DirectoryAPI.DirectoryCreateResponse;
-  export import DirectoryCreateParams = DirectoryAPI.DirectoryCreateParams;
+export declare namespace Directory {
+  export {
+    type DirectoryCreateResponse as DirectoryCreateResponse,
+    type DirectoryCreateParams as DirectoryCreateParams,
+  };
 }

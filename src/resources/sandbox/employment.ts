@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as EmploymentAPI from './employment';
 import * as HRISAPI from '../hris/hris';
 
 export class Employment extends APIResource {
@@ -277,7 +276,9 @@ export namespace EmploymentUpdateParams {
   }
 }
 
-export namespace Employment {
-  export import EmploymentUpdateResponse = EmploymentAPI.EmploymentUpdateResponse;
-  export import EmploymentUpdateParams = EmploymentAPI.EmploymentUpdateParams;
+export declare namespace Employment {
+  export {
+    type EmploymentUpdateResponse as EmploymentUpdateResponse,
+    type EmploymentUpdateParams as EmploymentUpdateParams,
+  };
 }
