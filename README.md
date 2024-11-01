@@ -138,7 +138,7 @@ Note that requests which time out will be [retried twice by default](#retries).
 ## Auto-pagination
 
 List methods in the Finch API are paginated.
-You can use `for await … of` syntax to iterate through items across all pages:
+You can use the `for await … of` syntax to iterate through items across all pages:
 
 ```ts
 async function fetchAllHRISDirectories(params) {
@@ -151,7 +151,7 @@ async function fetchAllHRISDirectories(params) {
 }
 ```
 
-Alternatively, you can make request a single page at a time:
+Alternatively, you can request a single page at a time:
 
 ```ts
 let page = await client.hris.directory.list();

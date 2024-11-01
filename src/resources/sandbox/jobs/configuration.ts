@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../../resource';
 import * as Core from '../../../core';
-import * as ConfigurationAPI from './configuration';
 
 export class Configuration extends APIResource {
   /**
@@ -37,8 +36,10 @@ export interface ConfigurationUpdateParams {
   type: 'data_sync_all';
 }
 
-export namespace Configuration {
-  export import SandboxJobConfiguration = ConfigurationAPI.SandboxJobConfiguration;
-  export import ConfigurationRetrieveResponse = ConfigurationAPI.ConfigurationRetrieveResponse;
-  export import ConfigurationUpdateParams = ConfigurationAPI.ConfigurationUpdateParams;
+export declare namespace Configuration {
+  export {
+    type SandboxJobConfiguration as SandboxJobConfiguration,
+    type ConfigurationRetrieveResponse as ConfigurationRetrieveResponse,
+    type ConfigurationUpdateParams as ConfigurationUpdateParams,
+  };
 }

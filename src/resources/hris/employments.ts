@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as EmploymentsAPI from './employments';
 import * as HRISAPI from './hris';
 import { ResponsesPage } from '../../pagination';
 
@@ -181,9 +180,13 @@ export namespace EmploymentRetrieveManyParams {
   }
 }
 
-export namespace Employments {
-  export import EmploymentData = EmploymentsAPI.EmploymentData;
-  export import EmploymentDataResponse = EmploymentsAPI.EmploymentDataResponse;
-  export import EmploymentDataResponsesPage = EmploymentsAPI.EmploymentDataResponsesPage;
-  export import EmploymentRetrieveManyParams = EmploymentsAPI.EmploymentRetrieveManyParams;
+Employments.EmploymentDataResponsesPage = EmploymentDataResponsesPage;
+
+export declare namespace Employments {
+  export {
+    type EmploymentData as EmploymentData,
+    type EmploymentDataResponse as EmploymentDataResponse,
+    EmploymentDataResponsesPage as EmploymentDataResponsesPage,
+    type EmploymentRetrieveManyParams as EmploymentRetrieveManyParams,
+  };
 }

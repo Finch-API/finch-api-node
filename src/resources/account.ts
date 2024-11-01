@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as AccountAPI from './account';
 import * as Shared from './shared';
 
 export class Account extends APIResource {
@@ -145,7 +144,6 @@ export namespace Introspection {
   }
 }
 
-export namespace Account {
-  export import DisconnectResponse = AccountAPI.DisconnectResponse;
-  export import Introspection = AccountAPI.Introspection;
+export declare namespace Account {
+  export { type DisconnectResponse as DisconnectResponse, type Introspection as Introspection };
 }

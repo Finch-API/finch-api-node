@@ -1,12 +1,46 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as qs from './internal/qs';
 import * as Core from './core';
+import * as Errors from './error';
 import * as Pagination from './pagination';
+import {
+  type IndividualsPageParams,
+  IndividualsPageResponse,
+  type PageParams,
+  PageResponse,
+  ResponsesPageResponse,
+  SinglePageResponse,
+} from './pagination';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import { AccessTokenCreateParams, AccessTokens, CreateAccessTokenResponse } from './resources/access-tokens';
+import { Account, DisconnectResponse, Introspection } from './resources/account';
+import { Provider, Providers, ProvidersSinglePage } from './resources/providers';
+import {
+  RequestForwarding,
+  RequestForwardingForwardParams,
+  RequestForwardingForwardResponse,
+} from './resources/request-forwarding';
+import {
+  AccountUpdateEvent,
+  BaseWebhookEvent,
+  CompanyEvent,
+  DirectoryEvent,
+  EmploymentEvent,
+  IndividualEvent,
+  JobCompletionEvent,
+  PayStatementEvent,
+  PaymentEvent,
+  WebhookEvent,
+  Webhooks,
+} from './resources/webhooks';
+import { Connect } from './resources/connect/connect';
+import { HRIS, Income, Location, Money } from './resources/hris/hris';
+import { Jobs } from './resources/jobs/jobs';
+import { Payroll } from './resources/payroll/payroll';
+import { Sandbox } from './resources/sandbox/sandbox';
 
 export interface ClientOptions {
   accessToken?: string | null | undefined;
@@ -303,7 +337,7 @@ export class Finch extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+export {
   FinchError,
   APIError,
   APIConnectionError,
@@ -317,73 +351,89 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
+} from './error';
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace Finch {
-  export import RequestOptions = Core.RequestOptions;
+Finch.AccessTokens = AccessTokens;
+Finch.HRIS = HRIS;
+Finch.Providers = Providers;
+Finch.ProvidersSinglePage = ProvidersSinglePage;
+Finch.Account = Account;
+Finch.Webhooks = Webhooks;
+Finch.RequestForwarding = RequestForwarding;
+Finch.Jobs = Jobs;
+Finch.Sandbox = Sandbox;
+Finch.Payroll = Payroll;
+Finch.Connect = Connect;
+
+export declare namespace Finch {
+  export type RequestOptions = Core.RequestOptions;
 
   export import SinglePage = Pagination.SinglePage;
-  export import SinglePageResponse = Pagination.SinglePageResponse;
+  export { type SinglePageResponse as SinglePageResponse };
 
   export import ResponsesPage = Pagination.ResponsesPage;
-  export import ResponsesPageResponse = Pagination.ResponsesPageResponse;
+  export { type ResponsesPageResponse as ResponsesPageResponse };
 
   export import IndividualsPage = Pagination.IndividualsPage;
-  export import IndividualsPageParams = Pagination.IndividualsPageParams;
-  export import IndividualsPageResponse = Pagination.IndividualsPageResponse;
+  export {
+    type IndividualsPageParams as IndividualsPageParams,
+    type IndividualsPageResponse as IndividualsPageResponse,
+  };
 
   export import Page = Pagination.Page;
-  export import PageParams = Pagination.PageParams;
-  export import PageResponse = Pagination.PageResponse;
+  export { type PageParams as PageParams, type PageResponse as PageResponse };
 
-  export import AccessTokens = API.AccessTokens;
-  export import CreateAccessTokenResponse = API.CreateAccessTokenResponse;
-  export import AccessTokenCreateParams = API.AccessTokenCreateParams;
+  export {
+    AccessTokens as AccessTokens,
+    type CreateAccessTokenResponse as CreateAccessTokenResponse,
+    type AccessTokenCreateParams as AccessTokenCreateParams,
+  };
 
-  export import HRIS = API.HRIS;
-  export import Income = API.Income;
-  export import Location = API.Location;
-  export import Money = API.Money;
+  export { HRIS as HRIS, type Income as Income, type Location as Location, type Money as Money };
 
-  export import Providers = API.Providers;
-  export import Provider = API.Provider;
-  export import ProvidersSinglePage = API.ProvidersSinglePage;
+  export { Providers as Providers, type Provider as Provider, ProvidersSinglePage as ProvidersSinglePage };
 
-  export import Account = API.Account;
-  export import DisconnectResponse = API.DisconnectResponse;
-  export import Introspection = API.Introspection;
+  export {
+    Account as Account,
+    type DisconnectResponse as DisconnectResponse,
+    type Introspection as Introspection,
+  };
 
-  export import Webhooks = API.Webhooks;
-  export import AccountUpdateEvent = API.AccountUpdateEvent;
-  export import BaseWebhookEvent = API.BaseWebhookEvent;
-  export import CompanyEvent = API.CompanyEvent;
-  export import DirectoryEvent = API.DirectoryEvent;
-  export import EmploymentEvent = API.EmploymentEvent;
-  export import IndividualEvent = API.IndividualEvent;
-  export import JobCompletionEvent = API.JobCompletionEvent;
-  export import PayStatementEvent = API.PayStatementEvent;
-  export import PaymentEvent = API.PaymentEvent;
-  export import WebhookEvent = API.WebhookEvent;
+  export {
+    Webhooks as Webhooks,
+    type AccountUpdateEvent as AccountUpdateEvent,
+    type BaseWebhookEvent as BaseWebhookEvent,
+    type CompanyEvent as CompanyEvent,
+    type DirectoryEvent as DirectoryEvent,
+    type EmploymentEvent as EmploymentEvent,
+    type IndividualEvent as IndividualEvent,
+    type JobCompletionEvent as JobCompletionEvent,
+    type PayStatementEvent as PayStatementEvent,
+    type PaymentEvent as PaymentEvent,
+    type WebhookEvent as WebhookEvent,
+  };
 
-  export import RequestForwarding = API.RequestForwarding;
-  export import RequestForwardingForwardResponse = API.RequestForwardingForwardResponse;
-  export import RequestForwardingForwardParams = API.RequestForwardingForwardParams;
+  export {
+    RequestForwarding as RequestForwarding,
+    type RequestForwardingForwardResponse as RequestForwardingForwardResponse,
+    type RequestForwardingForwardParams as RequestForwardingForwardParams,
+  };
 
-  export import Jobs = API.Jobs;
+  export { Jobs as Jobs };
 
-  export import Sandbox = API.Sandbox;
+  export { Sandbox as Sandbox };
 
-  export import Payroll = API.Payroll;
+  export { Payroll as Payroll };
 
-  export import Connect = API.Connect;
+  export { Connect as Connect };
 
-  export import ConnectionStatusType = API.ConnectionStatusType;
-  export import OperationSupport = API.OperationSupport;
-  export import OperationSupportMatrix = API.OperationSupportMatrix;
-  export import Paging = API.Paging;
+  export type ConnectionStatusType = API.ConnectionStatusType;
+  export type OperationSupport = API.OperationSupport;
+  export type OperationSupportMatrix = API.OperationSupportMatrix;
+  export type Paging = API.Paging;
 }
 
 export default Finch;

@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as IndividualsAPI from './individuals';
 import * as HRISAPI from './hris';
 import { ResponsesPage } from '../../pagination';
 
@@ -140,9 +139,13 @@ export namespace IndividualRetrieveManyParams {
   }
 }
 
-export namespace Individuals {
-  export import Individual = IndividualsAPI.Individual;
-  export import IndividualResponse = IndividualsAPI.IndividualResponse;
-  export import IndividualResponsesPage = IndividualsAPI.IndividualResponsesPage;
-  export import IndividualRetrieveManyParams = IndividualsAPI.IndividualRetrieveManyParams;
+Individuals.IndividualResponsesPage = IndividualResponsesPage;
+
+export declare namespace Individuals {
+  export {
+    type Individual as Individual,
+    type IndividualResponse as IndividualResponse,
+    IndividualResponsesPage as IndividualResponsesPage,
+    type IndividualRetrieveManyParams as IndividualRetrieveManyParams,
+  };
 }

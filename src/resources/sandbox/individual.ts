@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as IndividualAPI from './individual';
 import * as HRISAPI from '../hris/hris';
 
 export class Individual extends APIResource {
@@ -189,7 +188,9 @@ export namespace IndividualUpdateParams {
   }
 }
 
-export namespace Individual {
-  export import IndividualUpdateResponse = IndividualAPI.IndividualUpdateResponse;
-  export import IndividualUpdateParams = IndividualAPI.IndividualUpdateParams;
+export declare namespace Individual {
+  export {
+    type IndividualUpdateResponse as IndividualUpdateResponse,
+    type IndividualUpdateParams as IndividualUpdateParams,
+  };
 }

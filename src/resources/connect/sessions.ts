@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as SessionsAPI from './sessions';
 
 export class Sessions extends APIResource {
   /**
@@ -106,9 +105,11 @@ export interface SessionReauthenticateParams {
   redirect_uri?: string | null;
 }
 
-export namespace Sessions {
-  export import SessionNewResponse = SessionsAPI.SessionNewResponse;
-  export import SessionReauthenticateResponse = SessionsAPI.SessionReauthenticateResponse;
-  export import SessionNewParams = SessionsAPI.SessionNewParams;
-  export import SessionReauthenticateParams = SessionsAPI.SessionReauthenticateParams;
+export declare namespace Sessions {
+  export {
+    type SessionNewResponse as SessionNewResponse,
+    type SessionReauthenticateResponse as SessionReauthenticateResponse,
+    type SessionNewParams as SessionNewParams,
+    type SessionReauthenticateParams as SessionReauthenticateParams,
+  };
 }

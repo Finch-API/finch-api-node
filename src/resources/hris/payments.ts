@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as PaymentsAPI from './payments';
 import * as HRISAPI from './hris';
 import { SinglePage } from '../../pagination';
 
@@ -96,8 +95,12 @@ export interface PaymentListParams {
   start_date: string;
 }
 
-export namespace Payments {
-  export import Payment = PaymentsAPI.Payment;
-  export import PaymentsSinglePage = PaymentsAPI.PaymentsSinglePage;
-  export import PaymentListParams = PaymentsAPI.PaymentListParams;
+Payments.PaymentsSinglePage = PaymentsSinglePage;
+
+export declare namespace Payments {
+  export {
+    type Payment as Payment,
+    PaymentsSinglePage as PaymentsSinglePage,
+    type PaymentListParams as PaymentListParams,
+  };
 }

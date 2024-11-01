@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as CompanyAPI from './company';
 import * as HRISAPI from '../hris/hris';
 
 export class Company extends APIResource {
@@ -246,7 +245,9 @@ export namespace CompanyUpdateParams {
   }
 }
 
-export namespace Company {
-  export import CompanyUpdateResponse = CompanyAPI.CompanyUpdateResponse;
-  export import CompanyUpdateParams = CompanyAPI.CompanyUpdateParams;
+export declare namespace Company {
+  export {
+    type CompanyUpdateResponse as CompanyUpdateResponse,
+    type CompanyUpdateParams as CompanyUpdateParams,
+  };
 }

@@ -2,8 +2,13 @@
 
 import { APIResource } from '../../../resource';
 import * as Core from '../../../core';
-import * as JobsAPI from './jobs';
 import * as ConfigurationAPI from './configuration';
+import {
+  Configuration,
+  ConfigurationRetrieveResponse,
+  ConfigurationUpdateParams,
+  SandboxJobConfiguration,
+} from './configuration';
 
 export class Jobs extends APIResource {
   configuration: ConfigurationAPI.Configuration = new ConfigurationAPI.Configuration(this._client);
@@ -45,11 +50,15 @@ export interface JobCreateParams {
   type: 'data_sync_all';
 }
 
-export namespace Jobs {
-  export import JobCreateResponse = JobsAPI.JobCreateResponse;
-  export import JobCreateParams = JobsAPI.JobCreateParams;
-  export import Configuration = ConfigurationAPI.Configuration;
-  export import SandboxJobConfiguration = ConfigurationAPI.SandboxJobConfiguration;
-  export import ConfigurationRetrieveResponse = ConfigurationAPI.ConfigurationRetrieveResponse;
-  export import ConfigurationUpdateParams = ConfigurationAPI.ConfigurationUpdateParams;
+Jobs.Configuration = Configuration;
+
+export declare namespace Jobs {
+  export { type JobCreateResponse as JobCreateResponse, type JobCreateParams as JobCreateParams };
+
+  export {
+    Configuration as Configuration,
+    type SandboxJobConfiguration as SandboxJobConfiguration,
+    type ConfigurationRetrieveResponse as ConfigurationRetrieveResponse,
+    type ConfigurationUpdateParams as ConfigurationUpdateParams,
+  };
 }
