@@ -3,7 +3,6 @@
 import { APIResource } from '../../../resource';
 import { isRequestOptions } from '../../../core';
 import * as Core from '../../../core';
-import * as AccountsAPI from './accounts';
 import * as Shared from '../../shared';
 
 export class Accounts extends APIResource {
@@ -110,9 +109,11 @@ export interface AccountUpdateParams {
   connection_status?: Shared.ConnectionStatusType;
 }
 
-export namespace Accounts {
-  export import AccountCreateResponse = AccountsAPI.AccountCreateResponse;
-  export import AccountUpdateResponse = AccountsAPI.AccountUpdateResponse;
-  export import AccountCreateParams = AccountsAPI.AccountCreateParams;
-  export import AccountUpdateParams = AccountsAPI.AccountUpdateParams;
+export declare namespace Accounts {
+  export {
+    type AccountCreateResponse as AccountCreateResponse,
+    type AccountUpdateResponse as AccountUpdateResponse,
+    type AccountCreateParams as AccountCreateParams,
+    type AccountUpdateParams as AccountUpdateParams,
+  };
 }

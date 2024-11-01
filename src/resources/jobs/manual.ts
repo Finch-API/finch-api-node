@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as ManualAPI from './manual';
 
 export class Manual extends APIResource {
   /**
@@ -25,6 +24,6 @@ export interface ManualAsyncJob {
   status: 'pending' | 'in_progress' | 'error' | 'complete';
 }
 
-export namespace Manual {
-  export import ManualAsyncJob = ManualAPI.ManualAsyncJob;
+export declare namespace Manual {
+  export { type ManualAsyncJob as ManualAsyncJob };
 }

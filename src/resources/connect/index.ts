@@ -2,9 +2,9 @@
 
 export { Connect } from './connect';
 export {
-  SessionNewResponse,
-  SessionReauthenticateResponse,
-  SessionNewParams,
-  SessionReauthenticateParams,
   Sessions,
+  type SessionNewResponse,
+  type SessionReauthenticateResponse,
+  type SessionNewParams,
+  type SessionReauthenticateParams,
 } from './sessions';

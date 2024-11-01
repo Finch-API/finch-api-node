@@ -11,7 +11,7 @@
     "paths": {
       "@tryfinch/finch-api/_shims/auto/*": ["src/_shims/auto/*-node"],
       "@tryfinch/finch-api/*": ["src/*"],
-      "@tryfinch/finch-api": ["src/index.ts"],
+      "@tryfinch/finch-api": ["src/index.ts"]
     },
     "noEmit": true,
 
@@ -32,6 +32,7 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+		"isolatedModules": false,
 
     "skipLibCheck": true
   }

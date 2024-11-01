@@ -1,14 +1,61 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import * as HRISAPI from './hris';
 import * as CompanyAPI from './company';
+import { Company, CompanyResource } from './company';
 import * as DirectoryAPI from './directory';
+import {
+  Directory,
+  DirectoryListIndividualsParams,
+  DirectoryListParams,
+  IndividualInDirectory,
+} from './directory';
 import * as EmploymentsAPI from './employments';
+import {
+  EmploymentData,
+  EmploymentDataResponse,
+  EmploymentDataResponsesPage,
+  EmploymentRetrieveManyParams,
+  Employments,
+} from './employments';
 import * as IndividualsAPI from './individuals';
+import {
+  Individual,
+  IndividualResponse,
+  IndividualResponsesPage,
+  IndividualRetrieveManyParams,
+  Individuals,
+} from './individuals';
 import * as PayStatementsAPI from './pay-statements';
+import {
+  PayStatement,
+  PayStatementResponse,
+  PayStatementResponseBody,
+  PayStatementResponsesPage,
+  PayStatementRetrieveManyParams,
+  PayStatements,
+} from './pay-statements';
 import * as PaymentsAPI from './payments';
+import { Payment, PaymentListParams, Payments, PaymentsSinglePage } from './payments';
 import * as BenefitsAPI from './benefits/benefits';
+import {
+  BenefitContribution,
+  BenefitCreateParams,
+  BenefitFeaturesAndOperations,
+  BenefitFrequency,
+  BenefitType,
+  BenefitUpdateParams,
+  Benefits,
+  BenefitsSupport,
+  BenfitContribution,
+  CompanyBenefit,
+  CompanyBenefitsSinglePage,
+  CreateCompanyBenefitsResponse,
+  SupportPerBenefitType,
+  SupportedBenefit,
+  SupportedBenefitsSinglePage,
+  UpdateCompanyBenefitResponse,
+} from './benefits/benefits';
 
 export class HRIS extends APIResource {
   company: CompanyAPI.CompanyResource = new CompanyAPI.CompanyResource(this._client);
@@ -103,53 +150,80 @@ export interface Money {
   currency?: string;
 }
 
-export namespace HRIS {
-  export import Income = HRISAPI.Income;
-  export import Location = HRISAPI.Location;
-  export import Money = HRISAPI.Money;
-  export import CompanyResource = CompanyAPI.CompanyResource;
-  export import Company = CompanyAPI.Company;
-  export import Directory = DirectoryAPI.Directory;
-  export import IndividualInDirectory = DirectoryAPI.IndividualInDirectory;
-  export import DirectoryListParams = DirectoryAPI.DirectoryListParams;
-  export import DirectoryListIndividualsParams = DirectoryAPI.DirectoryListIndividualsParams;
-  export import Individuals = IndividualsAPI.Individuals;
-  export import Individual = IndividualsAPI.Individual;
-  export import IndividualResponse = IndividualsAPI.IndividualResponse;
-  export import IndividualResponsesPage = IndividualsAPI.IndividualResponsesPage;
-  export import IndividualRetrieveManyParams = IndividualsAPI.IndividualRetrieveManyParams;
-  export import Employments = EmploymentsAPI.Employments;
-  export import EmploymentData = EmploymentsAPI.EmploymentData;
-  export import EmploymentDataResponse = EmploymentsAPI.EmploymentDataResponse;
-  export import EmploymentDataResponsesPage = EmploymentsAPI.EmploymentDataResponsesPage;
-  export import EmploymentRetrieveManyParams = EmploymentsAPI.EmploymentRetrieveManyParams;
-  export import Payments = PaymentsAPI.Payments;
-  export import Payment = PaymentsAPI.Payment;
-  export import PaymentsSinglePage = PaymentsAPI.PaymentsSinglePage;
-  export import PaymentListParams = PaymentsAPI.PaymentListParams;
-  export import PayStatements = PayStatementsAPI.PayStatements;
-  export import PayStatement = PayStatementsAPI.PayStatement;
-  export import PayStatementResponse = PayStatementsAPI.PayStatementResponse;
-  export import PayStatementResponseBody = PayStatementsAPI.PayStatementResponseBody;
-  export import PayStatementResponsesPage = PayStatementsAPI.PayStatementResponsesPage;
-  export import PayStatementRetrieveManyParams = PayStatementsAPI.PayStatementRetrieveManyParams;
-  export import Benefits = BenefitsAPI.Benefits;
-  export import BenefitContribution = BenefitsAPI.BenefitContribution;
-  export import BenefitFeaturesAndOperations = BenefitsAPI.BenefitFeaturesAndOperations;
-  export import BenefitFrequency = BenefitsAPI.BenefitFrequency;
-  export import BenefitType = BenefitsAPI.BenefitType;
-  export import BenefitsSupport = BenefitsAPI.BenefitsSupport;
-  /**
-   * @deprecated use `BenefitContribution` instead
-   */
-  export import BenfitContribution = BenefitsAPI.BenfitContribution;
-  export import CompanyBenefit = BenefitsAPI.CompanyBenefit;
-  export import CreateCompanyBenefitsResponse = BenefitsAPI.CreateCompanyBenefitsResponse;
-  export import SupportPerBenefitType = BenefitsAPI.SupportPerBenefitType;
-  export import SupportedBenefit = BenefitsAPI.SupportedBenefit;
-  export import UpdateCompanyBenefitResponse = BenefitsAPI.UpdateCompanyBenefitResponse;
-  export import CompanyBenefitsSinglePage = BenefitsAPI.CompanyBenefitsSinglePage;
-  export import SupportedBenefitsSinglePage = BenefitsAPI.SupportedBenefitsSinglePage;
-  export import BenefitCreateParams = BenefitsAPI.BenefitCreateParams;
-  export import BenefitUpdateParams = BenefitsAPI.BenefitUpdateParams;
+HRIS.CompanyResource = CompanyResource;
+HRIS.Directory = Directory;
+HRIS.Individuals = Individuals;
+HRIS.IndividualResponsesPage = IndividualResponsesPage;
+HRIS.Employments = Employments;
+HRIS.EmploymentDataResponsesPage = EmploymentDataResponsesPage;
+HRIS.Payments = Payments;
+HRIS.PaymentsSinglePage = PaymentsSinglePage;
+HRIS.PayStatements = PayStatements;
+HRIS.PayStatementResponsesPage = PayStatementResponsesPage;
+HRIS.Benefits = Benefits;
+HRIS.CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
+HRIS.SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
+
+export declare namespace HRIS {
+  export { type Income as Income, type Location as Location, type Money as Money };
+
+  export { CompanyResource as CompanyResource, type Company as Company };
+
+  export {
+    Directory as Directory,
+    type IndividualInDirectory as IndividualInDirectory,
+    type DirectoryListParams as DirectoryListParams,
+    type DirectoryListIndividualsParams as DirectoryListIndividualsParams,
+  };
+
+  export {
+    Individuals as Individuals,
+    type Individual as Individual,
+    type IndividualResponse as IndividualResponse,
+    IndividualResponsesPage as IndividualResponsesPage,
+    type IndividualRetrieveManyParams as IndividualRetrieveManyParams,
+  };
+
+  export {
+    Employments as Employments,
+    type EmploymentData as EmploymentData,
+    type EmploymentDataResponse as EmploymentDataResponse,
+    EmploymentDataResponsesPage as EmploymentDataResponsesPage,
+    type EmploymentRetrieveManyParams as EmploymentRetrieveManyParams,
+  };
+
+  export {
+    Payments as Payments,
+    type Payment as Payment,
+    PaymentsSinglePage as PaymentsSinglePage,
+    type PaymentListParams as PaymentListParams,
+  };
+
+  export {
+    PayStatements as PayStatements,
+    type PayStatement as PayStatement,
+    type PayStatementResponse as PayStatementResponse,
+    type PayStatementResponseBody as PayStatementResponseBody,
+    PayStatementResponsesPage as PayStatementResponsesPage,
+    type PayStatementRetrieveManyParams as PayStatementRetrieveManyParams,
+  };
+
+  export {
+    Benefits as Benefits,
+    type BenefitContribution as BenefitContribution,
+    type BenefitFeaturesAndOperations as BenefitFeaturesAndOperations,
+    type BenefitFrequency as BenefitFrequency,
+    type BenefitType as BenefitType,
+    type BenefitsSupport as BenefitsSupport,
+    type BenfitContribution as BenfitContribution,
+    type CompanyBenefit as CompanyBenefit,
+    type CreateCompanyBenefitsResponse as CreateCompanyBenefitsResponse,
+    type SupportPerBenefitType as SupportPerBenefitType,
+    type SupportedBenefit as SupportedBenefit,
+    type UpdateCompanyBenefitResponse as UpdateCompanyBenefitResponse,
+    CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
+    SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
+    type BenefitCreateParams as BenefitCreateParams,
+    type BenefitUpdateParams as BenefitUpdateParams,
+  };
 }

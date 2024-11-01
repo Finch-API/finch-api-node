@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
-import * as WebhooksAPI from './webhooks';
 import * as Shared from './shared';
 import * as BenefitsAPI from './hris/benefits/benefits';
 
@@ -51,6 +50,8 @@ export namespace AccountUpdateEvent {
         employment?: SupportedFields.Employment;
 
         individual?: SupportedFields.Individual;
+
+        pay_group?: SupportedFields.PayGroup;
 
         pay_statement?: SupportedFields.PayStatement;
 
@@ -286,6 +287,16 @@ export namespace AccountUpdateEvent {
 
             state?: boolean;
           }
+        }
+
+        export interface PayGroup {
+          id?: boolean;
+
+          individual_ids?: boolean;
+
+          name?: boolean;
+
+          pay_frequencies?: boolean;
         }
 
         export interface PayStatement {
@@ -554,15 +565,17 @@ export type WebhookEvent =
   | PaymentEvent
   | PayStatementEvent;
 
-export namespace Webhooks {
-  export import AccountUpdateEvent = WebhooksAPI.AccountUpdateEvent;
-  export import BaseWebhookEvent = WebhooksAPI.BaseWebhookEvent;
-  export import CompanyEvent = WebhooksAPI.CompanyEvent;
-  export import DirectoryEvent = WebhooksAPI.DirectoryEvent;
-  export import EmploymentEvent = WebhooksAPI.EmploymentEvent;
-  export import IndividualEvent = WebhooksAPI.IndividualEvent;
-  export import JobCompletionEvent = WebhooksAPI.JobCompletionEvent;
-  export import PayStatementEvent = WebhooksAPI.PayStatementEvent;
-  export import PaymentEvent = WebhooksAPI.PaymentEvent;
-  export import WebhookEvent = WebhooksAPI.WebhookEvent;
+export declare namespace Webhooks {
+  export {
+    type AccountUpdateEvent as AccountUpdateEvent,
+    type BaseWebhookEvent as BaseWebhookEvent,
+    type CompanyEvent as CompanyEvent,
+    type DirectoryEvent as DirectoryEvent,
+    type EmploymentEvent as EmploymentEvent,
+    type IndividualEvent as IndividualEvent,
+    type JobCompletionEvent as JobCompletionEvent,
+    type PayStatementEvent as PayStatementEvent,
+    type PaymentEvent as PaymentEvent,
+    type WebhookEvent as WebhookEvent,
+  };
 }

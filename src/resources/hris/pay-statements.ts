@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as PayStatementsAPI from './pay-statements';
 import * as Shared from '../shared';
 import * as HRISAPI from './hris';
 import * as BenefitsAPI from './benefits/benefits';
@@ -235,10 +234,14 @@ export namespace PayStatementRetrieveManyParams {
   }
 }
 
-export namespace PayStatements {
-  export import PayStatement = PayStatementsAPI.PayStatement;
-  export import PayStatementResponse = PayStatementsAPI.PayStatementResponse;
-  export import PayStatementResponseBody = PayStatementsAPI.PayStatementResponseBody;
-  export import PayStatementResponsesPage = PayStatementsAPI.PayStatementResponsesPage;
-  export import PayStatementRetrieveManyParams = PayStatementsAPI.PayStatementRetrieveManyParams;
+PayStatements.PayStatementResponsesPage = PayStatementResponsesPage;
+
+export declare namespace PayStatements {
+  export {
+    type PayStatement as PayStatement,
+    type PayStatementResponse as PayStatementResponse,
+    type PayStatementResponseBody as PayStatementResponseBody,
+    PayStatementResponsesPage as PayStatementResponsesPage,
+    type PayStatementRetrieveManyParams as PayStatementRetrieveManyParams,
+  };
 }
