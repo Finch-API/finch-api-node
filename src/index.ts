@@ -337,25 +337,6 @@ export class Finch extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export {
-  FinchError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
 Finch.AccessTokens = AccessTokens;
 Finch.HRIS = HRIS;
 Finch.Providers = Providers;
@@ -367,7 +348,6 @@ Finch.Jobs = Jobs;
 Finch.Sandbox = Sandbox;
 Finch.Payroll = Payroll;
 Finch.Connect = Connect;
-
 export declare namespace Finch {
   export type RequestOptions = Core.RequestOptions;
 
@@ -435,5 +415,22 @@ export declare namespace Finch {
   export type OperationSupportMatrix = API.OperationSupportMatrix;
   export type Paging = API.Paging;
 }
+
+export { toFile, fileFromPath } from '@tryfinch/finch-api/uploads';
+export {
+  FinchError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} from '@tryfinch/finch-api/error';
 
 export default Finch;
