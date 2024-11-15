@@ -416,7 +416,7 @@ export declare namespace Finch {
   export type Paging = API.Paging;
 }
 
-export { toFile, fileFromPath } from '@tryfinch/finch-api/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   FinchError,
   APIError,
@@ -431,6 +431,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from '@tryfinch/finch-api/error';
+} from './error';
 
 export default Finch;
