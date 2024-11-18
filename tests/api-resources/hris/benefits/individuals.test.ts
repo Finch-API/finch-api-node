@@ -106,7 +106,7 @@ describe('resource individuals', () => {
     await expect(
       client.hris.benefits.individuals.unenrollMany(
         'benefit_id',
-        { individual_ids: ['string', 'string', 'string'] },
+        { individual_ids: ['string'] },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Finch.NotFoundError);

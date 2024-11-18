@@ -11,11 +11,7 @@ const client = new Finch({
 describe('resource employments', () => {
   test('retrieveMany: only required params', async () => {
     const responsePromise = client.hris.employments.retrieveMany({
-      requests: [
-        { individual_id: 'individual_id' },
-        { individual_id: 'individual_id' },
-        { individual_id: 'individual_id' },
-      ],
+      requests: [{ individual_id: 'individual_id' }],
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -28,11 +24,7 @@ describe('resource employments', () => {
 
   test('retrieveMany: required and optional params', async () => {
     const response = await client.hris.employments.retrieveMany({
-      requests: [
-        { individual_id: 'individual_id' },
-        { individual_id: 'individual_id' },
-        { individual_id: 'individual_id' },
-      ],
+      requests: [{ individual_id: 'individual_id' }],
     });
   });
 });
