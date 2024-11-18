@@ -34,22 +34,14 @@ describe('resource individual', () => {
         'individual_id',
         {
           dob: '12/20/1989',
-          emails: [
-            { data: 'data', type: 'work' },
-            { data: 'data', type: 'work' },
-            { data: 'data', type: 'work' },
-          ],
+          emails: [{ data: 'data', type: 'work' }],
           encrypted_ssn: 'encrypted_ssn',
           ethnicity: 'asian',
           first_name: 'first_name',
           gender: 'female',
           last_name: 'last_name',
           middle_name: 'middle_name',
-          phone_numbers: [
-            { data: 'data', type: 'work' },
-            { data: 'data', type: 'work' },
-            { data: 'data', type: 'work' },
-          ],
+          phone_numbers: [{ data: 'data', type: 'work' }],
           preferred_name: 'preferred_name',
           residence: {
             city: 'city',

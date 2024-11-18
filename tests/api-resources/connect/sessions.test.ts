@@ -13,7 +13,7 @@ describe('resource sessions', () => {
     const responsePromise = client.connect.sessions.new({
       customer_id: 'x',
       customer_name: 'x',
-      products: ['company', 'directory', 'individual'],
+      products: ['company'],
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -28,7 +28,7 @@ describe('resource sessions', () => {
     const response = await client.connect.sessions.new({
       customer_id: 'x',
       customer_name: 'x',
-      products: ['company', 'directory', 'individual'],
+      products: ['company'],
       customer_email: 'dev@stainlessapi.com',
       integration: { auth_method: 'assisted', provider: 'provider' },
       manual: true,
@@ -53,7 +53,7 @@ describe('resource sessions', () => {
     const response = await client.connect.sessions.reauthenticate({
       connection_id: 'connection_id',
       minutes_to_expire: 0,
-      products: ['company', 'directory', 'individual'],
+      products: ['company'],
       redirect_uri: 'https://example.com',
     });
   });

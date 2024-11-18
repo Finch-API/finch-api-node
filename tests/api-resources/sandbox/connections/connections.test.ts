@@ -25,7 +25,7 @@ describe('resource connections', () => {
       provider_id: 'provider_id',
       authentication_type: 'credential',
       employee_size: 0,
-      products: ['string', 'string', 'string'],
+      products: ['string'],
     });
   });
 });
