@@ -24,18 +24,10 @@ describe('resource directory', () => {
     const response = await client.sandbox.directory.create([
       {
         class_code: 'class_code',
-        custom_fields: [
-          { name: 'name', value: {} },
-          { name: 'name', value: {} },
-          { name: 'name', value: {} },
-        ],
+        custom_fields: [{ name: 'name', value: {} }],
         department: { name: 'name' },
         dob: '01/01/2000',
-        emails: [
-          { data: 'data', type: 'work' },
-          { data: 'data', type: 'work' },
-          { data: 'data', type: 'work' },
-        ],
+        emails: [{ data: 'data', type: 'work' }],
         employment: { subtype: 'full_time', type: 'employee' },
         encrypted_ssn: 'encrypted_ssn',
         end_date: 'end_date',
@@ -44,8 +36,6 @@ describe('resource directory', () => {
         gender: 'female',
         income: { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
         income_history: [
-          { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
-          { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
           { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
         ],
         is_active: true,
@@ -63,11 +53,7 @@ describe('resource directory', () => {
         },
         manager: { id: 'id' },
         middle_name: 'middle_name',
-        phone_numbers: [
-          { data: 'data', type: 'work' },
-          { data: 'data', type: 'work' },
-          { data: 'data', type: 'work' },
-        ],
+        phone_numbers: [{ data: 'data', type: 'work' }],
         preferred_name: 'preferred_name',
         residence: {
           city: 'city',

@@ -11,12 +11,12 @@ const client = new Finch({
 describe('resource company', () => {
   test('update: only required params', async () => {
     const responsePromise = client.sandbox.company.update({
-      accounts: [{}, {}, {}],
-      departments: [{}, {}, {}],
+      accounts: [{}],
+      departments: [{}],
       ein: 'ein',
       entity: {},
       legal_name: 'legal_name',
-      locations: [{}, {}, {}],
+      locations: [{}],
       primary_email: 'primary_email',
       primary_phone_number: 'primary_phone_number',
     });
@@ -39,50 +39,12 @@ describe('resource company', () => {
           institution_name: 'institution_name',
           routing_number: 'routing_number',
         },
-        {
-          account_name: 'account_name',
-          account_number: 'account_number',
-          account_type: 'checking',
-          institution_name: 'institution_name',
-          routing_number: 'routing_number',
-        },
-        {
-          account_name: 'account_name',
-          account_number: 'account_number',
-          account_type: 'checking',
-          institution_name: 'institution_name',
-          routing_number: 'routing_number',
-        },
       ],
-      departments: [
-        { name: 'name', parent: { name: 'name' } },
-        { name: 'name', parent: { name: 'name' } },
-        { name: 'name', parent: { name: 'name' } },
-      ],
+      departments: [{ name: 'name', parent: { name: 'name' } }],
       ein: 'ein',
       entity: { subtype: 's_corporation', type: 'llc' },
       legal_name: 'legal_name',
       locations: [
-        {
-          city: 'city',
-          country: 'country',
-          line1: 'line1',
-          line2: 'line2',
-          name: 'name',
-          postal_code: 'postal_code',
-          source_id: 'source_id',
-          state: 'state',
-        },
-        {
-          city: 'city',
-          country: 'country',
-          line1: 'line1',
-          line2: 'line2',
-          name: 'name',
-          postal_code: 'postal_code',
-          source_id: 'source_id',
-          state: 'state',
-        },
         {
           city: 'city',
           country: 'country',

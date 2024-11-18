@@ -49,10 +49,7 @@ describe('resource payGroups', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.payroll.payGroups.list(
-        {
-          individual_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-          pay_frequencies: ['string', 'string', 'string'],
-        },
+        { individual_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', pay_frequencies: ['string'] },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Finch.NotFoundError);

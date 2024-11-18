@@ -31,14 +31,7 @@ describe('resource individuals', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.hris.individuals.retrieveMany(
-        {
-          options: { include: ['string', 'string', 'string'] },
-          requests: [
-            { individual_id: 'individual_id' },
-            { individual_id: 'individual_id' },
-            { individual_id: 'individual_id' },
-          ],
-        },
+        { options: { include: ['string'] }, requests: [{ individual_id: 'individual_id' }] },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Finch.NotFoundError);

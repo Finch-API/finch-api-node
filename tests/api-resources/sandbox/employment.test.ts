@@ -34,19 +34,13 @@ describe('resource employment', () => {
         'individual_id',
         {
           class_code: 'class_code',
-          custom_fields: [
-            { name: 'name', value: {} },
-            { name: 'name', value: {} },
-            { name: 'name', value: {} },
-          ],
+          custom_fields: [{ name: 'name', value: {} }],
           department: { name: 'name' },
           employment: { subtype: 'full_time', type: 'employee' },
           end_date: 'end_date',
           first_name: 'first_name',
           income: { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
           income_history: [
-            { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
-            { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
             { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
           ],
           is_active: true,
