@@ -1,5 +1,21 @@
 # Changelog
 
+## 6.10.0 (2024-11-19)
+
+Full Changelog: [v6.9.0...v6.10.0](https://github.com/Finch-API/finch-api-node/compare/v6.9.0...v6.10.0)
+
+### Features
+
+* **api:** api update ([#487](https://github.com/Finch-API/finch-api-node/issues/487)) ([d80ca32](https://github.com/Finch-API/finch-api-node/commit/d80ca322379e315503c6bbe22991465347525b9a))
+
+
+### Chores
+
+* rebuild project due to codegen change ([#482](https://github.com/Finch-API/finch-api-node/issues/482)) ([789bea1](https://github.com/Finch-API/finch-api-node/commit/789bea197e2c03809e42b44710816f61a2b2bf94))
+* rebuild project due to codegen change ([#484](https://github.com/Finch-API/finch-api-node/issues/484)) ([dabe1af](https://github.com/Finch-API/finch-api-node/commit/dabe1af68ae5bb2a129931e5061b24ab30c55878))
+* rebuild project due to codegen change ([#485](https://github.com/Finch-API/finch-api-node/issues/485)) ([90c94e0](https://github.com/Finch-API/finch-api-node/commit/90c94e032577db2628350ead037837065d8db0d4))
+* rebuild project due to codegen change ([#486](https://github.com/Finch-API/finch-api-node/issues/486)) ([34dcd1d](https://github.com/Finch-API/finch-api-node/commit/34dcd1d881b5a358b4007ee9b21c8fd0af9ea1b4))
+
 ## 6.9.0 (2024-11-01)
 
 Full Changelog: [v6.8.0...v6.9.0](https://github.com/Finch-API/finch-api-node/compare/v6.8.0...v6.9.0)
