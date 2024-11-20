@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.10.2 (2024-11-20)
+
+Full Changelog: [v6.10.1...v6.10.2](https://github.com/Finch-API/finch-api-node/compare/v6.10.1...v6.10.2)
+
+### Bug Fixes
+
+* **webhooks:** use @noble/hashes instead of crypto for signing ([#495](https://github.com/Finch-API/finch-api-node/issues/495)) ([6289374](https://github.com/Finch-API/finch-api-node/commit/6289374934db3bbca920eed1aa869950640830f7))
+
 ## 6.10.1 (2024-11-20)
 
 Full Changelog: [v6.10.0...v6.10.1](https://github.com/Finch-API/finch-api-node/compare/v6.10.0...v6.10.1)
