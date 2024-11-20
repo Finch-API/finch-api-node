@@ -3,8 +3,9 @@
 import { APIResource } from '../resource';
 import * as Shared from './shared';
 import * as BenefitsAPI from './hris/benefits/benefits';
-import { createHmac } from 'crypto';
-import { getRequiredHeader, HeadersLike } from '../core';
+import { getRequiredHeader, HeadersLike, toBase64 } from '../core';
+import { hmac } from '@noble/hashes/hmac';
+import { sha256 } from '@noble/hashes/sha2';
 
 export class Webhooks extends APIResource {
   /**
@@ -40,11 +41,8 @@ export class Webhooks extends APIResource {
   ) {
     const encoder = new TextEncoder();
     const toSign = encoder.encode(`${eventId}.${timestamp.getTime() / 1000}.${payload}`);
-
-    const hmac = createHmac('sha256', secret);
-    hmac.update(toSign);
-
-    return `v1,${hmac.digest('base64')}`;
+    const signed = toBase64(hmac(sha256, secret, toSign));
+    return `v1,${signed}`;
   }
 
   /** Make an assertion, if not `true`, then throw. */
