@@ -3,7 +3,7 @@
 import { APIResource } from '../resource';
 import * as Shared from './shared';
 import * as BenefitsAPI from './hris/benefits/benefits';
-import { getRequiredHeader, HeadersLike, toBase64 } from '../core';
+import { fromBase64, getRequiredHeader, HeadersLike, toBase64 } from '../core';
 import { hmac } from '@noble/hashes/hmac';
 import { sha256 } from '@noble/hashes/sha2';
 
@@ -27,12 +27,15 @@ export class Webhooks extends APIResource {
       );
     }
 
-    const buf = Buffer.from(secret, 'base64');
-    if (buf.toString('base64') !== secret) {
+    try {
+      const buf = fromBase64(secret);
+      if (toBase64(buf) !== secret) {
+        throw new Error(`Given secret is not valid`);
+      }
+      return buf;
+    } catch (e) {
       throw new Error(`Given secret is not valid`);
     }
-
-    return new Uint8Array(buf);
   }
 
   private signPayload(
