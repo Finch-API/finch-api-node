@@ -1178,21 +1178,19 @@ export const getHeader = (headers: HeadersLike | Headers, header: string): strin
 /**
  * Encodes a string to Base64 format.
  */
-export const toBase64 = (str: string | Uint8Array | Buffer | null | undefined): string => {
-  if (!str) return '';
+export const toBase64 = (data: string | Uint8Array | null | undefined): string => {
+  if (!data) return '';
+
+  if (typeof data === 'string') {
+    data = new TextEncoder().encode(data);
+  }
+
   if (typeof Buffer !== 'undefined') {
-    return Buffer.from(str).toString('base64');
+    return Buffer.from(data).toString('base64');
   }
 
   if (typeof btoa !== 'undefined') {
-    if (typeof str === 'string') {
-      return btoa(str);
-    } else {
-      const decoded = Array.from(str)
-        .map((byte) => String.fromCharCode(byte))
-        .join('');
-      return btoa(decoded);
-    }
+    return btoa(String.fromCharCode.apply(null, data as any));
   }
 
   throw new FinchError('Cannot generate b64 string; Expected `Buffer` or `btoa` to be defined');

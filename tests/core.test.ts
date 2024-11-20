@@ -30,11 +30,19 @@ describe.each([true, false])('with Buffer (Buffer is %s)', (buffer) => {
         expected: '',
       },
       {
-        expected: '5WbX5kEWLlfzsGNjH64I8lOOqUB6e8FH',
         input: new Uint8Array([
           229, 102, 215, 230, 65, 22, 46, 87, 243, 176, 99, 99, 31, 174, 8, 242, 83, 142, 169, 64, 122, 123,
           193, 71,
         ]),
+        expected: '5WbX5kEWLlfzsGNjH64I8lOOqUB6e8FH',
+      },
+      {
+        input: '✓',
+        expected: '4pyT',
+      },
+      {
+        input: new Uint8Array([226, 156, 147]),
+        expected: '4pyT',
       },
     ];
 
@@ -59,6 +67,10 @@ describe.each([true, false])('with Buffer (Buffer is %s)', (buffer) => {
           229, 102, 215, 230, 65, 22, 46, 87, 243, 176, 99, 99, 31, 174, 8, 242, 83, 142, 169, 64, 122, 123,
           193, 71,
         ]),
+      },
+      {
+        input: '4pyT',
+        expected: new Uint8Array([226, 156, 147]),
       },
     ];
 
