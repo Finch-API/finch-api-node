@@ -1185,7 +1185,11 @@ export const toBase64 = (str: string | Uint8Array | null | undefined): string =>
   }
 
   if (typeof btoa !== 'undefined') {
-    return btoa(typeof str === 'string' ? str : String(str));
+    if (typeof str === 'string') {
+      return btoa(str);
+    } else {
+      return btoa(new TextDecoder().decode(str));
+    }
   }
 
   throw new FinchError('Cannot generate b64 string; Expected `Buffer` or `btoa` to be defined');
