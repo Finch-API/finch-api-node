@@ -1178,17 +1178,38 @@ export const getHeader = (headers: HeadersLike | Headers, header: string): strin
 /**
  * Encodes a string to Base64 format.
  */
-export const toBase64 = (str: string | null | undefined): string => {
-  if (!str) return '';
+export const toBase64 = (data: string | Uint8Array | null | undefined): string => {
+  if (!data) return '';
+
+  if (typeof data === 'string') {
+    data = new TextEncoder().encode(data);
+  }
+
   if (typeof Buffer !== 'undefined') {
-    return Buffer.from(str).toString('base64');
+    return Buffer.from(data).toString('base64');
   }
 
   if (typeof btoa !== 'undefined') {
-    return btoa(str);
+    return btoa(String.fromCharCode.apply(null, data as any));
   }
 
   throw new FinchError('Cannot generate b64 string; Expected `Buffer` or `btoa` to be defined');
+};
+
+export const fromBase64 = (str: string): Uint8Array => {
+  if (typeof Buffer !== 'undefined') {
+    return new Uint8Array(Buffer.from(str, 'base64'));
+  }
+
+  if (typeof atob !== 'undefined') {
+    return new Uint8Array(
+      atob(str)
+        .split('')
+        .map((c) => c.charCodeAt(0)),
+    );
+  }
+
+  throw new FinchError('Cannot decode b64 string; Expected `Buffer` or `atob` to be defined');
 };
 
 export function isObj(obj: unknown): obj is Record<string, unknown> {
