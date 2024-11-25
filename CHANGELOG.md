@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.11.0 (2024-11-25)
+
+Full Changelog: [v6.10.2...v6.11.0](https://github.com/Finch-API/finch-api-node/compare/v6.10.2...v6.11.0)
+
+### Features
+
+* **client:** do not run in browser context unless explicitly asked ([#500](https://github.com/Finch-API/finch-api-node/issues/500)) ([d251bc6](https://github.com/Finch-API/finch-api-node/commit/d251bc6a0ffa8df8ecc39cd6d3fc8a846843720e))
+
 ## 6.10.2 (2024-11-20)
 
 Full Changelog: [v6.10.1...v6.10.2](https://github.com/Finch-API/finch-api-node/compare/v6.10.1...v6.10.2)
