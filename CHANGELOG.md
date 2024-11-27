@@ -1,5 +1,14 @@
 # Changelog
 
+## 6.12.0 (2024-11-27)
+
+Full Changelog: [v6.11.0...v6.12.0](https://github.com/Finch-API/finch-api-node/compare/v6.11.0...v6.12.0)
+
+### Features
+
+* **api:** api update ([#505](https://github.com/Finch-API/finch-api-node/issues/505)) ([d9d4f4d](https://github.com/Finch-API/finch-api-node/commit/d9d4f4d7768705cf139200b7009b764f3a2e2caf))
+* **internal:** make git install file structure match npm ([#503](https://github.com/Finch-API/finch-api-node/issues/503)) ([469d7f7](https://github.com/Finch-API/finch-api-node/commit/469d7f7de6ebade28b319f18e3d8bf67b16b1a37))
+
 ## 6.11.0 (2024-11-25)
 
 Full Changelog: [v6.10.2...v6.11.0](https://github.com/Finch-API/finch-api-node/compare/v6.10.2...v6.11.0)
