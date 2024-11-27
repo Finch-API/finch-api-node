@@ -16,8 +16,8 @@ export class Automated extends APIResource {
    * progress. Finch allows a fixed window rate limit of 1 forced refresh per hour
    * per connection.
    *
-   * `w4_data_sync`: Enqueues a job for sync W-4 data for a particular individual,
-   * identified by `individual_id`. This feature is currently in beta.
+   * `w4_form_employee_sync`: Enqueues a job for sync W-4 data for a particular
+   * individual, identified by `individual_id`. This feature is currently in beta.
    *
    * This endpoint is available for _Scale_ tier customers as an add-on. To request
    * access to this endpoint, please contact your Finch account manager.
@@ -124,7 +124,9 @@ export interface AutomatedCreateResponse {
   remaining_refreshes: number;
 }
 
-export type AutomatedCreateParams = AutomatedCreateParams.DataSyncAll | AutomatedCreateParams.W4DataSync;
+export type AutomatedCreateParams =
+  | AutomatedCreateParams.DataSyncAll
+  | AutomatedCreateParams.W4FormEmployeeSync;
 
 export namespace AutomatedCreateParams {
   export interface DataSyncAll {
@@ -134,7 +136,7 @@ export namespace AutomatedCreateParams {
     type: 'data_sync_all';
   }
 
-  export interface W4DataSync {
+  export interface W4FormEmployeeSync {
     /**
      * The unique ID of the individual for W-4 data sync.
      */
@@ -143,7 +145,7 @@ export namespace AutomatedCreateParams {
     /**
      * The type of job to start.
      */
-    type: 'w4_data_sync';
+    type: 'w4_form_employee_sync';
   }
 }
 
