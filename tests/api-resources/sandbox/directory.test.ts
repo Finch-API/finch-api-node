@@ -29,6 +29,7 @@ describe('resource directory', () => {
         dob: '01/01/2000',
         emails: [{ data: 'data', type: 'work' }],
         employment: { subtype: 'full_time', type: 'employee' },
+        employment_status: 'active',
         encrypted_ssn: 'encrypted_ssn',
         end_date: 'end_date',
         ethnicity: 'asian',
