@@ -37,6 +37,7 @@ describe('resource employment', () => {
           custom_fields: [{ name: 'name', value: {} }],
           department: { name: 'name' },
           employment: { subtype: 'full_time', type: 'employee' },
+          employment_status: 'active',
           end_date: 'end_date',
           first_name: 'first_name',
           income: { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },

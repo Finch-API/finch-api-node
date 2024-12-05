@@ -223,6 +223,8 @@ export namespace Provider {
 
         employment?: Employment.Employment;
 
+        employment_status?: boolean;
+
         end_date?: boolean;
 
         first_name?: boolean;
