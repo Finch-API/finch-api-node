@@ -66,6 +66,11 @@ export interface CreateAccessTokenResponse {
    * for this connection.
    */
   customer_id?: string | null;
+
+  /**
+   * The RFC 8693 token type (Finch uses `bearer` tokens)
+   */
+  token_type?: string;
 }
 
 export interface AccessTokenCreateParams {

@@ -53,6 +53,8 @@ export interface ConnectionCreateResponse {
    * The ID of the provider associated with the `access_token`.
    */
   provider_id: string;
+
+  token_type?: string;
 }
 
 export interface ConnectionCreateParams {
