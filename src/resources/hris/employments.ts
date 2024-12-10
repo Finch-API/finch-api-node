@@ -50,6 +50,19 @@ export interface EmploymentData {
    */
   employment?: EmploymentData.Employment | null;
 
+  /**
+   * The detailed employment status of the individual. Available options: `active`, `deceased`, `leave`, `onboarding`, `prehire`, `retired`, `terminated`.
+   */
+  employment_status?:
+    | 'active'
+    | 'deceased'
+    | 'leave'
+    | 'onboarding'
+    | 'prehire'
+    | 'retired'
+    | 'terminated'
+    | null;
+
   end_date?: string | null;
 
   /**
