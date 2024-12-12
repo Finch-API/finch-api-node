@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as Shared from '../shared';
-import * as HRISAPI from './hris';
 import * as BenefitsAPI from './benefits/benefits';
 import { ResponsesPage } from '../../pagination';
 
@@ -41,14 +40,20 @@ export interface PayStatement {
 
   employer_contributions?: Array<PayStatement.EmployerContribution | null> | null;
 
-  gross_pay?: HRISAPI.Money | null;
+  /**
+   * The gross pay for the pay period
+   */
+  gross_pay?: number | null;
 
   /**
    * A stable Finch `id` (UUID v4) for an individual in the company
    */
   individual_id?: string;
 
-  net_pay?: HRISAPI.Money | null;
+  /**
+   * The net pay for the pay period
+   */
+  net_pay?: number | null;
 
   /**
    * The payment method.
