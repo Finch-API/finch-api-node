@@ -198,12 +198,58 @@ export type IndividualEnrollManyParams = Array<IndividualEnrollManyParams.Indivi
 
 export namespace IndividualEnrollManyParams {
   export interface Individual {
-    configuration?: unknown;
+    configuration?: Individual.Configuration;
 
     /**
      * Finch id (uuidv4) for the individual to enroll
      */
     individual_id?: string;
+  }
+
+  export namespace Individual {
+    export interface Configuration {
+      /**
+       * For HSA benefits only - whether the contribution limit is for an individual or
+       * family
+       */
+      annual_contribution_limit?: 'individual' | 'family';
+
+      /**
+       * Maximum annual amount in cents
+       */
+      annual_maximum?: number | null;
+
+      /**
+       * For retirement benefits only - whether catch up contributions are enabled
+       */
+      catch_up?: boolean;
+
+      company_contribution?: Configuration.CompanyContribution;
+
+      employee_deduction?: Configuration.EmployeeDeduction;
+    }
+
+    export namespace Configuration {
+      export interface CompanyContribution {
+        /**
+         * Amount in cents for fixed type or basis points (1/100th of a percent) for
+         * percent type
+         */
+        amount?: number;
+
+        type?: 'fixed' | 'percent';
+      }
+
+      export interface EmployeeDeduction {
+        /**
+         * Amount in cents for fixed type or basis points (1/100th of a percent) for
+         * percent type
+         */
+        amount?: number;
+
+        type?: 'fixed' | 'percent';
+      }
+    }
   }
 }
 

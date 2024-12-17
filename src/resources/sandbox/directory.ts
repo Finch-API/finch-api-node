@@ -52,6 +52,19 @@ export namespace DirectoryCreateParams {
     employment?: Body.Employment | null;
 
     /**
+     * The detailed employment status of the individual.
+     */
+    employment_status?:
+      | 'active'
+      | 'deceased'
+      | 'leave'
+      | 'onboarding'
+      | 'prehire'
+      | 'retired'
+      | 'terminated'
+      | null;
+
+    /**
      * Social Security Number of the individual in **encrypted** format. This field is
      * only available with the `ssn` scope enabled and the
      * `options: { include: ['ssn'] }` param set in the body.
