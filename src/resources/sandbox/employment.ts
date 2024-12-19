@@ -55,6 +55,19 @@ export interface EmploymentUpdateResponse {
    */
   employment?: EmploymentUpdateResponse.Employment | null;
 
+  /**
+   * The detailed employment status of the individual.
+   */
+  employment_status?:
+    | 'active'
+    | 'deceased'
+    | 'leave'
+    | 'onboarding'
+    | 'prehire'
+    | 'retired'
+    | 'terminated'
+    | null;
+
   end_date?: string | null;
 
   /**
@@ -176,6 +189,19 @@ export interface EmploymentUpdateParams {
    * The employment object.
    */
   employment?: EmploymentUpdateParams.Employment | null;
+
+  /**
+   * The detailed employment status of the individual.
+   */
+  employment_status?:
+    | 'active'
+    | 'deceased'
+    | 'leave'
+    | 'onboarding'
+    | 'prehire'
+    | 'retired'
+    | 'terminated'
+    | null;
 
   end_date?: string | null;
 

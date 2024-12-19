@@ -24,10 +24,11 @@ describe('resource individuals', () => {
     const response = await client.hris.benefits.individuals.enrollMany('benefit_id', [
       {
         configuration: {
-          employee_deduction: { type: 'percent', amount: 1000 },
-          company_contribution: { type: 'percent', amount: 400 },
-          catch_up: false,
+          annual_contribution_limit: 'individual',
           annual_maximum: 500000,
+          catch_up: false,
+          company_contribution: { amount: 400, type: 'fixed' },
+          employee_deduction: { amount: 1000, type: 'fixed' },
         },
         individual_id: 'd02a6346-1f08-4312-a064-49ff3cafaa7a',
       },
