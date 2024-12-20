@@ -1,5 +1,37 @@
 # Changelog
 
+## 6.13.0 (2024-12-20)
+
+Full Changelog: [v6.12.0...v6.13.0](https://github.com/Finch-API/finch-api-node/compare/v6.12.0...v6.13.0)
+
+### Features
+
+* **api:** api update ([#509](https://github.com/Finch-API/finch-api-node/issues/509)) ([b69656b](https://github.com/Finch-API/finch-api-node/commit/b69656b9f5607f8a83d17386f39da112ddfe6afb))
+* **api:** api update ([#512](https://github.com/Finch-API/finch-api-node/issues/512)) ([c688b2e](https://github.com/Finch-API/finch-api-node/commit/c688b2ec4ea1b85d023ba989b707679647811ad3))
+* **api:** api update ([#515](https://github.com/Finch-API/finch-api-node/issues/515)) ([af26fff](https://github.com/Finch-API/finch-api-node/commit/af26fff051e4c89849d3243829bf8042e85048c0))
+* **api:** api update ([#516](https://github.com/Finch-API/finch-api-node/issues/516)) ([5146110](https://github.com/Finch-API/finch-api-node/commit/51461105bfb204e10efa0603fa0fed0ef7fa4d2c))
+* **api:** api update ([#517](https://github.com/Finch-API/finch-api-node/issues/517)) ([207b283](https://github.com/Finch-API/finch-api-node/commit/207b283a2a45665beed96d097f32565098165c23))
+
+
+### Bug Fixes
+
+* **client:** normalize method ([#519](https://github.com/Finch-API/finch-api-node/issues/519)) ([7775a51](https://github.com/Finch-API/finch-api-node/commit/7775a51a35717e8e3c93c16fcf6e2b246d9bba16))
+
+
+### Chores
+
+* **internal:** bump cross-spawn to v7.0.6 ([#511](https://github.com/Finch-API/finch-api-node/issues/511)) ([15b9f27](https://github.com/Finch-API/finch-api-node/commit/15b9f27e360f60e3ef1bd53194e8eff165ed8105))
+* **internal:** codegen related update ([#507](https://github.com/Finch-API/finch-api-node/issues/507)) ([21bca96](https://github.com/Finch-API/finch-api-node/commit/21bca96783aca9c31e074acf263d2530c3601842))
+* **internal:** fix some typos ([#518](https://github.com/Finch-API/finch-api-node/issues/518)) ([04729df](https://github.com/Finch-API/finch-api-node/commit/04729df6179681b142f2d2b4ce2222d680041609))
+* **internal:** remove unnecessary getRequestClient function ([#510](https://github.com/Finch-API/finch-api-node/issues/510)) ([3f55469](https://github.com/Finch-API/finch-api-node/commit/3f55469efaf5c39ecbe42747d427efd2ed282682))
+* **internal:** update isAbsoluteURL ([#514](https://github.com/Finch-API/finch-api-node/issues/514)) ([c280136](https://github.com/Finch-API/finch-api-node/commit/c28013697fd2752bab1f9b6af6b910186f36ec0a))
+* **types:** nicer error class types + jsdocs ([#513](https://github.com/Finch-API/finch-api-node/issues/513)) ([e3e7e3f](https://github.com/Finch-API/finch-api-node/commit/e3e7e3fe52a2b0d6be4bcd27a6ec800df35325b7))
+
+
+### Documentation
+
+* minor formatting changes ([#520](https://github.com/Finch-API/finch-api-node/issues/520)) ([e3d6ebe](https://github.com/Finch-API/finch-api-node/commit/e3d6ebebd734e4066d344c0d9cff622aa1b808d7))
+
 ## 6.12.0 (2024-11-27)
 
 Full Changelog: [v6.11.0...v6.12.0](https://github.com/Finch-API/finch-api-node/compare/v6.11.0...v6.12.0)
