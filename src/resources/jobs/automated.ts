@@ -128,7 +128,7 @@ export type AutomatedCreateParams =
   | AutomatedCreateParams.DataSyncAll
   | AutomatedCreateParams.W4FormEmployeeSync;
 
-export namespace AutomatedCreateParams {
+export declare namespace AutomatedCreateParams {
   export interface DataSyncAll {
     /**
      * The type of job to start.
