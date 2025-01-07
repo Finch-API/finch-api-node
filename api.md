@@ -96,6 +96,21 @@ Methods:
 
 - <code title="post /employer/pay-statement">client.hris.payStatements.<a href="./src/resources/hris/pay-statements.ts">retrieveMany</a>({ ...params }) -> PayStatementResponsesPage</code>
 
+## Documents
+
+Types:
+
+- <code><a href="./src/resources/hris/documents.ts">DocumentResponse</a></code>
+- <code><a href="./src/resources/hris/documents.ts">W42005</a></code>
+- <code><a href="./src/resources/hris/documents.ts">W42020</a></code>
+- <code><a href="./src/resources/hris/documents.ts">DocumentListResponse</a></code>
+- <code><a href="./src/resources/hris/documents.ts">DocumentRetreiveResponse</a></code>
+
+Methods:
+
+- <code title="get /employer/documents">client.hris.documents.<a href="./src/resources/hris/documents.ts">list</a>({ ...params }) -> DocumentListResponse</code>
+- <code title="get /employer/documents/{document_id}">client.hris.documents.<a href="./src/resources/hris/documents.ts">retreive</a>(documentId) -> DocumentRetreiveResponse</code>
+
 ## Benefits
 
 Types:
