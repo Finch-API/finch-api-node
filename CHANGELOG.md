@@ -1,5 +1,14 @@
 # Changelog
 
+## 6.13.1 (2025-01-07)
+
+Full Changelog: [v6.13.0...v6.13.1](https://github.com/Finch-API/finch-api-node/compare/v6.13.0...v6.13.1)
+
+### Chores
+
+* **internal:** codegen related update ([#522](https://github.com/Finch-API/finch-api-node/issues/522)) ([15d8731](https://github.com/Finch-API/finch-api-node/commit/15d873191eb0c6995c2befa7892f6beba71a4f3b))
+* **types:** use `declare namespace` ([#524](https://github.com/Finch-API/finch-api-node/issues/524)) ([e748544](https://github.com/Finch-API/finch-api-node/commit/e7485447d89cca3d66a1ec8beb4210b50fceb81b))
+
 ## 6.13.0 (2024-12-20)
 
 Full Changelog: [v6.12.0...v6.13.0](https://github.com/Finch-API/finch-api-node/compare/v6.12.0...v6.13.0)
