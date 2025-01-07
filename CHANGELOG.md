@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.14.0 (2025-01-07)
+
+Full Changelog: [v6.13.1...v6.14.0](https://github.com/Finch-API/finch-api-node/compare/v6.13.1...v6.14.0)
+
+### Features
+
+* **api:** manual updates ([#526](https://github.com/Finch-API/finch-api-node/issues/526)) ([6ad85a9](https://github.com/Finch-API/finch-api-node/commit/6ad85a950f9de33dd9976698a09e8be85bafae6b))
+
 ## 6.13.1 (2025-01-07)
 
 Full Changelog: [v6.13.0...v6.13.1](https://github.com/Finch-API/finch-api-node/compare/v6.13.0...v6.13.1)
