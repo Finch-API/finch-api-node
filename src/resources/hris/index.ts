@@ -26,6 +26,15 @@ export {
   type DirectoryListIndividualsParams,
 } from './directory';
 export {
+  Documents,
+  type DocumentResponse,
+  type W42005,
+  type W42020,
+  type DocumentListResponse,
+  type DocumentRetreiveResponse,
+  type DocumentListParams,
+} from './documents';
+export {
   EmploymentDataResponsesPage,
   Employments,
   type EmploymentData,

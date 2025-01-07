@@ -10,6 +10,16 @@ import {
   DirectoryListParams,
   IndividualInDirectory,
 } from './directory';
+import * as DocumentsAPI from './documents';
+import {
+  DocumentListParams,
+  DocumentListResponse,
+  DocumentResponse,
+  DocumentRetreiveResponse,
+  Documents,
+  W42005,
+  W42020,
+} from './documents';
 import * as EmploymentsAPI from './employments';
 import {
   EmploymentData,
@@ -64,6 +74,7 @@ export class HRIS extends APIResource {
   employments: EmploymentsAPI.Employments = new EmploymentsAPI.Employments(this._client);
   payments: PaymentsAPI.Payments = new PaymentsAPI.Payments(this._client);
   payStatements: PayStatementsAPI.PayStatements = new PayStatementsAPI.PayStatements(this._client);
+  documents: DocumentsAPI.Documents = new DocumentsAPI.Documents(this._client);
   benefits: BenefitsAPI.Benefits = new BenefitsAPI.Benefits(this._client);
 }
 
@@ -160,6 +171,7 @@ HRIS.Payments = Payments;
 HRIS.PaymentsSinglePage = PaymentsSinglePage;
 HRIS.PayStatements = PayStatements;
 HRIS.PayStatementResponsesPage = PayStatementResponsesPage;
+HRIS.Documents = Documents;
 HRIS.Benefits = Benefits;
 HRIS.CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
 HRIS.SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
@@ -206,6 +218,16 @@ export declare namespace HRIS {
     type PayStatementResponseBody as PayStatementResponseBody,
     PayStatementResponsesPage as PayStatementResponsesPage,
     type PayStatementRetrieveManyParams as PayStatementRetrieveManyParams,
+  };
+
+  export {
+    Documents as Documents,
+    type DocumentResponse as DocumentResponse,
+    type W42005 as W42005,
+    type W42020 as W42020,
+    type DocumentListResponse as DocumentListResponse,
+    type DocumentRetreiveResponse as DocumentRetreiveResponse,
+    type DocumentListParams as DocumentListParams,
   };
 
   export {
