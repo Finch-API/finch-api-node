@@ -22,7 +22,7 @@ describe('resource payStatements', () => {
 
   test('retrieveMany: required and optional params', async () => {
     const response = await client.hris.payStatements.retrieveMany({
-      requests: [{ payment_id: 'string', limit: 0, offset: 0 }],
+      requests: [{ payment_id: 'string', limit: 50, offset: 0 }],
     });
   });
 });
