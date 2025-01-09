@@ -1,5 +1,18 @@
 # Changelog
 
+## 6.15.0 (2025-01-09)
+
+Full Changelog: [v6.14.0...v6.15.0](https://github.com/Finch-API/finch-api-node/compare/v6.14.0...v6.15.0)
+
+### Features
+
+* **api:** api update ([#531](https://github.com/Finch-API/finch-api-node/issues/531)) ([bb259a7](https://github.com/Finch-API/finch-api-node/commit/bb259a788ba6bfd13370f4744d4cc29780c564f8))
+
+
+### Chores
+
+* **internal:** codegen related update ([#529](https://github.com/Finch-API/finch-api-node/issues/529)) ([4b8af11](https://github.com/Finch-API/finch-api-node/commit/4b8af11c968181a5cddd01c74de2c7f05984169f))
+
 ## 6.14.0 (2025-01-07)
 
 Full Changelog: [v6.13.1...v6.14.0](https://github.com/Finch-API/finch-api-node/compare/v6.13.1...v6.14.0)
