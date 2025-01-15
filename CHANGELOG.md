@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.15.1 (2025-01-15)
+
+Full Changelog: [v6.15.0...v6.15.1](https://github.com/Finch-API/finch-api-node/compare/v6.15.0...v6.15.1)
+
+### Chores
+
+* **types:** add `| undefined` to client options properties ([#533](https://github.com/Finch-API/finch-api-node/issues/533)) ([4ceb638](https://github.com/Finch-API/finch-api-node/commit/4ceb638bbae80e7d91bc67d3262772c5db4ab7ad))
+
 ## 6.15.0 (2025-01-09)
 
 Full Changelog: [v6.14.0...v6.15.0](https://github.com/Finch-API/finch-api-node/compare/v6.14.0...v6.15.0)
