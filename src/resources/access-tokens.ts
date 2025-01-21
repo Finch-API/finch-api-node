@@ -45,7 +45,7 @@ export interface CreateAccessTokenResponse {
   access_token: string;
 
   /**
-   * @deprecated: [DEPRECATED] Use `connection_id` to identify the connection instead
+   * @deprecated [DEPRECATED] Use `connection_id` to identify the connection instead
    * of this account ID.
    */
   account_id: string;
@@ -56,7 +56,7 @@ export interface CreateAccessTokenResponse {
   client_type: 'production' | 'development' | 'sandbox';
 
   /**
-   * @deprecated: [DEPRECATED] Use `connection_id` to identify the connection instead
+   * @deprecated [DEPRECATED] Use `connection_id` to identify the connection instead
    * of this company ID.
    */
   company_id: string;
