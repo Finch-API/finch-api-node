@@ -1,5 +1,19 @@
 # Changelog
 
+## 6.15.1 (2025-01-21)
+
+Full Changelog: [v6.15.0...v6.15.1](https://github.com/Finch-API/finch-api-node/compare/v6.15.0...v6.15.1)
+
+### Chores
+
+* **internal:** add test ([#535](https://github.com/Finch-API/finch-api-node/issues/535)) ([dbff05c](https://github.com/Finch-API/finch-api-node/commit/dbff05c0f375a75906a8ee472de6579fab40db24))
+* **types:** add `| undefined` to client options properties ([#533](https://github.com/Finch-API/finch-api-node/issues/533)) ([4ceb638](https://github.com/Finch-API/finch-api-node/commit/4ceb638bbae80e7d91bc67d3262772c5db4ab7ad))
+
+
+### Documentation
+
+* update deprecation messages ([#536](https://github.com/Finch-API/finch-api-node/issues/536)) ([6fd8f63](https://github.com/Finch-API/finch-api-node/commit/6fd8f63479a70f2d36d28d29abca22f1e87615d0))
+
 ## 6.15.0 (2025-01-09)
 
 Full Changelog: [v6.14.0...v6.15.0](https://github.com/Finch-API/finch-api-node/compare/v6.14.0...v6.15.0)
