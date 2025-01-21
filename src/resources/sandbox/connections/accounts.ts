@@ -34,7 +34,7 @@ export interface AccountCreateResponse {
   access_token: string;
 
   /**
-   * @deprecated: [DEPRECATED] Use `connection_id` to associate a connection with an
+   * @deprecated [DEPRECATED] Use `connection_id` to associate a connection with an
    * access token
    */
   account_id: string;
@@ -42,7 +42,7 @@ export interface AccountCreateResponse {
   authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted';
 
   /**
-   * @deprecated: [DEPRECATED] Use `connection_id` to associate a connection with an
+   * @deprecated [DEPRECATED] Use `connection_id` to associate a connection with an
    * access token
    */
   company_id: string;
@@ -62,7 +62,7 @@ export interface AccountCreateResponse {
 
 export interface AccountUpdateResponse {
   /**
-   * @deprecated: [DEPRECATED] Use `connection_id` to associate a connection with an
+   * @deprecated [DEPRECATED] Use `connection_id` to associate a connection with an
    * access token
    */
   account_id: string;
@@ -70,7 +70,7 @@ export interface AccountUpdateResponse {
   authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted';
 
   /**
-   * @deprecated: [DEPRECATED] Use `connection_id` to associate a connection with an
+   * @deprecated [DEPRECATED] Use `connection_id` to associate a connection with an
    * access token
    */
   company_id: string;
