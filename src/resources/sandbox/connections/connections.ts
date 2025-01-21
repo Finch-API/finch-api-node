@@ -29,7 +29,7 @@ export interface ConnectionCreateResponse {
   access_token: string;
 
   /**
-   * @deprecated: [DEPRECATED] Use `connection_id` to associate a connection with an
+   * @deprecated [DEPRECATED] Use `connection_id` to associate a connection with an
    * access token
    */
   account_id: string;
@@ -37,7 +37,7 @@ export interface ConnectionCreateResponse {
   authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted';
 
   /**
-   * @deprecated: [DEPRECATED] Use `connection_id` to associate a connection with an
+   * @deprecated [DEPRECATED] Use `connection_id` to associate a connection with an
    * access token
    */
   company_id: string;

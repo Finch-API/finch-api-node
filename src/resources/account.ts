@@ -29,7 +29,7 @@ export interface DisconnectResponse {
 
 export interface Introspection {
   /**
-   * @deprecated: [DEPRECATED] Use `connection_id` to associate tokens with a Finch
+   * @deprecated [DEPRECATED] Use `connection_id` to associate tokens with a Finch
    * connection instead of this account ID.
    */
   account_id: string;
@@ -47,7 +47,7 @@ export interface Introspection {
   client_type: 'production' | 'development' | 'sandbox';
 
   /**
-   * @deprecated: [DEPRECATED] Use `connection_id` to associate tokens with a Finch
+   * @deprecated [DEPRECATED] Use `connection_id` to associate tokens with a Finch
    * connection instead of this company ID.
    */
   company_id: string;
@@ -93,7 +93,7 @@ export interface Introspection {
   manual: boolean;
 
   /**
-   * @deprecated: [DEPRECATED] Use `provider_id` to identify the provider instead of
+   * @deprecated [DEPRECATED] Use `provider_id` to identify the provider instead of
    * this payroll provider ID.
    */
   payroll_provider_id: string;

@@ -421,14 +421,14 @@ export namespace AccountUpdateEvent {
 
 export interface BaseWebhookEvent {
   /**
-   * @deprecated: [DEPRECATED] Unique Finch ID of the employer account used to make
+   * @deprecated [DEPRECATED] Unique Finch ID of the employer account used to make
    * this connection. Use `connection_id` instead to identify the connection
    * associated with this event.
    */
   account_id: string;
 
   /**
-   * @deprecated: [DEPRECATED] Unique Finch ID of the company for which data has been
+   * @deprecated [DEPRECATED] Unique Finch ID of the company for which data has been
    * updated. Use `connection_id` instead to identify the connection associated with
    * this event.
    */
