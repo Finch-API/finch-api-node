@@ -119,7 +119,7 @@ export interface EmploymentData {
   title?: string | null;
 
   /**
-   * @deprecated: This field is deprecated in favour of `source_id`
+   * @deprecated This field is deprecated in favour of `source_id`
    */
   work_id?: string | null;
 }
