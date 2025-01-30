@@ -141,7 +141,16 @@ export class IndividualsPage
     const length = this.getPaginatedItems().length;
     const currentCount = offset + length;
 
-    return { params: { offset: currentCount } };
+    const totalCount = this.paging.count;
+    if (!totalCount) {
+      return null;
+    }
+
+    if (currentCount < totalCount) {
+      return { params: { offset: currentCount } };
+    }
+
+    return null;
   }
 }
 
@@ -198,6 +207,15 @@ export class Page<Item> extends AbstractPage<Item> implements PageResponse<Item>
     const length = this.getPaginatedItems().length;
     const currentCount = offset + length;
 
-    return { params: { offset: currentCount } };
+    const totalCount = this.paging.count;
+    if (!totalCount) {
+      return null;
+    }
+
+    if (currentCount < totalCount) {
+      return { params: { offset: currentCount } };
+    }
+
+    return null;
   }
 }
