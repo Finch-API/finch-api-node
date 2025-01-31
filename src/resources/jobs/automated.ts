@@ -83,6 +83,11 @@ export interface AutomatedAsyncJob {
   job_url: string;
 
   /**
+   * The input parameters for the job.
+   */
+  params: AutomatedAsyncJob.Params | null;
+
+  /**
    * The datetime a job is scheduled to be run. For scheduled jobs, this datetime can
    * be in the future if the job has not yet been enqueued. For ad-hoc jobs, this
    * field will be null.
@@ -97,9 +102,21 @@ export interface AutomatedAsyncJob {
   status: 'pending' | 'in_progress' | 'complete' | 'error' | 'reauth_error' | 'permissions_error';
 
   /**
-   * Only `data_sync_all` currently supported
+   * The type of automated job
    */
-  type: 'data_sync_all';
+  type: 'data_sync_all' | 'w4_form_employee_sync';
+}
+
+export namespace AutomatedAsyncJob {
+  /**
+   * The input parameters for the job.
+   */
+  export interface Params {
+    /**
+     * The ID of the individual that the job was completed for.
+     */
+    individual_id?: string;
+  }
 }
 
 export interface AutomatedCreateResponse {
