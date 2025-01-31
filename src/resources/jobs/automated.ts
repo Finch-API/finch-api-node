@@ -137,15 +137,21 @@ export declare namespace AutomatedCreateParams {
   }
 
   export interface W4FormEmployeeSync {
-    /**
-     * The unique ID of the individual for W-4 data sync.
-     */
-    individual_id: string;
+    params: AutomatedCreateParams.W4FormEmployeeSync.Params;
 
     /**
      * The type of job to start.
      */
     type: 'w4_form_employee_sync';
+  }
+
+  export namespace W4FormEmployeeSync {
+    export interface Params {
+      /**
+       * The unique ID of the individual for W-4 data sync.
+       */
+      individual_id: string;
+    }
   }
 }
 
