@@ -154,7 +154,7 @@ export declare namespace AutomatedCreateParams {
   }
 
   export interface W4FormEmployeeSync {
-    params: AutomatedCreateParams.W4FormEmployeeSync.Params;
+    params: W4FormEmployeeSync.Params;
 
     /**
      * The type of job to start.
