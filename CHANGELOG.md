@@ -1,5 +1,22 @@
 # Changelog
 
+## 6.16.0 (2025-02-04)
+
+Full Changelog: [v6.15.1...v6.16.0](https://github.com/Finch-API/finch-api-node/compare/v6.15.1...v6.16.0)
+
+### Features
+
+* **api:** api update ([#538](https://github.com/Finch-API/finch-api-node/issues/538)) ([fea6ccc](https://github.com/Finch-API/finch-api-node/commit/fea6ccce9d001d4b420dc8aa784fd10922baf2bb))
+* **api:** api update ([#541](https://github.com/Finch-API/finch-api-node/issues/541)) ([1cd0cc0](https://github.com/Finch-API/finch-api-node/commit/1cd0cc0c74b93480a73422a1b5932dcf0e7edd95))
+* **api:** api update ([#542](https://github.com/Finch-API/finch-api-node/issues/542)) ([5623c7e](https://github.com/Finch-API/finch-api-node/commit/5623c7edf167d1c94f3f0ec13fa3fe35129d9236))
+* **client:** send `X-Stainless-Timeout` header ([#544](https://github.com/Finch-API/finch-api-node/issues/544)) ([7ff39fc](https://github.com/Finch-API/finch-api-node/commit/7ff39fcff85fa3cc0887c918fa7d84672e257da1))
+
+
+### Chores
+
+* fix references to nested types ([#543](https://github.com/Finch-API/finch-api-node/issues/543)) ([6738165](https://github.com/Finch-API/finch-api-node/commit/6738165b6aafb8ab89425c1a9b372bbabfac954d))
+* **internal:** codegen related update ([#540](https://github.com/Finch-API/finch-api-node/issues/540)) ([122a1a0](https://github.com/Finch-API/finch-api-node/commit/122a1a0aa85f3dce54ff56f9a291d34d69af024a))
+
 ## 6.15.1 (2025-01-21)
 
 Full Changelog: [v6.15.0...v6.15.1](https://github.com/Finch-API/finch-api-node/compare/v6.15.0...v6.15.1)
