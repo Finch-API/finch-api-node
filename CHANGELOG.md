@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.16.1 (2025-02-11)
+
+Full Changelog: [v6.16.0...v6.16.1](https://github.com/Finch-API/finch-api-node/compare/v6.16.0...v6.16.1)
+
+### Chores
+
+* **internal:** codegen related update ([#546](https://github.com/Finch-API/finch-api-node/issues/546)) ([923ccde](https://github.com/Finch-API/finch-api-node/commit/923ccde4a33601b168ccf37d5cdf223588266522))
+
 ## 6.16.0 (2025-02-04)
 
 Full Changelog: [v6.15.1...v6.16.0](https://github.com/Finch-API/finch-api-node/compare/v6.15.1...v6.16.0)
