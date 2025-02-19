@@ -33,7 +33,7 @@ describe('resource individual', () => {
       client.sandbox.individual.update(
         'individual_id',
         {
-          dob: '12/20/1989',
+          dob: 'dob',
           emails: [{ data: 'data', type: 'work' }],
           encrypted_ssn: 'encrypted_ssn',
           ethnicity: 'asian',
