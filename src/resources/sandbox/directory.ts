@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as HRISAPI from '../hris/hris';
 
@@ -9,9 +10,17 @@ export class Directory extends APIResource {
    * Add new individuals to a sandbox company
    */
   create(
-    body: DirectoryCreateParams,
+    body?: DirectoryCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<DirectoryCreateResponse>;
+  create(options?: Core.RequestOptions): Core.APIPromise<DirectoryCreateResponse>;
+  create(
+    body?: DirectoryCreateParams | Core.RequestOptions,
     options?: Core.RequestOptions,
   ): Core.APIPromise<DirectoryCreateResponse> {
+    if (isRequestOptions(body)) {
+      return this.create(undefined, body);
+    }
     return this._client.post('/sandbox/directory', { body, ...options });
   }
 }

@@ -15,9 +15,21 @@ export class Individuals extends APIResource {
    */
   enrollMany(
     benefitId: string,
-    body: IndividualEnrollManyParams,
+    body?: IndividualEnrollManyParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<EnrolledIndividualsSinglePage, EnrolledIndividual>;
+  enrollMany(
+    benefitId: string,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<EnrolledIndividualsSinglePage, EnrolledIndividual>;
+  enrollMany(
+    benefitId: string,
+    body?: IndividualEnrollManyParams | Core.RequestOptions,
     options?: Core.RequestOptions,
   ): Core.PagePromise<EnrolledIndividualsSinglePage, EnrolledIndividual> {
+    if (isRequestOptions(body)) {
+      return this.enrollMany(benefitId, undefined, body);
+    }
     return this._client.getAPIList(
       `/employer/benefits/${benefitId}/individuals`,
       EnrolledIndividualsSinglePage,
