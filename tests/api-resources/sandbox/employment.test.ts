@@ -60,7 +60,7 @@ describe('resource employment', () => {
           manager: { id: 'id' },
           middle_name: 'middle_name',
           source_id: 'source_id',
-          start_date: '3/4/2020',
+          start_date: 'start_date',
           title: 'title',
         },
         { path: '/_stainless_unknown_path' },

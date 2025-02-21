@@ -9,8 +9,8 @@ const client = new Finch({
 });
 
 describe('resource individuals', () => {
-  test('enrollMany: only required params', async () => {
-    const responsePromise = client.hris.benefits.individuals.enrollMany('benefit_id', [{}]);
+  test('enrollMany', async () => {
+    const responsePromise = client.hris.benefits.individuals.enrollMany('benefit_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -20,19 +20,33 @@ describe('resource individuals', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('enrollMany: required and optional params', async () => {
-    const response = await client.hris.benefits.individuals.enrollMany('benefit_id', [
-      {
-        configuration: {
-          annual_contribution_limit: 'individual',
-          annual_maximum: 500000,
-          catch_up: false,
-          company_contribution: { amount: 400, type: 'fixed' },
-          employee_deduction: { amount: 1000, type: 'fixed' },
-        },
-        individual_id: 'd02a6346-1f08-4312-a064-49ff3cafaa7a',
-      },
-    ]);
+  test('enrollMany: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.hris.benefits.individuals.enrollMany('benefit_id', { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(Finch.NotFoundError);
+  });
+
+  test('enrollMany: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.hris.benefits.individuals.enrollMany(
+        'benefit_id',
+        [
+          {
+            configuration: {
+              annual_contribution_limit: 'individual',
+              annual_maximum: 500000,
+              catch_up: false,
+              company_contribution: { amount: 400, type: 'fixed' },
+              employee_deduction: { amount: 1000, type: 'fixed' },
+            },
+            individual_id: 'd02a6346-1f08-4312-a064-49ff3cafaa7a',
+          },
+        ],
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Finch.NotFoundError);
   });
 
   test('enrolledIds', async () => {
