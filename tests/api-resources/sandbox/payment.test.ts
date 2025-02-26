@@ -35,16 +35,49 @@ describe('resource payment', () => {
           end_date: 'end_date',
           pay_statements: [
             {
-              earnings: [{ amount: 0, currency: 'currency', hours: 0, name: 'name', type: 'salary' }],
-              employee_deductions: [
-                { amount: 2000, currency: 'usd', name: '401k test', pre_tax: true, type: '401k' },
+              earnings: [
+                {
+                  amount: 0,
+                  attributes: { metadata: { foo: 'bar' } },
+                  currency: 'currency',
+                  hours: 0,
+                  name: 'name',
+                  type: 'salary',
+                },
               ],
-              employer_contributions: [{ amount: 0, currency: 'currency', name: 'name', type: '401k' }],
+              employee_deductions: [
+                {
+                  amount: 0,
+                  attributes: { metadata: { foo: 'bar' } },
+                  currency: 'currency',
+                  name: 'name',
+                  pre_tax: true,
+                  type: '401k',
+                },
+              ],
+              employer_contributions: [
+                {
+                  amount: 0,
+                  attributes: { metadata: { foo: 'bar' } },
+                  currency: 'currency',
+                  name: 'name',
+                  type: '401k',
+                },
+              ],
               gross_pay: { amount: 0, currency: 'currency' },
-              individual_id: 'b2338cfb-472f-4f72-9faa-e028c083144a',
+              individual_id: 'individual_id',
               net_pay: { amount: 0, currency: 'currency' },
               payment_method: 'check',
-              taxes: [{ amount: 0, currency: 'currency', employer: true, name: 'name', type: 'state' }],
+              taxes: [
+                {
+                  amount: 0,
+                  attributes: { metadata: { foo: 'bar' } },
+                  currency: 'currency',
+                  employer: true,
+                  name: 'name',
+                  type: 'state',
+                },
+              ],
               total_hours: 0,
               type: 'regular_payroll',
             },

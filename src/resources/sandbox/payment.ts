@@ -94,6 +94,8 @@ export namespace PaymentCreateParams {
        */
       amount?: number | null;
 
+      attributes?: Earning.Attributes | null;
+
       /**
        * The earnings currency code.
        */
@@ -130,11 +132,24 @@ export namespace PaymentCreateParams {
         | null;
     }
 
+    export namespace Earning {
+      export interface Attributes {
+        /**
+         * The metadata to be attached to the entity by existing rules. It is a key-value
+         * pairs where the values can be of any type (string, number, boolean, object,
+         * array, etc.).
+         */
+        metadata?: Record<string, unknown>;
+      }
+    }
+
     export interface EmployeeDeduction {
       /**
        * The deduction amount in cents.
        */
       amount?: number | null;
+
+      attributes?: EmployeeDeduction.Attributes | null;
 
       /**
        * The deduction currency.
@@ -157,11 +172,24 @@ export namespace PaymentCreateParams {
       type?: BenefitsAPI.BenefitType | null;
     }
 
+    export namespace EmployeeDeduction {
+      export interface Attributes {
+        /**
+         * The metadata to be attached to the entity by existing rules. It is a key-value
+         * pairs where the values can be of any type (string, number, boolean, object,
+         * array, etc.).
+         */
+        metadata?: Record<string, unknown>;
+      }
+    }
+
     export interface EmployerContribution {
       /**
        * The contribution amount in cents.
        */
       amount?: number | null;
+
+      attributes?: EmployerContribution.Attributes | null;
 
       /**
        * The contribution currency.
@@ -179,11 +207,24 @@ export namespace PaymentCreateParams {
       type?: BenefitsAPI.BenefitType | null;
     }
 
+    export namespace EmployerContribution {
+      export interface Attributes {
+        /**
+         * The metadata to be attached to the entity by existing rules. It is a key-value
+         * pairs where the values can be of any type (string, number, boolean, object,
+         * array, etc.).
+         */
+        metadata?: Record<string, unknown>;
+      }
+    }
+
     export interface Tax {
       /**
        * The tax amount in cents.
        */
       amount?: number | null;
+
+      attributes?: Tax.Attributes | null;
 
       /**
        * The currency code.
@@ -204,6 +245,17 @@ export namespace PaymentCreateParams {
        * The type of taxes.
        */
       type?: 'state' | 'federal' | 'local' | 'fica' | null;
+    }
+
+    export namespace Tax {
+      export interface Attributes {
+        /**
+         * The metadata to be attached to the entity by existing rules. It is a key-value
+         * pairs where the values can be of any type (string, number, boolean, object,
+         * array, etc.).
+         */
+        metadata?: Record<string, unknown>;
+      }
     }
   }
 }
