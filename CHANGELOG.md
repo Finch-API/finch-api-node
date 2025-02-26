@@ -1,5 +1,24 @@
 # Changelog
 
+## 6.17.0 (2025-02-26)
+
+Full Changelog: [v6.16.1...v6.17.0](https://github.com/Finch-API/finch-api-node/compare/v6.16.1...v6.17.0)
+
+### Features
+
+* **api:** api update ([#553](https://github.com/Finch-API/finch-api-node/issues/553)) ([6c9709a](https://github.com/Finch-API/finch-api-node/commit/6c9709a5324b54287776fdc57c5bcd78d0a2a69a))
+
+
+### Bug Fixes
+
+* **client:** mark some request bodies as optional ([#551](https://github.com/Finch-API/finch-api-node/issues/551)) ([ebe7dc9](https://github.com/Finch-API/finch-api-node/commit/ebe7dc96ab5ab3b48e2fa89e3bb7e268508dc3eb))
+
+
+### Chores
+
+* **internal:** codegen related update ([#549](https://github.com/Finch-API/finch-api-node/issues/549)) ([be7e63d](https://github.com/Finch-API/finch-api-node/commit/be7e63d712ae5587aedec932618baf0e86e0f7d0))
+* **internal:** fix devcontainers setup ([#552](https://github.com/Finch-API/finch-api-node/issues/552)) ([120d3f9](https://github.com/Finch-API/finch-api-node/commit/120d3f9a1dc51d643e52a9a16cae1a41bf074891))
+
 ## 6.16.1 (2025-02-11)
 
 Full Changelog: [v6.16.0...v6.16.1](https://github.com/Finch-API/finch-api-node/compare/v6.16.0...v6.16.1)
