@@ -38,7 +38,7 @@ describe('resource payment', () => {
               earnings: [
                 {
                   amount: 0,
-                  attributes: { metadata: { foo: 'bar' } },
+                  attributes: { metadata: { metadata: { foo: 'bar' } } },
                   currency: 'currency',
                   hours: 0,
                   name: 'name',
@@ -47,10 +47,10 @@ describe('resource payment', () => {
               ],
               employee_deductions: [
                 {
-                  amount: 0,
-                  attributes: { metadata: { foo: 'bar' } },
-                  currency: 'currency',
-                  name: 'name',
+                  amount: 2000,
+                  attributes: { metadata: { metadata: { foo: 'bar' } } },
+                  currency: 'usd',
+                  name: '401k test',
                   pre_tax: true,
                   type: '401k',
                 },
@@ -58,20 +58,20 @@ describe('resource payment', () => {
               employer_contributions: [
                 {
                   amount: 0,
-                  attributes: { metadata: { foo: 'bar' } },
+                  attributes: { metadata: { metadata: { foo: 'bar' } } },
                   currency: 'currency',
                   name: 'name',
                   type: '401k',
                 },
               ],
               gross_pay: { amount: 0, currency: 'currency' },
-              individual_id: 'individual_id',
+              individual_id: 'b2338cfb-472f-4f72-9faa-e028c083144a',
               net_pay: { amount: 0, currency: 'currency' },
               payment_method: 'check',
               taxes: [
                 {
                   amount: 0,
-                  attributes: { metadata: { foo: 'bar' } },
+                  attributes: { metadata: { metadata: { foo: 'bar' } } },
                   currency: 'currency',
                   employer: true,
                   name: 'name',
