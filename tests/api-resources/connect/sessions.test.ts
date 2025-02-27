@@ -29,7 +29,7 @@ describe('resource sessions', () => {
       customer_id: 'x',
       customer_name: 'x',
       products: ['company'],
-      customer_email: 'dev@stainlessapi.com',
+      customer_email: 'dev@stainless.com',
       integration: { auth_method: 'assisted', provider: 'provider' },
       manual: true,
       minutes_to_expire: 1,

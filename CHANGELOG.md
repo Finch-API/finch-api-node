@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.18.1 (2025-02-27)
+
+Full Changelog: [v6.18.0...v6.18.1](https://github.com/Finch-API/finch-api-node/compare/v6.18.0...v6.18.1)
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#558](https://github.com/Finch-API/finch-api-node/issues/558)) ([2abb0ef](https://github.com/Finch-API/finch-api-node/commit/2abb0ef09caf75ba999c81f7d63beac6ebe9c44d))
+
 ## 6.18.0 (2025-02-27)
 
 Full Changelog: [v6.17.0...v6.18.0](https://github.com/Finch-API/finch-api-node/compare/v6.17.0...v6.18.0)
