@@ -207,11 +207,6 @@ export interface BenefitsSupport {
   [k: string]: BenefitFeaturesAndOperations | null | undefined;
 }
 
-/**
- * @deprecated use `BenefitContribution` instead
- */
-export type BenfitContribution = BenefitContribution | null;
-
 export interface CompanyBenefit {
   benefit_id: string;
 
@@ -282,6 +277,11 @@ export interface UpdateCompanyBenefitResponse {
   benefit_id: string;
 }
 
+/**
+ * @deprecated use `BenefitContribution` instead
+ */
+export type BenfitContribution = BenefitContribution | null;
+
 export interface BenefitCreateParams {
   /**
    * Name of the benefit as it appears in the provider and pay statements. Recommend
@@ -319,12 +319,12 @@ export declare namespace Benefits {
     type BenefitFrequency as BenefitFrequency,
     type BenefitType as BenefitType,
     type BenefitsSupport as BenefitsSupport,
-    type BenfitContribution as BenfitContribution,
     type CompanyBenefit as CompanyBenefit,
     type CreateCompanyBenefitsResponse as CreateCompanyBenefitsResponse,
     type SupportPerBenefitType as SupportPerBenefitType,
     type SupportedBenefit as SupportedBenefit,
     type UpdateCompanyBenefitResponse as UpdateCompanyBenefitResponse,
+    type BenfitContribution as BenfitContribution,
     CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
     SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
     type BenefitCreateParams as BenefitCreateParams,

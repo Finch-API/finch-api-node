@@ -9,12 +9,12 @@ export {
   type BenefitFrequency,
   type BenefitType,
   type BenefitsSupport,
-  type BenfitContribution,
   type CompanyBenefit,
   type CreateCompanyBenefitsResponse,
   type SupportPerBenefitType,
   type SupportedBenefit,
   type UpdateCompanyBenefitResponse,
+  type BenfitContribution,
   type BenefitCreateParams,
   type BenefitUpdateParams,
 } from './benefits/index';
