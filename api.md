@@ -113,12 +113,12 @@ Types:
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitFrequency</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitType</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitsSupport</a></code>
-- <code><a href="./src/resources/hris/benefits/benefits.ts">BenfitContribution</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">CompanyBenefit</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">CreateCompanyBenefitsResponse</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">SupportPerBenefitType</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">SupportedBenefit</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">UpdateCompanyBenefitResponse</a></code>
+- <code><a href="./src/resources/hris/benefits/benefits.ts">BenfitContribution</a></code>
 
 Methods:
 
