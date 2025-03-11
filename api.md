@@ -211,12 +211,13 @@ Types:
 
 - <code><a href="./src/resources/jobs/automated.ts">AutomatedAsyncJob</a></code>
 - <code><a href="./src/resources/jobs/automated.ts">AutomatedCreateResponse</a></code>
+- <code><a href="./src/resources/jobs/automated.ts">AutomatedListResponse</a></code>
 
 Methods:
 
 - <code title="post /jobs/automated">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">create</a>({ ...params }) -> AutomatedCreateResponse</code>
 - <code title="get /jobs/automated/{job_id}">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">retrieve</a>(jobId) -> AutomatedAsyncJob</code>
-- <code title="get /jobs/automated">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">list</a>({ ...params }) -> AutomatedAsyncJobsPage</code>
+- <code title="get /jobs/automated">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">list</a>({ ...params }) -> AutomatedListResponse</code>
 
 ## Manual
 
