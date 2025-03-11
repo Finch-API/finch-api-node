@@ -5,10 +5,10 @@ import * as AutomatedAPI from './automated';
 import {
   Automated,
   AutomatedAsyncJob,
-  AutomatedAsyncJobsPage,
   AutomatedCreateParams,
   AutomatedCreateResponse,
   AutomatedListParams,
+  AutomatedListResponse,
 } from './automated';
 import * as ManualAPI from './manual';
 import { Manual, ManualAsyncJob } from './manual';
@@ -19,7 +19,6 @@ export class Jobs extends APIResource {
 }
 
 Jobs.Automated = Automated;
-Jobs.AutomatedAsyncJobsPage = AutomatedAsyncJobsPage;
 Jobs.Manual = Manual;
 
 export declare namespace Jobs {
@@ -27,7 +26,7 @@ export declare namespace Jobs {
     Automated as Automated,
     type AutomatedAsyncJob as AutomatedAsyncJob,
     type AutomatedCreateResponse as AutomatedCreateResponse,
-    AutomatedAsyncJobsPage as AutomatedAsyncJobsPage,
+    type AutomatedListResponse as AutomatedListResponse,
     type AutomatedCreateParams as AutomatedCreateParams,
     type AutomatedListParams as AutomatedListParams,
   };
