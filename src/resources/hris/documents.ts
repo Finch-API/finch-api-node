@@ -7,8 +7,8 @@ import * as Shared from '../shared';
 
 export class Documents extends APIResource {
   /**
-   * **Beta:** This endpoint is in beta and may change.
-   * Retrieve a list of company-wide documents.
+   * **Beta:** This endpoint is in beta and may change. Retrieve a list of
+   * company-wide documents.
    */
   list(query?: DocumentListParams, options?: Core.RequestOptions): Core.APIPromise<DocumentListResponse>;
   list(options?: Core.RequestOptions): Core.APIPromise<DocumentListResponse>;
@@ -23,8 +23,8 @@ export class Documents extends APIResource {
   }
 
   /**
-   * **Beta:** This endpoint is in beta and may change.
-   * Retrieve details of a specific document by its ID.
+   * **Beta:** This endpoint is in beta and may change. Retrieve details of a
+   * specific document by its ID.
    */
   retreive(documentId: string, options?: Core.RequestOptions): Core.APIPromise<DocumentRetreiveResponse> {
     return this._client.get(`/employer/documents/${documentId}`, options);
@@ -99,7 +99,7 @@ export namespace W42005 {
     /**
      * The individual's filing status for tax purposes.
      */
-    filing_status?: 'married' | 'married_but_withhold_at_higher_single_rate' | 'single';
+    filing_status?: 'married' | 'married_but_withhold_at_higher_single_rate' | 'single' | null;
 
     /**
      * The unique identifier for the individual associated with this 2005 W4 form.
