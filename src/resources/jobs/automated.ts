@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import { Page, type PageParams } from '../../pagination';
 
 export class Automated extends APIResource {
   /**
@@ -41,23 +40,18 @@ export class Automated extends APIResource {
    * jobs are sorted in descending order by submission time. For scheduled jobs such
    * as data syncs, only the next scheduled job is shown.
    */
-  list(
-    query?: AutomatedListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<AutomatedAsyncJobsPage, AutomatedAsyncJob>;
-  list(options?: Core.RequestOptions): Core.PagePromise<AutomatedAsyncJobsPage, AutomatedAsyncJob>;
+  list(query?: AutomatedListParams, options?: Core.RequestOptions): Core.APIPromise<AutomatedListResponse>;
+  list(options?: Core.RequestOptions): Core.APIPromise<AutomatedListResponse>;
   list(
     query: AutomatedListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.PagePromise<AutomatedAsyncJobsPage, AutomatedAsyncJob> {
+  ): Core.APIPromise<AutomatedListResponse> {
     if (isRequestOptions(query)) {
       return this.list({}, query);
     }
-    return this._client.getAPIList('/jobs/automated', AutomatedAsyncJobsPage, { query, ...options });
+    return this._client.get('/jobs/automated', { query, ...options });
   }
 }
-
-export class AutomatedAsyncJobsPage extends Page<AutomatedAsyncJob> {}
 
 export interface AutomatedAsyncJob {
   /**
@@ -141,6 +135,44 @@ export interface AutomatedCreateResponse {
   remaining_refreshes: number;
 }
 
+export interface AutomatedListResponse {
+  data: Array<AutomatedAsyncJob>;
+
+  meta: AutomatedListResponse.Meta;
+}
+
+export namespace AutomatedListResponse {
+  export interface Meta {
+    /**
+     * Information about remaining quotas for this connection. Only applicable for
+     * customers opted in to use Finch's Data Sync Refresh endpoint
+     * (`POST /jobs/automated`). Please contact a Finch representative for more
+     * details.
+     */
+    quotas?: Meta.Quotas;
+  }
+
+  export namespace Meta {
+    /**
+     * Information about remaining quotas for this connection. Only applicable for
+     * customers opted in to use Finch's Data Sync Refresh endpoint
+     * (`POST /jobs/automated`). Please contact a Finch representative for more
+     * details.
+     */
+    export interface Quotas {
+      data_sync_all?: Quotas.DataSyncAll;
+    }
+
+    export namespace Quotas {
+      export interface DataSyncAll {
+        allowed_refreshes?: number;
+
+        remaining_refreshes?: number;
+      }
+    }
+  }
+}
+
 export type AutomatedCreateParams =
   | AutomatedCreateParams.DataSyncAll
   | AutomatedCreateParams.W4FormEmployeeSync;
@@ -172,15 +204,23 @@ export declare namespace AutomatedCreateParams {
   }
 }
 
-export interface AutomatedListParams extends PageParams {}
+export interface AutomatedListParams {
+  /**
+   * Number of items to return
+   */
+  limit?: number;
 
-Automated.AutomatedAsyncJobsPage = AutomatedAsyncJobsPage;
+  /**
+   * Index to start from (defaults to 0)
+   */
+  offset?: number;
+}
 
 export declare namespace Automated {
   export {
     type AutomatedAsyncJob as AutomatedAsyncJob,
     type AutomatedCreateResponse as AutomatedCreateResponse,
-    AutomatedAsyncJobsPage as AutomatedAsyncJobsPage,
+    type AutomatedListResponse as AutomatedListResponse,
     type AutomatedCreateParams as AutomatedCreateParams,
     type AutomatedListParams as AutomatedListParams,
   };

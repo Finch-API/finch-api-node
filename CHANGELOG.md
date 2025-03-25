@@ -1,5 +1,36 @@
 # Changelog
 
+## 6.19.0 (2025-03-25)
+
+Full Changelog: [v6.18.0...v6.19.0](https://github.com/Finch-API/finch-api-node/compare/v6.18.0...v6.19.0)
+
+### Features
+
+* add SKIP_BREW env var to ./scripts/bootstrap ([#563](https://github.com/Finch-API/finch-api-node/issues/563)) ([6126c8f](https://github.com/Finch-API/finch-api-node/commit/6126c8fbba873370e790eef7f00243d8d9569ad0))
+* **api:** api update ([#571](https://github.com/Finch-API/finch-api-node/issues/571)) ([08f9158](https://github.com/Finch-API/finch-api-node/commit/08f915863ecb154a9fd83eb25e535eae2674039e))
+* **api:** manual updates ([#560](https://github.com/Finch-API/finch-api-node/issues/560)) ([16949ae](https://github.com/Finch-API/finch-api-node/commit/16949aed1a201700c946b22b6cb923b03015e848))
+* **client:** accept RFC6838 JSON content types ([#564](https://github.com/Finch-API/finch-api-node/issues/564)) ([a45d995](https://github.com/Finch-API/finch-api-node/commit/a45d995bcfacc0d1d48947842c0e4e71c52e50bc))
+
+
+### Bug Fixes
+
+* avoid type error in certain environments ([#570](https://github.com/Finch-API/finch-api-node/issues/570)) ([a8c7d8f](https://github.com/Finch-API/finch-api-node/commit/a8c7d8f232683cdbc9ed5bbdff257c147962c4da))
+* **exports:** ensure resource imports don't require /index ([#567](https://github.com/Finch-API/finch-api-node/issues/567)) ([55a8d4a](https://github.com/Finch-API/finch-api-node/commit/55a8d4a9f2a8f2c5764fe496a5afa1147dfdf305))
+
+
+### Chores
+
+* **exports:** cleaner resource index imports ([#568](https://github.com/Finch-API/finch-api-node/issues/568)) ([3e5e7cf](https://github.com/Finch-API/finch-api-node/commit/3e5e7cfa673ecadd95f910944160179f46e573a7))
+* **exports:** stop using path fallbacks ([#569](https://github.com/Finch-API/finch-api-node/issues/569)) ([4941288](https://github.com/Finch-API/finch-api-node/commit/49412884a2329dfdf66917673648db93250857d1))
+* **internal:** codegen related update ([#562](https://github.com/Finch-API/finch-api-node/issues/562)) ([6c0cf0d](https://github.com/Finch-API/finch-api-node/commit/6c0cf0de15e4df4c7baf5601a385e2a9fc000a95))
+* **internal:** codegen related update ([#565](https://github.com/Finch-API/finch-api-node/issues/565)) ([36a590e](https://github.com/Finch-API/finch-api-node/commit/36a590e5602ce8305dff53e1c37a4885574cf55f))
+* **internal:** remove extra empty newlines ([#566](https://github.com/Finch-API/finch-api-node/issues/566)) ([f44dcf1](https://github.com/Finch-API/finch-api-node/commit/f44dcf1e88d46bb7bc1d95a2a7ce21b1cc9f4721))
+
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#558](https://github.com/Finch-API/finch-api-node/issues/558)) ([2abb0ef](https://github.com/Finch-API/finch-api-node/commit/2abb0ef09caf75ba999c81f7d63beac6ebe9c44d))
+
 ## 6.18.0 (2025-02-27)
 
 Full Changelog: [v6.17.0...v6.18.0](https://github.com/Finch-API/finch-api-node/compare/v6.17.0...v6.18.0)

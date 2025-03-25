@@ -17,7 +17,7 @@ describe('resource company', () => {
       entity: {},
       legal_name: 'legal_name',
       locations: [{}],
-      primary_email: 'primary_email',
+      primary_email: 'dev@stainless.com',
       primary_phone_number: 'primary_phone_number',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -56,7 +56,7 @@ describe('resource company', () => {
           state: 'state',
         },
       ],
-      primary_email: 'primary_email',
+      primary_email: 'dev@stainless.com',
       primary_phone_number: 'primary_phone_number',
     });
   });

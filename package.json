@@ -1,6 +1,6 @@
 {
   "name": "@tryfinch/finch-api",
-  "version": "6.18.0",
+  "version": "6.19.0",
   "description": "The official TypeScript library for the Finch API",
   "author": "Finch <founders@tryfinch.com>",
   "types": "dist/index.d.ts",
@@ -108,38 +108,17 @@
       "default": "./dist/index.mjs"
     },
     "./*.mjs": {
-      "types": [
-        "./dist/*.d.ts",
-        "./dist/*/index.d.ts"
-      ],
-      "default": [
-        "./dist/*.mjs",
-        "./dist/*/index.mjs"
-      ]
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.mjs"
     },
     "./*.js": {
-      "types": [
-        "./dist/*.d.ts",
-        "./dist/*/index.d.ts"
-      ],
-      "default": [
-        "./dist/*.js",
-        "./dist/*/index.js"
-      ]
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
     },
     "./*": {
-      "types": [
-        "./dist/*.d.ts",
-        "./dist/*/index.d.ts"
-      ],
-      "require": [
-        "./dist/*.js",
-        "./dist/*/index.js"
-      ],
-      "default": [
-        "./dist/*.mjs",
-        "./dist/*/index.mjs"
-      ]
+      "types": "./dist/*.d.ts",
+      "require": "./dist/*.js",
+      "default": "./dist/*.mjs"
     }
   }
 }

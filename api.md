@@ -120,12 +120,12 @@ Types:
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitFrequency</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitType</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitsSupport</a></code>
-- <code><a href="./src/resources/hris/benefits/benefits.ts">BenfitContribution</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">CompanyBenefit</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">CreateCompanyBenefitsResponse</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">SupportPerBenefitType</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">SupportedBenefit</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">UpdateCompanyBenefitResponse</a></code>
+- <code><a href="./src/resources/hris/benefits/benefits.ts">BenfitContribution</a></code>
 
 Methods:
 
@@ -211,12 +211,13 @@ Types:
 
 - <code><a href="./src/resources/jobs/automated.ts">AutomatedAsyncJob</a></code>
 - <code><a href="./src/resources/jobs/automated.ts">AutomatedCreateResponse</a></code>
+- <code><a href="./src/resources/jobs/automated.ts">AutomatedListResponse</a></code>
 
 Methods:
 
 - <code title="post /jobs/automated">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">create</a>({ ...params }) -> AutomatedCreateResponse</code>
 - <code title="get /jobs/automated/{job_id}">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">retrieve</a>(jobId) -> AutomatedAsyncJob</code>
-- <code title="get /jobs/automated">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">list</a>({ ...params }) -> AutomatedAsyncJobsPage</code>
+- <code title="get /jobs/automated">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">list</a>({ ...params }) -> AutomatedListResponse</code>
 
 ## Manual
 

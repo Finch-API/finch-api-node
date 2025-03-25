@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export {
-  AutomatedAsyncJobsPage,
   Automated,
   type AutomatedAsyncJob,
   type AutomatedCreateResponse,
+  type AutomatedListResponse,
   type AutomatedCreateParams,
   type AutomatedListParams,
 } from './automated';
