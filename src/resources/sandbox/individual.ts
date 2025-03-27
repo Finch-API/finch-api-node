@@ -104,7 +104,7 @@ export namespace IndividualUpdateResponse {
   }
 
   export interface PhoneNumber {
-    data?: string;
+    data?: string | null;
 
     type?: 'work' | 'personal' | null;
   }
@@ -182,7 +182,7 @@ export namespace IndividualUpdateParams {
   }
 
   export interface PhoneNumber {
-    data?: string;
+    data?: string | null;
 
     type?: 'work' | 'personal' | null;
   }
