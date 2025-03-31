@@ -138,6 +138,11 @@ export namespace Introspection {
   }
 
   export interface ConnectionStatus {
+    /**
+     * The datetime when the connection was last successfully synced.
+     */
+    last_successful_sync?: string;
+
     message?: string;
 
     status?: Shared.ConnectionStatusType;
