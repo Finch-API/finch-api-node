@@ -1,5 +1,18 @@
 # Changelog
 
+## 6.20.0 (2025-03-27)
+
+Full Changelog: [v6.19.0...v6.20.0](https://github.com/Finch-API/finch-api-node/compare/v6.19.0...v6.20.0)
+
+### Features
+
+* **api:** api update ([#573](https://github.com/Finch-API/finch-api-node/issues/573)) ([3e564bb](https://github.com/Finch-API/finch-api-node/commit/3e564bb85fa7c7d5fb28f516168071ec995ddc86))
+
+
+### Bug Fixes
+
+* **internal:** work around https://github.com/vercel/next.js/issues/76881 ([#575](https://github.com/Finch-API/finch-api-node/issues/575)) ([2704a24](https://github.com/Finch-API/finch-api-node/commit/2704a2435ed771eafcf00c87eb7938825744a078))
+
 ## 6.19.0 (2025-03-25)
 
 Full Changelog: [v6.18.0...v6.19.0](https://github.com/Finch-API/finch-api-node/compare/v6.18.0...v6.19.0)

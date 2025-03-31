@@ -221,7 +221,7 @@ export namespace DirectoryCreateParams {
     }
 
     export interface PhoneNumber {
-      data?: string;
+      data?: string | null;
 
       type?: 'work' | 'personal' | null;
     }
