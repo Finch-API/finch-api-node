@@ -32,7 +32,7 @@ export class Directory extends APIResource {
 
 export interface IndividualInDirectory {
   /**
-   * A stable Finch id (UUID v4) for an individual in the company.
+   * A stable Finch `id` (UUID v4) for an individual in the company.
    */
   id?: string;
 
