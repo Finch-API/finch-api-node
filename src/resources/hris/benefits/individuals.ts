@@ -238,6 +238,11 @@ export namespace IndividualEnrollManyParams {
 
       company_contribution?: Configuration.CompanyContribution;
 
+      /**
+       * The date the enrollment will take effect
+       */
+      effective_date?: string;
+
       employee_deduction?: Configuration.EmployeeDeduction;
     }
 
