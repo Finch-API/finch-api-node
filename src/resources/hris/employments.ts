@@ -25,7 +25,7 @@ export class EmploymentDataResponsesPage extends ResponsesPage<EmploymentDataRes
 
 export interface EmploymentData {
   /**
-   * string A stable Finch `id` (UUID v4) for an individual in the company.
+   * A stable Finch `id` (UUID v4) for an individual in the company.
    */
   id?: string;
 
@@ -51,7 +51,8 @@ export interface EmploymentData {
   employment?: EmploymentData.Employment | null;
 
   /**
-   * The detailed employment status of the individual. Available options: `active`, `deceased`, `leave`, `onboarding`, `prehire`, `retired`, `terminated`.
+   * The detailed employment status of the individual. Available options: `active`,
+   * `deceased`, `leave`, `onboarding`, `prehire`, `retired`, `terminated`.
    */
   employment_status?:
     | 'active'
@@ -146,7 +147,8 @@ export namespace EmploymentData {
    */
   export interface Employment {
     /**
-     * The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
+     * The secondary employment type of the individual. Options: `full_time`,
+     * `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
      */
     subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor' | null;
 
@@ -172,6 +174,9 @@ export interface EmploymentDataResponse {
 
   code?: number;
 
+  /**
+   * A stable Finch `id` (UUID v4) for an individual in the company.
+   */
   individual_id?: string;
 }
 
