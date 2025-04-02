@@ -81,22 +81,22 @@ export class Individuals extends APIResource {
     benefitId: string,
     body?: IndividualUnenrollManyParams,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual>;
+  ): Core.PagePromise<IndividualUnenrollManyResponsesSinglePage, IndividualUnenrollManyResponse>;
   unenrollMany(
     benefitId: string,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual>;
+  ): Core.PagePromise<IndividualUnenrollManyResponsesSinglePage, IndividualUnenrollManyResponse>;
   unenrollMany(
     benefitId: string,
     body: IndividualUnenrollManyParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual> {
+  ): Core.PagePromise<IndividualUnenrollManyResponsesSinglePage, IndividualUnenrollManyResponse> {
     if (isRequestOptions(body)) {
       return this.unenrollMany(benefitId, {}, body);
     }
     return this._client.getAPIList(
       `/employer/benefits/${benefitId}/individuals`,
-      UnenrolledIndividualsSinglePage,
+      IndividualUnenrollManyResponsesSinglePage,
       { body, method: 'delete', ...options },
     );
   }
@@ -106,7 +106,7 @@ export class EnrolledIndividualsSinglePage extends SinglePage<EnrolledIndividual
 
 export class IndividualBenefitsSinglePage extends SinglePage<IndividualBenefit> {}
 
-export class UnenrolledIndividualsSinglePage extends SinglePage<UnenrolledIndividual> {}
+export class IndividualUnenrollManyResponsesSinglePage extends SinglePage<IndividualUnenrollManyResponse> {}
 
 export interface EnrolledIndividual {
   body?: EnrolledIndividual.Body;
@@ -122,7 +122,7 @@ export interface EnrolledIndividual {
 export namespace EnrolledIndividual {
   export interface Body {
     /**
-     * A descriptive identifier for the response
+     * A descriptive identifier for the response.
      */
     finch_code?: string | null;
 
@@ -170,41 +170,16 @@ export namespace IndividualBenefit {
   }
 }
 
-export interface UnenrolledIndividual {
-  body?: UnenrolledIndividual.Body;
-
-  /**
-   * HTTP status code
-   */
-  code?: number;
-
-  individual_id?: string;
-}
-
-export namespace UnenrolledIndividual {
-  export interface Body {
-    /**
-     * A descriptive identifier for the response.
-     */
-    finch_code?: string | null;
-
-    /**
-     * Short description in English that provides more information about the response.
-     */
-    message?: string | null;
-
-    /**
-     * Identifier indicating whether the benefit was newly enrolled or updated.
-     */
-    name?: string | null;
-  }
-}
-
 export interface IndividualEnrolledIDsResponse {
+  /**
+   * The id of the benefit.
+   */
   benefit_id: string;
 
   individual_ids: Array<string>;
 }
+
+export type IndividualUnenrollManyResponse = unknown;
 
 export type IndividualEnrollManyParams = Array<IndividualEnrollManyParams.Individual>;
 
@@ -287,17 +262,17 @@ export interface IndividualUnenrollManyParams {
 
 Individuals.EnrolledIndividualsSinglePage = EnrolledIndividualsSinglePage;
 Individuals.IndividualBenefitsSinglePage = IndividualBenefitsSinglePage;
-Individuals.UnenrolledIndividualsSinglePage = UnenrolledIndividualsSinglePage;
+Individuals.IndividualUnenrollManyResponsesSinglePage = IndividualUnenrollManyResponsesSinglePage;
 
 export declare namespace Individuals {
   export {
     type EnrolledIndividual as EnrolledIndividual,
     type IndividualBenefit as IndividualBenefit,
-    type UnenrolledIndividual as UnenrolledIndividual,
     type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
+    type IndividualUnenrollManyResponse as IndividualUnenrollManyResponse,
     EnrolledIndividualsSinglePage as EnrolledIndividualsSinglePage,
     IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
-    UnenrolledIndividualsSinglePage as UnenrolledIndividualsSinglePage,
+    IndividualUnenrollManyResponsesSinglePage as IndividualUnenrollManyResponsesSinglePage,
     type IndividualEnrollManyParams as IndividualEnrollManyParams,
     type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
     type IndividualUnenrollManyParams as IndividualUnenrollManyParams,

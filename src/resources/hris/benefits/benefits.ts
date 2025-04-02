@@ -15,9 +15,9 @@ import {
   IndividualEnrolledIDsResponse,
   IndividualRetrieveManyBenefitsParams,
   IndividualUnenrollManyParams,
+  IndividualUnenrollManyResponse,
+  IndividualUnenrollManyResponsesSinglePage,
   Individuals,
-  UnenrolledIndividual,
-  UnenrolledIndividualsSinglePage,
 } from './individuals';
 import { SinglePage } from '../../../pagination';
 
@@ -149,6 +149,9 @@ export namespace BenefitFeaturesAndOperations {
   }
 }
 
+/**
+ * The frequency of the benefit deduction/contribution.
+ */
 export type BenefitFrequency = 'one_time' | 'every_paycheck' | 'monthly' | null;
 
 /**
@@ -208,10 +211,16 @@ export interface BenefitsSupport {
 }
 
 export interface CompanyBenefit {
+  /**
+   * The id of the benefit.
+   */
   benefit_id: string;
 
   description: string | null;
 
+  /**
+   * The frequency of the benefit deduction/contribution.
+   */
   frequency: BenefitFrequency | null;
 
   /**
@@ -221,6 +230,9 @@ export interface CompanyBenefit {
 }
 
 export interface CreateCompanyBenefitsResponse {
+  /**
+   * The id of the benefit.
+   */
   benefit_id: string;
 }
 
@@ -274,6 +286,9 @@ export interface SupportedBenefit {
 }
 
 export interface UpdateCompanyBenefitResponse {
+  /**
+   * The id of the benefit.
+   */
   benefit_id: string;
 }
 
@@ -290,6 +305,9 @@ export interface BenefitCreateParams {
    */
   description?: string;
 
+  /**
+   * The frequency of the benefit deduction/contribution.
+   */
   frequency?: BenefitFrequency | null;
 
   /**
@@ -310,7 +328,7 @@ Benefits.SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
 Benefits.Individuals = Individuals;
 Benefits.EnrolledIndividualsSinglePage = EnrolledIndividualsSinglePage;
 Benefits.IndividualBenefitsSinglePage = IndividualBenefitsSinglePage;
-Benefits.UnenrolledIndividualsSinglePage = UnenrolledIndividualsSinglePage;
+Benefits.IndividualUnenrollManyResponsesSinglePage = IndividualUnenrollManyResponsesSinglePage;
 
 export declare namespace Benefits {
   export {
@@ -335,11 +353,11 @@ export declare namespace Benefits {
     Individuals as Individuals,
     type EnrolledIndividual as EnrolledIndividual,
     type IndividualBenefit as IndividualBenefit,
-    type UnenrolledIndividual as UnenrolledIndividual,
     type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
+    type IndividualUnenrollManyResponse as IndividualUnenrollManyResponse,
     EnrolledIndividualsSinglePage as EnrolledIndividualsSinglePage,
     IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
-    UnenrolledIndividualsSinglePage as UnenrolledIndividualsSinglePage,
+    IndividualUnenrollManyResponsesSinglePage as IndividualUnenrollManyResponsesSinglePage,
     type IndividualEnrollManyParams as IndividualEnrollManyParams,
     type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
     type IndividualUnenrollManyParams as IndividualUnenrollManyParams,
