@@ -1,8 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import * as CompanyAPI from './company';
-import { Company, CompanyResource } from './company';
 import * as DirectoryAPI from './directory';
 import {
   Directory,
@@ -66,6 +64,8 @@ import {
   SupportedBenefitsSinglePage,
   UpdateCompanyBenefitResponse,
 } from './benefits/benefits';
+import * as CompanyAPI from './company/company';
+import { Company, CompanyResource } from './company/company';
 
 export class HRIS extends APIResource {
   company: CompanyAPI.CompanyResource = new CompanyAPI.CompanyResource(this._client);
