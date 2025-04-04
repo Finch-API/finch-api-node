@@ -29,11 +29,37 @@ Types:
 
 Types:
 
-- <code><a href="./src/resources/hris/company.ts">Company</a></code>
+- <code><a href="./src/resources/hris/company/company.ts">Company</a></code>
 
 Methods:
 
-- <code title="get /employer/company">client.hris.company.<a href="./src/resources/hris/company.ts">retrieve</a>() -> Company</code>
+- <code title="get /employer/company">client.hris.company.<a href="./src/resources/hris/company/company.ts">retrieve</a>() -> Company</code>
+
+### PayStatementItem
+
+Types:
+
+- <code><a href="./src/resources/hris/company/pay-statement-item/pay-statement-item.ts">PayStatementItemListResponse</a></code>
+
+Methods:
+
+- <code title="get /employer/pay-statement-item">client.hris.company.payStatementItem.<a href="./src/resources/hris/company/pay-statement-item/pay-statement-item.ts">list</a>({ ...params }) -> PayStatementItemListResponsesPage</code>
+
+#### Rules
+
+Types:
+
+- <code><a href="./src/resources/hris/company/pay-statement-item/rules.ts">RuleCreateResponse</a></code>
+- <code><a href="./src/resources/hris/company/pay-statement-item/rules.ts">RuleUpdateResponse</a></code>
+- <code><a href="./src/resources/hris/company/pay-statement-item/rules.ts">RuleListResponse</a></code>
+- <code><a href="./src/resources/hris/company/pay-statement-item/rules.ts">RuleDeleteResponse</a></code>
+
+Methods:
+
+- <code title="post /employer/pay-statement-item/rule">client.hris.company.payStatementItem.rules.<a href="./src/resources/hris/company/pay-statement-item/rules.ts">create</a>({ ...params }) -> RuleCreateResponse</code>
+- <code title="put /employer/pay-statement-item/rule/{rule_id}">client.hris.company.payStatementItem.rules.<a href="./src/resources/hris/company/pay-statement-item/rules.ts">update</a>(ruleId, { ...params }) -> RuleUpdateResponse</code>
+- <code title="get /employer/pay-statement-item/rule">client.hris.company.payStatementItem.rules.<a href="./src/resources/hris/company/pay-statement-item/rules.ts">list</a>() -> RuleListResponsesPage</code>
+- <code title="delete /employer/pay-statement-item/rule/{rule_id}">client.hris.company.payStatementItem.rules.<a href="./src/resources/hris/company/pay-statement-item/rules.ts">delete</a>(ruleId) -> RuleDeleteResponse</code>
 
 ## Directory
 
