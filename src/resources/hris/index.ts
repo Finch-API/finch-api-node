@@ -18,7 +18,7 @@ export {
   type BenefitCreateParams,
   type BenefitUpdateParams,
 } from './benefits/index';
-export { CompanyResource, type Company } from './company';
+export { CompanyResource, type Company } from './company/index';
 export {
   Directory,
   type IndividualInDirectory,
