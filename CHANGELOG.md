@@ -1,5 +1,28 @@
 # Changelog
 
+## 6.22.0 (2025-04-04)
+
+Full Changelog: [v6.21.0...v6.22.0](https://github.com/Finch-API/finch-api-node/compare/v6.21.0...v6.22.0)
+
+### Features
+
+* **api:** add new endpoints for pay statement items ([#587](https://github.com/Finch-API/finch-api-node/issues/587)) ([ad88cfc](https://github.com/Finch-API/finch-api-node/commit/ad88cfc51906f4e1dbfb04ccb5f80bb17a75a38b))
+* **api:** api update ([#580](https://github.com/Finch-API/finch-api-node/issues/580)) ([6237aeb](https://github.com/Finch-API/finch-api-node/commit/6237aeb2de71a2c17beaae8cf891f70540f2140f))
+* **api:** api update ([#582](https://github.com/Finch-API/finch-api-node/issues/582)) ([960a908](https://github.com/Finch-API/finch-api-node/commit/960a90821a90d244d5c09e0efe670826cfff4f57))
+* **api:** api update ([#584](https://github.com/Finch-API/finch-api-node/issues/584)) ([3ee3c43](https://github.com/Finch-API/finch-api-node/commit/3ee3c43408504a8e90a4c6f7ef524bec87ec44cd))
+* **api:** manual updates ([#588](https://github.com/Finch-API/finch-api-node/issues/588)) ([8608c19](https://github.com/Finch-API/finch-api-node/commit/8608c1996e2ab9e7136e9249b10be0cb61f166db))
+
+
+### Bug Fixes
+
+* **api:** improve type resolution when importing as a package ([#586](https://github.com/Finch-API/finch-api-node/issues/586)) ([a3b98cb](https://github.com/Finch-API/finch-api-node/commit/a3b98cb6044dd0079c2492f275f72852747e2ec2))
+* **client:** send `X-Stainless-Timeout` in seconds ([#583](https://github.com/Finch-API/finch-api-node/issues/583)) ([880103a](https://github.com/Finch-API/finch-api-node/commit/880103a237bc6176ccec3990f172330bedf9f995))
+
+
+### Chores
+
+* **internal:** add aliases for Record and Array ([#585](https://github.com/Finch-API/finch-api-node/issues/585)) ([5356813](https://github.com/Finch-API/finch-api-node/commit/5356813545fcedcce376e5d9d6ecc71c86b12f9f))
+
 ## 6.21.0 (2025-03-31)
 
 Full Changelog: [v6.20.0...v6.21.0](https://github.com/Finch-API/finch-api-node/compare/v6.20.0...v6.21.0)

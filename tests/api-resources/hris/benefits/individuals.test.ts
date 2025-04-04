@@ -39,6 +39,7 @@ describe('resource individuals', () => {
               annual_maximum: 500000,
               catch_up: false,
               company_contribution: { amount: 400, type: 'fixed' },
+              effective_date: '2025-01-01',
               employee_deduction: { amount: 1000, type: 'fixed' },
             },
             individual_id: 'd02a6346-1f08-4312-a064-49ff3cafaa7a',

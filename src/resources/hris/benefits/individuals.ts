@@ -122,7 +122,7 @@ export interface EnrolledIndividual {
 export namespace EnrolledIndividual {
   export interface Body {
     /**
-     * A descriptive identifier for the response
+     * A descriptive identifier for the response.
      */
     finch_code?: string | null;
 
@@ -201,6 +201,9 @@ export namespace UnenrolledIndividual {
 }
 
 export interface IndividualEnrolledIDsResponse {
+  /**
+   * The id of the benefit.
+   */
   benefit_id: string;
 
   individual_ids: Array<string>;
@@ -237,6 +240,11 @@ export namespace IndividualEnrollManyParams {
       catch_up?: boolean;
 
       company_contribution?: Configuration.CompanyContribution;
+
+      /**
+       * The date the enrollment will take effect
+       */
+      effective_date?: string;
 
       employee_deduction?: Configuration.EmployeeDeduction;
     }
