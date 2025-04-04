@@ -115,7 +115,7 @@ export class IndividualsPage
     super(client, response, body, options);
 
     this.individuals = body.individuals || [];
-    this.paging = body.paging || {};
+    this.paging = body.paging;
   }
 
   getPaginatedItems(): DirectoryAPI.IndividualInDirectory[] {
@@ -133,7 +133,7 @@ export class IndividualsPage
   }
 
   nextPageInfo(): PageInfo | null {
-    const offset = this.paging?.offset;
+    const offset = this.paging.offset;
     if (!offset) {
       return null;
     }
@@ -141,7 +141,7 @@ export class IndividualsPage
     const length = this.getPaginatedItems().length;
     const currentCount = offset + length;
 
-    const totalCount = this.paging?.count;
+    const totalCount = this.paging.count;
     if (!totalCount) {
       return null;
     }
@@ -181,7 +181,7 @@ export class Page<Item> extends AbstractPage<Item> implements PageResponse<Item>
     super(client, response, body, options);
 
     this.data = body.data || [];
-    this.paging = body.paging || {};
+    this.paging = body.paging;
   }
 
   getPaginatedItems(): Item[] {
@@ -199,7 +199,7 @@ export class Page<Item> extends AbstractPage<Item> implements PageResponse<Item>
   }
 
   nextPageInfo(): PageInfo | null {
-    const offset = this.paging?.offset;
+    const offset = this.paging.offset;
     if (!offset) {
       return null;
     }
@@ -207,7 +207,7 @@ export class Page<Item> extends AbstractPage<Item> implements PageResponse<Item>
     const length = this.getPaginatedItems().length;
     const currentCount = offset + length;
 
-    const totalCount = this.paging?.count;
+    const totalCount = this.paging.count;
     if (!totalCount) {
       return null;
     }
