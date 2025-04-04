@@ -1,5 +1,19 @@
 # Changelog
 
+## 6.22.1 (2025-04-04)
+
+Full Changelog: [v6.22.0...v6.22.1](https://github.com/Finch-API/finch-api-node/compare/v6.22.0...v6.22.1)
+
+### Bug Fixes
+
+* **mcp:** remove unused tools.ts ([#592](https://github.com/Finch-API/finch-api-node/issues/592)) ([9a0678b](https://github.com/Finch-API/finch-api-node/commit/9a0678ba995037633567f626e0baff0da71f1298))
+
+
+### Chores
+
+* **internal:** codegen related update ([#593](https://github.com/Finch-API/finch-api-node/issues/593)) ([efa8229](https://github.com/Finch-API/finch-api-node/commit/efa82290cc6df930abd943e38f49d066ff7e9141))
+* **internal:** improve index signature formatting ([#590](https://github.com/Finch-API/finch-api-node/issues/590)) ([2a5f375](https://github.com/Finch-API/finch-api-node/commit/2a5f3754f25d2f031a4992d00b595385d5c478a2))
+
 ## 6.22.0 (2025-04-04)
 
 Full Changelog: [v6.21.0...v6.22.0](https://github.com/Finch-API/finch-api-node/compare/v6.21.0...v6.22.0)
