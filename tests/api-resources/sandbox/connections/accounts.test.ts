@@ -54,7 +54,7 @@ describe('resource accounts', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.sandbox.connections.accounts.update(
-        { connection_status: 'pending' },
+        { connection_status: 'reauth' },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Finch.NotFoundError);
