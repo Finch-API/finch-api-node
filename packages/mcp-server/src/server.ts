@@ -11,7 +11,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'tryfinch_finch_api_api',
-    version: '6.22.0',
+    version: '6.22.1',
   },
   {
     capabilities: {

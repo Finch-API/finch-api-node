@@ -1,5 +1,23 @@
 # Changelog
 
+## 6.22.1 (2025-04-08)
+
+Full Changelog: [v6.22.0...v6.22.1](https://github.com/Finch-API/finch-api-node/compare/v6.22.0...v6.22.1)
+
+### Bug Fixes
+
+* **client:** send all configured auth headers ([#594](https://github.com/Finch-API/finch-api-node/issues/594)) ([7e6bd40](https://github.com/Finch-API/finch-api-node/commit/7e6bd408cc700be14fc9102edce4376a94173082))
+* **mcp:** point homepage and repo for mcp package to the `packages/mcp-server` directory ([#597](https://github.com/Finch-API/finch-api-node/issues/597)) ([b390a29](https://github.com/Finch-API/finch-api-node/commit/b390a29c4ebd70a577b8a19c5133b31813e9ed4a))
+* **mcp:** remove unused tools.ts ([#592](https://github.com/Finch-API/finch-api-node/issues/592)) ([9a0678b](https://github.com/Finch-API/finch-api-node/commit/9a0678ba995037633567f626e0baff0da71f1298))
+
+
+### Chores
+
+* configure new SDK language ([#595](https://github.com/Finch-API/finch-api-node/issues/595)) ([d7219f0](https://github.com/Finch-API/finch-api-node/commit/d7219f0e80bd97dabfd602f103b3a1252364cb64))
+* **internal:** codegen related update ([#593](https://github.com/Finch-API/finch-api-node/issues/593)) ([efa8229](https://github.com/Finch-API/finch-api-node/commit/efa82290cc6df930abd943e38f49d066ff7e9141))
+* **internal:** improve index signature formatting ([#590](https://github.com/Finch-API/finch-api-node/issues/590)) ([2a5f375](https://github.com/Finch-API/finch-api-node/commit/2a5f3754f25d2f031a4992d00b595385d5c478a2))
+* **tests:** improve enum examples ([#596](https://github.com/Finch-API/finch-api-node/issues/596)) ([87b29e3](https://github.com/Finch-API/finch-api-node/commit/87b29e3bd2abd6ecf8c82e47bfc031d31826cc5b))
+
 ## 6.22.0 (2025-04-04)
 
 Full Changelog: [v6.21.0...v6.22.0](https://github.com/Finch-API/finch-api-node/compare/v6.21.0...v6.22.0)
