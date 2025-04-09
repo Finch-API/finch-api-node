@@ -166,17 +166,17 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/hris/benefits/individuals.ts">EnrolledIndividualBenifit</a></code>
 - <code><a href="./src/resources/hris/benefits/individuals.ts">IndividualBenefit</a></code>
-- <code><a href="./src/resources/hris/benefits/individuals.ts">IndividualEnrollManyResponse</a></code>
 - <code><a href="./src/resources/hris/benefits/individuals.ts">IndividualEnrolledIDsResponse</a></code>
 - <code><a href="./src/resources/hris/benefits/individuals.ts">IndividualUnenrollManyResponse</a></code>
 
 Methods:
 
-- <code title="post /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">enrollMany</a>(benefitId, [ ...individuals ]) -> IndividualEnrollManyResponse</code>
+- <code title="post /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">enrollMany</a>(benefitId, [ ...individuals ]) -> EnrolledIndividualBenifit</code>
 - <code title="get /employer/benefits/{benefit_id}/enrolled">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">enrolledIds</a>(benefitId) -> IndividualEnrolledIDsResponse</code>
 - <code title="get /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">retrieveManyBenefits</a>(benefitId, { ...params }) -> IndividualBenefitsSinglePage</code>
-- <code title="delete /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">unenrollMany</a>(benefitId, { ...params }) -> IndividualUnenrollManyResponsesSinglePage</code>
+- <code title="delete /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">unenrollMany</a>(benefitId, { ...params }) -> IndividualUnenrollManyResponse</code>
 
 # Providers
 
