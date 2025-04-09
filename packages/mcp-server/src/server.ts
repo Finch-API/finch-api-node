@@ -11,7 +11,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'tryfinch_finch_api_api',
-    version: '6.22.2',
+    version: '6.22.3',
   },
   {
     capabilities: {
@@ -36,7 +36,7 @@ export function init(params: {
     providedEndpoints.map((endpoint) => [endpoint.tool.name, endpoint.handler]),
   );
 
-  const client = params.client || new Finch();
+  const client = params.client || new Finch({ accessToken: readEnv('FINCH_ACCESS_TOKEN') });
 
   server.setRequestHandler(ListToolsRequestSchema, async () => {
     return {
@@ -75,13 +75,16 @@ export async function executeHandler(
   };
 }
 
-export const readEnv = (env: string): string => {
-  let envValue = undefined;
+export const readEnv = (env: string): string | undefined => {
   if (typeof (globalThis as any).process !== 'undefined') {
-    envValue = (globalThis as any).process.env?.[env]?.trim();
+    return (globalThis as any).process.env?.[env]?.trim();
   } else if (typeof (globalThis as any).Deno !== 'undefined') {
-    envValue = (globalThis as any).Deno.env?.get?.(env)?.trim();
+    return (globalThis as any).Deno.env?.get?.(env)?.trim();
   }
+};
+
+export const readEnvOrError = (env: string): string => {
+  let envValue = readEnv(env);
   if (envValue === undefined) {
     throw new Error(`Environment variable ${env} is not set`);
   }
