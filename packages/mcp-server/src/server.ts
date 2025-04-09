@@ -36,7 +36,7 @@ export function init(params: {
     providedEndpoints.map((endpoint) => [endpoint.tool.name, endpoint.handler]),
   );
 
-  const client = params.client || new Finch({});
+  const client = params.client || new Finch();
 
   server.setRequestHandler(ListToolsRequestSchema, async () => {
     return {
