@@ -14,8 +14,8 @@ import {
   IndividualEnrolledIDsResponse,
   IndividualRetrieveManyBenefitsParams,
   IndividualUnenrollManyParams,
-  IndividualUnenrollManyResponse,
   Individuals,
+  UnenrolledIndividualBenefitResponse,
 } from './individuals';
 import { SinglePage } from '../../../pagination';
 
@@ -392,8 +392,8 @@ export declare namespace Benefits {
     Individuals as Individuals,
     type EnrolledIndividualBenefitResponse as EnrolledIndividualBenefitResponse,
     type IndividualBenefit as IndividualBenefit,
+    type UnenrolledIndividualBenefitResponse as UnenrolledIndividualBenefitResponse,
     type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
-    type IndividualUnenrollManyResponse as IndividualUnenrollManyResponse,
     IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
     type IndividualEnrollManyParams as IndividualEnrollManyParams,
     type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
