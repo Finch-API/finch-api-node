@@ -7,15 +7,14 @@ import * as BenefitsAPI from './benefits';
 import * as Shared from '../../shared';
 import * as IndividualsAPI from './individuals';
 import {
+  EnrolledIndividualBenifit,
   IndividualBenefit,
   IndividualBenefitsSinglePage,
   IndividualEnrollManyParams,
-  IndividualEnrollManyResponse,
   IndividualEnrolledIDsResponse,
   IndividualRetrieveManyBenefitsParams,
   IndividualUnenrollManyParams,
   IndividualUnenrollManyResponse,
-  IndividualUnenrollManyResponsesSinglePage,
   Individuals,
 } from './individuals';
 import { SinglePage } from '../../../pagination';
@@ -368,7 +367,6 @@ Benefits.CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
 Benefits.BenefitListSupportedBenefitsResponsesSinglePage = BenefitListSupportedBenefitsResponsesSinglePage;
 Benefits.Individuals = Individuals;
 Benefits.IndividualBenefitsSinglePage = IndividualBenefitsSinglePage;
-Benefits.IndividualUnenrollManyResponsesSinglePage = IndividualUnenrollManyResponsesSinglePage;
 
 export declare namespace Benefits {
   export {
@@ -392,12 +390,11 @@ export declare namespace Benefits {
 
   export {
     Individuals as Individuals,
+    type EnrolledIndividualBenifit as EnrolledIndividualBenifit,
     type IndividualBenefit as IndividualBenefit,
-    type IndividualEnrollManyResponse as IndividualEnrollManyResponse,
     type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
     type IndividualUnenrollManyResponse as IndividualUnenrollManyResponse,
     IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
-    IndividualUnenrollManyResponsesSinglePage as IndividualUnenrollManyResponsesSinglePage,
     type IndividualEnrollManyParams as IndividualEnrollManyParams,
     type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
     type IndividualUnenrollManyParams as IndividualUnenrollManyParams,

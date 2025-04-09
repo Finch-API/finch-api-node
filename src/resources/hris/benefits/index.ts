@@ -21,10 +21,9 @@ export {
 } from './benefits';
 export {
   IndividualBenefitsSinglePage,
-  IndividualUnenrollManyResponsesSinglePage,
   Individuals,
+  type EnrolledIndividualBenifit,
   type IndividualBenefit,
-  type IndividualEnrollManyResponse,
   type IndividualEnrolledIDsResponse,
   type IndividualUnenrollManyResponse,
   type IndividualEnrollManyParams,
