@@ -1,3 +1,10 @@
+# Finch
+
+Methods:
+
+- <code>client.<a href="./src/index.ts">getAuthURL</a>({ products, redirectUri, sandbox }) -> string</code>
+- <code>client.<a href="./src/index.ts">withAccessToken</a>(accessToken) -> Finch</code>
+
 # Shared
 
 Types:
@@ -206,6 +213,11 @@ Types:
 - <code><a href="./src/resources/webhooks.ts">PayStatementEvent</a></code>
 - <code><a href="./src/resources/webhooks.ts">PaymentEvent</a></code>
 - <code><a href="./src/resources/webhooks.ts">WebhookEvent</a></code>
+
+Methods:
+
+- <code>client.webhooks.<a href="./src/resources/webhooks.ts">unwrap</a>(payload, headers, secret) -> WebhookEvent</code>
+- <code>client.webhooks.<a href="./src/resources/webhooks.ts">verifySignature</a>(body, headers, secret) -> void</code>
 
 # RequestForwarding
 
