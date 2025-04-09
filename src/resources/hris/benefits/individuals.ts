@@ -77,16 +77,16 @@ export class Individuals extends APIResource {
     benefitId: string,
     body?: IndividualUnenrollManyParams,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<IndividualUnenrollManyResponse>;
+  ): Core.APIPromise<UnenrolledIndividualBenefitResponse>;
   unenrollMany(
     benefitId: string,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<IndividualUnenrollManyResponse>;
+  ): Core.APIPromise<UnenrolledIndividualBenefitResponse>;
   unenrollMany(
     benefitId: string,
     body: IndividualUnenrollManyParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.APIPromise<IndividualUnenrollManyResponse> {
+  ): Core.APIPromise<UnenrolledIndividualBenefitResponse> {
     if (isRequestOptions(body)) {
       return this.unenrollMany(benefitId, {}, body);
     }
@@ -132,6 +132,10 @@ export namespace IndividualBenefit {
   }
 }
 
+export interface UnenrolledIndividualBenefitResponse {
+  job_id: string;
+}
+
 export interface IndividualEnrolledIDsResponse {
   /**
    * The id of the benefit.
@@ -139,10 +143,6 @@ export interface IndividualEnrolledIDsResponse {
   benefit_id: string;
 
   individual_ids: Array<string>;
-}
-
-export interface IndividualUnenrollManyResponse {
-  job_id: string;
 }
 
 export type IndividualEnrollManyParams = Array<IndividualEnrollManyParams.Individual>;
@@ -230,8 +230,8 @@ export declare namespace Individuals {
   export {
     type EnrolledIndividualBenefitResponse as EnrolledIndividualBenefitResponse,
     type IndividualBenefit as IndividualBenefit,
+    type UnenrolledIndividualBenefitResponse as UnenrolledIndividualBenefitResponse,
     type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
-    type IndividualUnenrollManyResponse as IndividualUnenrollManyResponse,
     IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
     type IndividualEnrollManyParams as IndividualEnrollManyParams,
     type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
