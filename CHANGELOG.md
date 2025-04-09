@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.22.2 (2025-04-09)
+
+Full Changelog: [v6.22.1...v6.22.2](https://github.com/Finch-API/finch-api-node/compare/v6.22.1...v6.22.2)
+
+### Bug Fixes
+
+* Fix client init by removing empty object arg ([#598](https://github.com/Finch-API/finch-api-node/issues/598)) ([00e0a02](https://github.com/Finch-API/finch-api-node/commit/00e0a02842a340a21cbe17487c586feff91a45e9))
+
 ## 6.22.1 (2025-04-08)
 
 Full Changelog: [v6.22.0...v6.22.1](https://github.com/Finch-API/finch-api-node/compare/v6.22.0...v6.22.1)

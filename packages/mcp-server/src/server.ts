@@ -11,7 +11,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'tryfinch_finch_api_api',
-    version: '6.22.1',
+    version: '6.22.2',
   },
   {
     capabilities: {
@@ -36,7 +36,7 @@ export function init(params: {
     providedEndpoints.map((endpoint) => [endpoint.tool.name, endpoint.handler]),
   );
 
-  const client = params.client || new Finch({});
+  const client = params.client || new Finch();
 
   server.setRequestHandler(ListToolsRequestSchema, async () => {
     return {
