@@ -1,5 +1,28 @@
 # Changelog
 
+## 6.23.0 (2025-04-09)
+
+Full Changelog: [v6.22.3...v6.23.0](https://github.com/Finch-API/finch-api-node/compare/v6.22.3...v6.23.0)
+
+### Features
+
+* **api:** add models for hrs benefits individuals async responses ([272f946](https://github.com/Finch-API/finch-api-node/commit/272f946da16aacdf6c43183ec69ee15e69edef80))
+* **api:** api update ([#603](https://github.com/Finch-API/finch-api-node/issues/603)) ([3ad326b](https://github.com/Finch-API/finch-api-node/commit/3ad326b41c0463828096a5872df121e7d27da2ed))
+* **api:** benefits mutation API endpoints (create benefit, update benefit, enroll individual, unenroll individual) now properly return async response types ([#607](https://github.com/Finch-API/finch-api-node/issues/607)) ([565064b](https://github.com/Finch-API/finch-api-node/commit/565064b958297667e151b511991090652cf5a791))
+
+
+### Bug Fixes
+
+* **mcp:** fix readEnv type error ([#605](https://github.com/Finch-API/finch-api-node/issues/605)) ([b26725e](https://github.com/Finch-API/finch-api-node/commit/b26725e54e88fec4264028cd40c2776e4e00f595))
+
+
+### Chores
+
+* fix typo ([06aaecc](https://github.com/Finch-API/finch-api-node/commit/06aaecc5fcad16a92a7f2924db7b75356757672a))
+* fix typo ([#608](https://github.com/Finch-API/finch-api-node/issues/608)) ([3a6be25](https://github.com/Finch-API/finch-api-node/commit/3a6be253550a6859a14c7135a21a1df900916156))
+* **internal:** reduce CI branch coverage ([6c887e6](https://github.com/Finch-API/finch-api-node/commit/6c887e6e3dad0bc53068b43d18ca4bd350328a49))
+* **internal:** upload builds and expand CI branch coverage ([#606](https://github.com/Finch-API/finch-api-node/issues/606)) ([e26bc23](https://github.com/Finch-API/finch-api-node/commit/e26bc233fc4cca2629c7c6669d44d1545e379b9a))
+
 ## 6.22.3 (2025-04-09)
 
 Full Changelog: [v6.22.2...v6.22.3](https://github.com/Finch-API/finch-api-node/compare/v6.22.2...v6.22.3)
