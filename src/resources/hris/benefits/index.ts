@@ -22,7 +22,7 @@ export {
 export {
   IndividualBenefitsSinglePage,
   Individuals,
-  type EnrolledIndividualBenifit,
+  type EnrolledIndividualBenefit,
   type IndividualBenefit,
   type IndividualEnrolledIDsResponse,
   type IndividualUnenrollManyResponse,
