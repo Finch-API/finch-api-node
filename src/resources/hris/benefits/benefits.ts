@@ -7,7 +7,7 @@ import * as BenefitsAPI from './benefits';
 import * as Shared from '../../shared';
 import * as IndividualsAPI from './individuals';
 import {
-  EnrolledIndividualBenefit,
+  EnrolledIndividualBenefitResponse,
   IndividualBenefit,
   IndividualBenefitsSinglePage,
   IndividualEnrollManyParams,
@@ -390,7 +390,7 @@ export declare namespace Benefits {
 
   export {
     Individuals as Individuals,
-    type EnrolledIndividualBenefit as EnrolledIndividualBenefit,
+    type EnrolledIndividualBenefitResponse as EnrolledIndividualBenefitResponse,
     type IndividualBenefit as IndividualBenefit,
     type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
     type IndividualUnenrollManyResponse as IndividualUnenrollManyResponse,
