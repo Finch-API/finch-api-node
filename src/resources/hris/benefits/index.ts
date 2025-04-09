@@ -2,7 +2,7 @@
 
 export {
   CompanyBenefitsSinglePage,
-  SupportedBenefitsSinglePage,
+  BenefitListSupportedBenefitsResponsesSinglePage,
   Benefits,
   type BenefitContribution,
   type BenefitFeaturesAndOperations,
@@ -14,19 +14,19 @@ export {
   type SupportPerBenefitType,
   type SupportedBenefit,
   type UpdateCompanyBenefitResponse,
+  type BenefitListSupportedBenefitsResponse,
   type BenfitContribution,
   type BenefitCreateParams,
   type BenefitUpdateParams,
 } from './benefits';
 export {
-  EnrolledIndividualsSinglePage,
   IndividualBenefitsSinglePage,
-  UnenrolledIndividualsSinglePage,
+  IndividualUnenrollManyResponsesSinglePage,
   Individuals,
-  type EnrolledIndividual,
   type IndividualBenefit,
-  type UnenrolledIndividual,
+  type IndividualEnrollManyResponse,
   type IndividualEnrolledIDsResponse,
+  type IndividualUnenrollManyResponse,
   type IndividualEnrollManyParams,
   type IndividualRetrieveManyBenefitsParams,
   type IndividualUnenrollManyParams,
