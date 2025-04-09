@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.22.3 (2025-04-09)
+
+Full Changelog: [v6.22.2...v6.22.3](https://github.com/Finch-API/finch-api-node/compare/v6.22.2...v6.22.3)
+
+### Bug Fixes
+
+* **mcp:** include all necessary env vars in client instantiation ([#600](https://github.com/Finch-API/finch-api-node/issues/600)) ([288c429](https://github.com/Finch-API/finch-api-node/commit/288c42946065e0b61fe72561271769d1da8f0907))
+
 ## 6.22.2 (2025-04-09)
 
 Full Changelog: [v6.22.1...v6.22.2](https://github.com/Finch-API/finch-api-node/compare/v6.22.1...v6.22.2)
