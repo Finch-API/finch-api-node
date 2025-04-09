@@ -2,7 +2,7 @@
 
 export {
   CompanyBenefitsSinglePage,
-  SupportedBenefitsSinglePage,
+  BenefitListSupportedBenefitsResponsesSinglePage,
   Benefits,
   type BenefitContribution,
   type BenefitFeaturesAndOperations,
@@ -14,6 +14,7 @@ export {
   type SupportPerBenefitType,
   type SupportedBenefit,
   type UpdateCompanyBenefitResponse,
+  type BenefitListSupportedBenefitsResponse,
   type BenfitContribution,
   type BenefitCreateParams,
   type BenefitUpdateParams,
