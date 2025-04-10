@@ -7,8 +7,7 @@ import * as BenefitsAPI from './benefits';
 import * as Shared from '../../shared';
 import * as IndividualsAPI from './individuals';
 import {
-  EnrolledIndividual,
-  EnrolledIndividualsSinglePage,
+  EnrolledIndividualBenefitResponse,
   IndividualBenefit,
   IndividualBenefitsSinglePage,
   IndividualEnrollManyParams,
@@ -16,8 +15,7 @@ import {
   IndividualRetrieveManyBenefitsParams,
   IndividualUnenrollManyParams,
   Individuals,
-  UnenrolledIndividual,
-  UnenrolledIndividualsSinglePage,
+  UnenrolledIndividualBenefitResponse,
 } from './individuals';
 import { SinglePage } from '../../../pagination';
 
@@ -82,14 +80,18 @@ export class Benefits extends APIResource {
    */
   listSupportedBenefits(
     options?: Core.RequestOptions,
-  ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit> {
-    return this._client.getAPIList('/employer/benefits/meta', SupportedBenefitsSinglePage, options);
+  ): Core.PagePromise<BenefitListSupportedBenefitsResponsesSinglePage, BenefitListSupportedBenefitsResponse> {
+    return this._client.getAPIList(
+      '/employer/benefits/meta',
+      BenefitListSupportedBenefitsResponsesSinglePage,
+      options,
+    );
   }
 }
 
 export class CompanyBenefitsSinglePage extends SinglePage<CompanyBenefit> {}
 
-export class SupportedBenefitsSinglePage extends SinglePage<SupportedBenefit> {}
+export class BenefitListSupportedBenefitsResponsesSinglePage extends SinglePage<BenefitListSupportedBenefitsResponse> {}
 
 export interface BenefitContribution {
   /**
@@ -235,6 +237,8 @@ export interface CreateCompanyBenefitsResponse {
    * The id of the benefit.
    */
   benefit_id: string;
+
+  job_id: string;
 }
 
 export interface SupportPerBenefitType {
@@ -279,11 +283,6 @@ export interface SupportedBenefit {
    * not supported for the benefit. This array only has values for HSA benefits.
    */
   hsa_contribution_limit?: Array<'individual' | 'family' | null> | null;
-
-  /**
-   * Type of benefit.
-   */
-  type?: BenefitType | null;
 }
 
 export interface UpdateCompanyBenefitResponse {
@@ -291,6 +290,46 @@ export interface UpdateCompanyBenefitResponse {
    * The id of the benefit.
    */
   benefit_id: string;
+
+  job_id: string;
+}
+
+export interface BenefitListSupportedBenefitsResponse {
+  /**
+   * Whether the provider supports an annual maximum for this benefit.
+   */
+  annual_maximum?: boolean | null;
+
+  /**
+   * Whether the provider supports catch up for this benefit. This field will only be
+   * true for retirement benefits.
+   */
+  catch_up?: boolean | null;
+
+  /**
+   * Supported contribution types. An empty array indicates contributions are not
+   * supported.
+   */
+  company_contribution?: Array<'fixed' | 'percent' | null> | null;
+
+  description?: string | null;
+
+  /**
+   * Supported deduction types. An empty array indicates deductions are not
+   * supported.
+   */
+  employee_deduction?: Array<'fixed' | 'percent' | null> | null;
+
+  /**
+   * The list of frequencies supported by the provider for this benefit
+   */
+  frequencies?: Array<BenefitFrequency | null>;
+
+  /**
+   * Whether the provider supports HSA contribution limits. Empty if this feature is
+   * not supported for the benefit. This array only has values for HSA benefits.
+   */
+  hsa_contribution_limit?: Array<'individual' | 'family' | null> | null;
 }
 
 /**
@@ -325,11 +364,9 @@ export interface BenefitUpdateParams {
 }
 
 Benefits.CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
-Benefits.SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
+Benefits.BenefitListSupportedBenefitsResponsesSinglePage = BenefitListSupportedBenefitsResponsesSinglePage;
 Benefits.Individuals = Individuals;
-Benefits.EnrolledIndividualsSinglePage = EnrolledIndividualsSinglePage;
 Benefits.IndividualBenefitsSinglePage = IndividualBenefitsSinglePage;
-Benefits.UnenrolledIndividualsSinglePage = UnenrolledIndividualsSinglePage;
 
 export declare namespace Benefits {
   export {
@@ -343,22 +380,21 @@ export declare namespace Benefits {
     type SupportPerBenefitType as SupportPerBenefitType,
     type SupportedBenefit as SupportedBenefit,
     type UpdateCompanyBenefitResponse as UpdateCompanyBenefitResponse,
+    type BenefitListSupportedBenefitsResponse as BenefitListSupportedBenefitsResponse,
     type BenfitContribution as BenfitContribution,
     CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
-    SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
+    BenefitListSupportedBenefitsResponsesSinglePage as BenefitListSupportedBenefitsResponsesSinglePage,
     type BenefitCreateParams as BenefitCreateParams,
     type BenefitUpdateParams as BenefitUpdateParams,
   };
 
   export {
     Individuals as Individuals,
-    type EnrolledIndividual as EnrolledIndividual,
+    type EnrolledIndividualBenefitResponse as EnrolledIndividualBenefitResponse,
     type IndividualBenefit as IndividualBenefit,
-    type UnenrolledIndividual as UnenrolledIndividual,
+    type UnenrolledIndividualBenefitResponse as UnenrolledIndividualBenefitResponse,
     type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
-    EnrolledIndividualsSinglePage as EnrolledIndividualsSinglePage,
     IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
-    UnenrolledIndividualsSinglePage as UnenrolledIndividualsSinglePage,
     type IndividualEnrollManyParams as IndividualEnrollManyParams,
     type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
     type IndividualUnenrollManyParams as IndividualUnenrollManyParams,

@@ -17,24 +17,20 @@ export class Individuals extends APIResource {
     benefitId: string,
     body?: IndividualEnrollManyParams,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<EnrolledIndividualsSinglePage, EnrolledIndividual>;
+  ): Core.APIPromise<EnrolledIndividualBenefitResponse>;
   enrollMany(
     benefitId: string,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<EnrolledIndividualsSinglePage, EnrolledIndividual>;
+  ): Core.APIPromise<EnrolledIndividualBenefitResponse>;
   enrollMany(
     benefitId: string,
     body?: IndividualEnrollManyParams | Core.RequestOptions,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<EnrolledIndividualsSinglePage, EnrolledIndividual> {
+  ): Core.APIPromise<EnrolledIndividualBenefitResponse> {
     if (isRequestOptions(body)) {
       return this.enrollMany(benefitId, undefined, body);
     }
-    return this._client.getAPIList(
-      `/employer/benefits/${benefitId}/individuals`,
-      EnrolledIndividualsSinglePage,
-      { body, method: 'post', ...options },
-    );
+    return this._client.post(`/employer/benefits/${benefitId}/individuals`, { body, ...options });
   }
 
   /**
@@ -81,61 +77,27 @@ export class Individuals extends APIResource {
     benefitId: string,
     body?: IndividualUnenrollManyParams,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual>;
+  ): Core.APIPromise<UnenrolledIndividualBenefitResponse>;
   unenrollMany(
     benefitId: string,
     options?: Core.RequestOptions,
-  ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual>;
+  ): Core.APIPromise<UnenrolledIndividualBenefitResponse>;
   unenrollMany(
     benefitId: string,
     body: IndividualUnenrollManyParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual> {
+  ): Core.APIPromise<UnenrolledIndividualBenefitResponse> {
     if (isRequestOptions(body)) {
       return this.unenrollMany(benefitId, {}, body);
     }
-    return this._client.getAPIList(
-      `/employer/benefits/${benefitId}/individuals`,
-      UnenrolledIndividualsSinglePage,
-      { body, method: 'delete', ...options },
-    );
+    return this._client.delete(`/employer/benefits/${benefitId}/individuals`, { body, ...options });
   }
 }
-
-export class EnrolledIndividualsSinglePage extends SinglePage<EnrolledIndividual> {}
 
 export class IndividualBenefitsSinglePage extends SinglePage<IndividualBenefit> {}
 
-export class UnenrolledIndividualsSinglePage extends SinglePage<UnenrolledIndividual> {}
-
-export interface EnrolledIndividual {
-  body?: EnrolledIndividual.Body;
-
-  /**
-   * HTTP status code. Either 201 or 200
-   */
-  code?: 200 | 201 | 404 | 403;
-
-  individual_id?: string;
-}
-
-export namespace EnrolledIndividual {
-  export interface Body {
-    /**
-     * A descriptive identifier for the response.
-     */
-    finch_code?: string | null;
-
-    /**
-     * Short description in English that provides more information about the response.
-     */
-    message?: string | null;
-
-    /**
-     * Identifier indicating whether the benefit was newly enrolled or updated.
-     */
-    name?: string | null;
-  }
+export interface EnrolledIndividualBenefitResponse {
+  job_id: string;
 }
 
 export interface IndividualBenefit {
@@ -170,34 +132,8 @@ export namespace IndividualBenefit {
   }
 }
 
-export interface UnenrolledIndividual {
-  body?: UnenrolledIndividual.Body;
-
-  /**
-   * HTTP status code
-   */
-  code?: number;
-
-  individual_id?: string;
-}
-
-export namespace UnenrolledIndividual {
-  export interface Body {
-    /**
-     * A descriptive identifier for the response.
-     */
-    finch_code?: string | null;
-
-    /**
-     * Short description in English that provides more information about the response.
-     */
-    message?: string | null;
-
-    /**
-     * Identifier indicating whether the benefit was newly enrolled or updated.
-     */
-    name?: string | null;
-  }
+export interface UnenrolledIndividualBenefitResponse {
+  job_id: string;
 }
 
 export interface IndividualEnrolledIDsResponse {
@@ -288,19 +224,15 @@ export interface IndividualUnenrollManyParams {
   individual_ids?: Array<string>;
 }
 
-Individuals.EnrolledIndividualsSinglePage = EnrolledIndividualsSinglePage;
 Individuals.IndividualBenefitsSinglePage = IndividualBenefitsSinglePage;
-Individuals.UnenrolledIndividualsSinglePage = UnenrolledIndividualsSinglePage;
 
 export declare namespace Individuals {
   export {
-    type EnrolledIndividual as EnrolledIndividual,
+    type EnrolledIndividualBenefitResponse as EnrolledIndividualBenefitResponse,
     type IndividualBenefit as IndividualBenefit,
-    type UnenrolledIndividual as UnenrolledIndividual,
+    type UnenrolledIndividualBenefitResponse as UnenrolledIndividualBenefitResponse,
     type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
-    EnrolledIndividualsSinglePage as EnrolledIndividualsSinglePage,
     IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
-    UnenrolledIndividualsSinglePage as UnenrolledIndividualsSinglePage,
     type IndividualEnrollManyParams as IndividualEnrollManyParams,
     type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
     type IndividualUnenrollManyParams as IndividualUnenrollManyParams,

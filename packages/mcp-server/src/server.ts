@@ -11,7 +11,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'tryfinch_finch_api_api',
-    version: '6.22.3',
+    version: '6.23.0',
   },
   {
     capabilities: {
@@ -81,6 +81,7 @@ export const readEnv = (env: string): string | undefined => {
   } else if (typeof (globalThis as any).Deno !== 'undefined') {
     return (globalThis as any).Deno.env?.get?.(env)?.trim();
   }
+  return;
 };
 
 export const readEnvOrError = (env: string): string => {
