@@ -29,6 +29,11 @@ export interface DisconnectResponse {
 
 export interface Introspection {
   /**
+   * The Finch UUID of the token being introspected.
+   */
+  id: string;
+
+  /**
    * @deprecated [DEPRECATED] Use `connection_id` to associate tokens with a Finch
    * connection instead of this account ID.
    */
