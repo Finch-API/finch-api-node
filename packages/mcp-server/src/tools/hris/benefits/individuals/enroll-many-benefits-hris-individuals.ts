@@ -95,7 +95,7 @@ export const tool: Tool = {
 
 export const handler = (client: Finch, args: any) => {
   const { benefit_id, ...body } = args;
-  return client.hris.benefits.individuals.enrollMany(benefit_id, body);
+  return client.hris.benefits.individuals.enrollMany(benefit_id, body['individuals']);
 };
 
 export default { metadata, tool, handler };
