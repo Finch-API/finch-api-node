@@ -288,7 +288,7 @@ export const tool: Tool = {
 
 export const handler = (client: Finch, args: any) => {
   const { ...body } = args;
-  return client.sandbox.directory.create(body);
+  return client.sandbox.directory.create(body['body']);
 };
 
 export default { metadata, tool, handler };
