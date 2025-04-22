@@ -1,5 +1,18 @@
 # Changelog
 
+## 6.26.0 (2025-04-22)
+
+Full Changelog: [v6.25.1...v6.26.0](https://github.com/Finch-API/finch-api-node/compare/v6.25.1...v6.26.0)
+
+### Features
+
+* **api:** api update ([05078cb](https://github.com/Finch-API/finch-api-node/commit/05078cb1aaaaee18642e961791c2c0e374ef61a2))
+
+
+### Chores
+
+* **ci:** add timeout thresholds for CI jobs ([988e8f3](https://github.com/Finch-API/finch-api-node/commit/988e8f327173b3c685f98f7087a0f661cefdf90c))
+
 ## 6.25.1 (2025-04-22)
 
 Full Changelog: [v6.25.0...v6.25.1](https://github.com/Finch-API/finch-api-node/compare/v6.25.0...v6.25.1)
