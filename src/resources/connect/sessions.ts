@@ -52,7 +52,16 @@ export interface SessionNewParams {
   customer_name: string;
 
   products: Array<
-    'company' | 'directory' | 'individual' | 'employment' | 'payment' | 'pay_statement' | 'benefits' | 'ssn'
+    | 'company'
+    | 'directory'
+    | 'individual'
+    | 'employment'
+    | 'payment'
+    | 'pay_statement'
+    | 'benefits'
+    | 'ssn'
+    | 'deduction'
+    | 'documents'
   >;
 
   customer_email?: string | null;
@@ -96,7 +105,16 @@ export interface SessionReauthenticateParams {
    * The products to request access to (optional for reauthentication)
    */
   products?: Array<
-    'company' | 'directory' | 'individual' | 'employment' | 'payment' | 'pay_statement' | 'benefits' | 'ssn'
+    | 'company'
+    | 'directory'
+    | 'individual'
+    | 'employment'
+    | 'payment'
+    | 'pay_statement'
+    | 'benefits'
+    | 'ssn'
+    | 'deduction'
+    | 'documents'
   > | null;
 
   /**
