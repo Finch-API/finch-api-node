@@ -144,7 +144,8 @@ export const tool: Tool = {
       },
       primary_phone_number: {
         type: 'string',
-        description: 'The phone number of the main administrator on the account. Format: `XXXXXXXXXX`',
+        description:
+          'The phone number of the main administrator on the account. Format: E.164, with extension where applicable, e.g. `+NNNNNNNNNNN xExtension`',
       },
     },
   },

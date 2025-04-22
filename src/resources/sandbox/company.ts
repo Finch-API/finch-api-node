@@ -47,7 +47,8 @@ export interface CompanyUpdateResponse {
   primary_email: string | null;
 
   /**
-   * The phone number of the main administrator on the account. Format: `XXXXXXXXXX`
+   * The phone number of the main administrator on the account. Format: E.164, with
+   * extension where applicable, e.g. `+NNNNNNNNNNN xExtension`
    */
   primary_phone_number: string | null;
 }
@@ -163,7 +164,8 @@ export interface CompanyUpdateParams {
   primary_email: string | null;
 
   /**
-   * The phone number of the main administrator on the account. Format: `XXXXXXXXXX`
+   * The phone number of the main administrator on the account. Format: E.164, with
+   * extension where applicable, e.g. `+NNNNNNNNNNN xExtension`
    */
   primary_phone_number: string | null;
 }

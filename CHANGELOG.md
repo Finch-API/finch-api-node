@@ -1,5 +1,18 @@
 # Changelog
 
+## 6.25.0 (2025-04-18)
+
+Full Changelog: [v6.24.0...v6.25.0](https://github.com/Finch-API/finch-api-node/compare/v6.24.0...v6.25.0)
+
+### Features
+
+* **api:** api update ([d31503d](https://github.com/Finch-API/finch-api-node/commit/d31503d9e0b3e315d593f46303501c10bfa1f547))
+
+
+### Bug Fixes
+
+* **mcp:** correctly handle endpoints with top-level arrays or primitives ([1fd52ab](https://github.com/Finch-API/finch-api-node/commit/1fd52ab14f0ad4b60c29139ea215313b759fdb95))
+
 ## 6.24.0 (2025-04-14)
 
 Full Changelog: [v6.23.0...v6.24.0](https://github.com/Finch-API/finch-api-node/compare/v6.23.0...v6.24.0)
