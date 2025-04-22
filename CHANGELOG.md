@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.25.1 (2025-04-22)
+
+Full Changelog: [v6.25.0...v6.25.1](https://github.com/Finch-API/finch-api-node/compare/v6.25.0...v6.25.1)
+
+### Bug Fixes
+
+* **client:** revert "send all configured auth headers" ([f39ba32](https://github.com/Finch-API/finch-api-node/commit/f39ba32ce9232b61556e4e3bbf07dbc3061030a0))
+
 ## 6.25.0 (2025-04-18)
 
 Full Changelog: [v6.24.0...v6.25.0](https://github.com/Finch-API/finch-api-node/compare/v6.24.0...v6.25.0)
