@@ -291,10 +291,17 @@ export class Finch extends Core.APIClient {
   }
 
   protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
-    return {
-      ...this.bearerAuth(opts),
-      ...this.basicAuth(opts),
-    };
+    const bearerAuth = this.bearerAuth(opts);
+    const basicAuth = this.basicAuth(opts);
+
+    if (bearerAuth != null && !Core.isEmptyObj(bearerAuth)) {
+      return bearerAuth;
+    }
+
+    if (basicAuth != null && !Core.isEmptyObj(basicAuth)) {
+      return basicAuth;
+    }
+    return {};
   }
 
   protected bearerAuth(opts: Core.FinalRequestOptions): Core.Headers {
