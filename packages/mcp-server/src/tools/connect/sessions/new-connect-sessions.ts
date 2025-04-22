@@ -36,6 +36,8 @@ export const tool: Tool = {
             'pay_statement',
             'benefits',
             'ssn',
+            'deduction',
+            'documents',
           ],
         },
       },
