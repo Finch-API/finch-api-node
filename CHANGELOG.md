@@ -1,5 +1,19 @@
 # Changelog
 
+## 6.27.0 (2025-04-23)
+
+Full Changelog: [v6.26.0...v6.27.0](https://github.com/Finch-API/finch-api-node/compare/v6.26.0...v6.27.0)
+
+### Features
+
+* **api:** api update ([706763f](https://github.com/Finch-API/finch-api-node/commit/706763fbe19b3f0a33ea4f8e4f75b61090bb9e78))
+
+
+### Chores
+
+* **ci:** only use depot for staging repos ([e55893d](https://github.com/Finch-API/finch-api-node/commit/e55893dcbfbc8db1b2a43f150323eb8a1c55a58b))
+* **ci:** run on more branches and use depot runners ([5eaa92c](https://github.com/Finch-API/finch-api-node/commit/5eaa92c8b77fb0a3074540c1f8f32fe2e9af6cb9))
+
 ## 6.26.0 (2025-04-22)
 
 Full Changelog: [v6.25.1...v6.26.0](https://github.com/Finch-API/finch-api-node/compare/v6.25.1...v6.26.0)
