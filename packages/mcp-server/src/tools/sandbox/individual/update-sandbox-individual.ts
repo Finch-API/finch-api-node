@@ -115,22 +115,22 @@ export const tool: Tool = {
             type: 'string',
             description: 'Apartment, suite, unit, or building.',
           },
-          name: {
-            type: 'string',
-          },
           postal_code: {
             type: 'string',
             description: 'The postal code or zip code.',
-          },
-          source_id: {
-            type: 'string',
           },
           state: {
             type: 'string',
             description: 'The state code.',
           },
+          name: {
+            type: 'string',
+          },
+          source_id: {
+            type: 'string',
+          },
         },
-        required: [],
+        required: ['city', 'country', 'line1', 'line2', 'postal_code', 'state'],
       },
       ssn: {
         type: 'string',
