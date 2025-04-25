@@ -74,40 +74,40 @@ export namespace Company {
     /**
      * The name of the bank associated in the payroll/HRIS system.
      */
-    account_name?: string | null;
+    account_name: string | null;
 
     /**
      * 10-12 digit number to specify the bank account
      */
-    account_number?: string | null;
+    account_number: string | null;
 
     /**
      * The type of bank account.
      */
-    account_type?: 'checking' | 'savings' | null;
+    account_type: 'checking' | 'savings' | null;
 
     /**
      * Name of the banking institution.
      */
-    institution_name?: string | null;
+    institution_name: string | null;
 
     /**
      * A nine-digit code that's based on the U.S. Bank location where your account was
      * opened.
      */
-    routing_number?: string | null;
+    routing_number: string | null;
   }
 
   export interface Department {
     /**
      * The department name.
      */
-    name?: string | null;
+    name: string | null;
 
     /**
      * The parent department, if present.
      */
-    parent?: Department.Parent | null;
+    parent: Department.Parent | null;
   }
 
   export namespace Department {
@@ -118,7 +118,7 @@ export namespace Company {
       /**
        * The parent department's name.
        */
-      name?: string | null;
+      name: string | null;
     }
   }
 
@@ -129,12 +129,12 @@ export namespace Company {
     /**
      * The tax payer subtype of the company.
      */
-    subtype?: 's_corporation' | 'c_corporation' | 'b_corporation' | null;
+    subtype: 's_corporation' | 'c_corporation' | 'b_corporation' | null;
 
     /**
      * The tax payer type of the company.
      */
-    type?:
+    type:
       | 'llc'
       | 'lp'
       | 'corporation'
