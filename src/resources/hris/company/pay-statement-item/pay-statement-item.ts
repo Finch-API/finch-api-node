@@ -79,7 +79,7 @@ export namespace PayStatementItemListResponse {
      * The metadata of the pay statement item derived by the rules engine if available.
      * Each attribute will be a key-value pair defined by a rule.
      */
-    metadata?: unknown | null;
+    metadata?: Record<string, unknown> | null;
 
     /**
      * `true` if the pay statement item is pre-tax. This field is only available for
