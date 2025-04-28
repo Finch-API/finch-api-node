@@ -219,6 +219,11 @@ export interface CompanyBenefit {
    */
   benefit_id: string;
 
+  /**
+   * The company match for this benefit.
+   */
+  company_contribution: CompanyBenefit.CompanyContribution | null;
+
   description: string | null;
 
   /**
@@ -230,6 +235,25 @@ export interface CompanyBenefit {
    * Type of benefit.
    */
   type: BenefitType | null;
+}
+
+export namespace CompanyBenefit {
+  /**
+   * The company match for this benefit.
+   */
+  export interface CompanyContribution {
+    tiers?: Array<CompanyContribution.Tier>;
+
+    type?: 'match';
+  }
+
+  export namespace CompanyContribution {
+    export interface Tier {
+      match?: number;
+
+      threshold?: number;
+    }
+  }
 }
 
 export interface CreateCompanyBenefitsResponse {
