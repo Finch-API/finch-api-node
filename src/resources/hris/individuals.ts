@@ -36,23 +36,14 @@ export interface Individual {
   /**
    * A stable Finch `id` (UUID v4) for an individual in the company.
    */
-  id?: string;
+  id: string;
 
-  dob?: string | null;
-
-  emails?: Array<Individual.Email> | null;
-
-  /**
-   * Social Security Number of the individual in **encrypted** format. This field is
-   * only available with the `ssn` scope enabled and the
-   * `options: { include: ['ssn'] }` param set in the body.
-   */
-  encrypted_ssn?: string | null;
+  dob: string | null;
 
   /**
    * The EEOC-defined ethnicity of the individual.
    */
-  ethnicity?:
+  ethnicity:
     | 'asian'
     | 'white'
     | 'black_or_african_american'
@@ -66,31 +57,40 @@ export interface Individual {
   /**
    * The legal first name of the individual.
    */
-  first_name?: string | null;
+  first_name: string | null;
 
   /**
    * The gender of the individual.
    */
-  gender?: 'female' | 'male' | 'other' | 'decline_to_specify' | null;
+  gender: 'female' | 'male' | 'other' | 'decline_to_specify' | null;
 
   /**
    * The legal last name of the individual.
    */
-  last_name?: string | null;
+  last_name: string | null;
 
   /**
    * The legal middle name of the individual.
    */
-  middle_name?: string | null;
+  middle_name: string | null;
 
-  phone_numbers?: Array<Individual.PhoneNumber | null> | null;
+  phone_numbers: Array<Individual.PhoneNumber | null> | null;
 
   /**
    * The preferred name of the individual.
    */
-  preferred_name?: string | null;
+  preferred_name: string | null;
 
-  residence?: HRISAPI.Location | null;
+  residence: HRISAPI.Location | null;
+
+  emails?: Array<Individual.Email> | null;
+
+  /**
+   * Social Security Number of the individual in **encrypted** format. This field is
+   * only available with the `ssn` scope enabled and the
+   * `options: { include: ['ssn'] }` param set in the body.
+   */
+  encrypted_ssn?: string | null;
 
   /**
    * Social Security Number of the individual. This field is only available with the
@@ -102,25 +102,25 @@ export interface Individual {
 }
 
 export namespace Individual {
-  export interface Email {
-    data?: string;
+  export interface PhoneNumber {
+    data: string | null;
 
-    type?: 'work' | 'personal' | null;
+    type: 'work' | 'personal' | null;
   }
 
-  export interface PhoneNumber {
-    data?: string | null;
+  export interface Email {
+    data: string;
 
-    type?: 'work' | 'personal' | null;
+    type: 'work' | 'personal' | null;
   }
 }
 
 export interface IndividualResponse {
-  body?: Individual;
+  body: Individual;
 
-  code?: number;
+  code: number;
 
-  individual_id?: string;
+  individual_id: string;
 }
 
 export interface IndividualRetrieveManyParams {
