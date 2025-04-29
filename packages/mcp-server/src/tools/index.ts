@@ -51,7 +51,7 @@ import list_payroll_pay_groups from './payroll/pay-groups/list-payroll-pay-group
 import new_connect_sessions from './connect/sessions/new-connect-sessions';
 import reauthenticate_connect_sessions from './connect/sessions/reauthenticate-connect-sessions';
 
-export type HandlerFunction = (client: Finch, args: any) => Promise<any>;
+export type HandlerFunction = (client: Finch, args: Record<string, unknown> | undefined) => Promise<any>;
 
 export type Metadata = {
   resource: string;
@@ -129,19 +129,33 @@ export function query(filters: Filter[], endpoints: Endpoint[]): Endpoint[] {
   if (filters.length === 0) {
     return endpoints;
   }
-  const allExcludes = filters.every((filter) => filter.op === 'exclude');
 
-  return endpoints.filter((endpoint: Endpoint) => {
+  const allExcludes = filters.every((filter) => filter.op === 'exclude');
+  const unmatchedFilters = new Set(filters);
+
+  const filtered = endpoints.filter((endpoint: Endpoint) => {
     let included = false || allExcludes;
 
     for (const filter of filters) {
       if (match(filter, endpoint)) {
+        unmatchedFilters.delete(filter);
         included = filter.op === 'include';
       }
     }
 
     return included;
   });
+
+  // Check if any filters didn't match
+  if (unmatchedFilters.size > 0) {
+    throw new Error(
+      `The following filters did not match any endpoints: ${[...unmatchedFilters]
+        .map((f) => `${f.type}=${f.value}`)
+        .join(', ')}`,
+    );
+  }
+
+  return filtered;
 }
 
 function match({ type, value }: Filter, endpoint: Endpoint): boolean {

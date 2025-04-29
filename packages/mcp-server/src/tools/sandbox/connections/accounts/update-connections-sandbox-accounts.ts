@@ -18,6 +18,11 @@ export const tool: Tool = {
     type: 'object',
     properties: {
       connection_status: {
+        $ref: '#/$defs/connection_status_type',
+      },
+    },
+    $defs: {
+      connection_status_type: {
         type: 'string',
         title: 'ConnectionStatus',
         enum: ['pending', 'processing', 'connected', 'error_no_account_setup', 'error_permissions', 'reauth'],
@@ -26,8 +31,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { ...body } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const body = args as any;
   return client.sandbox.connections.accounts.update(body);
 };
 

@@ -23,8 +23,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { job_id } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const { job_id, ...body } = args as any;
   return client.jobs.automated.retrieve(job_id);
 };
 

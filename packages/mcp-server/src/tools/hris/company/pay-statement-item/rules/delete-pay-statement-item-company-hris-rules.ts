@@ -24,8 +24,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { rule_id } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const { rule_id, ...body } = args as any;
   return client.hris.company.payStatementItem.rules.delete(rule_id);
 };
 

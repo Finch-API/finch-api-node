@@ -24,8 +24,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { document_id } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const { document_id, ...body } = args as any;
   return client.hris.documents.retreive(document_id);
 };
 

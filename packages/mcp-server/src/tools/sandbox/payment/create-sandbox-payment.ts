@@ -128,30 +128,7 @@ export const tool: Tool = {
                     description: 'Boolean indicating if the deduction is pre-tax.',
                   },
                   type: {
-                    type: 'string',
-                    title: 'BenefitType',
-                    description: 'Type of benefit.',
-                    enum: [
-                      '401k',
-                      '401k_roth',
-                      '401k_loan',
-                      '403b',
-                      '403b_roth',
-                      '457',
-                      '457_roth',
-                      's125_medical',
-                      's125_dental',
-                      's125_vision',
-                      'hsa_pre',
-                      'hsa_post',
-                      'fsa_medical',
-                      'fsa_dependent_care',
-                      'simple_ira',
-                      'simple',
-                      'commuter',
-                      'custom_post_tax',
-                      'custom_pre_tax',
-                    ],
+                    $ref: '#/$defs/benefit_type',
                   },
                 },
                 required: [],
@@ -192,32 +169,21 @@ export const tool: Tool = {
                     description: 'The contribution name from the pay statement.',
                   },
                   type: {
-                    $ref: '#/properties/pay_statements/items/employee_deductions/items/type',
+                    $ref: '#/$defs/benefit_type',
                   },
                 },
                 required: [],
               },
             },
             gross_pay: {
-              type: 'object',
-              title: 'Money',
-              properties: {
-                amount: {
-                  type: 'integer',
-                  description: 'Amount for money object (in cents)',
-                },
-                currency: {
-                  type: 'string',
-                },
-              },
-              required: [],
+              $ref: '#/$defs/money',
             },
             individual_id: {
               type: 'string',
               description: 'A stable Finch `id` (UUID v4) for an individual in the company',
             },
             net_pay: {
-              $ref: '#/properties/pay_statements/items/gross_pay',
+              $ref: '#/$defs/money',
             },
             payment_method: {
               type: 'string',
@@ -289,11 +255,53 @@ export const tool: Tool = {
         type: 'string',
       },
     },
+    $defs: {
+      benefit_type: {
+        type: 'string',
+        title: 'BenefitType',
+        description: 'Type of benefit.',
+        enum: [
+          '401k',
+          '401k_roth',
+          '401k_loan',
+          '403b',
+          '403b_roth',
+          '457',
+          '457_roth',
+          's125_medical',
+          's125_dental',
+          's125_vision',
+          'hsa_pre',
+          'hsa_post',
+          'fsa_medical',
+          'fsa_dependent_care',
+          'simple_ira',
+          'simple',
+          'commuter',
+          'custom_post_tax',
+          'custom_pre_tax',
+        ],
+      },
+      money: {
+        type: 'object',
+        title: 'Money',
+        properties: {
+          amount: {
+            type: 'integer',
+            description: 'Amount for money object (in cents)',
+          },
+          currency: {
+            type: 'string',
+          },
+        },
+        required: [],
+      },
+    },
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { ...body } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const body = args as any;
   return client.sandbox.payment.create(body);
 };
 

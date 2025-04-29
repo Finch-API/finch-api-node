@@ -96,6 +96,16 @@ export const tool: Tool = {
         description: 'The preferred name of the individual.',
       },
       residence: {
+        $ref: '#/$defs/location',
+      },
+      ssn: {
+        type: 'string',
+        description:
+          "Social Security Number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: ['ssn'] }` param set in the body. [Click here to learn more about enabling the SSN field](/developer-resources/Enable-SSN-Field).",
+      },
+    },
+    $defs: {
+      location: {
         type: 'object',
         title: 'Location',
         properties: {
@@ -132,17 +142,12 @@ export const tool: Tool = {
         },
         required: ['city', 'country', 'line1', 'line2', 'postal_code', 'state'],
       },
-      ssn: {
-        type: 'string',
-        description:
-          "Social Security Number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: ['ssn'] }` param set in the body. [Click here to learn more about enabling the SSN field](/developer-resources/Enable-SSN-Field).",
-      },
     },
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { individual_id, ...body } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const { individual_id, ...body } = args as any;
   return client.sandbox.individual.update(individual_id, body);
 };
 

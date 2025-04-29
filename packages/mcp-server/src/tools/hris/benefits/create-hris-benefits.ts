@@ -51,12 +51,20 @@ export const tool: Tool = {
           'Name of the benefit as it appears in the provider and pay statements. Recommend limiting this to <30 characters due to limitations in specific providers (e.g. Justworks).',
       },
       frequency: {
+        $ref: '#/$defs/benefit_frequency',
+      },
+      type: {
+        $ref: '#/$defs/benefit_type',
+      },
+    },
+    $defs: {
+      benefit_frequency: {
         type: 'string',
         title: 'BenefitFrequency',
         description: 'The frequency of the benefit deduction/contribution.',
         enum: ['one_time', 'every_paycheck', 'monthly'],
       },
-      type: {
+      benefit_type: {
         type: 'string',
         title: 'BenefitType',
         description: 'Type of benefit.',
@@ -86,8 +94,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { ...body } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const body = args as any;
   return client.hris.benefits.create(body);
 };
 

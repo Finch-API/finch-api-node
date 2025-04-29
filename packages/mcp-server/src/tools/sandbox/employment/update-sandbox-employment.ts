@@ -83,6 +83,60 @@ export const tool: Tool = {
         description: 'The legal first name of the individual.',
       },
       income: {
+        $ref: '#/$defs/income',
+      },
+      income_history: {
+        type: 'array',
+        description: 'The array of income history.',
+        items: {
+          $ref: '#/$defs/income',
+        },
+      },
+      is_active: {
+        type: 'boolean',
+        description: '`true` if the individual an an active employee or contractor at the company.',
+      },
+      last_name: {
+        type: 'string',
+        description: 'The legal last name of the individual.',
+      },
+      latest_rehire_date: {
+        type: 'string',
+        title: 'Date',
+      },
+      location: {
+        $ref: '#/$defs/location',
+      },
+      manager: {
+        type: 'object',
+        description: 'The manager object representing the manager of the individual within the org.',
+        properties: {
+          id: {
+            type: 'string',
+            description: 'A stable Finch `id` (UUID v4) for an individual in the company.',
+          },
+        },
+        required: [],
+      },
+      middle_name: {
+        type: 'string',
+        description: 'The legal middle name of the individual.',
+      },
+      source_id: {
+        type: 'string',
+        description: "The source system's unique employment identifier for this individual",
+      },
+      start_date: {
+        type: 'string',
+        title: 'Date',
+      },
+      title: {
+        type: 'string',
+        description: 'The current title of the individual.',
+      },
+    },
+    $defs: {
+      income: {
         type: 'object',
         title: 'Income',
         description:
@@ -118,25 +172,6 @@ export const tool: Tool = {
           },
         },
         required: [],
-      },
-      income_history: {
-        type: 'array',
-        description: 'The array of income history.',
-        items: {
-          $ref: '#/properties/income',
-        },
-      },
-      is_active: {
-        type: 'boolean',
-        description: '`true` if the individual an an active employee or contractor at the company.',
-      },
-      last_name: {
-        type: 'string',
-        description: 'The legal last name of the individual.',
-      },
-      latest_rehire_date: {
-        type: 'string',
-        title: 'Date',
       },
       location: {
         type: 'object',
@@ -175,39 +210,12 @@ export const tool: Tool = {
         },
         required: ['city', 'country', 'line1', 'line2', 'postal_code', 'state'],
       },
-      manager: {
-        type: 'object',
-        description: 'The manager object representing the manager of the individual within the org.',
-        properties: {
-          id: {
-            type: 'string',
-            description: 'A stable Finch `id` (UUID v4) for an individual in the company.',
-          },
-        },
-        required: [],
-      },
-      middle_name: {
-        type: 'string',
-        description: 'The legal middle name of the individual.',
-      },
-      source_id: {
-        type: 'string',
-        description: "The source system's unique employment identifier for this individual",
-      },
-      start_date: {
-        type: 'string',
-        title: 'Date',
-      },
-      title: {
-        type: 'string',
-        description: 'The current title of the individual.',
-      },
     },
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { individual_id, ...body } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const { individual_id, ...body } = args as any;
   return client.sandbox.employment.update(individual_id, body);
 };
 
