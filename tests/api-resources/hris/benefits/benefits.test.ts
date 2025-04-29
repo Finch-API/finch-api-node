@@ -31,7 +31,12 @@ describe('resource benefits', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.hris.benefits.create(
-        { description: 'description', frequency: 'one_time', type: '401k' },
+        {
+          company_contribution: { tiers: [{ match: 1, threshold: 1 }], type: 'match' },
+          description: 'description',
+          frequency: 'one_time',
+          type: '401k',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Finch.NotFoundError);
