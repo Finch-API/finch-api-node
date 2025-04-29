@@ -27,8 +27,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { benefit_id, ...body } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const { benefit_id, ...body } = args as any;
   return client.hris.benefits.update(benefit_id, body);
 };
 

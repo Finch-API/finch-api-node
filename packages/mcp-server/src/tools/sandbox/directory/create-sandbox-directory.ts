@@ -131,47 +131,13 @@ export const tool: Tool = {
               enum: ['female', 'male', 'other', 'decline_to_specify'],
             },
             income: {
-              type: 'object',
-              title: 'Income',
-              description:
-                "The employee's income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.",
-              properties: {
-                amount: {
-                  type: 'integer',
-                  description: 'The income amount in cents.',
-                },
-                currency: {
-                  type: 'string',
-                  description: 'The currency code.',
-                },
-                effective_date: {
-                  type: 'string',
-                  description: 'The date the income amount went into effect.',
-                },
-                unit: {
-                  type: 'string',
-                  description:
-                    'The income unit of payment. Options: `yearly`, `quarterly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.',
-                  enum: [
-                    'yearly',
-                    'quarterly',
-                    'monthly',
-                    'semi_monthly',
-                    'bi_weekly',
-                    'weekly',
-                    'daily',
-                    'hourly',
-                    'fixed',
-                  ],
-                },
-              },
-              required: [],
+              $ref: '#/$defs/income',
             },
             income_history: {
               type: 'array',
               description: 'The array of income history.',
               items: {
-                $ref: '#/properties/body/items/income',
+                $ref: '#/$defs/income',
               },
             },
             is_active: {
@@ -187,41 +153,7 @@ export const tool: Tool = {
               title: 'Date',
             },
             location: {
-              type: 'object',
-              title: 'Location',
-              properties: {
-                city: {
-                  type: 'string',
-                  description: 'City, district, suburb, town, or village.',
-                },
-                country: {
-                  type: 'string',
-                  description: 'The 2-letter ISO 3166 country code.',
-                },
-                line1: {
-                  type: 'string',
-                  description: 'Street address or PO box.',
-                },
-                line2: {
-                  type: 'string',
-                  description: 'Apartment, suite, unit, or building.',
-                },
-                postal_code: {
-                  type: 'string',
-                  description: 'The postal code or zip code.',
-                },
-                state: {
-                  type: 'string',
-                  description: 'The state code.',
-                },
-                name: {
-                  type: 'string',
-                },
-                source_id: {
-                  type: 'string',
-                },
-              },
-              required: ['city', 'country', 'line1', 'line2', 'postal_code', 'state'],
+              $ref: '#/$defs/location',
             },
             manager: {
               type: 'object',
@@ -259,7 +191,7 @@ export const tool: Tool = {
               description: 'The preferred name of the individual.',
             },
             residence: {
-              $ref: '#/properties/body/items/location',
+              $ref: '#/$defs/location',
             },
             source_id: {
               type: 'string',
@@ -283,11 +215,87 @@ export const tool: Tool = {
         },
       },
     },
+    $defs: {
+      income: {
+        type: 'object',
+        title: 'Income',
+        description:
+          "The employee's income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.",
+        properties: {
+          amount: {
+            type: 'integer',
+            description: 'The income amount in cents.',
+          },
+          currency: {
+            type: 'string',
+            description: 'The currency code.',
+          },
+          effective_date: {
+            type: 'string',
+            description: 'The date the income amount went into effect.',
+          },
+          unit: {
+            type: 'string',
+            description:
+              'The income unit of payment. Options: `yearly`, `quarterly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.',
+            enum: [
+              'yearly',
+              'quarterly',
+              'monthly',
+              'semi_monthly',
+              'bi_weekly',
+              'weekly',
+              'daily',
+              'hourly',
+              'fixed',
+            ],
+          },
+        },
+        required: [],
+      },
+      location: {
+        type: 'object',
+        title: 'Location',
+        properties: {
+          city: {
+            type: 'string',
+            description: 'City, district, suburb, town, or village.',
+          },
+          country: {
+            type: 'string',
+            description: 'The 2-letter ISO 3166 country code.',
+          },
+          line1: {
+            type: 'string',
+            description: 'Street address or PO box.',
+          },
+          line2: {
+            type: 'string',
+            description: 'Apartment, suite, unit, or building.',
+          },
+          postal_code: {
+            type: 'string',
+            description: 'The postal code or zip code.',
+          },
+          state: {
+            type: 'string',
+            description: 'The state code.',
+          },
+          name: {
+            type: 'string',
+          },
+          source_id: {
+            type: 'string',
+          },
+        },
+        required: ['city', 'country', 'line1', 'line2', 'postal_code', 'state'],
+      },
+    },
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { ...body } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const body = args as any;
   return client.sandbox.directory.create(body['body']);
 };
 
