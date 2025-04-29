@@ -32,7 +32,7 @@ export class Individuals extends APIResource {
 
 export class IndividualResponsesPage extends ResponsesPage<IndividualResponse> {}
 
-export type Individual = Individual.UnionMember0 | Individual.UnionMember1;
+export type Individual = Individual.UnionMember0 | Individual.BatchError;
 
 export namespace Individual {
   export interface UnionMember0 {
@@ -118,7 +118,7 @@ export namespace Individual {
     }
   }
 
-  export interface UnionMember1 {
+  export interface BatchError {
     code: number;
 
     message: string;
