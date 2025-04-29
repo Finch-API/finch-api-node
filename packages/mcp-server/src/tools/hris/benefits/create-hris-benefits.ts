@@ -17,6 +17,33 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
+      company_contribution: {
+        type: 'object',
+        title: 'BenefitCompanyMatchContribution',
+        description: 'The company match for this benefit.',
+        properties: {
+          tiers: {
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: {
+                match: {
+                  type: 'integer',
+                },
+                threshold: {
+                  type: 'integer',
+                },
+              },
+              required: [],
+            },
+          },
+          type: {
+            type: 'string',
+            enum: ['match'],
+          },
+        },
+        required: [],
+      },
       description: {
         type: 'string',
         title: 'BenefitDescription',

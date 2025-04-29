@@ -363,6 +363,11 @@ export type BenfitContribution = BenefitContribution | null;
 
 export interface BenefitCreateParams {
   /**
+   * The company match for this benefit.
+   */
+  company_contribution?: BenefitCreateParams.CompanyContribution | null;
+
+  /**
    * Name of the benefit as it appears in the provider and pay statements. Recommend
    * limiting this to <30 characters due to limitations in specific providers (e.g.
    * Justworks).
@@ -378,6 +383,25 @@ export interface BenefitCreateParams {
    * Type of benefit.
    */
   type?: BenefitType | null;
+}
+
+export namespace BenefitCreateParams {
+  /**
+   * The company match for this benefit.
+   */
+  export interface CompanyContribution {
+    tiers?: Array<CompanyContribution.Tier>;
+
+    type?: 'match';
+  }
+
+  export namespace CompanyContribution {
+    export interface Tier {
+      match?: number;
+
+      threshold?: number;
+    }
+  }
 }
 
 export interface BenefitUpdateParams {
