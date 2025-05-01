@@ -251,7 +251,7 @@ export const tool: Tool = {
             ],
           },
         },
-        required: [],
+        required: ['amount', 'currency', 'effective_date', 'unit'],
       },
       location: {
         type: 'object',
