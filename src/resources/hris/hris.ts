@@ -88,23 +88,23 @@ export interface Income {
   /**
    * The income amount in cents.
    */
-  amount?: number | null;
+  amount: number | null;
 
   /**
    * The currency code.
    */
-  currency?: string | null;
+  currency: string | null;
 
   /**
    * The date the income amount went into effect.
    */
-  effective_date?: string | null;
+  effective_date: string | null;
 
   /**
    * The income unit of payment. Options: `yearly`, `quarterly`, `monthly`,
    * `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.
    */
-  unit?:
+  unit:
     | 'yearly'
     | 'quarterly'
     | 'monthly'
