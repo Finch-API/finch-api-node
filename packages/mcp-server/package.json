@@ -29,8 +29,7 @@
   "dependencies": {
     "@tryfinch/finch-api": "file:../../dist/",
     "@modelcontextprotocol/sdk": "^1.6.1",
-    "yargs": "^17.7.2",
-    "ajv": "^8.17.1"
+    "yargs": "^17.7.2"
   },
   "bin": {
     "mcp-server": "dist/index.js"
