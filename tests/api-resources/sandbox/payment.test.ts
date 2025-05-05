@@ -47,10 +47,10 @@ describe('resource payment', () => {
               ],
               employee_deductions: [
                 {
-                  amount: 2000,
+                  amount: 0,
                   attributes: { metadata: { metadata: { foo: 'bar' } } },
-                  currency: 'usd',
-                  name: '401k test',
+                  currency: 'currency',
+                  name: 'name',
                   pre_tax: true,
                   type: '401k',
                 },
@@ -65,7 +65,7 @@ describe('resource payment', () => {
                 },
               ],
               gross_pay: { amount: 0, currency: 'currency' },
-              individual_id: 'b2338cfb-472f-4f72-9faa-e028c083144a',
+              individual_id: 'individual_id',
               net_pay: { amount: 0, currency: 'currency' },
               payment_method: 'check',
               taxes: [
