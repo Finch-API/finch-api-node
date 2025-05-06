@@ -23,6 +23,14 @@ export class PayStatementItem extends APIResource {
    * **Beta:** this endpoint currently serves employers onboarded after March 4th and
    * historical support will be added soon Retrieve a list of detailed pay statement
    * items for the access token's connection account.
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const payStatementItemListResponse of client.hris.company.payStatementItem.list()) {
+   *   // ...
+   * }
+   * ```
    */
   list(
     query?: PayStatementItemListParams,

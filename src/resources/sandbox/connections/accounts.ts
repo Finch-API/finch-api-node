@@ -8,6 +8,15 @@ import * as Shared from '../../shared';
 export class Accounts extends APIResource {
   /**
    * Create a new account for an existing connection (company/provider pair)
+   *
+   * @example
+   * ```ts
+   * const account =
+   *   await client.sandbox.connections.accounts.create({
+   *     company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+   *     provider_id: 'provider_id',
+   *   });
+   * ```
    */
   create(body: AccountCreateParams, options?: Core.RequestOptions): Core.APIPromise<AccountCreateResponse> {
     return this._client.post('/sandbox/connections/accounts', { body, ...options });
@@ -16,6 +25,14 @@ export class Accounts extends APIResource {
   /**
    * Update an existing sandbox account. Change the connection status to understand
    * how the Finch API responds.
+   *
+   * @example
+   * ```ts
+   * const account =
+   *   await client.sandbox.connections.accounts.update({
+   *     connection_status: 'reauth',
+   *   });
+   * ```
    */
   update(body?: AccountUpdateParams, options?: Core.RequestOptions): Core.APIPromise<AccountUpdateResponse>;
   update(options?: Core.RequestOptions): Core.APIPromise<AccountUpdateResponse>;

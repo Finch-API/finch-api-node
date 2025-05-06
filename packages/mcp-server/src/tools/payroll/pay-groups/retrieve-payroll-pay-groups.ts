@@ -23,8 +23,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { pay_group_id } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const { pay_group_id, ...body } = args as any;
   return client.payroll.payGroups.retrieve(pay_group_id);
 };
 

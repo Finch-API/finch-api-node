@@ -9,6 +9,16 @@ export class RequestForwarding extends APIResource {
    * Finch’s unified API doesn’t have a data model that cleanly fits your needs, then
    * Forward allows you to push or pull data models directly against an integration’s
    * API.
+   *
+   * @example
+   * ```ts
+   * const response = await client.requestForwarding.forward({
+   *   method: 'POST',
+   *   route: '/people/search',
+   *   headers: { 'content-type': 'application/json' },
+   *   params: { showInactive: true, humanReadable: true },
+   * });
+   * ```
    */
   forward(
     body: RequestForwardingForwardParams,

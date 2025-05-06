@@ -7,6 +7,29 @@ import * as HRISAPI from '../hris/hris';
 export class Company extends APIResource {
   /**
    * Update a sandbox company's data
+   *
+   * @example
+   * ```ts
+   * const company = await client.sandbox.company.update({
+   *   accounts: [{}],
+   *   departments: [{}],
+   *   ein: 'ein',
+   *   entity: {},
+   *   legal_name: 'legal_name',
+   *   locations: [
+   *     {
+   *       city: 'city',
+   *       country: 'country',
+   *       line1: 'line1',
+   *       line2: 'line2',
+   *       postal_code: 'postal_code',
+   *       state: 'state',
+   *     },
+   *   ],
+   *   primary_email: 'dev@stainless.com',
+   *   primary_phone_number: 'primary_phone_number',
+   * });
+   * ```
    */
   update(body: CompanyUpdateParams, options?: Core.RequestOptions): Core.APIPromise<CompanyUpdateResponse> {
     return this._client.put('/sandbox/company', { body, ...options });

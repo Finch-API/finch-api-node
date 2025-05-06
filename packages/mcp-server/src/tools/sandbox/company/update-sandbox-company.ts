@@ -101,41 +101,7 @@ export const tool: Tool = {
       locations: {
         type: 'array',
         items: {
-          type: 'object',
-          title: 'Location',
-          properties: {
-            city: {
-              type: 'string',
-              description: 'City, district, suburb, town, or village.',
-            },
-            country: {
-              type: 'string',
-              description: 'The 2-letter ISO 3166 country code.',
-            },
-            line1: {
-              type: 'string',
-              description: 'Street address or PO box.',
-            },
-            line2: {
-              type: 'string',
-              description: 'Apartment, suite, unit, or building.',
-            },
-            name: {
-              type: 'string',
-            },
-            postal_code: {
-              type: 'string',
-              description: 'The postal code or zip code.',
-            },
-            source_id: {
-              type: 'string',
-            },
-            state: {
-              type: 'string',
-              description: 'The state code.',
-            },
-          },
-          required: [],
+          $ref: '#/$defs/location',
         },
       },
       primary_email: {
@@ -148,11 +114,50 @@ export const tool: Tool = {
           'The phone number of the main administrator on the account. Format: E.164, with extension where applicable, e.g. `+NNNNNNNNNNN xExtension`',
       },
     },
+    $defs: {
+      location: {
+        type: 'object',
+        title: 'Location',
+        properties: {
+          city: {
+            type: 'string',
+            description: 'City, district, suburb, town, or village.',
+          },
+          country: {
+            type: 'string',
+            description: 'The 2-letter ISO 3166 country code.',
+          },
+          line1: {
+            type: 'string',
+            description: 'Street address or PO box.',
+          },
+          line2: {
+            type: 'string',
+            description: 'Apartment, suite, unit, or building.',
+          },
+          postal_code: {
+            type: 'string',
+            description: 'The postal code or zip code.',
+          },
+          state: {
+            type: 'string',
+            description: 'The state code.',
+          },
+          name: {
+            type: 'string',
+          },
+          source_id: {
+            type: 'string',
+          },
+        },
+        required: ['city', 'country', 'line1', 'line2', 'postal_code', 'state'],
+      },
+    },
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { ...body } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const body = args as any;
   return client.sandbox.company.update(body);
 };
 

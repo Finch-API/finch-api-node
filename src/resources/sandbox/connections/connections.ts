@@ -16,6 +16,13 @@ export class Connections extends APIResource {
 
   /**
    * Create a new connection (new company/provider pair) with a new account
+   *
+   * @example
+   * ```ts
+   * const connection = await client.sandbox.connections.create({
+   *   provider_id: 'provider_id',
+   * });
+   * ```
    */
   create(
     body: ConnectionCreateParams,

@@ -8,6 +8,14 @@ import { IndividualsPage, type IndividualsPageParams } from '../../pagination';
 export class Directory extends APIResource {
   /**
    * Read company directory and organization structure
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const individualInDirectory of client.hris.directory.list()) {
+   *   // ...
+   * }
+   * ```
    */
   list(
     query?: DirectoryListParams,
@@ -34,37 +42,37 @@ export interface IndividualInDirectory {
   /**
    * A stable Finch `id` (UUID v4) for an individual in the company.
    */
-  id?: string;
+  id: string;
 
   /**
    * The department object.
    */
-  department?: IndividualInDirectory.Department | null;
+  department: IndividualInDirectory.Department | null;
 
   /**
    * The legal first name of the individual.
    */
-  first_name?: string | null;
+  first_name: string | null;
 
   /**
    * `true` if the individual is an active employee or contractor at the company.
    */
-  is_active?: boolean | null;
+  is_active: boolean | null;
 
   /**
    * The legal last name of the individual.
    */
-  last_name?: string | null;
+  last_name: string | null;
 
   /**
    * The manager object.
    */
-  manager?: IndividualInDirectory.Manager | null;
+  manager: IndividualInDirectory.Manager | null;
 
   /**
    * The legal middle name of the individual.
    */
-  middle_name?: string | null;
+  middle_name: string | null;
 }
 
 export namespace IndividualInDirectory {
@@ -85,7 +93,7 @@ export namespace IndividualInDirectory {
     /**
      * A stable Finch `id` (UUID v4) for an individual in the company.
      */
-    id?: string;
+    id: string;
   }
 }
 
