@@ -8,6 +8,13 @@ import * as HRISAPI from '../hris/hris';
 export class Directory extends APIResource {
   /**
    * Add new individuals to a sandbox company
+   *
+   * @example
+   * ```ts
+   * const directories = await client.sandbox.directory.create([
+   *   {},
+   * ]);
+   * ```
    */
   create(
     body?: DirectoryCreateParams,

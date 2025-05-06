@@ -8,6 +8,14 @@ import { IndividualsPage, type IndividualsPageParams } from '../../pagination';
 export class Directory extends APIResource {
   /**
    * Read company directory and organization structure
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const individualInDirectory of client.hris.directory.list()) {
+   *   // ...
+   * }
+   * ```
    */
   list(
     query?: DirectoryListParams,

@@ -6,6 +6,12 @@ import * as Core from '../../../core';
 export class Configuration extends APIResource {
   /**
    * Get configurations for sandbox jobs
+   *
+   * @example
+   * ```ts
+   * const sandboxJobConfigurations =
+   *   await client.sandbox.jobs.configuration.retrieve();
+   * ```
    */
   retrieve(options?: Core.RequestOptions): Core.APIPromise<ConfigurationRetrieveResponse> {
     return this._client.get('/sandbox/jobs/configuration', options);
@@ -13,6 +19,15 @@ export class Configuration extends APIResource {
 
   /**
    * Update configurations for sandbox jobs
+   *
+   * @example
+   * ```ts
+   * const sandboxJobConfiguration =
+   *   await client.sandbox.jobs.configuration.update({
+   *     completion_status: 'complete',
+   *     type: 'data_sync_all',
+   *   });
+   * ```
    */
   update(
     body: ConfigurationUpdateParams,

@@ -8,6 +8,17 @@ import { SinglePage } from '../../pagination';
 export class Payments extends APIResource {
   /**
    * Read payroll and contractor related payments by the company.
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const payment of client.hris.payments.list({
+   *   end_date: '2021-01-01',
+   *   start_date: '2021-01-01',
+   * })) {
+   *   // ...
+   * }
+   * ```
    */
   list(
     query: PaymentListParams,

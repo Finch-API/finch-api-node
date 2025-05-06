@@ -25,6 +25,12 @@ export class Benefits extends APIResource {
   /**
    * Creates a new company-wide deduction or contribution. Please use the
    * `/providers` endpoint to view available types for each provider.
+   *
+   * @example
+   * ```ts
+   * const createCompanyBenefitsResponse =
+   *   await client.hris.benefits.create();
+   * ```
    */
   create(
     body?: BenefitCreateParams,
@@ -43,6 +49,13 @@ export class Benefits extends APIResource {
 
   /**
    * Lists deductions and contributions information for a given item
+   *
+   * @example
+   * ```ts
+   * const companyBenefit = await client.hris.benefits.retrieve(
+   *   'benefit_id',
+   * );
+   * ```
    */
   retrieve(benefitId: string, options?: Core.RequestOptions): Core.APIPromise<CompanyBenefit> {
     return this._client.get(`/employer/benefits/${benefitId}`, options);
@@ -50,6 +63,12 @@ export class Benefits extends APIResource {
 
   /**
    * Updates an existing company-wide deduction or contribution
+   *
+   * @example
+   * ```ts
+   * const updateCompanyBenefitResponse =
+   *   await client.hris.benefits.update('benefit_id');
+   * ```
    */
   update(
     benefitId: string,
@@ -70,6 +89,14 @@ export class Benefits extends APIResource {
 
   /**
    * List all company-wide deductions and contributions.
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const companyBenefit of client.hris.benefits.list()) {
+   *   // ...
+   * }
+   * ```
    */
   list(options?: Core.RequestOptions): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit> {
     return this._client.getAPIList('/employer/benefits', CompanyBenefitsSinglePage, options);
@@ -77,6 +104,14 @@ export class Benefits extends APIResource {
 
   /**
    * Get deductions metadata
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const benefitListSupportedBenefitsResponse of client.hris.benefits.listSupportedBenefits()) {
+   *   // ...
+   * }
+   * ```
    */
   listSupportedBenefits(
     options?: Core.RequestOptions,

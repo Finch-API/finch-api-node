@@ -8,6 +8,16 @@ import { ResponsesPage } from '../../pagination';
 export class Employments extends APIResource {
   /**
    * Read individual employment and income data
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const employmentDataResponse of client.hris.employments.retrieveMany(
+   *   { requests: [{ individual_id: 'individual_id' }] },
+   * )) {
+   *   // ...
+   * }
+   * ```
    */
   retrieveMany(
     body: EmploymentRetrieveManyParams,

@@ -18,6 +18,11 @@ export class CompanyResource extends APIResource {
 
   /**
    * Read basic company data
+   *
+   * @example
+   * ```ts
+   * const company = await client.hris.company.retrieve();
+   * ```
    */
   retrieve(options?: Core.RequestOptions): Core.APIPromise<Company> {
     return this._client.get('/employer/company', options);

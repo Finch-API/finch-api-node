@@ -8,6 +8,13 @@ import * as HRISAPI from '../hris/hris';
 export class Individual extends APIResource {
   /**
    * Update sandbox individual
+   *
+   * @example
+   * ```ts
+   * const individual = await client.sandbox.individual.update(
+   *   'individual_id',
+   * );
+   * ```
    */
   update(
     individualId: string,

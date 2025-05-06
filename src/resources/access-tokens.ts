@@ -6,6 +6,14 @@ import * as Core from '../core';
 export class AccessTokens extends APIResource {
   /**
    * Exchange the authorization code for an access token
+   *
+   * @example
+   * ```ts
+   * const createAccessTokenResponse =
+   *   await client.accessTokens.create({
+   *     code: '<your_authorization_code>',
+   *   });
+   * ```
    */
   create(
     body: AccessTokenCreateParams,
