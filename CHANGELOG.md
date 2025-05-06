@@ -1,5 +1,47 @@
 # Changelog
 
+## 6.28.0 (2025-05-06)
+
+Full Changelog: [v6.27.0...v6.28.0](https://github.com/Finch-API/finch-api-node/compare/v6.27.0...v6.28.0)
+
+### Features
+
+* **api:** api update ([2154a72](https://github.com/Finch-API/finch-api-node/commit/2154a72f5e0a3f1936cd8b73938d43583777e5b5))
+* **api:** api update ([720fdb4](https://github.com/Finch-API/finch-api-node/commit/720fdb4be78bdb2a2deb6ddee60a4114b88b69ed))
+* **api:** api update ([b6ccf3a](https://github.com/Finch-API/finch-api-node/commit/b6ccf3a9aa7e87e9b40843a1d3a6102ad8e3d26d))
+* **api:** api update ([4d2f27f](https://github.com/Finch-API/finch-api-node/commit/4d2f27f906f5e910a07097577f71764bb8330f1e))
+* **api:** api update ([e97c6e3](https://github.com/Finch-API/finch-api-node/commit/e97c6e3642ac4c676f584bac56c0b7442e6086f5))
+* **api:** api update ([7f91f38](https://github.com/Finch-API/finch-api-node/commit/7f91f38cca55023e56fb20924bd8e38796edb2d0))
+* **api:** api update ([92c0b21](https://github.com/Finch-API/finch-api-node/commit/92c0b210ae40ae63c773e6e84e8b77dbd613b1f7))
+* **api:** api update ([44171ef](https://github.com/Finch-API/finch-api-node/commit/44171ef323d5142cba8f852dec19b51f7a4f289a))
+* **api:** api update ([bdf9bd1](https://github.com/Finch-API/finch-api-node/commit/bdf9bd180f3c03933aaafffe341f3b8aafd430fe))
+* **api:** api update ([dbd517c](https://github.com/Finch-API/finch-api-node/commit/dbd517c6289b8a8e441a3ee3f97d94ec0ddb121c))
+* **api:** api update ([810d43d](https://github.com/Finch-API/finch-api-node/commit/810d43df1cd5fe28074fe93e0a6796beacdc8719))
+* **api:** api update ([3f01647](https://github.com/Finch-API/finch-api-node/commit/3f016471afec2e7f8d1275a008311c1124709078))
+* **api:** api update ([28ab466](https://github.com/Finch-API/finch-api-node/commit/28ab466caaea2be802082f3f093b5648190391ed))
+* **api:** api update ([ac9d102](https://github.com/Finch-API/finch-api-node/commit/ac9d102d86274b970409beef5ba8ed3aa8349302))
+* **api:** api update ([9f3bc94](https://github.com/Finch-API/finch-api-node/commit/9f3bc9480e443f1ac73e880cc31ad02dde588ade))
+* **api:** api update ([8e71317](https://github.com/Finch-API/finch-api-node/commit/8e71317c757ccd55d9d026c19ad96874f09cfb17))
+* **api:** api update ([5858466](https://github.com/Finch-API/finch-api-node/commit/585846655881cb6a8d04d7a60b372ede87adec6a))
+* more gracefully handle $refs and work around schema limitations ([dffc300](https://github.com/Finch-API/finch-api-node/commit/dffc300d8fd56479c9c5b233a0c12881c3370cb7))
+
+
+### Bug Fixes
+
+* **mcp:** remove ajv dependency so MCP servers are more compatible with Cloudflare Workers ([7b03a90](https://github.com/Finch-API/finch-api-node/commit/7b03a90abccc5b789c60cac12edc446a96e35464))
+
+
+### Chores
+
+* **ci:** bump node version for release workflows ([579202e](https://github.com/Finch-API/finch-api-node/commit/579202e75c7b9d4ba37a57274279c90cbaddbff3))
+* **internal:** update dependency ([c08d626](https://github.com/Finch-API/finch-api-node/commit/c08d62616cf7c0ccfb6fb04000f8572d28c0ec3b))
+
+
+### Documentation
+
+* add examples to tsdocs ([ffbff85](https://github.com/Finch-API/finch-api-node/commit/ffbff852c8ce9eb25c4ff113508f4e07c4745235))
+* **readme:** fix typo ([958fcf3](https://github.com/Finch-API/finch-api-node/commit/958fcf3b0ce9b3fb4b8246a4c0db4d5168fcf6eb))
+
 ## 6.27.0 (2025-04-23)
 
 Full Changelog: [v6.26.0...v6.27.0](https://github.com/Finch-API/finch-api-node/compare/v6.26.0...v6.27.0)
