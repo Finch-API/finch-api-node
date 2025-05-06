@@ -9,6 +9,14 @@ import { ResponsesPage } from '../../pagination';
 export class Individuals extends APIResource {
   /**
    * Read individual data, excluding income and employment data
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const individualResponse of client.hris.individuals.retrieveMany()) {
+   *   // ...
+   * }
+   * ```
    */
   retrieveMany(
     body?: IndividualRetrieveManyParams,

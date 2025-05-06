@@ -12,6 +12,15 @@ export class Individuals extends APIResource {
    * operation. If the employee is already enrolled, the enrollment amounts will be
    * adjusted. Making the same request multiple times will not create new
    * enrollments, but will continue to set the state of the existing enrollment.
+   *
+   * @example
+   * ```ts
+   * const enrolledIndividualBenefitResponse =
+   *   await client.hris.benefits.individuals.enrollMany(
+   *     'benefit_id',
+   *     [{}],
+   *   );
+   * ```
    */
   enrollMany(
     benefitId: string,
@@ -35,6 +44,14 @@ export class Individuals extends APIResource {
 
   /**
    * Lists individuals currently enrolled in a given deduction.
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.hris.benefits.individuals.enrolledIds(
+   *     'benefit_id',
+   *   );
+   * ```
    */
   enrolledIds(
     benefitId: string,
@@ -45,6 +62,16 @@ export class Individuals extends APIResource {
 
   /**
    * Get enrollment information for the given individuals.
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const individualBenefit of client.hris.benefits.individuals.retrieveManyBenefits(
+   *   'benefit_id',
+   * )) {
+   *   // ...
+   * }
+   * ```
    */
   retrieveManyBenefits(
     benefitId: string,
@@ -72,6 +99,14 @@ export class Individuals extends APIResource {
 
   /**
    * Unenroll individuals from a deduction or contribution
+   *
+   * @example
+   * ```ts
+   * const unenrolledIndividualBenefitResponse =
+   *   await client.hris.benefits.individuals.unenrollMany(
+   *     'benefit_id',
+   *   );
+   * ```
    */
   unenrollMany(
     benefitId: string,

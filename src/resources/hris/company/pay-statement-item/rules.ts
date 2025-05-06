@@ -13,6 +13,12 @@ export class Rules extends APIResource {
    * example, pay statement items that meet certain conditions can be labeled as a
    * pre-tax 401k. This metadata can be retrieved where pay statement item
    * information is available.
+   *
+   * @example
+   * ```ts
+   * const rule =
+   *   await client.hris.company.payStatementItem.rules.create();
+   * ```
    */
   create(body?: RuleCreateParams, options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse>;
   create(options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse>;
@@ -29,6 +35,14 @@ export class Rules extends APIResource {
   /**
    * **Beta:** this endpoint currently serves employers onboarded after March 4th and
    * historical support will be added soon Update a rule for a pay statement item.
+   *
+   * @example
+   * ```ts
+   * const rule =
+   *   await client.hris.company.payStatementItem.rules.update(
+   *     'rule_id',
+   *   );
+   * ```
    */
   update(
     ruleId: string,
@@ -50,6 +64,14 @@ export class Rules extends APIResource {
   /**
    * **Beta:** this endpoint currently serves employers onboarded after March 4th and
    * historical support will be added soon List all rules of a connection account.
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const ruleListResponse of client.hris.company.payStatementItem.rules.list()) {
+   *   // ...
+   * }
+   * ```
    */
   list(options?: Core.RequestOptions): Core.PagePromise<RuleListResponsesPage, RuleListResponse> {
     return this._client.getAPIList('/employer/pay-statement-item/rule', RuleListResponsesPage, options);
@@ -58,6 +80,14 @@ export class Rules extends APIResource {
   /**
    * **Beta:** this endpoint currently serves employers onboarded after March 4th and
    * historical support will be added soon Delete a rule for a pay statement item.
+   *
+   * @example
+   * ```ts
+   * const rule =
+   *   await client.hris.company.payStatementItem.rules.delete(
+   *     'rule_id',
+   *   );
+   * ```
    */
   delete(ruleId: string, options?: Core.RequestOptions): Core.APIPromise<RuleDeleteResponse> {
     return this._client.delete(`/employer/pay-statement-item/rule/${ruleId}`, options);
