@@ -13,6 +13,22 @@ export class PayStatements extends APIResource {
    *
    * Deduction and contribution types are supported by the payroll systems that
    * supports Benefits.
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const payStatementResponse of client.hris.payStatements.retrieveMany(
+   *   {
+   *     requests: [
+   *       {
+   *         payment_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+   *       },
+   *     ],
+   *   },
+   * )) {
+   *   // ...
+   * }
+   * ```
    */
   retrieveMany(
     body: PayStatementRetrieveManyParams,

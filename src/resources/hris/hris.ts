@@ -88,23 +88,23 @@ export interface Income {
   /**
    * The income amount in cents.
    */
-  amount?: number | null;
+  amount: number | null;
 
   /**
    * The currency code.
    */
-  currency?: string | null;
+  currency: string | null;
 
   /**
    * The date the income amount went into effect.
    */
-  effective_date?: string | null;
+  effective_date: string | null;
 
   /**
    * The income unit of payment. Options: `yearly`, `quarterly`, `monthly`,
    * `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.
    */
-  unit?:
+  unit:
     | 'yearly'
     | 'quarterly'
     | 'monthly'
@@ -121,36 +121,36 @@ export interface Location {
   /**
    * City, district, suburb, town, or village.
    */
-  city?: string | null;
+  city: string | null;
 
   /**
    * The 2-letter ISO 3166 country code.
    */
-  country?: string | null;
+  country: string | null;
 
   /**
    * Street address or PO box.
    */
-  line1?: string | null;
+  line1: string | null;
 
   /**
    * Apartment, suite, unit, or building.
    */
-  line2?: string | null;
-
-  name?: string | null;
+  line2: string | null;
 
   /**
    * The postal code or zip code.
    */
-  postal_code?: string | null;
-
-  source_id?: string | null;
+  postal_code: string | null;
 
   /**
    * The state code.
    */
-  state?: string | null;
+  state: string | null;
+
+  name?: string | null;
+
+  source_id?: string | null;
 }
 
 export interface Money {

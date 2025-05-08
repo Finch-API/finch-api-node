@@ -75,8 +75,8 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { ...body } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const body = args as any;
   return client.connect.sessions.new(body);
 };
 

@@ -96,6 +96,16 @@ export const tool: Tool = {
         description: 'The preferred name of the individual.',
       },
       residence: {
+        $ref: '#/$defs/location',
+      },
+      ssn: {
+        type: 'string',
+        description:
+          "Social Security Number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: ['ssn'] }` param set in the body. [Click here to learn more about enabling the SSN field](/developer-resources/Enable-SSN-Field).",
+      },
+    },
+    $defs: {
+      location: {
         type: 'object',
         title: 'Location',
         properties: {
@@ -115,34 +125,29 @@ export const tool: Tool = {
             type: 'string',
             description: 'Apartment, suite, unit, or building.',
           },
-          name: {
-            type: 'string',
-          },
           postal_code: {
             type: 'string',
             description: 'The postal code or zip code.',
-          },
-          source_id: {
-            type: 'string',
           },
           state: {
             type: 'string',
             description: 'The state code.',
           },
+          name: {
+            type: 'string',
+          },
+          source_id: {
+            type: 'string',
+          },
         },
-        required: [],
-      },
-      ssn: {
-        type: 'string',
-        description:
-          "Social Security Number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: ['ssn'] }` param set in the body. [Click here to learn more about enabling the SSN field](/developer-resources/Enable-SSN-Field).",
+        required: ['city', 'country', 'line1', 'line2', 'postal_code', 'state'],
       },
     },
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const { individual_id, ...body } = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+  const { individual_id, ...body } = args as any;
   return client.sandbox.individual.update(individual_id, body);
 };
 

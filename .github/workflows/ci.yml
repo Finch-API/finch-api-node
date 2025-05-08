@@ -46,7 +46,7 @@ jobs:
         run: ./scripts/bootstrap
 
       - name: Check build
-        run: ./scripts/build
+        run: ./scripts/build-all
 
       - name: Get GitHub OIDC Token
         if: github.repository == 'stainless-sdks/finch-node'
@@ -72,7 +72,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Bootstrap
         run: ./scripts/bootstrap

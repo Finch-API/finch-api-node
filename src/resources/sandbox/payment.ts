@@ -9,6 +9,25 @@ import * as BenefitsAPI from '../hris/benefits/benefits';
 export class Payment extends APIResource {
   /**
    * Add a new sandbox payment
+   *
+   * @example
+   * ```ts
+   * const payment = await client.sandbox.payment.create({
+   *   pay_statements: [
+   *     {
+   *       individual_id: 'b2338cfb-472f-4f72-9faa-e028c083144a',
+   *       employee_deductions: [
+   *         {
+   *           name: '401k test',
+   *           type: '401k',
+   *           amount: 2000,
+   *           currency: 'usd',
+   *         },
+   *       ],
+   *     },
+   *   ],
+   * });
+   * ```
    */
   create(body?: PaymentCreateParams, options?: Core.RequestOptions): Core.APIPromise<PaymentCreateResponse>;
   create(options?: Core.RequestOptions): Core.APIPromise<PaymentCreateResponse>;

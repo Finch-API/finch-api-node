@@ -38,7 +38,7 @@ describe('resource payment', () => {
               earnings: [
                 {
                   amount: 0,
-                  attributes: { metadata: { metadata: { foo: 'bar' } } },
+                  attributes: { metadata: { metadata: { foo: {} } } },
                   currency: 'currency',
                   hours: 0,
                   name: 'name',
@@ -48,7 +48,7 @@ describe('resource payment', () => {
               employee_deductions: [
                 {
                   amount: 2000,
-                  attributes: { metadata: { metadata: { foo: 'bar' } } },
+                  attributes: { metadata: { metadata: { foo: {} } } },
                   currency: 'usd',
                   name: '401k test',
                   pre_tax: true,
@@ -58,7 +58,7 @@ describe('resource payment', () => {
               employer_contributions: [
                 {
                   amount: 0,
-                  attributes: { metadata: { metadata: { foo: 'bar' } } },
+                  attributes: { metadata: { metadata: { foo: {} } } },
                   currency: 'currency',
                   name: 'name',
                   type: '401k',
@@ -71,7 +71,7 @@ describe('resource payment', () => {
               taxes: [
                 {
                   amount: 0,
-                  attributes: { metadata: { metadata: { foo: 'bar' } } },
+                  attributes: { metadata: { metadata: { foo: {} } } },
                   currency: 'currency',
                   employer: true,
                   name: 'name',

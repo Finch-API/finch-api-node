@@ -15,6 +15,13 @@ export class Jobs extends APIResource {
 
   /**
    * Enqueue a new sandbox job
+   *
+   * @example
+   * ```ts
+   * const job = await client.sandbox.jobs.create({
+   *   type: 'data_sync_all',
+   * });
+   * ```
    */
   create(body: JobCreateParams, options?: Core.RequestOptions): Core.APIPromise<JobCreateResponse> {
     return this._client.post('/sandbox/jobs', { body, ...options });

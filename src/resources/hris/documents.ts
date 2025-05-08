@@ -9,6 +9,11 @@ export class Documents extends APIResource {
   /**
    * **Beta:** This endpoint is in beta and may change. Retrieve a list of
    * company-wide documents.
+   *
+   * @example
+   * ```ts
+   * const documents = await client.hris.documents.list();
+   * ```
    */
   list(query?: DocumentListParams, options?: Core.RequestOptions): Core.APIPromise<DocumentListResponse>;
   list(options?: Core.RequestOptions): Core.APIPromise<DocumentListResponse>;
@@ -25,6 +30,13 @@ export class Documents extends APIResource {
   /**
    * **Beta:** This endpoint is in beta and may change. Retrieve details of a
    * specific document by its ID.
+   *
+   * @example
+   * ```ts
+   * const response = await client.hris.documents.retreive(
+   *   'document_id',
+   * );
+   * ```
    */
   retreive(documentId: string, options?: Core.RequestOptions): Core.APIPromise<DocumentRetreiveResponse> {
     return this._client.get(`/employer/documents/${documentId}`, options);

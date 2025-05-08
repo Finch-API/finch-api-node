@@ -5,13 +5,14 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { endpoints, HandlerFunction } from './tools';
 import { CallToolRequestSchema, ListToolsRequestSchema, Tool } from '@modelcontextprotocol/sdk/types.js';
 import Finch from '@tryfinch/finch-api';
+import { ClientCapabilities, defaultClientCapabilities, parseEmbeddedJSON } from './compat';
 export { endpoints } from './tools';
 
 // Create server instance
 export const server = new McpServer(
   {
     name: 'tryfinch_finch_api_api',
-    version: '6.27.0',
+    version: '6.28.0',
   },
   {
     capabilities: {
@@ -28,31 +29,29 @@ export function init(params: {
   server: Server | McpServer;
   client?: Finch;
   endpoints?: { tool: Tool; handler: HandlerFunction }[];
+  capabilities?: Partial<ClientCapabilities>;
 }) {
   const server = params.server instanceof McpServer ? params.server.server : params.server;
   const providedEndpoints = params.endpoints || endpoints;
-  const tools = providedEndpoints.map((endpoint) => endpoint.tool);
-  const handlers = Object.fromEntries(
-    providedEndpoints.map((endpoint) => [endpoint.tool.name, endpoint.handler]),
-  );
+
+  const endpointMap = Object.fromEntries(providedEndpoints.map((endpoint) => [endpoint.tool.name, endpoint]));
 
   const client = params.client || new Finch({ accessToken: readEnv('FINCH_ACCESS_TOKEN') });
 
   server.setRequestHandler(ListToolsRequestSchema, async () => {
     return {
-      tools,
+      tools: providedEndpoints.map((endpoint) => endpoint.tool),
     };
   });
 
   server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const { name, arguments: args } = request.params;
-
-    const handler = handlers[name];
-    if (!handler) {
+    const endpoint = endpointMap[name];
+    if (!endpoint) {
       throw new Error(`Unknown tool: ${name}`);
     }
 
-    return executeHandler(handler, client, args);
+    return executeHandler(endpoint.tool, endpoint.handler, client, args, params.capabilities);
   });
 }
 
@@ -60,10 +59,16 @@ export function init(params: {
  * Runs the provided handler with the given client and arguments.
  */
 export async function executeHandler(
+  tool: Tool,
   handler: HandlerFunction,
   client: Finch,
   args: Record<string, unknown> | undefined,
+  compatibilityOptions?: Partial<ClientCapabilities>,
 ) {
+  const options = { ...defaultClientCapabilities, ...compatibilityOptions };
+  if (options.validJson && args) {
+    args = args = parseEmbeddedJSON(args, tool.inputSchema);
+  }
   const result = await handler(client, args || {});
   return {
     content: [

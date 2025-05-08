@@ -19,8 +19,7 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: any) => {
-  const {} = args;
+export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
   return client.hris.company.retrieve();
 };
 
