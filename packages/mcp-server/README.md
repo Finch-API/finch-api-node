@@ -13,7 +13,7 @@ export FINCH_ACCESS_TOKEN="My Access Token"
 export FINCH_CLIENT_ID="4ab15e51-11ad-49f4-acae-f343b7794375"
 export FINCH_CLIENT_SECRET="My Client Secret"
 export FINCH_WEBHOOK_SECRET="My Webhook Secret"
-npx -y @tryfinch/finch-api-mcp
+npx -y @tryfinch/finch-api-mcp@latest
 ```
 
 ### Via MCP Client
@@ -28,7 +28,7 @@ For clients with a configuration JSON, it might look something like this:
   "mcpServers": {
     "tryfinch_finch_api_api": {
       "command": "npx",
-      "args": ["-y", "@tryfinch/finch-api-mcp", "--client=claude"],
+      "args": ["-y", "@tryfinch/finch-api-mcp", "--client=claude", "--tools=dynamic"],
       "env": {
         "FINCH_ACCESS_TOKEN": "My Access Token",
         "FINCH_CLIENT_ID": "4ab15e51-11ad-49f4-acae-f343b7794375",
@@ -40,7 +40,14 @@ For clients with a configuration JSON, it might look something like this:
 }
 ```
 
-## Filtering tools
+## Exposing endpoints to your MCP Client
+
+There are two ways to expose endpoints as tools in the MCP server:
+
+1. Exposing one tool per endpoint, and filtering as necessary
+2. Exposing a set of tools to dynamically discover and invoke endpoints from the API
+
+### Filtering endpoints and tools
 
 You can run the package on the command line to discover and filter the set of tools that are exposed by the
 MCP Server. This can be helpful for large APIs where including all endpoints at once is too much for your AI's
@@ -51,6 +58,21 @@ You can filter by multiple aspects:
 - `--tool` includes a specific tool by name
 - `--resource` includes all tools under a specific resource, and can have wildcards, e.g. `my.resource*`
 - `--operation` includes just read (get/list) or just write operations
+
+### Dynamic tools
+
+If you specify `--tools=dynamic` to the MCP server, instead of exposing one tool per endpoint in the API, it will
+expose the following tools:
+
+1. `list_api_endpoints` - Discovers available endpoints, with optional filtering by search query
+2. `get_api_endpoint_schema` - Gets detailed schema information for a specific endpoint
+3. `invoke_api_endpoint` - Executes any endpoint with the appropriate parameters
+
+This allows you to have the full set of API endpoints available to your MCP Client, while not requiring that all
+of their schemas be loaded into context at once. Instead, the LLM will automatically use these tools together to
+search for, look up, and invoke endpoints dynamically. However, due to the indirect nature of the schemas, it
+can struggle to provide the correct properties a bit more than when tools are imported explicitly. Therefore,
+you can opt-in to explicit tools, the dynamic tools, or both.
 
 See more information with `--help`.
 
