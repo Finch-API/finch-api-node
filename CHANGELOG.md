@@ -1,5 +1,18 @@
 # Changelog
 
+## 6.29.0 (2025-05-09)
+
+Full Changelog: [v6.28.0...v6.29.0](https://github.com/Finch-API/finch-api-node/compare/v6.28.0...v6.29.0)
+
+### Features
+
+* **mcp:** support dynamically discovering and invoking tools for APIs with many endpoints ([15dc9a2](https://github.com/Finch-API/finch-api-node/commit/15dc9a25a80d0085a76b98ab04a342a314796dc8))
+
+
+### Chores
+
+* **build:** automatically build subpackages if present ([33222c2](https://github.com/Finch-API/finch-api-node/commit/33222c2af9c21d702c044be763d822a28e65a7e3))
+
 ## 6.28.0 (2025-05-06)
 
 Full Changelog: [v6.27.0...v6.28.0](https://github.com/Finch-API/finch-api-node/compare/v6.27.0...v6.28.0)
