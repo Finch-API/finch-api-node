@@ -157,9 +157,9 @@ export interface Money {
   /**
    * Amount for money object (in cents)
    */
-  amount?: number | null;
+  amount: number | null;
 
-  currency?: string;
+  currency: string;
 }
 
 HRIS.CompanyResource = CompanyResource;

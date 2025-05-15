@@ -35,7 +35,7 @@ describe('resource benefits', () => {
           company_contribution: { tiers: [{ match: 1, threshold: 1 }], type: 'match' },
           description: 'description',
           frequency: 'one_time',
-          type: '401k',
+          type: '457',
         },
         { path: '/_stainless_unknown_path' },
       ),
