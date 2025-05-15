@@ -188,7 +188,7 @@ export const tool: Tool = {
             payment_method: {
               type: 'string',
               description: 'The payment method.',
-              enum: ['check', 'direct_deposit'],
+              enum: ['check', 'direct_deposit', 'other'],
             },
             taxes: {
               type: 'array',
