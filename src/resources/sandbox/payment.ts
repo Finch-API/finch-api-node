@@ -74,7 +74,7 @@ export namespace PaymentCreateParams {
     /**
      * The payment method.
      */
-    payment_method: 'check' | 'direct_deposit' | null;
+    payment_method: 'check' | 'direct_deposit' | 'other' | null;
 
     /**
      * The array of taxes objects associated with this pay statement.
