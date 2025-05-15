@@ -57,14 +57,14 @@ export interface PayGroupRetrieveResponse {
    */
   pay_frequencies: Array<
     | 'annually'
-    | 'semi_annually'
-    | 'quarterly'
-    | 'monthly'
-    | 'semi_monthly'
     | 'bi_weekly'
-    | 'weekly'
     | 'daily'
+    | 'monthly'
     | 'other'
+    | 'quarterly'
+    | 'semi_annually'
+    | 'semi_monthly'
+    | 'weekly'
   >;
 }
 
@@ -72,26 +72,26 @@ export interface PayGroupListResponse {
   /**
    * Finch id (uuidv4) for the pay group
    */
-  id?: string;
+  id: string;
 
   /**
    * Name of the pay group
    */
-  name?: string;
+  name: string;
 
   /**
    * List of pay frequencies associated with this pay group
    */
-  pay_frequencies?: Array<
+  pay_frequencies: Array<
     | 'annually'
-    | 'semi_annually'
-    | 'quarterly'
-    | 'monthly'
-    | 'semi_monthly'
     | 'bi_weekly'
-    | 'weekly'
     | 'daily'
+    | 'monthly'
     | 'other'
+    | 'quarterly'
+    | 'semi_annually'
+    | 'semi_monthly'
+    | 'weekly'
   >;
 }
 
