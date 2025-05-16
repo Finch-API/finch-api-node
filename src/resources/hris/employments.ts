@@ -108,11 +108,6 @@ export namespace EmploymentData {
      */
     middle_name: string | null;
 
-    /**
-     * The source system's unique employment identifier for this individual
-     */
-    source_id: string | null;
-
     start_date: string | null;
 
     /**
@@ -136,6 +131,11 @@ export namespace EmploymentData {
      * The array of income history.
      */
     income_history?: Array<HRISAPI.Income | null> | null;
+
+    /**
+     * The source system's unique employment identifier for this individual
+     */
+    source_id?: string | null;
   }
 
   export namespace UnionMember0 {
