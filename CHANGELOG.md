@@ -1,5 +1,28 @@
 # Changelog
 
+## 6.29.0 (2025-05-16)
+
+Full Changelog: [v6.28.0...v6.29.0](https://github.com/Finch-API/finch-api-node/compare/v6.28.0...v6.29.0)
+
+### Features
+
+* **api:** api update ([2b847c8](https://github.com/Finch-API/finch-api-node/commit/2b847c8ac11c808b0776b19cd684d22e9a221d0a))
+* **api:** api update ([1666a54](https://github.com/Finch-API/finch-api-node/commit/1666a54f5183326cad31fbaf0906de594b6be0ba))
+* **api:** api update ([ccf3438](https://github.com/Finch-API/finch-api-node/commit/ccf343822ab37c54677f7a0c34f0ce2cf5d626d9))
+* **mcp:** support dynamically discovering and invoking tools for APIs with many endpoints ([15dc9a2](https://github.com/Finch-API/finch-api-node/commit/15dc9a25a80d0085a76b98ab04a342a314796dc8))
+
+
+### Bug Fixes
+
+* **mcp:** explicitly include zod and zod-to-json-schema in package.json ([e649dac](https://github.com/Finch-API/finch-api-node/commit/e649dac94a1be276988f5f788d8bc9f73d75f331))
+
+
+### Chores
+
+* **build:** automatically build subpackages if present ([33222c2](https://github.com/Finch-API/finch-api-node/commit/33222c2af9c21d702c044be763d822a28e65a7e3))
+* **internal:** codegen related update ([6dad857](https://github.com/Finch-API/finch-api-node/commit/6dad8570585757c9551e2e6d86391c1185cc2e70))
+* **tests:** use node 22 for CI tests ([9ec83f5](https://github.com/Finch-API/finch-api-node/commit/9ec83f5dda56f32be358be67bef1cb2929af5183))
+
 ## 6.28.0 (2025-05-06)
 
 Full Changelog: [v6.27.0...v6.28.0](https://github.com/Finch-API/finch-api-node/compare/v6.27.0...v6.28.0)
