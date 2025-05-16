@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.31.0 (2025-05-16)
+
+Full Changelog: [v6.30.0...v6.31.0](https://github.com/Finch-API/finch-api-node/compare/v6.30.0...v6.31.0)
+
+### Features
+
+* **api:** api update ([183d19d](https://github.com/Finch-API/finch-api-node/commit/183d19d99c22b274af394531361c69bf49f72da8))
+
 ## 6.30.0 (2025-05-16)
 
 Full Changelog: [v6.29.0...v6.30.0](https://github.com/Finch-API/finch-api-node/compare/v6.29.0...v6.30.0)
