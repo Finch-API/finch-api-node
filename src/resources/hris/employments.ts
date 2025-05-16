@@ -49,7 +49,8 @@ export namespace EmploymentData {
 
     /**
      * Custom fields for the individual. These are fields which are defined by the
-     * employer in the system.
+     * employer in the system. Custom fields are not currently supported for assisted
+     * connections.
      */
     custom_fields: Array<UnionMember0.CustomField> | null;
 
@@ -140,9 +141,9 @@ export namespace EmploymentData {
 
   export namespace UnionMember0 {
     export interface CustomField {
-      name?: string;
+      name?: string | null;
 
-      value?: string | Array<unknown> | unknown | number | boolean | null;
+      value?: string | null | Array<unknown> | null | unknown | number | null | boolean | null;
     }
 
     /**

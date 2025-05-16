@@ -51,7 +51,7 @@ export namespace DirectoryCreateParams {
      * employer in the system. Custom fields are not currently supported for assisted
      * connections.
      */
-    custom_fields?: Array<Body.CustomField>;
+    custom_fields?: Array<Body.CustomField> | null;
 
     /**
      * The department object.
@@ -68,7 +68,8 @@ export namespace DirectoryCreateParams {
     employment?: Body.Employment | null;
 
     /**
-     * The detailed employment status of the individual.
+     * The detailed employment status of the individual. Available options: `active`,
+     * `deceased`, `leave`, `onboarding`, `prehire`, `retired`, `terminated`.
      */
     employment_status?:
       | 'active'
@@ -161,7 +162,7 @@ export namespace DirectoryCreateParams {
     /**
      * The source system's unique employment identifier for this individual
      */
-    source_id?: string;
+    source_id?: string | null;
 
     /**
      * Social Security Number of the individual. This field is only available with the
@@ -207,7 +208,8 @@ export namespace DirectoryCreateParams {
      */
     export interface Employment {
       /**
-       * The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
+       * The secondary employment type of the individual. Options: `full_time`,
+       * `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
        */
       subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor' | null;
 
