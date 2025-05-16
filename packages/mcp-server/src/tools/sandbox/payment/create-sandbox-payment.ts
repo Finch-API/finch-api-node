@@ -35,6 +35,23 @@ export const tool: Tool = {
                     type: 'integer',
                     description: 'The earnings amount in cents.',
                   },
+                  attributes: {
+                    type: 'object',
+                    properties: {
+                      metadata: {
+                        type: 'object',
+                        properties: {
+                          metadata: {
+                            type: 'object',
+                            description:
+                              'The metadata to be attached to the entity by existing rules. It is a key-value pairs where the values can be of any type (string, number, boolean, object, array, etc.).',
+                          },
+                        },
+                        required: [],
+                      },
+                    },
+                    required: [],
+                  },
                   currency: {
                     type: 'string',
                     description: 'The earnings currency code.',
@@ -67,6 +84,20 @@ export const tool: Tool = {
                       'other',
                     ],
                   },
+                },
+                required: [],
+              },
+            },
+            employee_deductions: {
+              type: 'array',
+              description: 'The array of deductions objects associated with this pay statement.',
+              items: {
+                type: 'object',
+                properties: {
+                  amount: {
+                    type: 'integer',
+                    description: 'The deduction amount in cents.',
+                  },
                   attributes: {
                     type: 'object',
                     properties: {
@@ -79,24 +110,10 @@ export const tool: Tool = {
                               'The metadata to be attached to the entity by existing rules. It is a key-value pairs where the values can be of any type (string, number, boolean, object, array, etc.).',
                           },
                         },
-                        required: ['metadata'],
+                        required: [],
                       },
                     },
-                    required: ['metadata'],
-                  },
-                },
-                required: ['amount', 'currency', 'hours', 'name', 'type'],
-              },
-            },
-            employee_deductions: {
-              type: 'array',
-              description: 'The array of deductions objects associated with this pay statement.',
-              items: {
-                type: 'object',
-                properties: {
-                  amount: {
-                    type: 'integer',
-                    description: 'The deduction amount in cents.',
+                    required: [],
                   },
                   currency: {
                     type: 'string',
@@ -113,6 +130,19 @@ export const tool: Tool = {
                   type: {
                     $ref: '#/$defs/benefit_type',
                   },
+                },
+                required: [],
+              },
+            },
+            employer_contributions: {
+              type: 'array',
+              items: {
+                type: 'object',
+                properties: {
+                  amount: {
+                    type: 'integer',
+                    description: 'The contribution amount in cents.',
+                  },
                   attributes: {
                     type: 'object',
                     properties: {
@@ -125,23 +155,10 @@ export const tool: Tool = {
                               'The metadata to be attached to the entity by existing rules. It is a key-value pairs where the values can be of any type (string, number, boolean, object, array, etc.).',
                           },
                         },
-                        required: ['metadata'],
+                        required: [],
                       },
                     },
-                    required: ['metadata'],
-                  },
-                },
-                required: ['amount', 'currency', 'name', 'pre_tax', 'type'],
-              },
-            },
-            employer_contributions: {
-              type: 'array',
-              items: {
-                type: 'object',
-                properties: {
-                  amount: {
-                    type: 'integer',
-                    description: 'The contribution amount in cents.',
+                    required: [],
                   },
                   currency: {
                     type: 'string',
@@ -154,25 +171,8 @@ export const tool: Tool = {
                   type: {
                     $ref: '#/$defs/benefit_type',
                   },
-                  attributes: {
-                    type: 'object',
-                    properties: {
-                      metadata: {
-                        type: 'object',
-                        properties: {
-                          metadata: {
-                            type: 'object',
-                            description:
-                              'The metadata to be attached to the entity by existing rules. It is a key-value pairs where the values can be of any type (string, number, boolean, object, array, etc.).',
-                          },
-                        },
-                        required: ['metadata'],
-                      },
-                    },
-                    required: ['metadata'],
-                  },
                 },
-                required: ['amount', 'currency', 'name', 'type'],
+                required: [],
               },
             },
             gross_pay: {
@@ -200,6 +200,23 @@ export const tool: Tool = {
                     type: 'integer',
                     description: 'The tax amount in cents.',
                   },
+                  attributes: {
+                    type: 'object',
+                    properties: {
+                      metadata: {
+                        type: 'object',
+                        properties: {
+                          metadata: {
+                            type: 'object',
+                            description:
+                              'The metadata to be attached to the entity by existing rules. It is a key-value pairs where the values can be of any type (string, number, boolean, object, array, etc.).',
+                          },
+                        },
+                        required: [],
+                      },
+                    },
+                    required: [],
+                  },
                   currency: {
                     type: 'string',
                     description: 'The currency code.',
@@ -217,25 +234,8 @@ export const tool: Tool = {
                     description: 'The type of taxes.',
                     enum: ['state', 'federal', 'local', 'fica'],
                   },
-                  attributes: {
-                    type: 'object',
-                    properties: {
-                      metadata: {
-                        type: 'object',
-                        properties: {
-                          metadata: {
-                            type: 'object',
-                            description:
-                              'The metadata to be attached to the entity by existing rules. It is a key-value pairs where the values can be of any type (string, number, boolean, object, array, etc.).',
-                          },
-                        },
-                        required: ['metadata'],
-                      },
-                    },
-                    required: ['metadata'],
-                  },
                 },
-                required: ['amount', 'currency', 'employer', 'name', 'type'],
+                required: [],
               },
             },
             total_hours: {
@@ -248,18 +248,7 @@ export const tool: Tool = {
               enum: ['regular_payroll', 'off_cycle_payroll', 'one_time_payment'],
             },
           },
-          required: [
-            'earnings',
-            'employee_deductions',
-            'employer_contributions',
-            'gross_pay',
-            'individual_id',
-            'net_pay',
-            'payment_method',
-            'taxes',
-            'total_hours',
-            'type',
-          ],
+          required: [],
         },
       },
       start_date: {
@@ -272,25 +261,25 @@ export const tool: Tool = {
         title: 'BenefitType',
         description: 'Type of benefit.',
         enum: [
-          '457',
           '401k',
           '401k_roth',
           '401k_loan',
           '403b',
           '403b_roth',
+          '457',
           '457_roth',
+          's125_medical',
+          's125_dental',
+          's125_vision',
+          'hsa_pre',
+          'hsa_post',
+          'fsa_medical',
+          'fsa_dependent_care',
+          'simple_ira',
+          'simple',
           'commuter',
           'custom_post_tax',
           'custom_pre_tax',
-          'fsa_dependent_care',
-          'fsa_medical',
-          'hsa_post',
-          'hsa_pre',
-          's125_dental',
-          's125_medical',
-          's125_vision',
-          'simple',
-          'simple_ira',
         ],
       },
       money: {
@@ -305,7 +294,7 @@ export const tool: Tool = {
             type: 'string',
           },
         },
-        required: ['amount', 'currency'],
+        required: [],
       },
     },
   },

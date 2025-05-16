@@ -34,51 +34,51 @@ export interface Payment {
   /**
    * The unique id for the payment.
    */
-  id: string;
+  id?: string;
 
-  company_debit: HRISAPI.Money | null;
+  company_debit?: HRISAPI.Money | null;
 
-  debit_date: string | null;
+  debit_date?: string | null;
 
-  employee_taxes: HRISAPI.Money | null;
+  employee_taxes?: HRISAPI.Money | null;
 
-  employer_taxes: HRISAPI.Money | null;
+  employer_taxes?: HRISAPI.Money | null;
 
-  gross_pay: HRISAPI.Money | null;
+  gross_pay?: HRISAPI.Money | null;
 
   /**
    * Array of every individual on this payment.
    */
-  individual_ids: Array<string> | null;
+  individual_ids?: Array<string> | null;
 
-  net_pay: HRISAPI.Money | null;
+  net_pay?: HRISAPI.Money | null;
 
-  pay_date: string | null;
+  pay_date?: string | null;
 
   /**
    * List of pay frequencies associated with this payment.
    */
-  pay_frequencies: Array<
+  pay_frequencies?: Array<
     | 'annually'
-    | 'bi_weekly'
-    | 'daily'
-    | 'monthly'
-    | 'other'
-    | 'quarterly'
     | 'semi_annually'
+    | 'quarterly'
+    | 'monthly'
     | 'semi_monthly'
+    | 'bi_weekly'
     | 'weekly'
+    | 'daily'
+    | 'other'
   > | null;
 
   /**
    * Array of the Finch id (uuidv4) of every pay group associated with this payment.
    */
-  pay_group_ids: Array<string> | null;
+  pay_group_ids?: Array<string> | null;
 
   /**
    * The pay period object.
    */
-  pay_period: Payment.PayPeriod | null;
+  pay_period?: Payment.PayPeriod | null;
 }
 
 export namespace Payment {
@@ -86,9 +86,9 @@ export namespace Payment {
    * The pay period object.
    */
   export interface PayPeriod {
-    end_date: string | null;
+    end_date?: string | null;
 
-    start_date: string | null;
+    start_date?: string | null;
   }
 }
 
