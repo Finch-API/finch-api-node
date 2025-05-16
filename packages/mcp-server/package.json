@@ -1,6 +1,6 @@
 {
   "name": "@tryfinch/finch-api-mcp",
-  "version": "6.28.0",
+  "version": "6.29.0",
   "description": "The official MCP Server for the Finch API",
   "author": "Finch <founders@tryfinch.com>",
   "types": "dist/index.d.ts",
@@ -29,7 +29,10 @@
   "dependencies": {
     "@tryfinch/finch-api": "file:../../dist/",
     "@modelcontextprotocol/sdk": "^1.6.1",
-    "yargs": "^17.7.2"
+    "yargs": "^17.7.2",
+    "@cloudflare/cabidela": "^0.2.4",
+    "zod": "^3.24.4",
+    "zod-to-json-schema": "^3.24.5"
   },
   "bin": {
     "mcp-server": "dist/index.js"
