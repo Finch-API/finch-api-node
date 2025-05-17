@@ -50,7 +50,7 @@ export interface EmploymentUpdateResponse {
    * employer in the system. Custom fields are not currently supported for assisted
    * connections.
    */
-  custom_fields?: Array<EmploymentUpdateResponse.CustomField>;
+  custom_fields?: Array<EmploymentUpdateResponse.CustomField> | null;
 
   /**
    * The department object.
@@ -63,7 +63,8 @@ export interface EmploymentUpdateResponse {
   employment?: EmploymentUpdateResponse.Employment | null;
 
   /**
-   * The detailed employment status of the individual.
+   * The detailed employment status of the individual. Available options: `active`,
+   * `deceased`, `leave`, `onboarding`, `prehire`, `retired`, `terminated`.
    */
   employment_status?:
     | 'active'
@@ -121,7 +122,7 @@ export interface EmploymentUpdateResponse {
   /**
    * The source system's unique employment identifier for this individual
    */
-  source_id?: string;
+  source_id?: string | null;
 
   start_date?: string | null;
 
@@ -153,7 +154,8 @@ export namespace EmploymentUpdateResponse {
    */
   export interface Employment {
     /**
-     * The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
+     * The secondary employment type of the individual. Options: `full_time`,
+     * `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
      */
     subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor' | null;
 
@@ -185,7 +187,7 @@ export interface EmploymentUpdateParams {
    * employer in the system. Custom fields are not currently supported for assisted
    * connections.
    */
-  custom_fields?: Array<EmploymentUpdateParams.CustomField>;
+  custom_fields?: Array<EmploymentUpdateParams.CustomField> | null;
 
   /**
    * The department object.
@@ -198,7 +200,8 @@ export interface EmploymentUpdateParams {
   employment?: EmploymentUpdateParams.Employment | null;
 
   /**
-   * The detailed employment status of the individual.
+   * The detailed employment status of the individual. Available options: `active`,
+   * `deceased`, `leave`, `onboarding`, `prehire`, `retired`, `terminated`.
    */
   employment_status?:
     | 'active'
@@ -256,7 +259,7 @@ export interface EmploymentUpdateParams {
   /**
    * The source system's unique employment identifier for this individual
    */
-  source_id?: string;
+  source_id?: string | null;
 
   start_date?: string | null;
 
@@ -288,7 +291,8 @@ export namespace EmploymentUpdateParams {
    */
   export interface Employment {
     /**
-     * The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
+     * The secondary employment type of the individual. Options: `full_time`,
+     * `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
      */
     subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor' | null;
 

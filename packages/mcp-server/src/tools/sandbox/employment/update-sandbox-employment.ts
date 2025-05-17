@@ -58,7 +58,7 @@ export const tool: Tool = {
           subtype: {
             type: 'string',
             description:
-              '\tThe secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.',
+              'The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.',
             enum: ['full_time', 'intern', 'part_time', 'temp', 'seasonal', 'individual_contractor'],
           },
           type: {
@@ -71,7 +71,8 @@ export const tool: Tool = {
       },
       employment_status: {
         type: 'string',
-        description: 'The detailed employment status of the individual.',
+        description:
+          'The detailed employment status of the individual. Available options: `active`, `deceased`, `leave`, `onboarding`, `prehire`, `retired`, `terminated`.',
         enum: ['active', 'deceased', 'leave', 'onboarding', 'prehire', 'retired', 'terminated'],
       },
       end_date: {
