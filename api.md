@@ -114,7 +114,6 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/hris/pay-statements.ts">PayStatement</a></code>
 - <code><a href="./src/resources/hris/pay-statements.ts">PayStatementResponse</a></code>
 - <code><a href="./src/resources/hris/pay-statements.ts">PayStatementResponseBody</a></code>
 

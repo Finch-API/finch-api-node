@@ -48,13 +48,6 @@ export namespace EmploymentData {
     class_code: string | null;
 
     /**
-     * Custom fields for the individual. These are fields which are defined by the
-     * employer in the system. Custom fields are not currently supported for assisted
-     * connections.
-     */
-    custom_fields: Array<UnionMember0.CustomField> | null;
-
-    /**
      * The department object.
      */
     department: UnionMember0.Department | null;
@@ -117,9 +110,11 @@ export namespace EmploymentData {
     title: string | null;
 
     /**
-     * @deprecated This field is deprecated in favour of `source_id`
+     * Custom fields for the individual. These are fields which are defined by the
+     * employer in the system. Custom fields are not currently supported for assisted
+     * connections.
      */
-    work_id: string | null;
+    custom_fields?: Array<UnionMember0.CustomField> | null;
 
     /**
      * The employee's income as reported by the provider. This may not always be
@@ -137,15 +132,14 @@ export namespace EmploymentData {
      * The source system's unique employment identifier for this individual
      */
     source_id?: string | null;
+
+    /**
+     * @deprecated This field is deprecated in favour of `source_id`
+     */
+    work_id?: string | null;
   }
 
   export namespace UnionMember0 {
-    export interface CustomField {
-      name?: string | null;
-
-      value?: string | null | Array<unknown> | null | unknown | number | null | boolean | null;
-    }
-
     /**
      * The department object.
      */
@@ -180,6 +174,12 @@ export namespace EmploymentData {
        * A stable Finch `id` (UUID v4) for an individual in the company.
        */
       id: string;
+    }
+
+    export interface CustomField {
+      name?: string | null;
+
+      value?: string | null | Array<unknown> | null | unknown | number | null | boolean | null;
     }
   }
 
