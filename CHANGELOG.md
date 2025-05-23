@@ -1,5 +1,25 @@
 # Changelog
 
+## 6.32.0 (2025-05-23)
+
+Full Changelog: [v6.31.0...v6.32.0](https://github.com/Finch-API/finch-api-node/compare/v6.31.0...v6.32.0)
+
+### Features
+
+* **api:** api update ([c167734](https://github.com/Finch-API/finch-api-node/commit/c167734a8071e5733f5a56f9b2c750c300952164))
+* **api:** api update ([2978396](https://github.com/Finch-API/finch-api-node/commit/29783964a38bc08f24752be9565282222e316568))
+
+
+### Bug Fixes
+
+* **mcp:** fix cursor schema transformation issue with recursive references ([1bed3f2](https://github.com/Finch-API/finch-api-node/commit/1bed3f2480b88dceb722cc25ad4deb31b41f6fc8))
+
+
+### Chores
+
+* **docs:** grammar improvements ([3a9ab50](https://github.com/Finch-API/finch-api-node/commit/3a9ab5071bc3e021d4dc15d91b4ac1cd86bfadd3))
+* improve docs for MCP servers ([deff850](https://github.com/Finch-API/finch-api-node/commit/deff850e6b9a989d50d9ecad8af0b7f1744983ba))
+
 ## 6.31.0 (2025-05-16)
 
 Full Changelog: [v6.30.0...v6.31.0](https://github.com/Finch-API/finch-api-node/compare/v6.30.0...v6.31.0)
