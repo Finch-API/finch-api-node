@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'hris.directory',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/employer/directory',
+  operationId: 'get-directory',
 };
 
 export const tool: Tool = {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'jobs.manual',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/jobs/manual/{job_id}',
+  operationId: 'get-jobs-manual-job_id',
 };
 
 export const tool: Tool = {
