@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'hris.benefits.individuals',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/employer/benefits/{benefit_id}/individuals',
+  operationId: 'get-individual-benefits',
 };
 
 export const tool: Tool = {

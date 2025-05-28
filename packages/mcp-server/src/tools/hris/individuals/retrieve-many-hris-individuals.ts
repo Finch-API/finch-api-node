@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'hris.individuals',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/employer/individual',
+  operationId: 'get-individual',
 };
 
 export const tool: Tool = {

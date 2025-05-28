@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'access_tokens',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/auth/token',
+  operationId: 'create-access-token',
 };
 
 export const tool: Tool = {

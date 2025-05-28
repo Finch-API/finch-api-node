@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'connect.sessions',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/connect/sessions/reauthenticate',
+  operationId: 'post-connect-sessions-reauthenticate',
 };
 
 export const tool: Tool = {

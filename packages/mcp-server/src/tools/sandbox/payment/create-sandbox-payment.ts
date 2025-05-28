@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'sandbox.payment',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/sandbox/payment',
+  operationId: 'post-sandbox-payment',
 };
 
 export const tool: Tool = {
