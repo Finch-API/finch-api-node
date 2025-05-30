@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'sandbox.individual',
   operation: 'write',
   tags: [],
+  httpMethod: 'put',
+  httpPath: '/sandbox/individual/{individual_id}',
+  operationId: 'put-sandbox-individual-individual_id',
 };
 
 export const tool: Tool = {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'request_forwarding',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/forward',
+  operationId: 'post-forward',
 };
 
 export const tool: Tool = {

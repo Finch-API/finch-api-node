@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'hris.benefits.individuals',
   operation: 'write',
   tags: [],
+  httpMethod: 'delete',
+  httpPath: '/employer/benefits/{benefit_id}/individuals',
+  operationId: 'delete-individual-benefits',
 };
 
 export const tool: Tool = {

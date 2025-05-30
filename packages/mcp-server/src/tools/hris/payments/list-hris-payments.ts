@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'hris.payments',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/employer/payment',
+  operationId: 'get-payment',
 };
 
 export const tool: Tool = {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'payroll.pay_groups',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/employer/pay-groups/{pay_group_id}',
+  operationId: 'get-pay-group',
 };
 
 export const tool: Tool = {

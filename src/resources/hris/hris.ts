@@ -36,7 +36,6 @@ import {
 } from './individuals';
 import * as PayStatementsAPI from './pay-statements';
 import {
-  PayStatement,
   PayStatementResponse,
   PayStatementResponseBody,
   PayStatementResponsesPage,
@@ -157,9 +156,9 @@ export interface Money {
   /**
    * Amount for money object (in cents)
    */
-  amount?: number | null;
+  amount: number | null;
 
-  currency?: string;
+  currency: string;
 }
 
 HRIS.CompanyResource = CompanyResource;
@@ -214,7 +213,6 @@ export declare namespace HRIS {
 
   export {
     PayStatements as PayStatements,
-    type PayStatement as PayStatement,
     type PayStatementResponse as PayStatementResponse,
     type PayStatementResponseBody as PayStatementResponseBody,
     PayStatementResponsesPage as PayStatementResponsesPage,

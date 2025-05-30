@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'jobs.automated',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/jobs/automated',
+  operationId: 'get-jobs-automated',
 };
 
 export const tool: Tool = {

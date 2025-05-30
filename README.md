@@ -141,13 +141,13 @@ List methods in the Finch API are paginated.
 You can use the `for await … of` syntax to iterate through items across all pages:
 
 ```ts
-async function fetchAllHRISDirectories(params) {
-  const allHRISDirectories = [];
+async function fetchAllIndividualInDirectories(params) {
+  const allIndividualInDirectories = [];
   // Automatically fetches more pages as needed.
   for await (const individualInDirectory of client.hris.directory.list()) {
-    allHRISDirectories.push(individualInDirectory);
+    allIndividualInDirectories.push(individualInDirectory);
   }
-  return allHRISDirectories;
+  return allIndividualInDirectories;
 }
 ```
 

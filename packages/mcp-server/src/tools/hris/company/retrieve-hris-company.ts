@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'hris.company',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/employer/company',
+  operationId: 'get-company',
 };
 
 export const tool: Tool = {

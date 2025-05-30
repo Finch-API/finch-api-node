@@ -9,7 +9,8 @@ const client = new Finch({
 });
 
 describe('resource accounts', () => {
-  test('create: only required params', async () => {
+  // prism tests are broken
+  test.skip('create: only required params', async () => {
     const responsePromise = client.sandbox.connections.accounts.create({
       company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       provider_id: 'provider_id',
@@ -23,7 +24,8 @@ describe('resource accounts', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('create: required and optional params', async () => {
+  // prism tests are broken
+  test.skip('create: required and optional params', async () => {
     const response = await client.sandbox.connections.accounts.create({
       company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       provider_id: 'provider_id',

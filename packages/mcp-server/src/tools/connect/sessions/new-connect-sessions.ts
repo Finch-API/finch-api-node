@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'connect.sessions',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/connect/sessions',
+  operationId: 'post-connect-sessions',
 };
 
 export const tool: Tool = {
@@ -62,7 +65,8 @@ export const tool: Tool = {
       },
       minutes_to_expire: {
         type: 'number',
-        description: 'The number of minutes until the session expires (defaults to 43,200, which is 30 days)',
+        description:
+          'The number of minutes until the session expires (defaults to 129,600, which is 90 days)',
       },
       redirect_uri: {
         type: 'string',

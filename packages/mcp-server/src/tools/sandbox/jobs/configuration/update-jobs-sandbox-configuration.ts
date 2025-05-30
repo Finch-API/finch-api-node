@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'sandbox.jobs.configuration',
   operation: 'write',
   tags: [],
+  httpMethod: 'put',
+  httpPath: '/sandbox/jobs/configuration',
+  operationId: 'put-sandbox-jobs-configuration',
 };
 
 export const tool: Tool = {

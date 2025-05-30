@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'sandbox.directory',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/sandbox/directory',
+  operationId: 'post-sandbox-directory',
 };
 
 export const tool: Tool = {

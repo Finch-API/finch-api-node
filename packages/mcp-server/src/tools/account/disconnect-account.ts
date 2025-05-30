@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'account',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/disconnect',
+  operationId: 'post-disconnect',
 };
 
 export const tool: Tool = {

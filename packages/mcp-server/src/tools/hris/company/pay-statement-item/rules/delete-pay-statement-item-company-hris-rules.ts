@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'hris.company.pay_statement_item.rules',
   operation: 'write',
   tags: [],
+  httpMethod: 'delete',
+  httpPath: '/employer/pay-statement-item/rule/{rule_id}',
+  operationId: 'delete-rule',
 };
 
 export const tool: Tool = {
