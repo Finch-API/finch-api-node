@@ -26,14 +26,10 @@ const client = new Finch({
   accessToken: 'My Access Token',
 });
 
-async function main() {
-  const page = await client.hris.directory.list();
-  const individualInDirectory = page.individuals[0];
+const page = await client.hris.directory.list();
+const individualInDirectory = page.individuals[0];
 
-  console.log(individualInDirectory.id);
-}
-
-main();
+console.log(individualInDirectory.id);
 ```
 
 ### Request & Response types
@@ -48,11 +44,7 @@ const client = new Finch({
   accessToken: 'My Access Token',
 });
 
-async function main() {
-  const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] = await client.hris.directory.list();
-}
-
-main();
+const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] = await client.hris.directory.list();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -65,19 +57,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const company = await client.hris.company.retrieve().catch(async (err) => {
-    if (err instanceof Finch.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const company = await client.hris.company.retrieve().catch(async (err) => {
+  if (err instanceof Finch.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
