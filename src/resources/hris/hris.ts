@@ -36,6 +36,8 @@ import {
 } from './individuals';
 import * as PayStatementsAPI from './pay-statements';
 import {
+  PayStatement,
+  PayStatementDataSyncInProgress,
   PayStatementResponse,
   PayStatementResponseBody,
   PayStatementResponsesPage,
@@ -213,6 +215,8 @@ export declare namespace HRIS {
 
   export {
     PayStatements as PayStatements,
+    type PayStatement as PayStatement,
+    type PayStatementDataSyncInProgress as PayStatementDataSyncInProgress,
     type PayStatementResponse as PayStatementResponse,
     type PayStatementResponseBody as PayStatementResponseBody,
     PayStatementResponsesPage as PayStatementResponsesPage,

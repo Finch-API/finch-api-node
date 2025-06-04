@@ -53,6 +53,8 @@ export {
 export {
   PayStatementResponsesPage,
   PayStatements,
+  type PayStatement,
+  type PayStatementDataSyncInProgress,
   type PayStatementResponse,
   type PayStatementResponseBody,
   type PayStatementRetrieveManyParams,
