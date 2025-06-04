@@ -52,8 +52,6 @@ import {
   BenefitCreateParams,
   BenefitFeaturesAndOperations,
   BenefitFrequency,
-  BenefitListSupportedBenefitsResponse,
-  BenefitListSupportedBenefitsResponsesSinglePage,
   BenefitType,
   BenefitUpdateParams,
   Benefits,
@@ -64,6 +62,7 @@ import {
   CreateCompanyBenefitsResponse,
   SupportPerBenefitType,
   SupportedBenefit,
+  SupportedBenefitsSinglePage,
   UpdateCompanyBenefitResponse,
 } from './benefits/benefits';
 import * as CompanyAPI from './company/company';
@@ -176,7 +175,7 @@ HRIS.PayStatementResponsesPage = PayStatementResponsesPage;
 HRIS.Documents = Documents;
 HRIS.Benefits = Benefits;
 HRIS.CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
-HRIS.BenefitListSupportedBenefitsResponsesSinglePage = BenefitListSupportedBenefitsResponsesSinglePage;
+HRIS.SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
 
 export declare namespace HRIS {
   export { type Income as Income, type Location as Location, type Money as Money };
@@ -245,10 +244,9 @@ export declare namespace HRIS {
     type SupportPerBenefitType as SupportPerBenefitType,
     type SupportedBenefit as SupportedBenefit,
     type UpdateCompanyBenefitResponse as UpdateCompanyBenefitResponse,
-    type BenefitListSupportedBenefitsResponse as BenefitListSupportedBenefitsResponse,
     type BenfitContribution as BenfitContribution,
     CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
-    BenefitListSupportedBenefitsResponsesSinglePage as BenefitListSupportedBenefitsResponsesSinglePage,
+    SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
     type BenefitCreateParams as BenefitCreateParams,
     type BenefitUpdateParams as BenefitUpdateParams,
   };
