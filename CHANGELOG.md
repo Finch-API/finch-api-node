@@ -1,5 +1,39 @@
 # Changelog
 
+## 6.32.0 (2025-06-05)
+
+Full Changelog: [v6.31.0...v6.32.0](https://github.com/Finch-API/finch-api-node/compare/v6.31.0...v6.32.0)
+
+### Features
+
+* **api:** api update ([c167734](https://github.com/Finch-API/finch-api-node/commit/c167734a8071e5733f5a56f9b2c750c300952164))
+* **api:** api update ([2978396](https://github.com/Finch-API/finch-api-node/commit/29783964a38bc08f24752be9565282222e316568))
+* **mcp:** implement support for binary responses ([6cc04d6](https://github.com/Finch-API/finch-api-node/commit/6cc04d6f6cebe1487b366d067f9de34c8f857b38))
+* **mcp:** include http information in tools ([d583a5a](https://github.com/Finch-API/finch-api-node/commit/d583a5a224672caa80f9010e005be60d1efc9b69))
+
+
+### Bug Fixes
+
+* **client:** fix PayStatementResponse body ([5855476](https://github.com/Finch-API/finch-api-node/commit/585547621b48de30db9cb69f07e93f983ab51ac5))
+* **client:** manual fix ([c7cc53b](https://github.com/Finch-API/finch-api-node/commit/c7cc53b674ed870e42132b46e78f81b9d03e9ed8))
+* **mcp:** fix cursor schema transformation issue with recursive references ([1bed3f2](https://github.com/Finch-API/finch-api-node/commit/1bed3f2480b88dceb722cc25ad4deb31b41f6fc8))
+* **mcp:** include description in dynamic tool search ([886e2d8](https://github.com/Finch-API/finch-api-node/commit/886e2d8e61925f572c978de5c86bbecae255705f))
+
+
+### Chores
+
+* **docs:** grammar improvements ([3a9ab50](https://github.com/Finch-API/finch-api-node/commit/3a9ab5071bc3e021d4dc15d91b4ac1cd86bfadd3))
+* **docs:** use top-level-await in example snippets ([adaa4ce](https://github.com/Finch-API/finch-api-node/commit/adaa4cea5dbeb9f35b393f3816da8eb9f0c75372))
+* improve docs for MCP servers ([deff850](https://github.com/Finch-API/finch-api-node/commit/deff850e6b9a989d50d9ecad8af0b7f1744983ba))
+* improve publish-npm script --latest tag logic ([a40bcfe](https://github.com/Finch-API/finch-api-node/commit/a40bcfed602c2ec66fe5fbccc42df558ad257262))
+* **mcp:** remove duplicate assignment ([6e38b68](https://github.com/Finch-API/finch-api-node/commit/6e38b68b83e91416e49b2285c72932041d1b8524))
+* **tests:** skip endpoints with basic auth ([483735c](https://github.com/Finch-API/finch-api-node/commit/483735cde0fca3925b0d8471e3dd342e59232481))
+
+
+### Documentation
+
+* **pagination:** improve naming ([90d96a3](https://github.com/Finch-API/finch-api-node/commit/90d96a323eff4579dc9462691f9a0176b7d7a5aa))
+
 ## 6.31.0 (2025-05-16)
 
 Full Changelog: [v6.30.0...v6.31.0](https://github.com/Finch-API/finch-api-node/compare/v6.30.0...v6.31.0)

@@ -1,5 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { Metadata } from '../../';
 import Finch from '@tryfinch/finch-api';
@@ -8,6 +10,9 @@ export const metadata: Metadata = {
   resource: 'connect.sessions',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/connect/sessions',
+  operationId: 'post-connect-sessions',
 };
 
 export const tool: Tool = {
@@ -62,7 +67,8 @@ export const tool: Tool = {
       },
       minutes_to_expire: {
         type: 'number',
-        description: 'The number of minutes until the session expires (defaults to 43,200, which is 30 days)',
+        description:
+          'The number of minutes until the session expires (defaults to 129,600, which is 90 days)',
       },
       redirect_uri: {
         type: 'string',
@@ -75,9 +81,9 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return client.connect.sessions.new(body);
+  return asTextContentResult(await client.connect.sessions.new(body));
 };
 
 export default { metadata, tool, handler };

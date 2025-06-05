@@ -19,7 +19,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'tryfinch_finch_api_api',
-    version: '6.31.0',
+    version: '6.32.0',
   },
   {
     capabilities: {
@@ -97,17 +97,9 @@ export async function executeHandler(
 ) {
   const options = { ...defaultClientCapabilities, ...compatibilityOptions };
   if (options.validJson && args) {
-    args = args = parseEmbeddedJSON(args, tool.inputSchema);
+    args = parseEmbeddedJSON(args, tool.inputSchema);
   }
-  const result = await handler(client, args || {});
-  return {
-    content: [
-      {
-        type: 'text',
-        text: JSON.stringify(result, null, 2),
-      },
-    ],
-  };
+  return await handler(client, args || {});
 }
 
 export const readEnv = (env: string): string | undefined => {
