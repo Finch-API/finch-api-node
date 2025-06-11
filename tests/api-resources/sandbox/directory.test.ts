@@ -45,9 +45,9 @@ describe('resource directory', () => {
             ethnicity: 'asian',
             first_name: 'first_name',
             gender: 'female',
-            income: { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
+            income: { amount: 0, currency: 'currency', effective_date: '2019-12-27', unit: 'yearly' },
             income_history: [
-              { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
+              { amount: 0, currency: 'currency', effective_date: '2019-12-27', unit: 'yearly' },
             ],
             is_active: true,
             last_name: 'last_name',

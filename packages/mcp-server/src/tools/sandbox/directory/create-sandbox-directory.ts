@@ -239,6 +239,7 @@ export const tool: Tool = {
           effective_date: {
             type: 'string',
             description: 'The date the income amount went into effect.',
+            format: 'date',
           },
           unit: {
             type: 'string',
