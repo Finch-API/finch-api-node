@@ -40,10 +40,8 @@ describe('resource employment', () => {
           employment_status: 'active',
           end_date: 'end_date',
           first_name: 'first_name',
-          income: { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
-          income_history: [
-            { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
-          ],
+          income: { amount: 0, currency: 'currency', effective_date: '2019-12-27', unit: 'yearly' },
+          income_history: [{ amount: 0, currency: 'currency', effective_date: '2019-12-27', unit: 'yearly' }],
           is_active: true,
           last_name: 'last_name',
           latest_rehire_date: 'latest_rehire_date',

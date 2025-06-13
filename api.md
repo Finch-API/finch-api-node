@@ -115,6 +115,7 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/hris/pay-statements.ts">PayStatement</a></code>
+- <code><a href="./src/resources/hris/pay-statements.ts">PayStatementDataSyncInProgress</a></code>
 - <code><a href="./src/resources/hris/pay-statements.ts">PayStatementResponse</a></code>
 - <code><a href="./src/resources/hris/pay-statements.ts">PayStatementResponseBody</a></code>
 
@@ -151,7 +152,6 @@ Types:
 - <code><a href="./src/resources/hris/benefits/benefits.ts">SupportPerBenefitType</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">SupportedBenefit</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">UpdateCompanyBenefitResponse</a></code>
-- <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitListSupportedBenefitsResponse</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenfitContribution</a></code>
 
 Methods:
@@ -160,7 +160,7 @@ Methods:
 - <code title="get /employer/benefits/{benefit_id}">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">retrieve</a>(benefitId) -> CompanyBenefit</code>
 - <code title="post /employer/benefits/{benefit_id}">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">update</a>(benefitId, { ...params }) -> UpdateCompanyBenefitResponse</code>
 - <code title="get /employer/benefits">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">list</a>() -> CompanyBenefitsSinglePage</code>
-- <code title="get /employer/benefits/meta">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">listSupportedBenefits</a>() -> BenefitListSupportedBenefitsResponsesSinglePage</code>
+- <code title="get /employer/benefits/meta">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">listSupportedBenefits</a>() -> SupportedBenefitsSinglePage</code>
 
 ### Individuals
 

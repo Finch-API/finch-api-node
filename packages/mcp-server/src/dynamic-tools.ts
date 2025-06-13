@@ -1,5 +1,5 @@
 import Finch from '@tryfinch/finch-api';
-import { Endpoint } from './tools';
+import { Endpoint, asTextContentResult, ToolCallResult } from './tools/types';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 import { z } from 'zod';
 import { Cabidela } from '@cloudflare/cabidela';
@@ -41,7 +41,7 @@ export function dynamicTools(endpoints: Endpoint[]): Endpoint[] {
       description: 'List or search for all endpoints in the Finch Node API',
       inputSchema: zodToInputSchema(listEndpointsSchema),
     },
-    handler: async (client: Finch, args: Record<string, unknown> | undefined) => {
+    handler: async (client: Finch, args: Record<string, unknown> | undefined): Promise<ToolCallResult> => {
       const query = args && listEndpointsSchema.parse(args).search_query?.trim();
 
       const filteredEndpoints =
@@ -49,15 +49,16 @@ export function dynamicTools(endpoints: Endpoint[]): Endpoint[] {
           endpoints.filter((endpoint) => {
             const fieldsToMatch = [
               endpoint.tool.name,
+              endpoint.tool.description,
               endpoint.metadata.resource,
               endpoint.metadata.operation,
               ...endpoint.metadata.tags,
             ];
-            return fieldsToMatch.some((field) => field.toLowerCase().includes(query.toLowerCase()));
+            return fieldsToMatch.some((field) => field && field.toLowerCase().includes(query.toLowerCase()));
           })
         : endpoints;
 
-      return {
+      return asTextContentResult({
         tools: filteredEndpoints.map(({ tool, metadata }) => ({
           name: tool.name,
           description: tool.description,
@@ -65,7 +66,7 @@ export function dynamicTools(endpoints: Endpoint[]): Endpoint[] {
           operation: metadata.operation,
           tags: metadata.tags,
         })),
-      };
+      });
     },
   };
 
@@ -94,7 +95,7 @@ export function dynamicTools(endpoints: Endpoint[]): Endpoint[] {
       if (!endpoint) {
         throw new Error(`Endpoint ${endpointName} not found`);
       }
-      return endpoint.tool;
+      return asTextContentResult(endpoint.tool);
     },
   };
 
@@ -119,7 +120,7 @@ export function dynamicTools(endpoints: Endpoint[]): Endpoint[] {
         'Invoke an endpoint in the Finch Node API. Note: use the `list_api_endpoints` tool to get the list of endpoints and `get_api_endpoint_schema` tool to get the schema for an endpoint.',
       inputSchema: zodToInputSchema(invokeEndpointSchema),
     },
-    handler: async (client: Finch, args: Record<string, unknown> | undefined) => {
+    handler: async (client: Finch, args: Record<string, unknown> | undefined): Promise<ToolCallResult> => {
       if (!args) {
         throw new Error('No endpoint provided');
       }
@@ -144,7 +145,7 @@ export function dynamicTools(endpoints: Endpoint[]): Endpoint[] {
         throw new Error(`Invalid arguments for endpoint ${endpoint_name}:\n${error}`);
       }
 
-      return endpoint.handler(client, endpointArgs);
+      return await endpoint.handler(client, endpointArgs);
     },
   };
 

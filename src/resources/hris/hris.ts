@@ -37,6 +37,7 @@ import {
 import * as PayStatementsAPI from './pay-statements';
 import {
   PayStatement,
+  PayStatementDataSyncInProgress,
   PayStatementResponse,
   PayStatementResponseBody,
   PayStatementResponsesPage,
@@ -51,8 +52,6 @@ import {
   BenefitCreateParams,
   BenefitFeaturesAndOperations,
   BenefitFrequency,
-  BenefitListSupportedBenefitsResponse,
-  BenefitListSupportedBenefitsResponsesSinglePage,
   BenefitType,
   BenefitUpdateParams,
   Benefits,
@@ -63,6 +62,7 @@ import {
   CreateCompanyBenefitsResponse,
   SupportPerBenefitType,
   SupportedBenefit,
+  SupportedBenefitsSinglePage,
   UpdateCompanyBenefitResponse,
 } from './benefits/benefits';
 import * as CompanyAPI from './company/company';
@@ -157,9 +157,9 @@ export interface Money {
   /**
    * Amount for money object (in cents)
    */
-  amount?: number | null;
+  amount: number | null;
 
-  currency?: string;
+  currency: string;
 }
 
 HRIS.CompanyResource = CompanyResource;
@@ -175,7 +175,7 @@ HRIS.PayStatementResponsesPage = PayStatementResponsesPage;
 HRIS.Documents = Documents;
 HRIS.Benefits = Benefits;
 HRIS.CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
-HRIS.BenefitListSupportedBenefitsResponsesSinglePage = BenefitListSupportedBenefitsResponsesSinglePage;
+HRIS.SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
 
 export declare namespace HRIS {
   export { type Income as Income, type Location as Location, type Money as Money };
@@ -215,6 +215,7 @@ export declare namespace HRIS {
   export {
     PayStatements as PayStatements,
     type PayStatement as PayStatement,
+    type PayStatementDataSyncInProgress as PayStatementDataSyncInProgress,
     type PayStatementResponse as PayStatementResponse,
     type PayStatementResponseBody as PayStatementResponseBody,
     PayStatementResponsesPage as PayStatementResponsesPage,
@@ -243,10 +244,9 @@ export declare namespace HRIS {
     type SupportPerBenefitType as SupportPerBenefitType,
     type SupportedBenefit as SupportedBenefit,
     type UpdateCompanyBenefitResponse as UpdateCompanyBenefitResponse,
-    type BenefitListSupportedBenefitsResponse as BenefitListSupportedBenefitsResponse,
     type BenfitContribution as BenfitContribution,
     CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
-    BenefitListSupportedBenefitsResponsesSinglePage as BenefitListSupportedBenefitsResponsesSinglePage,
+    SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
     type BenefitCreateParams as BenefitCreateParams,
     type BenefitUpdateParams as BenefitUpdateParams,
   };

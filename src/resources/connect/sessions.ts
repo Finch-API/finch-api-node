@@ -71,8 +71,8 @@ export interface SessionNewParams {
   manual?: boolean | null;
 
   /**
-   * The number of minutes until the session expires (defaults to 43,200, which is 30
-   * days)
+   * The number of minutes until the session expires (defaults to 129,600, which is
+   * 90 days)
    */
   minutes_to_expire?: number | null;
 
