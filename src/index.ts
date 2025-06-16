@@ -175,6 +175,7 @@ export class Finch extends Core.APIClient {
 
     super({
       baseURL: options.baseURL!,
+      baseURLOverridden: baseURL ? baseURL !== 'https://api.tryfinch.com' : false,
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
@@ -199,6 +200,13 @@ export class Finch extends Core.APIClient {
   sandbox: API.Sandbox = new API.Sandbox(this);
   payroll: API.Payroll = new API.Payroll(this);
   connect: API.Connect = new API.Connect(this);
+
+  /**
+   * Check whether the base URL is set to its default.
+   */
+  #baseURLOverridden(): boolean {
+    return this.baseURL !== 'https://api.tryfinch.com';
+  }
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
