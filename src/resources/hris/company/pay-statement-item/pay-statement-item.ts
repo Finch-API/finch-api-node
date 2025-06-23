@@ -81,7 +81,7 @@ export namespace PayStatementItemListResponse {
      * The metadata of the pay statement item derived by the rules engine if available.
      * Each attribute will be a key-value pair defined by a rule.
      */
-    metadata: Record<string, unknown> | null;
+    metadata: { [key: string]: unknown } | null;
 
     /**
      * `true` if the amount is paid by the employers. This field is only available for

@@ -577,7 +577,7 @@ export interface BaseWebhookEvent {
 }
 
 export interface CompanyEvent extends BaseWebhookEvent {
-  data?: Record<string, unknown> | null;
+  data?: { [key: string]: unknown } | null;
 
   event_type?: 'company.updated';
 }
