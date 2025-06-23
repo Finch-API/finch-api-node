@@ -143,7 +143,7 @@ export namespace PayStatement {
          * pairs where the values can be of any type (string, number, boolean, object,
          * array, etc.).
          */
-        metadata: Record<string, unknown>;
+        metadata: { [key: string]: unknown };
       }
     }
   }
@@ -189,7 +189,7 @@ export namespace PayStatement {
          * pairs where the values can be of any type (string, number, boolean, object,
          * array, etc.).
          */
-        metadata: Record<string, unknown>;
+        metadata: { [key: string]: unknown };
       }
     }
   }
@@ -230,7 +230,7 @@ export namespace PayStatement {
          * pairs where the values can be of any type (string, number, boolean, object,
          * array, etc.).
          */
-        metadata: Record<string, unknown>;
+        metadata: { [key: string]: unknown };
       }
     }
   }
@@ -276,7 +276,7 @@ export namespace PayStatement {
          * pairs where the values can be of any type (string, number, boolean, object,
          * array, etc.).
          */
-        metadata: Record<string, unknown>;
+        metadata: { [key: string]: unknown };
       }
     }
   }

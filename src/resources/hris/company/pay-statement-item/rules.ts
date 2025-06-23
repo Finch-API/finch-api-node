@@ -149,7 +149,7 @@ export namespace RuleCreateResponse {
      * The metadata to be attached in the entity. It is a key-value pairs where the
      * values can be of any type (string, number, boolean, object, array, etc.).
      */
-    metadata?: Record<string, unknown>;
+    metadata?: { [key: string]: unknown };
   }
 
   export interface Condition {
@@ -223,7 +223,7 @@ export namespace RuleUpdateResponse {
      * The metadata to be attached in the entity. It is a key-value pairs where the
      * values can be of any type (string, number, boolean, object, array, etc.).
      */
-    metadata?: Record<string, unknown>;
+    metadata?: { [key: string]: unknown };
   }
 
   export interface Condition {
@@ -297,7 +297,7 @@ export namespace RuleListResponse {
      * The metadata to be attached in the entity. It is a key-value pairs where the
      * values can be of any type (string, number, boolean, object, array, etc.).
      */
-    metadata?: Record<string, unknown>;
+    metadata?: { [key: string]: unknown };
   }
 
   export interface Condition {
@@ -376,7 +376,7 @@ export namespace RuleDeleteResponse {
      * The metadata to be attached in the entity. It is a key-value pairs where the
      * values can be of any type (string, number, boolean, object, array, etc.).
      */
-    metadata?: Record<string, unknown>;
+    metadata?: { [key: string]: unknown };
   }
 
   export interface Condition {
@@ -430,7 +430,7 @@ export namespace RuleCreateParams {
      * The metadata to be attached in the entity. It is a key-value pairs where the
      * values can be of any type (string, number, boolean, object, array, etc.).
      */
-    metadata?: Record<string, unknown>;
+    metadata?: { [key: string]: unknown };
   }
 
   export interface Condition {
