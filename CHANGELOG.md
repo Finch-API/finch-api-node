@@ -1,5 +1,52 @@
 # Changelog
 
+## 6.32.0 (2025-06-23)
+
+Full Changelog: [v6.31.0...v6.32.0](https://github.com/Finch-API/finch-api-node/compare/v6.31.0...v6.32.0)
+
+### Features
+
+* **api:** api update ([7182d88](https://github.com/Finch-API/finch-api-node/commit/7182d889a7de38d03c7994caf4747fcd2a82a846))
+* **api:** api update ([4663014](https://github.com/Finch-API/finch-api-node/commit/46630149ddd55b184ec7ddcdb9d70df15477f72c))
+* **api:** api update ([c167734](https://github.com/Finch-API/finch-api-node/commit/c167734a8071e5733f5a56f9b2c750c300952164))
+* **api:** api update ([2978396](https://github.com/Finch-API/finch-api-node/commit/29783964a38bc08f24752be9565282222e316568))
+* **client:** add support for endpoint-specific base URLs ([f85edd8](https://github.com/Finch-API/finch-api-node/commit/f85edd832b9b2ecc3a16e5e4e0260797b7bbd472))
+* **mcp:** implement support for binary responses ([6cc04d6](https://github.com/Finch-API/finch-api-node/commit/6cc04d6f6cebe1487b366d067f9de34c8f857b38))
+* **mcp:** include http information in tools ([d583a5a](https://github.com/Finch-API/finch-api-node/commit/d583a5a224672caa80f9010e005be60d1efc9b69))
+* **mcp:** set X-Stainless-MCP header ([a744e70](https://github.com/Finch-API/finch-api-node/commit/a744e7079b7bef164c0e0eaef0608e62dfa5ea45))
+
+
+### Bug Fixes
+
+* **client:** fix PayStatementResponse body ([5855476](https://github.com/Finch-API/finch-api-node/commit/585547621b48de30db9cb69f07e93f983ab51ac5))
+* **client:** manual fix ([c7cc53b](https://github.com/Finch-API/finch-api-node/commit/c7cc53b674ed870e42132b46e78f81b9d03e9ed8))
+* **mcp:** fix cursor schema transformation issue with recursive references ([1bed3f2](https://github.com/Finch-API/finch-api-node/commit/1bed3f2480b88dceb722cc25ad4deb31b41f6fc8))
+* **mcp:** include description in dynamic tool search ([886e2d8](https://github.com/Finch-API/finch-api-node/commit/886e2d8e61925f572c978de5c86bbecae255705f))
+* publish script — handle NPM errors correctly ([87bd68d](https://github.com/Finch-API/finch-api-node/commit/87bd68ddb4b348084f6c82e59f0453e97ea881c3))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([81c3d57](https://github.com/Finch-API/finch-api-node/commit/81c3d5761ac996f17dfdfd2581e2251cf1a545a2))
+* **docs:** grammar improvements ([3a9ab50](https://github.com/Finch-API/finch-api-node/commit/3a9ab5071bc3e021d4dc15d91b4ac1cd86bfadd3))
+* **docs:** use top-level-await in example snippets ([adaa4ce](https://github.com/Finch-API/finch-api-node/commit/adaa4cea5dbeb9f35b393f3816da8eb9f0c75372))
+* improve docs for MCP servers ([deff850](https://github.com/Finch-API/finch-api-node/commit/deff850e6b9a989d50d9ecad8af0b7f1744983ba))
+* improve publish-npm script --latest tag logic ([a40bcfe](https://github.com/Finch-API/finch-api-node/commit/a40bcfed602c2ec66fe5fbccc42df558ad257262))
+* **internal:** make base APIResource abstract ([558f47f](https://github.com/Finch-API/finch-api-node/commit/558f47fca967f63f8eeb4f650595b53cc38a752c))
+* **mcp:** provides high-level initMcpServer function and exports known clients ([edc7876](https://github.com/Finch-API/finch-api-node/commit/edc7876600c6962bc22311372af65fbaf156d011))
+* **mcp:** remove duplicate assignment ([6e38b68](https://github.com/Finch-API/finch-api-node/commit/6e38b68b83e91416e49b2285c72932041d1b8524))
+* **tests:** skip endpoints with basic auth ([483735c](https://github.com/Finch-API/finch-api-node/commit/483735cde0fca3925b0d8471e3dd342e59232481))
+
+
+### Documentation
+
+* **pagination:** improve naming ([90d96a3](https://github.com/Finch-API/finch-api-node/commit/90d96a323eff4579dc9462691f9a0176b7d7a5aa))
+
+
+### Refactors
+
+* **types:** replace Record with mapped types ([f28d3d3](https://github.com/Finch-API/finch-api-node/commit/f28d3d394e978aeb7e8081342f72476fd22bf9ef))
+
 ## 6.31.0 (2025-05-16)
 
 Full Changelog: [v6.30.0...v6.31.0](https://github.com/Finch-API/finch-api-node/compare/v6.30.0...v6.31.0)
