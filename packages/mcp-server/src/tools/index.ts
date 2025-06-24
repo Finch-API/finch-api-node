@@ -1,7 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Finch from '@tryfinch/finch-api';
-import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import { Metadata, Endpoint, HandlerFunction } from './types';
+
+export { Metadata, Endpoint, HandlerFunction };
 
 import create_access_tokens from './access-tokens/create-access-tokens';
 import retrieve_hris_company from './hris/company/retrieve-hris-company';
@@ -50,20 +51,6 @@ import retrieve_payroll_pay_groups from './payroll/pay-groups/retrieve-payroll-p
 import list_payroll_pay_groups from './payroll/pay-groups/list-payroll-pay-groups';
 import new_connect_sessions from './connect/sessions/new-connect-sessions';
 import reauthenticate_connect_sessions from './connect/sessions/reauthenticate-connect-sessions';
-
-export type HandlerFunction = (client: Finch, args: Record<string, unknown> | undefined) => Promise<any>;
-
-export type Metadata = {
-  resource: string;
-  operation: 'read' | 'write';
-  tags: string[];
-};
-
-export type Endpoint = {
-  metadata: Metadata;
-  tool: Tool;
-  handler: HandlerFunction;
-};
 
 export const endpoints: Endpoint[] = [];
 
@@ -143,9 +130,10 @@ export function query(filters: Filter[], endpoints: Endpoint[]): Endpoint[] {
   });
 
   // Check if any filters didn't match
-  if (unmatchedFilters.size > 0) {
+  const unmatched = Array.from(unmatchedFilters).filter((f) => f.type === 'tool' || f.type === 'resource');
+  if (unmatched.length > 0) {
     throw new Error(
-      `The following filters did not match any endpoints: ${[...unmatchedFilters]
+      `The following filters did not match any endpoints: ${unmatched
         .map((f) => `${f.type}=${f.value}`)
         .join(', ')}`,
     );

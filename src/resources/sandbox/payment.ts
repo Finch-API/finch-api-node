@@ -3,8 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as HRISAPI from '../hris/hris';
-import * as BenefitsAPI from '../hris/benefits/benefits';
 
 export class Payment extends APIResource {
   /**
@@ -12,21 +10,7 @@ export class Payment extends APIResource {
    *
    * @example
    * ```ts
-   * const payment = await client.sandbox.payment.create({
-   *   pay_statements: [
-   *     {
-   *       individual_id: 'b2338cfb-472f-4f72-9faa-e028c083144a',
-   *       employee_deductions: [
-   *         {
-   *           name: '401k test',
-   *           type: '401k',
-   *           amount: 2000,
-   *           currency: 'usd',
-   *         },
-   *       ],
-   *     },
-   *   ],
-   * });
+   * const payment = await client.sandbox.payment.create();
    * ```
    */
   create(body?: PaymentCreateParams, options?: Core.RequestOptions): Core.APIPromise<PaymentCreateResponse>;
@@ -57,6 +41,9 @@ export interface PaymentCreateResponse {
 export interface PaymentCreateParams {
   end_date?: string;
 
+  /**
+   * Array of pay statements to include in the payment.
+   */
   pay_statements?: Array<PaymentCreateParams.PayStatement>;
 
   start_date?: string;
@@ -64,241 +51,115 @@ export interface PaymentCreateParams {
 
 export namespace PaymentCreateParams {
   export interface PayStatement {
-    /**
-     * The array of earnings objects associated with this pay statement
-     */
-    earnings?: Array<PayStatement.Earning | null> | null;
+    individual_id: string;
 
-    /**
-     * The array of deductions objects associated with this pay statement.
-     */
-    employee_deductions?: Array<PayStatement.EmployeeDeduction | null> | null;
+    earnings?: Array<PayStatement.Earning>;
 
-    employer_contributions?: Array<PayStatement.EmployerContribution | null> | null;
+    employee_deductions?: Array<PayStatement.EmployeeDeduction>;
 
-    gross_pay?: HRISAPI.Money | null;
+    employer_contributions?: Array<PayStatement.EmployerContribution>;
 
-    /**
-     * A stable Finch `id` (UUID v4) for an individual in the company
-     */
-    individual_id?: string;
+    gross_pay?: number;
 
-    net_pay?: HRISAPI.Money | null;
+    net_pay?: number;
 
-    /**
-     * The payment method.
-     */
     payment_method?: 'check' | 'direct_deposit' | 'other' | null;
 
-    /**
-     * The array of taxes objects associated with this pay statement.
-     */
-    taxes?: Array<PayStatement.Tax | null> | null;
+    taxes?: Array<PayStatement.Tax>;
 
-    /**
-     * The number of hours worked for this pay period
-     */
-    total_hours?: number | null;
+    total_hours?: number;
 
-    /**
-     * The type of the payment associated with the pay statement.
-     */
-    type?: 'regular_payroll' | 'off_cycle_payroll' | 'one_time_payment' | null;
+    type?: 'off_cycle_payroll' | 'one_time_payment' | 'regular_payroll' | null;
   }
 
   export namespace PayStatement {
     export interface Earning {
-      /**
-       * The earnings amount in cents.
-       */
-      amount?: number | null;
+      amount?: number;
 
-      attributes?: Earning.Attributes | null;
+      hours?: number;
 
-      /**
-       * The earnings currency code.
-       */
-      currency?: string | null;
+      name?: string;
 
-      /**
-       * The number of hours associated with this earning. (For salaried employees, this
-       * could be hours per pay period, `0` or `null`, depending on the provider).
-       */
-      hours?: number | null;
-
-      /**
-       * The exact name of the deduction from the pay statement.
-       */
-      name?: string | null;
-
-      /**
-       * The type of earning.
-       */
       type?:
-        | 'salary'
-        | 'wage'
-        | 'reimbursement'
-        | 'overtime'
-        | 'severance'
-        | 'double_overtime'
-        | 'pto'
-        | 'sick'
         | 'bonus'
         | 'commission'
-        | 'tips'
-        | '1099'
+        | 'double_overtime'
         | 'other'
-        | null;
-    }
-
-    export namespace Earning {
-      export interface Attributes {
-        metadata?: Attributes.Metadata;
-      }
-
-      export namespace Attributes {
-        export interface Metadata {
-          /**
-           * The metadata to be attached to the entity by existing rules. It is a key-value
-           * pairs where the values can be of any type (string, number, boolean, object,
-           * array, etc.).
-           */
-          metadata?: Record<string, unknown>;
-        }
-      }
+        | 'overtime'
+        | 'pto'
+        | 'reimbursement'
+        | 'salary'
+        | 'severance'
+        | 'sick'
+        | 'tips'
+        | 'wage'
+        | '1099';
     }
 
     export interface EmployeeDeduction {
-      /**
-       * The deduction amount in cents.
-       */
-      amount?: number | null;
+      amount?: number;
 
-      attributes?: EmployeeDeduction.Attributes | null;
+      name?: string;
 
-      /**
-       * The deduction currency.
-       */
-      currency?: string | null;
+      pre_tax?: boolean;
 
-      /**
-       * The deduction name from the pay statement.
-       */
-      name?: string | null;
-
-      /**
-       * Boolean indicating if the deduction is pre-tax.
-       */
-      pre_tax?: boolean | null;
-
-      /**
-       * Type of benefit.
-       */
-      type?: BenefitsAPI.BenefitType | null;
-    }
-
-    export namespace EmployeeDeduction {
-      export interface Attributes {
-        metadata?: Attributes.Metadata;
-      }
-
-      export namespace Attributes {
-        export interface Metadata {
-          /**
-           * The metadata to be attached to the entity by existing rules. It is a key-value
-           * pairs where the values can be of any type (string, number, boolean, object,
-           * array, etc.).
-           */
-          metadata?: Record<string, unknown>;
-        }
-      }
+      type?:
+        | '457'
+        | '401k'
+        | '401k_roth'
+        | '401k_loan'
+        | '403b'
+        | '403b_roth'
+        | '457_roth'
+        | 'commuter'
+        | 'custom_post_tax'
+        | 'custom_pre_tax'
+        | 'fsa_dependent_care'
+        | 'fsa_medical'
+        | 'hsa_post'
+        | 'hsa_pre'
+        | 's125_dental'
+        | 's125_medical'
+        | 's125_vision'
+        | 'simple'
+        | 'simple_ira';
     }
 
     export interface EmployerContribution {
-      /**
-       * The contribution amount in cents.
-       */
-      amount?: number | null;
+      amount?: number;
 
-      attributes?: EmployerContribution.Attributes | null;
+      name?: string;
 
-      /**
-       * The contribution currency.
-       */
-      currency?: string | null;
-
-      /**
-       * The contribution name from the pay statement.
-       */
-      name?: string | null;
-
-      /**
-       * Type of benefit.
-       */
-      type?: BenefitsAPI.BenefitType | null;
-    }
-
-    export namespace EmployerContribution {
-      export interface Attributes {
-        metadata?: Attributes.Metadata;
-      }
-
-      export namespace Attributes {
-        export interface Metadata {
-          /**
-           * The metadata to be attached to the entity by existing rules. It is a key-value
-           * pairs where the values can be of any type (string, number, boolean, object,
-           * array, etc.).
-           */
-          metadata?: Record<string, unknown>;
-        }
-      }
+      type?:
+        | '457'
+        | '401k'
+        | '401k_roth'
+        | '401k_loan'
+        | '403b'
+        | '403b_roth'
+        | '457_roth'
+        | 'commuter'
+        | 'custom_post_tax'
+        | 'custom_pre_tax'
+        | 'fsa_dependent_care'
+        | 'fsa_medical'
+        | 'hsa_post'
+        | 'hsa_pre'
+        | 's125_dental'
+        | 's125_medical'
+        | 's125_vision'
+        | 'simple'
+        | 'simple_ira';
     }
 
     export interface Tax {
-      /**
-       * The tax amount in cents.
-       */
-      amount?: number | null;
+      amount?: number;
 
-      attributes?: Tax.Attributes | null;
+      employer?: boolean;
 
-      /**
-       * The currency code.
-       */
-      currency?: string | null;
+      name?: string;
 
-      /**
-       * `true` if the amount is paid by the employers.
-       */
-      employer?: boolean | null;
-
-      /**
-       * The exact name of tax from the pay statement.
-       */
-      name?: string | null;
-
-      /**
-       * The type of taxes.
-       */
-      type?: 'state' | 'federal' | 'local' | 'fica' | null;
-    }
-
-    export namespace Tax {
-      export interface Attributes {
-        metadata?: Attributes.Metadata;
-      }
-
-      export namespace Attributes {
-        export interface Metadata {
-          /**
-           * The metadata to be attached to the entity by existing rules. It is a key-value
-           * pairs where the values can be of any type (string, number, boolean, object,
-           * array, etc.).
-           */
-          metadata?: Record<string, unknown>;
-        }
-      }
+      type?: 'federal' | 'fica' | 'local' | 'state';
     }
   }
 }

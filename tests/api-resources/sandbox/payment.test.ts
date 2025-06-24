@@ -32,57 +32,22 @@ describe('resource payment', () => {
     await expect(
       client.sandbox.payment.create(
         {
-          end_date: 'end_date',
+          end_date: '2019-12-27',
           pay_statements: [
             {
-              earnings: [
-                {
-                  amount: 0,
-                  attributes: { metadata: { metadata: { foo: {} } } },
-                  currency: 'currency',
-                  hours: 0,
-                  name: 'name',
-                  type: 'salary',
-                },
-              ],
-              employee_deductions: [
-                {
-                  amount: 2000,
-                  attributes: { metadata: { metadata: { foo: {} } } },
-                  currency: 'usd',
-                  name: '401k test',
-                  pre_tax: true,
-                  type: '401k',
-                },
-              ],
-              employer_contributions: [
-                {
-                  amount: 0,
-                  attributes: { metadata: { metadata: { foo: {} } } },
-                  currency: 'currency',
-                  name: 'name',
-                  type: '401k',
-                },
-              ],
-              gross_pay: { amount: 0, currency: 'currency' },
-              individual_id: 'b2338cfb-472f-4f72-9faa-e028c083144a',
-              net_pay: { amount: 0, currency: 'currency' },
+              individual_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+              earnings: [{ amount: 0, hours: 0, name: 'x', type: 'bonus' }],
+              employee_deductions: [{ amount: 0, name: 'x', pre_tax: true, type: '457' }],
+              employer_contributions: [{ amount: 0, name: 'x', type: '457' }],
+              gross_pay: 1,
+              net_pay: 9007199254740991,
               payment_method: 'check',
-              taxes: [
-                {
-                  amount: 0,
-                  attributes: { metadata: { metadata: { foo: {} } } },
-                  currency: 'currency',
-                  employer: true,
-                  name: 'name',
-                  type: 'state',
-                },
-              ],
-              total_hours: 0,
-              type: 'regular_payroll',
+              taxes: [{ amount: 0, employer: true, name: 'x', type: 'federal' }],
+              total_hours: 1,
+              type: 'off_cycle_payroll',
             },
           ],
-          start_date: 'start_date',
+          start_date: '2019-12-27',
         },
         { path: '/_stainless_unknown_path' },
       ),

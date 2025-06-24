@@ -1,5 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { Metadata } from '../../../../';
 import Finch from '@tryfinch/finch-api';
@@ -8,6 +10,9 @@ export const metadata: Metadata = {
   resource: 'hris.company.pay_statement_item.rules',
   operation: 'write',
   tags: [],
+  httpMethod: 'delete',
+  httpPath: '/employer/pay-statement-item/rule/{rule_id}',
+  operationId: 'delete-rule',
 };
 
 export const tool: Tool = {
@@ -24,9 +29,9 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
   const { rule_id, ...body } = args as any;
-  return client.hris.company.payStatementItem.rules.delete(rule_id);
+  return asTextContentResult(await client.hris.company.payStatementItem.rules.delete(rule_id));
 };
 
 export default { metadata, tool, handler };

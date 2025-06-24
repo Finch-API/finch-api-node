@@ -1,5 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { Metadata } from '../../';
 import Finch from '@tryfinch/finch-api';
@@ -8,6 +10,9 @@ export const metadata: Metadata = {
   resource: 'sandbox.individual',
   operation: 'write',
   tags: [],
+  httpMethod: 'put',
+  httpPath: '/sandbox/individual/{individual_id}',
+  operationId: 'put-sandbox-individual-individual_id',
 };
 
 export const tool: Tool = {
@@ -146,9 +151,9 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
   const { individual_id, ...body } = args as any;
-  return client.sandbox.individual.update(individual_id, body);
+  return asTextContentResult(await client.sandbox.individual.update(individual_id, body));
 };
 
 export default { metadata, tool, handler };

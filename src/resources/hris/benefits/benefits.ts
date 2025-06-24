@@ -3,7 +3,6 @@
 import { APIResource } from '../../../resource';
 import { isRequestOptions } from '../../../core';
 import * as Core from '../../../core';
-import * as BenefitsAPI from './benefits';
 import * as Shared from '../../shared';
 import * as IndividualsAPI from './individuals';
 import {
@@ -108,25 +107,21 @@ export class Benefits extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const benefitListSupportedBenefitsResponse of client.hris.benefits.listSupportedBenefits()) {
+   * for await (const supportedBenefit of client.hris.benefits.listSupportedBenefits()) {
    *   // ...
    * }
    * ```
    */
   listSupportedBenefits(
     options?: Core.RequestOptions,
-  ): Core.PagePromise<BenefitListSupportedBenefitsResponsesSinglePage, BenefitListSupportedBenefitsResponse> {
-    return this._client.getAPIList(
-      '/employer/benefits/meta',
-      BenefitListSupportedBenefitsResponsesSinglePage,
-      options,
-    );
+  ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit> {
+    return this._client.getAPIList('/employer/benefits/meta', SupportedBenefitsSinglePage, options);
   }
 }
 
 export class CompanyBenefitsSinglePage extends SinglePage<CompanyBenefit> {}
 
-export class BenefitListSupportedBenefitsResponsesSinglePage extends SinglePage<BenefitListSupportedBenefitsResponse> {}
+export class SupportedBenefitsSinglePage extends SinglePage<SupportedBenefit> {}
 
 export interface BenefitContribution {
   /**
@@ -141,49 +136,9 @@ export interface BenefitContribution {
 }
 
 export interface BenefitFeaturesAndOperations {
-  supported_features?: BenefitFeaturesAndOperations.SupportedFeatures;
+  supported_features?: SupportedBenefit;
 
   supported_operations?: SupportPerBenefitType;
-}
-
-export namespace BenefitFeaturesAndOperations {
-  export interface SupportedFeatures {
-    /**
-     * Whether the provider supports an annual maximum for this benefit.
-     */
-    annual_maximum?: boolean | null;
-
-    /**
-     * Whether the provider supports catch up for this benefit. This field will only be
-     * true for retirement benefits.
-     */
-    catch_up?: boolean | null;
-
-    /**
-     * Supported contribution types. An empty array indicates contributions are not
-     * supported.
-     */
-    company_contribution?: Array<'fixed' | 'percent' | null> | null;
-
-    description?: string | null;
-
-    /**
-     * Supported deduction types. An empty array indicates deductions are not
-     * supported.
-     */
-    employee_deduction?: Array<'fixed' | 'percent' | null> | null;
-
-    /**
-     * The list of frequencies supported by the provider for this benefit
-     */
-    frequencies?: Array<BenefitsAPI.BenefitFrequency | null>;
-
-    /**
-     * Whether the provider supports HSA contribution limits. Empty if this feature is
-     * not supported for the benefit. This array only has values for HSA benefits.
-     */
-    hsa_contribution_limit?: Array<'individual' | 'family' | null> | null;
-  }
 }
 
 /**
@@ -195,25 +150,25 @@ export type BenefitFrequency = 'one_time' | 'every_paycheck' | 'monthly' | null;
  * Type of benefit.
  */
 export type BenefitType =
+  | '457'
   | '401k'
   | '401k_roth'
   | '401k_loan'
   | '403b'
   | '403b_roth'
-  | '457'
   | '457_roth'
-  | 's125_medical'
-  | 's125_dental'
-  | 's125_vision'
-  | 'hsa_pre'
-  | 'hsa_post'
-  | 'fsa_medical'
-  | 'fsa_dependent_care'
-  | 'simple_ira'
-  | 'simple'
   | 'commuter'
   | 'custom_post_tax'
   | 'custom_pre_tax'
+  | 'fsa_dependent_care'
+  | 'fsa_medical'
+  | 'hsa_post'
+  | 'hsa_pre'
+  | 's125_dental'
+  | 's125_medical'
+  | 's125_vision'
+  | 'simple'
+  | 'simple_ira'
   | null;
 
 /**
@@ -353,44 +308,6 @@ export interface UpdateCompanyBenefitResponse {
   job_id: string;
 }
 
-export interface BenefitListSupportedBenefitsResponse {
-  /**
-   * Whether the provider supports an annual maximum for this benefit.
-   */
-  annual_maximum?: boolean | null;
-
-  /**
-   * Whether the provider supports catch up for this benefit. This field will only be
-   * true for retirement benefits.
-   */
-  catch_up?: boolean | null;
-
-  /**
-   * Supported contribution types. An empty array indicates contributions are not
-   * supported.
-   */
-  company_contribution?: Array<'fixed' | 'percent' | null> | null;
-
-  description?: string | null;
-
-  /**
-   * Supported deduction types. An empty array indicates deductions are not
-   * supported.
-   */
-  employee_deduction?: Array<'fixed' | 'percent' | null> | null;
-
-  /**
-   * The list of frequencies supported by the provider for this benefit
-   */
-  frequencies?: Array<BenefitFrequency | null>;
-
-  /**
-   * Whether the provider supports HSA contribution limits. Empty if this feature is
-   * not supported for the benefit. This array only has values for HSA benefits.
-   */
-  hsa_contribution_limit?: Array<'individual' | 'family' | null> | null;
-}
-
 /**
  * @deprecated use `BenefitContribution` instead
  */
@@ -447,7 +364,7 @@ export interface BenefitUpdateParams {
 }
 
 Benefits.CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
-Benefits.BenefitListSupportedBenefitsResponsesSinglePage = BenefitListSupportedBenefitsResponsesSinglePage;
+Benefits.SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
 Benefits.Individuals = Individuals;
 Benefits.IndividualBenefitsSinglePage = IndividualBenefitsSinglePage;
 
@@ -463,10 +380,9 @@ export declare namespace Benefits {
     type SupportPerBenefitType as SupportPerBenefitType,
     type SupportedBenefit as SupportedBenefit,
     type UpdateCompanyBenefitResponse as UpdateCompanyBenefitResponse,
-    type BenefitListSupportedBenefitsResponse as BenefitListSupportedBenefitsResponse,
     type BenfitContribution as BenfitContribution,
     CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
-    BenefitListSupportedBenefitsResponsesSinglePage as BenefitListSupportedBenefitsResponsesSinglePage,
+    SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
     type BenefitCreateParams as BenefitCreateParams,
     type BenefitUpdateParams as BenefitUpdateParams,
   };

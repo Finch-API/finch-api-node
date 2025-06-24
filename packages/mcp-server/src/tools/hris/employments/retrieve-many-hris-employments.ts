@@ -1,5 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { Metadata } from '../../';
 import Finch from '@tryfinch/finch-api';
@@ -8,6 +10,9 @@ export const metadata: Metadata = {
   resource: 'hris.employments',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/employer/employment',
+  operationId: 'get-employment',
 };
 
 export const tool: Tool = {
@@ -35,9 +40,9 @@ export const tool: Tool = {
   },
 };
 
-export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return client.hris.employments.retrieveMany(body);
+  return asTextContentResult(await client.hris.employments.retrieveMany(body));
 };
 
 export default { metadata, tool, handler };

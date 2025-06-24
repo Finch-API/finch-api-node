@@ -216,7 +216,7 @@ The following tools are available in this MCP server.
 
 - `retrieve_many_hris_pay_statements` (`write`): Read detailed pay statements for each individual.
 
-Deduction and contribution types are supported by the payroll systems that supports Benefits.
+  Deduction and contribution types are supported by the payroll systems that supports Benefits.
 
 ### Resource `hris.documents`:
 
@@ -259,11 +259,11 @@ Deduction and contribution types are supported by the payroll systems that suppo
 
 - `create_jobs_automated` (`write`): Enqueue an automated job.
 
-`data_sync_all`: Enqueue a job to re-sync all data for a connection. `data_sync_all` has a concurrency limit of 1 job at a time per connection. This means that if this endpoint is called while a job is already in progress for this connection, Finch will return the `job_id` of the job that is currently in progress. Finch allows a fixed window rate limit of 1 forced refresh per hour per connection.
+  `data_sync_all`: Enqueue a job to re-sync all data for a connection. `data_sync_all` has a concurrency limit of 1 job at a time per connection. This means that if this endpoint is called while a job is already in progress for this connection, Finch will return the `job_id` of the job that is currently in progress. Finch allows a fixed window rate limit of 1 forced refresh per hour per connection.
 
-`w4_form_employee_sync`: Enqueues a job for sync W-4 data for a particular individual, identified by `individual_id`. This feature is currently in beta.
+  `w4_form_employee_sync`: Enqueues a job for sync W-4 data for a particular individual, identified by `individual_id`. This feature is currently in beta.
 
-This endpoint is available for _Scale_ tier customers as an add-on. To request access to this endpoint, please contact your Finch account manager.
+  This endpoint is available for _Scale_ tier customers as an add-on. To request access to this endpoint, please contact your Finch account manager.
 
 - `retrieve_jobs_automated` (`read`): Get an automated job by `job_id`.
 - `list_jobs_automated` (`read`): Get all automated jobs. Automated jobs are completed by a machine. By default, jobs are sorted in descending order by submission time. For scheduled jobs such as data syncs, only the next scheduled job is shown.

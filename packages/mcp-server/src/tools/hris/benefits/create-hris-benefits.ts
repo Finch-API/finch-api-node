@@ -1,5 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
+
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { Metadata } from '../../';
 import Finch from '@tryfinch/finch-api';
@@ -8,6 +10,9 @@ export const metadata: Metadata = {
   resource: 'hris.benefits',
   operation: 'write',
   tags: [],
+  httpMethod: 'post',
+  httpPath: '/employer/benefits',
+  operationId: 'create-company-benefits',
 };
 
 export const tool: Tool = {
@@ -69,34 +74,34 @@ export const tool: Tool = {
         title: 'BenefitType',
         description: 'Type of benefit.',
         enum: [
+          '457',
           '401k',
           '401k_roth',
           '401k_loan',
           '403b',
           '403b_roth',
-          '457',
           '457_roth',
-          's125_medical',
-          's125_dental',
-          's125_vision',
-          'hsa_pre',
-          'hsa_post',
-          'fsa_medical',
-          'fsa_dependent_care',
-          'simple_ira',
-          'simple',
           'commuter',
           'custom_post_tax',
           'custom_pre_tax',
+          'fsa_dependent_care',
+          'fsa_medical',
+          'hsa_post',
+          'hsa_pre',
+          's125_dental',
+          's125_medical',
+          's125_vision',
+          'simple',
+          'simple_ira',
         ],
       },
     },
   },
 };
 
-export const handler = (client: Finch, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return client.hris.benefits.create(body);
+  return asTextContentResult(await client.hris.benefits.create(body));
 };
 
 export default { metadata, tool, handler };

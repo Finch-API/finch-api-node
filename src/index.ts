@@ -175,6 +175,7 @@ export class Finch extends Core.APIClient {
 
     super({
       baseURL: options.baseURL!,
+      baseURLOverridden: baseURL ? baseURL !== 'https://api.tryfinch.com' : false,
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
@@ -222,7 +223,6 @@ export class Finch extends Core.APIClient {
       },
     }).then((response) => response.access_token);
   }
-
   /**
    * Returns the authorization url which can be visited in order to obtain an
    * authorization code from Finch. The authorization code can then be exchanged for
@@ -249,13 +249,18 @@ export class Finch extends Core.APIClient {
     });
     return url.toString();
   }
-
   /**
    * Returns a copy of the current Finch client with the given access token for
    * authentication.
    */
   withAccessToken(accessToken: string): Finch {
     return new Finch({ ...this._options, accessToken });
+  }
+  /**
+   * Check whether the base URL is set to its default.
+   */
+  #baseURLOverridden(): boolean {
+    return this.baseURL !== 'https://api.tryfinch.com';
   }
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {

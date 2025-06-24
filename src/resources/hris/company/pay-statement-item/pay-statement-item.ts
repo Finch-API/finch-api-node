@@ -59,17 +59,17 @@ export interface PayStatementItemListResponse {
   /**
    * The attributes of the pay statement item.
    */
-  attributes?: PayStatementItemListResponse.Attributes;
+  attributes: PayStatementItemListResponse.Attributes;
 
   /**
    * The category of the pay statement item.
    */
-  category?: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions';
+  category: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions';
 
   /**
    * The name of the pay statement item.
    */
-  name?: string;
+  name: string;
 }
 
 export namespace PayStatementItemListResponse {
@@ -78,16 +78,16 @@ export namespace PayStatementItemListResponse {
    */
   export interface Attributes {
     /**
+     * The metadata of the pay statement item derived by the rules engine if available.
+     * Each attribute will be a key-value pair defined by a rule.
+     */
+    metadata: { [key: string]: unknown } | null;
+
+    /**
      * `true` if the amount is paid by the employers. This field is only available for
      * taxes.
      */
     employer?: boolean | null;
-
-    /**
-     * The metadata of the pay statement item derived by the rules engine if available.
-     * Each attribute will be a key-value pair defined by a rule.
-     */
-    metadata?: Record<string, unknown> | null;
 
     /**
      * `true` if the pay statement item is pre-tax. This field is only available for
