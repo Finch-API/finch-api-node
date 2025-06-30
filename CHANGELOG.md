@@ -1,5 +1,18 @@
 # Changelog
 
+## 6.32.1 (2025-06-27)
+
+Full Changelog: [v6.32.0...v6.32.1](https://github.com/Finch-API/finch-api-node/compare/v6.32.0...v6.32.1)
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([85086a9](https://github.com/Finch-API/finch-api-node/commit/85086a95f3c5efe51167c40dc0652e05c2425fcd))
+
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([f679ab4](https://github.com/Finch-API/finch-api-node/commit/f679ab46d68f21a9ed7ca7c362054c48883f817c))
+
 ## 6.32.0 (2025-06-23)
 
 Full Changelog: [v6.31.0...v6.32.0](https://github.com/Finch-API/finch-api-node/compare/v6.31.0...v6.32.0)
