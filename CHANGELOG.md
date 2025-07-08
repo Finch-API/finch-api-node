@@ -1,5 +1,19 @@
 # Changelog
 
+## 6.32.2 (2025-07-03)
+
+Full Changelog: [v6.32.1...v6.32.2](https://github.com/Finch-API/finch-api-node/compare/v6.32.1...v6.32.2)
+
+### Bug Fixes
+
+* **build:** bump node version in CI build to 20 to be compatible with MCP package ([a42f5a6](https://github.com/Finch-API/finch-api-node/commit/a42f5a6d80c069df0b250d0557b0b9490f0293cb))
+* **client:** don't send `Content-Type` for bodyless methods ([605ebe0](https://github.com/Finch-API/finch-api-node/commit/605ebe0809f965063cee49b21903e4dba3073ce0))
+
+
+### Chores
+
+* mention unit type in timeout docs ([46e6e6f](https://github.com/Finch-API/finch-api-node/commit/46e6e6fc73bd4b5dcf6ac0bb2d9cc268314fbc39))
+
 ## 6.32.1 (2025-06-27)
 
 Full Changelog: [v6.32.0...v6.32.1](https://github.com/Finch-API/finch-api-node/compare/v6.32.0...v6.32.1)
