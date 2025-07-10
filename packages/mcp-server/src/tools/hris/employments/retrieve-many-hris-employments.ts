@@ -17,7 +17,8 @@ export const metadata: Metadata = {
 
 export const tool: Tool = {
   name: 'retrieve_many_hris_employments',
-  description: 'Read individual employment and income data',
+  description:
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nRead individual employment and income data",
   inputSchema: {
     type: 'object',
     properties: {
@@ -42,7 +43,8 @@ export const tool: Tool = {
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
   const body = args as any;
-  return asTextContentResult(await client.hris.employments.retrieveMany(body));
+  const response = await client.hris.employments.retrieveMany(body).asResponse();
+  return asTextContentResult(await response.json());
 };
 
 export default { metadata, tool, handler };
