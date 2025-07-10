@@ -1,5 +1,14 @@
 # Changelog
 
+## 6.32.3 (2025-07-10)
+
+Full Changelog: [v6.32.2...v6.32.3](https://github.com/Finch-API/finch-api-node/compare/v6.32.2...v6.32.3)
+
+### Chores
+
+* **internal:** codegen related update ([f8bf46e](https://github.com/Finch-API/finch-api-node/commit/f8bf46e0dc32f11e9920a59c8ff0c8e44536a9fe))
+* make some internal functions async ([1656660](https://github.com/Finch-API/finch-api-node/commit/16566608f8bc0206caf44fd33ad7a44d678f2c1b))
+
 ## 6.32.2 (2025-07-03)
 
 Full Changelog: [v6.32.1...v6.32.2](https://github.com/Finch-API/finch-api-node/compare/v6.32.1...v6.32.2)
