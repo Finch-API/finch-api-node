@@ -17,7 +17,8 @@ export const metadata: Metadata = {
 
 export const tool: Tool = {
   name: 'list_providers',
-  description: 'Return details on all available payroll and HR systems.',
+  description:
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nReturn details on all available payroll and HR systems.",
   inputSchema: {
     type: 'object',
     properties: {},
@@ -25,7 +26,8 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
-  return asTextContentResult(await client.providers.list());
+  const response = await client.providers.list().asResponse();
+  return asTextContentResult(await response.json());
 };
 
 export default { metadata, tool, handler };
