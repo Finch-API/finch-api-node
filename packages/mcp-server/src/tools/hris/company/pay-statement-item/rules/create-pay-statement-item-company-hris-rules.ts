@@ -1,10 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { maybeFilter } from '@tryfinch/finch-api-mcp/filtering';
-import { asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
+import { Metadata, asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../../../../';
 import Finch from '@tryfinch/finch-api';
 
 export const metadata: Metadata = {
