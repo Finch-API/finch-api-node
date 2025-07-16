@@ -120,19 +120,24 @@ export interface AutomatedCreateResponse {
   allowed_refreshes: number;
 
   /**
+   * The number of remaining refreshes available (per hour, fixed window)
+   */
+  remaining_refreshes: number;
+
+  /**
    * The id of the job that has been created.
    */
-  job_id: string;
+  job_id?: string;
 
   /**
    * The url that can be used to retrieve the job status
    */
-  job_url: string;
+  job_url?: string;
 
   /**
-   * The number of remaining refreshes available (per hour, fixed window)
+   * ISO 8601 timestamp indicating when to retry the request
    */
-  remaining_refreshes: number;
+  retry_at?: string;
 }
 
 export interface AutomatedListResponse {
