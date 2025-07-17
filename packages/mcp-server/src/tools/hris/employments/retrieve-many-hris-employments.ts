@@ -37,6 +37,7 @@ export const tool: Tool = {
         },
       },
     },
+    required: ['requests'],
   },
 };
 

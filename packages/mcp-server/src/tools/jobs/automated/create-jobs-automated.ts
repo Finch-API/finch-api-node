@@ -31,6 +31,7 @@ export const tool: Tool = {
             enum: ['data_sync_all'],
           },
         },
+        required: ['type'],
       },
       {
         type: 'object',
@@ -51,6 +52,7 @@ export const tool: Tool = {
             enum: ['w4_form_employee_sync'],
           },
         },
+        required: ['params', 'type'],
       },
     ],
     properties: {
