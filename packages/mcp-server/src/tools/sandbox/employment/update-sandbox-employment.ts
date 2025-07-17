@@ -42,7 +42,6 @@ export const tool: Tool = {
               type: 'object',
             },
           },
-          required: [],
         },
       },
       department: {
@@ -54,7 +53,6 @@ export const tool: Tool = {
             description: 'The name of the department associated with the individual.',
           },
         },
-        required: [],
       },
       employment: {
         type: 'object',
@@ -72,7 +70,6 @@ export const tool: Tool = {
             enum: ['employee', 'contractor'],
           },
         },
-        required: [],
       },
       employment_status: {
         type: 'string',
@@ -122,7 +119,6 @@ export const tool: Tool = {
             description: 'A stable Finch `id` (UUID v4) for an individual in the company.',
           },
         },
-        required: [],
       },
       middle_name: {
         type: 'string',
@@ -141,6 +137,7 @@ export const tool: Tool = {
         description: 'The current title of the individual.',
       },
     },
+    required: ['individual_id'],
     $defs: {
       income: {
         type: 'object',
