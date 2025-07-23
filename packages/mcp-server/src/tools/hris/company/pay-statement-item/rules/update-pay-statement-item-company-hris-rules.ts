@@ -37,6 +37,9 @@ export const tool: Tool = {
     },
     required: ['rule_id'],
   },
+  annotations: {
+    idempotentHint: true,
+  },
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {

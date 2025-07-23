@@ -43,6 +43,7 @@ export const tool: Tool = {
     },
     required: ['code'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {

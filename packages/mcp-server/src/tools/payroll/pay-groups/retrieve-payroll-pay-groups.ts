@@ -34,6 +34,9 @@ export const tool: Tool = {
     },
     required: ['pay_group_id'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {

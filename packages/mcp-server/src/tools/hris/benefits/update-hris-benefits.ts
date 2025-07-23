@@ -38,6 +38,7 @@ export const tool: Tool = {
     },
     required: ['benefit_id'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {

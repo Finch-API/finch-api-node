@@ -86,6 +86,7 @@ export const tool: Tool = {
     },
     required: ['customer_id', 'customer_name', 'products'],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
