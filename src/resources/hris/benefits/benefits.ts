@@ -127,12 +127,12 @@ export interface BenefitContribution {
   /**
    * Contribution amount in cents (if `fixed`) or basis points (if `percent`).
    */
-  amount?: number | null;
+  amount: number | null;
 
   /**
    * Contribution type.
    */
-  type?: 'fixed' | 'percent' | null;
+  type: 'fixed' | 'percent' | null;
 }
 
 export interface BenefitFeaturesAndOperations {
@@ -144,7 +144,7 @@ export interface BenefitFeaturesAndOperations {
 /**
  * The frequency of the benefit deduction/contribution.
  */
-export type BenefitFrequency = 'one_time' | 'every_paycheck' | 'monthly' | null;
+export type BenefitFrequency = 'every_paycheck' | 'monthly' | 'one_time' | null;
 
 /**
  * Type of benefit.
@@ -209,11 +209,6 @@ export interface CompanyBenefit {
    */
   benefit_id: string;
 
-  /**
-   * The company match for this benefit.
-   */
-  company_contribution: CompanyBenefit.CompanyContribution | null;
-
   description: string | null;
 
   /**
@@ -225,6 +220,11 @@ export interface CompanyBenefit {
    * Type of benefit.
    */
   type: BenefitType | null;
+
+  /**
+   * The company match for this benefit.
+   */
+  company_contribution?: CompanyBenefit.CompanyContribution | null;
 }
 
 export namespace CompanyBenefit {
@@ -232,16 +232,16 @@ export namespace CompanyBenefit {
    * The company match for this benefit.
    */
   export interface CompanyContribution {
-    tiers?: Array<CompanyContribution.Tier>;
+    tiers: Array<CompanyContribution.Tier>;
 
-    type?: 'match';
+    type: 'match';
   }
 
   export namespace CompanyContribution {
     export interface Tier {
-      match?: number;
+      match: number;
 
-      threshold?: number;
+      threshold: number;
     }
   }
 }
@@ -265,7 +265,26 @@ export interface SupportedBenefit {
   /**
    * Whether the provider supports an annual maximum for this benefit.
    */
-  annual_maximum?: boolean | null;
+  annual_maximum: boolean | null;
+
+  /**
+   * Supported contribution types. An empty array indicates contributions are not
+   * supported.
+   */
+  company_contribution: Array<'fixed' | 'percent' | null> | null;
+
+  description: string | null;
+
+  /**
+   * Supported deduction types. An empty array indicates deductions are not
+   * supported.
+   */
+  employee_deduction: Array<'fixed' | 'percent' | null> | null;
+
+  /**
+   * The list of frequencies supported by the provider for this benefit
+   */
+  frequencies: Array<BenefitFrequency | null>;
 
   /**
    * Whether the provider supports catch up for this benefit. This field will only be
@@ -274,29 +293,10 @@ export interface SupportedBenefit {
   catch_up?: boolean | null;
 
   /**
-   * Supported contribution types. An empty array indicates contributions are not
-   * supported.
-   */
-  company_contribution?: Array<'fixed' | 'percent' | null> | null;
-
-  description?: string | null;
-
-  /**
-   * Supported deduction types. An empty array indicates deductions are not
-   * supported.
-   */
-  employee_deduction?: Array<'fixed' | 'percent' | null> | null;
-
-  /**
-   * The list of frequencies supported by the provider for this benefit
-   */
-  frequencies?: Array<BenefitFrequency | null>;
-
-  /**
    * Whether the provider supports HSA contribution limits. Empty if this feature is
    * not supported for the benefit. This array only has values for HSA benefits.
    */
-  hsa_contribution_limit?: Array<'individual' | 'family' | null> | null;
+  hsa_contribution_limit?: Array<'family' | 'individual' | null> | null;
 }
 
 export interface UpdateCompanyBenefitResponse {
@@ -342,16 +342,16 @@ export namespace BenefitCreateParams {
    * The company match for this benefit.
    */
   export interface CompanyContribution {
-    tiers?: Array<CompanyContribution.Tier>;
+    tiers: Array<CompanyContribution.Tier>;
 
-    type?: 'match';
+    type: 'match';
   }
 
   export namespace CompanyContribution {
     export interface Tier {
-      match?: number;
+      match: number;
 
-      threshold?: number;
+      threshold: number;
     }
   }
 }

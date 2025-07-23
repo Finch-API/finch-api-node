@@ -39,6 +39,7 @@ export const tool: Tool = {
                   type: 'integer',
                 },
               },
+              required: ['match', 'threshold'],
             },
           },
           type: {
@@ -46,6 +47,7 @@ export const tool: Tool = {
             enum: ['match'],
           },
         },
+        required: ['tiers', 'type'],
       },
       description: {
         type: 'string',
@@ -72,7 +74,7 @@ export const tool: Tool = {
         type: 'string',
         title: 'BenefitFrequency',
         description: 'The frequency of the benefit deduction/contribution.',
-        enum: ['one_time', 'every_paycheck', 'monthly'],
+        enum: ['every_paycheck', 'monthly', 'one_time'],
       },
       benefit_type: {
         type: 'string',
