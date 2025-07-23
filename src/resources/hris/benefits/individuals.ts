@@ -136,34 +136,44 @@ export interface EnrolledIndividualBenefitResponse {
 }
 
 export interface IndividualBenefit {
-  body?: IndividualBenefit.Body;
+  body: IndividualBenefit.UnionMember0 | IndividualBenefit.BatchError;
 
-  code?: number;
+  code: number;
 
-  individual_id?: string;
+  individual_id: string;
 }
 
 export namespace IndividualBenefit {
-  export interface Body {
+  export interface UnionMember0 {
     /**
      * If the benefit supports annual maximum, the amount in cents for this individual.
      */
-    annual_maximum?: number | null;
+    annual_maximum: number | null;
 
     /**
      * If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled
      * for this individual.
      */
-    catch_up?: boolean | null;
+    catch_up: boolean | null;
 
-    company_contribution?: BenefitsAPI.BenefitContribution | null;
+    company_contribution: BenefitsAPI.BenefitContribution | null;
 
-    employee_deduction?: BenefitsAPI.BenefitContribution | null;
+    employee_deduction: BenefitsAPI.BenefitContribution | null;
 
     /**
      * Type for HSA contribution limit if the benefit is a HSA.
      */
     hsa_contribution_limit?: 'individual' | 'family' | null;
+  }
+
+  export interface BatchError {
+    code: number;
+
+    message: string;
+
+    name: string;
+
+    finch_code?: string;
   }
 }
 
