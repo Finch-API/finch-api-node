@@ -1,5 +1,27 @@
 # Changelog
 
+## 6.33.0 (2025-07-23)
+
+Full Changelog: [v6.32.3...v6.33.0](https://github.com/Finch-API/finch-api-node/compare/v6.32.3...v6.33.0)
+
+### Features
+
+* **api:** api update ([44a2607](https://github.com/Finch-API/finch-api-node/commit/44a26078e84c965bee4fe6dfa0691031ccc65a42))
+* **api:** api update ([c52f01b](https://github.com/Finch-API/finch-api-node/commit/c52f01b0de3340c07294bac7934959da5d399e98))
+
+
+### Bug Fixes
+
+* **mcp:** include required section for top-level properties and support naming transformations ([81932c7](https://github.com/Finch-API/finch-api-node/commit/81932c754864cea1defc5939355a8d7ed8efca54))
+* **mcp:** support jq filtering on cloudflare workers ([f678d75](https://github.com/Finch-API/finch-api-node/commit/f678d75f966bc152fdcc7d19dab40c20f0e4446c))
+
+
+### Chores
+
+* **internal:** codegen related update ([3687e69](https://github.com/Finch-API/finch-api-node/commit/3687e69a3c9f381d958545c25f4e38de33c87ea6))
+* **mcp:** formatting ([040c60f](https://github.com/Finch-API/finch-api-node/commit/040c60fb2766d9a65b7ed56da90a3fc6a06c9de3))
+* **mcp:** rework imports in tools ([58349e8](https://github.com/Finch-API/finch-api-node/commit/58349e876bcf5c8d3b35f306455238fa17c31fe7))
+
 ## 6.32.3 (2025-07-10)
 
 Full Changelog: [v6.32.2...v6.32.3](https://github.com/Finch-API/finch-api-node/compare/v6.32.2...v6.32.3)
