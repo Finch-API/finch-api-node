@@ -39,6 +39,9 @@ export const tool: Tool = {
     },
     required: ['completion_status', 'type'],
   },
+  annotations: {
+    idempotentHint: true,
+  },
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {

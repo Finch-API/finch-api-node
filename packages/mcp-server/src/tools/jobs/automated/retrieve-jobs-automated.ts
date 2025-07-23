@@ -34,6 +34,9 @@ export const tool: Tool = {
     },
     required: ['job_id'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
