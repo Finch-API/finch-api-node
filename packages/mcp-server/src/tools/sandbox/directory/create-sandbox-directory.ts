@@ -1,10 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { maybeFilter } from '@tryfinch/finch-api-mcp/filtering';
-import { asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
+import { Metadata, asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../../';
 import Finch from '@tryfinch/finch-api';
 
 export const metadata: Metadata = {
@@ -48,7 +47,6 @@ export const tool: Tool = {
                     type: 'object',
                   },
                 },
-                required: [],
               },
             },
             department: {
@@ -60,7 +58,6 @@ export const tool: Tool = {
                   description: 'The name of the department associated with the individual.',
                 },
               },
-              required: [],
             },
             dob: {
               type: 'string',
@@ -79,7 +76,6 @@ export const tool: Tool = {
                     enum: ['work', 'personal'],
                   },
                 },
-                required: [],
               },
             },
             employment: {
@@ -98,7 +94,6 @@ export const tool: Tool = {
                   enum: ['employee', 'contractor'],
                 },
               },
-              required: [],
             },
             employment_status: {
               type: 'string',
@@ -172,7 +167,6 @@ export const tool: Tool = {
                   description: 'A stable Finch `id` (UUID v4) for an individual in the company.',
                 },
               },
-              required: [],
             },
             middle_name: {
               type: 'string',
@@ -191,7 +185,6 @@ export const tool: Tool = {
                     enum: ['work', 'personal'],
                   },
                 },
-                required: [],
               },
             },
             preferred_name: {
@@ -219,7 +212,6 @@ export const tool: Tool = {
               description: 'The current title of the individual.',
             },
           },
-          required: [],
         },
       },
       jq_filter: {
@@ -229,6 +221,7 @@ export const tool: Tool = {
           'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
+    required: [],
     $defs: {
       income: {
         type: 'object',
@@ -307,6 +300,7 @@ export const tool: Tool = {
       },
     },
   },
+  annotations: {},
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {

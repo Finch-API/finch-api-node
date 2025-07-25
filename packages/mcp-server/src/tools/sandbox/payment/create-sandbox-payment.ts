@@ -1,10 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { maybeFilter } from '@tryfinch/finch-api-mcp/filtering';
-import { asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
+import { Metadata, asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../../';
 import Finch from '@tryfinch/finch-api';
 
 export const metadata: Metadata = {
@@ -69,7 +68,6 @@ export const tool: Tool = {
                     ],
                   },
                 },
-                required: [],
               },
             },
             employee_deductions: {
@@ -111,7 +109,6 @@ export const tool: Tool = {
                     ],
                   },
                 },
-                required: [],
               },
             },
             employer_contributions: {
@@ -150,7 +147,6 @@ export const tool: Tool = {
                     ],
                   },
                 },
-                required: [],
               },
             },
             gross_pay: {
@@ -182,7 +178,6 @@ export const tool: Tool = {
                     enum: ['federal', 'fica', 'local', 'state'],
                   },
                 },
-                required: [],
               },
             },
             total_hours: {
@@ -207,7 +202,9 @@ export const tool: Tool = {
           'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
+    required: [],
   },
+  annotations: {},
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
