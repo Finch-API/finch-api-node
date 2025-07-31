@@ -37,7 +37,10 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
-  return asTextContentResult(await maybeFilter(args, await client.sandbox.jobs.configuration.retrieve()));
+  const { jq_filter } = args as any;
+  return asTextContentResult(
+    await maybeFilter(jq_filter, await client.sandbox.jobs.configuration.retrieve()),
+  );
 };
 
 export default { metadata, tool, handler };

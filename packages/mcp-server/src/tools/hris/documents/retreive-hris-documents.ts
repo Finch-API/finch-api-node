@@ -40,8 +40,8 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
-  const { document_id, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(args, await client.hris.documents.retreive(document_id)));
+  const { document_id, jq_filter, ...body } = args as any;
+  return asTextContentResult(await maybeFilter(jq_filter, await client.hris.documents.retreive(document_id)));
 };
 
 export default { metadata, tool, handler };

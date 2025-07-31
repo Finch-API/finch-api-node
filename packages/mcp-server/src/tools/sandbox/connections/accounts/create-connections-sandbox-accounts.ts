@@ -55,8 +55,10 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
-  const body = args as any;
-  return asTextContentResult(await maybeFilter(args, await client.sandbox.connections.accounts.create(body)));
+  const { jq_filter, ...body } = args as any;
+  return asTextContentResult(
+    await maybeFilter(jq_filter, await client.sandbox.connections.accounts.create(body)),
+  );
 };
 
 export default { metadata, tool, handler };
