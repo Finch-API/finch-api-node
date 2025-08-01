@@ -40,9 +40,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
-  const { rule_id, ...body } = args as any;
+  const { rule_id, jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(args, await client.hris.company.payStatementItem.rules.delete(rule_id)),
+    await maybeFilter(jq_filter, await client.hris.company.payStatementItem.rules.delete(rule_id)),
   );
 };
 

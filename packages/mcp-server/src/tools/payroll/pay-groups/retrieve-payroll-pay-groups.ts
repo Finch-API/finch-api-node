@@ -40,8 +40,10 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
-  const { pay_group_id, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(args, await client.payroll.payGroups.retrieve(pay_group_id)));
+  const { pay_group_id, jq_filter, ...body } = args as any;
+  return asTextContentResult(
+    await maybeFilter(jq_filter, await client.payroll.payGroups.retrieve(pay_group_id)),
+  );
 };
 
 export default { metadata, tool, handler };

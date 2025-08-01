@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'retrieve_many_hris_pay_statements',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nRead detailed pay statements for each individual.\n\nDeduction and contribution types are supported by the payroll systems that supports Benefits.",
+    'Read detailed pay statements for each individual.\n\nDeduction and contribution types are supported by the payroll systems that supports Benefits.',
   inputSchema: {
     type: 'object',
     properties: {
