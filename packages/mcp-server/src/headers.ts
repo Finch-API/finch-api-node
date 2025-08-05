@@ -30,5 +30,5 @@ export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> =
     req.headers['x-finch-client-secret'] instanceof Array ?
       req.headers['x-finch-client-secret'][0]
     : req.headers['x-finch-client-secret'];
-  return { accessToken, clientId, clientSecret };
+  return { clientId, clientSecret };
 };
