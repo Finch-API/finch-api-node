@@ -12,7 +12,7 @@ export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> =
       case 'Bearer':
         return { accessToken: req.headers.authorization.slice('Bearer '.length) };
       case 'Basic':
-        const rawValue = Buffer.from(value).toString('base64');
+        const rawValue = Buffer.from(value, 'base64').toString();
         return {
           clientId: rawValue.slice(0, rawValue.search(':')),
           clientSecret: rawValue.slice(rawValue.search(':') + 1),
