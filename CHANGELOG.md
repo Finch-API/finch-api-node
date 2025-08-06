@@ -1,5 +1,31 @@
 # Changelog
 
+## 6.34.0 (2025-08-06)
+
+Full Changelog: [v6.33.0...v6.34.0](https://github.com/Finch-API/finch-api-node/compare/v6.33.0...v6.34.0)
+
+### Features
+
+* **mcp:** add logging when environment variable is set ([0d90a8c](https://github.com/Finch-API/finch-api-node/commit/0d90a8c366ab7dfff6f6fba61e4157ed91597417))
+* **mcp:** add unix socket option for remote MCP ([0bd4baf](https://github.com/Finch-API/finch-api-node/commit/0bd4baf79a26faa908fedc6682c99b290e5dc247))
+* **mcp:** remote server with passthru auth ([fd0274b](https://github.com/Finch-API/finch-api-node/commit/fd0274b025d19940b425fe6e5cda89b0a4a7736b))
+
+
+### Bug Fixes
+
+* **mcp:** avoid sending `jq_filter` to base API ([685a555](https://github.com/Finch-API/finch-api-node/commit/685a555e335413712c6b569910f4e421aa8cefb2))
+* **mcp:** fix bug in header handling ([d43cbe4](https://github.com/Finch-API/finch-api-node/commit/d43cbe4f291963392fb8bb73c2b924a0c4c9117c))
+* **mcp:** fix tool description of jq_filter ([f3687ac](https://github.com/Finch-API/finch-api-node/commit/f3687ac778ceb5d1609f20f4ac51da9eb7fc8bdd))
+* **mcp:** reverse validJson capability option and limit scope ([8b71749](https://github.com/Finch-API/finch-api-node/commit/8b71749012e2910f803a867e5ca7709fd1476560))
+
+
+### Chores
+
+* **internal:** codegen related update ([f9e09f1](https://github.com/Finch-API/finch-api-node/commit/f9e09f139130ab844a18d1cc2430a2d0ee80bc09))
+* **internal:** move publish config ([d79a421](https://github.com/Finch-API/finch-api-node/commit/d79a42138da01ee3bdec3688ffcba2250292581e))
+* **internal:** remove redundant imports config ([9abbf0b](https://github.com/Finch-API/finch-api-node/commit/9abbf0bdacfdca38cd5ee775bc6f981c4689fc69))
+* **mcp:** refactor streamable http transport ([2e519b6](https://github.com/Finch-API/finch-api-node/commit/2e519b6d69a29a53148aef12f6333538ad239181))
+
 ## 6.33.0 (2025-07-23)
 
 Full Changelog: [v6.32.3...v6.33.0](https://github.com/Finch-API/finch-api-node/compare/v6.32.3...v6.33.0)
