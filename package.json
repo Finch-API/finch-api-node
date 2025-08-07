@@ -1,6 +1,6 @@
 {
   "name": "@tryfinch/finch-api",
-  "version": "6.33.0",
+  "version": "6.34.0",
   "description": "The official TypeScript library for the Finch API",
   "author": "Finch <founders@tryfinch.com>",
   "types": "dist/index.d.ts",
@@ -13,6 +13,9 @@
     "**/*"
   ],
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "./scripts/test",
     "build": "./scripts/build",
@@ -59,10 +62,6 @@
     "./shims/web.js",
     "./shims/web.mjs"
   ],
-  "imports": {
-    "@tryfinch/finch-api": ".",
-    "@tryfinch/finch-api/*": "./src/*"
-  },
   "exports": {
     "./_shims/auto/*": {
       "deno": {
