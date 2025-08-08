@@ -1,5 +1,14 @@
 # Changelog
 
+## 6.34.1 (2025-08-08)
+
+Full Changelog: [v6.34.0...v6.34.1](https://github.com/Finch-API/finch-api-node/compare/v6.34.0...v6.34.1)
+
+### Chores
+
+* **internal:** update comment in script ([468ca33](https://github.com/Finch-API/finch-api-node/commit/468ca33d139f121d484b8e0b71eefc694e4ffb2f))
+* update @stainless-api/prism-cli to v5.15.0 ([a05f59c](https://github.com/Finch-API/finch-api-node/commit/a05f59c97d046a57b64f82dccc697137d892ccfc))
+
 ## 6.34.0 (2025-08-06)
 
 Full Changelog: [v6.33.0...v6.34.0](https://github.com/Finch-API/finch-api-node/compare/v6.33.0...v6.34.0)
