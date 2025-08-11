@@ -84,7 +84,7 @@ export interface AutomatedAsyncJob {
   /**
    * The datetime a job is scheduled to be run. For scheduled jobs, this datetime can
    * be in the future if the job has not yet been enqueued. For ad-hoc jobs, this
-   * field will be null.
+   * field will be null.
    */
   scheduled_at: string | null;
 
