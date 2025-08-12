@@ -25,6 +25,11 @@ export const tool: Tool = {
       job_id: {
         type: 'string',
       },
+      entity_id: {
+        type: 'string',
+        description:
+          "The entity ID to use when authenticating with a multi-account token. Required when using a multi-account token to specify which entity's data to access. Example: `123e4567-e89b-12d3-a456-426614174000`",
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',
@@ -41,7 +46,9 @@ export const tool: Tool = {
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
   const { job_id, jq_filter, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(jq_filter, await client.jobs.automated.retrieve(job_id)));
+  return asTextContentResult(
+    await maybeFilter(jq_filter, await client.jobs.automated.retrieve(job_id, body)),
+  );
 };
 
 export default { metadata, tool, handler };

@@ -251,9 +251,9 @@ The following tools are available in this MCP server.
 
 ### Resource `request_forwarding`:
 
-- `forward_request_forwarding` (`write`): The Forward API allows you to make direct requests to an employment system. If Finch’s unified API
-  doesn’t have a data model that cleanly fits your needs, then Forward allows you to push or pull
-  data models directly against an integration’s API.
+- `forward_request_forwarding` (`write`): The Forward API allows you to make direct requests to an employment system. If Finch's unified API
+  doesn't have a data model that cleanly fits your needs, then Forward allows you to push or pull
+  data models directly against an integration's API.
 
 ### Resource `jobs.automated`:
 
