@@ -22,6 +22,11 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
+      entity_id: {
+        type: 'string',
+        description:
+          "The entity ID to use when authenticating with a multi-account token. Required when using a multi-account token to specify which entity's data to access. Example: `123e4567-e89b-12d3-a456-426614174000`",
+      },
       limit: {
         type: 'integer',
         description: 'Number of items to return',

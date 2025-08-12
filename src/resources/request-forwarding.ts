@@ -6,8 +6,8 @@ import * as Core from '../core';
 export class RequestForwarding extends APIResource {
   /**
    * The Forward API allows you to make direct requests to an employment system. If
-   * Finch’s unified API doesn’t have a data model that cleanly fits your needs, then
-   * Forward allows you to push or pull data models directly against an integration’s
+   * Finch's unified API doesn't have a data model that cleanly fits your needs, then
+   * Forward allows you to push or pull data models directly against an integration's
    * API.
    *
    * @example
@@ -30,15 +30,15 @@ export class RequestForwarding extends APIResource {
 
 export interface RequestForwardingForwardResponse {
   /**
-   * A string representation of the HTTP response body of the forwarded request’s
-   * response received from the underlying integration’s API. This field may be null
-   * in the case where the upstream system’s response is empty.
+   * A string representation of the HTTP response body of the forwarded request's
+   * response received from the underlying integration's API. This field may be null
+   * in the case where the upstream system's response is empty.
    */
   data: string | null;
 
   /**
-   * The HTTP headers of the forwarded request’s response, exactly as received from
-   * the underlying integration’s API.
+   * The HTTP headers of the forwarded request's response, exactly as received from
+   * the underlying integration's API.
    */
   headers: unknown | null;
 
@@ -49,8 +49,8 @@ export interface RequestForwardingForwardResponse {
   request: RequestForwardingForwardResponse.Request;
 
   /**
-   * The HTTP status code of the forwarded request’s response, exactly received from
-   * the underlying integration’s API. This value will be returned as an integer.
+   * The HTTP status code of the forwarded request's response, exactly received from
+   * the underlying integration's API. This value will be returned as an integer.
    */
   statusCode: number;
 }
