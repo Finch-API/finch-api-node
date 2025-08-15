@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'disconnect_account',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nDisconnect one or more `access_token`s from your application.\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/disconnect_response',\n  $defs: {\n    disconnect_response: {\n      type: 'object',\n      properties: {\n        status: {\n          type: 'string',\n          description: 'If the request is successful, Finch will return “success” (HTTP 200 status).'\n        }\n      },\n      required: [        'status'\n      ]\n    }\n  }\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nDisconnect one or more `access_token`s from your application.\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/disconnect_response',\n  $defs: {\n    disconnect_response: {\n      type: 'object',\n      properties: {\n        status: {\n          type: 'string',\n          description: 'If the request is successful, Finch will return \"success\" (HTTP 200 status).'\n        }\n      },\n      required: [        'status'\n      ]\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {

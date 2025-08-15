@@ -39,6 +39,7 @@ export const tool: Tool = {
             },
             value: {
               type: 'object',
+              additionalProperties: true,
             },
           },
         },
