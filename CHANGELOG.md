@@ -1,5 +1,32 @@
 # Changelog
 
+## 6.35.0 (2025-08-15)
+
+Full Changelog: [v6.34.0...v6.35.0](https://github.com/Finch-API/finch-api-node/compare/v6.34.0...v6.35.0)
+
+### Features
+
+* **api:** api update ([6b47451](https://github.com/Finch-API/finch-api-node/commit/6b4745198032d8b2928001f1a1cf0fa21f0b5bae))
+* **api:** api update ([0e1db82](https://github.com/Finch-API/finch-api-node/commit/0e1db82162b8729c64910f06872f12ced2a23b25))
+
+
+### Bug Fixes
+
+* **mcp:** fix jq type bug ([eedf679](https://github.com/Finch-API/finch-api-node/commit/eedf6799e9b70c2925376c6361da6a4b5a74b605))
+* **mcp:** generate additionalProperties=true for map schemas to avoid validation issues ([0ed8d86](https://github.com/Finch-API/finch-api-node/commit/0ed8d86ae898be9ac41ed0011b65e97374c92e64))
+
+
+### Chores
+
+* **deps:** update dependency node-fetch to v2.6.13 ([3cded58](https://github.com/Finch-API/finch-api-node/commit/3cded5866267fb80d06cd1904b0cd4d7a2973f6b))
+* **internal:** formatting change ([55cdd5f](https://github.com/Finch-API/finch-api-node/commit/55cdd5f591e02cce1cf297f59a1baca82452cca3))
+* **internal:** update comment in script ([468ca33](https://github.com/Finch-API/finch-api-node/commit/468ca33d139f121d484b8e0b71eefc694e4ffb2f))
+* **mcp:** bump JQ version ([c472eac](https://github.com/Finch-API/finch-api-node/commit/c472eaca3c50e765294a9b71d754d368911fe3c4))
+* **mcp:** document remote server in README.md ([01b0197](https://github.com/Finch-API/finch-api-node/commit/01b01972327ed68e8b35d34c0a448e80e5aea5cf))
+* **mcp:** minor cleanup of types and package.json ([176af80](https://github.com/Finch-API/finch-api-node/commit/176af80204ad16024fa339014905bf818e683245))
+* **mcp:** update README ([47c2bcc](https://github.com/Finch-API/finch-api-node/commit/47c2bcc8dfaba660acdf326e835e2c345ba84166))
+* update @stainless-api/prism-cli to v5.15.0 ([a05f59c](https://github.com/Finch-API/finch-api-node/commit/a05f59c97d046a57b64f82dccc697137d892ccfc))
+
 ## 6.34.0 (2025-08-06)
 
 Full Changelog: [v6.33.0...v6.34.0](https://github.com/Finch-API/finch-api-node/compare/v6.33.0...v6.34.0)
