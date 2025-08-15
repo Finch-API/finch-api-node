@@ -306,6 +306,7 @@ Finch.Jobs = Jobs;
 Finch.Sandbox = Sandbox;
 Finch.Payroll = Payroll;
 Finch.Connect = Connect;
+
 export declare namespace Finch {
   export type RequestOptions = Core.RequestOptions;
 
