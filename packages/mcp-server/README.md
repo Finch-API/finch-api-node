@@ -144,13 +144,13 @@ Additionally, authorization can be provided via the following headers:
 | `x-finch-client-id` | `clientId` | basicAuth |
 | `x-finch-client-secret` | `clientSecret` | basicAuth |
 
-A configuration JSON for this server might look like this:
+A configuration JSON for this server might look like this, assuming the server is hosted at `http://localhost:3000`:
 
 ```json
 {
   "mcpServers": {
     "tryfinch_finch_api_api": {
-      "url": "http://localhost:3000", # or wherever the server is hosted
+      "url": "http://localhost:3000",
       "headers": {
         "Authorization": "Bearer <auth value>"
       }
