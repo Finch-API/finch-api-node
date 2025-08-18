@@ -31,8 +31,21 @@ export class Automated extends APIResource {
   /**
    * Get an automated job by `job_id`.
    */
-  retrieve(jobId: string, options?: Core.RequestOptions): Core.APIPromise<AutomatedAsyncJob> {
-    return this._client.get(`/jobs/automated/${jobId}`, options);
+  retrieve(
+    jobId: string,
+    query?: AutomatedRetrieveParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<AutomatedAsyncJob>;
+  retrieve(jobId: string, options?: Core.RequestOptions): Core.APIPromise<AutomatedAsyncJob>;
+  retrieve(
+    jobId: string,
+    query: AutomatedRetrieveParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<AutomatedAsyncJob> {
+    if (isRequestOptions(query)) {
+      return this.retrieve(jobId, {}, query);
+    }
+    return this._client.get(`/jobs/automated/${jobId}`, { query, ...options });
   }
 
   /**
@@ -84,7 +97,7 @@ export interface AutomatedAsyncJob {
   /**
    * The datetime a job is scheduled to be run. For scheduled jobs, this datetime can
    * be in the future if the job has not yet been enqueued. For ad-hoc jobs, this
-   * field will be null.
+   * field will be null.
    */
   scheduled_at: string | null;
 
@@ -209,7 +222,23 @@ export declare namespace AutomatedCreateParams {
   }
 }
 
+export interface AutomatedRetrieveParams {
+  /**
+   * The entity ID to use when authenticating with a multi-account token. Required
+   * when using a multi-account token to specify which entity's data to access.
+   * Example: `123e4567-e89b-12d3-a456-426614174000`
+   */
+  entity_id?: string;
+}
+
 export interface AutomatedListParams {
+  /**
+   * The entity ID to use when authenticating with a multi-account token. Required
+   * when using a multi-account token to specify which entity's data to access.
+   * Example: `123e4567-e89b-12d3-a456-426614174000`
+   */
+  entity_id?: string;
+
   /**
    * Number of items to return
    */
@@ -227,6 +256,7 @@ export declare namespace Automated {
     type AutomatedCreateResponse as AutomatedCreateResponse,
     type AutomatedListResponse as AutomatedListResponse,
     type AutomatedCreateParams as AutomatedCreateParams,
+    type AutomatedRetrieveParams as AutomatedRetrieveParams,
     type AutomatedListParams as AutomatedListParams,
   };
 }

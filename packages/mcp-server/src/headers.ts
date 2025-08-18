@@ -23,11 +23,11 @@ export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> =
   }
 
   const clientId =
-    req.headers['x-finch-client-id'] instanceof Array ?
+    Array.isArray(req.headers['x-finch-client-id']) ?
       req.headers['x-finch-client-id'][0]
     : req.headers['x-finch-client-id'];
   const clientSecret =
-    req.headers['x-finch-client-secret'] instanceof Array ?
+    Array.isArray(req.headers['x-finch-client-secret']) ?
       req.headers['x-finch-client-secret'][0]
     : req.headers['x-finch-client-secret'];
   return { clientId, clientSecret };
