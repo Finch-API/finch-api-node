@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.35.1 (2025-08-19)
+
+Full Changelog: [v6.35.0...v6.35.1](https://github.com/Finch-API/finch-api-node/compare/v6.35.0...v6.35.1)
+
+### Chores
+
+* **mcp:** add cors to oauth metadata route ([75a424b](https://github.com/Finch-API/finch-api-node/commit/75a424b26ea9c2e7c191bc94c962d0c9aaf2f6aa))
+
 ## 6.35.0 (2025-08-18)
 
 Full Changelog: [v6.34.0...v6.35.0](https://github.com/Finch-API/finch-api-node/compare/v6.34.0...v6.35.0)
