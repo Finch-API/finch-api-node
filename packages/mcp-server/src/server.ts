@@ -14,6 +14,7 @@ import {
   parseEmbeddedJSON,
 } from './compat';
 import { dynamicTools } from './dynamic-tools';
+import { codeTool } from './code-tool';
 import { McpOptions } from './options';
 
 export { McpOptions } from './options';
@@ -26,7 +27,7 @@ export const newMcpServer = () =>
   new McpServer(
     {
       name: 'tryfinch_finch_api_api',
-      version: '6.35.1',
+      version: '6.36.0',
     },
     { capabilities: { tools: {}, logging: {} } },
   );
@@ -102,6 +103,8 @@ export function selectTools(endpoints: Endpoint[], options: McpOptions): Endpoin
       includedTools = endpoints;
     } else if (options.includeDynamicTools) {
       includedTools = dynamicTools(endpoints);
+    } else if (options.includeCodeTools) {
+      includedTools = [codeTool()];
     } else {
       includedTools = endpoints;
     }

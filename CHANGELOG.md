@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.36.0 (2025-08-19)
+
+Full Changelog: [v6.35.1...v6.36.0](https://github.com/Finch-API/finch-api-node/compare/v6.35.1...v6.36.0)
+
+### Features
+
+* **mcp:** add code execution tool ([a7dba4d](https://github.com/Finch-API/finch-api-node/commit/a7dba4d6ccd7c40f819ba1c5c8fd9542dc2b3f7a))
+
 ## 6.35.1 (2025-08-19)
 
 Full Changelog: [v6.35.0...v6.35.1](https://github.com/Finch-API/finch-api-node/compare/v6.35.0...v6.35.1)
