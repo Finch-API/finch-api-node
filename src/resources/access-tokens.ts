@@ -6,14 +6,6 @@ import * as Core from '../core';
 export class AccessTokens extends APIResource {
   /**
    * Exchange the authorization code for an access token
-   *
-   * @example
-   * ```ts
-   * const createAccessTokenResponse =
-   *   await client.accessTokens.create({
-   *     code: '<your_authorization_code>',
-   *   });
-   * ```
    */
   create(
     body: AccessTokenCreateParams,
@@ -25,29 +17,17 @@ export class AccessTokens extends APIResource {
 
 export interface CreateAccessTokenResponse {
   /**
-   * The access token for the connection.
+   * The access token for the connection
    */
   access_token: string;
 
   /**
-   * @deprecated [DEPRECATED] Use `connection_id` to identify the connection instead
-   * of this account ID.
-   */
-  account_id: string;
-
-  /**
    * The type of application associated with a token.
    */
-  client_type: 'production' | 'development' | 'sandbox';
+  client_type: 'development' | 'production' | 'sandbox';
 
   /**
-   * @deprecated [DEPRECATED] Use `connection_id` to identify the connection instead
-   * of this company ID.
-   */
-  company_id: string;
-
-  /**
-   * The Finch UUID of the connection associated with the `access_token`.
+   * The Finch UUID of the connection associated with the `access_token`
    */
   connection_id: string;
 
@@ -57,37 +37,61 @@ export interface CreateAccessTokenResponse {
    * - `provider` - connection to an external provider
    * - `finch` - finch-generated data.
    */
-  connection_type: 'provider' | 'finch';
+  connection_type: 'finch' | 'provider';
 
   /**
-   * An array of the authorized products associated with the `access_token`.
+   * An array of the authorized products associated with the `access_token`
    */
   products: Array<string>;
 
   /**
-   * The ID of the provider associated with the `access_token`.
+   * The ID of the provider associated with the `access_token`
    */
   provider_id: string;
 
   /**
-   * The ID of your customer you provided to Finch when a connect session was created
-   * for this connection.
-   */
-  customer_id?: string | null;
-
-  /**
    * The RFC 8693 token type (Finch uses `bearer` tokens)
    */
-  token_type?: string;
+  token_type: string;
+
+  /**
+   * @deprecated [DEPRECATED] Use `connection_id` to identify the connection instead
+   * of this account ID
+   */
+  account_id?: string;
+
+  /**
+   * @deprecated [DEPRECATED] Use `connection_id` to identify the connection instead
+   * of this company ID
+   */
+  company_id?: string;
+
+  /**
+   * The ID of your customer you provided to Finch when a connect session was created
+   * for this connection
+   */
+  customer_id?: string | null;
 }
 
 export interface AccessTokenCreateParams {
+  /**
+   * The client ID for your application
+   */
+  client_id: string;
+
+  /**
+   * The client secret for your application
+   */
+  client_secret: string;
+
+  /**
+   * The authorization code received from the authorization server
+   */
   code: string;
 
-  client_id?: string;
-
-  client_secret?: string;
-
+  /**
+   * The redirect URI used in the authorization request (optional)
+   */
   redirect_uri?: string;
 }
 
