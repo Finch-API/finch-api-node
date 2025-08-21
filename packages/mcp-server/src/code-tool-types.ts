@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { type ClientOptions } from '@tryfinch/finch-api/index';
+import { ClientOptions } from '@tryfinch/finch-api';
 
 export type WorkerInput = {
   opts: ClientOptions;
