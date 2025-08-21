@@ -101,6 +101,16 @@ export interface Introspection {
   customer_name?: string | null;
 
   /**
+   * Array of entity IDs associated with this connection.
+   */
+  entity_ids?: Array<string>;
+
+  /**
+   * Indicates whether this connection manages a single entity or multiple entities.
+   */
+  entity_mode?: 'single' | 'multi';
+
+  /**
    * Whether the connection associated with the `access_token` uses the Assisted
    * Connect Flow. (`true` if using Assisted Connect, `false` if connection is
    * automated)
