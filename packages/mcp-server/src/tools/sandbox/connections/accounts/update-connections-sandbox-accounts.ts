@@ -36,7 +36,6 @@ export const tool: Tool = {
     $defs: {
       connection_status_type: {
         type: 'string',
-        title: 'ConnectionStatus',
         enum: ['pending', 'processing', 'connected', 'error_no_account_setup', 'error_permissions', 'reauth'],
       },
     },

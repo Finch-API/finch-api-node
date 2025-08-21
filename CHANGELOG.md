@@ -1,5 +1,21 @@
 # Changelog
 
+## 6.37.0 (2025-08-21)
+
+Full Changelog: [v6.36.0...v6.37.0](https://github.com/Finch-API/finch-api-node/compare/v6.36.0...v6.37.0)
+
+### Features
+
+* **api:** api update ([fc318d6](https://github.com/Finch-API/finch-api-node/commit/fc318d6591c306228fdd216498f8b704eeb4aa67))
+* **mcp:** add option to infer mcp client ([3581de0](https://github.com/Finch-API/finch-api-node/commit/3581de04c7957c0ea00041bed835b1210210baa8))
+
+
+### Chores
+
+* **internal:** make mcp-server publishing public by defaut ([5f917cb](https://github.com/Finch-API/finch-api-node/commit/5f917cb85ed363831a49a7dbee70db4d57bdfac8))
+* **mcp:** update package.json ([976bd47](https://github.com/Finch-API/finch-api-node/commit/976bd47a6097636ea128cd5c250b6a67d0d10ca1))
+* **mcp:** update types ([3aeae4c](https://github.com/Finch-API/finch-api-node/commit/3aeae4c9f57cb8f19f7458f5b42f33027d9f9a8e))
+
 ## 6.36.0 (2025-08-19)
 
 Full Changelog: [v6.35.1...v6.36.0](https://github.com/Finch-API/finch-api-node/compare/v6.35.1...v6.36.0)
