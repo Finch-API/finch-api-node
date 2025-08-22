@@ -1,5 +1,19 @@
 # Changelog
 
+## 6.38.0 (2025-08-22)
+
+Full Changelog: [v6.37.0...v6.38.0](https://github.com/Finch-API/finch-api-node/compare/v6.37.0...v6.38.0)
+
+### Features
+
+* **api:** api update ([09d2e93](https://github.com/Finch-API/finch-api-node/commit/09d2e939a8c42d495d9207ad2d73841f6e9e8732))
+* **mcp:** change remote server query option parsing logic ([13ef1bd](https://github.com/Finch-API/finch-api-node/commit/13ef1bd4400e1ae2b2197a35f33e79703af34e08))
+
+
+### Chores
+
+* update CI script ([47843c8](https://github.com/Finch-API/finch-api-node/commit/47843c85864215c19edd9826952bd625e79ca78c))
+
 ## 6.37.0 (2025-08-21)
 
 Full Changelog: [v6.36.0...v6.37.0](https://github.com/Finch-API/finch-api-node/compare/v6.36.0...v6.37.0)
