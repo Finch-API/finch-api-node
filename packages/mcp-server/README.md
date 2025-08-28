@@ -238,7 +238,6 @@ The following tools are available in this MCP server.
 ### Resource `hris.directory`:
 
 - `list_hris_directory` (`read`): Read company directory and organization structure
-- `list_individuals_hris_directory` (`read`): Read company directory and organization structure
 
 ### Resource `hris.individuals`:
 
