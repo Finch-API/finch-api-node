@@ -133,18 +133,12 @@ export namespace PayStatement {
 
   export namespace Earning {
     export interface Attributes {
-      metadata: Attributes.Metadata;
-    }
-
-    export namespace Attributes {
-      export interface Metadata {
-        /**
-         * The metadata to be attached to the entity by existing rules. It is a key-value
-         * pairs where the values can be of any type (string, number, boolean, object,
-         * array, etc.).
-         */
-        metadata: { [key: string]: unknown };
-      }
+      /**
+       * The metadata to be attached to the entity by existing rules. It is a key-value
+       * pairs where the values can be of any type (string, number, boolean, object,
+       * array, etc.).
+       */
+      metadata: { [key: string]: unknown };
     }
   }
 
@@ -179,18 +173,12 @@ export namespace PayStatement {
 
   export namespace EmployeeDeduction {
     export interface Attributes {
-      metadata: Attributes.Metadata;
-    }
-
-    export namespace Attributes {
-      export interface Metadata {
-        /**
-         * The metadata to be attached to the entity by existing rules. It is a key-value
-         * pairs where the values can be of any type (string, number, boolean, object,
-         * array, etc.).
-         */
-        metadata: { [key: string]: unknown };
-      }
+      /**
+       * The metadata to be attached to the entity by existing rules. It is a key-value
+       * pairs where the values can be of any type (string, number, boolean, object,
+       * array, etc.).
+       */
+      metadata: { [key: string]: unknown };
     }
   }
 
@@ -220,18 +208,12 @@ export namespace PayStatement {
 
   export namespace EmployerContribution {
     export interface Attributes {
-      metadata: Attributes.Metadata;
-    }
-
-    export namespace Attributes {
-      export interface Metadata {
-        /**
-         * The metadata to be attached to the entity by existing rules. It is a key-value
-         * pairs where the values can be of any type (string, number, boolean, object,
-         * array, etc.).
-         */
-        metadata: { [key: string]: unknown };
-      }
+      /**
+       * The metadata to be attached to the entity by existing rules. It is a key-value
+       * pairs where the values can be of any type (string, number, boolean, object,
+       * array, etc.).
+       */
+      metadata: { [key: string]: unknown };
     }
   }
 
@@ -266,18 +248,12 @@ export namespace PayStatement {
 
   export namespace Tax {
     export interface Attributes {
-      metadata: Attributes.Metadata;
-    }
-
-    export namespace Attributes {
-      export interface Metadata {
-        /**
-         * The metadata to be attached to the entity by existing rules. It is a key-value
-         * pairs where the values can be of any type (string, number, boolean, object,
-         * array, etc.).
-         */
-        metadata: { [key: string]: unknown };
-      }
+      /**
+       * The metadata to be attached to the entity by existing rules. It is a key-value
+       * pairs where the values can be of any type (string, number, boolean, object,
+       * array, etc.).
+       */
+      metadata: { [key: string]: unknown };
     }
   }
 }
