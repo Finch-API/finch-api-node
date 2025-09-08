@@ -22,6 +22,10 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
+      code: {
+        type: 'string',
+        description: 'The authorization code received from the authorization server',
+      },
       client_id: {
         type: 'string',
         description: 'The client ID for your application',
@@ -29,10 +33,6 @@ export const tool: Tool = {
       client_secret: {
         type: 'string',
         description: 'The client secret for your application',
-      },
-      code: {
-        type: 'string',
-        description: 'The authorization code received from the authorization server',
       },
       redirect_uri: {
         type: 'string',
@@ -45,7 +45,7 @@ export const tool: Tool = {
           'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
-    required: ['client_id', 'client_secret', 'code'],
+    required: ['code'],
   },
   annotations: {},
 };
