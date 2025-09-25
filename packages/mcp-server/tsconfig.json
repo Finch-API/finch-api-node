@@ -7,10 +7,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "@tryfinch/finch-api-mcp/*": ["src/*"],
-      "@tryfinch/finch-api-mcp": ["src/index.ts"]
+      "@tryfinch/finch-api-mcp/*": ["./src/*"],
+      "@tryfinch/finch-api-mcp": ["./src/index.ts"]
     },
     "noEmit": true,
 

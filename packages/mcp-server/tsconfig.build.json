@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "@tryfinch/finch-api-mcp/*": ["dist/src/*"],
-      "@tryfinch/finch-api-mcp": ["dist/src/index.ts"]
+      "@tryfinch/finch-api-mcp/*": ["./dist/src/*"],
+      "@tryfinch/finch-api-mcp": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
