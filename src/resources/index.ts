@@ -7,7 +7,12 @@ export { Connect } from './connect/connect';
 export { HRIS, type Income, type Location, type Money } from './hris/hris';
 export { Jobs } from './jobs/jobs';
 export { Payroll } from './payroll/payroll';
-export { ProvidersSinglePage, Providers, type Provider } from './providers';
+export {
+  ProviderListResponsesSinglePage,
+  Providers,
+  type Provider,
+  type ProviderListResponse,
+} from './providers';
 export {
   RequestForwarding,
   type RequestForwardingForwardResponse,

@@ -17,7 +17,12 @@ import * as Uploads from './uploads';
 import * as API from './resources/index';
 import { AccessTokenCreateParams, AccessTokens, CreateAccessTokenResponse } from './resources/access-tokens';
 import { Account, DisconnectResponse, Introspection } from './resources/account';
-import { Provider, Providers, ProvidersSinglePage } from './resources/providers';
+import {
+  Provider,
+  ProviderListResponse,
+  ProviderListResponsesSinglePage,
+  Providers,
+} from './resources/providers';
 import {
   RequestForwarding,
   RequestForwardingForwardParams,
@@ -298,7 +303,7 @@ export class Finch extends Core.APIClient {
 Finch.AccessTokens = AccessTokens;
 Finch.HRIS = HRIS;
 Finch.Providers = Providers;
-Finch.ProvidersSinglePage = ProvidersSinglePage;
+Finch.ProviderListResponsesSinglePage = ProviderListResponsesSinglePage;
 Finch.Account = Account;
 Finch.Webhooks = Webhooks;
 Finch.RequestForwarding = RequestForwarding;
@@ -333,7 +338,12 @@ export declare namespace Finch {
 
   export { HRIS as HRIS, type Income as Income, type Location as Location, type Money as Money };
 
-  export { Providers as Providers, type Provider as Provider, ProvidersSinglePage as ProvidersSinglePage };
+  export {
+    Providers as Providers,
+    type Provider as Provider,
+    type ProviderListResponse as ProviderListResponse,
+    ProviderListResponsesSinglePage as ProviderListResponsesSinglePage,
+  };
 
   export {
     Account as Account,
