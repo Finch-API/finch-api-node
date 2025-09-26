@@ -9,16 +9,6 @@ export class RequestForwarding extends APIResource {
    * Finch's unified API doesn't have a data model that cleanly fits your needs, then
    * Forward allows you to push or pull data models directly against an integration's
    * API.
-   *
-   * @example
-   * ```ts
-   * const response = await client.requestForwarding.forward({
-   *   method: 'POST',
-   *   route: '/people/search',
-   *   headers: { 'content-type': 'application/json' },
-   *   params: { showInactive: true, humanReadable: true },
-   * });
-   * ```
    */
   forward(
     body: RequestForwardingForwardParams,
@@ -30,19 +20,6 @@ export class RequestForwarding extends APIResource {
 
 export interface RequestForwardingForwardResponse {
   /**
-   * A string representation of the HTTP response body of the forwarded request's
-   * response received from the underlying integration's API. This field may be null
-   * in the case where the upstream system's response is empty.
-   */
-  data: string | null;
-
-  /**
-   * The HTTP headers of the forwarded request's response, exactly as received from
-   * the underlying integration's API.
-   */
-  headers: unknown | null;
-
-  /**
    * An object containing details of your original forwarded request, for your ease
    * of reference.
    */
@@ -53,6 +30,19 @@ export interface RequestForwardingForwardResponse {
    * the underlying integration's API. This value will be returned as an integer.
    */
   statusCode: number;
+
+  /**
+   * A string representation of the HTTP response body of the forwarded request's
+   * response received from the underlying integration's API. This field may be null
+   * in the case where the upstream system's response is empty.
+   */
+  data?: string | null;
+
+  /**
+   * The HTTP headers of the forwarded request's response, exactly as received from
+   * the underlying integration's API.
+   */
+  headers?: { [key: string]: unknown } | null;
 }
 
 export namespace RequestForwardingForwardResponse {
@@ -62,34 +52,30 @@ export namespace RequestForwardingForwardResponse {
    */
   export interface Request {
     /**
-     * The body that was specified for the forwarded request. If a value was not
-     * specified in the original request, this value will be returned as null ;
-     * otherwise, this value will always be returned as a string.
-     */
-    data: string | null;
-
-    /**
-     * The specified HTTP headers that were included in the forwarded request. If no
-     * headers were specified, this will be returned as `null`.
-     */
-    headers: unknown | null;
-
-    /**
      * The HTTP method that was specified for the forwarded request. Valid values
      * include: `GET` , `POST` , `PUT` , `DELETE` , and `PATCH`.
      */
     method: string;
 
     /**
-     * The query parameters that were included in the forwarded request. If no query
-     * parameters were specified, this will be returned as `null`.
-     */
-    params: unknown | null;
-
-    /**
      * The URL route path that was specified for the forwarded request.
      */
     route: string;
+
+    /**
+     * The body that was specified for the forwarded request.
+     */
+    data?: string | { [key: string]: unknown } | null;
+
+    /**
+     * The HTTP headers that were specified for the forwarded request.
+     */
+    headers?: { [key: string]: unknown } | null;
+
+    /**
+     * The query parameters that were specified for the forwarded request.
+     */
+    params?: { [key: string]: unknown } | null;
   }
 }
 
@@ -118,13 +104,13 @@ export interface RequestForwardingForwardParams {
    * specified as an object of key-value pairs. Example:
    * `{"Content-Type": "application/xml", "X-API-Version": "v1" }`
    */
-  headers?: unknown | null;
+  headers?: { [key: string]: unknown } | null;
 
   /**
    * The query parameters for the forwarded request. This value must be specified as
    * a valid JSON object rather than a query string.
    */
-  params?: unknown | null;
+  params?: { [key: string]: unknown } | null;
 }
 
 export declare namespace RequestForwarding {

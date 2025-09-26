@@ -183,10 +183,11 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/providers.ts">Provider</a></code>
+- <code><a href="./src/resources/providers.ts">ProviderListResponse</a></code>
 
 Methods:
 
-- <code title="get /providers">client.providers.<a href="./src/resources/providers.ts">list</a>() -> ProvidersSinglePage</code>
+- <code title="get /providers">client.providers.<a href="./src/resources/providers.ts">list</a>() -> ProviderListResponsesSinglePage</code>
 
 # Account
 

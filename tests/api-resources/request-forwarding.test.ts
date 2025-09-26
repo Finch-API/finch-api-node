@@ -10,7 +10,7 @@ const client = new Finch({
 
 describe('resource requestForwarding', () => {
   test('forward: only required params', async () => {
-    const responsePromise = client.requestForwarding.forward({ method: 'POST', route: '/people/search' });
+    const responsePromise = client.requestForwarding.forward({ method: 'method', route: 'route' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,11 +22,11 @@ describe('resource requestForwarding', () => {
 
   test('forward: required and optional params', async () => {
     const response = await client.requestForwarding.forward({
-      method: 'POST',
-      route: '/people/search',
-      data: null,
-      headers: { 'content-type': 'application/json' },
-      params: { showInactive: true, humanReadable: true },
+      method: 'method',
+      route: 'route',
+      data: 'data',
+      headers: { foo: 'bar' },
+      params: { foo: 'bar' },
     });
   });
 });
