@@ -52,9 +52,9 @@ export interface PayStatement {
   /**
    * The array of deductions objects associated with this pay statement.
    */
-  employee_deductions: Array<PayStatement.EmployeeDeduction | null> | null;
+  employee_deductions: Array<PayStatement.EmployeeDeduction> | null;
 
-  employer_contributions: Array<PayStatement.EmployerContribution | null> | null;
+  employer_contributions: Array<PayStatement.EmployerContribution> | null;
 
   gross_pay: HRISAPI.Money | null;
 
@@ -73,7 +73,7 @@ export interface PayStatement {
   /**
    * The array of taxes objects associated with this pay statement.
    */
-  taxes: Array<PayStatement.Tax | null> | null;
+  taxes: Array<PayStatement.Tax> | null;
 
   /**
    * The number of hours worked for this pay period
