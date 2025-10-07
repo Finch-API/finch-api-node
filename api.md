@@ -232,7 +232,7 @@ Types:
 Methods:
 
 - <code title="post /jobs/automated">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">create</a>({ ...params }) -> AutomatedCreateResponse</code>
-- <code title="get /jobs/automated/{job_id}">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">retrieve</a>(jobId, { ...params }) -> AutomatedAsyncJob</code>
+- <code title="get /jobs/automated/{job_id}">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">retrieve</a>(jobId) -> AutomatedAsyncJob</code>
 - <code title="get /jobs/automated">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">list</a>({ ...params }) -> AutomatedListResponse</code>
 
 ## Manual
@@ -243,7 +243,7 @@ Types:
 
 Methods:
 
-- <code title="get /jobs/manual/{job_id}">client.jobs.manual.<a href="./src/resources/jobs/manual.ts">retrieve</a>(jobId, { ...params }) -> ManualAsyncJob</code>
+- <code title="get /jobs/manual/{job_id}">client.jobs.manual.<a href="./src/resources/jobs/manual.ts">retrieve</a>(jobId) -> ManualAsyncJob</code>
 
 # Sandbox
 

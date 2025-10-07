@@ -6,8 +6,7 @@ export {
   type AutomatedCreateResponse,
   type AutomatedListResponse,
   type AutomatedCreateParams,
-  type AutomatedRetrieveParams,
   type AutomatedListParams,
 } from './automated';
 export { Jobs } from './jobs';
-export { Manual, type ManualAsyncJob, type ManualRetrieveParams } from './manual';
+export { Manual, type ManualAsyncJob } from './manual';

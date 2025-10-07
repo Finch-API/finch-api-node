@@ -42,17 +42,6 @@ describe('resource automated', () => {
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
-  test('retrieve: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.jobs.automated.retrieve(
-        'job_id',
-        { entity_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e' },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(Finch.NotFoundError);
-  });
-
   test('list', async () => {
     const responsePromise = client.jobs.automated.list();
     const rawResponse = await responsePromise.asResponse();
@@ -74,10 +63,7 @@ describe('resource automated', () => {
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.jobs.automated.list(
-        { entity_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', limit: 0, offset: 0 },
-        { path: '/_stainless_unknown_path' },
-      ),
+      client.jobs.automated.list({ limit: 0, offset: 0 }, { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 });
