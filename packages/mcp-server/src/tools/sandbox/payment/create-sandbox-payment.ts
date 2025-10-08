@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'create_sandbox_payment',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nAdd a new sandbox payment\n\n# Response Schema\n```json\n{\n  type: 'object',\n  properties: {\n    pay_date: {\n      type: 'string',\n      description: 'The date of the payment.'\n    },\n    payment_id: {\n      type: 'string',\n      description: 'The ID of the payment.'\n    }\n  },\n  required: [    'pay_date',\n    'payment_id'\n  ]\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nAdd a new sandbox payment\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/payment_create_response',\n  $defs: {\n    payment_create_response: {\n      type: 'object',\n      properties: {\n        pay_date: {\n          type: 'string',\n          description: 'The date of the payment.'\n        },\n        payment_id: {\n          type: 'string',\n          description: 'The ID of the payment.'\n        }\n      },\n      required: [        'pay_date',\n        'payment_id'\n      ]\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
