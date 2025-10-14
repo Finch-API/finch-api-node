@@ -271,7 +271,7 @@ export interface SupportedBenefit {
    * Supported contribution types. An empty array indicates contributions are not
    * supported.
    */
-  company_contribution: Array<'fixed' | 'percent' | null> | null;
+  company_contribution: Array<'fixed' | 'percent' | 'tiered' | null> | null;
 
   description: string | null;
 
