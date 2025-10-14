@@ -238,7 +238,27 @@ export namespace IndividualEnrollManyParams {
          */
         amount?: number;
 
-        type?: 'fixed' | 'percent';
+        /**
+         * Array of tier objects for tiered contribution matching (required when type is
+         * tiered)
+         */
+        tiers?: Array<CompanyContribution.Tier>;
+
+        type?: 'fixed' | 'percent' | 'tiered';
+      }
+
+      export namespace CompanyContribution {
+        export interface Tier {
+          /**
+           * The employer match percentage in basis points (0-10000 = 0-100%)
+           */
+          match: number;
+
+          /**
+           * The employee contribution threshold in basis points (0-10000 = 0-100%)
+           */
+          threshold: number;
+        }
       }
 
       export interface EmployeeDeduction {

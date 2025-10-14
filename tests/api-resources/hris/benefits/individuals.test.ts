@@ -38,7 +38,7 @@ describe('resource individuals', () => {
               annual_contribution_limit: 'individual',
               annual_maximum: null,
               catch_up: true,
-              company_contribution: { amount: 0, type: 'fixed' },
+              company_contribution: { amount: 0, tiers: [{ match: 0, threshold: 0 }], type: 'fixed' },
               effective_date: '2019-12-27',
               employee_deduction: { amount: 10000, type: 'fixed' },
             },
