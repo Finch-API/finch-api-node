@@ -3,7 +3,6 @@
 import { APIResource } from '../../../resource';
 import { isRequestOptions } from '../../../core';
 import * as Core from '../../../core';
-import * as BenefitsAPI from './benefits';
 import { SinglePage } from '../../../pagination';
 
 export class Individuals extends APIResource {
@@ -156,14 +155,89 @@ export namespace IndividualBenefit {
      */
     catch_up: boolean | null;
 
-    company_contribution: BenefitsAPI.BenefitContribution | null;
+    company_contribution:
+      | UnionMember0.UnionMember0
+      | UnionMember0.UnionMember1
+      | UnionMember0.UnionMember2
+      | null;
 
-    employee_deduction: BenefitsAPI.BenefitContribution | null;
+    employee_deduction: UnionMember0.UnionMember0 | UnionMember0.UnionMember1 | null;
 
     /**
      * Type for HSA contribution limit if the benefit is a HSA.
      */
     hsa_contribution_limit?: 'individual' | 'family' | null;
+  }
+
+  export namespace UnionMember0 {
+    export interface UnionMember0 {
+      /**
+       * Contribution amount in cents.
+       */
+      amount: number;
+
+      /**
+       * Fixed contribution type.
+       */
+      type: 'fixed';
+    }
+
+    export interface UnionMember1 {
+      /**
+       * Contribution amount in basis points (1/100th of a percent).
+       */
+      amount: number;
+
+      /**
+       * Percentage contribution type.
+       */
+      type: 'percent';
+    }
+
+    export interface UnionMember2 {
+      /**
+       * Array of tier objects defining employer match tiers based on employee
+       * contribution thresholds.
+       */
+      tiers: Array<UnionMember2.Tier>;
+
+      /**
+       * Tiered contribution type (only valid for company_contribution).
+       */
+      type: 'tiered';
+    }
+
+    export namespace UnionMember2 {
+      export interface Tier {
+        match: number;
+
+        threshold: number;
+      }
+    }
+
+    export interface UnionMember0 {
+      /**
+       * Contribution amount in cents.
+       */
+      amount: number;
+
+      /**
+       * Fixed contribution type.
+       */
+      type: 'fixed';
+    }
+
+    export interface UnionMember1 {
+      /**
+       * Contribution amount in basis points (1/100th of a percent).
+       */
+      amount: number;
+
+      /**
+       * Percentage contribution type.
+       */
+      type: 'percent';
+    }
   }
 
   export interface BatchError {
