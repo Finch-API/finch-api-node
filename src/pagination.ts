@@ -133,11 +133,7 @@ export class IndividualsPage
   }
 
   nextPageInfo(): PageInfo | null {
-    const offset = this.paging.offset;
-    if (!offset) {
-      return null;
-    }
-
+    const offset = this.paging.offset ?? 0;
     const length = this.getPaginatedItems().length;
     const currentCount = offset + length;
 
@@ -199,11 +195,7 @@ export class Page<Item> extends AbstractPage<Item> implements PageResponse<Item>
   }
 
   nextPageInfo(): PageInfo | null {
-    const offset = this.paging.offset;
-    if (!offset) {
-      return null;
-    }
-
+    const offset = this.paging.offset ?? 0;
     const length = this.getPaginatedItems().length;
     const currentCount = offset + length;
 
