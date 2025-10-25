@@ -16,9 +16,12 @@ export {
   type UpdateCompanyBenefitResponse,
   type BenfitContribution,
   type BenefitCreateParams,
+  type BenefitRetrieveParams,
   type BenefitUpdateParams,
+  type BenefitListParams,
+  type BenefitListSupportedBenefitsParams,
 } from './benefits/index';
-export { CompanyResource, type Company } from './company/index';
+export { CompanyResource, type Company, type CompanyRetrieveParams } from './company/index';
 export {
   Directory,
   type IndividualInDirectory,
@@ -33,6 +36,7 @@ export {
   type DocumentListResponse,
   type DocumentRetreiveResponse,
   type DocumentListParams,
+  type DocumentRetreiveParams,
 } from './documents';
 export {
   EmploymentDataResponsesPage,

@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../../resource';
-import { isRequestOptions } from '../../../../core';
 import * as Core from '../../../../core';
 import { ResponsesPage } from '../../../../pagination';
 
@@ -17,19 +16,18 @@ export class Rules extends APIResource {
    * @example
    * ```ts
    * const rule =
-   *   await client.hris.company.payStatementItem.rules.create();
+   *   await client.hris.company.payStatementItem.rules.create({
+   *     entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+   *   });
    * ```
    */
-  create(body?: RuleCreateParams, options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse>;
-  create(options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse>;
-  create(
-    body: RuleCreateParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<RuleCreateResponse> {
-    if (isRequestOptions(body)) {
-      return this.create({}, body);
-    }
-    return this._client.post('/employer/pay-statement-item/rule', { body, ...options });
+  create(params: RuleCreateParams, options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse> {
+    const { entity_ids, ...body } = params;
+    return this._client.post('/employer/pay-statement-item/rule', {
+      query: { entity_ids },
+      body,
+      ...options,
+    });
   }
 
   /**
@@ -41,24 +39,23 @@ export class Rules extends APIResource {
    * const rule =
    *   await client.hris.company.payStatementItem.rules.update(
    *     'rule_id',
+   *     {
+   *       entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+   *     },
    *   );
    * ```
    */
   update(
     ruleId: string,
-    body?: RuleUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<RuleUpdateResponse>;
-  update(ruleId: string, options?: Core.RequestOptions): Core.APIPromise<RuleUpdateResponse>;
-  update(
-    ruleId: string,
-    body: RuleUpdateParams | Core.RequestOptions = {},
+    params: RuleUpdateParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<RuleUpdateResponse> {
-    if (isRequestOptions(body)) {
-      return this.update(ruleId, {}, body);
-    }
-    return this._client.put(`/employer/pay-statement-item/rule/${ruleId}`, { body, ...options });
+    const { entity_ids, ...body } = params;
+    return this._client.put(`/employer/pay-statement-item/rule/${ruleId}`, {
+      query: { entity_ids },
+      body,
+      ...options,
+    });
   }
 
   /**
@@ -68,13 +65,21 @@ export class Rules extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const ruleListResponse of client.hris.company.payStatementItem.rules.list()) {
+   * for await (const ruleListResponse of client.hris.company.payStatementItem.rules.list(
+   *   { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
+   * )) {
    *   // ...
    * }
    * ```
    */
-  list(options?: Core.RequestOptions): Core.PagePromise<RuleListResponsesPage, RuleListResponse> {
-    return this._client.getAPIList('/employer/pay-statement-item/rule', RuleListResponsesPage, options);
+  list(
+    query: RuleListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<RuleListResponsesPage, RuleListResponse> {
+    return this._client.getAPIList('/employer/pay-statement-item/rule', RuleListResponsesPage, {
+      query,
+      ...options,
+    });
   }
 
   /**
@@ -86,11 +91,22 @@ export class Rules extends APIResource {
    * const rule =
    *   await client.hris.company.payStatementItem.rules.delete(
    *     'rule_id',
+   *     {
+   *       entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+   *     },
    *   );
    * ```
    */
-  delete(ruleId: string, options?: Core.RequestOptions): Core.APIPromise<RuleDeleteResponse> {
-    return this._client.delete(`/employer/pay-statement-item/rule/${ruleId}`, options);
+  delete(
+    ruleId: string,
+    params: RuleDeleteParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<RuleDeleteResponse> {
+    const { entity_ids } = params;
+    return this._client.delete(`/employer/pay-statement-item/rule/${ruleId}`, {
+      query: { entity_ids },
+      ...options,
+    });
   }
 }
 
@@ -399,24 +415,33 @@ export namespace RuleDeleteResponse {
 
 export interface RuleCreateParams {
   /**
-   * Specifies the fields to be applied when the condition is met.
+   * Query param: The entity IDs to create the rule for.
+   */
+  entity_ids: Array<string>;
+
+  /**
+   * Body param: Specifies the fields to be applied when the condition is met.
    */
   attributes?: RuleCreateParams.Attributes;
 
+  /**
+   * Body param:
+   */
   conditions?: Array<RuleCreateParams.Condition>;
 
   /**
-   * Specifies when the rules should stop applying rules based on the date.
+   * Body param: Specifies when the rules should stop applying rules based on the
+   * date.
    */
   effective_end_date?: string | null;
 
   /**
-   * Specifies when the rule should begin applying based on the date.
+   * Body param: Specifies when the rule should begin applying based on the date.
    */
   effective_start_date?: string | null;
 
   /**
-   * The entity type to which the rule is applied.
+   * Body param: The entity type to which the rule is applied.
    */
   entity_type?: 'pay_statement_item';
 }
@@ -452,7 +477,29 @@ export namespace RuleCreateParams {
 }
 
 export interface RuleUpdateParams {
+  /**
+   * Query param: The entity IDs to update the rule for.
+   */
+  entity_ids: Array<string>;
+
+  /**
+   * Body param:
+   */
   optionalProperty?: unknown;
+}
+
+export interface RuleListParams {
+  /**
+   * The entity IDs to retrieve rules for.
+   */
+  entity_ids: Array<string>;
+}
+
+export interface RuleDeleteParams {
+  /**
+   * The entity IDs to delete the rule for.
+   */
+  entity_ids: Array<string>;
 }
 
 Rules.RuleListResponsesPage = RuleListResponsesPage;
@@ -466,5 +513,7 @@ export declare namespace Rules {
     RuleListResponsesPage as RuleListResponsesPage,
     type RuleCreateParams as RuleCreateParams,
     type RuleUpdateParams as RuleUpdateParams,
+    type RuleListParams as RuleListParams,
+    type RuleDeleteParams as RuleDeleteParams,
   };
 }

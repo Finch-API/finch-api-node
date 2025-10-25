@@ -22,6 +22,13 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
+      entity_ids: {
+        type: 'array',
+        description: 'The entity IDs to retrieve rules for.',
+        items: {
+          type: 'string',
+        },
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',
@@ -29,7 +36,7 @@ export const tool: Tool = {
           'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
-    required: [],
+    required: ['entity_ids'],
   },
   annotations: {
     readOnlyHint: true,
@@ -37,8 +44,8 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
-  const { jq_filter } = args as any;
-  const response = await client.hris.company.payStatementItem.rules.list().asResponse();
+  const { jq_filter, ...body } = args as any;
+  const response = await client.hris.company.payStatementItem.rules.list(body).asResponse();
   return asTextContentResult(await maybeFilter(jq_filter, await response.json()));
 };
 

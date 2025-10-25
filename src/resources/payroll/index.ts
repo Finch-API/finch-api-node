@@ -5,6 +5,7 @@ export {
   PayGroups,
   type PayGroupRetrieveResponse,
   type PayGroupListResponse,
+  type PayGroupRetrieveParams,
   type PayGroupListParams,
 } from './pay-groups';
 export { Payroll } from './payroll';

@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { CompanyResource, type Company } from './company';
+export { CompanyResource, type Company, type CompanyRetrieveParams } from './company';
 export {
   PayStatementItemListResponsesPage,
   PayStatementItem,

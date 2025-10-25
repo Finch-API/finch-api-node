@@ -21,11 +21,13 @@ export class CompanyResource extends APIResource {
    *
    * @example
    * ```ts
-   * const company = await client.hris.company.retrieve();
+   * const company = await client.hris.company.retrieve({
+   *   entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+   * });
    * ```
    */
-  retrieve(options?: Core.RequestOptions): Core.APIPromise<Company> {
-    return this._client.get('/employer/company', options);
+  retrieve(query: CompanyRetrieveParams, options?: Core.RequestOptions): Core.APIPromise<Company> {
+    return this._client.get('/employer/company', { query, ...options });
   }
 }
 
@@ -151,11 +153,18 @@ export namespace Company {
   }
 }
 
+export interface CompanyRetrieveParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids: Array<string>;
+}
+
 CompanyResource.PayStatementItem = PayStatementItem;
 CompanyResource.PayStatementItemListResponsesPage = PayStatementItemListResponsesPage;
 
 export declare namespace CompanyResource {
-  export { type Company as Company };
+  export { type Company as Company, type CompanyRetrieveParams as CompanyRetrieveParams };
 
   export {
     PayStatementItem as PayStatementItem,

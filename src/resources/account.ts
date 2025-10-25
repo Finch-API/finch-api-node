@@ -101,6 +101,12 @@ export interface Introspection {
   customer_name?: string | null;
 
   /**
+   * Array of detailed entity information for each connected account in multi-account
+   * mode
+   */
+  entities?: Array<Introspection.Entity>;
+
+  /**
    * Whether the connection associated with the `access_token` uses the Assisted
    * Connect Flow. (`true` if using Assisted Connect, `false` if connection is
    * automated)
@@ -156,6 +162,28 @@ export namespace Introspection {
 
       message?: string;
     }
+  }
+
+  export interface Entity {
+    /**
+     * The connection account ID for this entity
+     */
+    id: string;
+
+    /**
+     * The name of the entity (payroll provider company name)
+     */
+    name: string | null;
+
+    /**
+     * The source ID of the entity
+     */
+    source_id: string | null;
+
+    /**
+     * The type of entity
+     */
+    type: string | null;
   }
 }
 

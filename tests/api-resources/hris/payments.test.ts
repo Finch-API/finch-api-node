@@ -10,7 +10,11 @@ const client = new Finch({
 
 describe('resource payments', () => {
   test('list: only required params', async () => {
-    const responsePromise = client.hris.payments.list({ end_date: '2021-01-01', start_date: '2021-01-01' });
+    const responsePromise = client.hris.payments.list({
+      end_date: '2021-01-01',
+      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+      start_date: '2021-01-01',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,6 +25,10 @@ describe('resource payments', () => {
   });
 
   test('list: required and optional params', async () => {
-    const response = await client.hris.payments.list({ end_date: '2021-01-01', start_date: '2021-01-01' });
+    const response = await client.hris.payments.list({
+      end_date: '2021-01-01',
+      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+      start_date: '2021-01-01',
+    });
   });
 });
