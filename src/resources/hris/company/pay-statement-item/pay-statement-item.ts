@@ -1,13 +1,14 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../../resource';
-import { isRequestOptions } from '../../../../core';
 import * as Core from '../../../../core';
 import * as RulesAPI from './rules';
 import {
   RuleCreateParams,
   RuleCreateResponse,
+  RuleDeleteParams,
   RuleDeleteResponse,
+  RuleListParams,
   RuleListResponse,
   RuleListResponsesPage,
   RuleUpdateParams,
@@ -27,25 +28,17 @@ export class PayStatementItem extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const payStatementItemListResponse of client.hris.company.payStatementItem.list()) {
+   * for await (const payStatementItemListResponse of client.hris.company.payStatementItem.list(
+   *   { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
+   * )) {
    *   // ...
    * }
    * ```
    */
   list(
-    query?: PayStatementItemListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PayStatementItemListResponsesPage, PayStatementItemListResponse>;
-  list(
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PayStatementItemListResponsesPage, PayStatementItemListResponse>;
-  list(
-    query: PayStatementItemListParams | Core.RequestOptions = {},
+    query: PayStatementItemListParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<PayStatementItemListResponsesPage, PayStatementItemListResponse> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
     return this._client.getAPIList('/employer/pay-statement-item', PayStatementItemListResponsesPage, {
       query,
       ...options,
@@ -104,6 +97,11 @@ export namespace PayStatementItemListResponse {
 
 export interface PayStatementItemListParams {
   /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids: Array<string>;
+
+  /**
    * Comma-delimited list of pay statement item categories to filter on. If empty,
    * defaults to all categories.
    */
@@ -152,5 +150,7 @@ export declare namespace PayStatementItem {
     RuleListResponsesPage as RuleListResponsesPage,
     type RuleCreateParams as RuleCreateParams,
     type RuleUpdateParams as RuleUpdateParams,
+    type RuleListParams as RuleListParams,
+    type RuleDeleteParams as RuleDeleteParams,
   };
 }

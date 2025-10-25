@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import { IndividualsPage, type IndividualsPageParams } from '../../pagination';
 
@@ -12,23 +11,17 @@ export class Directory extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const individualInDirectory of client.hris.directory.list()) {
+   * for await (const individualInDirectory of client.hris.directory.list(
+   *   { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
+   * )) {
    *   // ...
    * }
    * ```
    */
   list(
-    query?: DirectoryListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualsPage, IndividualInDirectory>;
-  list(options?: Core.RequestOptions): Core.PagePromise<IndividualsPage, IndividualInDirectory>;
-  list(
-    query: DirectoryListParams | Core.RequestOptions = {},
+    query: DirectoryListParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<IndividualsPage, IndividualInDirectory> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
     return this._client.getAPIList('/employer/directory', IndividualsPage, { query, ...options });
   }
 
@@ -97,9 +90,19 @@ export namespace IndividualInDirectory {
   }
 }
 
-export interface DirectoryListParams extends IndividualsPageParams {}
+export interface DirectoryListParams extends IndividualsPageParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids: Array<string>;
+}
 
-export interface DirectoryListIndividualsParams extends IndividualsPageParams {}
+export interface DirectoryListIndividualsParams extends IndividualsPageParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids: Array<string>;
+}
 
 export declare namespace Directory {
   export {

@@ -25,6 +25,13 @@ export const tool: Tool = {
       rule_id: {
         type: 'string',
       },
+      entity_ids: {
+        type: 'array',
+        description: 'The entity IDs to update the rule for.',
+        items: {
+          type: 'string',
+        },
+      },
       optionalProperty: {
         type: 'object',
         additionalProperties: true,
@@ -36,7 +43,7 @@ export const tool: Tool = {
           'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
-    required: ['rule_id'],
+    required: ['rule_id', 'entity_ids'],
   },
   annotations: {
     idempotentHint: true,

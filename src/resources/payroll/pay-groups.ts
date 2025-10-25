@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import { SinglePage } from '../../pagination';
 
@@ -9,27 +8,21 @@ export class PayGroups extends APIResource {
   /**
    * Read information from a single pay group
    */
-  retrieve(payGroupId: string, options?: Core.RequestOptions): Core.APIPromise<PayGroupRetrieveResponse> {
-    return this._client.get(`/employer/pay-groups/${payGroupId}`, options);
+  retrieve(
+    payGroupId: string,
+    query: PayGroupRetrieveParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<PayGroupRetrieveResponse> {
+    return this._client.get(`/employer/pay-groups/${payGroupId}`, { query, ...options });
   }
 
   /**
    * Read company pay groups and frequencies
    */
   list(
-    query?: PayGroupListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PayGroupListResponsesSinglePage, PayGroupListResponse>;
-  list(
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PayGroupListResponsesSinglePage, PayGroupListResponse>;
-  list(
-    query: PayGroupListParams | Core.RequestOptions = {},
+    query: PayGroupListParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<PayGroupListResponsesSinglePage, PayGroupListResponse> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
     return this._client.getAPIList('/employer/pay-groups', PayGroupListResponsesSinglePage, {
       query,
       ...options,
@@ -95,7 +88,19 @@ export interface PayGroupListResponse {
   >;
 }
 
+export interface PayGroupRetrieveParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids: Array<string>;
+}
+
 export interface PayGroupListParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids: Array<string>;
+
   individual_id?: string;
 
   pay_frequencies?: Array<string>;
@@ -108,6 +113,7 @@ export declare namespace PayGroups {
     type PayGroupRetrieveResponse as PayGroupRetrieveResponse,
     type PayGroupListResponse as PayGroupListResponse,
     PayGroupListResponsesSinglePage as PayGroupListResponsesSinglePage,
+    type PayGroupRetrieveParams as PayGroupRetrieveParams,
     type PayGroupListParams as PayGroupListParams,
   };
 }

@@ -40,6 +40,11 @@ export interface CreateAccessTokenResponse {
   connection_type: 'finch' | 'provider';
 
   /**
+   * An array of entity IDs that can be accessed with this access token
+   */
+  entity_ids: Array<string>;
+
+  /**
    * An array of the authorized products associated with the `access_token`
    */
   products: Array<string>;

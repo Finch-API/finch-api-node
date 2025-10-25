@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as Shared from '../shared';
 
@@ -12,18 +11,12 @@ export class Documents extends APIResource {
    *
    * @example
    * ```ts
-   * const documents = await client.hris.documents.list();
+   * const documents = await client.hris.documents.list({
+   *   entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+   * });
    * ```
    */
-  list(query?: DocumentListParams, options?: Core.RequestOptions): Core.APIPromise<DocumentListResponse>;
-  list(options?: Core.RequestOptions): Core.APIPromise<DocumentListResponse>;
-  list(
-    query: DocumentListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<DocumentListResponse> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
+  list(query: DocumentListParams, options?: Core.RequestOptions): Core.APIPromise<DocumentListResponse> {
     return this._client.get('/employer/documents', { query, ...options });
   }
 
@@ -35,11 +28,16 @@ export class Documents extends APIResource {
    * ```ts
    * const response = await client.hris.documents.retreive(
    *   'document_id',
+   *   { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
    * );
    * ```
    */
-  retreive(documentId: string, options?: Core.RequestOptions): Core.APIPromise<DocumentRetreiveResponse> {
-    return this._client.get(`/employer/documents/${documentId}`, options);
+  retreive(
+    documentId: string,
+    query: DocumentRetreiveParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<DocumentRetreiveResponse> {
+    return this._client.get(`/employer/documents/${documentId}`, { query, ...options });
   }
 }
 
@@ -212,6 +210,11 @@ export type DocumentRetreiveResponse = W42020 | W42005;
 
 export interface DocumentListParams {
   /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids: Array<string>;
+
+  /**
    * Comma-delimited list of stable Finch uuids for each individual. If empty,
    * defaults to all individuals
    */
@@ -234,6 +237,13 @@ export interface DocumentListParams {
   types?: Array<'w4_2020' | 'w4_2005'>;
 }
 
+export interface DocumentRetreiveParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids: Array<string>;
+}
+
 export declare namespace Documents {
   export {
     type DocumentResponse as DocumentResponse,
@@ -242,5 +252,6 @@ export declare namespace Documents {
     type DocumentListResponse as DocumentListResponse,
     type DocumentRetreiveResponse as DocumentRetreiveResponse,
     type DocumentListParams as DocumentListParams,
+    type DocumentRetreiveParams as DocumentRetreiveParams,
   };
 }

@@ -16,7 +16,10 @@ export {
   type UpdateCompanyBenefitResponse,
   type BenfitContribution,
   type BenefitCreateParams,
+  type BenefitRetrieveParams,
   type BenefitUpdateParams,
+  type BenefitListParams,
+  type BenefitListSupportedBenefitsParams,
 } from './benefits';
 export {
   IndividualBenefitsSinglePage,
@@ -26,6 +29,7 @@ export {
   type UnenrolledIndividualBenefitResponse,
   type IndividualEnrolledIDsResponse,
   type IndividualEnrollManyParams,
+  type IndividualEnrolledIDsParams,
   type IndividualRetrieveManyBenefitsParams,
   type IndividualUnenrollManyParams,
 } from './individuals';
