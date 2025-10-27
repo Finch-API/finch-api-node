@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as HRISAPI from './hris';
 import { ResponsesPage } from '../../pagination';
@@ -12,17 +13,23 @@ export class Individuals extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const individualResponse of client.hris.individuals.retrieveMany(
-   *   { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
-   * )) {
+   * for await (const individualResponse of client.hris.individuals.retrieveMany()) {
    *   // ...
    * }
    * ```
    */
   retrieveMany(
-    params: IndividualRetrieveManyParams,
+    params?: IndividualRetrieveManyParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<IndividualResponsesPage, IndividualResponse>;
+  retrieveMany(options?: Core.RequestOptions): Core.PagePromise<IndividualResponsesPage, IndividualResponse>;
+  retrieveMany(
+    params: IndividualRetrieveManyParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.PagePromise<IndividualResponsesPage, IndividualResponse> {
+    if (isRequestOptions(params)) {
+      return this.retrieveMany({}, params);
+    }
     const { entity_ids, ...body } = params;
     return this._client.getAPIList('/employer/individual', IndividualResponsesPage, {
       query: { entity_ids },
@@ -144,7 +151,7 @@ export interface IndividualRetrieveManyParams {
   /**
    * Query param: The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 
   /**
    * Body param:

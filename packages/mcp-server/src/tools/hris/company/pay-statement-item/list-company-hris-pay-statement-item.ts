@@ -22,13 +22,6 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
-      entity_ids: {
-        type: 'array',
-        description: "The entity IDs to specify which entities' data to access.",
-        items: {
-          type: 'string',
-        },
-      },
       categories: {
         type: 'array',
         description:
@@ -43,6 +36,13 @@ export const tool: Tool = {
         description:
           'The end date to retrieve pay statement items by via their last seen pay date in `YYYY-MM-DD` format.',
         format: 'date',
+      },
+      entity_ids: {
+        type: 'array',
+        description: "The entity IDs to specify which entities' data to access.",
+        items: {
+          type: 'string',
+        },
       },
       name: {
         type: 'string',
@@ -65,7 +65,7 @@ export const tool: Tool = {
           'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
-    required: ['entity_ids'],
+    required: [],
   },
   annotations: {
     readOnlyHint: true,

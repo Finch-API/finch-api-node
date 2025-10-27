@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../resource';
+import { isRequestOptions } from '../../../core';
 import * as Core from '../../../core';
 import * as HRISAPI from '../hris';
 import * as PayStatementItemAPI from './pay-statement-item/pay-statement-item';
@@ -21,12 +22,18 @@ export class CompanyResource extends APIResource {
    *
    * @example
    * ```ts
-   * const company = await client.hris.company.retrieve({
-   *   entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-   * });
+   * const company = await client.hris.company.retrieve();
    * ```
    */
-  retrieve(query: CompanyRetrieveParams, options?: Core.RequestOptions): Core.APIPromise<Company> {
+  retrieve(query?: CompanyRetrieveParams, options?: Core.RequestOptions): Core.APIPromise<Company>;
+  retrieve(options?: Core.RequestOptions): Core.APIPromise<Company>;
+  retrieve(
+    query: CompanyRetrieveParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Company> {
+    if (isRequestOptions(query)) {
+      return this.retrieve({}, query);
+    }
     return this._client.get('/employer/company', { query, ...options });
   }
 }
@@ -157,7 +164,7 @@ export interface CompanyRetrieveParams {
   /**
    * The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 }
 
 CompanyResource.PayStatementItem = PayStatementItem;

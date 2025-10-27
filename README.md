@@ -26,7 +26,7 @@ const client = new Finch({
   accessToken: 'My Access Token',
 });
 
-const page = await client.hris.directory.list({ entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] });
+const page = await client.hris.directory.list();
 const individualInDirectory = page.individuals[0];
 
 console.log(individualInDirectory.id);
@@ -44,8 +44,7 @@ const client = new Finch({
   accessToken: 'My Access Token',
 });
 
-const params: Finch.HRIS.DirectoryListParams = { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] };
-const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] = await client.hris.directory.list(params);
+const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] = await client.hris.directory.list();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -58,17 +57,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const company = await client.hris.company
-  .retrieve({ entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] })
-  .catch(async (err) => {
-    if (err instanceof Finch.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
+const company = await client.hris.company.retrieve().catch(async (err) => {
+  if (err instanceof Finch.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
@@ -100,7 +97,7 @@ const client = new Finch({
 });
 
 // Or, configure per-request:
-await client.hris.directory.list({ entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] }, {
+await client.hris.directory.list({
   maxRetries: 5,
 });
 ```
@@ -117,7 +114,7 @@ const client = new Finch({
 });
 
 // Override per-request:
-await client.hris.directory.list({ entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] }, {
+await client.hris.directory.list({
   timeout: 5 * 1000,
 });
 ```
@@ -135,9 +132,7 @@ You can use the `for await … of` syntax to iterate through items across all pa
 async function fetchAllIndividualInDirectories(params) {
   const allIndividualInDirectories = [];
   // Automatically fetches more pages as needed.
-  for await (const individualInDirectory of client.hris.directory.list({
-    entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-  })) {
+  for await (const individualInDirectory of client.hris.directory.list()) {
     allIndividualInDirectories.push(individualInDirectory);
   }
   return allIndividualInDirectories;
@@ -147,7 +142,7 @@ async function fetchAllIndividualInDirectories(params) {
 Alternatively, you can request a single page at a time:
 
 ```ts
-let page = await client.hris.directory.list({ entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] });
+let page = await client.hris.directory.list();
 for (const individualInDirectory of page.individuals) {
   console.log(individualInDirectory);
 }
@@ -172,10 +167,7 @@ import Finch from '@tryfinch/finch-api';
 
 const client = new Finch();
 
-const page = await client.hris.directory.list(
-  { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
-  { headers: { 'Finch-API-Version': 'My-Custom-Value' } },
-);
+const page = await client.hris.directory.list({ headers: { 'Finch-API-Version': 'My-Custom-Value' } });
 const individualInDirectory = page.individuals[0];
 ```
 
@@ -220,15 +212,11 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new Finch();
 
-const response = await client.hris.directory
-  .list({ entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] })
-  .asResponse();
+const response = await client.hris.directory.list().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: page, response: raw } = await client.hris.directory
-  .list({ entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] })
-  .withResponse();
+const { data: page, response: raw } = await client.hris.directory.list().withResponse();
 console.log(raw.headers.get('X-My-Header'));
 for await (const individualInDirectory of page) {
   console.log(individualInDirectory.id);
@@ -336,12 +324,9 @@ const client = new Finch({
 });
 
 // Override per-request:
-await client.hris.directory.list(
-  { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
-  {
-    httpAgent: new http.Agent({ keepAlive: false }),
-  },
-);
+await client.hris.directory.list({
+  httpAgent: new http.Agent({ keepAlive: false }),
+});
 ```
 
 ## Semantic versioning

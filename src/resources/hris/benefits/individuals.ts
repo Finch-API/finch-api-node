@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../resource';
+import { isRequestOptions } from '../../../core';
 import * as Core from '../../../core';
 import { SinglePage } from '../../../pagination';
 
@@ -16,17 +17,26 @@ export class Individuals extends APIResource {
    * const enrolledIndividualBenefitResponse =
    *   await client.hris.benefits.individuals.enrollMany(
    *     'benefit_id',
-   *     {
-   *       entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-   *     },
    *   );
    * ```
    */
   enrollMany(
     benefitId: string,
-    params: IndividualEnrollManyParams,
+    params?: IndividualEnrollManyParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<EnrolledIndividualBenefitResponse>;
+  enrollMany(
+    benefitId: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<EnrolledIndividualBenefitResponse>;
+  enrollMany(
+    benefitId: string,
+    params?: IndividualEnrollManyParams | Core.RequestOptions,
     options?: Core.RequestOptions,
   ): Core.APIPromise<EnrolledIndividualBenefitResponse> {
+    if (isRequestOptions(params)) {
+      return this.enrollMany(benefitId, undefined, params);
+    }
     const { entity_ids, individuals } = params ?? {};
     return this._client.post(`/employer/benefits/${benefitId}/individuals`, {
       query: { entity_ids },
@@ -43,17 +53,26 @@ export class Individuals extends APIResource {
    * const response =
    *   await client.hris.benefits.individuals.enrolledIds(
    *     'benefit_id',
-   *     {
-   *       entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-   *     },
    *   );
    * ```
    */
   enrolledIds(
     benefitId: string,
-    query: IndividualEnrolledIDsParams,
+    query?: IndividualEnrolledIDsParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<IndividualEnrolledIDsResponse>;
+  enrolledIds(
+    benefitId: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<IndividualEnrolledIDsResponse>;
+  enrolledIds(
+    benefitId: string,
+    query: IndividualEnrolledIDsParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.APIPromise<IndividualEnrolledIDsResponse> {
+    if (isRequestOptions(query)) {
+      return this.enrolledIds(benefitId, {}, query);
+    }
     return this._client.get(`/employer/benefits/${benefitId}/enrolled`, { query, ...options });
   }
 
@@ -65,7 +84,6 @@ export class Individuals extends APIResource {
    * // Automatically fetches more pages as needed.
    * for await (const individualBenefit of client.hris.benefits.individuals.retrieveManyBenefits(
    *   'benefit_id',
-   *   { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
    * )) {
    *   // ...
    * }
@@ -73,9 +91,21 @@ export class Individuals extends APIResource {
    */
   retrieveManyBenefits(
     benefitId: string,
-    query: IndividualRetrieveManyBenefitsParams,
+    query?: IndividualRetrieveManyBenefitsParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<IndividualBenefitsSinglePage, IndividualBenefit>;
+  retrieveManyBenefits(
+    benefitId: string,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<IndividualBenefitsSinglePage, IndividualBenefit>;
+  retrieveManyBenefits(
+    benefitId: string,
+    query: IndividualRetrieveManyBenefitsParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.PagePromise<IndividualBenefitsSinglePage, IndividualBenefit> {
+    if (isRequestOptions(query)) {
+      return this.retrieveManyBenefits(benefitId, {}, query);
+    }
     return this._client.getAPIList(
       `/employer/benefits/${benefitId}/individuals`,
       IndividualBenefitsSinglePage,
@@ -91,17 +121,26 @@ export class Individuals extends APIResource {
    * const unenrolledIndividualBenefitResponse =
    *   await client.hris.benefits.individuals.unenrollMany(
    *     'benefit_id',
-   *     {
-   *       entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-   *     },
    *   );
    * ```
    */
   unenrollMany(
     benefitId: string,
-    params: IndividualUnenrollManyParams,
+    params?: IndividualUnenrollManyParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<UnenrolledIndividualBenefitResponse>;
+  unenrollMany(
+    benefitId: string,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<UnenrolledIndividualBenefitResponse>;
+  unenrollMany(
+    benefitId: string,
+    params: IndividualUnenrollManyParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.APIPromise<UnenrolledIndividualBenefitResponse> {
+    if (isRequestOptions(params)) {
+      return this.unenrollMany(benefitId, {}, params);
+    }
     const { entity_ids, ...body } = params;
     return this._client.delete(`/employer/benefits/${benefitId}/individuals`, {
       query: { entity_ids },
@@ -251,7 +290,7 @@ export interface IndividualEnrollManyParams {
   /**
    * Query param: The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 
   /**
    * Body param: Array of the individual_id to enroll and a configuration object.
@@ -345,14 +384,14 @@ export interface IndividualEnrolledIDsParams {
   /**
    * The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 }
 
 export interface IndividualRetrieveManyBenefitsParams {
   /**
    * The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 
   /**
    * comma-delimited list of stable Finch uuids for each individual. If empty,
@@ -365,7 +404,7 @@ export interface IndividualUnenrollManyParams {
   /**
    * Query param: The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 
   /**
    * Body param: Array of individual_ids to unenroll.

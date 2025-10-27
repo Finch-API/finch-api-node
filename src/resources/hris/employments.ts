@@ -13,10 +13,7 @@ export class Employments extends APIResource {
    * ```ts
    * // Automatically fetches more pages as needed.
    * for await (const employmentDataResponse of client.hris.employments.retrieveMany(
-   *   {
-   *     entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-   *     requests: [{ individual_id: 'individual_id' }],
-   *   },
+   *   { requests: [{ individual_id: 'individual_id' }] },
    * )) {
    *   // ...
    * }
@@ -212,14 +209,14 @@ export interface EmploymentDataResponse {
 
 export interface EmploymentRetrieveManyParams {
   /**
-   * Query param: The entity IDs to specify which entities' data to access.
-   */
-  entity_ids: Array<string>;
-
-  /**
    * Body param: The array of batch requests.
    */
   requests: Array<EmploymentRetrieveManyParams.Request>;
+
+  /**
+   * Query param: The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
 }
 
 export namespace EmploymentRetrieveManyParams {
