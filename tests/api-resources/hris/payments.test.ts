@@ -21,6 +21,10 @@ describe('resource payments', () => {
   });
 
   test('list: required and optional params', async () => {
-    const response = await client.hris.payments.list({ end_date: '2021-01-01', start_date: '2021-01-01' });
+    const response = await client.hris.payments.list({
+      end_date: '2021-01-01',
+      start_date: '2021-01-01',
+      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+    });
   });
 });

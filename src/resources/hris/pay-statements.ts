@@ -30,10 +30,12 @@ export class PayStatements extends APIResource {
    * ```
    */
   retrieveMany(
-    body: PayStatementRetrieveManyParams,
+    params: PayStatementRetrieveManyParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<PayStatementResponsesPage, PayStatementResponse> {
+    const { entity_ids, ...body } = params;
     return this._client.getAPIList('/employer/pay-statement', PayStatementResponsesPage, {
+      query: { entity_ids },
       body,
       method: 'post',
       ...options,
@@ -52,9 +54,9 @@ export interface PayStatement {
   /**
    * The array of deductions objects associated with this pay statement.
    */
-  employee_deductions: Array<PayStatement.EmployeeDeduction | null> | null;
+  employee_deductions: Array<PayStatement.EmployeeDeduction> | null;
 
-  employer_contributions: Array<PayStatement.EmployerContribution | null> | null;
+  employer_contributions: Array<PayStatement.EmployerContribution> | null;
 
   gross_pay: HRISAPI.Money | null;
 
@@ -73,7 +75,7 @@ export interface PayStatement {
   /**
    * The array of taxes objects associated with this pay statement.
    */
-  taxes: Array<PayStatement.Tax | null> | null;
+  taxes: Array<PayStatement.Tax> | null;
 
   /**
    * The number of hours worked for this pay period
@@ -133,18 +135,12 @@ export namespace PayStatement {
 
   export namespace Earning {
     export interface Attributes {
-      metadata: Attributes.Metadata;
-    }
-
-    export namespace Attributes {
-      export interface Metadata {
-        /**
-         * The metadata to be attached to the entity by existing rules. It is a key-value
-         * pairs where the values can be of any type (string, number, boolean, object,
-         * array, etc.).
-         */
-        metadata: { [key: string]: unknown };
-      }
+      /**
+       * The metadata to be attached to the entity by existing rules. It is a key-value
+       * pairs where the values can be of any type (string, number, boolean, object,
+       * array, etc.).
+       */
+      metadata: { [key: string]: unknown };
     }
   }
 
@@ -179,18 +175,12 @@ export namespace PayStatement {
 
   export namespace EmployeeDeduction {
     export interface Attributes {
-      metadata: Attributes.Metadata;
-    }
-
-    export namespace Attributes {
-      export interface Metadata {
-        /**
-         * The metadata to be attached to the entity by existing rules. It is a key-value
-         * pairs where the values can be of any type (string, number, boolean, object,
-         * array, etc.).
-         */
-        metadata: { [key: string]: unknown };
-      }
+      /**
+       * The metadata to be attached to the entity by existing rules. It is a key-value
+       * pairs where the values can be of any type (string, number, boolean, object,
+       * array, etc.).
+       */
+      metadata: { [key: string]: unknown };
     }
   }
 
@@ -220,18 +210,12 @@ export namespace PayStatement {
 
   export namespace EmployerContribution {
     export interface Attributes {
-      metadata: Attributes.Metadata;
-    }
-
-    export namespace Attributes {
-      export interface Metadata {
-        /**
-         * The metadata to be attached to the entity by existing rules. It is a key-value
-         * pairs where the values can be of any type (string, number, boolean, object,
-         * array, etc.).
-         */
-        metadata: { [key: string]: unknown };
-      }
+      /**
+       * The metadata to be attached to the entity by existing rules. It is a key-value
+       * pairs where the values can be of any type (string, number, boolean, object,
+       * array, etc.).
+       */
+      metadata: { [key: string]: unknown };
     }
   }
 
@@ -266,18 +250,12 @@ export namespace PayStatement {
 
   export namespace Tax {
     export interface Attributes {
-      metadata: Attributes.Metadata;
-    }
-
-    export namespace Attributes {
-      export interface Metadata {
-        /**
-         * The metadata to be attached to the entity by existing rules. It is a key-value
-         * pairs where the values can be of any type (string, number, boolean, object,
-         * array, etc.).
-         */
-        metadata: { [key: string]: unknown };
-      }
+      /**
+       * The metadata to be attached to the entity by existing rules. It is a key-value
+       * pairs where the values can be of any type (string, number, boolean, object,
+       * array, etc.).
+       */
+      metadata: { [key: string]: unknown };
     }
   }
 }
@@ -334,9 +312,14 @@ export namespace PayStatementResponseBody {
 
 export interface PayStatementRetrieveManyParams {
   /**
-   * The array of batch requests.
+   * Body param: The array of batch requests.
    */
   requests: Array<PayStatementRetrieveManyParams.Request>;
+
+  /**
+   * Query param: The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
 }
 
 export namespace PayStatementRetrieveManyParams {

@@ -18,10 +18,17 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'list_payroll_pay_groups',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nRead company pay groups and frequencies\n\n# Response Schema\n```json\n{\n  type: 'array',\n  items: {\n    type: 'object',\n    properties: {\n      id: {\n        type: 'string',\n        description: 'Finch id (uuidv4) for the pay group'\n      },\n      name: {\n        type: 'string',\n        description: 'Name of the pay group'\n      },\n      pay_frequencies: {\n        type: 'array',\n        description: 'List of pay frequencies associated with this pay group',\n        items: {\n          type: 'string',\n          enum: [            'annually',\n            'bi_weekly',\n            'daily',\n            'monthly',\n            'other',\n            'quarterly',\n            'semi_annually',\n            'semi_monthly',\n            'weekly'\n          ]\n        }\n      }\n    },\n    required: [      'id',\n      'name',\n      'pay_frequencies'\n    ]\n  }\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nRead company pay groups and frequencies\n\n# Response Schema\n```json\n{\n  type: 'array',\n  items: {\n    $ref: '#/$defs/pay_group_list_response'\n  },\n  $defs: {\n    pay_group_list_response: {\n      type: 'object',\n      properties: {\n        id: {\n          type: 'string',\n          description: 'Finch id (uuidv4) for the pay group'\n        },\n        name: {\n          type: 'string',\n          description: 'Name of the pay group'\n        },\n        pay_frequencies: {\n          type: 'array',\n          description: 'List of pay frequencies associated with this pay group',\n          items: {\n            type: 'string',\n            enum: [              'annually',\n              'bi_weekly',\n              'daily',\n              'monthly',\n              'other',\n              'quarterly',\n              'semi_annually',\n              'semi_monthly',\n              'weekly'\n            ]\n          }\n        }\n      },\n      required: [        'id',\n        'name',\n        'pay_frequencies'\n      ]\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
+      entity_ids: {
+        type: 'array',
+        description: "The entity IDs to specify which entities' data to access.",
+        items: {
+          type: 'string',
+        },
+      },
       individual_id: {
         type: 'string',
       },

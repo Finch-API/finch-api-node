@@ -63,6 +63,11 @@ export interface CreateAccessTokenResponse {
   connection_type: 'finch' | 'provider';
 
   /**
+   * An array of entity IDs that can be accessed with this access token
+   */
+  entity_ids: Array<string>;
+
+  /**
    * An array of the authorized products associated with the `access_token`
    */
   products: Array<string>;
@@ -98,19 +103,19 @@ export interface CreateAccessTokenResponse {
 
 export interface AccessTokenCreateParams {
   /**
+   * The authorization code received from the authorization server
+   */
+  code: string;
+
+  /**
    * The client ID for your application
    */
-  client_id: string;
+  client_id?: string;
 
   /**
    * The client secret for your application
    */
-  client_secret: string;
-
-  /**
-   * The authorization code received from the authorization server
-   */
-  code: string;
+  client_secret?: string;
 
   /**
    * The redirect URI used in the authorization request (optional)

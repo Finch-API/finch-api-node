@@ -20,10 +20,12 @@ export class Employments extends APIResource {
    * ```
    */
   retrieveMany(
-    body: EmploymentRetrieveManyParams,
+    params: EmploymentRetrieveManyParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<EmploymentDataResponsesPage, EmploymentDataResponse> {
+    const { entity_ids, ...body } = params;
     return this._client.getAPIList('/employer/employment', EmploymentDataResponsesPage, {
+      query: { entity_ids },
       body,
       method: 'post',
       ...options,
@@ -207,9 +209,14 @@ export interface EmploymentDataResponse {
 
 export interface EmploymentRetrieveManyParams {
   /**
-   * The array of batch requests.
+   * Body param: The array of batch requests.
    */
   requests: Array<EmploymentRetrieveManyParams.Request>;
+
+  /**
+   * Query param: The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
 }
 
 export namespace EmploymentRetrieveManyParams {

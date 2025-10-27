@@ -7,7 +7,9 @@ import * as RulesAPI from './rules';
 import {
   RuleCreateParams,
   RuleCreateResponse,
+  RuleDeleteParams,
   RuleDeleteResponse,
+  RuleListParams,
   RuleListResponse,
   RuleListResponsesPage,
   RuleUpdateParams,
@@ -116,6 +118,11 @@ export interface PayStatementItemListParams {
   end_date?: string;
 
   /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+
+  /**
    * Case-insensitive partial match search by pay statement item name.
    */
   name?: string;
@@ -152,5 +159,7 @@ export declare namespace PayStatementItem {
     RuleListResponsesPage as RuleListResponsesPage,
     type RuleCreateParams as RuleCreateParams,
     type RuleUpdateParams as RuleUpdateParams,
+    type RuleListParams as RuleListParams,
+    type RuleDeleteParams as RuleDeleteParams,
   };
 }

@@ -104,6 +104,11 @@ export interface PaymentListParams {
    * format.
    */
   start_date: string;
+
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
 }
 
 Payments.PaymentsSinglePage = PaymentsSinglePage;

@@ -10,6 +10,7 @@ import {
   IndividualBenefit,
   IndividualBenefitsSinglePage,
   IndividualEnrollManyParams,
+  IndividualEnrolledIDsParams,
   IndividualEnrolledIDsResponse,
   IndividualRetrieveManyBenefitsParams,
   IndividualUnenrollManyParams,
@@ -32,18 +33,19 @@ export class Benefits extends APIResource {
    * ```
    */
   create(
-    body?: BenefitCreateParams,
+    params?: BenefitCreateParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<CreateCompanyBenefitsResponse>;
   create(options?: Core.RequestOptions): Core.APIPromise<CreateCompanyBenefitsResponse>;
   create(
-    body: BenefitCreateParams | Core.RequestOptions = {},
+    params: BenefitCreateParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.APIPromise<CreateCompanyBenefitsResponse> {
-    if (isRequestOptions(body)) {
-      return this.create({}, body);
+    if (isRequestOptions(params)) {
+      return this.create({}, params);
     }
-    return this._client.post('/employer/benefits', { body, ...options });
+    const { entity_ids, ...body } = params;
+    return this._client.post('/employer/benefits', { query: { entity_ids }, body, ...options });
   }
 
   /**
@@ -56,8 +58,21 @@ export class Benefits extends APIResource {
    * );
    * ```
    */
-  retrieve(benefitId: string, options?: Core.RequestOptions): Core.APIPromise<CompanyBenefit> {
-    return this._client.get(`/employer/benefits/${benefitId}`, options);
+  retrieve(
+    benefitId: string,
+    query?: BenefitRetrieveParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<CompanyBenefit>;
+  retrieve(benefitId: string, options?: Core.RequestOptions): Core.APIPromise<CompanyBenefit>;
+  retrieve(
+    benefitId: string,
+    query: BenefitRetrieveParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<CompanyBenefit> {
+    if (isRequestOptions(query)) {
+      return this.retrieve(benefitId, {}, query);
+    }
+    return this._client.get(`/employer/benefits/${benefitId}`, { query, ...options });
   }
 
   /**
@@ -71,19 +86,20 @@ export class Benefits extends APIResource {
    */
   update(
     benefitId: string,
-    body?: BenefitUpdateParams,
+    params?: BenefitUpdateParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<UpdateCompanyBenefitResponse>;
   update(benefitId: string, options?: Core.RequestOptions): Core.APIPromise<UpdateCompanyBenefitResponse>;
   update(
     benefitId: string,
-    body: BenefitUpdateParams | Core.RequestOptions = {},
+    params: BenefitUpdateParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.APIPromise<UpdateCompanyBenefitResponse> {
-    if (isRequestOptions(body)) {
-      return this.update(benefitId, {}, body);
+    if (isRequestOptions(params)) {
+      return this.update(benefitId, {}, params);
     }
-    return this._client.post(`/employer/benefits/${benefitId}`, { body, ...options });
+    const { entity_ids, ...body } = params;
+    return this._client.post(`/employer/benefits/${benefitId}`, { query: { entity_ids }, body, ...options });
   }
 
   /**
@@ -97,8 +113,19 @@ export class Benefits extends APIResource {
    * }
    * ```
    */
-  list(options?: Core.RequestOptions): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit> {
-    return this._client.getAPIList('/employer/benefits', CompanyBenefitsSinglePage, options);
+  list(
+    query?: BenefitListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit>;
+  list(options?: Core.RequestOptions): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit>;
+  list(
+    query: BenefitListParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit> {
+    if (isRequestOptions(query)) {
+      return this.list({}, query);
+    }
+    return this._client.getAPIList('/employer/benefits', CompanyBenefitsSinglePage, { query, ...options });
   }
 
   /**
@@ -113,9 +140,23 @@ export class Benefits extends APIResource {
    * ```
    */
   listSupportedBenefits(
+    query?: BenefitListSupportedBenefitsParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit>;
+  listSupportedBenefits(
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit>;
+  listSupportedBenefits(
+    query: BenefitListSupportedBenefitsParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit> {
-    return this._client.getAPIList('/employer/benefits/meta', SupportedBenefitsSinglePage, options);
+    if (isRequestOptions(query)) {
+      return this.listSupportedBenefits({}, query);
+    }
+    return this._client.getAPIList('/employer/benefits/meta', SupportedBenefitsSinglePage, {
+      query,
+      ...options,
+    });
   }
 }
 
@@ -123,16 +164,56 @@ export class CompanyBenefitsSinglePage extends SinglePage<CompanyBenefit> {}
 
 export class SupportedBenefitsSinglePage extends SinglePage<SupportedBenefit> {}
 
-export interface BenefitContribution {
-  /**
-   * Contribution amount in cents (if `fixed`) or basis points (if `percent`).
-   */
-  amount: number | null;
+export type BenefitContribution =
+  | BenefitContribution.UnionMember0
+  | BenefitContribution.UnionMember1
+  | BenefitContribution.UnionMember2;
 
-  /**
-   * Contribution type.
-   */
-  type: 'fixed' | 'percent' | null;
+export namespace BenefitContribution {
+  export interface UnionMember0 {
+    /**
+     * Contribution amount in cents.
+     */
+    amount: number;
+
+    /**
+     * Fixed contribution type.
+     */
+    type: 'fixed';
+  }
+
+  export interface UnionMember1 {
+    /**
+     * Contribution amount in basis points (1/100th of a percent).
+     */
+    amount: number;
+
+    /**
+     * Percentage contribution type.
+     */
+    type: 'percent';
+  }
+
+  export interface UnionMember2 {
+    /**
+     * Array of tier objects defining employer match tiers based on employee
+     * contribution thresholds.
+     */
+    tiers: Array<UnionMember2.Tier>;
+
+    /**
+     * Tiered contribution type (only valid for company_contribution).
+     */
+    type: 'tiered';
+  }
+
+  export namespace UnionMember2 {
+    export interface Tier {
+      match: number;
+
+      threshold: number;
+    }
+  }
 }
 
 export interface BenefitFeaturesAndOperations {
@@ -271,7 +352,7 @@ export interface SupportedBenefit {
    * Supported contribution types. An empty array indicates contributions are not
    * supported.
    */
-  company_contribution: Array<'fixed' | 'percent' | null> | null;
+  company_contribution: Array<'fixed' | 'percent' | 'tiered' | null> | null;
 
   description: string | null;
 
@@ -315,24 +396,29 @@ export type BenfitContribution = BenefitContribution | null;
 
 export interface BenefitCreateParams {
   /**
-   * The company match for this benefit.
+   * Query param: The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+
+  /**
+   * Body param: The company match for this benefit.
    */
   company_contribution?: BenefitCreateParams.CompanyContribution | null;
 
   /**
-   * Name of the benefit as it appears in the provider and pay statements. Recommend
-   * limiting this to <30 characters due to limitations in specific providers (e.g.
-   * Justworks).
+   * Body param: Name of the benefit as it appears in the provider and pay
+   * statements. Recommend limiting this to <30 characters due to limitations in
+   * specific providers (e.g. Justworks).
    */
   description?: string;
 
   /**
-   * The frequency of the benefit deduction/contribution.
+   * Body param: The frequency of the benefit deduction/contribution.
    */
   frequency?: BenefitFrequency | null;
 
   /**
-   * Type of benefit.
+   * Body param: Type of benefit.
    */
   type?: BenefitType | null;
 }
@@ -356,11 +442,37 @@ export namespace BenefitCreateParams {
   }
 }
 
+export interface BenefitRetrieveParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+}
+
 export interface BenefitUpdateParams {
   /**
-   * Updated name or description.
+   * Query param: The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+
+  /**
+   * Body param: Updated name or description.
    */
   description?: string;
+}
+
+export interface BenefitListParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+}
+
+export interface BenefitListSupportedBenefitsParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
 }
 
 Benefits.CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
@@ -384,7 +496,10 @@ export declare namespace Benefits {
     CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
     SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
     type BenefitCreateParams as BenefitCreateParams,
+    type BenefitRetrieveParams as BenefitRetrieveParams,
     type BenefitUpdateParams as BenefitUpdateParams,
+    type BenefitListParams as BenefitListParams,
+    type BenefitListSupportedBenefitsParams as BenefitListSupportedBenefitsParams,
   };
 
   export {
@@ -395,6 +510,7 @@ export declare namespace Benefits {
     type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
     IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
     type IndividualEnrollManyParams as IndividualEnrollManyParams,
+    type IndividualEnrolledIDsParams as IndividualEnrolledIDsParams,
     type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
     type IndividualUnenrollManyParams as IndividualUnenrollManyParams,
   };

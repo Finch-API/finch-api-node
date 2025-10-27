@@ -32,6 +32,13 @@ export const tool: Tool = {
         description: 'The start date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format.',
         format: 'date',
       },
+      entity_ids: {
+        type: 'array',
+        description: "The entity IDs to specify which entities' data to access.",
+        items: {
+          type: 'string',
+        },
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',

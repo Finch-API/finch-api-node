@@ -1,0 +1,64 @@
+{
+  "dxt_version": "0.2",
+  "name": "@tryfinch/finch-api-mcp",
+  "version": "6.37.0",
+  "description": "The official MCP Server for the Finch API",
+  "author": {
+    "name": "Finch",
+    "email": "founders@tryfinch.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Finch-API/finch-api-node.git"
+  },
+  "homepage": "https://github.com/Finch-API/finch-api-node/tree/main/packages/mcp-server#readme",
+  "documentation": "https://developer.tryfinch.com/",
+  "server": {
+    "type": "node",
+    "entry_point": "index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/index.js"],
+      "env": {
+        "FINCH_ACCESS_TOKEN": "${user_config.FINCH_ACCESS_TOKEN}",
+        "FINCH_CLIENT_ID": "${user_config.FINCH_CLIENT_ID}",
+        "FINCH_CLIENT_SECRET": "${user_config.FINCH_CLIENT_SECRET}",
+        "FINCH_WEBHOOK_SECRET": "${user_config.FINCH_WEBHOOK_SECRET}"
+      }
+    }
+  },
+  "user_config": {
+    "FINCH_ACCESS_TOKEN": {
+      "title": "access_token",
+      "description": "",
+      "required": false,
+      "type": "string"
+    },
+    "FINCH_CLIENT_ID": {
+      "title": "client_id",
+      "description": "",
+      "required": false,
+      "type": "string"
+    },
+    "FINCH_CLIENT_SECRET": {
+      "title": "client_secret",
+      "description": "",
+      "required": false,
+      "type": "string"
+    },
+    "FINCH_WEBHOOK_SECRET": {
+      "title": "webhook_secret",
+      "description": "",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "tools": [],
+  "tools_generated": true,
+  "compatibility": {
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "keywords": ["api"]
+}

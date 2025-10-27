@@ -18,63 +18,74 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'new_connect_sessions',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nCreate a new connect session for an employer\n\n# Response Schema\n```json\n{\n  type: 'object',\n  properties: {\n    connect_url: {\n      type: 'string',\n      description: 'The Connect URL to redirect the user to for authentication'\n    },\n    session_id: {\n      type: 'string',\n      description: 'The unique identifier for the created connect session'\n    }\n  },\n  required: [    'connect_url',\n    'session_id'\n  ]\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nCreate a new connect session for an employer\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/session_new_response',\n  $defs: {\n    session_new_response: {\n      type: 'object',\n      properties: {\n        connect_url: {\n          type: 'string',\n          description: 'The Connect URL to redirect the user to for authentication'\n        },\n        session_id: {\n          type: 'string',\n          description: 'The unique identifier for the created connect session'\n        }\n      },\n      required: [        'connect_url',\n        'session_id'\n      ]\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
+      customer_email: {
+        type: 'string',
+        description: 'Email address of the customer',
+      },
       customer_id: {
         type: 'string',
+        description: 'Unique identifier for the customer',
       },
       customer_name: {
         type: 'string',
-      },
-      products: {
-        type: 'array',
-        items: {
-          type: 'string',
-          description: 'The Finch products that can be requested during the Connect flow.',
-          enum: [
-            'company',
-            'directory',
-            'individual',
-            'employment',
-            'payment',
-            'pay_statement',
-            'benefits',
-            'ssn',
-            'deduction',
-            'documents',
-          ],
-        },
-      },
-      customer_email: {
-        type: 'string',
+        description: 'Name of the customer',
       },
       integration: {
         type: 'object',
+        description: 'Integration configuration for the connect session',
         properties: {
           auth_method: {
             type: 'string',
+            description: 'The authentication method to use',
             enum: ['assisted', 'credential', 'oauth', 'api_token'],
           },
           provider: {
             type: 'string',
+            description: 'The provider to integrate with',
           },
         },
+        required: ['auth_method', 'provider'],
       },
       manual: {
         type: 'boolean',
+        description: 'Enable manual authentication mode',
       },
       minutes_to_expire: {
         type: 'number',
         description:
           'The number of minutes until the session expires (defaults to 129,600, which is 90 days)',
       },
+      products: {
+        type: 'array',
+        description: 'The Finch products to request access to',
+        items: {
+          type: 'string',
+          description: 'The Finch products that can be requested during the Connect flow.',
+          enum: [
+            'benefits',
+            'company',
+            'deduction',
+            'directory',
+            'documents',
+            'employment',
+            'individual',
+            'payment',
+            'pay_statement',
+            'ssn',
+          ],
+        },
+      },
       redirect_uri: {
         type: 'string',
+        description: 'The URI to redirect to after the Connect flow is completed',
       },
       sandbox: {
         type: 'string',
+        description: 'Sandbox mode for testing',
         enum: ['finch', 'provider'],
       },
       jq_filter: {
@@ -84,7 +95,17 @@ export const tool: Tool = {
           'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
-    required: ['customer_id', 'customer_name', 'products'],
+    required: [
+      'customer_email',
+      'customer_id',
+      'customer_name',
+      'integration',
+      'manual',
+      'minutes_to_expire',
+      'products',
+      'redirect_uri',
+      'sandbox',
+    ],
   },
   annotations: {},
 };

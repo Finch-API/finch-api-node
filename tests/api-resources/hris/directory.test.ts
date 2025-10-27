@@ -30,7 +30,10 @@ describe('resource directory', () => {
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.hris.directory.list({ limit: 0, offset: 0 }, { path: '/_stainless_unknown_path' }),
+      client.hris.directory.list(
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'], limit: 0, offset: 0 },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
@@ -55,7 +58,10 @@ describe('resource directory', () => {
   test('listIndividuals: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.hris.directory.listIndividuals({ limit: 0, offset: 0 }, { path: '/_stainless_unknown_path' }),
+      client.hris.directory.listIndividuals(
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'], limit: 0, offset: 0 },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 });

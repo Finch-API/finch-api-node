@@ -15,4 +15,6 @@ export {
   type RuleDeleteResponse,
   type RuleCreateParams,
   type RuleUpdateParams,
+  type RuleListParams,
+  type RuleDeleteParams,
 } from './rules';

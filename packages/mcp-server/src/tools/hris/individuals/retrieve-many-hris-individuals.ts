@@ -22,6 +22,13 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
+      entity_ids: {
+        type: 'array',
+        description: "The entity IDs to specify which entities' data to access.",
+        items: {
+          type: 'string',
+        },
+      },
       options: {
         type: 'object',
         properties: {

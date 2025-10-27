@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../resource';
+import { isRequestOptions } from '../../../core';
 import * as Core from '../../../core';
 import * as HRISAPI from '../hris';
 import * as PayStatementItemAPI from './pay-statement-item/pay-statement-item';
@@ -24,8 +25,16 @@ export class CompanyResource extends APIResource {
    * const company = await client.hris.company.retrieve();
    * ```
    */
-  retrieve(options?: Core.RequestOptions): Core.APIPromise<Company> {
-    return this._client.get('/employer/company', options);
+  retrieve(query?: CompanyRetrieveParams, options?: Core.RequestOptions): Core.APIPromise<Company>;
+  retrieve(options?: Core.RequestOptions): Core.APIPromise<Company>;
+  retrieve(
+    query: CompanyRetrieveParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Company> {
+    if (isRequestOptions(query)) {
+      return this.retrieve({}, query);
+    }
+    return this._client.get('/employer/company', { query, ...options });
   }
 }
 
@@ -151,11 +160,18 @@ export namespace Company {
   }
 }
 
+export interface CompanyRetrieveParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+}
+
 CompanyResource.PayStatementItem = PayStatementItem;
 CompanyResource.PayStatementItemListResponsesPage = PayStatementItemListResponsesPage;
 
 export declare namespace CompanyResource {
-  export { type Company as Company };
+  export { type Company as Company, type CompanyRetrieveParams as CompanyRetrieveParams };
 
   export {
     PayStatementItem as PayStatementItem,

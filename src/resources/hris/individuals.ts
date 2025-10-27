@@ -19,18 +19,20 @@ export class Individuals extends APIResource {
    * ```
    */
   retrieveMany(
-    body?: IndividualRetrieveManyParams,
+    params?: IndividualRetrieveManyParams,
     options?: Core.RequestOptions,
   ): Core.PagePromise<IndividualResponsesPage, IndividualResponse>;
   retrieveMany(options?: Core.RequestOptions): Core.PagePromise<IndividualResponsesPage, IndividualResponse>;
   retrieveMany(
-    body: IndividualRetrieveManyParams | Core.RequestOptions = {},
+    params: IndividualRetrieveManyParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.PagePromise<IndividualResponsesPage, IndividualResponse> {
-    if (isRequestOptions(body)) {
-      return this.retrieveMany({}, body);
+    if (isRequestOptions(params)) {
+      return this.retrieveMany({}, params);
     }
+    const { entity_ids, ...body } = params;
     return this._client.getAPIList('/employer/individual', IndividualResponsesPage, {
+      query: { entity_ids },
       body,
       method: 'post',
       ...options,
@@ -146,8 +148,19 @@ export interface IndividualResponse {
 }
 
 export interface IndividualRetrieveManyParams {
+  /**
+   * Query param: The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+
+  /**
+   * Body param:
+   */
   options?: IndividualRetrieveManyParams.Options | null;
 
+  /**
+   * Body param:
+   */
   requests?: Array<IndividualRetrieveManyParams.Request>;
 }
 

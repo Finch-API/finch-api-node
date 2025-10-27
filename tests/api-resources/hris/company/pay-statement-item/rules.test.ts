@@ -32,6 +32,7 @@ describe('resource rules', () => {
     await expect(
       client.hris.company.payStatementItem.rules.create(
         {
+          entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
           attributes: { metadata: { foo: 'bar' } },
           conditions: [{ field: 'field', operator: 'equals', value: 'value' }],
           effective_end_date: 'effective_end_date',
@@ -66,7 +67,7 @@ describe('resource rules', () => {
     await expect(
       client.hris.company.payStatementItem.rules.update(
         'rule_id',
-        { optionalProperty: {} },
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'], optionalProperty: {} },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Finch.NotFoundError);
@@ -90,6 +91,16 @@ describe('resource rules', () => {
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
+  test('list: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.hris.company.payStatementItem.rules.list(
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Finch.NotFoundError);
+  });
+
   test('delete', async () => {
     const responsePromise = client.hris.company.payStatementItem.rules.delete('rule_id');
     const rawResponse = await responsePromise.asResponse();
@@ -105,6 +116,17 @@ describe('resource rules', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.hris.company.payStatementItem.rules.delete('rule_id', { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(Finch.NotFoundError);
+  });
+
+  test('delete: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.hris.company.payStatementItem.rules.delete(
+        'rule_id',
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 });

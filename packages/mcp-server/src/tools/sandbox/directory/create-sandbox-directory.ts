@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'create_sandbox_directory',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nAdd new individuals to a sandbox company\n\n# Response Schema\n```json\n{\n  type: 'array',\n  description: 'The individuals which were created',\n  items: {\n    type: 'object',\n    additionalProperties: true\n  }\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nAdd new individuals to a sandbox company\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/directory_create_response',\n  $defs: {\n    directory_create_response: {\n      type: 'array',\n      description: 'The individuals which were created',\n      items: {\n        type: 'object',\n        additionalProperties: true\n      }\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {

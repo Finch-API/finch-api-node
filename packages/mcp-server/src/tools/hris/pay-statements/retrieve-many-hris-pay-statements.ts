@@ -43,6 +43,13 @@ export const tool: Tool = {
           required: ['payment_id'],
         },
       },
+      entity_ids: {
+        type: 'array',
+        description: "The entity IDs to specify which entities' data to access.",
+        items: {
+          type: 'string',
+        },
+      },
     },
     required: ['requests'],
   },

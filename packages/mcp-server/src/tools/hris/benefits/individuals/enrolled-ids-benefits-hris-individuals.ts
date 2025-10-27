@@ -18,12 +18,19 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'enrolled_ids_benefits_hris_individuals',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nLists individuals currently enrolled in a given deduction.\n\n# Response Schema\n```json\n{\n  type: 'object',\n  properties: {\n    benefit_id: {\n      type: 'string',\n      description: 'The id of the benefit.'\n    },\n    individual_ids: {\n      type: 'array',\n      items: {\n        type: 'string',\n        description: 'A stable Finch `id` (UUID v4) for an individual in the company.'\n      }\n    }\n  },\n  required: [    'benefit_id',\n    'individual_ids'\n  ]\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nLists individuals currently enrolled in a given deduction.\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/individual_enrolled_ids_response',\n  $defs: {\n    individual_enrolled_ids_response: {\n      type: 'object',\n      properties: {\n        benefit_id: {\n          type: 'string',\n          description: 'The id of the benefit.'\n        },\n        individual_ids: {\n          type: 'array',\n          items: {\n            type: 'string',\n            description: 'A stable Finch `id` (UUID v4) for an individual in the company.'\n          }\n        }\n      },\n      required: [        'benefit_id',\n        'individual_ids'\n      ]\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
       benefit_id: {
         type: 'string',
+      },
+      entity_ids: {
+        type: 'array',
+        description: "The entity IDs to specify which entities' data to access.",
+        items: {
+          type: 'string',
+        },
       },
       jq_filter: {
         type: 'string',
@@ -42,7 +49,7 @@ export const tool: Tool = {
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
   const { benefit_id, jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(jq_filter, await client.hris.benefits.individuals.enrolledIds(benefit_id)),
+    await maybeFilter(jq_filter, await client.hris.benefits.individuals.enrolledIds(benefit_id, body)),
   );
 };
 

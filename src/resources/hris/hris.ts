@@ -13,6 +13,7 @@ import {
   DocumentListParams,
   DocumentListResponse,
   DocumentResponse,
+  DocumentRetreiveParams,
   DocumentRetreiveResponse,
   Documents,
   W42005,
@@ -52,6 +53,9 @@ import {
   BenefitCreateParams,
   BenefitFeaturesAndOperations,
   BenefitFrequency,
+  BenefitListParams,
+  BenefitListSupportedBenefitsParams,
+  BenefitRetrieveParams,
   BenefitType,
   BenefitUpdateParams,
   Benefits,
@@ -66,7 +70,7 @@ import {
   UpdateCompanyBenefitResponse,
 } from './benefits/benefits';
 import * as CompanyAPI from './company/company';
-import { Company, CompanyResource } from './company/company';
+import { Company, CompanyResource, CompanyRetrieveParams } from './company/company';
 
 export class HRIS extends APIResource {
   company: CompanyAPI.CompanyResource = new CompanyAPI.CompanyResource(this._client);
@@ -180,7 +184,11 @@ HRIS.SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
 export declare namespace HRIS {
   export { type Income as Income, type Location as Location, type Money as Money };
 
-  export { CompanyResource as CompanyResource, type Company as Company };
+  export {
+    CompanyResource as CompanyResource,
+    type Company as Company,
+    type CompanyRetrieveParams as CompanyRetrieveParams,
+  };
 
   export {
     Directory as Directory,
@@ -230,6 +238,7 @@ export declare namespace HRIS {
     type DocumentListResponse as DocumentListResponse,
     type DocumentRetreiveResponse as DocumentRetreiveResponse,
     type DocumentListParams as DocumentListParams,
+    type DocumentRetreiveParams as DocumentRetreiveParams,
   };
 
   export {
@@ -248,6 +257,9 @@ export declare namespace HRIS {
     CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
     SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
     type BenefitCreateParams as BenefitCreateParams,
+    type BenefitRetrieveParams as BenefitRetrieveParams,
     type BenefitUpdateParams as BenefitUpdateParams,
+    type BenefitListParams as BenefitListParams,
+    type BenefitListSupportedBenefitsParams as BenefitListSupportedBenefitsParams,
   };
 }

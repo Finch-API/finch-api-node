@@ -6,6 +6,7 @@ import {
   PayGroupListParams,
   PayGroupListResponse,
   PayGroupListResponsesSinglePage,
+  PayGroupRetrieveParams,
   PayGroupRetrieveResponse,
   PayGroups,
 } from './pay-groups';
@@ -23,6 +24,7 @@ export declare namespace Payroll {
     type PayGroupRetrieveResponse as PayGroupRetrieveResponse,
     type PayGroupListResponse as PayGroupListResponse,
     PayGroupListResponsesSinglePage as PayGroupListResponsesSinglePage,
+    type PayGroupRetrieveParams as PayGroupRetrieveParams,
     type PayGroupListParams as PayGroupListParams,
   };
 }

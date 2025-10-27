@@ -40,7 +40,7 @@ Types:
 
 Methods:
 
-- <code title="get /employer/company">client.hris.company.<a href="./src/resources/hris/company/company.ts">retrieve</a>() -> Company</code>
+- <code title="get /employer/company">client.hris.company.<a href="./src/resources/hris/company/company.ts">retrieve</a>({ ...params }) -> Company</code>
 
 ### PayStatementItem
 
@@ -65,8 +65,8 @@ Methods:
 
 - <code title="post /employer/pay-statement-item/rule">client.hris.company.payStatementItem.rules.<a href="./src/resources/hris/company/pay-statement-item/rules.ts">create</a>({ ...params }) -> RuleCreateResponse</code>
 - <code title="put /employer/pay-statement-item/rule/{rule_id}">client.hris.company.payStatementItem.rules.<a href="./src/resources/hris/company/pay-statement-item/rules.ts">update</a>(ruleId, { ...params }) -> RuleUpdateResponse</code>
-- <code title="get /employer/pay-statement-item/rule">client.hris.company.payStatementItem.rules.<a href="./src/resources/hris/company/pay-statement-item/rules.ts">list</a>() -> RuleListResponsesPage</code>
-- <code title="delete /employer/pay-statement-item/rule/{rule_id}">client.hris.company.payStatementItem.rules.<a href="./src/resources/hris/company/pay-statement-item/rules.ts">delete</a>(ruleId) -> RuleDeleteResponse</code>
+- <code title="get /employer/pay-statement-item/rule">client.hris.company.payStatementItem.rules.<a href="./src/resources/hris/company/pay-statement-item/rules.ts">list</a>({ ...params }) -> RuleListResponsesPage</code>
+- <code title="delete /employer/pay-statement-item/rule/{rule_id}">client.hris.company.payStatementItem.rules.<a href="./src/resources/hris/company/pay-statement-item/rules.ts">delete</a>(ruleId, { ...params }) -> RuleDeleteResponse</code>
 
 ## Directory
 
@@ -136,7 +136,7 @@ Types:
 Methods:
 
 - <code title="get /employer/documents">client.hris.documents.<a href="./src/resources/hris/documents.ts">list</a>({ ...params }) -> DocumentListResponse</code>
-- <code title="get /employer/documents/{document_id}">client.hris.documents.<a href="./src/resources/hris/documents.ts">retreive</a>(documentId) -> DocumentRetreiveResponse</code>
+- <code title="get /employer/documents/{document_id}">client.hris.documents.<a href="./src/resources/hris/documents.ts">retreive</a>(documentId, { ...params }) -> DocumentRetreiveResponse</code>
 
 ## Benefits
 
@@ -157,10 +157,10 @@ Types:
 Methods:
 
 - <code title="post /employer/benefits">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">create</a>({ ...params }) -> CreateCompanyBenefitsResponse</code>
-- <code title="get /employer/benefits/{benefit_id}">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">retrieve</a>(benefitId) -> CompanyBenefit</code>
+- <code title="get /employer/benefits/{benefit_id}">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">retrieve</a>(benefitId, { ...params }) -> CompanyBenefit</code>
 - <code title="post /employer/benefits/{benefit_id}">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">update</a>(benefitId, { ...params }) -> UpdateCompanyBenefitResponse</code>
-- <code title="get /employer/benefits">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">list</a>() -> CompanyBenefitsSinglePage</code>
-- <code title="get /employer/benefits/meta">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">listSupportedBenefits</a>() -> SupportedBenefitsSinglePage</code>
+- <code title="get /employer/benefits">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">list</a>({ ...params }) -> CompanyBenefitsSinglePage</code>
+- <code title="get /employer/benefits/meta">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">listSupportedBenefits</a>({ ...params }) -> SupportedBenefitsSinglePage</code>
 
 ### Individuals
 
@@ -174,7 +174,7 @@ Types:
 Methods:
 
 - <code title="post /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">enrollMany</a>(benefitId, [ ...individuals ]) -> EnrolledIndividualBenefitResponse</code>
-- <code title="get /employer/benefits/{benefit_id}/enrolled">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">enrolledIds</a>(benefitId) -> IndividualEnrolledIDsResponse</code>
+- <code title="get /employer/benefits/{benefit_id}/enrolled">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">enrolledIds</a>(benefitId, { ...params }) -> IndividualEnrolledIDsResponse</code>
 - <code title="get /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">retrieveManyBenefits</a>(benefitId, { ...params }) -> IndividualBenefitsSinglePage</code>
 - <code title="delete /employer/benefits/{benefit_id}/individuals">client.hris.benefits.individuals.<a href="./src/resources/hris/benefits/individuals.ts">unenrollMany</a>(benefitId, { ...params }) -> UnenrolledIndividualBenefitResponse</code>
 
@@ -183,10 +183,11 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/providers.ts">Provider</a></code>
+- <code><a href="./src/resources/providers.ts">ProviderListResponse</a></code>
 
 Methods:
 
-- <code title="get /providers">client.providers.<a href="./src/resources/providers.ts">list</a>() -> ProvidersSinglePage</code>
+- <code title="get /providers">client.providers.<a href="./src/resources/providers.ts">list</a>() -> ProviderListResponsesSinglePage</code>
 
 # Account
 
@@ -243,7 +244,7 @@ Types:
 Methods:
 
 - <code title="post /jobs/automated">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">create</a>({ ...params }) -> AutomatedCreateResponse</code>
-- <code title="get /jobs/automated/{job_id}">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">retrieve</a>(jobId, { ...params }) -> AutomatedAsyncJob</code>
+- <code title="get /jobs/automated/{job_id}">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">retrieve</a>(jobId) -> AutomatedAsyncJob</code>
 - <code title="get /jobs/automated">client.jobs.automated.<a href="./src/resources/jobs/automated.ts">list</a>({ ...params }) -> AutomatedListResponse</code>
 
 ## Manual
@@ -254,7 +255,7 @@ Types:
 
 Methods:
 
-- <code title="get /jobs/manual/{job_id}">client.jobs.manual.<a href="./src/resources/jobs/manual.ts">retrieve</a>(jobId, { ...params }) -> ManualAsyncJob</code>
+- <code title="get /jobs/manual/{job_id}">client.jobs.manual.<a href="./src/resources/jobs/manual.ts">retrieve</a>(jobId) -> ManualAsyncJob</code>
 
 # Sandbox
 
@@ -363,7 +364,7 @@ Types:
 
 Methods:
 
-- <code title="get /employer/pay-groups/{pay_group_id}">client.payroll.payGroups.<a href="./src/resources/payroll/pay-groups.ts">retrieve</a>(payGroupId) -> PayGroupRetrieveResponse</code>
+- <code title="get /employer/pay-groups/{pay_group_id}">client.payroll.payGroups.<a href="./src/resources/payroll/pay-groups.ts">retrieve</a>(payGroupId, { ...params }) -> PayGroupRetrieveResponse</code>
 - <code title="get /employer/pay-groups">client.payroll.payGroups.<a href="./src/resources/payroll/pay-groups.ts">list</a>({ ...params }) -> PayGroupListResponsesSinglePage</code>
 
 # Connect

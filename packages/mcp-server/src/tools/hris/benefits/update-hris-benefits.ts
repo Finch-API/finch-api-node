@@ -25,6 +25,13 @@ export const tool: Tool = {
       benefit_id: {
         type: 'string',
       },
+      entity_ids: {
+        type: 'array',
+        description: "The entity IDs to specify which entities' data to access.",
+        items: {
+          type: 'string',
+        },
+      },
       description: {
         type: 'string',
         description: 'Updated name or description.',

@@ -97,9 +97,19 @@ export namespace IndividualInDirectory {
   }
 }
 
-export interface DirectoryListParams extends IndividualsPageParams {}
+export interface DirectoryListParams extends IndividualsPageParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+}
 
-export interface DirectoryListIndividualsParams extends IndividualsPageParams {}
+export interface DirectoryListIndividualsParams extends IndividualsPageParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+}
 
 export declare namespace Directory {
   export {

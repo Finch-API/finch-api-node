@@ -20,16 +20,21 @@ export class Rules extends APIResource {
    *   await client.hris.company.payStatementItem.rules.create();
    * ```
    */
-  create(body?: RuleCreateParams, options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse>;
+  create(params?: RuleCreateParams, options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse>;
   create(options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse>;
   create(
-    body: RuleCreateParams | Core.RequestOptions = {},
+    params: RuleCreateParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.APIPromise<RuleCreateResponse> {
-    if (isRequestOptions(body)) {
-      return this.create({}, body);
+    if (isRequestOptions(params)) {
+      return this.create({}, params);
     }
-    return this._client.post('/employer/pay-statement-item/rule', { body, ...options });
+    const { entity_ids, ...body } = params;
+    return this._client.post('/employer/pay-statement-item/rule', {
+      query: { entity_ids },
+      body,
+      ...options,
+    });
   }
 
   /**
@@ -46,19 +51,24 @@ export class Rules extends APIResource {
    */
   update(
     ruleId: string,
-    body?: RuleUpdateParams,
+    params?: RuleUpdateParams,
     options?: Core.RequestOptions,
   ): Core.APIPromise<RuleUpdateResponse>;
   update(ruleId: string, options?: Core.RequestOptions): Core.APIPromise<RuleUpdateResponse>;
   update(
     ruleId: string,
-    body: RuleUpdateParams | Core.RequestOptions = {},
+    params: RuleUpdateParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.APIPromise<RuleUpdateResponse> {
-    if (isRequestOptions(body)) {
-      return this.update(ruleId, {}, body);
+    if (isRequestOptions(params)) {
+      return this.update(ruleId, {}, params);
     }
-    return this._client.put(`/employer/pay-statement-item/rule/${ruleId}`, { body, ...options });
+    const { entity_ids, ...body } = params;
+    return this._client.put(`/employer/pay-statement-item/rule/${ruleId}`, {
+      query: { entity_ids },
+      body,
+      ...options,
+    });
   }
 
   /**
@@ -73,8 +83,22 @@ export class Rules extends APIResource {
    * }
    * ```
    */
-  list(options?: Core.RequestOptions): Core.PagePromise<RuleListResponsesPage, RuleListResponse> {
-    return this._client.getAPIList('/employer/pay-statement-item/rule', RuleListResponsesPage, options);
+  list(
+    query?: RuleListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<RuleListResponsesPage, RuleListResponse>;
+  list(options?: Core.RequestOptions): Core.PagePromise<RuleListResponsesPage, RuleListResponse>;
+  list(
+    query: RuleListParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<RuleListResponsesPage, RuleListResponse> {
+    if (isRequestOptions(query)) {
+      return this.list({}, query);
+    }
+    return this._client.getAPIList('/employer/pay-statement-item/rule', RuleListResponsesPage, {
+      query,
+      ...options,
+    });
   }
 
   /**
@@ -89,8 +113,25 @@ export class Rules extends APIResource {
    *   );
    * ```
    */
-  delete(ruleId: string, options?: Core.RequestOptions): Core.APIPromise<RuleDeleteResponse> {
-    return this._client.delete(`/employer/pay-statement-item/rule/${ruleId}`, options);
+  delete(
+    ruleId: string,
+    params?: RuleDeleteParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<RuleDeleteResponse>;
+  delete(ruleId: string, options?: Core.RequestOptions): Core.APIPromise<RuleDeleteResponse>;
+  delete(
+    ruleId: string,
+    params: RuleDeleteParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<RuleDeleteResponse> {
+    if (isRequestOptions(params)) {
+      return this.delete(ruleId, {}, params);
+    }
+    const { entity_ids } = params;
+    return this._client.delete(`/employer/pay-statement-item/rule/${ruleId}`, {
+      query: { entity_ids },
+      ...options,
+    });
   }
 }
 
@@ -399,24 +440,33 @@ export namespace RuleDeleteResponse {
 
 export interface RuleCreateParams {
   /**
-   * Specifies the fields to be applied when the condition is met.
+   * Query param: The entity IDs to create the rule for.
+   */
+  entity_ids?: Array<string>;
+
+  /**
+   * Body param: Specifies the fields to be applied when the condition is met.
    */
   attributes?: RuleCreateParams.Attributes;
 
+  /**
+   * Body param:
+   */
   conditions?: Array<RuleCreateParams.Condition>;
 
   /**
-   * Specifies when the rules should stop applying rules based on the date.
+   * Body param: Specifies when the rules should stop applying rules based on the
+   * date.
    */
   effective_end_date?: string | null;
 
   /**
-   * Specifies when the rule should begin applying based on the date.
+   * Body param: Specifies when the rule should begin applying based on the date.
    */
   effective_start_date?: string | null;
 
   /**
-   * The entity type to which the rule is applied.
+   * Body param: The entity type to which the rule is applied.
    */
   entity_type?: 'pay_statement_item';
 }
@@ -452,7 +502,29 @@ export namespace RuleCreateParams {
 }
 
 export interface RuleUpdateParams {
+  /**
+   * Query param: The entity IDs to update the rule for.
+   */
+  entity_ids?: Array<string>;
+
+  /**
+   * Body param:
+   */
   optionalProperty?: unknown;
+}
+
+export interface RuleListParams {
+  /**
+   * The entity IDs to retrieve rules for.
+   */
+  entity_ids?: Array<string>;
+}
+
+export interface RuleDeleteParams {
+  /**
+   * The entity IDs to delete the rule for.
+   */
+  entity_ids?: Array<string>;
 }
 
 Rules.RuleListResponsesPage = RuleListResponsesPage;
@@ -466,5 +538,7 @@ export declare namespace Rules {
     RuleListResponsesPage as RuleListResponsesPage,
     type RuleCreateParams as RuleCreateParams,
     type RuleUpdateParams as RuleUpdateParams,
+    type RuleListParams as RuleListParams,
+    type RuleDeleteParams as RuleDeleteParams,
   };
 }

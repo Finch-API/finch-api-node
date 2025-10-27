@@ -25,6 +25,13 @@ export const tool: Tool = {
       benefit_id: {
         type: 'string',
       },
+      entity_ids: {
+        type: 'array',
+        description: "The entity IDs to specify which entities' data to access.",
+        items: {
+          type: 'string',
+        },
+      },
       individuals: {
         type: 'array',
         description: 'Array of the individual_id to enroll and a configuration object.',
@@ -56,9 +63,29 @@ export const tool: Tool = {
                       description:
                         'Amount in cents for fixed type or basis points (1/100th of a percent) for percent type',
                     },
+                    tiers: {
+                      type: 'array',
+                      description:
+                        'Array of tier objects for tiered contribution matching (required when type is tiered)',
+                      items: {
+                        type: 'object',
+                        properties: {
+                          match: {
+                            type: 'integer',
+                            description: 'The employer match percentage in basis points (0-10000 = 0-100%)',
+                          },
+                          threshold: {
+                            type: 'integer',
+                            description:
+                              'The employee contribution threshold in basis points (0-10000 = 0-100%)',
+                          },
+                        },
+                        required: ['match', 'threshold'],
+                      },
+                    },
                     type: {
                       type: 'string',
-                      enum: ['fixed', 'percent'],
+                      enum: ['fixed', 'percent', 'tiered'],
                     },
                   },
                 },
@@ -105,10 +132,7 @@ export const tool: Tool = {
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
   const { benefit_id, jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(
-      jq_filter,
-      await client.hris.benefits.individuals.enrollMany(benefit_id, body['individuals']),
-    ),
+    await maybeFilter(jq_filter, await client.hris.benefits.individuals.enrollMany(benefit_id, body)),
   );
 };
 

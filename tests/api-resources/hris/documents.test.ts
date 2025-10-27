@@ -31,7 +31,13 @@ describe('resource documents', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.hris.documents.list(
-        { individual_ids: ['string'], limit: 0, offset: 0, types: ['w4_2020'] },
+        {
+          entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+          individual_ids: ['string'],
+          limit: 0,
+          offset: 0,
+          types: ['w4_2020'],
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Finch.NotFoundError);
@@ -52,6 +58,17 @@ describe('resource documents', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.hris.documents.retreive('document_id', { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(Finch.NotFoundError);
+  });
+
+  test('retreive: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.hris.documents.retreive(
+        'document_id',
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 });

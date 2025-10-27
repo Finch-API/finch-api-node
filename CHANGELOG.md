@@ -1,5 +1,70 @@
 # Changelog
 
+## 6.38.0 (2025-10-27)
+
+Full Changelog: [v6.37.0...v6.38.0](https://github.com/Finch-API/finch-api-node/compare/v6.37.0...v6.38.0)
+
+### Features
+
+* **api:** api update ([4d57031](https://github.com/Finch-API/finch-api-node/commit/4d5703128cd8a626dec68fe4ffc34980579bcd6f))
+* **api:** api update ([50af0c2](https://github.com/Finch-API/finch-api-node/commit/50af0c2c4756708e0de6bdb3c1eaacce3d24733b))
+* **api:** api update ([9fb854f](https://github.com/Finch-API/finch-api-node/commit/9fb854f6ceaac25e21901b4a035d2207de994901))
+* **api:** api update ([96d3f66](https://github.com/Finch-API/finch-api-node/commit/96d3f666690caea95b650b954dfd681eeb686c8e))
+* **api:** api update ([b331c10](https://github.com/Finch-API/finch-api-node/commit/b331c108e3912c503e4cc8393587bac2a927f4f7))
+* **api:** api update ([99a20c2](https://github.com/Finch-API/finch-api-node/commit/99a20c267f645658d3928f269f5da7a33b287d17))
+* **api:** api update ([f9c7e06](https://github.com/Finch-API/finch-api-node/commit/f9c7e0685ff5ab28614353eacc1fc7887ec6a0ff))
+* **api:** api update ([1c4f073](https://github.com/Finch-API/finch-api-node/commit/1c4f073cc8e8f06e58069dcc2bc5b708e3a8be34))
+* **api:** api update ([843b525](https://github.com/Finch-API/finch-api-node/commit/843b525f6a3f07edda04ca213a35dd3d2d37fdb3))
+* **api:** api update ([9bc9a38](https://github.com/Finch-API/finch-api-node/commit/9bc9a38df44189e734248cf7ad06259f93e25b82))
+* **api:** api update ([09d2e93](https://github.com/Finch-API/finch-api-node/commit/09d2e939a8c42d495d9207ad2d73841f6e9e8732))
+* **api:** make client id, client secret optional again ([d67f867](https://github.com/Finch-API/finch-api-node/commit/d67f867f1b3c9e4886d21da21a1cccab5760aa9d))
+* **mcp:** add docs search tool ([a9e8666](https://github.com/Finch-API/finch-api-node/commit/a9e866662d47e0f39a1988339101d46ba149fb9d))
+* **mcp:** add mcp bundles to build script ([45794fe](https://github.com/Finch-API/finch-api-node/commit/45794fe7a8d09dd0160ac3d2a64941fff12837d5))
+* **mcp:** add option for including docs tools ([fef1f5b](https://github.com/Finch-API/finch-api-node/commit/fef1f5b0cc05c737db89097378c88a38e8973089))
+* **mcp:** allow setting logging level ([4634f9a](https://github.com/Finch-API/finch-api-node/commit/4634f9a04f0fd3a7daa781876a1d93e170f1941d))
+* **mcp:** change remote server query option parsing logic ([13ef1bd](https://github.com/Finch-API/finch-api-node/commit/13ef1bd4400e1ae2b2197a35f33e79703af34e08))
+* **mcp:** enable experimental docs search tool ([8ec38f6](https://github.com/Finch-API/finch-api-node/commit/8ec38f6536ca6a6e7324dd827db0dc9ee9234f61))
+* **mcp:** expose client options in `streamableHTTPApp` ([39cdb76](https://github.com/Finch-API/finch-api-node/commit/39cdb7601c55b6d723132edeb320c3898e697fa2))
+
+
+### Bug Fixes
+
+* **ci:** set permissions for DXT publish action ([6a6dd0a](https://github.com/Finch-API/finch-api-node/commit/6a6dd0af7e290990c7773447615e3e5d99ff217b))
+* **client:** incorrect offset pagination check ([2600077](https://github.com/Finch-API/finch-api-node/commit/26000775b7ab71e9e3994196806a847383905853))
+* coerce nullable values to undefined ([aa135f5](https://github.com/Finch-API/finch-api-node/commit/aa135f5fdfe89359b6ad8c49b1908e7faee4ebaa))
+* **mcp:** avoid importing unsupported libraries on non-node environments ([8c380a8](https://github.com/Finch-API/finch-api-node/commit/8c380a8499435e8a92155664943e6fc631f7ba1a))
+* **mcp:** fix cli argument parsing logic ([277ba31](https://github.com/Finch-API/finch-api-node/commit/277ba31b242825bd569a6566a8f2a136ec0b595d))
+* **mcp:** fix query options parsing ([9087760](https://github.com/Finch-API/finch-api-node/commit/90877607933fa892f5d05c8931fa2de9d139e769))
+* **mcp:** fix uploading dxt release assets ([70f9a36](https://github.com/Finch-API/finch-api-node/commit/70f9a36f47190f4b78de043e63d65e21df6ce116))
+* **mcp:** resolve a linting issue in server code ([90b7ae2](https://github.com/Finch-API/finch-api-node/commit/90b7ae260d427cebb7bcd7f2d3e854a0efaccd19))
+
+
+### Performance Improvements
+
+* faster formatting ([163982a](https://github.com/Finch-API/finch-api-node/commit/163982a884bcf10684b5b3e242b0d52d547fc62b))
+
+
+### Chores
+
+* ci build action ([f0c3633](https://github.com/Finch-API/finch-api-node/commit/f0c3633571f7eea46803cb75ba244c41cac5a7b4))
+* **codegen:** internal codegen update ([27ec1f5](https://github.com/Finch-API/finch-api-node/commit/27ec1f5a8d71f31a327021745f7dab0aeebc4b7b))
+* do not install brew dependencies in ./scripts/bootstrap by default ([1758c0d](https://github.com/Finch-API/finch-api-node/commit/1758c0de64e97975332bb8a0c6b55a23ed82a036))
+* extract some types in mcp docs ([55c3799](https://github.com/Finch-API/finch-api-node/commit/55c37998bdb39779bfb9ae62ee5310a2a423248d))
+* **internal:** codegen related update ([d020050](https://github.com/Finch-API/finch-api-node/commit/d0200501b52ae4ac9e7c8de91d2f883e27db34c5))
+* **internal:** codegen related update ([697d211](https://github.com/Finch-API/finch-api-node/commit/697d211b9600d388aa101879ac6c400e4eb4ac53))
+* **internal:** codegen related update ([ac835bf](https://github.com/Finch-API/finch-api-node/commit/ac835bf6af93d53e551d73001d048baa95e1c334))
+* **internal:** fix incremental formatting in some cases ([40ecf6a](https://github.com/Finch-API/finch-api-node/commit/40ecf6a887ea44d156672f155abf70ab2d146921))
+* **internal:** gitignore .mcpb files ([73c778e](https://github.com/Finch-API/finch-api-node/commit/73c778e3b9d157f8296c43131cd0db764d5086bc))
+* **internal:** ignore .eslintcache ([4d90156](https://github.com/Finch-API/finch-api-node/commit/4d901569e987fa9c93c12ae77844972b4655fa8f))
+* **internal:** remove .eslintcache ([64d2197](https://github.com/Finch-API/finch-api-node/commit/64d21976509a6d6b6d0095bf1867ad9bdd153e03))
+* **internal:** remove deprecated `compilerOptions.baseUrl` from tsconfig.json ([5955e29](https://github.com/Finch-API/finch-api-node/commit/5955e291311d6d8192a3e8c3eb87f4eac9bdbdbc))
+* **internal:** use npm pack for build uploads ([7df5a28](https://github.com/Finch-API/finch-api-node/commit/7df5a28a1be002645785fa2d59cd94da5df28889))
+* **mcp:** allow pointing `docs_search` tool at other URLs ([bb7f182](https://github.com/Finch-API/finch-api-node/commit/bb7f182ef3959a99a7728cdab685d972e4110756))
+* **mcp:** rename dxt to mcpb ([68a9c07](https://github.com/Finch-API/finch-api-node/commit/68a9c079dfb35ab661f58780405036399fbaf31e))
+* **mcp:** upload dxt as release asset ([256c717](https://github.com/Finch-API/finch-api-node/commit/256c717c7eb0bd947322b14d85fc15cd7f919724))
+* update CI script ([47843c8](https://github.com/Finch-API/finch-api-node/commit/47843c85864215c19edd9826952bd625e79ca78c))
+* update lockfile ([0601d2a](https://github.com/Finch-API/finch-api-node/commit/0601d2aca7eeb80b8967d3bc89dea5b5ab527565))
+
 ## 6.37.0 (2025-08-21)
 
 Full Changelog: [v6.36.0...v6.37.0](https://github.com/Finch-API/finch-api-node/compare/v6.36.0...v6.37.0)

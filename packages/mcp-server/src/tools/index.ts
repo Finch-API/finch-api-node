@@ -12,7 +12,6 @@ import update_pay_statement_item_company_hris_rules from './hris/company/pay-sta
 import list_pay_statement_item_company_hris_rules from './hris/company/pay-statement-item/rules/list-pay-statement-item-company-hris-rules';
 import delete_pay_statement_item_company_hris_rules from './hris/company/pay-statement-item/rules/delete-pay-statement-item-company-hris-rules';
 import list_hris_directory from './hris/directory/list-hris-directory';
-import list_individuals_hris_directory from './hris/directory/list-individuals-hris-directory';
 import retrieve_many_hris_individuals from './hris/individuals/retrieve-many-hris-individuals';
 import retrieve_many_hris_employments from './hris/employments/retrieve-many-hris-employments';
 import list_hris_payments from './hris/payments/list-hris-payments';
@@ -66,7 +65,6 @@ addEndpoint(update_pay_statement_item_company_hris_rules);
 addEndpoint(list_pay_statement_item_company_hris_rules);
 addEndpoint(delete_pay_statement_item_company_hris_rules);
 addEndpoint(list_hris_directory);
-addEndpoint(list_individuals_hris_directory);
 addEndpoint(retrieve_many_hris_individuals);
 addEndpoint(retrieve_many_hris_employments);
 addEndpoint(list_hris_payments);
