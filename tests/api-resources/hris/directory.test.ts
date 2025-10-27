@@ -9,10 +9,8 @@ const client = new Finch({
 });
 
 describe('resource directory', () => {
-  test('list: only required params', async () => {
-    const responsePromise = client.hris.directory.list({
-      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-    });
+  test('list', async () => {
+    const responsePromise = client.hris.directory.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,18 +20,25 @@ describe('resource directory', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: required and optional params', async () => {
-    const response = await client.hris.directory.list({
-      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-      limit: 0,
-      offset: 0,
-    });
+  test('list: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(client.hris.directory.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      Finch.NotFoundError,
+    );
   });
 
-  test('listIndividuals: only required params', async () => {
-    const responsePromise = client.hris.directory.listIndividuals({
-      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-    });
+  test('list: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.hris.directory.list(
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'], limit: 0, offset: 0 },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Finch.NotFoundError);
+  });
+
+  test('listIndividuals', async () => {
+    const responsePromise = client.hris.directory.listIndividuals();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -43,11 +48,20 @@ describe('resource directory', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('listIndividuals: required and optional params', async () => {
-    const response = await client.hris.directory.listIndividuals({
-      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-      limit: 0,
-      offset: 0,
-    });
+  test('listIndividuals: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(client.hris.directory.listIndividuals({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      Finch.NotFoundError,
+    );
+  });
+
+  test('listIndividuals: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.hris.directory.listIndividuals(
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'], limit: 0, offset: 0 },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Finch.NotFoundError);
   });
 });

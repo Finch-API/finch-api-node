@@ -9,10 +9,8 @@ const client = new Finch({
 });
 
 describe('resource payGroups', () => {
-  test('retrieve: only required params', async () => {
-    const responsePromise = client.payroll.payGroups.retrieve('pay_group_id', {
-      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-    });
+  test('retrieve', async () => {
+    const responsePromise = client.payroll.payGroups.retrieve('pay_group_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,16 +20,26 @@ describe('resource payGroups', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('retrieve: required and optional params', async () => {
-    const response = await client.payroll.payGroups.retrieve('pay_group_id', {
-      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-    });
+  test('retrieve: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.payroll.payGroups.retrieve('pay_group_id', { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(Finch.NotFoundError);
   });
 
-  test('list: only required params', async () => {
-    const responsePromise = client.payroll.payGroups.list({
-      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-    });
+  test('retrieve: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.payroll.payGroups.retrieve(
+        'pay_group_id',
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Finch.NotFoundError);
+  });
+
+  test('list', async () => {
+    const responsePromise = client.payroll.payGroups.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -41,11 +49,24 @@ describe('resource payGroups', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: required and optional params', async () => {
-    const response = await client.payroll.payGroups.list({
-      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-      individual_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-      pay_frequencies: ['string'],
-    });
+  test('list: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(client.payroll.payGroups.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      Finch.NotFoundError,
+    );
+  });
+
+  test('list: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.payroll.payGroups.list(
+        {
+          entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+          individual_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+          pay_frequencies: ['string'],
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Finch.NotFoundError);
   });
 });

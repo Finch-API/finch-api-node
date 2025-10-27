@@ -18,7 +18,6 @@ export class PayStatements extends APIResource {
    * // Automatically fetches more pages as needed.
    * for await (const payStatementResponse of client.hris.payStatements.retrieveMany(
    *   {
-   *     entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
    *     requests: [
    *       {
    *         payment_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
@@ -313,14 +312,14 @@ export namespace PayStatementResponseBody {
 
 export interface PayStatementRetrieveManyParams {
   /**
-   * Query param: The entity IDs to specify which entities' data to access.
-   */
-  entity_ids: Array<string>;
-
-  /**
    * Body param: The array of batch requests.
    */
   requests: Array<PayStatementRetrieveManyParams.Request>;
+
+  /**
+   * Query param: The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
 }
 
 export namespace PayStatementRetrieveManyParams {

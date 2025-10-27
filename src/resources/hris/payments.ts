@@ -14,7 +14,6 @@ export class Payments extends APIResource {
    * // Automatically fetches more pages as needed.
    * for await (const payment of client.hris.payments.list({
    *   end_date: '2021-01-01',
-   *   entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
    *   start_date: '2021-01-01',
    * })) {
    *   // ...
@@ -101,15 +100,15 @@ export interface PaymentListParams {
   end_date: string;
 
   /**
-   * The entity IDs to specify which entities' data to access.
-   */
-  entity_ids: Array<string>;
-
-  /**
    * The start date to retrieve payments by a company (inclusive) in `YYYY-MM-DD`
    * format.
    */
   start_date: string;
+
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
 }
 
 Payments.PaymentsSinglePage = PaymentsSinglePage;

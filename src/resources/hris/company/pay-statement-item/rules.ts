@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../../resource';
+import { isRequestOptions } from '../../../../core';
 import * as Core from '../../../../core';
 import { ResponsesPage } from '../../../../pagination';
 
@@ -16,12 +17,18 @@ export class Rules extends APIResource {
    * @example
    * ```ts
    * const rule =
-   *   await client.hris.company.payStatementItem.rules.create({
-   *     entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-   *   });
+   *   await client.hris.company.payStatementItem.rules.create();
    * ```
    */
-  create(params: RuleCreateParams, options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse> {
+  create(params?: RuleCreateParams, options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse>;
+  create(options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse>;
+  create(
+    params: RuleCreateParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<RuleCreateResponse> {
+    if (isRequestOptions(params)) {
+      return this.create({}, params);
+    }
     const { entity_ids, ...body } = params;
     return this._client.post('/employer/pay-statement-item/rule', {
       query: { entity_ids },
@@ -39,17 +46,23 @@ export class Rules extends APIResource {
    * const rule =
    *   await client.hris.company.payStatementItem.rules.update(
    *     'rule_id',
-   *     {
-   *       entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-   *     },
    *   );
    * ```
    */
   update(
     ruleId: string,
-    params: RuleUpdateParams,
+    params?: RuleUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<RuleUpdateResponse>;
+  update(ruleId: string, options?: Core.RequestOptions): Core.APIPromise<RuleUpdateResponse>;
+  update(
+    ruleId: string,
+    params: RuleUpdateParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.APIPromise<RuleUpdateResponse> {
+    if (isRequestOptions(params)) {
+      return this.update(ruleId, {}, params);
+    }
     const { entity_ids, ...body } = params;
     return this._client.put(`/employer/pay-statement-item/rule/${ruleId}`, {
       query: { entity_ids },
@@ -65,17 +78,23 @@ export class Rules extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const ruleListResponse of client.hris.company.payStatementItem.rules.list(
-   *   { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
-   * )) {
+   * for await (const ruleListResponse of client.hris.company.payStatementItem.rules.list()) {
    *   // ...
    * }
    * ```
    */
   list(
-    query: RuleListParams,
+    query?: RuleListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<RuleListResponsesPage, RuleListResponse>;
+  list(options?: Core.RequestOptions): Core.PagePromise<RuleListResponsesPage, RuleListResponse>;
+  list(
+    query: RuleListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.PagePromise<RuleListResponsesPage, RuleListResponse> {
+    if (isRequestOptions(query)) {
+      return this.list({}, query);
+    }
     return this._client.getAPIList('/employer/pay-statement-item/rule', RuleListResponsesPage, {
       query,
       ...options,
@@ -91,17 +110,23 @@ export class Rules extends APIResource {
    * const rule =
    *   await client.hris.company.payStatementItem.rules.delete(
    *     'rule_id',
-   *     {
-   *       entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-   *     },
    *   );
    * ```
    */
   delete(
     ruleId: string,
-    params: RuleDeleteParams,
+    params?: RuleDeleteParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<RuleDeleteResponse>;
+  delete(ruleId: string, options?: Core.RequestOptions): Core.APIPromise<RuleDeleteResponse>;
+  delete(
+    ruleId: string,
+    params: RuleDeleteParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.APIPromise<RuleDeleteResponse> {
+    if (isRequestOptions(params)) {
+      return this.delete(ruleId, {}, params);
+    }
     const { entity_ids } = params;
     return this._client.delete(`/employer/pay-statement-item/rule/${ruleId}`, {
       query: { entity_ids },
@@ -417,7 +442,7 @@ export interface RuleCreateParams {
   /**
    * Query param: The entity IDs to create the rule for.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 
   /**
    * Body param: Specifies the fields to be applied when the condition is met.
@@ -480,7 +505,7 @@ export interface RuleUpdateParams {
   /**
    * Query param: The entity IDs to update the rule for.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 
   /**
    * Body param:
@@ -492,14 +517,14 @@ export interface RuleListParams {
   /**
    * The entity IDs to retrieve rules for.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 }
 
 export interface RuleDeleteParams {
   /**
    * The entity IDs to delete the rule for.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 }
 
 Rules.RuleListResponsesPage = RuleListResponsesPage;

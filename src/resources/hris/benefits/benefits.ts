@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../resource';
+import { isRequestOptions } from '../../../core';
 import * as Core from '../../../core';
 import * as Shared from '../../shared';
 import * as IndividualsAPI from './individuals';
@@ -28,15 +29,21 @@ export class Benefits extends APIResource {
    * @example
    * ```ts
    * const createCompanyBenefitsResponse =
-   *   await client.hris.benefits.create({
-   *     entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-   *   });
+   *   await client.hris.benefits.create();
    * ```
    */
   create(
-    params: BenefitCreateParams,
+    params?: BenefitCreateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<CreateCompanyBenefitsResponse>;
+  create(options?: Core.RequestOptions): Core.APIPromise<CreateCompanyBenefitsResponse>;
+  create(
+    params: BenefitCreateParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.APIPromise<CreateCompanyBenefitsResponse> {
+    if (isRequestOptions(params)) {
+      return this.create({}, params);
+    }
     const { entity_ids, ...body } = params;
     return this._client.post('/employer/benefits', { query: { entity_ids }, body, ...options });
   }
@@ -48,15 +55,23 @@ export class Benefits extends APIResource {
    * ```ts
    * const companyBenefit = await client.hris.benefits.retrieve(
    *   'benefit_id',
-   *   { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
    * );
    * ```
    */
   retrieve(
     benefitId: string,
-    query: BenefitRetrieveParams,
+    query?: BenefitRetrieveParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<CompanyBenefit>;
+  retrieve(benefitId: string, options?: Core.RequestOptions): Core.APIPromise<CompanyBenefit>;
+  retrieve(
+    benefitId: string,
+    query: BenefitRetrieveParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.APIPromise<CompanyBenefit> {
+    if (isRequestOptions(query)) {
+      return this.retrieve(benefitId, {}, query);
+    }
     return this._client.get(`/employer/benefits/${benefitId}`, { query, ...options });
   }
 
@@ -66,16 +81,23 @@ export class Benefits extends APIResource {
    * @example
    * ```ts
    * const updateCompanyBenefitResponse =
-   *   await client.hris.benefits.update('benefit_id', {
-   *     entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-   *   });
+   *   await client.hris.benefits.update('benefit_id');
    * ```
    */
   update(
     benefitId: string,
-    params: BenefitUpdateParams,
+    params?: BenefitUpdateParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<UpdateCompanyBenefitResponse>;
+  update(benefitId: string, options?: Core.RequestOptions): Core.APIPromise<UpdateCompanyBenefitResponse>;
+  update(
+    benefitId: string,
+    params: BenefitUpdateParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.APIPromise<UpdateCompanyBenefitResponse> {
+    if (isRequestOptions(params)) {
+      return this.update(benefitId, {}, params);
+    }
     const { entity_ids, ...body } = params;
     return this._client.post(`/employer/benefits/${benefitId}`, { query: { entity_ids }, body, ...options });
   }
@@ -86,17 +108,23 @@ export class Benefits extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const companyBenefit of client.hris.benefits.list(
-   *   { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
-   * )) {
+   * for await (const companyBenefit of client.hris.benefits.list()) {
    *   // ...
    * }
    * ```
    */
   list(
-    query: BenefitListParams,
+    query?: BenefitListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit>;
+  list(options?: Core.RequestOptions): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit>;
+  list(
+    query: BenefitListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit> {
+    if (isRequestOptions(query)) {
+      return this.list({}, query);
+    }
     return this._client.getAPIList('/employer/benefits', CompanyBenefitsSinglePage, { query, ...options });
   }
 
@@ -106,17 +134,25 @@ export class Benefits extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const supportedBenefit of client.hris.benefits.listSupportedBenefits(
-   *   { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
-   * )) {
+   * for await (const supportedBenefit of client.hris.benefits.listSupportedBenefits()) {
    *   // ...
    * }
    * ```
    */
   listSupportedBenefits(
-    query: BenefitListSupportedBenefitsParams,
+    query?: BenefitListSupportedBenefitsParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit>;
+  listSupportedBenefits(
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit>;
+  listSupportedBenefits(
+    query: BenefitListSupportedBenefitsParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit> {
+    if (isRequestOptions(query)) {
+      return this.listSupportedBenefits({}, query);
+    }
     return this._client.getAPIList('/employer/benefits/meta', SupportedBenefitsSinglePage, {
       query,
       ...options,
@@ -362,7 +398,7 @@ export interface BenefitCreateParams {
   /**
    * Query param: The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 
   /**
    * Body param: The company match for this benefit.
@@ -410,14 +446,14 @@ export interface BenefitRetrieveParams {
   /**
    * The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 }
 
 export interface BenefitUpdateParams {
   /**
    * Query param: The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 
   /**
    * Body param: Updated name or description.
@@ -429,14 +465,14 @@ export interface BenefitListParams {
   /**
    * The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 }
 
 export interface BenefitListSupportedBenefitsParams {
   /**
    * The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 }
 
 Benefits.CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;

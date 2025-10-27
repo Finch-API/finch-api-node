@@ -21,13 +21,6 @@ export const tool: Tool = {
   inputSchema: {
     type: 'object',
     properties: {
-      entity_ids: {
-        type: 'array',
-        description: "The entity IDs to specify which entities' data to access.",
-        items: {
-          type: 'string',
-        },
-      },
       requests: {
         type: 'array',
         description: 'The array of batch requests.',
@@ -50,8 +43,15 @@ export const tool: Tool = {
           required: ['payment_id'],
         },
       },
+      entity_ids: {
+        type: 'array',
+        description: "The entity IDs to specify which entities' data to access.",
+        items: {
+          type: 'string',
+        },
+      },
     },
-    required: ['entity_ids', 'requests'],
+    required: ['requests'],
   },
   annotations: {},
 };

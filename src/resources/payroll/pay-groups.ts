@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import { SinglePage } from '../../pagination';
 
@@ -10,9 +11,18 @@ export class PayGroups extends APIResource {
    */
   retrieve(
     payGroupId: string,
-    query: PayGroupRetrieveParams,
+    query?: PayGroupRetrieveParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<PayGroupRetrieveResponse>;
+  retrieve(payGroupId: string, options?: Core.RequestOptions): Core.APIPromise<PayGroupRetrieveResponse>;
+  retrieve(
+    payGroupId: string,
+    query: PayGroupRetrieveParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.APIPromise<PayGroupRetrieveResponse> {
+    if (isRequestOptions(query)) {
+      return this.retrieve(payGroupId, {}, query);
+    }
     return this._client.get(`/employer/pay-groups/${payGroupId}`, { query, ...options });
   }
 
@@ -20,9 +30,19 @@ export class PayGroups extends APIResource {
    * Read company pay groups and frequencies
    */
   list(
-    query: PayGroupListParams,
+    query?: PayGroupListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<PayGroupListResponsesSinglePage, PayGroupListResponse>;
+  list(
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<PayGroupListResponsesSinglePage, PayGroupListResponse>;
+  list(
+    query: PayGroupListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.PagePromise<PayGroupListResponsesSinglePage, PayGroupListResponse> {
+    if (isRequestOptions(query)) {
+      return this.list({}, query);
+    }
     return this._client.getAPIList('/employer/pay-groups', PayGroupListResponsesSinglePage, {
       query,
       ...options,
@@ -92,14 +112,14 @@ export interface PayGroupRetrieveParams {
   /**
    * The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 }
 
 export interface PayGroupListParams {
   /**
    * The entity IDs to specify which entities' data to access.
    */
-  entity_ids: Array<string>;
+  entity_ids?: Array<string>;
 
   individual_id?: string;
 

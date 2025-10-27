@@ -11,7 +11,6 @@ const client = new Finch({
 describe('resource employments', () => {
   test('retrieveMany: only required params', async () => {
     const responsePromise = client.hris.employments.retrieveMany({
-      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
       requests: [{ individual_id: 'individual_id' }],
     });
     const rawResponse = await responsePromise.asResponse();
@@ -25,8 +24,8 @@ describe('resource employments', () => {
 
   test('retrieveMany: required and optional params', async () => {
     const response = await client.hris.employments.retrieveMany({
-      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
       requests: [{ individual_id: 'individual_id' }],
+      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
     });
   });
 });
