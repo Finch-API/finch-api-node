@@ -1,9 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../resource';
-import { isRequestOptions } from '../../../core';
-import * as Core from '../../../core';
-import { SinglePage } from '../../../pagination';
+import { APIResource } from '../../../core/resource';
+import { APIPromise } from '../../../core/api-promise';
+import { PagePromise, SinglePage } from '../../../core/pagination';
+import { RequestOptions } from '../../../internal/request-options';
+import { path } from '../../../internal/utils/path';
 
 export class Individuals extends APIResource {
   /**
@@ -21,24 +22,12 @@ export class Individuals extends APIResource {
    * ```
    */
   enrollMany(
-    benefitId: string,
-    params?: IndividualEnrollManyParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<EnrolledIndividualBenefitResponse>;
-  enrollMany(
-    benefitId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<EnrolledIndividualBenefitResponse>;
-  enrollMany(
-    benefitId: string,
-    params?: IndividualEnrollManyParams | Core.RequestOptions,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<EnrolledIndividualBenefitResponse> {
-    if (isRequestOptions(params)) {
-      return this.enrollMany(benefitId, undefined, params);
-    }
+    benefitID: string,
+    params: IndividualEnrollManyParams | null | undefined = undefined,
+    options?: RequestOptions,
+  ): APIPromise<EnrolledIndividualBenefitResponse> {
     const { entity_ids, individuals } = params ?? {};
-    return this._client.post(`/employer/benefits/${benefitId}/individuals`, {
+    return this._client.post(path`/employer/benefits/${benefitID}/individuals`, {
       query: { entity_ids },
       body: individuals,
       ...options,
@@ -51,29 +40,17 @@ export class Individuals extends APIResource {
    * @example
    * ```ts
    * const response =
-   *   await client.hris.benefits.individuals.enrolledIds(
+   *   await client.hris.benefits.individuals.enrolledIDs(
    *     'benefit_id',
    *   );
    * ```
    */
-  enrolledIds(
-    benefitId: string,
-    query?: IndividualEnrolledIDsParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<IndividualEnrolledIDsResponse>;
-  enrolledIds(
-    benefitId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<IndividualEnrolledIDsResponse>;
-  enrolledIds(
-    benefitId: string,
-    query: IndividualEnrolledIDsParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<IndividualEnrolledIDsResponse> {
-    if (isRequestOptions(query)) {
-      return this.enrolledIds(benefitId, {}, query);
-    }
-    return this._client.get(`/employer/benefits/${benefitId}/enrolled`, { query, ...options });
+  enrolledIDs(
+    benefitID: string,
+    query: IndividualEnrolledIDsParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<IndividualEnrolledIDsResponse> {
+    return this._client.get(path`/employer/benefits/${benefitID}/enrolled`, { query, ...options });
   }
 
   /**
@@ -90,25 +67,13 @@ export class Individuals extends APIResource {
    * ```
    */
   retrieveManyBenefits(
-    benefitId: string,
-    query?: IndividualRetrieveManyBenefitsParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualBenefitsSinglePage, IndividualBenefit>;
-  retrieveManyBenefits(
-    benefitId: string,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualBenefitsSinglePage, IndividualBenefit>;
-  retrieveManyBenefits(
-    benefitId: string,
-    query: IndividualRetrieveManyBenefitsParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualBenefitsSinglePage, IndividualBenefit> {
-    if (isRequestOptions(query)) {
-      return this.retrieveManyBenefits(benefitId, {}, query);
-    }
+    benefitID: string,
+    query: IndividualRetrieveManyBenefitsParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<IndividualBenefitsSinglePage, IndividualBenefit> {
     return this._client.getAPIList(
-      `/employer/benefits/${benefitId}/individuals`,
-      IndividualBenefitsSinglePage,
+      path`/employer/benefits/${benefitID}/individuals`,
+      SinglePage<IndividualBenefit>,
       { query, ...options },
     );
   }
@@ -125,24 +90,12 @@ export class Individuals extends APIResource {
    * ```
    */
   unenrollMany(
-    benefitId: string,
-    params?: IndividualUnenrollManyParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<UnenrolledIndividualBenefitResponse>;
-  unenrollMany(
-    benefitId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<UnenrolledIndividualBenefitResponse>;
-  unenrollMany(
-    benefitId: string,
-    params: IndividualUnenrollManyParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<UnenrolledIndividualBenefitResponse> {
-    if (isRequestOptions(params)) {
-      return this.unenrollMany(benefitId, {}, params);
-    }
-    const { entity_ids, ...body } = params;
-    return this._client.delete(`/employer/benefits/${benefitId}/individuals`, {
+    benefitID: string,
+    params: IndividualUnenrollManyParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<UnenrolledIndividualBenefitResponse> {
+    const { entity_ids, ...body } = params ?? {};
+    return this._client.delete(path`/employer/benefits/${benefitID}/individuals`, {
       query: { entity_ids },
       body,
       ...options,
@@ -150,7 +103,7 @@ export class Individuals extends APIResource {
   }
 }
 
-export class IndividualBenefitsSinglePage extends SinglePage<IndividualBenefit> {}
+export type IndividualBenefitsSinglePage = SinglePage<IndividualBenefit>;
 
 export interface EnrolledIndividualBenefitResponse {
   job_id: string;
@@ -412,15 +365,13 @@ export interface IndividualUnenrollManyParams {
   individual_ids?: Array<string>;
 }
 
-Individuals.IndividualBenefitsSinglePage = IndividualBenefitsSinglePage;
-
 export declare namespace Individuals {
   export {
     type EnrolledIndividualBenefitResponse as EnrolledIndividualBenefitResponse,
     type IndividualBenefit as IndividualBenefit,
     type UnenrolledIndividualBenefitResponse as UnenrolledIndividualBenefitResponse,
     type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
-    IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
+    type IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
     type IndividualEnrollManyParams as IndividualEnrollManyParams,
     type IndividualEnrolledIDsParams as IndividualEnrolledIDsParams,
     type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,

@@ -1,13 +1,14 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Sessions extends APIResource {
   /**
    * Create a new connect session for an employer
    */
-  new(body: SessionNewParams, options?: Core.RequestOptions): Core.APIPromise<SessionNewResponse> {
+  new(body: SessionNewParams, options?: RequestOptions): APIPromise<SessionNewResponse> {
     return this._client.post('/connect/sessions', { body, ...options });
   }
 
@@ -16,8 +17,8 @@ export class Sessions extends APIResource {
    */
   reauthenticate(
     body: SessionReauthenticateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<SessionReauthenticateResponse> {
+    options?: RequestOptions,
+  ): APIPromise<SessionReauthenticateResponse> {
     return this._client.post('/connect/sessions/reauthenticate', { body, ...options });
   }
 }

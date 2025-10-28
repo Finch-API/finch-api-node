@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Payment extends APIResource {
   /**
@@ -13,15 +13,10 @@ export class Payment extends APIResource {
    * const payment = await client.sandbox.payment.create();
    * ```
    */
-  create(body?: PaymentCreateParams, options?: Core.RequestOptions): Core.APIPromise<PaymentCreateResponse>;
-  create(options?: Core.RequestOptions): Core.APIPromise<PaymentCreateResponse>;
   create(
-    body: PaymentCreateParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<PaymentCreateResponse> {
-    if (isRequestOptions(body)) {
-      return this.create({}, body);
-    }
+    body: PaymentCreateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<PaymentCreateResponse> {
     return this._client.post('/sandbox/payment', { body, ...options });
   }
 }

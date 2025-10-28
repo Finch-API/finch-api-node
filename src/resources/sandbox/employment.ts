@@ -1,9 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as HRISAPI from '../hris/hris';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Employment extends APIResource {
   /**
@@ -17,20 +18,11 @@ export class Employment extends APIResource {
    * ```
    */
   update(
-    individualId: string,
-    body?: EmploymentUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<EmploymentUpdateResponse>;
-  update(individualId: string, options?: Core.RequestOptions): Core.APIPromise<EmploymentUpdateResponse>;
-  update(
-    individualId: string,
-    body: EmploymentUpdateParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<EmploymentUpdateResponse> {
-    if (isRequestOptions(body)) {
-      return this.update(individualId, {}, body);
-    }
-    return this._client.put(`/sandbox/employment/${individualId}`, { body, ...options });
+    individualID: string,
+    body: EmploymentUpdateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<EmploymentUpdateResponse> {
+    return this._client.put(path`/sandbox/employment/${individualID}`, { body, ...options });
   }
 }
 

@@ -1,16 +1,14 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
+import { APIResource } from '../core/resource';
+import { APIPromise } from '../core/api-promise';
+import { RequestOptions } from '../internal/request-options';
 
 export class AccessTokens extends APIResource {
   /**
    * Exchange the authorization code for an access token
    */
-  create(
-    body: AccessTokenCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CreateAccessTokenResponse> {
+  create(body: AccessTokenCreateParams, options?: RequestOptions): APIPromise<CreateAccessTokenResponse> {
     return this._client.post('/auth/token', { body, ...options });
   }
 }

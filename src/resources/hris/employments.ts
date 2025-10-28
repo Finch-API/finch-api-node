@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as HRISAPI from './hris';
-import { ResponsesPage } from '../../pagination';
+import { PagePromise, ResponsesPage } from '../../core/pagination';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Employments extends APIResource {
   /**
@@ -21,10 +21,10 @@ export class Employments extends APIResource {
    */
   retrieveMany(
     params: EmploymentRetrieveManyParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<EmploymentDataResponsesPage, EmploymentDataResponse> {
+    options?: RequestOptions,
+  ): PagePromise<EmploymentDataResponsesPage, EmploymentDataResponse> {
     const { entity_ids, ...body } = params;
-    return this._client.getAPIList('/employer/employment', EmploymentDataResponsesPage, {
+    return this._client.getAPIList('/employer/employment', ResponsesPage<EmploymentDataResponse>, {
       query: { entity_ids },
       body,
       method: 'post',
@@ -33,7 +33,7 @@ export class Employments extends APIResource {
   }
 }
 
-export class EmploymentDataResponsesPage extends ResponsesPage<EmploymentDataResponse> {}
+export type EmploymentDataResponsesPage = ResponsesPage<EmploymentDataResponse>;
 
 export type EmploymentData = EmploymentData.UnionMember0 | EmploymentData.BatchError;
 
@@ -230,13 +230,11 @@ export namespace EmploymentRetrieveManyParams {
   }
 }
 
-Employments.EmploymentDataResponsesPage = EmploymentDataResponsesPage;
-
 export declare namespace Employments {
   export {
     type EmploymentData as EmploymentData,
     type EmploymentDataResponse as EmploymentDataResponse,
-    EmploymentDataResponsesPage as EmploymentDataResponsesPage,
+    type EmploymentDataResponsesPage as EmploymentDataResponsesPage,
     type EmploymentRetrieveManyParams as EmploymentRetrieveManyParams,
   };
 }

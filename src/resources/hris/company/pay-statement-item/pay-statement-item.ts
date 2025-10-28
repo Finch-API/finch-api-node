@@ -1,8 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../../resource';
-import { isRequestOptions } from '../../../../core';
-import * as Core from '../../../../core';
+import { APIResource } from '../../../../core/resource';
 import * as RulesAPI from './rules';
 import {
   RuleCreateParams,
@@ -16,7 +14,8 @@ import {
   RuleUpdateResponse,
   Rules,
 } from './rules';
-import { ResponsesPage } from '../../../../pagination';
+import { PagePromise, ResponsesPage } from '../../../../core/pagination';
+import { RequestOptions } from '../../../../internal/request-options';
 
 export class PayStatementItem extends APIResource {
   rules: RulesAPI.Rules = new RulesAPI.Rules(this._client);
@@ -35,27 +34,18 @@ export class PayStatementItem extends APIResource {
    * ```
    */
   list(
-    query?: PayStatementItemListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PayStatementItemListResponsesPage, PayStatementItemListResponse>;
-  list(
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PayStatementItemListResponsesPage, PayStatementItemListResponse>;
-  list(
-    query: PayStatementItemListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PayStatementItemListResponsesPage, PayStatementItemListResponse> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
-    return this._client.getAPIList('/employer/pay-statement-item', PayStatementItemListResponsesPage, {
-      query,
-      ...options,
-    });
+    query: PayStatementItemListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<PayStatementItemListResponsesPage, PayStatementItemListResponse> {
+    return this._client.getAPIList(
+      '/employer/pay-statement-item',
+      ResponsesPage<PayStatementItemListResponse>,
+      { query, ...options },
+    );
   }
 }
 
-export class PayStatementItemListResponsesPage extends ResponsesPage<PayStatementItemListResponse> {}
+export type PayStatementItemListResponsesPage = ResponsesPage<PayStatementItemListResponse>;
 
 export interface PayStatementItemListResponse {
   /**
@@ -139,14 +129,12 @@ export interface PayStatementItemListParams {
   type?: string;
 }
 
-PayStatementItem.PayStatementItemListResponsesPage = PayStatementItemListResponsesPage;
 PayStatementItem.Rules = Rules;
-PayStatementItem.RuleListResponsesPage = RuleListResponsesPage;
 
 export declare namespace PayStatementItem {
   export {
     type PayStatementItemListResponse as PayStatementItemListResponse,
-    PayStatementItemListResponsesPage as PayStatementItemListResponsesPage,
+    type PayStatementItemListResponsesPage as PayStatementItemListResponsesPage,
     type PayStatementItemListParams as PayStatementItemListParams,
   };
 
@@ -156,7 +144,7 @@ export declare namespace PayStatementItem {
     type RuleUpdateResponse as RuleUpdateResponse,
     type RuleListResponse as RuleListResponse,
     type RuleDeleteResponse as RuleDeleteResponse,
-    RuleListResponsesPage as RuleListResponsesPage,
+    type RuleListResponsesPage as RuleListResponsesPage,
     type RuleCreateParams as RuleCreateParams,
     type RuleUpdateParams as RuleUpdateParams,
     type RuleListParams as RuleListParams,

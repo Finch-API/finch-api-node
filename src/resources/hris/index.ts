@@ -1,8 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export {
-  CompanyBenefitsSinglePage,
-  SupportedBenefitsSinglePage,
   Benefits,
   type BenefitContribution,
   type BenefitFeaturesAndOperations,
@@ -20,6 +18,8 @@ export {
   type BenefitUpdateParams,
   type BenefitListParams,
   type BenefitListSupportedBenefitsParams,
+  type CompanyBenefitsSinglePage,
+  type SupportedBenefitsSinglePage,
 } from './benefits/index';
 export { CompanyResource, type Company, type CompanyRetrieveParams } from './company/index';
 export {
@@ -39,27 +39,27 @@ export {
   type DocumentRetreiveParams,
 } from './documents';
 export {
-  EmploymentDataResponsesPage,
   Employments,
   type EmploymentData,
   type EmploymentDataResponse,
   type EmploymentRetrieveManyParams,
+  type EmploymentDataResponsesPage,
 } from './employments';
 export { HRIS, type Income, type Location, type Money } from './hris';
 export {
-  IndividualResponsesPage,
   Individuals,
   type Individual,
   type IndividualResponse,
   type IndividualRetrieveManyParams,
+  type IndividualResponsesPage,
 } from './individuals';
 export {
-  PayStatementResponsesPage,
   PayStatements,
   type PayStatement,
   type PayStatementDataSyncInProgress,
   type PayStatementResponse,
   type PayStatementResponseBody,
   type PayStatementRetrieveManyParams,
+  type PayStatementResponsesPage,
 } from './pay-statements';
-export { PaymentsSinglePage, Payments, type Payment, type PaymentListParams } from './payments';
+export { Payments, type Payment, type PaymentListParams, type PaymentsSinglePage } from './payments';

@@ -13,7 +13,7 @@ export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> =
       case 'Basic':
         const rawValue = Buffer.from(value, 'base64').toString();
         return {
-          clientId: rawValue.slice(0, rawValue.search(':')),
+          clientID: rawValue.slice(0, rawValue.search(':')),
           clientSecret: rawValue.slice(rawValue.search(':') + 1),
         };
       default:
@@ -21,7 +21,7 @@ export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> =
     }
   }
 
-  const clientId =
+  const clientID =
     Array.isArray(req.headers['x-finch-client-id']) ?
       req.headers['x-finch-client-id'][0]
     : req.headers['x-finch-client-id'];
@@ -29,5 +29,5 @@ export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> =
     Array.isArray(req.headers['x-finch-client-secret']) ?
       req.headers['x-finch-client-secret'][0]
     : req.headers['x-finch-client-secret'];
-  return { clientId, clientSecret };
+  return { clientID, clientSecret };
 };

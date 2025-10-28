@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as HRISAPI from './hris';
 import * as BenefitsAPI from './benefits/benefits';
-import { ResponsesPage } from '../../pagination';
+import { PagePromise, ResponsesPage } from '../../core/pagination';
+import { RequestOptions } from '../../internal/request-options';
 
 export class PayStatements extends APIResource {
   /**
@@ -31,10 +31,10 @@ export class PayStatements extends APIResource {
    */
   retrieveMany(
     params: PayStatementRetrieveManyParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PayStatementResponsesPage, PayStatementResponse> {
+    options?: RequestOptions,
+  ): PagePromise<PayStatementResponsesPage, PayStatementResponse> {
     const { entity_ids, ...body } = params;
-    return this._client.getAPIList('/employer/pay-statement', PayStatementResponsesPage, {
+    return this._client.getAPIList('/employer/pay-statement', ResponsesPage<PayStatementResponse>, {
       query: { entity_ids },
       body,
       method: 'post',
@@ -43,7 +43,7 @@ export class PayStatements extends APIResource {
   }
 }
 
-export class PayStatementResponsesPage extends ResponsesPage<PayStatementResponse> {}
+export type PayStatementResponsesPage = ResponsesPage<PayStatementResponse>;
 
 export interface PayStatement {
   /**
@@ -341,15 +341,13 @@ export namespace PayStatementRetrieveManyParams {
   }
 }
 
-PayStatements.PayStatementResponsesPage = PayStatementResponsesPage;
-
 export declare namespace PayStatements {
   export {
     type PayStatement as PayStatement,
     type PayStatementDataSyncInProgress as PayStatementDataSyncInProgress,
     type PayStatementResponse as PayStatementResponse,
     type PayStatementResponseBody as PayStatementResponseBody,
-    PayStatementResponsesPage as PayStatementResponsesPage,
+    type PayStatementResponsesPage as PayStatementResponsesPage,
     type PayStatementRetrieveManyParams as PayStatementRetrieveManyParams,
   };
 }

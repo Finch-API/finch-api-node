@@ -1,9 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
-import { IndividualsPage, type IndividualsPageParams } from '../../pagination';
+import { APIResource } from '../../core/resource';
+import { IndividualsPage, type IndividualsPageParams, PagePromise } from '../../core/pagination';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Directory extends APIResource {
   /**
@@ -18,18 +17,13 @@ export class Directory extends APIResource {
    * ```
    */
   list(
-    query?: DirectoryListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualsPage, IndividualInDirectory>;
-  list(options?: Core.RequestOptions): Core.PagePromise<IndividualsPage, IndividualInDirectory>;
-  list(
-    query: DirectoryListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualsPage, IndividualInDirectory> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
-    return this._client.getAPIList('/employer/directory', IndividualsPage, { query, ...options });
+    query: DirectoryListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<IndividualsPage, IndividualInDirectory> {
+    return this._client.getAPIList('/employer/directory', IndividualsPage<IndividualInDirectory>, {
+      query,
+      ...options,
+    });
   }
 
   /**

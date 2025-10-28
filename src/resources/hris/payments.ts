@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as HRISAPI from './hris';
-import { SinglePage } from '../../pagination';
+import { PagePromise, SinglePage } from '../../core/pagination';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Payments extends APIResource {
   /**
@@ -20,15 +20,12 @@ export class Payments extends APIResource {
    * }
    * ```
    */
-  list(
-    query: PaymentListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PaymentsSinglePage, Payment> {
-    return this._client.getAPIList('/employer/payment', PaymentsSinglePage, { query, ...options });
+  list(query: PaymentListParams, options?: RequestOptions): PagePromise<PaymentsSinglePage, Payment> {
+    return this._client.getAPIList('/employer/payment', SinglePage<Payment>, { query, ...options });
   }
 }
 
-export class PaymentsSinglePage extends SinglePage<Payment> {}
+export type PaymentsSinglePage = SinglePage<Payment>;
 
 export interface Payment {
   /**
@@ -111,12 +108,10 @@ export interface PaymentListParams {
   entity_ids?: Array<string>;
 }
 
-Payments.PaymentsSinglePage = PaymentsSinglePage;
-
 export declare namespace Payments {
   export {
     type Payment as Payment,
-    PaymentsSinglePage as PaymentsSinglePage,
+    type PaymentsSinglePage as PaymentsSinglePage,
     type PaymentListParams as PaymentListParams,
   };
 }
