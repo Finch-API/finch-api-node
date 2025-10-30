@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.38.1 (2025-10-30)
+
+Full Changelog: [v6.38.0...v6.38.1](https://github.com/Finch-API/finch-api-node/compare/v6.38.0...v6.38.1)
+
+### Bug Fixes
+
+* **mcpb:** pin @anthropic-ai/mcpb version ([77d0632](https://github.com/Finch-API/finch-api-node/commit/77d0632d886fee1d2358b723de7b9585dc2db6b6))
+
 ## 6.38.0 (2025-10-27)
 
 Full Changelog: [v6.37.0...v6.38.0](https://github.com/Finch-API/finch-api-node/compare/v6.37.0...v6.38.0)
