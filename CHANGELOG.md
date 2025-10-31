@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.38.2 (2025-10-31)
+
+Full Changelog: [v6.38.1...v6.38.2](https://github.com/Finch-API/finch-api-node/compare/v6.38.1...v6.38.2)
+
+### Chores
+
+* **ownership:** move from data to platform team ([#633](https://github.com/Finch-API/finch-api-node/issues/633)) ([1e3cc40](https://github.com/Finch-API/finch-api-node/commit/1e3cc404f3722b90d1b24223d6e08834df227ff6))
+
 ## 6.38.1 (2025-10-30)
 
 Full Changelog: [v6.38.0...v6.38.1](https://github.com/Finch-API/finch-api-node/compare/v6.38.0...v6.38.1)
