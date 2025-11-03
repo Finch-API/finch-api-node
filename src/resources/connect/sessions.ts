@@ -48,11 +48,6 @@ export interface SessionReauthenticateResponse {
 
 export interface SessionNewParams {
   /**
-   * Email address of the customer
-   */
-  customer_email: string | null;
-
-  /**
    * Unique identifier for the customer
    */
   customer_id: string;
@@ -61,22 +56,6 @@ export interface SessionNewParams {
    * Name of the customer
    */
   customer_name: string;
-
-  /**
-   * Integration configuration for the connect session
-   */
-  integration: SessionNewParams.Integration | null;
-
-  /**
-   * Enable manual authentication mode
-   */
-  manual: boolean | null;
-
-  /**
-   * The number of minutes until the session expires (defaults to 129,600, which is
-   * 90 days)
-   */
-  minutes_to_expire: number | null;
 
   /**
    * The Finch products to request access to
@@ -95,14 +74,35 @@ export interface SessionNewParams {
   >;
 
   /**
+   * Email address of the customer
+   */
+  customer_email?: string | null;
+
+  /**
+   * Integration configuration for the connect session
+   */
+  integration?: SessionNewParams.Integration | null;
+
+  /**
+   * Enable manual authentication mode
+   */
+  manual?: boolean | null;
+
+  /**
+   * The number of minutes until the session expires (defaults to 129,600, which is
+   * 90 days)
+   */
+  minutes_to_expire?: number | null;
+
+  /**
    * The URI to redirect to after the Connect flow is completed
    */
-  redirect_uri: string | null;
+  redirect_uri?: string | null;
 
   /**
    * Sandbox mode for testing
    */
-  sandbox: 'finch' | 'provider' | null;
+  sandbox?: 'finch' | 'provider' | null;
 }
 
 export namespace SessionNewParams {
@@ -111,14 +111,14 @@ export namespace SessionNewParams {
    */
   export interface Integration {
     /**
-     * The authentication method to use
-     */
-    auth_method: 'assisted' | 'credential' | 'oauth' | 'api_token' | null;
-
-    /**
      * The provider to integrate with
      */
-    provider: string | null;
+    provider: string;
+
+    /**
+     * The authentication method to use
+     */
+    auth_method?: 'assisted' | 'credential' | 'oauth' | 'api_token' | null;
   }
 }
 
@@ -132,12 +132,12 @@ export interface SessionReauthenticateParams {
    * The number of minutes until the session expires (defaults to 43,200, which is 30
    * days)
    */
-  minutes_to_expire: number;
+  minutes_to_expire?: number;
 
   /**
    * The products to request access to (optional for reauthentication)
    */
-  products: Array<
+  products?: Array<
     | 'benefits'
     | 'company'
     | 'deduction'
@@ -153,7 +153,7 @@ export interface SessionReauthenticateParams {
   /**
    * The URI to redirect to after the Connect flow is completed
    */
-  redirect_uri: string | null;
+  redirect_uri?: string | null;
 }
 
 export declare namespace Sessions {
