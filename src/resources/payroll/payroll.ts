@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
+import { APIResource } from '../../core/resource';
 import * as PayGroupsAPI from './pay-groups';
 import {
   PayGroupListParams,
@@ -16,14 +16,13 @@ export class Payroll extends APIResource {
 }
 
 Payroll.PayGroups = PayGroups;
-Payroll.PayGroupListResponsesSinglePage = PayGroupListResponsesSinglePage;
 
 export declare namespace Payroll {
   export {
     PayGroups as PayGroups,
     type PayGroupRetrieveResponse as PayGroupRetrieveResponse,
     type PayGroupListResponse as PayGroupListResponse,
-    PayGroupListResponsesSinglePage as PayGroupListResponsesSinglePage,
+    type PayGroupListResponsesSinglePage as PayGroupListResponsesSinglePage,
     type PayGroupRetrieveParams as PayGroupRetrieveParams,
     type PayGroupListParams as PayGroupListParams,
   };

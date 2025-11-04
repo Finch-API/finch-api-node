@@ -1,51 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { type Agent } from './_shims/index';
-import * as qs from './internal/qs';
-import * as Core from './core';
-import * as Errors from './error';
-import * as Pagination from './pagination';
-import {
-  type IndividualsPageParams,
-  IndividualsPageResponse,
-  type PageParams,
-  PageResponse,
-  ResponsesPageResponse,
-  SinglePageResponse,
-} from './pagination';
-import * as Uploads from './uploads';
-import * as API from './resources/index';
-import { AccessTokenCreateParams, AccessTokens, CreateAccessTokenResponse } from './resources/access-tokens';
-import { Account, DisconnectResponse, Introspection } from './resources/account';
-import {
-  Provider,
-  ProviderListResponse,
-  ProviderListResponsesSinglePage,
-  Providers,
-} from './resources/providers';
-import {
-  RequestForwarding,
-  RequestForwardingForwardParams,
-  RequestForwardingForwardResponse,
-} from './resources/request-forwarding';
-import {
-  AccountUpdateEvent,
-  BaseWebhookEvent,
-  CompanyEvent,
-  DirectoryEvent,
-  EmploymentEvent,
-  IndividualEvent,
-  JobCompletionEvent,
-  PayStatementEvent,
-  PaymentEvent,
-  WebhookEvent,
-  Webhooks,
-} from './resources/webhooks';
-import { Connect } from './resources/connect/connect';
-import { HRIS, Income, Location, Money } from './resources/hris/hris';
-import { Jobs } from './resources/jobs/jobs';
-import { Payroll } from './resources/payroll/payroll';
-import { Sandbox } from './resources/sandbox/sandbox';
+export { Finch as default } from './client';
 
 export interface ClientOptions {
   accessToken?: string | null | undefined;
@@ -462,6 +417,4 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from './error';
-
-export default Finch;
+} from './core/error';

@@ -59,7 +59,7 @@ export async function codeTool(): Promise<Endpoint> {
         const opts: ClientOptions = {
           baseURL: client.baseURL,
           accessToken: client.accessToken,
-          clientId: client.clientId,
+          clientID: client.clientID,
           clientSecret: client.clientSecret,
           webhookSecret: client.webhookSecret,
           defaultHeaders: {

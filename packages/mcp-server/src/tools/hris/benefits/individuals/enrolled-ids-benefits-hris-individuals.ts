@@ -49,7 +49,7 @@ export const tool: Tool = {
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
   const { benefit_id, jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(jq_filter, await client.hris.benefits.individuals.enrolledIds(benefit_id, body)),
+    await maybeFilter(jq_filter, await client.hris.benefits.individuals.enrolledIDs(benefit_id, body)),
   );
 };
 

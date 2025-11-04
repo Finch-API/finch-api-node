@@ -1,21 +1,22 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
+import { APIResource } from '../core/resource';
 import * as Shared from './shared';
+import { APIPromise } from '../core/api-promise';
+import { RequestOptions } from '../internal/request-options';
 
 export class Account extends APIResource {
   /**
    * Disconnect one or more `access_token`s from your application.
    */
-  disconnect(options?: Core.RequestOptions): Core.APIPromise<DisconnectResponse> {
+  disconnect(options?: RequestOptions): APIPromise<DisconnectResponse> {
     return this._client.post('/disconnect', options);
   }
 
   /**
    * Read account information associated with an `access_token`
    */
-  introspect(options?: Core.RequestOptions): Core.APIPromise<Introspection> {
+  introspect(options?: RequestOptions): APIPromise<Introspection> {
     return this._client.get('/introspect', options);
   }
 }

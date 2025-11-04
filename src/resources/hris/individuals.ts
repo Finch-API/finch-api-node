@@ -1,10 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as HRISAPI from './hris';
-import { ResponsesPage } from '../../pagination';
+import { PagePromise, ResponsesPage } from '../../core/pagination';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Individuals extends APIResource {
   /**
@@ -19,19 +18,11 @@ export class Individuals extends APIResource {
    * ```
    */
   retrieveMany(
-    params?: IndividualRetrieveManyParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualResponsesPage, IndividualResponse>;
-  retrieveMany(options?: Core.RequestOptions): Core.PagePromise<IndividualResponsesPage, IndividualResponse>;
-  retrieveMany(
-    params: IndividualRetrieveManyParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualResponsesPage, IndividualResponse> {
-    if (isRequestOptions(params)) {
-      return this.retrieveMany({}, params);
-    }
-    const { entity_ids, ...body } = params;
-    return this._client.getAPIList('/employer/individual', IndividualResponsesPage, {
+    params: IndividualRetrieveManyParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<IndividualResponsesPage, IndividualResponse> {
+    const { entity_ids, ...body } = params ?? {};
+    return this._client.getAPIList('/employer/individual', ResponsesPage<IndividualResponse>, {
       query: { entity_ids },
       body,
       method: 'post',
@@ -40,7 +31,7 @@ export class Individuals extends APIResource {
   }
 }
 
-export class IndividualResponsesPage extends ResponsesPage<IndividualResponse> {}
+export type IndividualResponsesPage = ResponsesPage<IndividualResponse>;
 
 export type Individual = Individual.UnionMember0 | Individual.BatchError;
 
@@ -174,13 +165,11 @@ export namespace IndividualRetrieveManyParams {
   }
 }
 
-Individuals.IndividualResponsesPage = IndividualResponsesPage;
-
 export declare namespace Individuals {
   export {
     type Individual as Individual,
     type IndividualResponse as IndividualResponse,
-    IndividualResponsesPage as IndividualResponsesPage,
+    type IndividualResponsesPage as IndividualResponsesPage,
     type IndividualRetrieveManyParams as IndividualRetrieveManyParams,
   };
 }

@@ -1,0 +1,6 @@
+{
+  "pkg": "@tryfinch/finch-api",
+  "githubRepo": "https://github.com/stainless-sdks/finch-typescript",
+  "clientClass": "Finch",
+  "methods": []
+}

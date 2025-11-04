@@ -1,8 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../resource';
-import { isRequestOptions } from '../../../core';
-import * as Core from '../../../core';
+import { APIResource } from '../../../core/resource';
 import * as Shared from '../../shared';
 import * as IndividualsAPI from './individuals';
 import {
@@ -17,7 +15,10 @@ import {
   Individuals,
   UnenrolledIndividualBenefitResponse,
 } from './individuals';
-import { SinglePage } from '../../../pagination';
+import { APIPromise } from '../../../core/api-promise';
+import { PagePromise, SinglePage } from '../../../core/pagination';
+import { RequestOptions } from '../../../internal/request-options';
+import { path } from '../../../internal/utils/path';
 
 export class Benefits extends APIResource {
   individuals: IndividualsAPI.Individuals = new IndividualsAPI.Individuals(this._client);
@@ -33,18 +34,10 @@ export class Benefits extends APIResource {
    * ```
    */
   create(
-    params?: BenefitCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CreateCompanyBenefitsResponse>;
-  create(options?: Core.RequestOptions): Core.APIPromise<CreateCompanyBenefitsResponse>;
-  create(
-    params: BenefitCreateParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CreateCompanyBenefitsResponse> {
-    if (isRequestOptions(params)) {
-      return this.create({}, params);
-    }
-    const { entity_ids, ...body } = params;
+    params: BenefitCreateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<CreateCompanyBenefitsResponse> {
+    const { entity_ids, ...body } = params ?? {};
     return this._client.post('/employer/benefits', { query: { entity_ids }, body, ...options });
   }
 
@@ -59,20 +52,11 @@ export class Benefits extends APIResource {
    * ```
    */
   retrieve(
-    benefitId: string,
-    query?: BenefitRetrieveParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CompanyBenefit>;
-  retrieve(benefitId: string, options?: Core.RequestOptions): Core.APIPromise<CompanyBenefit>;
-  retrieve(
-    benefitId: string,
-    query: BenefitRetrieveParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CompanyBenefit> {
-    if (isRequestOptions(query)) {
-      return this.retrieve(benefitId, {}, query);
-    }
-    return this._client.get(`/employer/benefits/${benefitId}`, { query, ...options });
+    benefitID: string,
+    query: BenefitRetrieveParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<CompanyBenefit> {
+    return this._client.get(path`/employer/benefits/${benefitID}`, { query, ...options });
   }
 
   /**
@@ -85,21 +69,16 @@ export class Benefits extends APIResource {
    * ```
    */
   update(
-    benefitId: string,
-    params?: BenefitUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<UpdateCompanyBenefitResponse>;
-  update(benefitId: string, options?: Core.RequestOptions): Core.APIPromise<UpdateCompanyBenefitResponse>;
-  update(
-    benefitId: string,
-    params: BenefitUpdateParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<UpdateCompanyBenefitResponse> {
-    if (isRequestOptions(params)) {
-      return this.update(benefitId, {}, params);
-    }
-    const { entity_ids, ...body } = params;
-    return this._client.post(`/employer/benefits/${benefitId}`, { query: { entity_ids }, body, ...options });
+    benefitID: string,
+    params: BenefitUpdateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<UpdateCompanyBenefitResponse> {
+    const { entity_ids, ...body } = params ?? {};
+    return this._client.post(path`/employer/benefits/${benefitID}`, {
+      query: { entity_ids },
+      body,
+      ...options,
+    });
   }
 
   /**
@@ -114,18 +93,10 @@ export class Benefits extends APIResource {
    * ```
    */
   list(
-    query?: BenefitListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit>;
-  list(options?: Core.RequestOptions): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit>;
-  list(
-    query: BenefitListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<CompanyBenefitsSinglePage, CompanyBenefit> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
-    return this._client.getAPIList('/employer/benefits', CompanyBenefitsSinglePage, { query, ...options });
+    query: BenefitListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<CompanyBenefitsSinglePage, CompanyBenefit> {
+    return this._client.getAPIList('/employer/benefits', SinglePage<CompanyBenefit>, { query, ...options });
   }
 
   /**
@@ -140,29 +111,19 @@ export class Benefits extends APIResource {
    * ```
    */
   listSupportedBenefits(
-    query?: BenefitListSupportedBenefitsParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit>;
-  listSupportedBenefits(
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit>;
-  listSupportedBenefits(
-    query: BenefitListSupportedBenefitsParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<SupportedBenefitsSinglePage, SupportedBenefit> {
-    if (isRequestOptions(query)) {
-      return this.listSupportedBenefits({}, query);
-    }
-    return this._client.getAPIList('/employer/benefits/meta', SupportedBenefitsSinglePage, {
+    query: BenefitListSupportedBenefitsParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<SupportedBenefitsSinglePage, SupportedBenefit> {
+    return this._client.getAPIList('/employer/benefits/meta', SinglePage<SupportedBenefit>, {
       query,
       ...options,
     });
   }
 }
 
-export class CompanyBenefitsSinglePage extends SinglePage<CompanyBenefit> {}
+export type CompanyBenefitsSinglePage = SinglePage<CompanyBenefit>;
 
-export class SupportedBenefitsSinglePage extends SinglePage<SupportedBenefit> {}
+export type SupportedBenefitsSinglePage = SinglePage<SupportedBenefit>;
 
 export type BenefitContribution =
   | BenefitContribution.UnionMember0
@@ -475,10 +436,7 @@ export interface BenefitListSupportedBenefitsParams {
   entity_ids?: Array<string>;
 }
 
-Benefits.CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
-Benefits.SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
 Benefits.Individuals = Individuals;
-Benefits.IndividualBenefitsSinglePage = IndividualBenefitsSinglePage;
 
 export declare namespace Benefits {
   export {
@@ -493,8 +451,8 @@ export declare namespace Benefits {
     type SupportedBenefit as SupportedBenefit,
     type UpdateCompanyBenefitResponse as UpdateCompanyBenefitResponse,
     type BenfitContribution as BenfitContribution,
-    CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
-    SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
+    type CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
+    type SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
     type BenefitCreateParams as BenefitCreateParams,
     type BenefitRetrieveParams as BenefitRetrieveParams,
     type BenefitUpdateParams as BenefitUpdateParams,
@@ -508,7 +466,7 @@ export declare namespace Benefits {
     type IndividualBenefit as IndividualBenefit,
     type UnenrolledIndividualBenefitResponse as UnenrolledIndividualBenefitResponse,
     type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
-    IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
+    type IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
     type IndividualEnrollManyParams as IndividualEnrollManyParams,
     type IndividualEnrolledIDsParams as IndividualEnrolledIDsParams,
     type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,

@@ -1,8 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as HRISAPI from '../hris/hris';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Company extends APIResource {
   /**
@@ -31,7 +32,7 @@ export class Company extends APIResource {
    * });
    * ```
    */
-  update(body: CompanyUpdateParams, options?: Core.RequestOptions): Core.APIPromise<CompanyUpdateResponse> {
+  update(body: CompanyUpdateParams, options?: RequestOptions): APIPromise<CompanyUpdateResponse> {
     return this._client.put('/sandbox/company', { body, ...options });
   }
 }

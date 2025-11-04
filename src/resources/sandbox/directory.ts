@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as HRISAPI from '../hris/hris';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Directory extends APIResource {
   /**
@@ -11,24 +11,15 @@ export class Directory extends APIResource {
    *
    * @example
    * ```ts
-   * const directories = await client.sandbox.directory.create([
-   *   {},
-   * ]);
+   * const directories = await client.sandbox.directory.create();
    * ```
    */
   create(
-    body?: DirectoryCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<DirectoryCreateResponse>;
-  create(options?: Core.RequestOptions): Core.APIPromise<DirectoryCreateResponse>;
-  create(
-    body?: DirectoryCreateParams | Core.RequestOptions,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<DirectoryCreateResponse> {
-    if (isRequestOptions(body)) {
-      return this.create(undefined, body);
-    }
-    return this._client.post('/sandbox/directory', { body, ...options });
+    params: DirectoryCreateParams | null | undefined = undefined,
+    options?: RequestOptions,
+  ): APIPromise<DirectoryCreateResponse> {
+    const { body } = params ?? {};
+    return this._client.post('/sandbox/directory', { body: body, ...options });
   }
 }
 
@@ -37,7 +28,13 @@ export class Directory extends APIResource {
  */
 export type DirectoryCreateResponse = Array<unknown>;
 
-export type DirectoryCreateParams = Array<DirectoryCreateParams.Body>;
+export interface DirectoryCreateParams {
+  /**
+   * Array of individuals to create. Takes all combined fields from `/individual` and
+   * `/employment` endpoints. All fields are optional.
+   */
+  body?: Array<DirectoryCreateParams.Body>;
+}
 
 export namespace DirectoryCreateParams {
   export interface Body {

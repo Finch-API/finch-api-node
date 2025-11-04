@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
+import { APIResource } from '../../core/resource';
 import * as DirectoryAPI from './directory';
 import {
   Directory,
@@ -169,17 +169,11 @@ export interface Money {
 HRIS.CompanyResource = CompanyResource;
 HRIS.Directory = Directory;
 HRIS.Individuals = Individuals;
-HRIS.IndividualResponsesPage = IndividualResponsesPage;
 HRIS.Employments = Employments;
-HRIS.EmploymentDataResponsesPage = EmploymentDataResponsesPage;
 HRIS.Payments = Payments;
-HRIS.PaymentsSinglePage = PaymentsSinglePage;
 HRIS.PayStatements = PayStatements;
-HRIS.PayStatementResponsesPage = PayStatementResponsesPage;
 HRIS.Documents = Documents;
 HRIS.Benefits = Benefits;
-HRIS.CompanyBenefitsSinglePage = CompanyBenefitsSinglePage;
-HRIS.SupportedBenefitsSinglePage = SupportedBenefitsSinglePage;
 
 export declare namespace HRIS {
   export { type Income as Income, type Location as Location, type Money as Money };
@@ -201,7 +195,7 @@ export declare namespace HRIS {
     Individuals as Individuals,
     type Individual as Individual,
     type IndividualResponse as IndividualResponse,
-    IndividualResponsesPage as IndividualResponsesPage,
+    type IndividualResponsesPage as IndividualResponsesPage,
     type IndividualRetrieveManyParams as IndividualRetrieveManyParams,
   };
 
@@ -209,14 +203,14 @@ export declare namespace HRIS {
     Employments as Employments,
     type EmploymentData as EmploymentData,
     type EmploymentDataResponse as EmploymentDataResponse,
-    EmploymentDataResponsesPage as EmploymentDataResponsesPage,
+    type EmploymentDataResponsesPage as EmploymentDataResponsesPage,
     type EmploymentRetrieveManyParams as EmploymentRetrieveManyParams,
   };
 
   export {
     Payments as Payments,
     type Payment as Payment,
-    PaymentsSinglePage as PaymentsSinglePage,
+    type PaymentsSinglePage as PaymentsSinglePage,
     type PaymentListParams as PaymentListParams,
   };
 
@@ -226,7 +220,7 @@ export declare namespace HRIS {
     type PayStatementDataSyncInProgress as PayStatementDataSyncInProgress,
     type PayStatementResponse as PayStatementResponse,
     type PayStatementResponseBody as PayStatementResponseBody,
-    PayStatementResponsesPage as PayStatementResponsesPage,
+    type PayStatementResponsesPage as PayStatementResponsesPage,
     type PayStatementRetrieveManyParams as PayStatementRetrieveManyParams,
   };
 
@@ -254,8 +248,8 @@ export declare namespace HRIS {
     type SupportedBenefit as SupportedBenefit,
     type UpdateCompanyBenefitResponse as UpdateCompanyBenefitResponse,
     type BenfitContribution as BenfitContribution,
-    CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
-    SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
+    type CompanyBenefitsSinglePage as CompanyBenefitsSinglePage,
+    type SupportedBenefitsSinglePage as SupportedBenefitsSinglePage,
     type BenefitCreateParams as BenefitCreateParams,
     type BenefitRetrieveParams as BenefitRetrieveParams,
     type BenefitUpdateParams as BenefitUpdateParams,

@@ -1,8 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../resource';
-import { isRequestOptions } from '../../../core';
-import * as Core from '../../../core';
+import { APIResource } from '../../../core/resource';
 import * as HRISAPI from '../hris';
 import * as PayStatementItemAPI from './pay-statement-item/pay-statement-item';
 import {
@@ -11,6 +9,8 @@ import {
   PayStatementItemListResponse,
   PayStatementItemListResponsesPage,
 } from './pay-statement-item/pay-statement-item';
+import { APIPromise } from '../../../core/api-promise';
+import { RequestOptions } from '../../../internal/request-options';
 
 export class CompanyResource extends APIResource {
   payStatementItem: PayStatementItemAPI.PayStatementItem = new PayStatementItemAPI.PayStatementItem(
@@ -25,15 +25,10 @@ export class CompanyResource extends APIResource {
    * const company = await client.hris.company.retrieve();
    * ```
    */
-  retrieve(query?: CompanyRetrieveParams, options?: Core.RequestOptions): Core.APIPromise<Company>;
-  retrieve(options?: Core.RequestOptions): Core.APIPromise<Company>;
   retrieve(
-    query: CompanyRetrieveParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<Company> {
-    if (isRequestOptions(query)) {
-      return this.retrieve({}, query);
-    }
+    query: CompanyRetrieveParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<Company> {
     return this._client.get('/employer/company', { query, ...options });
   }
 }
@@ -168,7 +163,6 @@ export interface CompanyRetrieveParams {
 }
 
 CompanyResource.PayStatementItem = PayStatementItem;
-CompanyResource.PayStatementItemListResponsesPage = PayStatementItemListResponsesPage;
 
 export declare namespace CompanyResource {
   export { type Company as Company, type CompanyRetrieveParams as CompanyRetrieveParams };
@@ -176,7 +170,7 @@ export declare namespace CompanyResource {
   export {
     PayStatementItem as PayStatementItem,
     type PayStatementItemListResponse as PayStatementItemListResponse,
-    PayStatementItemListResponsesPage as PayStatementItemListResponsesPage,
+    type PayStatementItemListResponsesPage as PayStatementItemListResponsesPage,
     type PayStatementItemListParams as PayStatementItemListParams,
   };
 }
