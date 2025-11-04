@@ -1,5 +1,19 @@
 # Changelog
 
+## 6.39.0 (2025-11-03)
+
+Full Changelog: [v6.38.2...v6.39.0](https://github.com/Finch-API/finch-api-node/compare/v6.38.2...v6.39.0)
+
+### Features
+
+* **api:** api update ([b6892f5](https://github.com/Finch-API/finch-api-node/commit/b6892f5c579a0eeb8fa03863d9a72faa36adab9d))
+
+
+### Chores
+
+* **internal:** grammar fix (it's -&gt; its) ([54ad7ca](https://github.com/Finch-API/finch-api-node/commit/54ad7ca2689051eccdb1de832e9041e3a6fe8d52))
+* use structured error when code execution tool errors ([a85e9d8](https://github.com/Finch-API/finch-api-node/commit/a85e9d8431d5b22e82f34606a813821f5573d197))
+
 ## 6.38.2 (2025-10-31)
 
 Full Changelog: [v6.38.1...v6.38.2](https://github.com/Finch-API/finch-api-node/compare/v6.38.1...v6.38.2)
