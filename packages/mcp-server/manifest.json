@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stainless-sdks/finch-typescript.git"
+    "url": "git+https://github.com/Finch-API/finch-api-node.git"
   },
-  "homepage": "https://github.com/stainless-sdks/finch-typescript/tree/main/packages/mcp-server#readme",
+  "homepage": "https://github.com/Finch-API/finch-api-node/tree/main/packages/mcp-server#readme",
   "documentation": "https://developer.tryfinch.com/",
   "server": {
     "type": "node",
