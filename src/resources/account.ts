@@ -180,11 +180,6 @@ export namespace Introspection {
      * The source ID of the entity
      */
     source_id: string | null;
-
-    /**
-     * The type of entity
-     */
-    type: string | null;
   }
 }
 
