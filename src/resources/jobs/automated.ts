@@ -1,8 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Automated extends APIResource {
   /**
@@ -21,18 +22,15 @@ export class Automated extends APIResource {
    * This endpoint is available for _Scale_ tier customers as an add-on. To request
    * access to this endpoint, please contact your Finch account manager.
    */
-  create(
-    body: AutomatedCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<AutomatedCreateResponse> {
+  create(body: AutomatedCreateParams, options?: RequestOptions): APIPromise<AutomatedCreateResponse> {
     return this._client.post('/jobs/automated', { body, ...options });
   }
 
   /**
    * Get an automated job by `job_id`.
    */
-  retrieve(jobId: string, options?: Core.RequestOptions): Core.APIPromise<AutomatedAsyncJob> {
-    return this._client.get(`/jobs/automated/${jobId}`, options);
+  retrieve(jobID: string, options?: RequestOptions): APIPromise<AutomatedAsyncJob> {
+    return this._client.get(path`/jobs/automated/${jobID}`, options);
   }
 
   /**
@@ -40,15 +38,10 @@ export class Automated extends APIResource {
    * jobs are sorted in descending order by submission time. For scheduled jobs such
    * as data syncs, only the next scheduled job is shown.
    */
-  list(query?: AutomatedListParams, options?: Core.RequestOptions): Core.APIPromise<AutomatedListResponse>;
-  list(options?: Core.RequestOptions): Core.APIPromise<AutomatedListResponse>;
   list(
-    query: AutomatedListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<AutomatedListResponse> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
+    query: AutomatedListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<AutomatedListResponse> {
     return this._client.get('/jobs/automated', { query, ...options });
   }
 }

@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../resource';
-import * as Core from '../../../core';
+import { APIResource } from '../../../core/resource';
 import * as ConfigurationAPI from './configuration';
 import {
   Configuration,
@@ -9,6 +8,8 @@ import {
   ConfigurationUpdateParams,
   SandboxJobConfiguration,
 } from './configuration';
+import { APIPromise } from '../../../core/api-promise';
+import { RequestOptions } from '../../../internal/request-options';
 
 export class Jobs extends APIResource {
   configuration: ConfigurationAPI.Configuration = new ConfigurationAPI.Configuration(this._client);
@@ -23,7 +24,7 @@ export class Jobs extends APIResource {
    * });
    * ```
    */
-  create(body: JobCreateParams, options?: Core.RequestOptions): Core.APIPromise<JobCreateResponse> {
+  create(body: JobCreateParams, options?: RequestOptions): APIPromise<JobCreateResponse> {
     return this._client.post('/sandbox/jobs', { body, ...options });
   }
 }

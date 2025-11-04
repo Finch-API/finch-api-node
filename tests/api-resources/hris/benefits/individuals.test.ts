@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Finch from '@tryfinch/finch-api';
-import { Response } from 'node-fetch';
 
 const client = new Finch({
   accessToken: 'My Access Token',
@@ -18,13 +17,6 @@ describe('resource individuals', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('enrollMany: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.hris.benefits.individuals.enrollMany('benefit_id', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(Finch.NotFoundError);
   });
 
   test('enrollMany: request options and params are passed correctly', async () => {
@@ -53,8 +45,8 @@ describe('resource individuals', () => {
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
-  test('enrolledIds', async () => {
-    const responsePromise = client.hris.benefits.individuals.enrolledIds('benefit_id');
+  test('enrolledIDs', async () => {
+    const responsePromise = client.hris.benefits.individuals.enrolledIDs('benefit_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -64,17 +56,10 @@ describe('resource individuals', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('enrolledIds: request options instead of params are passed correctly', async () => {
+  test('enrolledIDs: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.hris.benefits.individuals.enrolledIds('benefit_id', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(Finch.NotFoundError);
-  });
-
-  test('enrolledIds: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.hris.benefits.individuals.enrolledIds(
+      client.hris.benefits.individuals.enrolledIDs(
         'benefit_id',
         { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
         { path: '/_stainless_unknown_path' },
@@ -91,15 +76,6 @@ describe('resource individuals', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('retrieveManyBenefits: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.hris.benefits.individuals.retrieveManyBenefits('benefit_id', {
-        path: '/_stainless_unknown_path',
-      }),
-    ).rejects.toThrow(Finch.NotFoundError);
   });
 
   test('retrieveManyBenefits: request options and params are passed correctly', async () => {
@@ -125,13 +101,6 @@ describe('resource individuals', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('unenrollMany: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.hris.benefits.individuals.unenrollMany('benefit_id', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(Finch.NotFoundError);
   });
 
   test('unenrollMany: request options and params are passed correctly', async () => {

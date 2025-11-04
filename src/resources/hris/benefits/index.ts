@@ -1,8 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export {
-  CompanyBenefitsSinglePage,
-  SupportedBenefitsSinglePage,
   Benefits,
   type BenefitContribution,
   type BenefitFeaturesAndOperations,
@@ -20,9 +18,10 @@ export {
   type BenefitUpdateParams,
   type BenefitListParams,
   type BenefitListSupportedBenefitsParams,
+  type CompanyBenefitsSinglePage,
+  type SupportedBenefitsSinglePage,
 } from './benefits';
 export {
-  IndividualBenefitsSinglePage,
   Individuals,
   type EnrolledIndividualBenefitResponse,
   type IndividualBenefit,
@@ -32,4 +31,5 @@ export {
   type IndividualEnrolledIDsParams,
   type IndividualRetrieveManyBenefitsParams,
   type IndividualUnenrollManyParams,
+  type IndividualBenefitsSinglePage,
 } from './individuals';

@@ -1,9 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../../resource';
-import { isRequestOptions } from '../../../../core';
-import * as Core from '../../../../core';
-import { ResponsesPage } from '../../../../pagination';
+import { APIResource } from '../../../../core/resource';
+import { APIPromise } from '../../../../core/api-promise';
+import { PagePromise, ResponsesPage } from '../../../../core/pagination';
+import { RequestOptions } from '../../../../internal/request-options';
+import { path } from '../../../../internal/utils/path';
 
 export class Rules extends APIResource {
   /**
@@ -20,16 +21,11 @@ export class Rules extends APIResource {
    *   await client.hris.company.payStatementItem.rules.create();
    * ```
    */
-  create(params?: RuleCreateParams, options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse>;
-  create(options?: Core.RequestOptions): Core.APIPromise<RuleCreateResponse>;
   create(
-    params: RuleCreateParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<RuleCreateResponse> {
-    if (isRequestOptions(params)) {
-      return this.create({}, params);
-    }
-    const { entity_ids, ...body } = params;
+    params: RuleCreateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<RuleCreateResponse> {
+    const { entity_ids, ...body } = params ?? {};
     return this._client.post('/employer/pay-statement-item/rule', {
       query: { entity_ids },
       body,
@@ -50,21 +46,12 @@ export class Rules extends APIResource {
    * ```
    */
   update(
-    ruleId: string,
-    params?: RuleUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<RuleUpdateResponse>;
-  update(ruleId: string, options?: Core.RequestOptions): Core.APIPromise<RuleUpdateResponse>;
-  update(
-    ruleId: string,
-    params: RuleUpdateParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<RuleUpdateResponse> {
-    if (isRequestOptions(params)) {
-      return this.update(ruleId, {}, params);
-    }
-    const { entity_ids, ...body } = params;
-    return this._client.put(`/employer/pay-statement-item/rule/${ruleId}`, {
+    ruleID: string,
+    params: RuleUpdateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<RuleUpdateResponse> {
+    const { entity_ids, ...body } = params ?? {};
+    return this._client.put(path`/employer/pay-statement-item/rule/${ruleID}`, {
       query: { entity_ids },
       body,
       ...options,
@@ -84,18 +71,10 @@ export class Rules extends APIResource {
    * ```
    */
   list(
-    query?: RuleListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<RuleListResponsesPage, RuleListResponse>;
-  list(options?: Core.RequestOptions): Core.PagePromise<RuleListResponsesPage, RuleListResponse>;
-  list(
-    query: RuleListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<RuleListResponsesPage, RuleListResponse> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
-    return this._client.getAPIList('/employer/pay-statement-item/rule', RuleListResponsesPage, {
+    query: RuleListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<RuleListResponsesPage, RuleListResponse> {
+    return this._client.getAPIList('/employer/pay-statement-item/rule', ResponsesPage<RuleListResponse>, {
       query,
       ...options,
     });
@@ -114,28 +93,19 @@ export class Rules extends APIResource {
    * ```
    */
   delete(
-    ruleId: string,
-    params?: RuleDeleteParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<RuleDeleteResponse>;
-  delete(ruleId: string, options?: Core.RequestOptions): Core.APIPromise<RuleDeleteResponse>;
-  delete(
-    ruleId: string,
-    params: RuleDeleteParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<RuleDeleteResponse> {
-    if (isRequestOptions(params)) {
-      return this.delete(ruleId, {}, params);
-    }
-    const { entity_ids } = params;
-    return this._client.delete(`/employer/pay-statement-item/rule/${ruleId}`, {
+    ruleID: string,
+    params: RuleDeleteParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<RuleDeleteResponse> {
+    const { entity_ids } = params ?? {};
+    return this._client.delete(path`/employer/pay-statement-item/rule/${ruleID}`, {
       query: { entity_ids },
       ...options,
     });
   }
 }
 
-export class RuleListResponsesPage extends ResponsesPage<RuleListResponse> {}
+export type RuleListResponsesPage = ResponsesPage<RuleListResponse>;
 
 export interface RuleCreateResponse {
   /**
@@ -527,15 +497,13 @@ export interface RuleDeleteParams {
   entity_ids?: Array<string>;
 }
 
-Rules.RuleListResponsesPage = RuleListResponsesPage;
-
 export declare namespace Rules {
   export {
     type RuleCreateResponse as RuleCreateResponse,
     type RuleUpdateResponse as RuleUpdateResponse,
     type RuleListResponse as RuleListResponse,
     type RuleDeleteResponse as RuleDeleteResponse,
-    RuleListResponsesPage as RuleListResponsesPage,
+    type RuleListResponsesPage as RuleListResponsesPage,
     type RuleCreateParams as RuleCreateParams,
     type RuleUpdateParams as RuleUpdateParams,
     type RuleListParams as RuleListParams,

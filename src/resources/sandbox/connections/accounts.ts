@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../resource';
-import { isRequestOptions } from '../../../core';
-import * as Core from '../../../core';
+import { APIResource } from '../../../core/resource';
 import * as Shared from '../../shared';
+import { APIPromise } from '../../../core/api-promise';
+import { RequestOptions } from '../../../internal/request-options';
 
 export class Accounts extends APIResource {
   /**
@@ -18,7 +18,7 @@ export class Accounts extends APIResource {
    *   });
    * ```
    */
-  create(body: AccountCreateParams, options?: Core.RequestOptions): Core.APIPromise<AccountCreateResponse> {
+  create(body: AccountCreateParams, options?: RequestOptions): APIPromise<AccountCreateResponse> {
     return this._client.post('/sandbox/connections/accounts', { body, ...options });
   }
 
@@ -34,15 +34,10 @@ export class Accounts extends APIResource {
    *   });
    * ```
    */
-  update(body?: AccountUpdateParams, options?: Core.RequestOptions): Core.APIPromise<AccountUpdateResponse>;
-  update(options?: Core.RequestOptions): Core.APIPromise<AccountUpdateResponse>;
   update(
-    body: AccountUpdateParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<AccountUpdateResponse> {
-    if (isRequestOptions(body)) {
-      return this.update({}, body);
-    }
+    body: AccountUpdateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<AccountUpdateResponse> {
     return this._client.put('/sandbox/connections/accounts', { body, ...options });
   }
 }

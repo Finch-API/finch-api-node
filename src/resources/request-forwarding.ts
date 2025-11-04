@@ -1,7 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
+import { APIResource } from '../core/resource';
+import { APIPromise } from '../core/api-promise';
+import { RequestOptions } from '../internal/request-options';
 
 export class RequestForwarding extends APIResource {
   /**
@@ -12,8 +13,8 @@ export class RequestForwarding extends APIResource {
    */
   forward(
     body: RequestForwardingForwardParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<RequestForwardingForwardResponse> {
+    options?: RequestOptions,
+  ): APIPromise<RequestForwardingForwardResponse> {
     return this._client.post('/forward', { body, ...options });
   }
 }

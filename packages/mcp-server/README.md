@@ -1,22 +1,37 @@
-# Finch Node MCP Server
+# Finch TypeScript MCP Server
 
 It is generated with [Stainless](https://www.stainless.com/).
 
 ## Installation
 
-### Direct invocation
+### Building
 
-You can run the MCP Server directly via `npx`:
+Because it's not published yet, clone the repo and build it:
 
 ```sh
+git clone git@github.com:stainless-sdks/finch-typescript.git
+cd finch-typescript
+./scripts/bootstrap
+./scripts/build
+```
+
+### Running
+
+```sh
+# set env vars as needed
 export FINCH_ACCESS_TOKEN="My Access Token"
 export FINCH_CLIENT_ID="4ab15e51-11ad-49f4-acae-f343b7794375"
 export FINCH_CLIENT_SECRET="My Client Secret"
 export FINCH_WEBHOOK_SECRET="My Webhook Secret"
-npx -y @tryfinch/finch-api-mcp@latest
+node ./packages/mcp-server/dist/index.js
 ```
 
+> [!NOTE]
+> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npx -y @tryfinch/finch-api-mcp`
+
 ### Via MCP Client
+
+[Build the project](#building) as mentioned above.
 
 There is a partial list of existing clients at [modelcontextprotocol.io](https://modelcontextprotocol.io/clients). If you already
 have a client, consult their documentation to install the MCP server.
@@ -27,8 +42,8 @@ For clients with a configuration JSON, it might look something like this:
 {
   "mcpServers": {
     "tryfinch_finch_api_api": {
-      "command": "npx",
-      "args": ["-y", "@tryfinch/finch-api-mcp", "--client=claude", "--tools=dynamic"],
+      "command": "node",
+      "args": ["/path/to/local/finch-typescript/packages/mcp-server", "--client=claude", "--tools=dynamic"],
       "env": {
         "FINCH_ACCESS_TOKEN": "My Access Token",
         "FINCH_CLIENT_ID": "4ab15e51-11ad-49f4-acae-f343b7794375",
@@ -141,7 +156,7 @@ Authorization can be provided via the `Authorization` header using the Bearer or
 Additionally, authorization can be provided via the following headers:
 | Header | Equivalent client option | Security scheme |
 | ----------------------- | ------------------------ | --------------- |
-| `x-finch-client-id` | `clientId` | basicAuth |
+| `x-finch-client-id` | `clientID` | basicAuth |
 | `x-finch-client-secret` | `clientSecret` | basicAuth |
 
 A configuration JSON for this server might look like this, assuming the server is hosted at `http://localhost:3000`:
