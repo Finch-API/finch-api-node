@@ -2,6 +2,7 @@
 
 import util from 'node:util';
 
+import Fuse from 'fuse.js';
 import ts from 'typescript';
 
 import { WorkerInput, WorkerSuccess, WorkerError } from './code-tool-types';
@@ -39,8 +40,140 @@ function getRunFunctionNode(
   return null;
 }
 
+const fuse = new Fuse(
+  [
+    'client.accessTokens.create',
+    'client.hris.company.retrieve',
+    'client.hris.company.payStatementItem.list',
+    'client.hris.company.payStatementItem.rules.create',
+    'client.hris.company.payStatementItem.rules.delete',
+    'client.hris.company.payStatementItem.rules.list',
+    'client.hris.company.payStatementItem.rules.update',
+    'client.hris.directory.list',
+    'client.hris.directory.listIndividuals',
+    'client.hris.individuals.retrieveMany',
+    'client.hris.employments.retrieveMany',
+    'client.hris.payments.list',
+    'client.hris.payStatements.retrieveMany',
+    'client.hris.documents.list',
+    'client.hris.documents.retreive',
+    'client.hris.benefits.create',
+    'client.hris.benefits.list',
+    'client.hris.benefits.listSupportedBenefits',
+    'client.hris.benefits.retrieve',
+    'client.hris.benefits.update',
+    'client.hris.benefits.individuals.enrollMany',
+    'client.hris.benefits.individuals.enrolledIDs',
+    'client.hris.benefits.individuals.retrieveManyBenefits',
+    'client.hris.benefits.individuals.unenrollMany',
+    'client.providers.list',
+    'client.account.disconnect',
+    'client.account.introspect',
+    'client.requestForwarding.forward',
+    'client.jobs.automated.create',
+    'client.jobs.automated.list',
+    'client.jobs.automated.retrieve',
+    'client.jobs.manual.retrieve',
+    'client.sandbox.connections.create',
+    'client.sandbox.connections.accounts.create',
+    'client.sandbox.connections.accounts.update',
+    'client.sandbox.company.update',
+    'client.sandbox.directory.create',
+    'client.sandbox.individual.update',
+    'client.sandbox.employment.update',
+    'client.sandbox.payment.create',
+    'client.sandbox.jobs.create',
+    'client.sandbox.jobs.configuration.retrieve',
+    'client.sandbox.jobs.configuration.update',
+    'client.payroll.payGroups.list',
+    'client.payroll.payGroups.retrieve',
+    'client.connect.sessions.new',
+    'client.connect.sessions.reauthenticate',
+  ],
+  { threshold: 1, shouldSort: true },
+);
+
+function getMethodSuggestions(fullyQualifiedMethodName: string): string[] {
+  return fuse
+    .search(fullyQualifiedMethodName)
+    .map(({ item }) => item)
+    .slice(0, 5);
+}
+
+const proxyToObj = new WeakMap<any, any>();
+const objToProxy = new WeakMap<any, any>();
+
+type ClientProxyConfig = {
+  path: string[];
+  isBelievedBad?: boolean;
+};
+
+function makeSdkProxy<T extends object>(obj: T, { path, isBelievedBad = false }: ClientProxyConfig): T {
+  let proxy: T = objToProxy.get(obj);
+
+  if (!proxy) {
+    proxy = new Proxy(obj, {
+      get(target, prop, receiver) {
+        const propPath = [...path, String(prop)];
+        const value = Reflect.get(target, prop, receiver);
+
+        if (isBelievedBad || (!(prop in target) && value === undefined)) {
+          // If we're accessing a path that doesn't exist, it will probably eventually error.
+          // Let's proxy it and mark it bad so that we can control the error message.
+          // We proxy an empty class so that an invocation or construction attempt is possible.
+          return makeSdkProxy(class {}, { path: propPath, isBelievedBad: true });
+        }
+
+        if (value !== null && (typeof value === 'object' || typeof value === 'function')) {
+          return makeSdkProxy(value, { path: propPath, isBelievedBad });
+        }
+
+        return value;
+      },
+
+      apply(target, thisArg, args) {
+        if (isBelievedBad || typeof target !== 'function') {
+          const fullyQualifiedMethodName = path.join('.');
+          const suggestions = getMethodSuggestions(fullyQualifiedMethodName);
+          throw new Error(
+            `${fullyQualifiedMethodName} is not a function. Did you mean: ${suggestions.join(', ')}`,
+          );
+        }
+
+        return Reflect.apply(target, proxyToObj.get(thisArg) ?? thisArg, args);
+      },
+
+      construct(target, args, newTarget) {
+        if (isBelievedBad || typeof target !== 'function') {
+          const fullyQualifiedMethodName = path.join('.');
+          const suggestions = getMethodSuggestions(fullyQualifiedMethodName);
+          throw new Error(
+            `${fullyQualifiedMethodName} is not a constructor. Did you mean: ${suggestions.join(', ')}`,
+          );
+        }
+
+        return Reflect.construct(target, args, newTarget);
+      },
+    });
+
+    objToProxy.set(obj, proxy);
+    proxyToObj.set(proxy, obj);
+  }
+
+  return proxy;
+}
+
 const fetch = async (req: Request): Promise<Response> => {
   const { opts, code } = (await req.json()) as WorkerInput;
+  if (code == null) {
+    return Response.json(
+      {
+        message:
+          'The code param is missing. Provide one containing a top-level `run` function. Write code within this template:\n\n```\nasync function run(client) {\n  // Fill this out\n}\n```',
+      } satisfies WorkerError,
+      { status: 400, statusText: 'Code execution error' },
+    );
+  }
 
   const runFunctionNode = getRunFunctionNode(code);
   if (!runFunctionNode) {
@@ -73,7 +206,7 @@ const fetch = async (req: Request): Promise<Response> => {
       ${code}
       run_ = run;
     `);
-    const result = await run_(client);
+    const result = await run_(makeSdkProxy(client, { path: ['client'] }));
     return Response.json({
       result,
       logLines,
