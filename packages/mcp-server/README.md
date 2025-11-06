@@ -47,6 +47,22 @@ in Cursor's `mcp.json`, which can be found in Cursor Settings > Tools & MCP > Ne
 
 [![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=@tryfinch/finch-api-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB0cnlmaW5jaC9maW5jaC1hcGktbWNwIl0sImVudiI6eyJGSU5DSF9BQ0NFU1NfVE9LRU4iOiJTZXQgeW91ciBGSU5DSF9BQ0NFU1NfVE9LRU4gaGVyZS4iLCJGSU5DSF9DTElFTlRfSUQiOiJTZXQgeW91ciBGSU5DSF9DTElFTlRfSUQgaGVyZS4iLCJGSU5DSF9DTElFTlRfU0VDUkVUIjoiU2V0IHlvdXIgRklOQ0hfQ0xJRU5UX1NFQ1JFVCBoZXJlLiIsIkZJTkNIX1dFQkhPT0tfU0VDUkVUIjoiU2V0IHlvdXIgRklOQ0hfV0VCSE9PS19TRUNSRVQgaGVyZS4ifX0)
 
+### VS Code
+
+If you use MCP, you can install the MCP server by clicking the link below. You will need to set your environment variables
+in VS Code's `mcp.json`, which can be found via Command Palette > MCP: Open User Configuration.
+
+[Open VS Code](https://vscode.stainless.com/mcp/%7B%22name%22%3A%22%40tryfinch%2Ffinch-api-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40tryfinch%2Ffinch-api-mcp%22%5D%2C%22env%22%3A%7B%22FINCH_ACCESS_TOKEN%22%3A%22Set%20your%20FINCH_ACCESS_TOKEN%20here.%22%2C%22FINCH_CLIENT_ID%22%3A%22Set%20your%20FINCH_CLIENT_ID%20here.%22%2C%22FINCH_CLIENT_SECRET%22%3A%22Set%20your%20FINCH_CLIENT_SECRET%20here.%22%2C%22FINCH_WEBHOOK_SECRET%22%3A%22Set%20your%20FINCH_WEBHOOK_SECRET%20here.%22%7D%7D)
+
+### Claude Code
+
+If you use Claude Code, you can install the MCP server by running the command below in your terminal. You will need to set your
+environment variables in Claude Code's `.claude.json`, which can be found in your home directory.
+
+```
+claude mcp add --transport stdio tryfinch_finch_api_api --env FINCH_ACCESS_TOKEN="Your FINCH_ACCESS_TOKEN here." FINCH_CLIENT_ID="Your FINCH_CLIENT_ID here." FINCH_CLIENT_SECRET="Your FINCH_CLIENT_SECRET here." FINCH_WEBHOOK_SECRET="Your FINCH_WEBHOOK_SECRET here." -- npx -y @tryfinch/finch-api-mcp
+```
+
 ## Exposing endpoints to your MCP Client
 
 There are three ways to expose endpoints as tools in the MCP server:
