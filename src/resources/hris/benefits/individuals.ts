@@ -130,12 +130,21 @@ export namespace IndividualBenefit {
      */
     catch_up: boolean | null;
 
+    /**
+     * Company contribution configuration. Supports fixed amounts (in cents),
+     * percentage-based contributions (in basis points where 100 = 1%), or tiered
+     * matching structures.
+     */
     company_contribution:
       | UnionMember0.UnionMember0
       | UnionMember0.UnionMember1
       | UnionMember0.UnionMember2
       | null;
 
+    /**
+     * Employee deduction configuration. Supports both fixed amounts (in cents) and
+     * percentage-based contributions (in basis points where 100 = 1%).
+     */
     employee_deduction: UnionMember0.UnionMember0 | UnionMember0.UnionMember1 | null;
 
     /**
@@ -147,24 +156,28 @@ export namespace IndividualBenefit {
   export namespace UnionMember0 {
     export interface UnionMember0 {
       /**
-       * Contribution amount in cents.
+       * Contribution amount in cents (for type=fixed) or basis points (for type=percent,
+       * where 100 = 1%). Not used for type=tiered.
        */
       amount: number;
 
       /**
-       * Fixed contribution type.
+       * Contribution type. Supported values: "fixed" (amount in cents), "percent"
+       * (amount in basis points), or "tiered" (multi-tier matching).
        */
       type: 'fixed';
     }
 
     export interface UnionMember1 {
       /**
-       * Contribution amount in basis points (1/100th of a percent).
+       * Contribution amount in cents (for type=fixed) or basis points (for type=percent,
+       * where 100 = 1%). Not used for type=tiered.
        */
       amount: number;
 
       /**
-       * Percentage contribution type.
+       * Contribution type. Supported values: "fixed" (amount in cents), "percent"
+       * (amount in basis points), or "tiered" (multi-tier matching).
        */
       type: 'percent';
     }
@@ -172,12 +185,13 @@ export namespace IndividualBenefit {
     export interface UnionMember2 {
       /**
        * Array of tier objects defining employer match tiers based on employee
-       * contribution thresholds.
+       * contribution thresholds. Required when type=tiered.
        */
       tiers: Array<UnionMember2.Tier>;
 
       /**
-       * Tiered contribution type (only valid for company_contribution).
+       * Contribution type. Supported values: "fixed" (amount in cents), "percent"
+       * (amount in basis points), or "tiered" (multi-tier matching).
        */
       type: 'tiered';
     }
@@ -192,24 +206,28 @@ export namespace IndividualBenefit {
 
     export interface UnionMember0 {
       /**
-       * Contribution amount in cents.
+       * Contribution amount in cents (for type=fixed) or basis points (for type=percent,
+       * where 100 = 1%).
        */
       amount: number;
 
       /**
-       * Fixed contribution type.
+       * Contribution type. Supported values: "fixed" (amount in cents) or "percent"
+       * (amount in basis points).
        */
       type: 'fixed';
     }
 
     export interface UnionMember1 {
       /**
-       * Contribution amount in basis points (1/100th of a percent).
+       * Contribution amount in cents (for type=fixed) or basis points (for type=percent,
+       * where 100 = 1%).
        */
       amount: number;
 
       /**
-       * Percentage contribution type.
+       * Contribution type. Supported values: "fixed" (amount in cents) or "percent"
+       * (amount in basis points).
        */
       type: 'percent';
     }
