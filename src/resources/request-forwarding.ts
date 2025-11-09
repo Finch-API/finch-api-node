@@ -71,7 +71,7 @@ export namespace RequestForwardingForwardResponse {
     /**
      * The HTTP headers that were specified for the forwarded request.
      */
-    headers?: { [key: string]: unknown } | null;
+    headers?: { [key: string]: string } | null;
 
     /**
      * The query parameters that were specified for the forwarded request.
