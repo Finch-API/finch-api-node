@@ -17,7 +17,9 @@ export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> =
           clientSecret: rawValue.slice(rawValue.search(':') + 1),
         };
       default:
-        throw new Error(`Unsupported authorization scheme`);
+        throw new Error(
+          'Unsupported authorization scheme. Expected the "Authorization" header to be a supported scheme (Bearer, Basic).',
+        );
     }
   }
 
