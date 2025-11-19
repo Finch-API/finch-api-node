@@ -27,7 +27,7 @@
     "fix": "./scripts/format"
   },
   "dependencies": {
-    "@noble/hashes": "^2.0.1"
+    "@noble/hashes": "^1.5.0"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.17.0",
