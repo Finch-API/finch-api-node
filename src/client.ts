@@ -845,6 +845,41 @@ export class Finch {
   sandbox: API.Sandbox = new API.Sandbox(this);
   payroll: API.Payroll = new API.Payroll(this);
   connect: API.Connect = new API.Connect(this);
+
+  /**
+   * Returns the authorization url which can be visited in order to obtain an
+   * authorization code from Finch. The authorization code can then be exchanged for
+   * an access token for the Finch api by calling get_access_token().
+   */
+  getAuthURL({
+    products,
+    redirectUri,
+    sandbox,
+  }: {
+    products: string;
+    redirectUri: string;
+    sandbox: boolean;
+  }): string {
+    if (!this.clientID) {
+      throw new Error('Expected `clientID` to be set in order to call getAuthUrl');
+    }
+    const url = new URL('/authorize', 'https://connect.tryfinch.com/authorize');
+    url.search = this.stringifyQuery({
+      client_id: this.clientID,
+      products,
+      redirect_uri: redirectUri,
+      sandbox,
+    });
+    return url.toString();
+  }
+
+  /**
+   * Returns a copy of the current Finch client with the given access token for
+   * authentication.
+   */
+  withAccessToken(accessToken: string): Finch {
+    return new Finch({ ...this._options, accessToken });
+  }
 }
 
 Finch.AccessTokens = AccessTokens;
