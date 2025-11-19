@@ -4,7 +4,7 @@ import Finch from '@tryfinch/finch-api';
 
 const client = new Finch({
   accessToken: 'My Access Token',
-  clientId: '6d28c315-5eaa-4071-8ea5-f030eb45edbc',
+  clientID: '6d28c315-5eaa-4071-8ea5-f030eb45edbc',
   clientSecret: 'My Client Secret',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
