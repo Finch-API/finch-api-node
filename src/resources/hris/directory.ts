@@ -20,7 +20,7 @@ export class Directory extends APIResource {
     query: DirectoryListParams | null | undefined = {},
     options?: RequestOptions,
   ): PagePromise<IndividualsPage, IndividualInDirectory> {
-    return this._client.getAPIList('/employer/directory', IndividualsPage<IndividualInDirectory>, {
+    return this._client.getAPIList('/employer/directory', IndividualsPage, {
       query,
       ...options,
     });
