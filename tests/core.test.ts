@@ -1,4 +1,4 @@
-import { fromBase64, toBase64 } from '@tryfinch/finch-api/core';
+import { fromBase64, toBase64 } from '@tryfinch/finch-api/internal/utils';
 
 describe.each([true, false])('with Buffer (Buffer is %s)', (buffer) => {
   let originalBuffer: BufferConstructor;
