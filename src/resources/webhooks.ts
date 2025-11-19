@@ -3,7 +3,9 @@
 import { APIResource } from '../core/resource';
 import * as Shared from './shared';
 import * as BenefitsAPI from './hris/benefits/benefits';
-import { fromBase64, getRequiredHeader, HeadersLike, toBase64 } from '../core';
+import type { HeadersLike } from '../internal/headers';
+import { getRequiredHeader } from '../internal/headers';
+import { fromBase64, toBase64 } from '../internal/utils';
 import { hmac } from '@noble/hashes/hmac';
 import { sha256 } from '@noble/hashes/sha2';
 
