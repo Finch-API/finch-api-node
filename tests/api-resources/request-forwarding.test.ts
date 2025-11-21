@@ -24,8 +24,8 @@ describe('resource requestForwarding', () => {
       method: 'method',
       route: 'route',
       data: 'data',
-      headers: { foo: 'bar' },
       params: { foo: 'bar' },
+      request_headers: { foo: 'bar' },
     });
   });
 });

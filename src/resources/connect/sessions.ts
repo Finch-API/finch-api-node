@@ -8,7 +8,7 @@ export class Sessions extends APIResource {
   /**
    * Create a new connect session for an employer
    */
-  new(body: SessionNewParams, options?: RequestOptions): APIPromise<SessionNewResponse> {
+  connect(body: SessionConnectParams, options?: RequestOptions): APIPromise<SessionConnectResponse> {
     return this._client.post('/connect/sessions', { body, ...options });
   }
 
@@ -23,7 +23,7 @@ export class Sessions extends APIResource {
   }
 }
 
-export interface SessionNewResponse {
+export interface SessionConnectResponse {
   /**
    * The Connect URL to redirect the user to for authentication
    */
@@ -47,7 +47,7 @@ export interface SessionReauthenticateResponse {
   session_id: string;
 }
 
-export interface SessionNewParams {
+export interface SessionConnectParams {
   /**
    * Unique identifier for the customer
    */
@@ -82,7 +82,7 @@ export interface SessionNewParams {
   /**
    * Integration configuration for the connect session
    */
-  integration?: SessionNewParams.Integration | null;
+  integration?: SessionConnectParams.Integration | null;
 
   /**
    * Enable manual authentication mode
@@ -106,7 +106,7 @@ export interface SessionNewParams {
   sandbox?: 'finch' | 'provider' | null;
 }
 
-export namespace SessionNewParams {
+export namespace SessionConnectParams {
   /**
    * Integration configuration for the connect session
    */
@@ -159,9 +159,9 @@ export interface SessionReauthenticateParams {
 
 export declare namespace Sessions {
   export {
-    type SessionNewResponse as SessionNewResponse,
+    type SessionConnectResponse as SessionConnectResponse,
     type SessionReauthenticateResponse as SessionReauthenticateResponse,
-    type SessionNewParams as SessionNewParams,
+    type SessionConnectParams as SessionConnectParams,
     type SessionReauthenticateParams as SessionReauthenticateParams,
   };
 }

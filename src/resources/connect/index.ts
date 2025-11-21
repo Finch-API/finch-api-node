@@ -3,8 +3,8 @@
 export { Connect } from './connect';
 export {
   Sessions,
-  type SessionNewResponse,
+  type SessionConnectResponse,
   type SessionReauthenticateResponse,
-  type SessionNewParams,
+  type SessionConnectParams,
   type SessionReauthenticateParams,
 } from './sessions';
