@@ -37,16 +37,16 @@ export const tool: Tool = {
         description:
           'The body for the forwarded request. This value must be specified as either a string or a valid JSON object.',
       },
-      headers: {
-        type: 'object',
-        description:
-          'The HTTP headers to include on the forwarded request. This value must be specified as an object of key-value pairs. Example: `{"Content-Type": "application/xml", "X-API-Version": "v1" }`',
-        additionalProperties: true,
-      },
       params: {
         type: 'object',
         description:
           'The query parameters for the forwarded request. This value must be specified as a valid JSON object rather than a query string.',
+        additionalProperties: true,
+      },
+      request_headers: {
+        type: 'object',
+        description:
+          'The HTTP headers to include on the forwarded request. This value must be specified as an object of key-value pairs. Example: `{"Content-Type": "application/xml", "X-API-Version": "v1" }`',
         additionalProperties: true,
       },
       jq_filter: {

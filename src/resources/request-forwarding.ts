@@ -101,17 +101,17 @@ export interface RequestForwardingForwardParams {
   data?: string | null;
 
   /**
-   * The HTTP headers to include on the forwarded request. This value must be
-   * specified as an object of key-value pairs. Example:
-   * `{"Content-Type": "application/xml", "X-API-Version": "v1" }`
-   */
-  headers?: { [key: string]: unknown } | null;
-
-  /**
    * The query parameters for the forwarded request. This value must be specified as
    * a valid JSON object rather than a query string.
    */
   params?: { [key: string]: unknown } | null;
+
+  /**
+   * The HTTP headers to include on the forwarded request. This value must be
+   * specified as an object of key-value pairs. Example:
+   * `{"Content-Type": "application/xml", "X-API-Version": "v1" }`
+   */
+  request_headers?: { [key: string]: unknown } | null;
 }
 
 export declare namespace RequestForwarding {
