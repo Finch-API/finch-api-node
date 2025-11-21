@@ -361,10 +361,10 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/connect/sessions.ts">SessionConnectResponse</a></code>
+- <code><a href="./src/resources/connect/sessions.ts">SessionNewResponse</a></code>
 - <code><a href="./src/resources/connect/sessions.ts">SessionReauthenticateResponse</a></code>
 
 Methods:
 
-- <code title="post /connect/sessions">client.connect.sessions.<a href="./src/resources/connect/sessions.ts">connect</a>({ ...params }) -> SessionConnectResponse</code>
+- <code title="post /connect/sessions">client.connect.sessions.<a href="./src/resources/connect/sessions.ts">new</a>({ ...params }) -> SessionNewResponse</code>
 - <code title="post /connect/sessions/reauthenticate">client.connect.sessions.<a href="./src/resources/connect/sessions.ts">reauthenticate</a>({ ...params }) -> SessionReauthenticateResponse</code>

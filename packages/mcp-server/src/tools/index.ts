@@ -48,7 +48,7 @@ import retrieve_jobs_sandbox_configuration from './sandbox/jobs/configuration/re
 import update_jobs_sandbox_configuration from './sandbox/jobs/configuration/update-jobs-sandbox-configuration';
 import retrieve_payroll_pay_groups from './payroll/pay-groups/retrieve-payroll-pay-groups';
 import list_payroll_pay_groups from './payroll/pay-groups/list-payroll-pay-groups';
-import connect_connect_sessions from './connect/sessions/connect-connect-sessions';
+import new_connect_sessions from './connect/sessions/new-connect-sessions';
 import reauthenticate_connect_sessions from './connect/sessions/reauthenticate-connect-sessions';
 
 export const endpoints: Endpoint[] = [];
@@ -101,7 +101,7 @@ addEndpoint(retrieve_jobs_sandbox_configuration);
 addEndpoint(update_jobs_sandbox_configuration);
 addEndpoint(retrieve_payroll_pay_groups);
 addEndpoint(list_payroll_pay_groups);
-addEndpoint(connect_connect_sessions);
+addEndpoint(new_connect_sessions);
 addEndpoint(reauthenticate_connect_sessions);
 
 export type Filter = {

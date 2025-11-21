@@ -3,8 +3,8 @@
 import { APIResource } from '../../core/resource';
 import * as SessionsAPI from './sessions';
 import {
-  SessionConnectParams,
-  SessionConnectResponse,
+  SessionNewParams,
+  SessionNewResponse,
   SessionReauthenticateParams,
   SessionReauthenticateResponse,
   Sessions,
@@ -19,9 +19,9 @@ Connect.Sessions = Sessions;
 export declare namespace Connect {
   export {
     Sessions as Sessions,
-    type SessionConnectResponse as SessionConnectResponse,
+    type SessionNewResponse as SessionNewResponse,
     type SessionReauthenticateResponse as SessionReauthenticateResponse,
-    type SessionConnectParams as SessionConnectParams,
+    type SessionNewParams as SessionNewParams,
     type SessionReauthenticateParams as SessionReauthenticateParams,
   };
 }

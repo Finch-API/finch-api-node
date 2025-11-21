@@ -87,7 +87,7 @@ const fuse = new Fuse(
     'client.sandbox.jobs.configuration.update',
     'client.payroll.payGroups.list',
     'client.payroll.payGroups.retrieve',
-    'client.connect.sessions.connect',
+    'client.connect.sessions.new',
     'client.connect.sessions.reauthenticate',
   ],
   { threshold: 1, shouldSort: true },
