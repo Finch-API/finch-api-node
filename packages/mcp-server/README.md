@@ -392,5 +392,5 @@ The following tools are available in this MCP server.
 
 ### Resource `connect.sessions`:
 
-- `connect_connect_sessions` (`write`): Create a new connect session for an employer
+- `new_connect_sessions` (`write`): Create a new connect session for an employer
 - `reauthenticate_connect_sessions` (`write`): Create a new Connect session for reauthenticating an existing connection

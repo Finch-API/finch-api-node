@@ -9,8 +9,8 @@ const client = new Finch({
 
 describe('resource sessions', () => {
   // prism tests are broken
-  test.skip('connect: only required params', async () => {
-    const responsePromise = client.connect.sessions.connect({
+  test.skip('new: only required params', async () => {
+    const responsePromise = client.connect.sessions.new({
       customer_id: 'x',
       customer_name: 'x',
       products: ['benefits'],
@@ -25,8 +25,8 @@ describe('resource sessions', () => {
   });
 
   // prism tests are broken
-  test.skip('connect: required and optional params', async () => {
-    const response = await client.connect.sessions.connect({
+  test.skip('new: required and optional params', async () => {
+    const response = await client.connect.sessions.new({
       customer_id: 'x',
       customer_name: 'x',
       products: ['benefits'],
