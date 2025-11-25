@@ -94,6 +94,9 @@ export namespace PaymentCreateParams {
     export interface EmployeeDeduction {
       amount?: number;
 
+      /**
+       * The deduction name. Required when type is specified.
+       */
       name?: string;
 
       pre_tax?: boolean;
@@ -123,6 +126,9 @@ export namespace PaymentCreateParams {
     export interface EmployerContribution {
       amount?: number;
 
+      /**
+       * The contribution name. Required when type is specified.
+       */
       name?: string;
 
       type?:

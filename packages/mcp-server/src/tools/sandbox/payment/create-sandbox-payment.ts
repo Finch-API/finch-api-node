@@ -80,6 +80,7 @@ export const tool: Tool = {
                   },
                   name: {
                     type: 'string',
+                    description: 'The deduction name. Required when type is specified.',
                   },
                   pre_tax: {
                     type: 'boolean',
@@ -121,6 +122,7 @@ export const tool: Tool = {
                   },
                   name: {
                     type: 'string',
+                    description: 'The contribution name. Required when type is specified.',
                   },
                   type: {
                     type: 'string',
