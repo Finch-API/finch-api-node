@@ -167,7 +167,7 @@ export const handler = async (client: Finch, args: Record<string, unknown> | und
       await maybeFilter(jq_filter, await client.sandbox.individual.update(individual_id, body)),
     );
   } catch (error) {
-    if (isJqError(error)) {
+    if (error instanceof Finch.APIError || isJqError(error)) {
       return asErrorResult(error.message);
     }
     throw error;

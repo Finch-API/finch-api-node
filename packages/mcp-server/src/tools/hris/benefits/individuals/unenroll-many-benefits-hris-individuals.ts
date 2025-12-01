@@ -60,7 +60,7 @@ export const handler = async (client: Finch, args: Record<string, unknown> | und
       await maybeFilter(jq_filter, await client.hris.benefits.individuals.unenrollMany(benefit_id, body)),
     );
   } catch (error) {
-    if (isJqError(error)) {
+    if (error instanceof Finch.APIError || isJqError(error)) {
       return asErrorResult(error.message);
     }
     throw error;
