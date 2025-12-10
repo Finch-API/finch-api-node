@@ -44,6 +44,7 @@ export async function codeTool() {
       },
       body: JSON.stringify({
         project_name: 'finch',
+        client_opts: { accessToken: readEnv('FINCH_ACCESS_TOKEN') },
         code,
       }),
     });
