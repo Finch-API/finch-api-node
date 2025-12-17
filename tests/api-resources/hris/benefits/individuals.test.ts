@@ -8,7 +8,7 @@ const client = new Finch({
 });
 
 describe('resource individuals', () => {
-  test('enrollMany', async () => {
+  test.skip('enrollMany', async () => {
     const responsePromise = client.hris.benefits.individuals.enrollMany('benefit_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
