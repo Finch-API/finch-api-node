@@ -8,10 +8,10 @@ export { HRIS, type Income, type Location, type Money } from './hris/hris';
 export { Jobs } from './jobs/jobs';
 export { Payroll } from './payroll/payroll';
 export {
-  ProviderListResponsesSinglePage,
   Providers,
   type Provider,
   type ProviderListResponse,
+  type ProviderListResponsesSinglePage,
 } from './providers';
 export {
   RequestForwarding,

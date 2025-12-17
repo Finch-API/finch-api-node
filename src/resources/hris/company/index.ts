@@ -2,8 +2,8 @@
 
 export { CompanyResource, type Company, type CompanyRetrieveParams } from './company';
 export {
-  PayStatementItemListResponsesPage,
   PayStatementItem,
   type PayStatementItemListResponse,
   type PayStatementItemListParams,
+  type PayStatementItemListResponsesPage,
 } from './pay-statement-item/index';

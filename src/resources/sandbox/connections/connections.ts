@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../resource';
-import * as Core from '../../../core';
+import { APIResource } from '../../../core/resource';
 import * as AccountsAPI from './accounts';
 import {
   AccountCreateParams,
@@ -10,6 +9,8 @@ import {
   AccountUpdateResponse,
   Accounts,
 } from './accounts';
+import { APIPromise } from '../../../core/api-promise';
+import { RequestOptions } from '../../../internal/request-options';
 
 export class Connections extends APIResource {
   accounts: AccountsAPI.Accounts = new AccountsAPI.Accounts(this._client);
@@ -24,10 +25,7 @@ export class Connections extends APIResource {
    * });
    * ```
    */
-  create(
-    body: ConnectionCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<ConnectionCreateResponse> {
+  create(body: ConnectionCreateParams, options?: RequestOptions): APIPromise<ConnectionCreateResponse> {
     return this._client.post('/sandbox/connections', { body, ...options });
   }
 }

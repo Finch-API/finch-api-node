@@ -1,9 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
+import { APIResource } from '../../core/resource';
 import * as Shared from '../shared';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Documents extends APIResource {
   /**
@@ -15,15 +16,10 @@ export class Documents extends APIResource {
    * const documents = await client.hris.documents.list();
    * ```
    */
-  list(query?: DocumentListParams, options?: Core.RequestOptions): Core.APIPromise<DocumentListResponse>;
-  list(options?: Core.RequestOptions): Core.APIPromise<DocumentListResponse>;
   list(
-    query: DocumentListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<DocumentListResponse> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
+    query: DocumentListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<DocumentListResponse> {
     return this._client.get('/employer/documents', { query, ...options });
   }
 
@@ -39,20 +35,11 @@ export class Documents extends APIResource {
    * ```
    */
   retreive(
-    documentId: string,
-    query?: DocumentRetreiveParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<DocumentRetreiveResponse>;
-  retreive(documentId: string, options?: Core.RequestOptions): Core.APIPromise<DocumentRetreiveResponse>;
-  retreive(
-    documentId: string,
-    query: DocumentRetreiveParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<DocumentRetreiveResponse> {
-    if (isRequestOptions(query)) {
-      return this.retreive(documentId, {}, query);
-    }
-    return this._client.get(`/employer/documents/${documentId}`, { query, ...options });
+    documentID: string,
+    query: DocumentRetreiveParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<DocumentRetreiveResponse> {
+    return this._client.get(path`/employer/documents/${documentID}`, { query, ...options });
   }
 }
 

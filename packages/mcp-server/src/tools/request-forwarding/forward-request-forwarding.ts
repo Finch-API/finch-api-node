@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { maybeFilter } from '@tryfinch/finch-api-mcp/filtering';
-import { Metadata, asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
+import { isJqError, maybeFilter } from '@tryfinch/finch-api-mcp/filtering';
+import { Metadata, asErrorResult, asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import Finch from '@tryfinch/finch-api';
@@ -37,16 +37,16 @@ export const tool: Tool = {
         description:
           'The body for the forwarded request. This value must be specified as either a string or a valid JSON object.',
       },
-      headers: {
-        type: 'object',
-        description:
-          'The HTTP headers to include on the forwarded request. This value must be specified as an object of key-value pairs. Example: `{"Content-Type": "application/xml", "X-API-Version": "v1" }`',
-        additionalProperties: true,
-      },
       params: {
         type: 'object',
         description:
           'The query parameters for the forwarded request. This value must be specified as a valid JSON object rather than a query string.',
+        additionalProperties: true,
+      },
+      request_headers: {
+        type: 'object',
+        description:
+          'The HTTP headers to include on the forwarded request. This value must be specified as an object of key-value pairs. Example: `{"Content-Type": "application/xml", "X-API-Version": "v1" }`',
         additionalProperties: true,
       },
       jq_filter: {
@@ -63,7 +63,14 @@ export const tool: Tool = {
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
   const { jq_filter, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(jq_filter, await client.requestForwarding.forward(body)));
+  try {
+    return asTextContentResult(await maybeFilter(jq_filter, await client.requestForwarding.forward(body)));
+  } catch (error) {
+    if (error instanceof Finch.APIError || isJqError(error)) {
+      return asErrorResult(error.message);
+    }
+    throw error;
+  }
 };
 
 export default { metadata, tool, handler };

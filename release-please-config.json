@@ -59,7 +59,6 @@
       "hidden": true
     }
   ],
-  "reviewers": ["jordanbrauer", "minupalaniappan"],
   "release-type": "node",
   "extra-files": [
     "src/version.ts",

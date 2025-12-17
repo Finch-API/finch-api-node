@@ -1,21 +1,19 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
-import { SinglePage } from '../pagination';
+import { APIResource } from '../core/resource';
+import { PagePromise, SinglePage } from '../core/pagination';
+import { RequestOptions } from '../internal/request-options';
 
 export class Providers extends APIResource {
   /**
    * Return details on all available payroll and HR systems.
    */
-  list(
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<ProviderListResponsesSinglePage, ProviderListResponse> {
-    return this._client.getAPIList('/providers', ProviderListResponsesSinglePage, options);
+  list(options?: RequestOptions): PagePromise<ProviderListResponsesSinglePage, ProviderListResponse> {
+    return this._client.getAPIList('/providers', SinglePage<ProviderListResponse>, options);
   }
 }
 
-export class ProviderListResponsesSinglePage extends SinglePage<ProviderListResponse> {}
+export type ProviderListResponsesSinglePage = SinglePage<ProviderListResponse>;
 
 export interface Provider {
   /**
@@ -163,12 +161,10 @@ export namespace ProviderListResponse {
   }
 }
 
-Providers.ProviderListResponsesSinglePage = ProviderListResponsesSinglePage;
-
 export declare namespace Providers {
   export {
     type Provider as Provider,
     type ProviderListResponse as ProviderListResponse,
-    ProviderListResponsesSinglePage as ProviderListResponsesSinglePage,
+    type ProviderListResponsesSinglePage as ProviderListResponsesSinglePage,
   };
 }

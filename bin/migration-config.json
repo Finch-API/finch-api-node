@@ -1,0 +1,6 @@
+{
+  "pkg": "@tryfinch/finch-api",
+  "githubRepo": "https://github.com/Finch-API/finch-api-node",
+  "clientClass": "Finch",
+  "methods": []
+}

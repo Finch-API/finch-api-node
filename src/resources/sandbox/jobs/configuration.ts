@@ -1,7 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../resource';
-import * as Core from '../../../core';
+import { APIResource } from '../../../core/resource';
+import { APIPromise } from '../../../core/api-promise';
+import { RequestOptions } from '../../../internal/request-options';
 
 export class Configuration extends APIResource {
   /**
@@ -13,7 +14,7 @@ export class Configuration extends APIResource {
    *   await client.sandbox.jobs.configuration.retrieve();
    * ```
    */
-  retrieve(options?: Core.RequestOptions): Core.APIPromise<ConfigurationRetrieveResponse> {
+  retrieve(options?: RequestOptions): APIPromise<ConfigurationRetrieveResponse> {
     return this._client.get('/sandbox/jobs/configuration', options);
   }
 
@@ -29,10 +30,7 @@ export class Configuration extends APIResource {
    *   });
    * ```
    */
-  update(
-    body: ConfigurationUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<SandboxJobConfiguration> {
+  update(body: ConfigurationUpdateParams, options?: RequestOptions): APIPromise<SandboxJobConfiguration> {
     return this._client.put('/sandbox/jobs/configuration', { body, ...options });
   }
 }

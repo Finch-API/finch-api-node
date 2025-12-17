@@ -1,7 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
+import { APIResource } from '../core/resource';
+import { APIPromise } from '../core/api-promise';
+import { RequestOptions } from '../internal/request-options';
 
 export class RequestForwarding extends APIResource {
   /**
@@ -12,8 +13,8 @@ export class RequestForwarding extends APIResource {
    */
   forward(
     body: RequestForwardingForwardParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<RequestForwardingForwardResponse> {
+    options?: RequestOptions,
+  ): APIPromise<RequestForwardingForwardResponse> {
     return this._client.post('/forward', { body, ...options });
   }
 }
@@ -70,7 +71,7 @@ export namespace RequestForwardingForwardResponse {
     /**
      * The HTTP headers that were specified for the forwarded request.
      */
-    headers?: { [key: string]: unknown } | null;
+    headers?: { [key: string]: string } | null;
 
     /**
      * The query parameters that were specified for the forwarded request.
@@ -100,17 +101,17 @@ export interface RequestForwardingForwardParams {
   data?: string | null;
 
   /**
-   * The HTTP headers to include on the forwarded request. This value must be
-   * specified as an object of key-value pairs. Example:
-   * `{"Content-Type": "application/xml", "X-API-Version": "v1" }`
-   */
-  headers?: { [key: string]: unknown } | null;
-
-  /**
    * The query parameters for the forwarded request. This value must be specified as
    * a valid JSON object rather than a query string.
    */
   params?: { [key: string]: unknown } | null;
+
+  /**
+   * The HTTP headers to include on the forwarded request. This value must be
+   * specified as an object of key-value pairs. Example:
+   * `{"Content-Type": "application/xml", "X-API-Version": "v1" }`
+   */
+  request_headers?: { [key: string]: unknown } | null;
 }
 
 export declare namespace RequestForwarding {

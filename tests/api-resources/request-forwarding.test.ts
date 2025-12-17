@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Finch from '@tryfinch/finch-api';
-import { Response } from 'node-fetch';
 
 const client = new Finch({
   accessToken: 'My Access Token',
@@ -25,8 +24,8 @@ describe('resource requestForwarding', () => {
       method: 'method',
       route: 'route',
       data: 'data',
-      headers: { foo: 'bar' },
       params: { foo: 'bar' },
+      request_headers: { foo: 'bar' },
     });
   });
 });

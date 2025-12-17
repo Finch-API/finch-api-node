@@ -1,17 +1,15 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
+import type { RequestOptions } from '../internal/request-options';
+import type { APIPromise } from '../core/api-promise';
+import { APIResource } from '../core/resource';
 
 export class AccessTokens extends APIResource {
   /**
    * Exchange the authorization code for an access token
    */
-  create(
-    body: AccessTokenCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CreateAccessTokenResponse> {
-    const clientID = body.client_id || this._client.clientId;
+  create(body: AccessTokenCreateParams, options?: RequestOptions): APIPromise<CreateAccessTokenResponse> {
+    const clientID = body.client_id || this._client.clientID;
     if (!clientID)
       throw new Error(
         'client_id must be provided as an argument or with the FINCH_CLIENT_ID environment variable',

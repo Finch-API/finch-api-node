@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { maybeFilter } from '@tryfinch/finch-api-mcp/filtering';
-import { Metadata, asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
+import { isJqError, maybeFilter } from '@tryfinch/finch-api-mcp/filtering';
+import { Metadata, asErrorResult, asTextContentResult } from '@tryfinch/finch-api-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import Finch from '@tryfinch/finch-api';
@@ -41,7 +41,14 @@ export const tool: Tool = {
 
 export const handler = async (client: Finch, args: Record<string, unknown> | undefined) => {
   const { job_id, jq_filter, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(jq_filter, await client.jobs.automated.retrieve(job_id)));
+  try {
+    return asTextContentResult(await maybeFilter(jq_filter, await client.jobs.automated.retrieve(job_id)));
+  } catch (error) {
+    if (error instanceof Finch.APIError || isJqError(error)) {
+      return asErrorResult(error.message);
+    }
+    throw error;
+  }
 };
 
 export default { metadata, tool, handler };
