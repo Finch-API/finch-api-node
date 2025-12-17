@@ -40,6 +40,7 @@ export async function codeTool() {
           FINCH_CLIENT_ID: readEnv('FINCH_CLIENT_ID'),
           FINCH_CLIENT_SECRET: readEnv('FINCH_CLIENT_SECRET'),
           FINCH_WEBHOOK_SECRET: readEnv('FINCH_WEBHOOK_SECRET'),
+          FINCH_BASE_URL: readEnv('FINCH_BASE_URL'),
         }),
       },
       body: JSON.stringify({
