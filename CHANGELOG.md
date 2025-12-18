@@ -1,5 +1,23 @@
 # Changelog
 
+## 8.0.0 (2025-12-18)
+
+Full Changelog: [v7.0.0...v8.0.0](https://github.com/Finch-API/finch-api-node/compare/v7.0.0...v8.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* **mcp:** remove deprecated tool schemes
+* **mcp:** **Migration:** To migrate, simply modify the command used to invoke the MCP server. Currently, the only supported tool scheme is code mode. Now, starting the server with just `node /path/to/mcp/server` or `npx package-name` will invoke code tools: changing your command to one of these is likely all you will need to do.
+
+### Bug Fixes
+
+* **mcp:** pass base url to code tool ([631bb5c](https://github.com/Finch-API/finch-api-node/commit/631bb5c63a966a3227a94488d92b135457075dad))
+
+
+### Chores
+
+* **mcp:** remove deprecated tool schemes ([9b1ff85](https://github.com/Finch-API/finch-api-node/commit/9b1ff85ec8bfb1195a63f8d16174800735c6997a))
+
 ## 7.0.0 (2025-12-17)
 
 Full Changelog: [v6.38.0...v7.0.0](https://github.com/Finch-API/finch-api-node/compare/v6.38.0...v7.0.0)
