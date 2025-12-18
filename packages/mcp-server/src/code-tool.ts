@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { Metadata, ToolCallResult, asTextContentResult } from './tools/types';
+import { McpTool, Metadata, ToolCallResult, asTextContentResult } from './types';
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { readEnv } from './server';
 import { WorkerSuccess } from './code-tool-types';
@@ -13,7 +13,7 @@ import { WorkerSuccess } from './code-tool-types';
  *
  * @param endpoints - The endpoints to include in the list.
  */
-export async function codeTool() {
+export function codeTool(): McpTool {
   const metadata: Metadata = { resource: 'all', operation: 'write', tags: [] };
   const tool: Tool = {
     name: 'execute',
@@ -40,6 +40,7 @@ export async function codeTool() {
           FINCH_CLIENT_ID: readEnv('FINCH_CLIENT_ID'),
           FINCH_CLIENT_SECRET: readEnv('FINCH_CLIENT_SECRET'),
           FINCH_WEBHOOK_SECRET: readEnv('FINCH_WEBHOOK_SECRET'),
+          FINCH_BASE_URL: readEnv('FINCH_BASE_URL'),
         }),
       },
       body: JSON.stringify({
