@@ -64,6 +64,11 @@ export interface AccountCreateResponse {
    */
   connection_id: string;
 
+  /**
+   * The ID of the entity for this connection
+   */
+  entity_id: string;
+
   products: Array<string>;
 
   /**
@@ -87,17 +92,22 @@ export interface AccountUpdateResponse {
    */
   company_id: string;
 
+  /**
+   * The ID of the new connection
+   */
+  connection_id: string;
+
+  /**
+   * The ID of the entity whose status was updated
+   */
+  entity_id: string;
+
   products: Array<string>;
 
   /**
    * The ID of the provider associated with the `access_token`
    */
   provider_id: string;
-
-  /**
-   * The ID of the new connection
-   */
-  connection_id?: string;
 }
 
 export interface AccountCreateParams {
