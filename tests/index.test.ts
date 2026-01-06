@@ -87,7 +87,11 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new Finch({ logger: logger, logLevel: 'debug', accessToken: 'My Access Token' });
+      const client = new Finch({
+        logger: logger,
+        logLevel: 'debug',
+        accessToken: 'My Access Token',
+      });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).toHaveBeenCalled();
@@ -107,7 +111,11 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new Finch({ logger: logger, logLevel: 'info', accessToken: 'My Access Token' });
+      const client = new Finch({
+        logger: logger,
+        logLevel: 'info',
+        accessToken: 'My Access Token',
+      });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).not.toHaveBeenCalled();
@@ -157,7 +165,11 @@ describe('instantiate client', () => {
       };
 
       process.env['FINCH_LOG'] = 'debug';
-      const client = new Finch({ logger: logger, logLevel: 'off', accessToken: 'My Access Token' });
+      const client = new Finch({
+        logger: logger,
+        logLevel: 'off',
+        accessToken: 'My Access Token',
+      });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).not.toHaveBeenCalled();
@@ -173,7 +185,11 @@ describe('instantiate client', () => {
       };
 
       process.env['FINCH_LOG'] = 'not a log level';
-      const client = new Finch({ logger: logger, logLevel: 'debug', accessToken: 'My Access Token' });
+      const client = new Finch({
+        logger: logger,
+        logLevel: 'debug',
+        accessToken: 'My Access Token',
+      });
       expect(client.logLevel).toBe('debug');
       expect(warnMock).not.toHaveBeenCalled();
     });
@@ -535,7 +551,11 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Finch({ accessToken: 'My Access Token', timeout: 10, fetch: testFetch });
+    const client = new Finch({
+      accessToken: 'My Access Token',
+      timeout: 10,
+      fetch: testFetch,
+    });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -565,7 +585,11 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Finch({ accessToken: 'My Access Token', fetch: testFetch, maxRetries: 4 });
+    const client = new Finch({
+      accessToken: 'My Access Token',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
 
@@ -589,7 +613,11 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Finch({ accessToken: 'My Access Token', fetch: testFetch, maxRetries: 4 });
+    const client = new Finch({
+      accessToken: 'My Access Token',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(
       await client.request({
@@ -651,7 +679,11 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Finch({ accessToken: 'My Access Token', fetch: testFetch, maxRetries: 4 });
+    const client = new Finch({
+      accessToken: 'My Access Token',
+      fetch: testFetch,
+      maxRetries: 4,
+    });
 
     expect(
       await client.request({

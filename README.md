@@ -53,7 +53,8 @@ const client = new Finch({
   accessToken: 'My Access Token',
 });
 
-const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] = await client.hris.directory.list();
+const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] =
+  await client.hris.directory.list();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -176,7 +177,9 @@ import Finch from '@tryfinch/finch-api';
 
 const client = new Finch();
 
-const page = await client.hris.directory.list({ headers: { 'Finch-API-Version': 'My-Custom-Value' } });
+const page = await client.hris.directory.list({
+  headers: { 'Finch-API-Version': 'My-Custom-Value' },
+});
 const individualInDirectory = page.individuals[0];
 ```
 

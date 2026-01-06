@@ -27,7 +27,12 @@ describe('resource directory', () => {
           body: [
             {
               class_code: 'class_code',
-              custom_fields: [{ name: 'name', value: {} }],
+              custom_fields: [
+                {
+                  name: 'name',
+                  value: {},
+                },
+              ],
               department: { name: 'name' },
               dob: 'dob',
               emails: [{ data: 'data', type: 'work' }],
@@ -38,9 +43,19 @@ describe('resource directory', () => {
               ethnicity: 'asian',
               first_name: 'first_name',
               gender: 'female',
-              income: { amount: 0, currency: 'currency', effective_date: '2019-12-27', unit: 'yearly' },
+              income: {
+                amount: 0,
+                currency: 'currency',
+                effective_date: '2019-12-27',
+                unit: 'yearly',
+              },
               income_history: [
-                { amount: 0, currency: 'currency', effective_date: '2019-12-27', unit: 'yearly' },
+                {
+                  amount: 0,
+                  currency: 'currency',
+                  effective_date: '2019-12-27',
+                  unit: 'yearly',
+                },
               ],
               is_active: true,
               last_name: 'last_name',
