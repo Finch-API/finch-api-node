@@ -28,13 +28,40 @@ describe('resource payment', () => {
           pay_statements: [
             {
               individual_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-              earnings: [{ amount: 0, hours: 0, name: 'x', type: 'bonus' }],
-              employee_deductions: [{ amount: 0, name: 'x', pre_tax: true, type: '457' }],
-              employer_contributions: [{ amount: 0, name: 'x', type: '457' }],
+              earnings: [
+                {
+                  amount: 0,
+                  hours: 0,
+                  name: 'x',
+                  type: 'bonus',
+                },
+              ],
+              employee_deductions: [
+                {
+                  amount: 0,
+                  name: 'x',
+                  pre_tax: true,
+                  type: '457',
+                },
+              ],
+              employer_contributions: [
+                {
+                  amount: 0,
+                  name: 'x',
+                  type: '457',
+                },
+              ],
               gross_pay: 1,
               net_pay: 9007199254740991,
               payment_method: 'check',
-              taxes: [{ amount: 0, employer: true, name: 'x', type: 'federal' }],
+              taxes: [
+                {
+                  amount: 0,
+                  employer: true,
+                  name: 'x',
+                  type: 'federal',
+                },
+              ],
               total_hours: 1,
               type: 'off_cycle_payroll',
             },

@@ -48,7 +48,12 @@ describe('resource company', () => {
           routing_number: 'routing_number',
         },
       ],
-      departments: [{ name: 'name', parent: { name: 'name' } }],
+      departments: [
+        {
+          name: 'name',
+          parent: { name: 'name' },
+        },
+      ],
       ein: 'ein',
       entity: { subtype: 's_corporation', type: 'llc' },
       legal_name: 'legal_name',
