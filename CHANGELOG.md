@@ -1,5 +1,13 @@
 # Changelog
 
+## 8.1.1 (2026-01-06)
+
+Full Changelog: [v8.1.0...v8.1.1](https://github.com/Finch-API/finch-api-node/compare/v8.1.0...v8.1.1)
+
+### Chores
+
+* **ownership:** move from data to platform (again) ([#639](https://github.com/Finch-API/finch-api-node/issues/639)) ([8f157ad](https://github.com/Finch-API/finch-api-node/commit/8f157ad9e1fb2f13ce071f028b0cfcbfc719355b))
+
 ## 8.1.0 (2026-01-06)
 
 Full Changelog: [v8.0.0...v8.1.0](https://github.com/Finch-API/finch-api-node/compare/v8.0.0...v8.1.0)
