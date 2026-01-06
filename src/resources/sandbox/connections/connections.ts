@@ -52,6 +52,11 @@ export interface ConnectionCreateResponse {
    */
   connection_id: string;
 
+  /**
+   * The ID of the entity for this connection
+   */
+  entity_id: string;
+
   products: Array<string>;
 
   /**

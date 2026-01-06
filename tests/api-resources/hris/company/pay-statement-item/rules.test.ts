@@ -26,7 +26,13 @@ describe('resource rules', () => {
         {
           entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
           attributes: { metadata: { foo: 'bar' } },
-          conditions: [{ field: 'field', operator: 'equals', value: 'value' }],
+          conditions: [
+            {
+              field: 'field',
+              operator: 'equals',
+              value: 'value',
+            },
+          ],
           effective_end_date: 'effective_end_date',
           effective_start_date: 'effective_start_date',
           entity_type: 'pay_statement_item',
@@ -52,7 +58,10 @@ describe('resource rules', () => {
     await expect(
       client.hris.company.payStatementItem.rules.update(
         'rule_id',
-        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'], optionalProperty: {} },
+        {
+          entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+          optionalProperty: {},
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Finch.NotFoundError);

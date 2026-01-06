@@ -1,5 +1,29 @@
 # Changelog
 
+## 8.1.0 (2026-01-06)
+
+Full Changelog: [v8.0.0...v8.1.0](https://github.com/Finch-API/finch-api-node/compare/v8.0.0...v8.1.0)
+
+### Features
+
+* **api:** api update ([8e97806](https://github.com/Finch-API/finch-api-node/commit/8e97806ff9a9dc8abf9d96c6334f716375764249))
+
+
+### Bug Fixes
+
+* **mcp:** correct code tool api output types ([1a412ec](https://github.com/Finch-API/finch-api-node/commit/1a412ec1f585e4be7252c9d15d119a519986c8c1))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([166f620](https://github.com/Finch-API/finch-api-node/commit/166f6206c0b0b7ee088314dd8351d69b78f87a28))
+* **internal:** codegen related update ([d9eeb4b](https://github.com/Finch-API/finch-api-node/commit/d9eeb4b1d9388efcfcefd05ce2c27b4752f374d1))
+
+
+### Documentation
+
+* prominently feature MCP server setup in root SDK readmes ([72c2bdd](https://github.com/Finch-API/finch-api-node/commit/72c2bdd4467301c754ec1c3393308468edb8fb29))
+
 ## 8.0.0 (2025-12-18)
 
 Full Changelog: [v7.0.0...v8.0.0](https://github.com/Finch-API/finch-api-node/compare/v7.0.0...v8.0.0)
