@@ -92,13 +92,13 @@ export namespace Payment {
 export interface PaymentListParams {
   /**
    * The end date to retrieve payments by a company (inclusive) in `YYYY-MM-DD`
-   * format.
+   * format. Filters payments by their **pay_date** field.
    */
   end_date: string;
 
   /**
    * The start date to retrieve payments by a company (inclusive) in `YYYY-MM-DD`
-   * format.
+   * format. Filters payments by their **pay_date** field.
    */
   start_date: string;
 
