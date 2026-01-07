@@ -36,7 +36,6 @@ export function codeTool(): McpTool {
         ...(stainlessAPIKey && { Authorization: stainlessAPIKey }),
         'Content-Type': 'application/json',
         client_envs: JSON.stringify({
-          FINCH_ACCESS_TOKEN: readEnv('FINCH_ACCESS_TOKEN'),
           FINCH_CLIENT_ID: readEnv('FINCH_CLIENT_ID'),
           FINCH_CLIENT_SECRET: readEnv('FINCH_CLIENT_SECRET'),
           FINCH_WEBHOOK_SECRET: readEnv('FINCH_WEBHOOK_SECRET'),
