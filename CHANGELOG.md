@@ -1,5 +1,20 @@
 # Changelog
 
+## 8.2.0 (2026-01-08)
+
+Full Changelog: [v8.1.1...v8.2.0](https://github.com/Finch-API/finch-api-node/compare/v8.1.1...v8.2.0)
+
+### Features
+
+* **api:** api update ([07174ee](https://github.com/Finch-API/finch-api-node/commit/07174eed580ea7be80172df97f7de41fc9bf09fd))
+
+
+### Bug Fixes
+
+* **mcp:** fix env parsing ([da539c1](https://github.com/Finch-API/finch-api-node/commit/da539c18318057054f9f7a6e39a8d8a8c62ef04b))
+* **mcp:** fix options parsing ([50db4af](https://github.com/Finch-API/finch-api-node/commit/50db4af071d340114f0e129d4843fd92be84d391))
+* **mcp:** update code tool prompt ([f3b178b](https://github.com/Finch-API/finch-api-node/commit/f3b178b2683dd7f86bba4034e5d8baf7db0e52fe))
+
 ## 8.1.1 (2026-01-06)
 
 Full Changelog: [v8.1.0...v8.1.1](https://github.com/Finch-API/finch-api-node/compare/v8.1.0...v8.1.1)

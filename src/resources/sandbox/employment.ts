@@ -55,8 +55,7 @@ export interface EmploymentUpdateResponse {
   employment?: EmploymentUpdateResponse.Employment | null;
 
   /**
-   * The detailed employment status of the individual. Available options: `active`,
-   * `deceased`, `leave`, `onboarding`, `prehire`, `retired`, `terminated`.
+   * The detailed employment status of the individual.
    */
   employment_status?:
     | 'active'
@@ -192,8 +191,7 @@ export interface EmploymentUpdateParams {
   employment?: EmploymentUpdateParams.Employment | null;
 
   /**
-   * The detailed employment status of the individual. Available options: `active`,
-   * `deceased`, `leave`, `onboarding`, `prehire`, `retired`, `terminated`.
+   * The detailed employment status of the individual.
    */
   employment_status?:
     | 'active'

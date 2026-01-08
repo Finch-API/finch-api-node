@@ -60,8 +60,7 @@ export namespace EmploymentData {
     employment: UnionMember0.Employment | null;
 
     /**
-     * The detailed employment status of the individual. Available options: `active`,
-     * `deceased`, `leave`, `onboarding`, `prehire`, `retired`, `terminated`.
+     * The detailed employment status of the individual.
      */
     employment_status:
       | 'active'
