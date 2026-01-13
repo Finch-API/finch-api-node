@@ -415,7 +415,7 @@ export interface RuleCreateParams {
   attributes?: RuleCreateParams.Attributes;
 
   /**
-   * Body param:
+   * Body param
    */
   conditions?: Array<RuleCreateParams.Condition>;
 
@@ -473,7 +473,7 @@ export interface RuleUpdateParams {
   entity_ids?: Array<string>;
 
   /**
-   * Body param:
+   * Body param
    */
   optionalProperty?: unknown;
 }
