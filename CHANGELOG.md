@@ -1,5 +1,29 @@
 # Changelog
 
+## 8.2.0 (2026-01-13)
+
+Full Changelog: [v8.1.1...v8.2.0](https://github.com/Finch-API/finch-api-node/compare/v8.1.1...v8.2.0)
+
+### Features
+
+* **api:** api update ([07174ee](https://github.com/Finch-API/finch-api-node/commit/07174eed580ea7be80172df97f7de41fc9bf09fd))
+
+
+### Bug Fixes
+
+* **mcp:** fix env parsing ([da539c1](https://github.com/Finch-API/finch-api-node/commit/da539c18318057054f9f7a6e39a8d8a8c62ef04b))
+* **mcp:** fix options parsing ([50db4af](https://github.com/Finch-API/finch-api-node/commit/50db4af071d340114f0e129d4843fd92be84d391))
+* **mcp:** update code tool prompt ([f3b178b](https://github.com/Finch-API/finch-api-node/commit/f3b178b2683dd7f86bba4034e5d8baf7db0e52fe))
+
+
+### Chores
+
+* fix typo in descriptions ([3ea6c6f](https://github.com/Finch-API/finch-api-node/commit/3ea6c6fd84e2db27791d5e01e3841c383713cf6e))
+* **internal:** codegen related update ([2fc7cb3](https://github.com/Finch-API/finch-api-node/commit/2fc7cb3ba446371be9d018a2625039e95e850b26))
+* **internal:** codegen related update ([65d66db](https://github.com/Finch-API/finch-api-node/commit/65d66db7811483626e17ad740b7740467948b066))
+* **internal:** codegen related update ([36d593e](https://github.com/Finch-API/finch-api-node/commit/36d593ed51b766a5493fa07ff38e7123f6b2ccac))
+* **internal:** codegen related update ([55094b0](https://github.com/Finch-API/finch-api-node/commit/55094b0eac5fff043ca2a0e177843a7eb8a73c97))
+
 ## 8.1.1 (2026-01-06)
 
 Full Changelog: [v8.1.0...v8.1.1](https://github.com/Finch-API/finch-api-node/compare/v8.1.0...v8.1.1)
