@@ -145,12 +145,12 @@ export interface IndividualRetrieveManyParams {
   entity_ids?: Array<string>;
 
   /**
-   * Body param:
+   * Body param
    */
   options?: IndividualRetrieveManyParams.Options | null;
 
   /**
-   * Body param:
+   * Body param
    */
   requests?: Array<IndividualRetrieveManyParams.Request>;
 }
