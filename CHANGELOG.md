@@ -1,5 +1,17 @@
 # Changelog
 
+## 8.2.1 (2026-01-16)
+
+Full Changelog: [v8.2.0...v8.2.1](https://github.com/Finch-API/finch-api-node/compare/v8.2.0...v8.2.1)
+
+### Chores
+
+* **internal:** update `actions/checkout` version ([f12ddde](https://github.com/Finch-API/finch-api-node/commit/f12ddde51a3ce201ef0673ae99191f7b2c58b62b))
+* **internal:** upgrade babel, qs, js-yaml ([d7be1cd](https://github.com/Finch-API/finch-api-node/commit/d7be1cd05439ac70eb37066e2c097014bbdf5f70))
+* **mcp:** add intent param to execute tool ([167089e](https://github.com/Finch-API/finch-api-node/commit/167089ee6f1bf45a22a902bd24c60399d7d165af))
+* **mcp:** pass intent param to execute handler ([78d31fd](https://github.com/Finch-API/finch-api-node/commit/78d31fd3ec977712f2b66816dd2a20f611bfa75f))
+* **mcp:** upgrade dependencies ([d16fb7c](https://github.com/Finch-API/finch-api-node/commit/d16fb7c18616ff555327e58c45f68a1286a1595e))
+
 ## 8.2.0 (2026-01-13)
 
 Full Changelog: [v8.1.1...v8.2.0](https://github.com/Finch-API/finch-api-node/compare/v8.1.1...v8.2.0)
