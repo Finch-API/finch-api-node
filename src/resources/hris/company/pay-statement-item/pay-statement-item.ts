@@ -39,7 +39,7 @@ export class PayStatementItem extends APIResource {
     return this._client.getAPIList(
       '/employer/pay-statement-item',
       ResponsesPage<PayStatementItemListResponse>,
-      { query, ...options },
+      { query, ...options, __security: { bearerAuth: true } },
     );
   }
 }

@@ -302,8 +302,14 @@ export class Finch {
     );
   }
 
-  protected async authHeaders(opts: FinalRequestOptions): Promise<NullableHeaders | undefined> {
-    return buildHeaders([await this.bearerAuth(opts), await this.basicAuth(opts)]);
+  protected async authHeaders(
+    opts: FinalRequestOptions,
+    schemes: { bearerAuth?: boolean; basicAuth?: boolean },
+  ): Promise<NullableHeaders | undefined> {
+    return buildHeaders([
+      schemes.bearerAuth ? await this.bearerAuth(opts) : null,
+      schemes.basicAuth ? await this.basicAuth(opts) : null,
+    ]);
   }
 
   protected async bearerAuth(opts: FinalRequestOptions): Promise<NullableHeaders | undefined> {
@@ -768,7 +774,7 @@ export class Finch {
         ...getPlatformHeaders(),
         'Finch-API-Version': '2020-09-17',
       },
-      await this.authHeaders(options),
+      await this.authHeaders(options, options.__security ?? { bearerAuth: true, basicAuth: true }),
       this._options.defaultHeaders,
       bodyHeaders,
       options.headers,

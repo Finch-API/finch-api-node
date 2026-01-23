@@ -25,7 +25,7 @@ export class Jobs extends APIResource {
    * ```
    */
   create(body: JobCreateParams, options?: RequestOptions): APIPromise<JobCreateResponse> {
-    return this._client.post('/sandbox/jobs', { body, ...options });
+    return this._client.post('/sandbox/jobs', { body, ...options, __security: { bearerAuth: true } });
   }
 }
 

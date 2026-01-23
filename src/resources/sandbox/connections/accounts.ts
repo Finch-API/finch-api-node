@@ -19,7 +19,11 @@ export class Accounts extends APIResource {
    * ```
    */
   create(body: AccountCreateParams, options?: RequestOptions): APIPromise<AccountCreateResponse> {
-    return this._client.post('/sandbox/connections/accounts', { body, ...options });
+    return this._client.post('/sandbox/connections/accounts', {
+      body,
+      ...options,
+      __security: { basicAuth: true },
+    });
   }
 
   /**
@@ -38,7 +42,11 @@ export class Accounts extends APIResource {
     body: AccountUpdateParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<AccountUpdateResponse> {
-    return this._client.put('/sandbox/connections/accounts', { body, ...options });
+    return this._client.put('/sandbox/connections/accounts', {
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 

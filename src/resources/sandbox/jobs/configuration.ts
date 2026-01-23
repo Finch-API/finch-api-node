@@ -15,7 +15,7 @@ export class Configuration extends APIResource {
    * ```
    */
   retrieve(options?: RequestOptions): APIPromise<ConfigurationRetrieveResponse> {
-    return this._client.get('/sandbox/jobs/configuration', options);
+    return this._client.get('/sandbox/jobs/configuration', { ...options, __security: { bearerAuth: true } });
   }
 
   /**
@@ -31,7 +31,11 @@ export class Configuration extends APIResource {
    * ```
    */
   update(body: ConfigurationUpdateParams, options?: RequestOptions): APIPromise<SandboxJobConfiguration> {
-    return this._client.put('/sandbox/jobs/configuration', { body, ...options });
+    return this._client.put('/sandbox/jobs/configuration', {
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 

@@ -10,14 +10,14 @@ export class Account extends APIResource {
    * Disconnect one or more `access_token`s from your application.
    */
   disconnect(options?: RequestOptions): APIPromise<DisconnectResponse> {
-    return this._client.post('/disconnect', options);
+    return this._client.post('/disconnect', { ...options, __security: { bearerAuth: true } });
   }
 
   /**
    * Read account information associated with an `access_token`
    */
   introspect(options?: RequestOptions): APIPromise<Introspection> {
-    return this._client.get('/introspect', options);
+    return this._client.get('/introspect', { ...options, __security: { bearerAuth: true } });
   }
 }
 

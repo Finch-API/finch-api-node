@@ -15,7 +15,7 @@ export class RequestForwarding extends APIResource {
     body: RequestForwardingForwardParams,
     options?: RequestOptions,
   ): APIPromise<RequestForwardingForwardResponse> {
-    return this._client.post('/forward', { body, ...options });
+    return this._client.post('/forward', { body, ...options, __security: { bearerAuth: true } });
   }
 }
 

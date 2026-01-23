@@ -9,7 +9,7 @@ export class AccessTokens extends APIResource {
    * Exchange the authorization code for an access token
    */
   create(body: AccessTokenCreateParams, options?: RequestOptions): APIPromise<CreateAccessTokenResponse> {
-    return this._client.post('/auth/token', { body, ...options });
+    return this._client.post('/auth/token', { body, ...options, __security: {} });
   }
 }
 

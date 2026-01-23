@@ -22,7 +22,11 @@ export class Employment extends APIResource {
     body: EmploymentUpdateParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<EmploymentUpdateResponse> {
-    return this._client.put(path`/sandbox/employment/${individualID}`, { body, ...options });
+    return this._client.put(path`/sandbox/employment/${individualID}`, {
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
