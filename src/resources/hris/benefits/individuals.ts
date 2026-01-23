@@ -31,6 +31,7 @@ export class Individuals extends APIResource {
       query: { entity_ids },
       body: individuals,
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 
@@ -50,7 +51,11 @@ export class Individuals extends APIResource {
     query: IndividualEnrolledIDsParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<IndividualEnrolledIDsResponse> {
-    return this._client.get(path`/employer/benefits/${benefitID}/enrolled`, { query, ...options });
+    return this._client.get(path`/employer/benefits/${benefitID}/enrolled`, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -74,7 +79,7 @@ export class Individuals extends APIResource {
     return this._client.getAPIList(
       path`/employer/benefits/${benefitID}/individuals`,
       SinglePage<IndividualBenefit>,
-      { query, ...options },
+      { query, ...options, __security: { bearerAuth: true } },
     );
   }
 
@@ -99,6 +104,7 @@ export class Individuals extends APIResource {
       query: { entity_ids },
       body,
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 }

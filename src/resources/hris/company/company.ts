@@ -29,7 +29,7 @@ export class CompanyResource extends APIResource {
     query: CompanyRetrieveParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<Company> {
-    return this._client.get('/employer/company', { query, ...options });
+    return this._client.get('/employer/company', { query, ...options, __security: { bearerAuth: true } });
   }
 }
 

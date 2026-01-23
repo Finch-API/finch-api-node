@@ -22,7 +22,11 @@ export class Individual extends APIResource {
     body: IndividualUpdateParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<IndividualUpdateResponse> {
-    return this._client.put(path`/sandbox/individual/${individualID}`, { body, ...options });
+    return this._client.put(path`/sandbox/individual/${individualID}`, {
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 

@@ -19,7 +19,11 @@ export class Directory extends APIResource {
     options?: RequestOptions,
   ): APIPromise<DirectoryCreateResponse> {
     const { body } = params ?? {};
-    return this._client.post('/sandbox/directory', { body: body, ...options });
+    return this._client.post('/sandbox/directory', {
+      body: body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 

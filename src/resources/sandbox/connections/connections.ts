@@ -26,7 +26,7 @@ export class Connections extends APIResource {
    * ```
    */
   create(body: ConnectionCreateParams, options?: RequestOptions): APIPromise<ConnectionCreateResponse> {
-    return this._client.post('/sandbox/connections', { body, ...options });
+    return this._client.post('/sandbox/connections', { body, ...options, __security: { basicAuth: true } });
   }
 }
 

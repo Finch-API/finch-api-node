@@ -27,6 +27,7 @@ export class Individuals extends APIResource {
       body,
       method: 'post',
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 }

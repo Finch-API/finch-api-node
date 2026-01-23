@@ -28,6 +28,7 @@ export class Rules extends APIResource {
       query: { entity_ids },
       body,
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 
@@ -52,6 +53,7 @@ export class Rules extends APIResource {
       query: { entity_ids },
       body,
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 
@@ -73,6 +75,7 @@ export class Rules extends APIResource {
     return this._client.getAPIList('/employer/pay-statement-item/rule', ResponsesPage<RuleListResponse>, {
       query,
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 
@@ -96,6 +99,7 @@ export class Rules extends APIResource {
     return this._client.delete(path`/employer/pay-statement-item/rule/${ruleID}`, {
       query: { entity_ids },
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 }

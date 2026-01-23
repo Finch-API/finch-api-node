@@ -21,7 +21,11 @@ export class Payments extends APIResource {
    * ```
    */
   list(query: PaymentListParams, options?: RequestOptions): PagePromise<PaymentsSinglePage, Payment> {
-    return this._client.getAPIList('/employer/payment', SinglePage<Payment>, { query, ...options });
+    return this._client.getAPIList('/employer/payment', SinglePage<Payment>, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 

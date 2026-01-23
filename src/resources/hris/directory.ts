@@ -23,6 +23,7 @@ export class Directory extends APIResource {
     return this._client.getAPIList('/employer/directory', IndividualsPage, {
       query,
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 

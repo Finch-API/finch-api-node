@@ -11,7 +11,7 @@ export class Manual extends APIResource {
    * jobs including those for both automated and assisted integrations.
    */
   retrieve(jobID: string, options?: RequestOptions): APIPromise<ManualAsyncJob> {
-    return this._client.get(path`/jobs/manual/${jobID}`, options);
+    return this._client.get(path`/jobs/manual/${jobID}`, { ...options, __security: { bearerAuth: true } });
   }
 }
 

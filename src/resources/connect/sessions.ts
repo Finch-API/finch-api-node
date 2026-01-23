@@ -9,7 +9,7 @@ export class Sessions extends APIResource {
    * Create a new connect session for an employer
    */
   new(body: SessionNewParams, options?: RequestOptions): APIPromise<SessionNewResponse> {
-    return this._client.post('/connect/sessions', { body, ...options });
+    return this._client.post('/connect/sessions', { body, ...options, __security: { basicAuth: true } });
   }
 
   /**
@@ -19,7 +19,11 @@ export class Sessions extends APIResource {
     body: SessionReauthenticateParams,
     options?: RequestOptions,
   ): APIPromise<SessionReauthenticateResponse> {
-    return this._client.post('/connect/sessions/reauthenticate', { body, ...options });
+    return this._client.post('/connect/sessions/reauthenticate', {
+      body,
+      ...options,
+      __security: { basicAuth: true },
+    });
   }
 }
 
