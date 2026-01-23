@@ -1,7 +1,7 @@
 {
   "dxt_version": "0.2",
   "name": "@tryfinch/finch-api-mcp",
-  "version": "8.2.0",
+  "version": "8.2.1",
   "description": "The official MCP Server for the Finch API",
   "author": {
     "name": "Finch",
