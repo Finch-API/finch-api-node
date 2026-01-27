@@ -15,7 +15,11 @@ export class PayGroups extends APIResource {
     query: PayGroupRetrieveParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<PayGroupRetrieveResponse> {
-    return this._client.get(path`/employer/pay-groups/${payGroupID}`, { query, ...options });
+    return this._client.get(path`/employer/pay-groups/${payGroupID}`, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -28,6 +32,7 @@ export class PayGroups extends APIResource {
     return this._client.getAPIList('/employer/pay-groups', SinglePage<PayGroupListResponse>, {
       query,
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 }

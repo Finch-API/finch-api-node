@@ -20,7 +20,7 @@ export class Documents extends APIResource {
     query: DocumentListParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<DocumentListResponse> {
-    return this._client.get('/employer/documents', { query, ...options });
+    return this._client.get('/employer/documents', { query, ...options, __security: { bearerAuth: true } });
   }
 
   /**
@@ -39,7 +39,11 @@ export class Documents extends APIResource {
     query: DocumentRetreiveParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<DocumentRetreiveResponse> {
-    return this._client.get(path`/employer/documents/${documentID}`, { query, ...options });
+    return this._client.get(path`/employer/documents/${documentID}`, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 

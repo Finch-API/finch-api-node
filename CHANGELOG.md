@@ -1,5 +1,25 @@
 # Changelog
 
+## 9.0.0 (2026-01-27)
+
+Full Changelog: [v8.2.1...v9.0.0](https://github.com/Finch-API/finch-api-node/compare/v8.2.1...v9.0.0)
+
+### Features
+
+* **api:** add per endpoint security ([94b79a2](https://github.com/Finch-API/finch-api-node/commit/94b79a26ed4c2cf31656a2d086fbaa07eea665f9))
+
+
+### Bug Fixes
+
+* **tests:** skip broken date validation test ([bd1b3dc](https://github.com/Finch-API/finch-api-node/commit/bd1b3dce0aa126ce871b590a38ceb88484205bf9))
+
+
+### Chores
+
+* **ci:** upgrade `actions/github-script` ([3e7b8f0](https://github.com/Finch-API/finch-api-node/commit/3e7b8f0f4f176fb1a049826c6b54db144e1bf1c7))
+* **internal:** codegen related update ([60b9d57](https://github.com/Finch-API/finch-api-node/commit/60b9d57de7446a9b007aec3494e3558ce7d09bb7))
+* **internal:** update lock file ([fbf54dd](https://github.com/Finch-API/finch-api-node/commit/fbf54dd83c73c8e44fefb0282dd54d96b2f647f9))
+
 ## 8.2.1 (2026-01-20)
 
 Full Changelog: [v8.2.0...v8.2.1](https://github.com/Finch-API/finch-api-node/compare/v8.2.0...v8.2.1)

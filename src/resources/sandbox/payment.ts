@@ -17,7 +17,7 @@ export class Payment extends APIResource {
     body: PaymentCreateParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<PaymentCreateResponse> {
-    return this._client.post('/sandbox/payment', { body, ...options });
+    return this._client.post('/sandbox/payment', { body, ...options, __security: { bearerAuth: true } });
   }
 }
 

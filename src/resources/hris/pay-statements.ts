@@ -39,6 +39,7 @@ export class PayStatements extends APIResource {
       body,
       method: 'post',
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 }

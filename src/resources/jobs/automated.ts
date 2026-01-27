@@ -23,14 +23,14 @@ export class Automated extends APIResource {
    * access to this endpoint, please contact your Finch account manager.
    */
   create(body: AutomatedCreateParams, options?: RequestOptions): APIPromise<AutomatedCreateResponse> {
-    return this._client.post('/jobs/automated', { body, ...options });
+    return this._client.post('/jobs/automated', { body, ...options, __security: { bearerAuth: true } });
   }
 
   /**
    * Get an automated job by `job_id`.
    */
   retrieve(jobID: string, options?: RequestOptions): APIPromise<AutomatedAsyncJob> {
-    return this._client.get(path`/jobs/automated/${jobID}`, options);
+    return this._client.get(path`/jobs/automated/${jobID}`, { ...options, __security: { bearerAuth: true } });
   }
 
   /**
@@ -42,7 +42,7 @@ export class Automated extends APIResource {
     query: AutomatedListParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<AutomatedListResponse> {
-    return this._client.get('/jobs/automated', { query, ...options });
+    return this._client.get('/jobs/automated', { query, ...options, __security: { bearerAuth: true } });
   }
 }
 

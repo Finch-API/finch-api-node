@@ -23,6 +23,7 @@ export class Directory extends APIResource {
     return this._client.getAPIList('/employer/directory', IndividualsPage, {
       query,
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 
@@ -98,11 +99,21 @@ export interface DirectoryListParams extends IndividualsPageParams {
   entity_ids?: Array<string>;
 }
 
-export interface DirectoryListIndividualsParams extends IndividualsPageParams {
+export interface DirectoryListIndividualsParams {
   /**
    * The entity IDs to specify which entities' data to access.
    */
   entity_ids?: Array<string>;
+
+  /**
+   * Number of employees to return (defaults to all)
+   */
+  limit?: number;
+
+  /**
+   * Index to start from (defaults to 0)
+   */
+  offset?: number;
 }
 
 export declare namespace Directory {

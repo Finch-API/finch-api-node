@@ -32,6 +32,7 @@ export class AccessTokens extends APIResource {
       body: bodyWithReplacements,
       ...options,
       headers: headersWithReplacements,
+      __security: {},
     });
   }
 }

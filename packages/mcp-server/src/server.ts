@@ -21,7 +21,7 @@ export const newMcpServer = () =>
   new McpServer(
     {
       name: 'tryfinch_finch_api_api',
-      version: '8.2.1',
+      version: '9.0.0',
     },
     { capabilities: { tools: {}, logging: {} } },
   );

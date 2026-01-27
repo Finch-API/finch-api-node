@@ -38,7 +38,12 @@ export class Benefits extends APIResource {
     options?: RequestOptions,
   ): APIPromise<CreateCompanyBenefitsResponse> {
     const { entity_ids, ...body } = params ?? {};
-    return this._client.post('/employer/benefits', { query: { entity_ids }, body, ...options });
+    return this._client.post('/employer/benefits', {
+      query: { entity_ids },
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -56,7 +61,11 @@ export class Benefits extends APIResource {
     query: BenefitRetrieveParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<CompanyBenefit> {
-    return this._client.get(path`/employer/benefits/${benefitID}`, { query, ...options });
+    return this._client.get(path`/employer/benefits/${benefitID}`, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -78,6 +87,7 @@ export class Benefits extends APIResource {
       query: { entity_ids },
       body,
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 
@@ -96,7 +106,11 @@ export class Benefits extends APIResource {
     query: BenefitListParams | null | undefined = {},
     options?: RequestOptions,
   ): PagePromise<CompanyBenefitsSinglePage, CompanyBenefit> {
-    return this._client.getAPIList('/employer/benefits', SinglePage<CompanyBenefit>, { query, ...options });
+    return this._client.getAPIList('/employer/benefits', SinglePage<CompanyBenefit>, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -117,6 +131,7 @@ export class Benefits extends APIResource {
     return this._client.getAPIList('/employer/benefits/meta', SinglePage<SupportedBenefit>, {
       query,
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 }

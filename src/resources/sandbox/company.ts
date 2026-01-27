@@ -33,7 +33,7 @@ export class Company extends APIResource {
    * ```
    */
   update(body: CompanyUpdateParams, options?: RequestOptions): APIPromise<CompanyUpdateResponse> {
-    return this._client.put('/sandbox/company', { body, ...options });
+    return this._client.put('/sandbox/company', { body, ...options, __security: { bearerAuth: true } });
   }
 }
 

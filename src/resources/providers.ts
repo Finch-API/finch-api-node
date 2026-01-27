@@ -9,7 +9,10 @@ export class Providers extends APIResource {
    * Return details on all available payroll and HR systems.
    */
   list(options?: RequestOptions): PagePromise<ProviderListResponsesSinglePage, ProviderListResponse> {
-    return this._client.getAPIList('/providers', SinglePage<ProviderListResponse>, options);
+    return this._client.getAPIList('/providers', SinglePage<ProviderListResponse>, {
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
