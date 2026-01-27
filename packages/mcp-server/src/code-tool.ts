@@ -4,6 +4,7 @@ import { McpTool, Metadata, ToolCallResult, asErrorResult, asTextContentResult }
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { readEnv } from './server';
 import { WorkerInput, WorkerOutput } from './code-tool-types';
+import { Finch } from '@tryfinch/finch-api';
 
 const prompt = `Runs JavaScript code to interact with the Finch API.
 
@@ -55,7 +56,7 @@ export function codeTool(): McpTool {
       required: ['code'],
     },
   };
-  const handler = async (_: unknown, args: any): Promise<ToolCallResult> => {
+  const handler = async (client: Finch, args: any): Promise<ToolCallResult> => {
     const code = args.code as string;
     const intent = args.intent as string | undefined;
 
@@ -71,10 +72,10 @@ export function codeTool(): McpTool {
         ...(stainlessAPIKey && { Authorization: stainlessAPIKey }),
         'Content-Type': 'application/json',
         client_envs: JSON.stringify({
-          FINCH_CLIENT_ID: readEnv('FINCH_CLIENT_ID'),
-          FINCH_CLIENT_SECRET: readEnv('FINCH_CLIENT_SECRET'),
-          FINCH_WEBHOOK_SECRET: readEnv('FINCH_WEBHOOK_SECRET'),
-          FINCH_BASE_URL: readEnv('FINCH_BASE_URL'),
+          FINCH_CLIENT_ID: readEnv('FINCH_CLIENT_ID') ?? client.clientID ?? undefined,
+          FINCH_CLIENT_SECRET: readEnv('FINCH_CLIENT_SECRET') ?? client.clientSecret ?? undefined,
+          FINCH_WEBHOOK_SECRET: readEnv('FINCH_WEBHOOK_SECRET') ?? client.webhookSecret ?? undefined,
+          FINCH_BASE_URL: readEnv('FINCH_BASE_URL') ?? client.baseURL ?? undefined,
         }),
       },
       body: JSON.stringify({
