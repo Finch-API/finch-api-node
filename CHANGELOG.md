@@ -1,5 +1,40 @@
 # Changelog
 
+## 9.1.0 (2026-02-17)
+
+Full Changelog: [v9.0.0...v9.1.0](https://github.com/Finch-API/finch-api-node/compare/v9.0.0...v9.1.0)
+
+### Features
+
+* **mcp:** add initial server instructions ([41a62e7](https://github.com/Finch-API/finch-api-node/commit/41a62e7da2c6f6fe1b59afe8d87066489d707bc4))
+
+
+### Bug Fixes
+
+* **client:** avoid memory leak with abort signals ([e6cbcb4](https://github.com/Finch-API/finch-api-node/commit/e6cbcb4c380d391797875514114fbd870e680aa9))
+* **client:** avoid removing abort listener too early ([834599b](https://github.com/Finch-API/finch-api-node/commit/834599b8d10c0cc7858861504ebbc6142d28768d))
+* **docs:** fix mcp installation instructions for remote servers ([2346e45](https://github.com/Finch-API/finch-api-node/commit/2346e45e51546112f96d29f89904a499c66c61d2))
+* **mcp:** allow falling back for required env variables ([e2285bf](https://github.com/Finch-API/finch-api-node/commit/e2285bffd1403ecbb223daf47f7e1eda40033d54))
+
+
+### Chores
+
+* **client:** do not parse responses with empty content-length ([9168b0e](https://github.com/Finch-API/finch-api-node/commit/9168b0e266bb4babc638698f27c166d282c5f346))
+* **client:** restructure abort controller binding ([03776eb](https://github.com/Finch-API/finch-api-node/commit/03776eb5c0329b6580fb3c2e58ce4d811fbde635))
+* **internal/client:** fix form-urlencoded requests ([1ac688c](https://github.com/Finch-API/finch-api-node/commit/1ac688c453fda8fb75435c7640baee617ebe2391))
+* **internal:** add health check to MCP server when running in HTTP mode ([c6b1999](https://github.com/Finch-API/finch-api-node/commit/c6b1999a1895466414ad1c3975b27ee317faa473))
+* **internal:** allow basic filtering of methods allowed for MCP code mode ([c6921b7](https://github.com/Finch-API/finch-api-node/commit/c6921b76e9db6ddd6019353a6da69c12a43f8570))
+* **internal:** allow setting x-stainless-api-key header on mcp server requests ([b54dd75](https://github.com/Finch-API/finch-api-node/commit/b54dd7599a900f5a37968d409581aa09092389e4))
+* **internal:** always generate MCP server dockerfiles and upgrade associated dependencies ([d786340](https://github.com/Finch-API/finch-api-node/commit/d7863401c96e70f832d74a7eca4b7ef0850791e2))
+* **internal:** avoid type checking errors with ts-reset ([ec27092](https://github.com/Finch-API/finch-api-node/commit/ec270924322d2fbb055eb36ae6b8b75c2102f89a))
+* **internal:** codegen related update ([b3f5e09](https://github.com/Finch-API/finch-api-node/commit/b3f5e099f190c0dcdd648262398d4629fac02671))
+* **internal:** fix pagination internals not accepting option promises ([6b75209](https://github.com/Finch-API/finch-api-node/commit/6b7520906d83f1ebeaf76c2b827f34f8ebeeeca2))
+* **internal:** improve layout of generated MCP server files ([efb8e62](https://github.com/Finch-API/finch-api-node/commit/efb8e625da8e577178a22350215ef3931ad657db))
+* **internal:** refactor flag parsing for MCP servers and add debug flag ([c3685d5](https://github.com/Finch-API/finch-api-node/commit/c3685d56e5988db461e09f3ec90e693dbec3bdfa))
+* **internal:** support oauth authorization code flow for MCP servers ([ed2565a](https://github.com/Finch-API/finch-api-node/commit/ed2565a0da646b78e0f3d74bbe7d2f7c8c4c46bb))
+* **mcp:** forward STAINLESS_API_KEY to docs search endpoint ([e307e2e](https://github.com/Finch-API/finch-api-node/commit/e307e2e1c806385c6aa5a3bdea69e690fde06d73))
+* **mcp:** up tsconfig lib version to es2022 ([b96b21e](https://github.com/Finch-API/finch-api-node/commit/b96b21eccc21170a8c655ac8de964723952e9f93))
+
 ## 9.0.0 (2026-01-27)
 
 Full Changelog: [v8.2.1...v9.0.0](https://github.com/Finch-API/finch-api-node/compare/v8.2.1...v9.0.0)
