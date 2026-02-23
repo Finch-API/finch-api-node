@@ -60,7 +60,7 @@ $ yarn link @tryfinch/finch-api
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global @tryfinch/finch-api
+$ pnpm link --global @tryfinch/finch-api
 ```
 
 ## Running tests
