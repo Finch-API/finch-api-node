@@ -1,5 +1,22 @@
 # Changelog
 
+## 9.1.1 (2026-02-23)
+
+Full Changelog: [v9.1.0...v9.1.1](https://github.com/Finch-API/finch-api-node/compare/v9.1.0...v9.1.1)
+
+### Bug Fixes
+
+* **docs/contributing:** correct pnpm link command ([fbc6228](https://github.com/Finch-API/finch-api-node/commit/fbc622849196606ea0610d656d80d9906b674c50))
+* **mcp:** initialize SDK lazily to avoid failing the connection on init errors ([b8baaa7](https://github.com/Finch-API/finch-api-node/commit/b8baaa724f8ecd0f8302642f43794ebe8d8f65f0))
+
+
+### Chores
+
+* **internal:** cache fetch instruction calls in MCP server ([3949456](https://github.com/Finch-API/finch-api-node/commit/3949456cc64a6d002468cf4094726a0149361373))
+* **internal:** upgrade @modelcontextprotocol/sdk and hono ([df73805](https://github.com/Finch-API/finch-api-node/commit/df73805ff5245a55778bf67b3d19c7df3265da91))
+* **mcp:** correctly update version in sync with sdk ([d0c7741](https://github.com/Finch-API/finch-api-node/commit/d0c7741ce567161f542c2ef795ee8a7965e7b069))
+* update mock server docs ([5934a67](https://github.com/Finch-API/finch-api-node/commit/5934a6731510047f2829f0e7fa412d387f8c3fdd))
+
 ## 9.1.0 (2026-02-17)
 
 Full Changelog: [v9.0.0...v9.1.0](https://github.com/Finch-API/finch-api-node/compare/v9.0.0...v9.1.0)
