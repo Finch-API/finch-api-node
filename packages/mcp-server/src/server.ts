@@ -21,7 +21,7 @@ export const newMcpServer = async (stainlessApiKey: string | undefined) =>
   new McpServer(
     {
       name: 'tryfinch_finch_api_api',
-      version: '9.1.1',
+      version: '9.2.0',
     },
     {
       instructions: await getInstructions(stainlessApiKey),
