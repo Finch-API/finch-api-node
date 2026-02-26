@@ -1,5 +1,21 @@
 # Changelog
 
+## 9.2.0 (2026-02-26)
+
+Full Changelog: [v9.1.1...v9.2.0](https://github.com/Finch-API/finch-api-node/compare/v9.1.1...v9.2.0)
+
+### Features
+
+* **mcp:** add an option to disable code tool ([41b93bf](https://github.com/Finch-API/finch-api-node/commit/41b93bfe015700e9fa9bdf79290391f5beef9e85))
+
+
+### Chores
+
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([4e01aa5](https://github.com/Finch-API/finch-api-node/commit/4e01aa5e3880153452e6d363e58a4f0a57a0ad03))
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([809edff](https://github.com/Finch-API/finch-api-node/commit/809edff852053531b6d1540764c6e4cd924a441f))
+* **internal:** make MCP code execution location configurable via a flag ([a899886](https://github.com/Finch-API/finch-api-node/commit/a89988664c5f00d6aac1dc0d417c43ef05d1fc09))
+* **internal:** move stringifyQuery implementation to internal function ([06e8759](https://github.com/Finch-API/finch-api-node/commit/06e87594913bdfda7e6a2cf6f980886441544758))
+
 ## 9.1.1 (2026-02-23)
 
 Full Changelog: [v9.1.0...v9.1.1](https://github.com/Finch-API/finch-api-node/compare/v9.1.0...v9.1.1)
