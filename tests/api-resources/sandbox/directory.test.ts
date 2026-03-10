@@ -44,6 +44,7 @@ describe('resource directory', () => {
               end_date: 'end_date',
               ethnicity: 'asian',
               first_name: 'first_name',
+              flsa_status: 'exempt',
               gender: 'female',
               income: {
                 amount: 0,
