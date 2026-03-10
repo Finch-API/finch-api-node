@@ -1,5 +1,27 @@
 # Changelog
 
+## 9.3.0 (2026-03-10)
+
+Full Changelog: [v9.2.0...v9.3.0](https://github.com/Finch-API/finch-api-node/compare/v9.2.0...v9.3.0)
+
+### Features
+
+* **api:** api update ([fa2b60a](https://github.com/Finch-API/finch-api-node/commit/fa2b60a267e9da0df1f8d884ffb47f4d5757f502))
+
+
+### Bug Fixes
+
+* **api:** remove invalid transform config ([325973d](https://github.com/Finch-API/finch-api-node/commit/325973dd45c7ec667d8e8b061025b07ef0a43571))
+* **client:** preserve URL params already embedded in path ([0e6e60b](https://github.com/Finch-API/finch-api-node/commit/0e6e60b12695f3f939e68ed532df8635514e8a28))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([73749d6](https://github.com/Finch-API/finch-api-node/commit/73749d6fa0efd3bc663806c129b97d550d2f5173))
+* **internal:** codegen related update ([c3b5362](https://github.com/Finch-API/finch-api-node/commit/c3b536242683da322c746ec84036f5e5f5b4dff9))
+* **internal:** update dependencies to address dependabot vulnerabilities ([a4b3eac](https://github.com/Finch-API/finch-api-node/commit/a4b3eac445d4796c00f782a10e2fc74a1eb56624))
+* **mcp-server:** improve instructions ([3240242](https://github.com/Finch-API/finch-api-node/commit/32402420f11116f77ceddff72ff66a93573da557))
+
 ## 9.2.0 (2026-02-26)
 
 Full Changelog: [v9.1.1...v9.2.0](https://github.com/Finch-API/finch-api-node/compare/v9.1.1...v9.2.0)
