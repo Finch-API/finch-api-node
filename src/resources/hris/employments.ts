@@ -81,6 +81,12 @@ export namespace EmploymentData {
     first_name: string | null;
 
     /**
+     * The FLSA status of the individual. Available options: `exempt`, `non_exempt`,
+     * `unknown`.
+     */
+    flsa_status: 'exempt' | 'non_exempt' | 'unknown' | null;
+
+    /**
      * `true` if the individual an an active employee or contractor at the company.
      */
     is_active: boolean | null;
