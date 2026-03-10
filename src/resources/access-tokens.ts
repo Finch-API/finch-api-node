@@ -98,6 +98,12 @@ export interface CreateAccessTokenResponse {
    * for this connection
    */
   customer_id?: string | null;
+
+  /**
+   * The name of your customer you provided to Finch when a connect session was
+   * created for this connection
+   */
+  customer_name?: string | null;
 }
 
 export interface AccessTokenCreateParams {

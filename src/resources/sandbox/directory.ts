@@ -110,6 +110,12 @@ export namespace DirectoryCreateParams {
     first_name?: string | null;
 
     /**
+     * The FLSA status of the individual. Available options: `exempt`, `non_exempt`,
+     * `unknown`.
+     */
+    flsa_status?: 'exempt' | 'non_exempt' | 'unknown' | null;
+
+    /**
      * The gender of the individual.
      */
     gender?: 'female' | 'male' | 'other' | 'decline_to_specify' | null;

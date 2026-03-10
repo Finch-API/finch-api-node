@@ -79,6 +79,12 @@ export interface EmploymentUpdateResponse {
   first_name?: string | null;
 
   /**
+   * The FLSA status of the individual. Available options: `exempt`, `non_exempt`,
+   * `unknown`.
+   */
+  flsa_status?: 'exempt' | 'non_exempt' | 'unknown' | null;
+
+  /**
    * The employee's income as reported by the provider. This may not always be
    * annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc,
    * depending on what information the provider returns.
@@ -213,6 +219,12 @@ export interface EmploymentUpdateParams {
    * The legal first name of the individual.
    */
   first_name?: string | null;
+
+  /**
+   * The FLSA status of the individual. Available options: `exempt`, `non_exempt`,
+   * `unknown`.
+   */
+  flsa_status?: 'exempt' | 'non_exempt' | 'unknown' | null;
 
   /**
    * The employee's income as reported by the provider. This may not always be
