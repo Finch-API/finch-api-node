@@ -1,5 +1,15 @@
 # Changelog
 
+## 9.3.1 (2026-03-13)
+
+Full Changelog: [v9.3.0...v9.3.1](https://github.com/Finch-API/finch-api-node/compare/v9.3.0...v9.3.1)
+
+### Chores
+
+* **internal:** bump @modelcontextprotocol/sdk, @hono/node-server, and minimatch ([cb296df](https://github.com/Finch-API/finch-api-node/commit/cb296df1af875ebcd14eba927afa4db5c1e81ca4))
+* **internal:** make generated MCP servers compatible with Cloudflare worker environments ([02fd3db](https://github.com/Finch-API/finch-api-node/commit/02fd3db5144319fc1d3a0014a33c5844d5c871b8))
+* **internal:** support x-stainless-mcp-client-envs header in MCP servers ([9b52734](https://github.com/Finch-API/finch-api-node/commit/9b52734c95eae05a66c70d0e59f49605a1290e38))
+
 ## 9.3.0 (2026-03-10)
 
 Full Changelog: [v9.2.0...v9.3.0](https://github.com/Finch-API/finch-api-node/compare/v9.2.0...v9.3.0)
