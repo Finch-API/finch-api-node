@@ -180,6 +180,18 @@ export namespace Introspection {
      * The source ID of the entity
      */
     source_id: string | null;
+
+    /**
+     * The status of the entity connection
+     */
+    status:
+      | 'pending'
+      | 'processing'
+      | 'connected'
+      | 'error_no_account_setup'
+      | 'error_permissions'
+      | 'reauth'
+      | 'disconnected';
   }
 }
 
