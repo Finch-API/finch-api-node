@@ -1,5 +1,37 @@
 # Changelog
 
+## 9.4.0 (2026-03-27)
+
+Full Changelog: [v9.3.0...v9.4.0](https://github.com/Finch-API/finch-api-node/compare/v9.3.0...v9.4.0)
+
+### Features
+
+* **api:** api update ([43f868d](https://github.com/Finch-API/finch-api-node/commit/43f868dd50cd1eb77f0c9721666c6a1e0a6f18d9))
+* **api:** api update ([136acd6](https://github.com/Finch-API/finch-api-node/commit/136acd675b35a62b8927f1f226e1fdd378b2c2ae))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([21b6a9d](https://github.com/Finch-API/finch-api-node/commit/21b6a9d81693134885a545d44f384c21f0f1fa77))
+* **internal:** bump @modelcontextprotocol/sdk, @hono/node-server, and minimatch ([cb296df](https://github.com/Finch-API/finch-api-node/commit/cb296df1af875ebcd14eba927afa4db5c1e81ca4))
+* **internal:** fix MCP server TS errors that occur with required client options ([78e6075](https://github.com/Finch-API/finch-api-node/commit/78e60750ebfe784f8a5131640331481322ab88f2))
+* **internal:** make generated MCP servers compatible with Cloudflare worker environments ([02fd3db](https://github.com/Finch-API/finch-api-node/commit/02fd3db5144319fc1d3a0014a33c5844d5c871b8))
+* **internal:** support custom-instructions-path flag in MCP servers ([54bc6f0](https://github.com/Finch-API/finch-api-node/commit/54bc6f0d5f49445f0ceff29e9d1f3401943deecd))
+* **internal:** support x-stainless-mcp-client-envs header in MCP servers ([9b52734](https://github.com/Finch-API/finch-api-node/commit/9b52734c95eae05a66c70d0e59f49605a1290e38))
+* **internal:** support x-stainless-mcp-client-permissions headers in MCP servers ([262612e](https://github.com/Finch-API/finch-api-node/commit/262612e3cafafd4a0d56b50c05cdd4840e19423c))
+* **internal:** tweak CI branches ([28d39dc](https://github.com/Finch-API/finch-api-node/commit/28d39dc3053ee6981d0e2431ff117b361cb5db41))
+* **internal:** update gitignore ([7e3dec1](https://github.com/Finch-API/finch-api-node/commit/7e3dec180f32f7d3af9b7bfa1048b7f65f3fe0e9))
+* **internal:** update multipart form array serialization ([4c22540](https://github.com/Finch-API/finch-api-node/commit/4c22540369796ab42675176f59095cacbcd234e1))
+* **tests:** bump steady to v0.19.4 ([b17943d](https://github.com/Finch-API/finch-api-node/commit/b17943dedc197a6f51ba3d7a99a9525e1d05d28c))
+* **tests:** bump steady to v0.19.5 ([724e159](https://github.com/Finch-API/finch-api-node/commit/724e15968a7097123ccfe4b3e6419f580dfdbbaa))
+* **tests:** bump steady to v0.19.6 ([d356e29](https://github.com/Finch-API/finch-api-node/commit/d356e29b624adb1c53d5fbcde14d75c878066938))
+* **tests:** bump steady to v0.19.7 ([3729aa6](https://github.com/Finch-API/finch-api-node/commit/3729aa6f4970df2224cdc50682dfb347f566de9b))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([3ce965c](https://github.com/Finch-API/finch-api-node/commit/3ce965cd47b579f708a38fe47b52e0e1635a42ea))
+
 ## 9.3.0 (2026-03-10)
 
 Full Changelog: [v9.2.0...v9.3.0](https://github.com/Finch-API/finch-api-node/compare/v9.2.0...v9.3.0)
