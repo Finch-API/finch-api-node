@@ -17,14 +17,20 @@ import { blockedMethodsForCodeTool } from './methods';
 import { HandlerFunction, McpRequestContext, ToolCallResult, McpTool } from './types';
 import { readEnv } from './util';
 
-export const newMcpServer = async (stainlessApiKey: string | undefined) =>
+export const newMcpServer = async ({
+  stainlessApiKey,
+  customInstructionsPath,
+}: {
+  stainlessApiKey?: string | undefined;
+  customInstructionsPath?: string | undefined;
+}) =>
   new McpServer(
     {
       name: 'tryfinch_finch_api_api',
-      version: '9.3.0',
+      version: '9.4.0',
     },
     {
-      instructions: await getInstructions(stainlessApiKey),
+      instructions: await getInstructions({ stainlessApiKey, customInstructionsPath }),
       capabilities: { tools: {}, logging: {} },
     },
   );
@@ -38,6 +44,7 @@ export async function initMcpServer(params: {
   clientOptions?: ClientOptions;
   mcpOptions?: McpOptions;
   stainlessApiKey?: string | undefined;
+  upstreamClientEnvs?: Record<string, string> | undefined;
 }) {
   const server = params.server instanceof McpServer ? params.server.server : params.server;
 
@@ -120,6 +127,7 @@ export async function initMcpServer(params: {
       reqContext: {
         client,
         stainlessApiKey: params.stainlessApiKey ?? params.mcpOptions?.stainlessApiKey,
+        upstreamClientEnvs: params.upstreamClientEnvs,
       },
       args,
     });
