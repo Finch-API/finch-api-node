@@ -1,5 +1,24 @@
 # Changelog
 
+## 9.4.1 (2026-04-06)
+
+Full Changelog: [v9.4.0...v9.4.1](https://github.com/Finch-API/finch-api-node/compare/v9.4.0...v9.4.1)
+
+### Chores
+
+* **ci:** escape input path in publish-npm workflow ([937becb](https://github.com/Finch-API/finch-api-node/commit/937becb997cb913a0328004f30e659267b4e6408))
+* **internal:** fix MCP docker image builds in yarn projects ([82c9ea5](https://github.com/Finch-API/finch-api-node/commit/82c9ea5c80252c99b5a6f5454341e77c36b5bf27))
+* **internal:** fix MCP server import ordering ([cebd49f](https://github.com/Finch-API/finch-api-node/commit/cebd49f12cc7ce3055fb2bc48c89c8c029b27cc8))
+* **internal:** improve local docs search for MCP servers ([996bc5f](https://github.com/Finch-API/finch-api-node/commit/996bc5f36e0c86bdc9af549e70f3f4edaebb5d3c))
+* **internal:** improve local docs search for MCP servers ([718d076](https://github.com/Finch-API/finch-api-node/commit/718d076ca4e7646b354ddb90bd481d870afcfff0))
+* **internal:** support local docs search in MCP servers ([c1b4351](https://github.com/Finch-API/finch-api-node/commit/c1b4351dfc3afdf78cb3b05303da95b38f7f063d))
+* **internal:** support type annotations when running MCP in local execution mode ([dee433e](https://github.com/Finch-API/finch-api-node/commit/dee433e64a5b46bb3cdfcdae22f0e7e3bf0cf624))
+* **internal:** use link instead of file in MCP server package.json files ([93c6720](https://github.com/Finch-API/finch-api-node/commit/93c6720c745b801c0740737164bd316f185d20df))
+* **mcp-server:** add support for session id, forward client info ([c4e007e](https://github.com/Finch-API/finch-api-node/commit/c4e007e78562fdab27d1dfba7be94cf1b03a57a4))
+* **mcp-server:** log client info ([9a5e04e](https://github.com/Finch-API/finch-api-node/commit/9a5e04ebe0ab27ee31ddf23fcca0cd7256b729ca))
+* **tests:** bump steady to v0.20.1 ([d50d641](https://github.com/Finch-API/finch-api-node/commit/d50d641be70b27821146bad6c1d708919954765c))
+* **tests:** bump steady to v0.20.2 ([034ea66](https://github.com/Finch-API/finch-api-node/commit/034ea662efe9f95db50f2dca215f54e63ff96009))
+
 ## 9.4.0 (2026-03-27)
 
 Full Changelog: [v9.3.0...v9.4.0](https://github.com/Finch-API/finch-api-node/compare/v9.3.0...v9.4.0)
