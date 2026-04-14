@@ -63,7 +63,9 @@ export interface SessionNewParams {
   customer_name: string;
 
   /**
-   * The Finch products to request access to
+   * The Finch products to request access to. Use `benefits` to access deductions
+   * endpoints — `deduction` is a deprecated alias that is still accepted but should
+   * not be combined with `benefits`.
    */
   products: Array<
     | 'benefits'
@@ -140,7 +142,9 @@ export interface SessionReauthenticateParams {
   minutes_to_expire?: number;
 
   /**
-   * The products to request access to (optional for reauthentication)
+   * The products to request access to (optional for reauthentication). Use
+   * `benefits` to access deductions endpoints — `deduction` is a deprecated alias
+   * that is still accepted but should not be combined with `benefits`.
    */
   products?: Array<
     | 'benefits'

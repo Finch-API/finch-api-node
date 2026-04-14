@@ -1,5 +1,21 @@
 # Changelog
 
+## 9.5.0 (2026-04-13)
+
+Full Changelog: [v9.4.1...v9.5.0](https://github.com/Finch-API/finch-api-node/compare/v9.4.1...v9.5.0)
+
+### Features
+
+* **api:** api update ([c7b1cbd](https://github.com/Finch-API/finch-api-node/commit/c7b1cbdd3b9ac244868c5c607cecfe6cae131563))
+
+
+### Chores
+
+* **internal:** codegen related update ([8102f1a](https://github.com/Finch-API/finch-api-node/commit/8102f1a3a5f8eb6912e242dd045d3d6e8858a258))
+* **internal:** codegen related update ([f00da2e](https://github.com/Finch-API/finch-api-node/commit/f00da2ec14ce454259e2a9040873be59896a8334))
+* **internal:** show error causes in MCP servers when running in local mode ([81a144e](https://github.com/Finch-API/finch-api-node/commit/81a144ea0a2f27f76e3879fbb809c56d8838fba7))
+* **mcp-server:** increase local docs search result count from 5 to 10 ([0a41abc](https://github.com/Finch-API/finch-api-node/commit/0a41abcf925d5568ee6705a1b724645e4fa60575))
+
 ## 9.4.1 (2026-04-06)
 
 Full Changelog: [v9.4.0...v9.4.1](https://github.com/Finch-API/finch-api-node/compare/v9.4.0...v9.4.1)
