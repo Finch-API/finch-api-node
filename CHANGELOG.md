@@ -1,5 +1,1127 @@
 # Changelog
 
+## 9.5.0 (2026-04-13)
+
+Full Changelog: [v9.4.1...v9.5.0](https://github.com/Finch-API/finch-api-node/compare/v9.4.1...v9.5.0)
+
+### Features
+
+* **api:** api update ([c7b1cbd](https://github.com/Finch-API/finch-api-node/commit/c7b1cbdd3b9ac244868c5c607cecfe6cae131563))
+
+
+### Chores
+
+* **internal:** codegen related update ([8102f1a](https://github.com/Finch-API/finch-api-node/commit/8102f1a3a5f8eb6912e242dd045d3d6e8858a258))
+* **internal:** codegen related update ([f00da2e](https://github.com/Finch-API/finch-api-node/commit/f00da2ec14ce454259e2a9040873be59896a8334))
+* **internal:** show error causes in MCP servers when running in local mode ([81a144e](https://github.com/Finch-API/finch-api-node/commit/81a144ea0a2f27f76e3879fbb809c56d8838fba7))
+* **mcp-server:** increase local docs search result count from 5 to 10 ([0a41abc](https://github.com/Finch-API/finch-api-node/commit/0a41abcf925d5568ee6705a1b724645e4fa60575))
+
+## 9.4.1 (2026-04-06)
+
+Full Changelog: [v9.4.0...v9.4.1](https://github.com/Finch-API/finch-api-node/compare/v9.4.0...v9.4.1)
+
+### Chores
+
+* **ci:** escape input path in publish-npm workflow ([937becb](https://github.com/Finch-API/finch-api-node/commit/937becb997cb913a0328004f30e659267b4e6408))
+* **internal:** fix MCP docker image builds in yarn projects ([82c9ea5](https://github.com/Finch-API/finch-api-node/commit/82c9ea5c80252c99b5a6f5454341e77c36b5bf27))
+* **internal:** fix MCP server import ordering ([cebd49f](https://github.com/Finch-API/finch-api-node/commit/cebd49f12cc7ce3055fb2bc48c89c8c029b27cc8))
+* **internal:** improve local docs search for MCP servers ([996bc5f](https://github.com/Finch-API/finch-api-node/commit/996bc5f36e0c86bdc9af549e70f3f4edaebb5d3c))
+* **internal:** improve local docs search for MCP servers ([718d076](https://github.com/Finch-API/finch-api-node/commit/718d076ca4e7646b354ddb90bd481d870afcfff0))
+* **internal:** support local docs search in MCP servers ([c1b4351](https://github.com/Finch-API/finch-api-node/commit/c1b4351dfc3afdf78cb3b05303da95b38f7f063d))
+* **internal:** support type annotations when running MCP in local execution mode ([dee433e](https://github.com/Finch-API/finch-api-node/commit/dee433e64a5b46bb3cdfcdae22f0e7e3bf0cf624))
+* **internal:** use link instead of file in MCP server package.json files ([93c6720](https://github.com/Finch-API/finch-api-node/commit/93c6720c745b801c0740737164bd316f185d20df))
+* **mcp-server:** add support for session id, forward client info ([c4e007e](https://github.com/Finch-API/finch-api-node/commit/c4e007e78562fdab27d1dfba7be94cf1b03a57a4))
+* **mcp-server:** log client info ([9a5e04e](https://github.com/Finch-API/finch-api-node/commit/9a5e04ebe0ab27ee31ddf23fcca0cd7256b729ca))
+* **tests:** bump steady to v0.20.1 ([d50d641](https://github.com/Finch-API/finch-api-node/commit/d50d641be70b27821146bad6c1d708919954765c))
+* **tests:** bump steady to v0.20.2 ([034ea66](https://github.com/Finch-API/finch-api-node/commit/034ea662efe9f95db50f2dca215f54e63ff96009))
+
+## 9.4.0 (2026-03-27)
+
+Full Changelog: [v9.3.0...v9.4.0](https://github.com/Finch-API/finch-api-node/compare/v9.3.0...v9.4.0)
+
+### Features
+
+* **api:** api update ([43f868d](https://github.com/Finch-API/finch-api-node/commit/43f868dd50cd1eb77f0c9721666c6a1e0a6f18d9))
+* **api:** api update ([136acd6](https://github.com/Finch-API/finch-api-node/commit/136acd675b35a62b8927f1f226e1fdd378b2c2ae))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([21b6a9d](https://github.com/Finch-API/finch-api-node/commit/21b6a9d81693134885a545d44f384c21f0f1fa77))
+* **internal:** bump @modelcontextprotocol/sdk, @hono/node-server, and minimatch ([cb296df](https://github.com/Finch-API/finch-api-node/commit/cb296df1af875ebcd14eba927afa4db5c1e81ca4))
+* **internal:** fix MCP server TS errors that occur with required client options ([78e6075](https://github.com/Finch-API/finch-api-node/commit/78e60750ebfe784f8a5131640331481322ab88f2))
+* **internal:** make generated MCP servers compatible with Cloudflare worker environments ([02fd3db](https://github.com/Finch-API/finch-api-node/commit/02fd3db5144319fc1d3a0014a33c5844d5c871b8))
+* **internal:** support custom-instructions-path flag in MCP servers ([54bc6f0](https://github.com/Finch-API/finch-api-node/commit/54bc6f0d5f49445f0ceff29e9d1f3401943deecd))
+* **internal:** support x-stainless-mcp-client-envs header in MCP servers ([9b52734](https://github.com/Finch-API/finch-api-node/commit/9b52734c95eae05a66c70d0e59f49605a1290e38))
+* **internal:** support x-stainless-mcp-client-permissions headers in MCP servers ([262612e](https://github.com/Finch-API/finch-api-node/commit/262612e3cafafd4a0d56b50c05cdd4840e19423c))
+* **internal:** tweak CI branches ([28d39dc](https://github.com/Finch-API/finch-api-node/commit/28d39dc3053ee6981d0e2431ff117b361cb5db41))
+* **internal:** update gitignore ([7e3dec1](https://github.com/Finch-API/finch-api-node/commit/7e3dec180f32f7d3af9b7bfa1048b7f65f3fe0e9))
+* **internal:** update multipart form array serialization ([4c22540](https://github.com/Finch-API/finch-api-node/commit/4c22540369796ab42675176f59095cacbcd234e1))
+* **tests:** bump steady to v0.19.4 ([b17943d](https://github.com/Finch-API/finch-api-node/commit/b17943dedc197a6f51ba3d7a99a9525e1d05d28c))
+* **tests:** bump steady to v0.19.5 ([724e159](https://github.com/Finch-API/finch-api-node/commit/724e15968a7097123ccfe4b3e6419f580dfdbbaa))
+* **tests:** bump steady to v0.19.6 ([d356e29](https://github.com/Finch-API/finch-api-node/commit/d356e29b624adb1c53d5fbcde14d75c878066938))
+* **tests:** bump steady to v0.19.7 ([3729aa6](https://github.com/Finch-API/finch-api-node/commit/3729aa6f4970df2224cdc50682dfb347f566de9b))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([3ce965c](https://github.com/Finch-API/finch-api-node/commit/3ce965cd47b579f708a38fe47b52e0e1635a42ea))
+
+## 9.3.0 (2026-03-10)
+
+Full Changelog: [v9.2.0...v9.3.0](https://github.com/Finch-API/finch-api-node/compare/v9.2.0...v9.3.0)
+
+### Features
+
+* **api:** api update ([fa2b60a](https://github.com/Finch-API/finch-api-node/commit/fa2b60a267e9da0df1f8d884ffb47f4d5757f502))
+
+
+### Bug Fixes
+
+* **api:** remove invalid transform config ([325973d](https://github.com/Finch-API/finch-api-node/commit/325973dd45c7ec667d8e8b061025b07ef0a43571))
+* **client:** preserve URL params already embedded in path ([0e6e60b](https://github.com/Finch-API/finch-api-node/commit/0e6e60b12695f3f939e68ed532df8635514e8a28))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([73749d6](https://github.com/Finch-API/finch-api-node/commit/73749d6fa0efd3bc663806c129b97d550d2f5173))
+* **internal:** codegen related update ([c3b5362](https://github.com/Finch-API/finch-api-node/commit/c3b536242683da322c746ec84036f5e5f5b4dff9))
+* **internal:** update dependencies to address dependabot vulnerabilities ([a4b3eac](https://github.com/Finch-API/finch-api-node/commit/a4b3eac445d4796c00f782a10e2fc74a1eb56624))
+* **mcp-server:** improve instructions ([3240242](https://github.com/Finch-API/finch-api-node/commit/32402420f11116f77ceddff72ff66a93573da557))
+
+## 9.2.0 (2026-02-26)
+
+Full Changelog: [v9.1.1...v9.2.0](https://github.com/Finch-API/finch-api-node/compare/v9.1.1...v9.2.0)
+
+### Features
+
+* **mcp:** add an option to disable code tool ([41b93bf](https://github.com/Finch-API/finch-api-node/commit/41b93bfe015700e9fa9bdf79290391f5beef9e85))
+
+
+### Chores
+
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([4e01aa5](https://github.com/Finch-API/finch-api-node/commit/4e01aa5e3880153452e6d363e58a4f0a57a0ad03))
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([809edff](https://github.com/Finch-API/finch-api-node/commit/809edff852053531b6d1540764c6e4cd924a441f))
+* **internal:** make MCP code execution location configurable via a flag ([a899886](https://github.com/Finch-API/finch-api-node/commit/a89988664c5f00d6aac1dc0d417c43ef05d1fc09))
+* **internal:** move stringifyQuery implementation to internal function ([06e8759](https://github.com/Finch-API/finch-api-node/commit/06e87594913bdfda7e6a2cf6f980886441544758))
+
+## 9.1.1 (2026-02-23)
+
+Full Changelog: [v9.1.0...v9.1.1](https://github.com/Finch-API/finch-api-node/compare/v9.1.0...v9.1.1)
+
+### Bug Fixes
+
+* **docs/contributing:** correct pnpm link command ([fbc6228](https://github.com/Finch-API/finch-api-node/commit/fbc622849196606ea0610d656d80d9906b674c50))
+* **mcp:** initialize SDK lazily to avoid failing the connection on init errors ([b8baaa7](https://github.com/Finch-API/finch-api-node/commit/b8baaa724f8ecd0f8302642f43794ebe8d8f65f0))
+
+
+### Chores
+
+* **internal:** cache fetch instruction calls in MCP server ([3949456](https://github.com/Finch-API/finch-api-node/commit/3949456cc64a6d002468cf4094726a0149361373))
+* **internal:** upgrade @modelcontextprotocol/sdk and hono ([df73805](https://github.com/Finch-API/finch-api-node/commit/df73805ff5245a55778bf67b3d19c7df3265da91))
+* **mcp:** correctly update version in sync with sdk ([d0c7741](https://github.com/Finch-API/finch-api-node/commit/d0c7741ce567161f542c2ef795ee8a7965e7b069))
+* update mock server docs ([5934a67](https://github.com/Finch-API/finch-api-node/commit/5934a6731510047f2829f0e7fa412d387f8c3fdd))
+
+## 9.1.0 (2026-02-17)
+
+Full Changelog: [v9.0.0...v9.1.0](https://github.com/Finch-API/finch-api-node/compare/v9.0.0...v9.1.0)
+
+### Features
+
+* **mcp:** add initial server instructions ([41a62e7](https://github.com/Finch-API/finch-api-node/commit/41a62e7da2c6f6fe1b59afe8d87066489d707bc4))
+
+
+### Bug Fixes
+
+* **client:** avoid memory leak with abort signals ([e6cbcb4](https://github.com/Finch-API/finch-api-node/commit/e6cbcb4c380d391797875514114fbd870e680aa9))
+* **client:** avoid removing abort listener too early ([834599b](https://github.com/Finch-API/finch-api-node/commit/834599b8d10c0cc7858861504ebbc6142d28768d))
+* **docs:** fix mcp installation instructions for remote servers ([2346e45](https://github.com/Finch-API/finch-api-node/commit/2346e45e51546112f96d29f89904a499c66c61d2))
+* **mcp:** allow falling back for required env variables ([e2285bf](https://github.com/Finch-API/finch-api-node/commit/e2285bffd1403ecbb223daf47f7e1eda40033d54))
+
+
+### Chores
+
+* **client:** do not parse responses with empty content-length ([9168b0e](https://github.com/Finch-API/finch-api-node/commit/9168b0e266bb4babc638698f27c166d282c5f346))
+* **client:** restructure abort controller binding ([03776eb](https://github.com/Finch-API/finch-api-node/commit/03776eb5c0329b6580fb3c2e58ce4d811fbde635))
+* **internal/client:** fix form-urlencoded requests ([1ac688c](https://github.com/Finch-API/finch-api-node/commit/1ac688c453fda8fb75435c7640baee617ebe2391))
+* **internal:** add health check to MCP server when running in HTTP mode ([c6b1999](https://github.com/Finch-API/finch-api-node/commit/c6b1999a1895466414ad1c3975b27ee317faa473))
+* **internal:** allow basic filtering of methods allowed for MCP code mode ([c6921b7](https://github.com/Finch-API/finch-api-node/commit/c6921b76e9db6ddd6019353a6da69c12a43f8570))
+* **internal:** allow setting x-stainless-api-key header on mcp server requests ([b54dd75](https://github.com/Finch-API/finch-api-node/commit/b54dd7599a900f5a37968d409581aa09092389e4))
+* **internal:** always generate MCP server dockerfiles and upgrade associated dependencies ([d786340](https://github.com/Finch-API/finch-api-node/commit/d7863401c96e70f832d74a7eca4b7ef0850791e2))
+* **internal:** avoid type checking errors with ts-reset ([ec27092](https://github.com/Finch-API/finch-api-node/commit/ec270924322d2fbb055eb36ae6b8b75c2102f89a))
+* **internal:** codegen related update ([b3f5e09](https://github.com/Finch-API/finch-api-node/commit/b3f5e099f190c0dcdd648262398d4629fac02671))
+* **internal:** fix pagination internals not accepting option promises ([6b75209](https://github.com/Finch-API/finch-api-node/commit/6b7520906d83f1ebeaf76c2b827f34f8ebeeeca2))
+* **internal:** improve layout of generated MCP server files ([efb8e62](https://github.com/Finch-API/finch-api-node/commit/efb8e625da8e577178a22350215ef3931ad657db))
+* **internal:** refactor flag parsing for MCP servers and add debug flag ([c3685d5](https://github.com/Finch-API/finch-api-node/commit/c3685d56e5988db461e09f3ec90e693dbec3bdfa))
+* **internal:** support oauth authorization code flow for MCP servers ([ed2565a](https://github.com/Finch-API/finch-api-node/commit/ed2565a0da646b78e0f3d74bbe7d2f7c8c4c46bb))
+* **mcp:** forward STAINLESS_API_KEY to docs search endpoint ([e307e2e](https://github.com/Finch-API/finch-api-node/commit/e307e2e1c806385c6aa5a3bdea69e690fde06d73))
+* **mcp:** up tsconfig lib version to es2022 ([b96b21e](https://github.com/Finch-API/finch-api-node/commit/b96b21eccc21170a8c655ac8de964723952e9f93))
+
+## 9.0.0 (2026-01-27)
+
+Full Changelog: [v8.2.1...v9.0.0](https://github.com/Finch-API/finch-api-node/compare/v8.2.1...v9.0.0)
+
+### Features
+
+* **api:** add per endpoint security ([94b79a2](https://github.com/Finch-API/finch-api-node/commit/94b79a26ed4c2cf31656a2d086fbaa07eea665f9))
+
+
+### Bug Fixes
+
+* **tests:** skip broken date validation test ([bd1b3dc](https://github.com/Finch-API/finch-api-node/commit/bd1b3dce0aa126ce871b590a38ceb88484205bf9))
+
+
+### Chores
+
+* **ci:** upgrade `actions/github-script` ([3e7b8f0](https://github.com/Finch-API/finch-api-node/commit/3e7b8f0f4f176fb1a049826c6b54db144e1bf1c7))
+* **internal:** codegen related update ([60b9d57](https://github.com/Finch-API/finch-api-node/commit/60b9d57de7446a9b007aec3494e3558ce7d09bb7))
+* **internal:** update lock file ([fbf54dd](https://github.com/Finch-API/finch-api-node/commit/fbf54dd83c73c8e44fefb0282dd54d96b2f647f9))
+
+## 8.2.1 (2026-01-20)
+
+Full Changelog: [v8.2.0...v8.2.1](https://github.com/Finch-API/finch-api-node/compare/v8.2.0...v8.2.1)
+
+### Chores
+
+* **internal:** codegen related update ([b715dbe](https://github.com/Finch-API/finch-api-node/commit/b715dbe99f403407e6e3fe6f24fcfcd5b479992a))
+* **internal:** codegen related update ([55dcc71](https://github.com/Finch-API/finch-api-node/commit/55dcc71110b196d20be9016525d5713c46a5392f))
+* **internal:** update `actions/checkout` version ([f12ddde](https://github.com/Finch-API/finch-api-node/commit/f12ddde51a3ce201ef0673ae99191f7b2c58b62b))
+* **internal:** upgrade babel, qs, js-yaml ([d7be1cd](https://github.com/Finch-API/finch-api-node/commit/d7be1cd05439ac70eb37066e2c097014bbdf5f70))
+* **mcp:** add intent param to execute tool ([167089e](https://github.com/Finch-API/finch-api-node/commit/167089ee6f1bf45a22a902bd24c60399d7d165af))
+* **mcp:** pass intent param to execute handler ([78d31fd](https://github.com/Finch-API/finch-api-node/commit/78d31fd3ec977712f2b66816dd2a20f611bfa75f))
+* **mcp:** upgrade dependencies ([d16fb7c](https://github.com/Finch-API/finch-api-node/commit/d16fb7c18616ff555327e58c45f68a1286a1595e))
+
+## 8.2.0 (2026-01-13)
+
+Full Changelog: [v8.1.1...v8.2.0](https://github.com/Finch-API/finch-api-node/compare/v8.1.1...v8.2.0)
+
+### Features
+
+* **api:** api update ([07174ee](https://github.com/Finch-API/finch-api-node/commit/07174eed580ea7be80172df97f7de41fc9bf09fd))
+
+
+### Bug Fixes
+
+* **mcp:** fix env parsing ([da539c1](https://github.com/Finch-API/finch-api-node/commit/da539c18318057054f9f7a6e39a8d8a8c62ef04b))
+* **mcp:** fix options parsing ([50db4af](https://github.com/Finch-API/finch-api-node/commit/50db4af071d340114f0e129d4843fd92be84d391))
+* **mcp:** update code tool prompt ([f3b178b](https://github.com/Finch-API/finch-api-node/commit/f3b178b2683dd7f86bba4034e5d8baf7db0e52fe))
+
+
+### Chores
+
+* fix typo in descriptions ([3ea6c6f](https://github.com/Finch-API/finch-api-node/commit/3ea6c6fd84e2db27791d5e01e3841c383713cf6e))
+* **internal:** codegen related update ([2fc7cb3](https://github.com/Finch-API/finch-api-node/commit/2fc7cb3ba446371be9d018a2625039e95e850b26))
+* **internal:** codegen related update ([65d66db](https://github.com/Finch-API/finch-api-node/commit/65d66db7811483626e17ad740b7740467948b066))
+* **internal:** codegen related update ([36d593e](https://github.com/Finch-API/finch-api-node/commit/36d593ed51b766a5493fa07ff38e7123f6b2ccac))
+* **internal:** codegen related update ([55094b0](https://github.com/Finch-API/finch-api-node/commit/55094b0eac5fff043ca2a0e177843a7eb8a73c97))
+
+## 8.1.1 (2026-01-06)
+
+Full Changelog: [v8.1.0...v8.1.1](https://github.com/Finch-API/finch-api-node/compare/v8.1.0...v8.1.1)
+
+### Chores
+
+* **ownership:** move from data to platform (again) ([#639](https://github.com/Finch-API/finch-api-node/issues/639)) ([8f157ad](https://github.com/Finch-API/finch-api-node/commit/8f157ad9e1fb2f13ce071f028b0cfcbfc719355b))
+
+## 8.1.0 (2026-01-06)
+
+Full Changelog: [v8.0.0...v8.1.0](https://github.com/Finch-API/finch-api-node/compare/v8.0.0...v8.1.0)
+
+### Features
+
+* **api:** api update ([8e97806](https://github.com/Finch-API/finch-api-node/commit/8e97806ff9a9dc8abf9d96c6334f716375764249))
+
+
+### Bug Fixes
+
+* **mcp:** correct code tool api output types ([1a412ec](https://github.com/Finch-API/finch-api-node/commit/1a412ec1f585e4be7252c9d15d119a519986c8c1))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([166f620](https://github.com/Finch-API/finch-api-node/commit/166f6206c0b0b7ee088314dd8351d69b78f87a28))
+* **internal:** codegen related update ([d9eeb4b](https://github.com/Finch-API/finch-api-node/commit/d9eeb4b1d9388efcfcefd05ce2c27b4752f374d1))
+
+
+### Documentation
+
+* prominently feature MCP server setup in root SDK readmes ([72c2bdd](https://github.com/Finch-API/finch-api-node/commit/72c2bdd4467301c754ec1c3393308468edb8fb29))
+
+## 8.0.0 (2025-12-18)
+
+Full Changelog: [v7.0.0...v8.0.0](https://github.com/Finch-API/finch-api-node/compare/v7.0.0...v8.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* **mcp:** remove deprecated tool schemes
+* **mcp:** **Migration:** To migrate, simply modify the command used to invoke the MCP server. Currently, the only supported tool scheme is code mode. Now, starting the server with just `node /path/to/mcp/server` or `npx package-name` will invoke code tools: changing your command to one of these is likely all you will need to do.
+
+### Bug Fixes
+
+* **mcp:** pass base url to code tool ([631bb5c](https://github.com/Finch-API/finch-api-node/commit/631bb5c63a966a3227a94488d92b135457075dad))
+
+
+### Chores
+
+* **mcp:** remove deprecated tool schemes ([9b1ff85](https://github.com/Finch-API/finch-api-node/commit/9b1ff85ec8bfb1195a63f8d16174800735c6997a))
+
+## 7.0.0 (2025-12-17)
+
+Full Changelog: [v6.38.0...v7.0.0](https://github.com/Finch-API/finch-api-node/compare/v6.38.0...v7.0.0)
+
+### Features
+
+* **api:** api update ([b2d5fcc](https://github.com/Finch-API/finch-api-node/commit/b2d5fcca38564c4b562263813bc945bae0a06b39))
+* **api:** api update ([b1be6b0](https://github.com/Finch-API/finch-api-node/commit/b1be6b0108c5ae0896e7379d5342fc9629ec8c30))
+* **api:** api update ([3fb650b](https://github.com/Finch-API/finch-api-node/commit/3fb650b9ac0084d7a6e4d9c026c0355b2b74af0b))
+* **api:** manual updates ([adf8013](https://github.com/Finch-API/finch-api-node/commit/adf8013674c0b3c7fb532ad8b98ec23863f7200b))
+* **api:** move node to typescript generator ([baa0237](https://github.com/Finch-API/finch-api-node/commit/baa02378d7b36940a4ac806462b6180d77e3ceac))
+* **api:** update automated code reviewer selection ([8639c2e](https://github.com/Finch-API/finch-api-node/commit/8639c2e81ba805d4e7df858302d0efbe725c2feb))
+* **mcp:** add detail field to docs search tool ([7eb8b44](https://github.com/Finch-API/finch-api-node/commit/7eb8b44caeeea6202f06c192759554a3883df345))
+* **mcp:** add typescript check to code execution tool ([b2b1ac1](https://github.com/Finch-API/finch-api-node/commit/b2b1ac16388edf736837f722fb700c3079bda946))
+* **mcp:** enable optional code execution tool on http mcp servers ([ace64da](https://github.com/Finch-API/finch-api-node/commit/ace64daf797895abdf52bada50f0cfff2b44c146))
+* **mcp:** handle code mode calls in the Stainless API ([e3777b8](https://github.com/Finch-API/finch-api-node/commit/e3777b8a92ed7971bf7fcbb2f4754638457a6494))
+* **mcp:** return logs on code tool errors ([7b37d8f](https://github.com/Finch-API/finch-api-node/commit/7b37d8f9cbca8d13dc09f894da08d6cb76487e74))
+
+
+### Bug Fixes
+
+* **api:** migrate custom code to TypeScript ([ec5d7fd](https://github.com/Finch-API/finch-api-node/commit/ec5d7fd9792c1a95be18f099764996796c949bb9))
+* **api:** resolve build issues ([f6be917](https://github.com/Finch-API/finch-api-node/commit/f6be917b1e7116cf84b575166d59e332390eb904))
+* **java:** Resolve name collisions ([7866332](https://github.com/Finch-API/finch-api-node/commit/7866332384999fb7dd718cf04e1e767946b400db))
+* **mcp:** add client instantiation options to code tool ([9cdaea8](https://github.com/Finch-API/finch-api-node/commit/9cdaea8d601afff676330e8eddc8fb4abb02cee3))
+* **mcp:** correct code tool API endpoint ([6d91f55](https://github.com/Finch-API/finch-api-node/commit/6d91f5522082891016109942b7501946d01153fd))
+* **mcp:** return correct lines on typescript errors ([41e296a](https://github.com/Finch-API/finch-api-node/commit/41e296a4d57b19346d88236a530b908f9c6f4f02))
+* **mcp:** return tool execution error on api error ([6059d9c](https://github.com/Finch-API/finch-api-node/commit/6059d9c53093f4da1c8bede00dffd4e27209c691))
+* **mcp:** return tool execution error on jq failure ([738e75d](https://github.com/Finch-API/finch-api-node/commit/738e75d5e4be2a4a2f4819941fc3af918094e9e5))
+* **tests:** fix tests ([eee03b0](https://github.com/Finch-API/finch-api-node/commit/eee03b0f219aead8d6c7ab4e743ed3cf66f8e9e5))
+
+
+### Chores
+
+* **client:** fix logger property type ([c3f828d](https://github.com/Finch-API/finch-api-node/commit/c3f828db47683dac2852c85f710c145f0efc95cf))
+* **internal:** codegen related update ([a361eb9](https://github.com/Finch-API/finch-api-node/commit/a361eb9698f2f3f76f2f02c76d8d44b132a1787e))
+* **internal:** codegen related update ([0f70da6](https://github.com/Finch-API/finch-api-node/commit/0f70da66ed3b1d7b2be256c25298a788baed4847))
+* **internal:** codegen related update ([a39b040](https://github.com/Finch-API/finch-api-node/commit/a39b0402570ec2e64a4950efb55726c33cbf6ce3))
+* **internal:** codegen related update ([60aa66a](https://github.com/Finch-API/finch-api-node/commit/60aa66a135d99299976fb2c59ac8d83f98d6841c))
+* **internal:** upgrade eslint ([1707b51](https://github.com/Finch-API/finch-api-node/commit/1707b51aab5ad912d7210f6dc3b142eea1b2d749))
+* mcp code tool explicit error message when missing a run function ([c43cbb2](https://github.com/Finch-API/finch-api-node/commit/c43cbb234a5044f21866998cacf9f658cc55de49))
+* **mcp:** add friendlier MCP code tool errors on incorrect method invocations ([6b20464](https://github.com/Finch-API/finch-api-node/commit/6b20464cdcf9d407bb22ac7a65a0a40732130321))
+* **mcp:** add line numbers to code tool errors ([3289a2b](https://github.com/Finch-API/finch-api-node/commit/3289a2b9e29e2d7298f096fcbae9237e28bce198))
+* **mcp:** clarify http auth error ([b028908](https://github.com/Finch-API/finch-api-node/commit/b02890809d93b7496cc2deeb9f0547d5b180cd06))
+* **mcp:** update lockfile ([88a4eac](https://github.com/Finch-API/finch-api-node/commit/88a4eacf9b9276a7b3db8a8dc9f12a0053251829))
+* **mcp:** upgrade jq-web ([8531130](https://github.com/Finch-API/finch-api-node/commit/8531130ea2dfcd42b747357d9c0f13dea4e933c5))
+* sync repo ([f38fc15](https://github.com/Finch-API/finch-api-node/commit/f38fc15fccf7f65422fc9cd62aea41fb143b36ed))
+* use latest @modelcontextprotocol/sdk ([b29ebd1](https://github.com/Finch-API/finch-api-node/commit/b29ebd1cc574733a9443ad9937e8e1b7e0f5d0a1))
+
+
+### Documentation
+
+* **mcp:** add a README button for one-click add to Cursor ([99e438c](https://github.com/Finch-API/finch-api-node/commit/99e438ca85071e011f30e93f7b5f67628bd0695c))
+* **mcp:** add a README link to add server to VS Code or Claude Code ([7a5ecb9](https://github.com/Finch-API/finch-api-node/commit/7a5ecb92bc7575e51fd053e3d6796f0b1b06dc6f))
+
+## 6.38.0 (2025-10-27)
+
+Full Changelog: [v6.37.0...v6.38.0](https://github.com/Finch-API/finch-api-node/compare/v6.37.0...v6.38.0)
+
+### Features
+
+* **api:** api update ([4d57031](https://github.com/Finch-API/finch-api-node/commit/4d5703128cd8a626dec68fe4ffc34980579bcd6f))
+* **api:** api update ([50af0c2](https://github.com/Finch-API/finch-api-node/commit/50af0c2c4756708e0de6bdb3c1eaacce3d24733b))
+* **api:** api update ([9fb854f](https://github.com/Finch-API/finch-api-node/commit/9fb854f6ceaac25e21901b4a035d2207de994901))
+* **api:** api update ([96d3f66](https://github.com/Finch-API/finch-api-node/commit/96d3f666690caea95b650b954dfd681eeb686c8e))
+* **api:** api update ([b331c10](https://github.com/Finch-API/finch-api-node/commit/b331c108e3912c503e4cc8393587bac2a927f4f7))
+* **api:** api update ([99a20c2](https://github.com/Finch-API/finch-api-node/commit/99a20c267f645658d3928f269f5da7a33b287d17))
+* **api:** api update ([f9c7e06](https://github.com/Finch-API/finch-api-node/commit/f9c7e0685ff5ab28614353eacc1fc7887ec6a0ff))
+* **api:** api update ([1c4f073](https://github.com/Finch-API/finch-api-node/commit/1c4f073cc8e8f06e58069dcc2bc5b708e3a8be34))
+* **api:** api update ([843b525](https://github.com/Finch-API/finch-api-node/commit/843b525f6a3f07edda04ca213a35dd3d2d37fdb3))
+* **api:** api update ([9bc9a38](https://github.com/Finch-API/finch-api-node/commit/9bc9a38df44189e734248cf7ad06259f93e25b82))
+* **api:** api update ([09d2e93](https://github.com/Finch-API/finch-api-node/commit/09d2e939a8c42d495d9207ad2d73841f6e9e8732))
+* **api:** make client id, client secret optional again ([d67f867](https://github.com/Finch-API/finch-api-node/commit/d67f867f1b3c9e4886d21da21a1cccab5760aa9d))
+* **mcp:** add docs search tool ([a9e8666](https://github.com/Finch-API/finch-api-node/commit/a9e866662d47e0f39a1988339101d46ba149fb9d))
+* **mcp:** add mcp bundles to build script ([45794fe](https://github.com/Finch-API/finch-api-node/commit/45794fe7a8d09dd0160ac3d2a64941fff12837d5))
+* **mcp:** add option for including docs tools ([fef1f5b](https://github.com/Finch-API/finch-api-node/commit/fef1f5b0cc05c737db89097378c88a38e8973089))
+* **mcp:** allow setting logging level ([4634f9a](https://github.com/Finch-API/finch-api-node/commit/4634f9a04f0fd3a7daa781876a1d93e170f1941d))
+* **mcp:** change remote server query option parsing logic ([13ef1bd](https://github.com/Finch-API/finch-api-node/commit/13ef1bd4400e1ae2b2197a35f33e79703af34e08))
+* **mcp:** enable experimental docs search tool ([8ec38f6](https://github.com/Finch-API/finch-api-node/commit/8ec38f6536ca6a6e7324dd827db0dc9ee9234f61))
+* **mcp:** expose client options in `streamableHTTPApp` ([39cdb76](https://github.com/Finch-API/finch-api-node/commit/39cdb7601c55b6d723132edeb320c3898e697fa2))
+
+
+### Bug Fixes
+
+* **ci:** set permissions for DXT publish action ([6a6dd0a](https://github.com/Finch-API/finch-api-node/commit/6a6dd0af7e290990c7773447615e3e5d99ff217b))
+* **client:** incorrect offset pagination check ([2600077](https://github.com/Finch-API/finch-api-node/commit/26000775b7ab71e9e3994196806a847383905853))
+* coerce nullable values to undefined ([aa135f5](https://github.com/Finch-API/finch-api-node/commit/aa135f5fdfe89359b6ad8c49b1908e7faee4ebaa))
+* **mcp:** avoid importing unsupported libraries on non-node environments ([8c380a8](https://github.com/Finch-API/finch-api-node/commit/8c380a8499435e8a92155664943e6fc631f7ba1a))
+* **mcp:** fix cli argument parsing logic ([277ba31](https://github.com/Finch-API/finch-api-node/commit/277ba31b242825bd569a6566a8f2a136ec0b595d))
+* **mcp:** fix query options parsing ([9087760](https://github.com/Finch-API/finch-api-node/commit/90877607933fa892f5d05c8931fa2de9d139e769))
+* **mcp:** fix uploading dxt release assets ([70f9a36](https://github.com/Finch-API/finch-api-node/commit/70f9a36f47190f4b78de043e63d65e21df6ce116))
+* **mcp:** resolve a linting issue in server code ([90b7ae2](https://github.com/Finch-API/finch-api-node/commit/90b7ae260d427cebb7bcd7f2d3e854a0efaccd19))
+
+
+### Performance Improvements
+
+* faster formatting ([163982a](https://github.com/Finch-API/finch-api-node/commit/163982a884bcf10684b5b3e242b0d52d547fc62b))
+
+
+### Chores
+
+* ci build action ([f0c3633](https://github.com/Finch-API/finch-api-node/commit/f0c3633571f7eea46803cb75ba244c41cac5a7b4))
+* **codegen:** internal codegen update ([27ec1f5](https://github.com/Finch-API/finch-api-node/commit/27ec1f5a8d71f31a327021745f7dab0aeebc4b7b))
+* do not install brew dependencies in ./scripts/bootstrap by default ([1758c0d](https://github.com/Finch-API/finch-api-node/commit/1758c0de64e97975332bb8a0c6b55a23ed82a036))
+* extract some types in mcp docs ([55c3799](https://github.com/Finch-API/finch-api-node/commit/55c37998bdb39779bfb9ae62ee5310a2a423248d))
+* **internal:** codegen related update ([d020050](https://github.com/Finch-API/finch-api-node/commit/d0200501b52ae4ac9e7c8de91d2f883e27db34c5))
+* **internal:** codegen related update ([697d211](https://github.com/Finch-API/finch-api-node/commit/697d211b9600d388aa101879ac6c400e4eb4ac53))
+* **internal:** codegen related update ([ac835bf](https://github.com/Finch-API/finch-api-node/commit/ac835bf6af93d53e551d73001d048baa95e1c334))
+* **internal:** fix incremental formatting in some cases ([40ecf6a](https://github.com/Finch-API/finch-api-node/commit/40ecf6a887ea44d156672f155abf70ab2d146921))
+* **internal:** gitignore .mcpb files ([73c778e](https://github.com/Finch-API/finch-api-node/commit/73c778e3b9d157f8296c43131cd0db764d5086bc))
+* **internal:** ignore .eslintcache ([4d90156](https://github.com/Finch-API/finch-api-node/commit/4d901569e987fa9c93c12ae77844972b4655fa8f))
+* **internal:** remove .eslintcache ([64d2197](https://github.com/Finch-API/finch-api-node/commit/64d21976509a6d6b6d0095bf1867ad9bdd153e03))
+* **internal:** remove deprecated `compilerOptions.baseUrl` from tsconfig.json ([5955e29](https://github.com/Finch-API/finch-api-node/commit/5955e291311d6d8192a3e8c3eb87f4eac9bdbdbc))
+* **internal:** use npm pack for build uploads ([7df5a28](https://github.com/Finch-API/finch-api-node/commit/7df5a28a1be002645785fa2d59cd94da5df28889))
+* **mcp:** allow pointing `docs_search` tool at other URLs ([bb7f182](https://github.com/Finch-API/finch-api-node/commit/bb7f182ef3959a99a7728cdab685d972e4110756))
+* **mcp:** rename dxt to mcpb ([68a9c07](https://github.com/Finch-API/finch-api-node/commit/68a9c079dfb35ab661f58780405036399fbaf31e))
+* **mcp:** upload dxt as release asset ([256c717](https://github.com/Finch-API/finch-api-node/commit/256c717c7eb0bd947322b14d85fc15cd7f919724))
+* update CI script ([47843c8](https://github.com/Finch-API/finch-api-node/commit/47843c85864215c19edd9826952bd625e79ca78c))
+* update lockfile ([0601d2a](https://github.com/Finch-API/finch-api-node/commit/0601d2aca7eeb80b8967d3bc89dea5b5ab527565))
+
+## 6.37.0 (2025-08-21)
+
+Full Changelog: [v6.36.0...v6.37.0](https://github.com/Finch-API/finch-api-node/compare/v6.36.0...v6.37.0)
+
+### Features
+
+* **api:** api update ([fc318d6](https://github.com/Finch-API/finch-api-node/commit/fc318d6591c306228fdd216498f8b704eeb4aa67))
+* **mcp:** add option to infer mcp client ([3581de0](https://github.com/Finch-API/finch-api-node/commit/3581de04c7957c0ea00041bed835b1210210baa8))
+
+
+### Chores
+
+* **internal:** make mcp-server publishing public by defaut ([5f917cb](https://github.com/Finch-API/finch-api-node/commit/5f917cb85ed363831a49a7dbee70db4d57bdfac8))
+* **mcp:** update package.json ([976bd47](https://github.com/Finch-API/finch-api-node/commit/976bd47a6097636ea128cd5c250b6a67d0d10ca1))
+* **mcp:** update types ([3aeae4c](https://github.com/Finch-API/finch-api-node/commit/3aeae4c9f57cb8f19f7458f5b42f33027d9f9a8e))
+
+## 6.36.0 (2025-08-19)
+
+Full Changelog: [v6.35.1...v6.36.0](https://github.com/Finch-API/finch-api-node/compare/v6.35.1...v6.36.0)
+
+### Features
+
+* **mcp:** add code execution tool ([a7dba4d](https://github.com/Finch-API/finch-api-node/commit/a7dba4d6ccd7c40f819ba1c5c8fd9542dc2b3f7a))
+
+## 6.35.1 (2025-08-19)
+
+Full Changelog: [v6.35.0...v6.35.1](https://github.com/Finch-API/finch-api-node/compare/v6.35.0...v6.35.1)
+
+### Chores
+
+* **mcp:** add cors to oauth metadata route ([75a424b](https://github.com/Finch-API/finch-api-node/commit/75a424b26ea9c2e7c191bc94c962d0c9aaf2f6aa))
+
+## 6.35.0 (2025-08-18)
+
+Full Changelog: [v6.34.0...v6.35.0](https://github.com/Finch-API/finch-api-node/compare/v6.34.0...v6.35.0)
+
+### Features
+
+* **api:** api update ([6b47451](https://github.com/Finch-API/finch-api-node/commit/6b4745198032d8b2928001f1a1cf0fa21f0b5bae))
+* **api:** api update ([0e1db82](https://github.com/Finch-API/finch-api-node/commit/0e1db82162b8729c64910f06872f12ced2a23b25))
+* **mcp:** parse query string as mcp client options in mcp server ([ee1762e](https://github.com/Finch-API/finch-api-node/commit/ee1762e2698c866ce3eeb4867116dcc54b4b890e))
+
+
+### Bug Fixes
+
+* **mcp:** fix jq type bug ([eedf679](https://github.com/Finch-API/finch-api-node/commit/eedf6799e9b70c2925376c6361da6a4b5a74b605))
+* **mcp:** generate additionalProperties=true for map schemas to avoid validation issues ([0ed8d86](https://github.com/Finch-API/finch-api-node/commit/0ed8d86ae898be9ac41ed0011b65e97374c92e64))
+
+
+### Chores
+
+* **deps:** update dependency node-fetch to v2.6.13 ([3cded58](https://github.com/Finch-API/finch-api-node/commit/3cded5866267fb80d06cd1904b0cd4d7a2973f6b))
+* **internal:** formatting change ([55cdd5f](https://github.com/Finch-API/finch-api-node/commit/55cdd5f591e02cce1cf297f59a1baca82452cca3))
+* **internal:** refactor array check ([1ca2890](https://github.com/Finch-API/finch-api-node/commit/1ca2890574edeac7b78492f4ed2fdc7d9b3f8441))
+* **internal:** update comment in script ([468ca33](https://github.com/Finch-API/finch-api-node/commit/468ca33d139f121d484b8e0b71eefc694e4ffb2f))
+* **mcp:** bump JQ version ([c472eac](https://github.com/Finch-API/finch-api-node/commit/c472eaca3c50e765294a9b71d754d368911fe3c4))
+* **mcp:** document remote server in README.md ([01b0197](https://github.com/Finch-API/finch-api-node/commit/01b01972327ed68e8b35d34c0a448e80e5aea5cf))
+* **mcp:** minor cleanup of types and package.json ([176af80](https://github.com/Finch-API/finch-api-node/commit/176af80204ad16024fa339014905bf818e683245))
+* **mcp:** update README ([47c2bcc](https://github.com/Finch-API/finch-api-node/commit/47c2bcc8dfaba660acdf326e835e2c345ba84166))
+* update @stainless-api/prism-cli to v5.15.0 ([a05f59c](https://github.com/Finch-API/finch-api-node/commit/a05f59c97d046a57b64f82dccc697137d892ccfc))
+
+## 6.34.0 (2025-08-06)
+
+Full Changelog: [v6.33.0...v6.34.0](https://github.com/Finch-API/finch-api-node/compare/v6.33.0...v6.34.0)
+
+### Features
+
+* **mcp:** add logging when environment variable is set ([0d90a8c](https://github.com/Finch-API/finch-api-node/commit/0d90a8c366ab7dfff6f6fba61e4157ed91597417))
+* **mcp:** add unix socket option for remote MCP ([0bd4baf](https://github.com/Finch-API/finch-api-node/commit/0bd4baf79a26faa908fedc6682c99b290e5dc247))
+* **mcp:** remote server with passthru auth ([fd0274b](https://github.com/Finch-API/finch-api-node/commit/fd0274b025d19940b425fe6e5cda89b0a4a7736b))
+
+
+### Bug Fixes
+
+* **mcp:** avoid sending `jq_filter` to base API ([685a555](https://github.com/Finch-API/finch-api-node/commit/685a555e335413712c6b569910f4e421aa8cefb2))
+* **mcp:** fix bug in header handling ([d43cbe4](https://github.com/Finch-API/finch-api-node/commit/d43cbe4f291963392fb8bb73c2b924a0c4c9117c))
+* **mcp:** fix tool description of jq_filter ([f3687ac](https://github.com/Finch-API/finch-api-node/commit/f3687ac778ceb5d1609f20f4ac51da9eb7fc8bdd))
+* **mcp:** reverse validJson capability option and limit scope ([8b71749](https://github.com/Finch-API/finch-api-node/commit/8b71749012e2910f803a867e5ca7709fd1476560))
+
+
+### Chores
+
+* **internal:** codegen related update ([f9e09f1](https://github.com/Finch-API/finch-api-node/commit/f9e09f139130ab844a18d1cc2430a2d0ee80bc09))
+* **internal:** move publish config ([d79a421](https://github.com/Finch-API/finch-api-node/commit/d79a42138da01ee3bdec3688ffcba2250292581e))
+* **internal:** remove redundant imports config ([9abbf0b](https://github.com/Finch-API/finch-api-node/commit/9abbf0bdacfdca38cd5ee775bc6f981c4689fc69))
+* **mcp:** refactor streamable http transport ([2e519b6](https://github.com/Finch-API/finch-api-node/commit/2e519b6d69a29a53148aef12f6333538ad239181))
+
+## 6.33.0 (2025-07-23)
+
+Full Changelog: [v6.32.3...v6.33.0](https://github.com/Finch-API/finch-api-node/compare/v6.32.3...v6.33.0)
+
+### Features
+
+* **api:** api update ([44a2607](https://github.com/Finch-API/finch-api-node/commit/44a26078e84c965bee4fe6dfa0691031ccc65a42))
+* **api:** api update ([c52f01b](https://github.com/Finch-API/finch-api-node/commit/c52f01b0de3340c07294bac7934959da5d399e98))
+
+
+### Bug Fixes
+
+* **mcp:** include required section for top-level properties and support naming transformations ([81932c7](https://github.com/Finch-API/finch-api-node/commit/81932c754864cea1defc5939355a8d7ed8efca54))
+* **mcp:** support jq filtering on cloudflare workers ([f678d75](https://github.com/Finch-API/finch-api-node/commit/f678d75f966bc152fdcc7d19dab40c20f0e4446c))
+
+
+### Chores
+
+* **internal:** codegen related update ([3687e69](https://github.com/Finch-API/finch-api-node/commit/3687e69a3c9f381d958545c25f4e38de33c87ea6))
+* **mcp:** formatting ([040c60f](https://github.com/Finch-API/finch-api-node/commit/040c60fb2766d9a65b7ed56da90a3fc6a06c9de3))
+* **mcp:** rework imports in tools ([58349e8](https://github.com/Finch-API/finch-api-node/commit/58349e876bcf5c8d3b35f306455238fa17c31fe7))
+
+## 6.32.3 (2025-07-10)
+
+Full Changelog: [v6.32.2...v6.32.3](https://github.com/Finch-API/finch-api-node/compare/v6.32.2...v6.32.3)
+
+### Chores
+
+* **internal:** codegen related update ([f8bf46e](https://github.com/Finch-API/finch-api-node/commit/f8bf46e0dc32f11e9920a59c8ff0c8e44536a9fe))
+* make some internal functions async ([1656660](https://github.com/Finch-API/finch-api-node/commit/16566608f8bc0206caf44fd33ad7a44d678f2c1b))
+
+## 6.32.2 (2025-07-03)
+
+Full Changelog: [v6.32.1...v6.32.2](https://github.com/Finch-API/finch-api-node/compare/v6.32.1...v6.32.2)
+
+### Bug Fixes
+
+* **build:** bump node version in CI build to 20 to be compatible with MCP package ([a42f5a6](https://github.com/Finch-API/finch-api-node/commit/a42f5a6d80c069df0b250d0557b0b9490f0293cb))
+* **client:** don't send `Content-Type` for bodyless methods ([605ebe0](https://github.com/Finch-API/finch-api-node/commit/605ebe0809f965063cee49b21903e4dba3073ce0))
+
+
+### Chores
+
+* mention unit type in timeout docs ([46e6e6f](https://github.com/Finch-API/finch-api-node/commit/46e6e6fc73bd4b5dcf6ac0bb2d9cc268314fbc39))
+
+## 6.32.1 (2025-06-27)
+
+Full Changelog: [v6.32.0...v6.32.1](https://github.com/Finch-API/finch-api-node/compare/v6.32.0...v6.32.1)
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([85086a9](https://github.com/Finch-API/finch-api-node/commit/85086a95f3c5efe51167c40dc0652e05c2425fcd))
+
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([f679ab4](https://github.com/Finch-API/finch-api-node/commit/f679ab46d68f21a9ed7ca7c362054c48883f817c))
+
+## 6.32.0 (2025-06-23)
+
+Full Changelog: [v6.31.0...v6.32.0](https://github.com/Finch-API/finch-api-node/compare/v6.31.0...v6.32.0)
+
+### Features
+
+* **api:** api update ([7182d88](https://github.com/Finch-API/finch-api-node/commit/7182d889a7de38d03c7994caf4747fcd2a82a846))
+* **api:** api update ([4663014](https://github.com/Finch-API/finch-api-node/commit/46630149ddd55b184ec7ddcdb9d70df15477f72c))
+* **api:** api update ([c167734](https://github.com/Finch-API/finch-api-node/commit/c167734a8071e5733f5a56f9b2c750c300952164))
+* **api:** api update ([2978396](https://github.com/Finch-API/finch-api-node/commit/29783964a38bc08f24752be9565282222e316568))
+* **client:** add support for endpoint-specific base URLs ([f85edd8](https://github.com/Finch-API/finch-api-node/commit/f85edd832b9b2ecc3a16e5e4e0260797b7bbd472))
+* **mcp:** implement support for binary responses ([6cc04d6](https://github.com/Finch-API/finch-api-node/commit/6cc04d6f6cebe1487b366d067f9de34c8f857b38))
+* **mcp:** include http information in tools ([d583a5a](https://github.com/Finch-API/finch-api-node/commit/d583a5a224672caa80f9010e005be60d1efc9b69))
+* **mcp:** set X-Stainless-MCP header ([a744e70](https://github.com/Finch-API/finch-api-node/commit/a744e7079b7bef164c0e0eaef0608e62dfa5ea45))
+
+
+### Bug Fixes
+
+* **client:** fix PayStatementResponse body ([5855476](https://github.com/Finch-API/finch-api-node/commit/585547621b48de30db9cb69f07e93f983ab51ac5))
+* **client:** manual fix ([c7cc53b](https://github.com/Finch-API/finch-api-node/commit/c7cc53b674ed870e42132b46e78f81b9d03e9ed8))
+* **mcp:** fix cursor schema transformation issue with recursive references ([1bed3f2](https://github.com/Finch-API/finch-api-node/commit/1bed3f2480b88dceb722cc25ad4deb31b41f6fc8))
+* **mcp:** include description in dynamic tool search ([886e2d8](https://github.com/Finch-API/finch-api-node/commit/886e2d8e61925f572c978de5c86bbecae255705f))
+* publish script — handle NPM errors correctly ([87bd68d](https://github.com/Finch-API/finch-api-node/commit/87bd68ddb4b348084f6c82e59f0453e97ea881c3))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([81c3d57](https://github.com/Finch-API/finch-api-node/commit/81c3d5761ac996f17dfdfd2581e2251cf1a545a2))
+* **docs:** grammar improvements ([3a9ab50](https://github.com/Finch-API/finch-api-node/commit/3a9ab5071bc3e021d4dc15d91b4ac1cd86bfadd3))
+* **docs:** use top-level-await in example snippets ([adaa4ce](https://github.com/Finch-API/finch-api-node/commit/adaa4cea5dbeb9f35b393f3816da8eb9f0c75372))
+* improve docs for MCP servers ([deff850](https://github.com/Finch-API/finch-api-node/commit/deff850e6b9a989d50d9ecad8af0b7f1744983ba))
+* improve publish-npm script --latest tag logic ([a40bcfe](https://github.com/Finch-API/finch-api-node/commit/a40bcfed602c2ec66fe5fbccc42df558ad257262))
+* **internal:** make base APIResource abstract ([558f47f](https://github.com/Finch-API/finch-api-node/commit/558f47fca967f63f8eeb4f650595b53cc38a752c))
+* **mcp:** provides high-level initMcpServer function and exports known clients ([edc7876](https://github.com/Finch-API/finch-api-node/commit/edc7876600c6962bc22311372af65fbaf156d011))
+* **mcp:** remove duplicate assignment ([6e38b68](https://github.com/Finch-API/finch-api-node/commit/6e38b68b83e91416e49b2285c72932041d1b8524))
+* **tests:** skip endpoints with basic auth ([483735c](https://github.com/Finch-API/finch-api-node/commit/483735cde0fca3925b0d8471e3dd342e59232481))
+
+
+### Documentation
+
+* **pagination:** improve naming ([90d96a3](https://github.com/Finch-API/finch-api-node/commit/90d96a323eff4579dc9462691f9a0176b7d7a5aa))
+
+
+### Refactors
+
+* **types:** replace Record with mapped types ([f28d3d3](https://github.com/Finch-API/finch-api-node/commit/f28d3d394e978aeb7e8081342f72476fd22bf9ef))
+
+## 6.31.0 (2025-05-16)
+
+Full Changelog: [v6.30.0...v6.31.0](https://github.com/Finch-API/finch-api-node/compare/v6.30.0...v6.31.0)
+
+### Features
+
+* **api:** api update ([183d19d](https://github.com/Finch-API/finch-api-node/commit/183d19d99c22b274af394531361c69bf49f72da8))
+
+## 6.30.0 (2025-05-16)
+
+Full Changelog: [v6.29.0...v6.30.0](https://github.com/Finch-API/finch-api-node/compare/v6.29.0...v6.30.0)
+
+### Features
+
+* **api:** api update ([ad06932](https://github.com/Finch-API/finch-api-node/commit/ad06932d00cf6bcb58f1725ec1fa7f2e7d26b9e2))
+
+## 6.29.0 (2025-05-16)
+
+Full Changelog: [v6.28.0...v6.29.0](https://github.com/Finch-API/finch-api-node/compare/v6.28.0...v6.29.0)
+
+### Features
+
+* **api:** api update ([2b847c8](https://github.com/Finch-API/finch-api-node/commit/2b847c8ac11c808b0776b19cd684d22e9a221d0a))
+* **api:** api update ([1666a54](https://github.com/Finch-API/finch-api-node/commit/1666a54f5183326cad31fbaf0906de594b6be0ba))
+* **api:** api update ([ccf3438](https://github.com/Finch-API/finch-api-node/commit/ccf343822ab37c54677f7a0c34f0ce2cf5d626d9))
+* **mcp:** support dynamically discovering and invoking tools for APIs with many endpoints ([15dc9a2](https://github.com/Finch-API/finch-api-node/commit/15dc9a25a80d0085a76b98ab04a342a314796dc8))
+
+
+### Bug Fixes
+
+* **mcp:** explicitly include zod and zod-to-json-schema in package.json ([e649dac](https://github.com/Finch-API/finch-api-node/commit/e649dac94a1be276988f5f788d8bc9f73d75f331))
+
+
+### Chores
+
+* **build:** automatically build subpackages if present ([33222c2](https://github.com/Finch-API/finch-api-node/commit/33222c2af9c21d702c044be763d822a28e65a7e3))
+* **internal:** codegen related update ([6dad857](https://github.com/Finch-API/finch-api-node/commit/6dad8570585757c9551e2e6d86391c1185cc2e70))
+* **tests:** use node 22 for CI tests ([9ec83f5](https://github.com/Finch-API/finch-api-node/commit/9ec83f5dda56f32be358be67bef1cb2929af5183))
+
+## 6.28.0 (2025-05-06)
+
+Full Changelog: [v6.27.0...v6.28.0](https://github.com/Finch-API/finch-api-node/compare/v6.27.0...v6.28.0)
+
+### Features
+
+* **api:** api update ([2154a72](https://github.com/Finch-API/finch-api-node/commit/2154a72f5e0a3f1936cd8b73938d43583777e5b5))
+* **api:** api update ([720fdb4](https://github.com/Finch-API/finch-api-node/commit/720fdb4be78bdb2a2deb6ddee60a4114b88b69ed))
+* **api:** api update ([b6ccf3a](https://github.com/Finch-API/finch-api-node/commit/b6ccf3a9aa7e87e9b40843a1d3a6102ad8e3d26d))
+* **api:** api update ([4d2f27f](https://github.com/Finch-API/finch-api-node/commit/4d2f27f906f5e910a07097577f71764bb8330f1e))
+* **api:** api update ([e97c6e3](https://github.com/Finch-API/finch-api-node/commit/e97c6e3642ac4c676f584bac56c0b7442e6086f5))
+* **api:** api update ([7f91f38](https://github.com/Finch-API/finch-api-node/commit/7f91f38cca55023e56fb20924bd8e38796edb2d0))
+* **api:** api update ([92c0b21](https://github.com/Finch-API/finch-api-node/commit/92c0b210ae40ae63c773e6e84e8b77dbd613b1f7))
+* **api:** api update ([44171ef](https://github.com/Finch-API/finch-api-node/commit/44171ef323d5142cba8f852dec19b51f7a4f289a))
+* **api:** api update ([bdf9bd1](https://github.com/Finch-API/finch-api-node/commit/bdf9bd180f3c03933aaafffe341f3b8aafd430fe))
+* **api:** api update ([dbd517c](https://github.com/Finch-API/finch-api-node/commit/dbd517c6289b8a8e441a3ee3f97d94ec0ddb121c))
+* **api:** api update ([810d43d](https://github.com/Finch-API/finch-api-node/commit/810d43df1cd5fe28074fe93e0a6796beacdc8719))
+* **api:** api update ([3f01647](https://github.com/Finch-API/finch-api-node/commit/3f016471afec2e7f8d1275a008311c1124709078))
+* **api:** api update ([28ab466](https://github.com/Finch-API/finch-api-node/commit/28ab466caaea2be802082f3f093b5648190391ed))
+* **api:** api update ([ac9d102](https://github.com/Finch-API/finch-api-node/commit/ac9d102d86274b970409beef5ba8ed3aa8349302))
+* **api:** api update ([9f3bc94](https://github.com/Finch-API/finch-api-node/commit/9f3bc9480e443f1ac73e880cc31ad02dde588ade))
+* **api:** api update ([8e71317](https://github.com/Finch-API/finch-api-node/commit/8e71317c757ccd55d9d026c19ad96874f09cfb17))
+* **api:** api update ([5858466](https://github.com/Finch-API/finch-api-node/commit/585846655881cb6a8d04d7a60b372ede87adec6a))
+* more gracefully handle $refs and work around schema limitations ([dffc300](https://github.com/Finch-API/finch-api-node/commit/dffc300d8fd56479c9c5b233a0c12881c3370cb7))
+
+
+### Bug Fixes
+
+* **mcp:** remove ajv dependency so MCP servers are more compatible with Cloudflare Workers ([7b03a90](https://github.com/Finch-API/finch-api-node/commit/7b03a90abccc5b789c60cac12edc446a96e35464))
+
+
+### Chores
+
+* **ci:** bump node version for release workflows ([579202e](https://github.com/Finch-API/finch-api-node/commit/579202e75c7b9d4ba37a57274279c90cbaddbff3))
+* **internal:** update dependency ([c08d626](https://github.com/Finch-API/finch-api-node/commit/c08d62616cf7c0ccfb6fb04000f8572d28c0ec3b))
+
+
+### Documentation
+
+* add examples to tsdocs ([ffbff85](https://github.com/Finch-API/finch-api-node/commit/ffbff852c8ce9eb25c4ff113508f4e07c4745235))
+* **readme:** fix typo ([958fcf3](https://github.com/Finch-API/finch-api-node/commit/958fcf3b0ce9b3fb4b8246a4c0db4d5168fcf6eb))
+
+## 6.27.0 (2025-04-23)
+
+Full Changelog: [v6.26.0...v6.27.0](https://github.com/Finch-API/finch-api-node/compare/v6.26.0...v6.27.0)
+
+### Features
+
+* **api:** api update ([706763f](https://github.com/Finch-API/finch-api-node/commit/706763fbe19b3f0a33ea4f8e4f75b61090bb9e78))
+
+
+### Chores
+
+* **ci:** only use depot for staging repos ([e55893d](https://github.com/Finch-API/finch-api-node/commit/e55893dcbfbc8db1b2a43f150323eb8a1c55a58b))
+* **ci:** run on more branches and use depot runners ([5eaa92c](https://github.com/Finch-API/finch-api-node/commit/5eaa92c8b77fb0a3074540c1f8f32fe2e9af6cb9))
+
+## 6.26.0 (2025-04-22)
+
+Full Changelog: [v6.25.1...v6.26.0](https://github.com/Finch-API/finch-api-node/compare/v6.25.1...v6.26.0)
+
+### Features
+
+* **api:** api update ([05078cb](https://github.com/Finch-API/finch-api-node/commit/05078cb1aaaaee18642e961791c2c0e374ef61a2))
+
+
+### Chores
+
+* **ci:** add timeout thresholds for CI jobs ([988e8f3](https://github.com/Finch-API/finch-api-node/commit/988e8f327173b3c685f98f7087a0f661cefdf90c))
+
+## 6.25.1 (2025-04-22)
+
+Full Changelog: [v6.25.0...v6.25.1](https://github.com/Finch-API/finch-api-node/compare/v6.25.0...v6.25.1)
+
+### Bug Fixes
+
+* **client:** revert "send all configured auth headers" ([f39ba32](https://github.com/Finch-API/finch-api-node/commit/f39ba32ce9232b61556e4e3bbf07dbc3061030a0))
+
+## 6.25.0 (2025-04-18)
+
+Full Changelog: [v6.24.0...v6.25.0](https://github.com/Finch-API/finch-api-node/compare/v6.24.0...v6.25.0)
+
+### Features
+
+* **api:** api update ([d31503d](https://github.com/Finch-API/finch-api-node/commit/d31503d9e0b3e315d593f46303501c10bfa1f547))
+
+
+### Bug Fixes
+
+* **mcp:** correctly handle endpoints with top-level arrays or primitives ([1fd52ab](https://github.com/Finch-API/finch-api-node/commit/1fd52ab14f0ad4b60c29139ea215313b759fdb95))
+
+## 6.24.0 (2025-04-14)
+
+Full Changelog: [v6.23.0...v6.24.0](https://github.com/Finch-API/finch-api-node/compare/v6.23.0...v6.24.0)
+
+### Features
+
+* **api:** api update ([89850ae](https://github.com/Finch-API/finch-api-node/commit/89850ae24929e61fa19ddc5acea64ba4d28d2bbd))
+
+
+### Chores
+
+* **client:** minor internal fixes ([42cc707](https://github.com/Finch-API/finch-api-node/commit/42cc707698825137255357e5a6a69a81f77c16d0))
+
+## 6.23.0 (2025-04-09)
+
+Full Changelog: [v6.22.3...v6.23.0](https://github.com/Finch-API/finch-api-node/compare/v6.22.3...v6.23.0)
+
+### Features
+
+* **api:** add models for hrs benefits individuals async responses ([272f946](https://github.com/Finch-API/finch-api-node/commit/272f946da16aacdf6c43183ec69ee15e69edef80))
+* **api:** api update ([#603](https://github.com/Finch-API/finch-api-node/issues/603)) ([3ad326b](https://github.com/Finch-API/finch-api-node/commit/3ad326b41c0463828096a5872df121e7d27da2ed))
+* **api:** benefits mutation API endpoints (create benefit, update benefit, enroll individual, unenroll individual) now properly return async response types ([#607](https://github.com/Finch-API/finch-api-node/issues/607)) ([565064b](https://github.com/Finch-API/finch-api-node/commit/565064b958297667e151b511991090652cf5a791))
+
+
+### Bug Fixes
+
+* **mcp:** fix readEnv type error ([#605](https://github.com/Finch-API/finch-api-node/issues/605)) ([b26725e](https://github.com/Finch-API/finch-api-node/commit/b26725e54e88fec4264028cd40c2776e4e00f595))
+
+
+### Chores
+
+* fix typo ([06aaecc](https://github.com/Finch-API/finch-api-node/commit/06aaecc5fcad16a92a7f2924db7b75356757672a))
+* fix typo ([#608](https://github.com/Finch-API/finch-api-node/issues/608)) ([3a6be25](https://github.com/Finch-API/finch-api-node/commit/3a6be253550a6859a14c7135a21a1df900916156))
+* **internal:** reduce CI branch coverage ([6c887e6](https://github.com/Finch-API/finch-api-node/commit/6c887e6e3dad0bc53068b43d18ca4bd350328a49))
+* **internal:** upload builds and expand CI branch coverage ([#606](https://github.com/Finch-API/finch-api-node/issues/606)) ([e26bc23](https://github.com/Finch-API/finch-api-node/commit/e26bc233fc4cca2629c7c6669d44d1545e379b9a))
+
+## 6.22.3 (2025-04-09)
+
+Full Changelog: [v6.22.2...v6.22.3](https://github.com/Finch-API/finch-api-node/compare/v6.22.2...v6.22.3)
+
+### Bug Fixes
+
+* **mcp:** include all necessary env vars in client instantiation ([#600](https://github.com/Finch-API/finch-api-node/issues/600)) ([288c429](https://github.com/Finch-API/finch-api-node/commit/288c42946065e0b61fe72561271769d1da8f0907))
+
+## 6.22.2 (2025-04-09)
+
+Full Changelog: [v6.22.1...v6.22.2](https://github.com/Finch-API/finch-api-node/compare/v6.22.1...v6.22.2)
+
+### Bug Fixes
+
+* Fix client init by removing empty object arg ([#598](https://github.com/Finch-API/finch-api-node/issues/598)) ([00e0a02](https://github.com/Finch-API/finch-api-node/commit/00e0a02842a340a21cbe17487c586feff91a45e9))
+
+## 6.22.1 (2025-04-08)
+
+Full Changelog: [v6.22.0...v6.22.1](https://github.com/Finch-API/finch-api-node/compare/v6.22.0...v6.22.1)
+
+### Bug Fixes
+
+* **client:** send all configured auth headers ([#594](https://github.com/Finch-API/finch-api-node/issues/594)) ([7e6bd40](https://github.com/Finch-API/finch-api-node/commit/7e6bd408cc700be14fc9102edce4376a94173082))
+* **mcp:** point homepage and repo for mcp package to the `packages/mcp-server` directory ([#597](https://github.com/Finch-API/finch-api-node/issues/597)) ([b390a29](https://github.com/Finch-API/finch-api-node/commit/b390a29c4ebd70a577b8a19c5133b31813e9ed4a))
+* **mcp:** remove unused tools.ts ([#592](https://github.com/Finch-API/finch-api-node/issues/592)) ([9a0678b](https://github.com/Finch-API/finch-api-node/commit/9a0678ba995037633567f626e0baff0da71f1298))
+
+
+### Chores
+
+* configure new SDK language ([#595](https://github.com/Finch-API/finch-api-node/issues/595)) ([d7219f0](https://github.com/Finch-API/finch-api-node/commit/d7219f0e80bd97dabfd602f103b3a1252364cb64))
+* **internal:** codegen related update ([#593](https://github.com/Finch-API/finch-api-node/issues/593)) ([efa8229](https://github.com/Finch-API/finch-api-node/commit/efa82290cc6df930abd943e38f49d066ff7e9141))
+* **internal:** improve index signature formatting ([#590](https://github.com/Finch-API/finch-api-node/issues/590)) ([2a5f375](https://github.com/Finch-API/finch-api-node/commit/2a5f3754f25d2f031a4992d00b595385d5c478a2))
+* **tests:** improve enum examples ([#596](https://github.com/Finch-API/finch-api-node/issues/596)) ([87b29e3](https://github.com/Finch-API/finch-api-node/commit/87b29e3bd2abd6ecf8c82e47bfc031d31826cc5b))
+
+## 6.22.0 (2025-04-04)
+
+Full Changelog: [v6.21.0...v6.22.0](https://github.com/Finch-API/finch-api-node/compare/v6.21.0...v6.22.0)
+
+### Features
+
+* **api:** add new endpoints for pay statement items ([#587](https://github.com/Finch-API/finch-api-node/issues/587)) ([ad88cfc](https://github.com/Finch-API/finch-api-node/commit/ad88cfc51906f4e1dbfb04ccb5f80bb17a75a38b))
+* **api:** api update ([#580](https://github.com/Finch-API/finch-api-node/issues/580)) ([6237aeb](https://github.com/Finch-API/finch-api-node/commit/6237aeb2de71a2c17beaae8cf891f70540f2140f))
+* **api:** api update ([#582](https://github.com/Finch-API/finch-api-node/issues/582)) ([960a908](https://github.com/Finch-API/finch-api-node/commit/960a90821a90d244d5c09e0efe670826cfff4f57))
+* **api:** api update ([#584](https://github.com/Finch-API/finch-api-node/issues/584)) ([3ee3c43](https://github.com/Finch-API/finch-api-node/commit/3ee3c43408504a8e90a4c6f7ef524bec87ec44cd))
+* **api:** manual updates ([#588](https://github.com/Finch-API/finch-api-node/issues/588)) ([8608c19](https://github.com/Finch-API/finch-api-node/commit/8608c1996e2ab9e7136e9249b10be0cb61f166db))
+
+
+### Bug Fixes
+
+* **api:** improve type resolution when importing as a package ([#586](https://github.com/Finch-API/finch-api-node/issues/586)) ([a3b98cb](https://github.com/Finch-API/finch-api-node/commit/a3b98cb6044dd0079c2492f275f72852747e2ec2))
+* **client:** send `X-Stainless-Timeout` in seconds ([#583](https://github.com/Finch-API/finch-api-node/issues/583)) ([880103a](https://github.com/Finch-API/finch-api-node/commit/880103a237bc6176ccec3990f172330bedf9f995))
+
+
+### Chores
+
+* **internal:** add aliases for Record and Array ([#585](https://github.com/Finch-API/finch-api-node/issues/585)) ([5356813](https://github.com/Finch-API/finch-api-node/commit/5356813545fcedcce376e5d9d6ecc71c86b12f9f))
+
+## 6.21.0 (2025-03-31)
+
+Full Changelog: [v6.20.0...v6.21.0](https://github.com/Finch-API/finch-api-node/compare/v6.20.0...v6.21.0)
+
+### Features
+
+* **api:** api update ([#577](https://github.com/Finch-API/finch-api-node/issues/577)) ([f0fbad5](https://github.com/Finch-API/finch-api-node/commit/f0fbad59ad2c2d5df0708b1eecf05bc895d9c664))
+
+## 6.20.0 (2025-03-27)
+
+Full Changelog: [v6.19.0...v6.20.0](https://github.com/Finch-API/finch-api-node/compare/v6.19.0...v6.20.0)
+
+### Features
+
+* **api:** api update ([#573](https://github.com/Finch-API/finch-api-node/issues/573)) ([3e564bb](https://github.com/Finch-API/finch-api-node/commit/3e564bb85fa7c7d5fb28f516168071ec995ddc86))
+
+
+### Bug Fixes
+
+* **internal:** work around https://github.com/vercel/next.js/issues/76881 ([#575](https://github.com/Finch-API/finch-api-node/issues/575)) ([2704a24](https://github.com/Finch-API/finch-api-node/commit/2704a2435ed771eafcf00c87eb7938825744a078))
+
+## 6.19.0 (2025-03-25)
+
+Full Changelog: [v6.18.0...v6.19.0](https://github.com/Finch-API/finch-api-node/compare/v6.18.0...v6.19.0)
+
+### Features
+
+* add SKIP_BREW env var to ./scripts/bootstrap ([#563](https://github.com/Finch-API/finch-api-node/issues/563)) ([6126c8f](https://github.com/Finch-API/finch-api-node/commit/6126c8fbba873370e790eef7f00243d8d9569ad0))
+* **api:** api update ([#571](https://github.com/Finch-API/finch-api-node/issues/571)) ([08f9158](https://github.com/Finch-API/finch-api-node/commit/08f915863ecb154a9fd83eb25e535eae2674039e))
+* **api:** manual updates ([#560](https://github.com/Finch-API/finch-api-node/issues/560)) ([16949ae](https://github.com/Finch-API/finch-api-node/commit/16949aed1a201700c946b22b6cb923b03015e848))
+* **client:** accept RFC6838 JSON content types ([#564](https://github.com/Finch-API/finch-api-node/issues/564)) ([a45d995](https://github.com/Finch-API/finch-api-node/commit/a45d995bcfacc0d1d48947842c0e4e71c52e50bc))
+
+
+### Bug Fixes
+
+* avoid type error in certain environments ([#570](https://github.com/Finch-API/finch-api-node/issues/570)) ([a8c7d8f](https://github.com/Finch-API/finch-api-node/commit/a8c7d8f232683cdbc9ed5bbdff257c147962c4da))
+* **exports:** ensure resource imports don't require /index ([#567](https://github.com/Finch-API/finch-api-node/issues/567)) ([55a8d4a](https://github.com/Finch-API/finch-api-node/commit/55a8d4a9f2a8f2c5764fe496a5afa1147dfdf305))
+
+
+### Chores
+
+* **exports:** cleaner resource index imports ([#568](https://github.com/Finch-API/finch-api-node/issues/568)) ([3e5e7cf](https://github.com/Finch-API/finch-api-node/commit/3e5e7cfa673ecadd95f910944160179f46e573a7))
+* **exports:** stop using path fallbacks ([#569](https://github.com/Finch-API/finch-api-node/issues/569)) ([4941288](https://github.com/Finch-API/finch-api-node/commit/49412884a2329dfdf66917673648db93250857d1))
+* **internal:** codegen related update ([#562](https://github.com/Finch-API/finch-api-node/issues/562)) ([6c0cf0d](https://github.com/Finch-API/finch-api-node/commit/6c0cf0de15e4df4c7baf5601a385e2a9fc000a95))
+* **internal:** codegen related update ([#565](https://github.com/Finch-API/finch-api-node/issues/565)) ([36a590e](https://github.com/Finch-API/finch-api-node/commit/36a590e5602ce8305dff53e1c37a4885574cf55f))
+* **internal:** remove extra empty newlines ([#566](https://github.com/Finch-API/finch-api-node/issues/566)) ([f44dcf1](https://github.com/Finch-API/finch-api-node/commit/f44dcf1e88d46bb7bc1d95a2a7ce21b1cc9f4721))
+
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#558](https://github.com/Finch-API/finch-api-node/issues/558)) ([2abb0ef](https://github.com/Finch-API/finch-api-node/commit/2abb0ef09caf75ba999c81f7d63beac6ebe9c44d))
+
+## 6.18.0 (2025-02-27)
+
+Full Changelog: [v6.17.0...v6.18.0](https://github.com/Finch-API/finch-api-node/compare/v6.17.0...v6.18.0)
+
+### Features
+
+* **api:** api update ([#555](https://github.com/Finch-API/finch-api-node/issues/555)) ([d59ff2a](https://github.com/Finch-API/finch-api-node/commit/d59ff2a78da71b1d162d4b42a31a51985e1f7f83))
+
+## 6.17.0 (2025-02-26)
+
+Full Changelog: [v6.16.1...v6.17.0](https://github.com/Finch-API/finch-api-node/compare/v6.16.1...v6.17.0)
+
+### Features
+
+* **api:** api update ([#553](https://github.com/Finch-API/finch-api-node/issues/553)) ([6c9709a](https://github.com/Finch-API/finch-api-node/commit/6c9709a5324b54287776fdc57c5bcd78d0a2a69a))
+
+
+### Bug Fixes
+
+* **client:** mark some request bodies as optional ([#551](https://github.com/Finch-API/finch-api-node/issues/551)) ([ebe7dc9](https://github.com/Finch-API/finch-api-node/commit/ebe7dc96ab5ab3b48e2fa89e3bb7e268508dc3eb))
+
+
+### Chores
+
+* **internal:** codegen related update ([#549](https://github.com/Finch-API/finch-api-node/issues/549)) ([be7e63d](https://github.com/Finch-API/finch-api-node/commit/be7e63d712ae5587aedec932618baf0e86e0f7d0))
+* **internal:** fix devcontainers setup ([#552](https://github.com/Finch-API/finch-api-node/issues/552)) ([120d3f9](https://github.com/Finch-API/finch-api-node/commit/120d3f9a1dc51d643e52a9a16cae1a41bf074891))
+
+## 6.16.1 (2025-02-11)
+
+Full Changelog: [v6.16.0...v6.16.1](https://github.com/Finch-API/finch-api-node/compare/v6.16.0...v6.16.1)
+
+### Chores
+
+* **internal:** codegen related update ([#546](https://github.com/Finch-API/finch-api-node/issues/546)) ([923ccde](https://github.com/Finch-API/finch-api-node/commit/923ccde4a33601b168ccf37d5cdf223588266522))
+
+## 6.16.0 (2025-02-04)
+
+Full Changelog: [v6.15.1...v6.16.0](https://github.com/Finch-API/finch-api-node/compare/v6.15.1...v6.16.0)
+
+### Features
+
+* **api:** api update ([#538](https://github.com/Finch-API/finch-api-node/issues/538)) ([fea6ccc](https://github.com/Finch-API/finch-api-node/commit/fea6ccce9d001d4b420dc8aa784fd10922baf2bb))
+* **api:** api update ([#541](https://github.com/Finch-API/finch-api-node/issues/541)) ([1cd0cc0](https://github.com/Finch-API/finch-api-node/commit/1cd0cc0c74b93480a73422a1b5932dcf0e7edd95))
+* **api:** api update ([#542](https://github.com/Finch-API/finch-api-node/issues/542)) ([5623c7e](https://github.com/Finch-API/finch-api-node/commit/5623c7edf167d1c94f3f0ec13fa3fe35129d9236))
+* **client:** send `X-Stainless-Timeout` header ([#544](https://github.com/Finch-API/finch-api-node/issues/544)) ([7ff39fc](https://github.com/Finch-API/finch-api-node/commit/7ff39fcff85fa3cc0887c918fa7d84672e257da1))
+
+
+### Chores
+
+* fix references to nested types ([#543](https://github.com/Finch-API/finch-api-node/issues/543)) ([6738165](https://github.com/Finch-API/finch-api-node/commit/6738165b6aafb8ab89425c1a9b372bbabfac954d))
+* **internal:** codegen related update ([#540](https://github.com/Finch-API/finch-api-node/issues/540)) ([122a1a0](https://github.com/Finch-API/finch-api-node/commit/122a1a0aa85f3dce54ff56f9a291d34d69af024a))
+
+## 6.15.1 (2025-01-21)
+
+Full Changelog: [v6.15.0...v6.15.1](https://github.com/Finch-API/finch-api-node/compare/v6.15.0...v6.15.1)
+
+### Chores
+
+* **internal:** add test ([#535](https://github.com/Finch-API/finch-api-node/issues/535)) ([dbff05c](https://github.com/Finch-API/finch-api-node/commit/dbff05c0f375a75906a8ee472de6579fab40db24))
+* **types:** add `| undefined` to client options properties ([#533](https://github.com/Finch-API/finch-api-node/issues/533)) ([4ceb638](https://github.com/Finch-API/finch-api-node/commit/4ceb638bbae80e7d91bc67d3262772c5db4ab7ad))
+
+
+### Documentation
+
+* update deprecation messages ([#536](https://github.com/Finch-API/finch-api-node/issues/536)) ([6fd8f63](https://github.com/Finch-API/finch-api-node/commit/6fd8f63479a70f2d36d28d29abca22f1e87615d0))
+
+## 6.15.0 (2025-01-09)
+
+Full Changelog: [v6.14.0...v6.15.0](https://github.com/Finch-API/finch-api-node/compare/v6.14.0...v6.15.0)
+
+### Features
+
+* **api:** api update ([#531](https://github.com/Finch-API/finch-api-node/issues/531)) ([bb259a7](https://github.com/Finch-API/finch-api-node/commit/bb259a788ba6bfd13370f4744d4cc29780c564f8))
+
+
+### Chores
+
+* **internal:** codegen related update ([#529](https://github.com/Finch-API/finch-api-node/issues/529)) ([4b8af11](https://github.com/Finch-API/finch-api-node/commit/4b8af11c968181a5cddd01c74de2c7f05984169f))
+
+## 6.14.0 (2025-01-07)
+
+Full Changelog: [v6.13.1...v6.14.0](https://github.com/Finch-API/finch-api-node/compare/v6.13.1...v6.14.0)
+
+### Features
+
+* **api:** manual updates ([#526](https://github.com/Finch-API/finch-api-node/issues/526)) ([6ad85a9](https://github.com/Finch-API/finch-api-node/commit/6ad85a950f9de33dd9976698a09e8be85bafae6b))
+
+## 6.13.1 (2025-01-07)
+
+Full Changelog: [v6.13.0...v6.13.1](https://github.com/Finch-API/finch-api-node/compare/v6.13.0...v6.13.1)
+
+### Chores
+
+* **internal:** codegen related update ([#522](https://github.com/Finch-API/finch-api-node/issues/522)) ([15d8731](https://github.com/Finch-API/finch-api-node/commit/15d873191eb0c6995c2befa7892f6beba71a4f3b))
+* **types:** use `declare namespace` ([#524](https://github.com/Finch-API/finch-api-node/issues/524)) ([e748544](https://github.com/Finch-API/finch-api-node/commit/e7485447d89cca3d66a1ec8beb4210b50fceb81b))
+
+## 6.13.0 (2024-12-20)
+
+Full Changelog: [v6.12.0...v6.13.0](https://github.com/Finch-API/finch-api-node/compare/v6.12.0...v6.13.0)
+
+### Features
+
+* **api:** api update ([#509](https://github.com/Finch-API/finch-api-node/issues/509)) ([b69656b](https://github.com/Finch-API/finch-api-node/commit/b69656b9f5607f8a83d17386f39da112ddfe6afb))
+* **api:** api update ([#512](https://github.com/Finch-API/finch-api-node/issues/512)) ([c688b2e](https://github.com/Finch-API/finch-api-node/commit/c688b2ec4ea1b85d023ba989b707679647811ad3))
+* **api:** api update ([#515](https://github.com/Finch-API/finch-api-node/issues/515)) ([af26fff](https://github.com/Finch-API/finch-api-node/commit/af26fff051e4c89849d3243829bf8042e85048c0))
+* **api:** api update ([#516](https://github.com/Finch-API/finch-api-node/issues/516)) ([5146110](https://github.com/Finch-API/finch-api-node/commit/51461105bfb204e10efa0603fa0fed0ef7fa4d2c))
+* **api:** api update ([#517](https://github.com/Finch-API/finch-api-node/issues/517)) ([207b283](https://github.com/Finch-API/finch-api-node/commit/207b283a2a45665beed96d097f32565098165c23))
+
+
+### Bug Fixes
+
+* **client:** normalize method ([#519](https://github.com/Finch-API/finch-api-node/issues/519)) ([7775a51](https://github.com/Finch-API/finch-api-node/commit/7775a51a35717e8e3c93c16fcf6e2b246d9bba16))
+
+
+### Chores
+
+* **internal:** bump cross-spawn to v7.0.6 ([#511](https://github.com/Finch-API/finch-api-node/issues/511)) ([15b9f27](https://github.com/Finch-API/finch-api-node/commit/15b9f27e360f60e3ef1bd53194e8eff165ed8105))
+* **internal:** codegen related update ([#507](https://github.com/Finch-API/finch-api-node/issues/507)) ([21bca96](https://github.com/Finch-API/finch-api-node/commit/21bca96783aca9c31e074acf263d2530c3601842))
+* **internal:** fix some typos ([#518](https://github.com/Finch-API/finch-api-node/issues/518)) ([04729df](https://github.com/Finch-API/finch-api-node/commit/04729df6179681b142f2d2b4ce2222d680041609))
+* **internal:** remove unnecessary getRequestClient function ([#510](https://github.com/Finch-API/finch-api-node/issues/510)) ([3f55469](https://github.com/Finch-API/finch-api-node/commit/3f55469efaf5c39ecbe42747d427efd2ed282682))
+* **internal:** update isAbsoluteURL ([#514](https://github.com/Finch-API/finch-api-node/issues/514)) ([c280136](https://github.com/Finch-API/finch-api-node/commit/c28013697fd2752bab1f9b6af6b910186f36ec0a))
+* **types:** nicer error class types + jsdocs ([#513](https://github.com/Finch-API/finch-api-node/issues/513)) ([e3e7e3f](https://github.com/Finch-API/finch-api-node/commit/e3e7e3fe52a2b0d6be4bcd27a6ec800df35325b7))
+
+
+### Documentation
+
+* minor formatting changes ([#520](https://github.com/Finch-API/finch-api-node/issues/520)) ([e3d6ebe](https://github.com/Finch-API/finch-api-node/commit/e3d6ebebd734e4066d344c0d9cff622aa1b808d7))
+
+## 6.12.0 (2024-11-27)
+
+Full Changelog: [v6.11.0...v6.12.0](https://github.com/Finch-API/finch-api-node/compare/v6.11.0...v6.12.0)
+
+### Features
+
+* **api:** api update ([#505](https://github.com/Finch-API/finch-api-node/issues/505)) ([d9d4f4d](https://github.com/Finch-API/finch-api-node/commit/d9d4f4d7768705cf139200b7009b764f3a2e2caf))
+* **internal:** make git install file structure match npm ([#503](https://github.com/Finch-API/finch-api-node/issues/503)) ([469d7f7](https://github.com/Finch-API/finch-api-node/commit/469d7f7de6ebade28b319f18e3d8bf67b16b1a37))
+
+## 6.11.0 (2024-11-25)
+
+Full Changelog: [v6.10.2...v6.11.0](https://github.com/Finch-API/finch-api-node/compare/v6.10.2...v6.11.0)
+
+### Features
+
+* **client:** do not run in browser context unless explicitly asked ([#500](https://github.com/Finch-API/finch-api-node/issues/500)) ([d251bc6](https://github.com/Finch-API/finch-api-node/commit/d251bc6a0ffa8df8ecc39cd6d3fc8a846843720e))
+
+## 6.10.2 (2024-11-20)
+
+Full Changelog: [v6.10.1...v6.10.2](https://github.com/Finch-API/finch-api-node/compare/v6.10.1...v6.10.2)
+
+### Bug Fixes
+
+* **webhooks:** use @noble/hashes instead of crypto for signing ([#495](https://github.com/Finch-API/finch-api-node/issues/495)) ([6289374](https://github.com/Finch-API/finch-api-node/commit/6289374934db3bbca920eed1aa869950640830f7))
+
+## 6.10.1 (2024-11-20)
+
+Full Changelog: [v6.10.0...v6.10.1](https://github.com/Finch-API/finch-api-node/compare/v6.10.0...v6.10.1)
+
+### Chores
+
+* **internal:** version bump ([#491](https://github.com/Finch-API/finch-api-node/issues/491)) ([4691ffd](https://github.com/Finch-API/finch-api-node/commit/4691ffdf3edbe0dd9bdb05a26cf61d53ab8e25e5))
+* **internal:** version bump ([#493](https://github.com/Finch-API/finch-api-node/issues/493)) ([857c1ff](https://github.com/Finch-API/finch-api-node/commit/857c1ffa9c05d0c39aab06a62fb8bca44faed41d))
+
+## 6.10.0 (2024-11-19)
+
+Full Changelog: [v6.9.0...v6.10.0](https://github.com/Finch-API/finch-api-node/compare/v6.9.0...v6.10.0)
+
+### Features
+
+* **api:** api update ([#487](https://github.com/Finch-API/finch-api-node/issues/487)) ([d80ca32](https://github.com/Finch-API/finch-api-node/commit/d80ca322379e315503c6bbe22991465347525b9a))
+
+
+### Chores
+
+* rebuild project due to codegen change ([#482](https://github.com/Finch-API/finch-api-node/issues/482)) ([789bea1](https://github.com/Finch-API/finch-api-node/commit/789bea197e2c03809e42b44710816f61a2b2bf94))
+* rebuild project due to codegen change ([#484](https://github.com/Finch-API/finch-api-node/issues/484)) ([dabe1af](https://github.com/Finch-API/finch-api-node/commit/dabe1af68ae5bb2a129931e5061b24ab30c55878))
+* rebuild project due to codegen change ([#485](https://github.com/Finch-API/finch-api-node/issues/485)) ([90c94e0](https://github.com/Finch-API/finch-api-node/commit/90c94e032577db2628350ead037837065d8db0d4))
+* rebuild project due to codegen change ([#486](https://github.com/Finch-API/finch-api-node/issues/486)) ([34dcd1d](https://github.com/Finch-API/finch-api-node/commit/34dcd1d881b5a358b4007ee9b21c8fd0af9ea1b4))
+
+## 6.9.0 (2024-11-01)
+
+Full Changelog: [v6.8.0...v6.9.0](https://github.com/Finch-API/finch-api-node/compare/v6.8.0...v6.9.0)
+
+### Features
+
+* **api:** api update ([#479](https://github.com/Finch-API/finch-api-node/issues/479)) ([4c002ad](https://github.com/Finch-API/finch-api-node/commit/4c002ade0455843ac6952d39c9b13f88be36c47a))
+
+## 6.8.0 (2024-10-23)
+
+Full Changelog: [v6.7.0...v6.8.0](https://github.com/Finch-API/finch-api-node/compare/v6.7.0...v6.8.0)
+
+### Features
+
+* **api:** api update ([#475](https://github.com/Finch-API/finch-api-node/issues/475)) ([e5b9832](https://github.com/Finch-API/finch-api-node/commit/e5b983298f9fbf75e19d98dc022a346aee1a3a61))
+* **api:** api update ([#477](https://github.com/Finch-API/finch-api-node/issues/477)) ([15a197a](https://github.com/Finch-API/finch-api-node/commit/15a197a1900d46479a474a930bbc619c313e7c39))
+
+## 6.7.0 (2024-10-10)
+
+Full Changelog: [v6.6.0...v6.7.0](https://github.com/Finch-API/finch-api-node/compare/v6.6.0...v6.7.0)
+
+### Features
+
+* **api:** api update ([#471](https://github.com/Finch-API/finch-api-node/issues/471)) ([a44dce6](https://github.com/Finch-API/finch-api-node/commit/a44dce636bca6e4523b2a440e34a6fc1b13a71cb))
+
+
+### Bug Fixes
+
+* **tests:** adjust to use basic auth ([0e42757](https://github.com/Finch-API/finch-api-node/commit/0e427577ca2c6d6cad48e551d71ea1e4f10c3aa8))
+
+## 6.6.0 (2024-10-03)
+
+Full Changelog: [v6.5.0...v6.6.0](https://github.com/Finch-API/finch-api-node/compare/v6.5.0...v6.6.0)
+
+### Features
+
+* **api:** Add connect sessions endpoints ([#463](https://github.com/Finch-API/finch-api-node/issues/463)) ([95be502](https://github.com/Finch-API/finch-api-node/commit/95be502e0843736a88ba36eb2b4e93870d77eff7))
+* **api:** api update ([#468](https://github.com/Finch-API/finch-api-node/issues/468)) ([4cb1b50](https://github.com/Finch-API/finch-api-node/commit/4cb1b50846e41a2533a0eb2ed1b805a990680de0))
+* **api:** manual updates ([#465](https://github.com/Finch-API/finch-api-node/issues/465)) ([3185de2](https://github.com/Finch-API/finch-api-node/commit/3185de23efd45b00525af140d7192e9c23d37dd8))
+* **api:** manual updates ([#466](https://github.com/Finch-API/finch-api-node/issues/466)) ([0af0d80](https://github.com/Finch-API/finch-api-node/commit/0af0d805fc6f6d349f2277ea4fc03345d3311d13))
+* **api:** OpenAPI spec update via Stainless API ([#455](https://github.com/Finch-API/finch-api-node/issues/455)) ([49f8211](https://github.com/Finch-API/finch-api-node/commit/49f8211d9fb5597ef5eb139f6c3183edf51e487a))
+* **api:** OpenAPI spec update via Stainless API ([#462](https://github.com/Finch-API/finch-api-node/issues/462)) ([61f387c](https://github.com/Finch-API/finch-api-node/commit/61f387c92d1d86f36ef4467d412f231f6b1b55ed))
+
+
+### Bug Fixes
+
+* **tests:** add required clientId/clientSecret ([d1a8f2d](https://github.com/Finch-API/finch-api-node/commit/d1a8f2d56dbe68620e9f0395f86e6724b4c22992))
+
+
+### Chores
+
+* **internal:** add dev dependency ([#459](https://github.com/Finch-API/finch-api-node/issues/459)) ([3ae63ed](https://github.com/Finch-API/finch-api-node/commit/3ae63edc8fb7afa689aabbbf42390819e405f25d))
+* **internal:** codegen related update ([#457](https://github.com/Finch-API/finch-api-node/issues/457)) ([3135a5d](https://github.com/Finch-API/finch-api-node/commit/3135a5d754001c1da3ca610846f5fc86e7d95f2b))
+* **internal:** codegen related update ([#467](https://github.com/Finch-API/finch-api-node/issues/467)) ([b4ae8f1](https://github.com/Finch-API/finch-api-node/commit/b4ae8f1462a9386db5495f7b2e4909a641962350))
+* **internal:** fix some types ([#461](https://github.com/Finch-API/finch-api-node/issues/461)) ([baea5ff](https://github.com/Finch-API/finch-api-node/commit/baea5ff10f68f18bb46e4d81bcfa1272a5701e61))
+* **internal:** skip failing tests ([#464](https://github.com/Finch-API/finch-api-node/issues/464)) ([8fb5250](https://github.com/Finch-API/finch-api-node/commit/8fb525024ccc396561d1d7c6ea4e9c398272a339))
+
+
+### Documentation
+
+* update CONTRIBUTING.md ([#458](https://github.com/Finch-API/finch-api-node/issues/458)) ([020fcd4](https://github.com/Finch-API/finch-api-node/commit/020fcd4f3da93f7a6afcb237cb5a8165c4a309a2))
+
+## 6.5.0 (2024-09-03)
+
+Full Changelog: [v6.4.1...v6.5.0](https://github.com/Finch-API/finch-api-node/compare/v6.4.1...v6.5.0)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#452](https://github.com/Finch-API/finch-api-node/issues/452)) ([5215d71](https://github.com/Finch-API/finch-api-node/commit/5215d71799fca77eb6b8861c4c9b1bde967dd469))
+
+## 6.4.1 (2024-09-03)
+
+Full Changelog: [v6.4.0...v6.4.1](https://github.com/Finch-API/finch-api-node/compare/v6.4.0...v6.4.1)
+
+### Bug Fixes
+
+* **client:** correct File construction from node-fetch Responses ([#449](https://github.com/Finch-API/finch-api-node/issues/449)) ([29bd830](https://github.com/Finch-API/finch-api-node/commit/29bd83081f11a78d346bf82944eab4b8215c3b99))
+
+## 6.4.0 (2024-08-30)
+
+Full Changelog: [v6.3.0...v6.4.0](https://github.com/Finch-API/finch-api-node/compare/v6.3.0...v6.4.0)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#445](https://github.com/Finch-API/finch-api-node/issues/445)) ([e852d45](https://github.com/Finch-API/finch-api-node/commit/e852d45e0eeee556d9b9990cfdf20da09c02ece3))
+
+
+### Chores
+
+* **ci:** check for build errors ([#443](https://github.com/Finch-API/finch-api-node/issues/443)) ([c4939f3](https://github.com/Finch-API/finch-api-node/commit/c4939f393973e1f6100e638be9f0ddaedc2e3934))
+* **ci:** install deps via ./script/bootstrap ([#447](https://github.com/Finch-API/finch-api-node/issues/447)) ([63bcd7d](https://github.com/Finch-API/finch-api-node/commit/63bcd7d7e372bf2e29a5cefd9cf8bf1848507f7e))
+* run tsc as part of lint script ([#446](https://github.com/Finch-API/finch-api-node/issues/446)) ([9623ca4](https://github.com/Finch-API/finch-api-node/commit/9623ca41542e9110a17c050d20d2655c3ec3837f))
+
 ## 6.3.0 (2024-08-28)
 
 Full Changelog: [v6.2.0...v6.3.0](https://github.com/Finch-API/finch-api-node/compare/v6.2.0...v6.3.0)

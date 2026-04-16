@@ -1,17 +1,16 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Finch from '@tryfinch/finch-api';
-import { Response } from 'node-fetch';
 
 const client = new Finch({
   accessToken: 'My Access Token',
-  clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
+  clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource accounts', () => {
-  // Auth isn't setup correctly in this test
+  // prism tests are broken
   test.skip('create: only required params', async () => {
     const responsePromise = client.sandbox.connections.accounts.create({
       company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
@@ -26,13 +25,13 @@ describe('resource accounts', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Auth isn't setup correctly in this test
+  // prism tests are broken
   test.skip('create: required and optional params', async () => {
     const response = await client.sandbox.connections.accounts.create({
       company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       provider_id: 'provider_id',
       authentication_type: 'credential',
-      products: ['string', 'string', 'string'],
+      products: ['string'],
     });
   });
 
@@ -47,18 +46,11 @@ describe('resource accounts', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('update: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.sandbox.connections.accounts.update({ path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(Finch.NotFoundError);
-  });
-
   test('update: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.sandbox.connections.accounts.update(
-        { connection_status: 'pending' },
+        { connection_status: 'reauth' },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Finch.NotFoundError);

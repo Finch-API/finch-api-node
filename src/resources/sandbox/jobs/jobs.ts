@@ -1,18 +1,31 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../resource';
-import * as Core from '../../../core';
-import * as JobsAPI from './jobs';
+import { APIResource } from '../../../core/resource';
 import * as ConfigurationAPI from './configuration';
+import {
+  Configuration,
+  ConfigurationRetrieveResponse,
+  ConfigurationUpdateParams,
+  SandboxJobConfiguration,
+} from './configuration';
+import { APIPromise } from '../../../core/api-promise';
+import { RequestOptions } from '../../../internal/request-options';
 
 export class Jobs extends APIResource {
   configuration: ConfigurationAPI.Configuration = new ConfigurationAPI.Configuration(this._client);
 
   /**
    * Enqueue a new sandbox job
+   *
+   * @example
+   * ```ts
+   * const job = await client.sandbox.jobs.create({
+   *   type: 'data_sync_all',
+   * });
+   * ```
    */
-  create(body: JobCreateParams, options?: Core.RequestOptions): Core.APIPromise<JobCreateResponse> {
-    return this._client.post('/sandbox/jobs', { body, ...options });
+  create(body: JobCreateParams, options?: RequestOptions): APIPromise<JobCreateResponse> {
+    return this._client.post('/sandbox/jobs', { body, ...options, __security: { bearerAuth: true } });
   }
 }
 
@@ -45,11 +58,15 @@ export interface JobCreateParams {
   type: 'data_sync_all';
 }
 
-export namespace Jobs {
-  export import JobCreateResponse = JobsAPI.JobCreateResponse;
-  export import JobCreateParams = JobsAPI.JobCreateParams;
-  export import Configuration = ConfigurationAPI.Configuration;
-  export import SandboxJobConfiguration = ConfigurationAPI.SandboxJobConfiguration;
-  export import ConfigurationRetrieveResponse = ConfigurationAPI.ConfigurationRetrieveResponse;
-  export import ConfigurationUpdateParams = ConfigurationAPI.ConfigurationUpdateParams;
+Jobs.Configuration = Configuration;
+
+export declare namespace Jobs {
+  export { type JobCreateResponse as JobCreateResponse, type JobCreateParams as JobCreateParams };
+
+  export {
+    Configuration as Configuration,
+    type SandboxJobConfiguration as SandboxJobConfiguration,
+    type ConfigurationRetrieveResponse as ConfigurationRetrieveResponse,
+    type ConfigurationUpdateParams as ConfigurationUpdateParams,
+  };
 }

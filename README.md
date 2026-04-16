@@ -1,12 +1,21 @@
-# Finch Node API Library
+# Finch TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/@tryfinch/finch-api.svg)](https://npmjs.org/package/@tryfinch/finch-api) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@tryfinch/finch-api)
+[![NPM version](<https://img.shields.io/npm/v/@tryfinch/finch-api.svg?label=npm%20(stable)>)](https://npmjs.org/package/@tryfinch/finch-api) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@tryfinch/finch-api)
 
 This library provides convenient access to the Finch REST API from server-side TypeScript or JavaScript.
 
 The REST API documentation can be found on [developer.tryfinch.com](https://developer.tryfinch.com/). The full API of this library can be found in [api.md](api.md).
 
-It is generated with [Stainless](https://www.stainlessapi.com/).
+It is generated with [Stainless](https://www.stainless.com/).
+
+## MCP Server
+
+Use the Finch MCP Server to enable AI assistants to interact with this API, allowing them to explore endpoints, make test requests, and use documentation to help integrate this SDK into your application.
+
+[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=%40tryfinch%2Ffinch-api-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB0cnlmaW5jaC9maW5jaC1hcGktbWNwIl0sImVudiI6eyJGSU5DSF9BQ0NFU1NfVE9LRU4iOiJNeSBBY2Nlc3MgVG9rZW4iLCJGSU5DSF9DTElFTlRfSUQiOiI0YWIxNWU1MS0xMWFkLTQ5ZjQtYWNhZS1mMzQzYjc3OTQzNzUiLCJGSU5DSF9DTElFTlRfU0VDUkVUIjoiTXkgQ2xpZW50IFNlY3JldCIsIkZJTkNIX1dFQkhPT0tfU0VDUkVUIjoiTXkgV2ViaG9vayBTZWNyZXQifX0)
+[![Install in VS Code](https://img.shields.io/badge/_-Add_to_VS_Code-blue?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHBhdGggZmlsbD0iI0VFRSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMzAuMjM1IDM5Ljg4NGEyLjQ5MSAyLjQ5MSAwIDAgMS0xLjc4MS0uNzNMMTIuNyAyNC43OGwtMy40NiAyLjYyNC0zLjQwNiAyLjU4MmExLjY2NSAxLjY2NSAwIDAgMS0xLjA4Mi4zMzggMS42NjQgMS42NjQgMCAwIDEtMS4wNDYtLjQzMWwtMi4yLTJhMS42NjYgMS42NjYgMCAwIDEgMC0yLjQ2M0w3LjQ1OCAyMCA0LjY3IDE3LjQ1MyAxLjUwNyAxNC41N2ExLjY2NSAxLjY2NSAwIDAgMSAwLTIuNDYzbDIuMi0yYTEuNjY1IDEuNjY1IDAgMCAxIDIuMTMtLjA5N2w2Ljg2MyA1LjIwOUwyOC40NTIuODQ0YTIuNDg4IDIuNDg4IDAgMCAxIDEuODQxLS43MjljLjM1MS4wMDkuNjk5LjA5MSAxLjAxOS4yNDVsOC4yMzYgMy45NjFhMi41IDIuNSAwIDAgMSAxLjQxNSAyLjI1M3YuMDk5LS4wNDVWMzMuMzd2LS4wNDUuMDk1YTIuNTAxIDIuNTAxIDAgMCAxLTEuNDE2IDIuMjU3bC04LjIzNSAzLjk2MWEyLjQ5MiAyLjQ5MiAwIDAgMS0xLjA3Ny4yNDZabS43MTYtMjguOTQ3LTExLjk0OCA5LjA2MiAxMS45NTIgOS4wNjUtLjAwNC0xOC4xMjdaIi8+PC9zdmc+)](https://vscode.stainless.com/mcp/%7B%22name%22%3A%22%40tryfinch%2Ffinch-api-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40tryfinch%2Ffinch-api-mcp%22%5D%2C%22env%22%3A%7B%22FINCH_ACCESS_TOKEN%22%3A%22My%20Access%20Token%22%2C%22FINCH_CLIENT_ID%22%3A%224ab15e51-11ad-49f4-acae-f343b7794375%22%2C%22FINCH_CLIENT_SECRET%22%3A%22My%20Client%20Secret%22%2C%22FINCH_WEBHOOK_SECRET%22%3A%22My%20Webhook%20Secret%22%7D%7D)
+
+> Note: You may need to set environment variables in your MCP client.
 
 ## Installation
 
@@ -26,14 +35,10 @@ const client = new Finch({
   accessToken: 'My Access Token',
 });
 
-async function main() {
-  const page = await client.hris.directory.list();
-  const individualInDirectory = page.individuals[0];
+const page = await client.hris.directory.list();
+const individualInDirectory = page.individuals[0];
 
-  console.log(individualInDirectory.id);
-}
-
-main();
+console.log(individualInDirectory.id);
 ```
 
 ### Request & Response types
@@ -48,11 +53,8 @@ const client = new Finch({
   accessToken: 'My Access Token',
 });
 
-async function main() {
-  const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] = await client.hris.directory.list();
-}
-
-main();
+const [individualInDirectory]: [Finch.HRIS.IndividualInDirectory] =
+  await client.hris.directory.list();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -65,22 +67,18 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const company = await client.hris.company.retrieve().catch(async (err) => {
-    if (err instanceof Finch.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const company = await client.hris.company.retrieve().catch(async (err) => {
+  if (err instanceof Finch.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
-Error codes are as followed:
+Error codes are as follows:
 
 | Status Code | Error Type                 |
 | ----------- | -------------------------- |
@@ -138,20 +136,20 @@ Note that requests which time out will be [retried twice by default](#retries).
 ## Auto-pagination
 
 List methods in the Finch API are paginated.
-You can use `for await … of` syntax to iterate through items across all pages:
+You can use the `for await … of` syntax to iterate through items across all pages:
 
 ```ts
-async function fetchAllHRISDirectories(params) {
-  const allHRISDirectories = [];
+async function fetchAllIndividualInDirectories(params) {
+  const allIndividualInDirectories = [];
   // Automatically fetches more pages as needed.
   for await (const individualInDirectory of client.hris.directory.list()) {
-    allHRISDirectories.push(individualInDirectory);
+    allIndividualInDirectories.push(individualInDirectory);
   }
-  return allHRISDirectories;
+  return allIndividualInDirectories;
 }
 ```
 
-Alternatively, you can make request a single page at a time:
+Alternatively, you can request a single page at a time:
 
 ```ts
 let page = await client.hris.directory.list();
@@ -161,7 +159,7 @@ for (const individualInDirectory of page.individuals) {
 
 // Convenience methods are provided for manually paginating:
 while (page.hasNextPage()) {
-  page = page.getNextPage();
+  page = await page.getNextPage();
   // ...
 }
 ```
@@ -179,7 +177,9 @@ import Finch from '@tryfinch/finch-api';
 
 const client = new Finch();
 
-const page = await client.hris.directory.list({ headers: { 'Finch-API-Version': 'My-Custom-Value' } });
+const page = await client.hris.directory.list({
+  headers: { 'Finch-API-Version': 'My-Custom-Value' },
+});
 const individualInDirectory = page.individuals[0];
 ```
 
@@ -217,8 +217,10 @@ export default async function POST(req) {
 ### Accessing raw Response data (e.g., headers)
 
 The "raw" `Response` returned by `fetch()` can be accessed through the `.asResponse()` method on the `APIPromise` type that all methods return.
+This method returns as soon as the headers for a successful response are received and does not consume the response body, so you are free to write custom parsing or streaming logic.
 
 You can also use the `.withResponse()` method to get the raw `Response` along with the parsed data.
+Unlike `.asResponse()` this method consumes the body, returning once it is parsed.
 
 <!-- prettier-ignore -->
 ```ts
@@ -233,6 +235,59 @@ console.log(raw.headers.get('X-My-Header'));
 for await (const individualInDirectory of page) {
   console.log(individualInDirectory.id);
 }
+```
+
+### Logging
+
+> [!IMPORTANT]
+> All log messages are intended for debugging only. The format and content of log messages
+> may change between releases.
+
+#### Log levels
+
+The log level can be configured in two ways:
+
+1. Via the `FINCH_LOG` environment variable
+2. Using the `logLevel` client option (overrides the environment variable if set)
+
+```ts
+import Finch from '@tryfinch/finch-api';
+
+const client = new Finch({
+  logLevel: 'debug', // Show all log messages
+});
+```
+
+Available log levels, from most to least verbose:
+
+- `'debug'` - Show debug messages, info, warnings, and errors
+- `'info'` - Show info messages, warnings, and errors
+- `'warn'` - Show warnings and errors (default)
+- `'error'` - Show only errors
+- `'off'` - Disable all logging
+
+At the `'debug'` level, all HTTP requests and responses are logged, including headers and bodies.
+Some authentication-related headers are redacted, but sensitive data in request and response bodies
+may still be visible.
+
+#### Custom logger
+
+By default, this library logs to `globalThis.console`. You can also provide a custom logger.
+Most logging libraries are supported, including [pino](https://www.npmjs.com/package/pino), [winston](https://www.npmjs.com/package/winston), [bunyan](https://www.npmjs.com/package/bunyan), [consola](https://www.npmjs.com/package/consola), [signale](https://www.npmjs.com/package/signale), and [@std/log](https://jsr.io/@std/log). If your logger doesn't work, please open an issue.
+
+When providing a custom logger, the `logLevel` option still controls which messages are emitted, messages
+below the configured level will not be sent to your logger.
+
+```ts
+import Finch from '@tryfinch/finch-api';
+import pino from 'pino';
+
+const logger = pino();
+
+const client = new Finch({
+  logger: logger.child({ name: 'Finch' }),
+  logLevel: 'debug', // Send all messages to pino, allowing it to filter
+});
 ```
 
 ### Making custom/undocumented requests
@@ -259,9 +314,8 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.foo.create({
-  foo: 'my_param',
-  bar: 12,
+client.hris.directory.list({
+  // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',
 });
@@ -281,72 +335,91 @@ validate or strip extra properties from the response from the API.
 
 ### Customizing the fetch client
 
-By default, this library uses `node-fetch` in Node, and expects a global `fetch` function in other environments.
+By default, this library expects a global `fetch` function is defined.
 
-If you would prefer to use a global, web-standards-compliant `fetch` function even in a Node environment,
-(for example, if you are running Node with `--experimental-fetch` or using NextJS which polyfills with `undici`),
-add the following import before your first import `from "Finch"`:
+If you want to use a different `fetch` function, you can either polyfill the global:
 
 ```ts
-// Tell TypeScript and the package to use the global web fetch instead of node-fetch.
-// Note, despite the name, this does not add any polyfills, but expects them to be provided if needed.
-import '@tryfinch/finch-api/shims/web';
-import Finch from '@tryfinch/finch-api';
+import fetch from 'my-fetch';
+
+globalThis.fetch = fetch;
 ```
 
-To do the inverse, add `import "@tryfinch/finch-api/shims/node"` (which does import polyfills).
-This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/Finch-API/finch-api-node/tree/main/src/_shims#readme)).
-
-### Logging and middleware
-
-You may also provide a custom `fetch` function when instantiating the client,
-which can be used to inspect or alter the `Request` or `Response` before/after each request:
+Or pass it to the client:
 
 ```ts
-import { fetch } from 'undici'; // as one example
+import Finch from '@tryfinch/finch-api';
+import fetch from 'my-fetch';
+
+const client = new Finch({ fetch });
+```
+
+### Fetch options
+
+If you want to set custom `fetch` options without overriding the `fetch` function, you can provide a `fetchOptions` object when instantiating the client or making a request. (Request-specific options override client options.)
+
+```ts
 import Finch from '@tryfinch/finch-api';
 
 const client = new Finch({
-  fetch: async (url: RequestInfo, init?: RequestInit): Promise<Response> => {
-    console.log('About to make a request', url, init);
-    const response = await fetch(url, init);
-    console.log('Got response', response);
-    return response;
+  fetchOptions: {
+    // `RequestInit` options
   },
 });
 ```
 
-Note that if given a `DEBUG=true` environment variable, this library will log all requests and responses automatically.
-This is intended for debugging purposes only and may change in the future without notice.
+#### Configuring proxies
 
-### Configuring an HTTP(S) Agent (e.g., for proxies)
+To modify proxy behavior, you can provide custom `fetchOptions` that add runtime-specific proxy
+options to requests:
 
-By default, this library uses a stable agent for all http/https requests to reuse TCP connections, eliminating many TCP & TLS handshakes and shaving around 100ms off most requests.
+<img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/node.svg" align="top" width="18" height="21"> **Node** <sup>[[docs](https://github.com/nodejs/undici/blob/main/docs/docs/api/ProxyAgent.md#example---proxyagent-with-fetch)]</sup>
 
-If you would like to disable or customize this behavior, for example to use the API behind a proxy, you can pass an `httpAgent` which is used for all requests (be they http or https), for example:
-
-<!-- prettier-ignore -->
 ```ts
-import http from 'http';
-import { HttpsProxyAgent } from 'https-proxy-agent';
+import Finch from '@tryfinch/finch-api';
+import * as undici from 'undici';
 
-// Configure the default for all requests:
+const proxyAgent = new undici.ProxyAgent('http://localhost:8888');
 const client = new Finch({
-  httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
-});
-
-// Override per-request:
-await client.hris.directory.list({
-  httpAgent: new http.Agent({ keepAlive: false }),
+  fetchOptions: {
+    dispatcher: proxyAgent,
+  },
 });
 ```
+
+<img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/bun.svg" align="top" width="18" height="21"> **Bun** <sup>[[docs](https://bun.sh/guides/http/proxy)]</sup>
+
+```ts
+import Finch from '@tryfinch/finch-api';
+
+const client = new Finch({
+  fetchOptions: {
+    proxy: 'http://localhost:8888',
+  },
+});
+```
+
+<img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/deno.svg" align="top" width="18" height="21"> **Deno** <sup>[[docs](https://docs.deno.com/api/deno/~/Deno.createHttpClient)]</sup>
+
+```ts
+import Finch from 'npm:@tryfinch/finch-api';
+
+const httpClient = Deno.createHttpClient({ proxy: { url: 'http://localhost:8888' } });
+const client = new Finch({
+  fetchOptions: {
+    client: httpClient,
+  },
+});
+```
+
+## Frequently Asked Questions
 
 ## Semantic versioning
 
 This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) conventions, though certain backwards-incompatible changes may be released as minor versions:
 
 1. Changes that only affect static types, without breaking runtime behavior.
-2. Changes to library internals which are technically public but not intended or documented for external use. _(Please open a GitHub issue to let us know if you are relying on such internals)_.
+2. Changes to library internals which are technically public but not intended or documented for external use. _(Please open a GitHub issue to let us know if you are relying on such internals.)_
 3. Changes that we do not expect to impact the vast majority of users in practice.
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
@@ -355,10 +428,40 @@ We are keen for your feedback; please open an [issue](https://www.github.com/Fin
 
 ## Requirements
 
-TypeScript >= 4.5 is supported.
+TypeScript >= 4.9 is supported.
 
 The following runtimes are supported:
+
+- Node.js 20 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
+- Deno v1.28.0 or higher.
+- Bun 1.0 or later.
+- Cloudflare Workers.
+- Vercel Edge Runtime.
+- Jest 28 or greater with the `"node"` environment (`"jsdom"` is not supported at this time).
+- Nitro v2.6 or greater.
+- Web browsers: disabled by default to avoid exposing your secret API credentials. Enable browser support by explicitly setting `dangerouslyAllowBrowser` to true'.
+  <details>
+    <summary>More explanation</summary>
+
+  ### Why is this dangerous?
+
+  Enabling the `dangerouslyAllowBrowser` option can be dangerous because it exposes your secret API credentials in the client-side code. Web browsers are inherently less secure than server environments,
+  any user with access to the browser can potentially inspect, extract, and misuse these credentials. This could lead to unauthorized access using your credentials and potentially compromise sensitive data or functionality.
+
+  ### When might this not be dangerous?
+
+  In certain scenarios where enabling browser support might not pose significant risks:
+
+  - Internal Tools: If the application is used solely within a controlled internal environment where the users are trusted, the risk of credential exposure can be mitigated.
+  - Public APIs with Limited Scope: If your API has very limited scope and the exposed credentials do not grant access to sensitive data or critical operations, the potential impact of exposure is reduced.
+  - Development or debugging purpose: Enabling this feature temporarily might be acceptable, provided the credentials are short-lived, aren't also used in production environments, or are frequently rotated.
+
+</details>
 
 Note that React Native is not supported at this time.
 
 If you are interested in other runtime environments, please open or upvote an issue on GitHub.
+
+## Contributing
+
+See [the contributing documentation](./CONTRIBUTING.md).

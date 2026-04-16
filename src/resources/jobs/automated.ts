@@ -1,36 +1,36 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
-import * as AutomatedAPI from './automated';
-import { Page, type PageParams } from '../../pagination';
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Automated extends APIResource {
   /**
-   * Enqueue an automated job. Currently, only the `data_sync_all` job type is
-   * supported, which will enqueue a job to re-sync all data for a connection.
+   * Enqueue an automated job.
+   *
+   * `data_sync_all`: Enqueue a job to re-sync all data for a connection.
    * `data_sync_all` has a concurrency limit of 1 job at a time per connection. This
    * means that if this endpoint is called while a job is already in progress for
    * this connection, Finch will return the `job_id` of the job that is currently in
    * progress. Finch allows a fixed window rate limit of 1 forced refresh per hour
    * per connection.
    *
+   * `w4_form_employee_sync`: Enqueues a job for sync W-4 data for a particular
+   * individual, identified by `individual_id`. This feature is currently in beta.
+   *
    * This endpoint is available for _Scale_ tier customers as an add-on. To request
    * access to this endpoint, please contact your Finch account manager.
    */
-  create(
-    body: AutomatedCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<AutomatedCreateResponse> {
-    return this._client.post('/jobs/automated', { body, ...options });
+  create(body: AutomatedCreateParams, options?: RequestOptions): APIPromise<AutomatedCreateResponse> {
+    return this._client.post('/jobs/automated', { body, ...options, __security: { bearerAuth: true } });
   }
 
   /**
    * Get an automated job by `job_id`.
    */
-  retrieve(jobId: string, options?: Core.RequestOptions): Core.APIPromise<AutomatedAsyncJob> {
-    return this._client.get(`/jobs/automated/${jobId}`, options);
+  retrieve(jobID: string, options?: RequestOptions): APIPromise<AutomatedAsyncJob> {
+    return this._client.get(path`/jobs/automated/${jobID}`, { ...options, __security: { bearerAuth: true } });
   }
 
   /**
@@ -39,22 +39,12 @@ export class Automated extends APIResource {
    * as data syncs, only the next scheduled job is shown.
    */
   list(
-    query?: AutomatedListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<AutomatedAsyncJobsPage, AutomatedAsyncJob>;
-  list(options?: Core.RequestOptions): Core.PagePromise<AutomatedAsyncJobsPage, AutomatedAsyncJob>;
-  list(
-    query: AutomatedListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<AutomatedAsyncJobsPage, AutomatedAsyncJob> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
-    return this._client.getAPIList('/jobs/automated', AutomatedAsyncJobsPage, { query, ...options });
+    query: AutomatedListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<AutomatedListResponse> {
+    return this._client.get('/jobs/automated', { query, ...options, __security: { bearerAuth: true } });
   }
 }
-
-export class AutomatedAsyncJobsPage extends Page<AutomatedAsyncJob> {}
 
 export interface AutomatedAsyncJob {
   /**
@@ -80,9 +70,14 @@ export interface AutomatedAsyncJob {
   job_url: string;
 
   /**
+   * The input parameters for the job.
+   */
+  params: AutomatedAsyncJob.Params | null;
+
+  /**
    * The datetime a job is scheduled to be run. For scheduled jobs, this datetime can
    * be in the future if the job has not yet been enqueued. For ad-hoc jobs, this
-   * field will be null.
+   * field will be null.
    */
   scheduled_at: string | null;
 
@@ -94,9 +89,21 @@ export interface AutomatedAsyncJob {
   status: 'pending' | 'in_progress' | 'complete' | 'error' | 'reauth_error' | 'permissions_error';
 
   /**
-   * Only `data_sync_all` currently supported
+   * The type of automated job
    */
-  type: 'data_sync_all';
+  type: 'data_sync_all' | 'w4_form_employee_sync';
+}
+
+export namespace AutomatedAsyncJob {
+  /**
+   * The input parameters for the job.
+   */
+  export interface Params {
+    /**
+     * The ID of the individual that the job was completed for.
+     */
+    individual_id?: string;
+  }
 }
 
 export interface AutomatedCreateResponse {
@@ -106,34 +113,113 @@ export interface AutomatedCreateResponse {
   allowed_refreshes: number;
 
   /**
+   * The number of remaining refreshes available (per hour, fixed window)
+   */
+  remaining_refreshes: number;
+
+  /**
    * The id of the job that has been created.
    */
-  job_id: string;
+  job_id?: string;
 
   /**
    * The url that can be used to retrieve the job status
    */
-  job_url: string;
+  job_url?: string;
 
   /**
-   * The number of remaining refreshes available (per hour, fixed window)
+   * ISO 8601 timestamp indicating when to retry the request
    */
-  remaining_refreshes: number;
+  retry_at?: string;
 }
 
-export interface AutomatedCreateParams {
+export interface AutomatedListResponse {
+  data: Array<AutomatedAsyncJob>;
+
+  meta: AutomatedListResponse.Meta;
+}
+
+export namespace AutomatedListResponse {
+  export interface Meta {
+    /**
+     * Information about remaining quotas for this connection. Only applicable for
+     * customers opted in to use Finch's Data Sync Refresh endpoint
+     * (`POST /jobs/automated`). Please contact a Finch representative for more
+     * details.
+     */
+    quotas?: Meta.Quotas;
+  }
+
+  export namespace Meta {
+    /**
+     * Information about remaining quotas for this connection. Only applicable for
+     * customers opted in to use Finch's Data Sync Refresh endpoint
+     * (`POST /jobs/automated`). Please contact a Finch representative for more
+     * details.
+     */
+    export interface Quotas {
+      data_sync_all?: Quotas.DataSyncAll;
+    }
+
+    export namespace Quotas {
+      export interface DataSyncAll {
+        allowed_refreshes?: number;
+
+        remaining_refreshes?: number;
+      }
+    }
+  }
+}
+
+export type AutomatedCreateParams =
+  | AutomatedCreateParams.DataSyncAll
+  | AutomatedCreateParams.W4FormEmployeeSync;
+
+export declare namespace AutomatedCreateParams {
+  export interface DataSyncAll {
+    /**
+     * The type of job to start.
+     */
+    type: 'data_sync_all';
+  }
+
+  export interface W4FormEmployeeSync {
+    params: W4FormEmployeeSync.Params;
+
+    /**
+     * The type of job to start.
+     */
+    type: 'w4_form_employee_sync';
+  }
+
+  export namespace W4FormEmployeeSync {
+    export interface Params {
+      /**
+       * The unique ID of the individual for W-4 data sync.
+       */
+      individual_id: string;
+    }
+  }
+}
+
+export interface AutomatedListParams {
   /**
-   * The type of job to start. Currently the only supported type is `data_sync_all`
+   * Number of items to return
    */
-  type: 'data_sync_all';
+  limit?: number;
+
+  /**
+   * Index to start from (defaults to 0)
+   */
+  offset?: number;
 }
 
-export interface AutomatedListParams extends PageParams {}
-
-export namespace Automated {
-  export import AutomatedAsyncJob = AutomatedAPI.AutomatedAsyncJob;
-  export import AutomatedCreateResponse = AutomatedAPI.AutomatedCreateResponse;
-  export import AutomatedAsyncJobsPage = AutomatedAPI.AutomatedAsyncJobsPage;
-  export import AutomatedCreateParams = AutomatedAPI.AutomatedCreateParams;
-  export import AutomatedListParams = AutomatedAPI.AutomatedListParams;
+export declare namespace Automated {
+  export {
+    type AutomatedAsyncJob as AutomatedAsyncJob,
+    type AutomatedCreateResponse as AutomatedCreateResponse,
+    type AutomatedListResponse as AutomatedListResponse,
+    type AutomatedCreateParams as AutomatedCreateParams,
+    type AutomatedListParams as AutomatedListParams,
+  };
 }

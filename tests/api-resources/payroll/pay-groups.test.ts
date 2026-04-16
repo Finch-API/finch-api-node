@@ -1,11 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Finch from '@tryfinch/finch-api';
-import { Response } from 'node-fetch';
 
 const client = new Finch({
   accessToken: 'My Access Token',
-  clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
+  clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
@@ -22,10 +21,14 @@ describe('resource payGroups', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('retrieve: request options instead of params are passed correctly', async () => {
+  test('retrieve: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.payroll.payGroups.retrieve('pay_group_id', { path: '/_stainless_unknown_path' }),
+      client.payroll.payGroups.retrieve(
+        'pay_group_id',
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
@@ -40,20 +43,14 @@ describe('resource payGroups', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.payroll.payGroups.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Finch.NotFoundError,
-    );
-  });
-
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.payroll.payGroups.list(
         {
+          entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
           individual_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-          pay_frequencies: ['string', 'string', 'string'],
+          pay_frequencies: ['string'],
         },
         { path: '/_stainless_unknown_path' },
       ),

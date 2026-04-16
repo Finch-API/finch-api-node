@@ -1,11 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Finch from '@tryfinch/finch-api';
-import { Response } from 'node-fetch';
 
 const client = new Finch({
   accessToken: 'My Access Token',
-  clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
+  clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
@@ -22,13 +21,6 @@ describe('resource employment', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('update: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.sandbox.employment.update('individual_id', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(Finch.NotFoundError);
-  });
-
   test('update: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -37,36 +29,48 @@ describe('resource employment', () => {
         {
           class_code: 'class_code',
           custom_fields: [
-            { name: 'name', value: {} },
-            { name: 'name', value: {} },
-            { name: 'name', value: {} },
+            {
+              name: 'name',
+              value: {},
+            },
           ],
           department: { name: 'name' },
           employment: { subtype: 'full_time', type: 'employee' },
+          employment_status: 'active',
           end_date: 'end_date',
           first_name: 'first_name',
-          income: { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
+          flsa_status: 'exempt',
+          income: {
+            amount: 0,
+            currency: 'currency',
+            effective_date: '2019-12-27',
+            unit: 'yearly',
+          },
           income_history: [
-            { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
-            { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
-            { amount: 0, currency: 'currency', effective_date: 'effective_date', unit: 'yearly' },
+            {
+              amount: 0,
+              currency: 'currency',
+              effective_date: '2019-12-27',
+              unit: 'yearly',
+            },
           ],
           is_active: true,
           last_name: 'last_name',
+          latest_rehire_date: 'latest_rehire_date',
           location: {
             city: 'city',
             country: 'country',
             line1: 'line1',
             line2: 'line2',
-            name: 'name',
             postal_code: 'postal_code',
-            source_id: 'source_id',
             state: 'state',
+            name: 'name',
+            source_id: 'source_id',
           },
-          manager: { id: 'id' },
+          manager: { id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e' },
           middle_name: 'middle_name',
           source_id: 'source_id',
-          start_date: '3/4/2020',
+          start_date: 'start_date',
           title: 'title',
         },
         { path: '/_stainless_unknown_path' },

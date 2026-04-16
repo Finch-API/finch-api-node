@@ -1,44 +1,43 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
-import * as PayGroupsAPI from './pay-groups';
-import { SinglePage } from '../../pagination';
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
+import { PagePromise, SinglePage } from '../../core/pagination';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class PayGroups extends APIResource {
   /**
    * Read information from a single pay group
    */
-  retrieve(payGroupId: string, options?: Core.RequestOptions): Core.APIPromise<PayGroupRetrieveResponse> {
-    return this._client.get(`/employer/pay-groups/${payGroupId}`, options);
+  retrieve(
+    payGroupID: string,
+    query: PayGroupRetrieveParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<PayGroupRetrieveResponse> {
+    return this._client.get(path`/employer/pay-groups/${payGroupID}`, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
    * Read company pay groups and frequencies
    */
   list(
-    query?: PayGroupListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PayGroupListResponsesSinglePage, PayGroupListResponse>;
-  list(
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PayGroupListResponsesSinglePage, PayGroupListResponse>;
-  list(
-    query: PayGroupListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PayGroupListResponsesSinglePage, PayGroupListResponse> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
-    return this._client.getAPIList('/employer/pay-groups', PayGroupListResponsesSinglePage, {
+    query: PayGroupListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<PayGroupListResponsesSinglePage, PayGroupListResponse> {
+    return this._client.getAPIList('/employer/pay-groups', SinglePage<PayGroupListResponse>, {
       query,
       ...options,
+      __security: { bearerAuth: true },
     });
   }
 }
 
-export class PayGroupListResponsesSinglePage extends SinglePage<PayGroupListResponse> {}
+export type PayGroupListResponsesSinglePage = SinglePage<PayGroupListResponse>;
 
 export interface PayGroupRetrieveResponse {
   /**
@@ -58,14 +57,14 @@ export interface PayGroupRetrieveResponse {
    */
   pay_frequencies: Array<
     | 'annually'
-    | 'semi_annually'
-    | 'quarterly'
-    | 'monthly'
-    | 'semi_monthly'
     | 'bi_weekly'
-    | 'weekly'
     | 'daily'
+    | 'monthly'
     | 'other'
+    | 'quarterly'
+    | 'semi_annually'
+    | 'semi_monthly'
+    | 'weekly'
   >;
 }
 
@@ -73,38 +72,53 @@ export interface PayGroupListResponse {
   /**
    * Finch id (uuidv4) for the pay group
    */
-  id?: string;
+  id: string;
 
   /**
    * Name of the pay group
    */
-  name?: string;
+  name: string;
 
   /**
    * List of pay frequencies associated with this pay group
    */
-  pay_frequencies?: Array<
+  pay_frequencies: Array<
     | 'annually'
-    | 'semi_annually'
-    | 'quarterly'
-    | 'monthly'
-    | 'semi_monthly'
     | 'bi_weekly'
-    | 'weekly'
     | 'daily'
+    | 'monthly'
     | 'other'
+    | 'quarterly'
+    | 'semi_annually'
+    | 'semi_monthly'
+    | 'weekly'
   >;
 }
 
+export interface PayGroupRetrieveParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+}
+
 export interface PayGroupListParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+
   individual_id?: string;
 
   pay_frequencies?: Array<string>;
 }
 
-export namespace PayGroups {
-  export import PayGroupRetrieveResponse = PayGroupsAPI.PayGroupRetrieveResponse;
-  export import PayGroupListResponse = PayGroupsAPI.PayGroupListResponse;
-  export import PayGroupListResponsesSinglePage = PayGroupsAPI.PayGroupListResponsesSinglePage;
-  export import PayGroupListParams = PayGroupsAPI.PayGroupListParams;
+export declare namespace PayGroups {
+  export {
+    type PayGroupRetrieveResponse as PayGroupRetrieveResponse,
+    type PayGroupListResponse as PayGroupListResponse,
+    type PayGroupListResponsesSinglePage as PayGroupListResponsesSinglePage,
+    type PayGroupRetrieveParams as PayGroupRetrieveParams,
+    type PayGroupListParams as PayGroupListParams,
+  };
 }

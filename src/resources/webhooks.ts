@@ -1,11 +1,13 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as WebhooksAPI from './webhooks';
+import { APIResource } from '../core/resource';
 import * as Shared from './shared';
 import * as BenefitsAPI from './hris/benefits/benefits';
-import { createHmac } from 'crypto';
-import { getRequiredHeader, HeadersLike } from '../core';
+import type { HeadersLike } from '../internal/headers';
+import { getRequiredHeader } from '../internal/headers';
+import { fromBase64, toBase64 } from '../internal/utils';
+import { hmac } from '@noble/hashes/hmac';
+import { sha256 } from '@noble/hashes/sha2';
 
 export class Webhooks extends APIResource {
   /**
@@ -27,12 +29,15 @@ export class Webhooks extends APIResource {
       );
     }
 
-    const buf = Buffer.from(secret, 'base64');
-    if (buf.toString('base64') !== secret) {
+    try {
+      const buf = fromBase64(secret);
+      if (toBase64(buf) !== secret) {
+        throw new Error(`Given secret is not valid`);
+      }
+      return buf;
+    } catch (e) {
       throw new Error(`Given secret is not valid`);
     }
-
-    return new Uint8Array(buf);
   }
 
   private signPayload(
@@ -41,11 +46,8 @@ export class Webhooks extends APIResource {
   ) {
     const encoder = new TextEncoder();
     const toSign = encoder.encode(`${eventId}.${timestamp.getTime() / 1000}.${payload}`);
-
-    const hmac = createHmac('sha256', secret);
-    hmac.update(toSign);
-
-    return `v1,${hmac.digest('base64')}`;
+    const signed = toBase64(hmac(sha256, secret, toSign));
+    return `v1,${signed}`;
   }
 
   /** Make an assertion, if not `true`, then throw. */
@@ -187,6 +189,8 @@ export namespace AccountUpdateEvent {
 
         individual?: SupportedFields.Individual;
 
+        pay_group?: SupportedFields.PayGroup;
+
         pay_statement?: SupportedFields.PayStatement;
 
         payment?: SupportedFields.Payment;
@@ -306,6 +310,8 @@ export namespace AccountUpdateEvent {
 
           employment?: Employment.Employment;
 
+          employment_status?: boolean;
+
           end_date?: boolean;
 
           first_name?: boolean;
@@ -423,6 +429,16 @@ export namespace AccountUpdateEvent {
           }
         }
 
+        export interface PayGroup {
+          id?: boolean;
+
+          individual_ids?: boolean;
+
+          name?: boolean;
+
+          pay_frequencies?: boolean;
+        }
+
         export interface PayStatement {
           paging?: PayStatement.Paging;
 
@@ -442,11 +458,6 @@ export namespace AccountUpdateEvent {
             employee_deductions?: PayStatements.EmployeeDeductions;
 
             employer_contributions?: PayStatements.EmployerContributions;
-
-            /**
-             * @deprecated: [DEPRECATED] Use `employer_contributions` instead
-             */
-            employer_deductions?: PayStatements.EmployerDeductions;
 
             gross_pay?: boolean;
 
@@ -487,17 +498,6 @@ export namespace AccountUpdateEvent {
             }
 
             export interface EmployerContributions {
-              amount?: boolean;
-
-              currency?: boolean;
-
-              name?: boolean;
-            }
-
-            /**
-             * @deprecated: [DEPRECATED] Use `employer_contributions` instead
-             */
-            export interface EmployerDeductions {
               amount?: boolean;
 
               currency?: boolean;
@@ -559,18 +559,27 @@ export namespace AccountUpdateEvent {
 
 export interface BaseWebhookEvent {
   /**
-   * Unique Finch id of the employer account that was used to make this connection.
+   * @deprecated [DEPRECATED] Unique Finch ID of the employer account used to make
+   * this connection. Use `connection_id` instead to identify the connection
+   * associated with this event.
    */
   account_id: string;
 
   /**
-   * Unique Finch id of the company for which data has been updated.
+   * @deprecated [DEPRECATED] Unique Finch ID of the company for which data has been
+   * updated. Use `connection_id` instead to identify the connection associated with
+   * this event.
    */
   company_id: string;
+
+  /**
+   * Unique Finch ID of the connection associated with the webhook event.
+   */
+  connection_id?: string;
 }
 
 export interface CompanyEvent extends BaseWebhookEvent {
-  data?: Record<string, unknown> | null;
+  data?: { [key: string]: unknown } | null;
 
   event_type?: 'company.updated';
 }
@@ -624,12 +633,12 @@ export interface JobCompletionEvent extends BaseWebhookEvent {
   data?: JobCompletionEvent.Data;
 
   event_type?:
-    | 'job.benefit_create.updated'
-    | 'job.benefit_enroll.updated'
-    | 'job.benefit_register.updated'
-    | 'job.benefit_unenroll.updated'
-    | 'job.benefit_update.updated'
-    | 'job.data_sync_all.updated';
+    | 'job.benefit_create.completed'
+    | 'job.benefit_enroll.completed'
+    | 'job.benefit_register.completed'
+    | 'job.benefit_unenroll.completed'
+    | 'job.benefit_update.completed'
+    | 'job.data_sync_all.completed';
 }
 
 export namespace JobCompletionEvent {
@@ -696,15 +705,17 @@ export type WebhookEvent =
   | PaymentEvent
   | PayStatementEvent;
 
-export namespace Webhooks {
-  export import AccountUpdateEvent = WebhooksAPI.AccountUpdateEvent;
-  export import BaseWebhookEvent = WebhooksAPI.BaseWebhookEvent;
-  export import CompanyEvent = WebhooksAPI.CompanyEvent;
-  export import DirectoryEvent = WebhooksAPI.DirectoryEvent;
-  export import EmploymentEvent = WebhooksAPI.EmploymentEvent;
-  export import IndividualEvent = WebhooksAPI.IndividualEvent;
-  export import JobCompletionEvent = WebhooksAPI.JobCompletionEvent;
-  export import PayStatementEvent = WebhooksAPI.PayStatementEvent;
-  export import PaymentEvent = WebhooksAPI.PaymentEvent;
-  export import WebhookEvent = WebhooksAPI.WebhookEvent;
+export declare namespace Webhooks {
+  export {
+    type AccountUpdateEvent as AccountUpdateEvent,
+    type BaseWebhookEvent as BaseWebhookEvent,
+    type CompanyEvent as CompanyEvent,
+    type DirectoryEvent as DirectoryEvent,
+    type EmploymentEvent as EmploymentEvent,
+    type IndividualEvent as IndividualEvent,
+    type JobCompletionEvent as JobCompletionEvent,
+    type PayStatementEvent as PayStatementEvent,
+    type PaymentEvent as PaymentEvent,
+    type WebhookEvent as WebhookEvent,
+  };
 }

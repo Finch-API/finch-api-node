@@ -1,30 +1,32 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
-import * as IndividualAPI from './individual';
+import { APIResource } from '../../core/resource';
 import * as HRISAPI from '../hris/hris';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Individual extends APIResource {
   /**
    * Update sandbox individual
+   *
+   * @example
+   * ```ts
+   * const individual = await client.sandbox.individual.update(
+   *   'individual_id',
+   * );
+   * ```
    */
   update(
-    individualId: string,
-    body?: IndividualUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<IndividualUpdateResponse>;
-  update(individualId: string, options?: Core.RequestOptions): Core.APIPromise<IndividualUpdateResponse>;
-  update(
-    individualId: string,
-    body: IndividualUpdateParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<IndividualUpdateResponse> {
-    if (isRequestOptions(body)) {
-      return this.update(individualId, {}, body);
-    }
-    return this._client.put(`/sandbox/individual/${individualId}`, { body, ...options });
+    individualID: string,
+    body: IndividualUpdateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<IndividualUpdateResponse> {
+    return this._client.put(path`/sandbox/individual/${individualID}`, {
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
@@ -105,7 +107,7 @@ export namespace IndividualUpdateResponse {
   }
 
   export interface PhoneNumber {
-    data?: string;
+    data?: string | null;
 
     type?: 'work' | 'personal' | null;
   }
@@ -183,13 +185,15 @@ export namespace IndividualUpdateParams {
   }
 
   export interface PhoneNumber {
-    data?: string;
+    data?: string | null;
 
     type?: 'work' | 'personal' | null;
   }
 }
 
-export namespace Individual {
-  export import IndividualUpdateResponse = IndividualAPI.IndividualUpdateResponse;
-  export import IndividualUpdateParams = IndividualAPI.IndividualUpdateParams;
+export declare namespace Individual {
+  export {
+    type IndividualUpdateResponse as IndividualUpdateResponse,
+    type IndividualUpdateParams as IndividualUpdateParams,
+  };
 }

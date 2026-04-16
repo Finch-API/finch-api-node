@@ -1,16 +1,39 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as CompanyAPI from './company';
+import { APIResource } from '../../core/resource';
 import * as HRISAPI from '../hris/hris';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Company extends APIResource {
   /**
    * Update a sandbox company's data
+   *
+   * @example
+   * ```ts
+   * const company = await client.sandbox.company.update({
+   *   accounts: [{}],
+   *   departments: [{}],
+   *   ein: 'ein',
+   *   entity: {},
+   *   legal_name: 'legal_name',
+   *   locations: [
+   *     {
+   *       city: 'city',
+   *       country: 'country',
+   *       line1: 'line1',
+   *       line2: 'line2',
+   *       postal_code: 'postal_code',
+   *       state: 'state',
+   *     },
+   *   ],
+   *   primary_email: 'dev@stainless.com',
+   *   primary_phone_number: 'primary_phone_number',
+   * });
+   * ```
    */
-  update(body: CompanyUpdateParams, options?: Core.RequestOptions): Core.APIPromise<CompanyUpdateResponse> {
-    return this._client.put('/sandbox/company', { body, ...options });
+  update(body: CompanyUpdateParams, options?: RequestOptions): APIPromise<CompanyUpdateResponse> {
+    return this._client.put('/sandbox/company', { body, ...options, __security: { bearerAuth: true } });
   }
 }
 
@@ -48,7 +71,8 @@ export interface CompanyUpdateResponse {
   primary_email: string | null;
 
   /**
-   * The phone number of the main administrator on the account. Format: `XXXXXXXXXX`
+   * The phone number of the main administrator on the account. Format: E.164, with
+   * extension where applicable, e.g. `+NNNNNNNNNNN xExtension`
    */
   primary_phone_number: string | null;
 }
@@ -164,7 +188,8 @@ export interface CompanyUpdateParams {
   primary_email: string | null;
 
   /**
-   * The phone number of the main administrator on the account. Format: `XXXXXXXXXX`
+   * The phone number of the main administrator on the account. Format: E.164, with
+   * extension where applicable, e.g. `+NNNNNNNNNNN xExtension`
    */
   primary_phone_number: string | null;
 }
@@ -246,7 +271,9 @@ export namespace CompanyUpdateParams {
   }
 }
 
-export namespace Company {
-  export import CompanyUpdateResponse = CompanyAPI.CompanyUpdateResponse;
-  export import CompanyUpdateParams = CompanyAPI.CompanyUpdateParams;
+export declare namespace Company {
+  export {
+    type CompanyUpdateResponse as CompanyUpdateResponse,
+    type CompanyUpdateParams as CompanyUpdateParams,
+  };
 }

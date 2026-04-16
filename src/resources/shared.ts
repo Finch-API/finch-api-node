@@ -71,12 +71,12 @@ export interface OperationSupportMatrix {
 
 export interface Paging {
   /**
+   * The current start index of the returned list of elements
+   */
+  offset: number;
+
+  /**
    * The total number of elements for the entire query (not just the given page)
    */
   count?: number;
-
-  /**
-   * The current start index of the returned list of elements
-   */
-  offset?: number;
 }

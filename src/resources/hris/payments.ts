@@ -1,74 +1,85 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as PaymentsAPI from './payments';
+import { APIResource } from '../../core/resource';
 import * as HRISAPI from './hris';
-import { SinglePage } from '../../pagination';
+import { PagePromise, SinglePage } from '../../core/pagination';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Payments extends APIResource {
   /**
    * Read payroll and contractor related payments by the company.
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const payment of client.hris.payments.list({
+   *   end_date: '2021-01-01',
+   *   start_date: '2021-01-01',
+   * })) {
+   *   // ...
+   * }
+   * ```
    */
-  list(
-    query: PaymentListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<PaymentsSinglePage, Payment> {
-    return this._client.getAPIList('/employer/payment', PaymentsSinglePage, { query, ...options });
+  list(query: PaymentListParams, options?: RequestOptions): PagePromise<PaymentsSinglePage, Payment> {
+    return this._client.getAPIList('/employer/payment', SinglePage<Payment>, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
-export class PaymentsSinglePage extends SinglePage<Payment> {}
+export type PaymentsSinglePage = SinglePage<Payment>;
 
 export interface Payment {
   /**
    * The unique id for the payment.
    */
-  id?: string;
+  id: string;
 
-  company_debit?: HRISAPI.Money | null;
+  company_debit: HRISAPI.Money | null;
 
-  debit_date?: string | null;
+  debit_date: string | null;
 
-  employee_taxes?: HRISAPI.Money | null;
+  employee_taxes: HRISAPI.Money | null;
 
-  employer_taxes?: HRISAPI.Money | null;
+  employer_taxes: HRISAPI.Money | null;
 
-  gross_pay?: HRISAPI.Money | null;
+  gross_pay: HRISAPI.Money | null;
 
   /**
    * Array of every individual on this payment.
    */
-  individual_ids?: Array<string> | null;
+  individual_ids: Array<string> | null;
 
-  net_pay?: HRISAPI.Money | null;
+  net_pay: HRISAPI.Money | null;
 
-  pay_date?: string | null;
+  pay_date: string | null;
 
   /**
    * List of pay frequencies associated with this payment.
    */
-  pay_frequencies?: Array<
+  pay_frequencies: Array<
     | 'annually'
-    | 'semi_annually'
-    | 'quarterly'
-    | 'monthly'
-    | 'semi_monthly'
     | 'bi_weekly'
-    | 'weekly'
     | 'daily'
+    | 'monthly'
     | 'other'
+    | 'quarterly'
+    | 'semi_annually'
+    | 'semi_monthly'
+    | 'weekly'
   > | null;
 
   /**
    * Array of the Finch id (uuidv4) of every pay group associated with this payment.
    */
-  pay_group_ids?: Array<string> | null;
+  pay_group_ids: Array<string> | null;
 
   /**
    * The pay period object.
    */
-  pay_period?: Payment.PayPeriod | null;
+  pay_period: Payment.PayPeriod | null;
 }
 
 export namespace Payment {
@@ -76,28 +87,35 @@ export namespace Payment {
    * The pay period object.
    */
   export interface PayPeriod {
-    end_date?: string | null;
+    end_date: string | null;
 
-    start_date?: string | null;
+    start_date: string | null;
   }
 }
 
 export interface PaymentListParams {
   /**
    * The end date to retrieve payments by a company (inclusive) in `YYYY-MM-DD`
-   * format.
+   * format. Filters payments by their **pay_date** field.
    */
   end_date: string;
 
   /**
    * The start date to retrieve payments by a company (inclusive) in `YYYY-MM-DD`
-   * format.
+   * format. Filters payments by their **pay_date** field.
    */
   start_date: string;
+
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
 }
 
-export namespace Payments {
-  export import Payment = PaymentsAPI.Payment;
-  export import PaymentsSinglePage = PaymentsAPI.PaymentsSinglePage;
-  export import PaymentListParams = PaymentsAPI.PaymentListParams;
+export declare namespace Payments {
+  export {
+    type Payment as Payment,
+    type PaymentsSinglePage as PaymentsSinglePage,
+    type PaymentListParams as PaymentListParams,
+  };
 }

@@ -59,21 +59,20 @@
       "hidden": true
     }
   ],
-  "reviewers": [
-    "araujodavid",
-    "NandoSangenetto",
-    "delainerogers",
-    "ericpsimon",
-    "jordanbrauer",
-    "vitorfreitas",
-    "miguel-finch",
-    "edkim-finch",
-    "bteodosioFinch",
-    "ashar-finch"
-  ],
   "release-type": "node",
   "extra-files": [
     "src/version.ts",
-    "README.md"
+    "README.md",
+    "packages/mcp-server/yarn.lock",
+    {
+      "type": "json",
+      "path": "packages/mcp-server/package.json",
+      "jsonpath": "$.version"
+    },
+    {
+      "type": "json",
+      "path": "packages/mcp-server/manifest.json",
+      "jsonpath": "$.version"
+    }
   ]
 }

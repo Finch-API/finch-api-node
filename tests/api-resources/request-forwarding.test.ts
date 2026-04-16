@@ -1,18 +1,17 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Finch from '@tryfinch/finch-api';
-import { Response } from 'node-fetch';
 
 const client = new Finch({
   accessToken: 'My Access Token',
-  clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
+  clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource requestForwarding', () => {
   test('forward: only required params', async () => {
-    const responsePromise = client.requestForwarding.forward({ method: 'POST', route: '/people/search' });
+    const responsePromise = client.requestForwarding.forward({ method: 'method', route: 'route' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -24,11 +23,11 @@ describe('resource requestForwarding', () => {
 
   test('forward: required and optional params', async () => {
     const response = await client.requestForwarding.forward({
-      method: 'POST',
-      route: '/people/search',
-      data: null,
-      headers: { 'content-type': 'application/json' },
-      params: { showInactive: true, humanReadable: true },
+      method: 'method',
+      route: 'route',
+      data: 'data',
+      params: { foo: 'bar' },
+      request_headers: { foo: 'bar' },
     });
   });
 });

@@ -1,11 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Finch from '@tryfinch/finch-api';
-import { Response } from 'node-fetch';
 
 const client = new Finch({
   accessToken: 'My Access Token',
-  clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
+  clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
@@ -13,13 +12,22 @@ const client = new Finch({
 describe('resource company', () => {
   test('update: only required params', async () => {
     const responsePromise = client.sandbox.company.update({
-      accounts: [{}, {}, {}],
-      departments: [{}, {}, {}],
+      accounts: [{}],
+      departments: [{}],
       ein: 'ein',
       entity: {},
       legal_name: 'legal_name',
-      locations: [{}, {}, {}],
-      primary_email: 'primary_email',
+      locations: [
+        {
+          city: 'city',
+          country: 'country',
+          line1: 'line1',
+          line2: 'line2',
+          postal_code: 'postal_code',
+          state: 'state',
+        },
+      ],
+      primary_email: 'dev@stainless.com',
       primary_phone_number: 'primary_phone_number',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -41,25 +49,12 @@ describe('resource company', () => {
           institution_name: 'institution_name',
           routing_number: 'routing_number',
         },
-        {
-          account_name: 'account_name',
-          account_number: 'account_number',
-          account_type: 'checking',
-          institution_name: 'institution_name',
-          routing_number: 'routing_number',
-        },
-        {
-          account_name: 'account_name',
-          account_number: 'account_number',
-          account_type: 'checking',
-          institution_name: 'institution_name',
-          routing_number: 'routing_number',
-        },
       ],
       departments: [
-        { name: 'name', parent: { name: 'name' } },
-        { name: 'name', parent: { name: 'name' } },
-        { name: 'name', parent: { name: 'name' } },
+        {
+          name: 'name',
+          parent: { name: 'name' },
+        },
       ],
       ein: 'ein',
       entity: { subtype: 's_corporation', type: 'llc' },
@@ -70,33 +65,13 @@ describe('resource company', () => {
           country: 'country',
           line1: 'line1',
           line2: 'line2',
-          name: 'name',
           postal_code: 'postal_code',
-          source_id: 'source_id',
           state: 'state',
-        },
-        {
-          city: 'city',
-          country: 'country',
-          line1: 'line1',
-          line2: 'line2',
           name: 'name',
-          postal_code: 'postal_code',
           source_id: 'source_id',
-          state: 'state',
-        },
-        {
-          city: 'city',
-          country: 'country',
-          line1: 'line1',
-          line2: 'line2',
-          name: 'name',
-          postal_code: 'postal_code',
-          source_id: 'source_id',
-          state: 'state',
         },
       ],
-      primary_email: 'primary_email',
+      primary_email: 'dev@stainless.com',
       primary_phone_number: 'primary_phone_number',
     });
   });

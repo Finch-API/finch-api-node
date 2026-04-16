@@ -1,18 +1,15 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import * as Core from '../core';
-import * as AccessTokensAPI from './access-tokens';
+import type { RequestOptions } from '../internal/request-options';
+import type { APIPromise } from '../core/api-promise';
+import { APIResource } from '../core/resource';
 
 export class AccessTokens extends APIResource {
   /**
    * Exchange the authorization code for an access token
    */
-  create(
-    body: AccessTokenCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<CreateAccessTokenResponse> {
-    const clientID = body.client_id || this._client.clientId;
+  create(body: AccessTokenCreateParams, options?: RequestOptions): APIPromise<CreateAccessTokenResponse> {
+    const clientID = body.client_id || this._client.clientID;
     if (!clientID)
       throw new Error(
         'client_id must be provided as an argument or with the FINCH_CLIENT_ID environment variable',
@@ -35,27 +32,26 @@ export class AccessTokens extends APIResource {
       body: bodyWithReplacements,
       ...options,
       headers: headersWithReplacements,
+      __security: {},
     });
   }
 }
 
 export interface CreateAccessTokenResponse {
-  access_token: string;
-
   /**
-   * The Finch uuid of the account used to connect this company.
+   * The access token for the connection
    */
-  account_id: string;
+  access_token: string;
 
   /**
    * The type of application associated with a token.
    */
-  client_type: 'production' | 'development' | 'sandbox';
+  client_type: 'development' | 'production' | 'sandbox';
 
   /**
-   * The Finch uuid of the company associated with the `access_token`.
+   * The Finch UUID of the connection associated with the `access_token`
    */
-  company_id: string;
+  connection_id: string;
 
   /**
    * The type of the connection associated with the token.
@@ -63,30 +59,78 @@ export interface CreateAccessTokenResponse {
    * - `provider` - connection to an external provider
    * - `finch` - finch-generated data.
    */
-  connection_type: 'provider' | 'finch';
+  connection_type: 'finch' | 'provider';
 
   /**
-   * An array of the authorized products associated with the `access_token`.
+   * An array of entity IDs that can be accessed with this access token
+   */
+  entity_ids: Array<string>;
+
+  /**
+   * An array of the authorized products associated with the `access_token`
    */
   products: Array<string>;
 
   /**
-   * The payroll provider associated with the `access_token`.
+   * The ID of the provider associated with the `access_token`
    */
   provider_id: string;
+
+  /**
+   * The RFC 8693 token type (Finch uses `bearer` tokens)
+   */
+  token_type: string;
+
+  /**
+   * @deprecated [DEPRECATED] Use `connection_id` to identify the connection instead
+   * of this account ID
+   */
+  account_id?: string;
+
+  /**
+   * @deprecated [DEPRECATED] Use `connection_id` to identify the connection instead
+   * of this company ID
+   */
+  company_id?: string;
+
+  /**
+   * The ID of your customer you provided to Finch when a connect session was created
+   * for this connection
+   */
+  customer_id?: string | null;
+
+  /**
+   * The name of your customer you provided to Finch when a connect session was
+   * created for this connection
+   */
+  customer_name?: string | null;
 }
 
 export interface AccessTokenCreateParams {
+  /**
+   * The authorization code received from the authorization server
+   */
   code: string;
 
+  /**
+   * The client ID for your application
+   */
   client_id?: string;
 
+  /**
+   * The client secret for your application
+   */
   client_secret?: string;
 
+  /**
+   * The redirect URI used in the authorization request (optional)
+   */
   redirect_uri?: string;
 }
 
-export namespace AccessTokens {
-  export import CreateAccessTokenResponse = AccessTokensAPI.CreateAccessTokenResponse;
-  export import AccessTokenCreateParams = AccessTokensAPI.AccessTokenCreateParams;
+export declare namespace AccessTokens {
+  export {
+    type CreateAccessTokenResponse as CreateAccessTokenResponse,
+    type AccessTokenCreateParams as AccessTokenCreateParams,
+  };
 }

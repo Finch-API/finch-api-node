@@ -1,16 +1,17 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as ManualAPI from './manual';
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Manual extends APIResource {
   /**
-   * Get a manual job by `job_id`. Manual jobs are completed by a human and include
-   * Assisted Benefits jobs.
+   * Check the status and outcome of a job by `job_id`. This includes all deductions
+   * jobs including those for both automated and assisted integrations.
    */
-  retrieve(jobId: string, options?: Core.RequestOptions): Core.APIPromise<ManualAsyncJob> {
-    return this._client.get(`/jobs/manual/${jobId}`, options);
+  retrieve(jobID: string, options?: RequestOptions): APIPromise<ManualAsyncJob> {
+    return this._client.get(path`/jobs/manual/${jobID}`, { ...options, __security: { bearerAuth: true } });
   }
 }
 
@@ -25,6 +26,6 @@ export interface ManualAsyncJob {
   status: 'pending' | 'in_progress' | 'error' | 'complete';
 }
 
-export namespace Manual {
-  export import ManualAsyncJob = ManualAPI.ManualAsyncJob;
+export declare namespace Manual {
+  export { type ManualAsyncJob as ManualAsyncJob };
 }

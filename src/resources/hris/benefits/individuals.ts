@@ -1,11 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../resource';
-import { isRequestOptions } from '../../../core';
-import * as Core from '../../../core';
-import * as IndividualsAPI from './individuals';
-import * as BenefitsAPI from './benefits';
-import { SinglePage } from '../../../pagination';
+import { APIResource } from '../../../core/resource';
+import { APIPromise } from '../../../core/api-promise';
+import { PagePromise, SinglePage } from '../../../core/pagination';
+import { RequestOptions } from '../../../internal/request-options';
+import { path } from '../../../internal/utils/path';
 
 export class Individuals extends APIResource {
   /**
@@ -13,202 +12,364 @@ export class Individuals extends APIResource {
    * operation. If the employee is already enrolled, the enrollment amounts will be
    * adjusted. Making the same request multiple times will not create new
    * enrollments, but will continue to set the state of the existing enrollment.
+   *
+   * @example
+   * ```ts
+   * const enrolledIndividualBenefitResponse =
+   *   await client.hris.benefits.individuals.enrollMany(
+   *     'benefit_id',
+   *   );
+   * ```
    */
   enrollMany(
-    benefitId: string,
-    body: IndividualEnrollManyParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<EnrolledIndividualsSinglePage, EnrolledIndividual> {
-    return this._client.getAPIList(
-      `/employer/benefits/${benefitId}/individuals`,
-      EnrolledIndividualsSinglePage,
-      { body, method: 'post', ...options },
-    );
+    benefitID: string,
+    params: IndividualEnrollManyParams | null | undefined = undefined,
+    options?: RequestOptions,
+  ): APIPromise<EnrolledIndividualBenefitResponse> {
+    const { entity_ids, individuals } = params ?? {};
+    return this._client.post(path`/employer/benefits/${benefitID}/individuals`, {
+      query: { entity_ids },
+      body: individuals,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
    * Lists individuals currently enrolled in a given deduction.
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.hris.benefits.individuals.enrolledIDs(
+   *     'benefit_id',
+   *   );
+   * ```
    */
-  enrolledIds(
-    benefitId: string,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<IndividualEnrolledIDsResponse> {
-    return this._client.get(`/employer/benefits/${benefitId}/enrolled`, options);
+  enrolledIDs(
+    benefitID: string,
+    query: IndividualEnrolledIDsParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<IndividualEnrolledIDsResponse> {
+    return this._client.get(path`/employer/benefits/${benefitID}/enrolled`, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
    * Get enrollment information for the given individuals.
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const individualBenefit of client.hris.benefits.individuals.retrieveManyBenefits(
+   *   'benefit_id',
+   * )) {
+   *   // ...
+   * }
+   * ```
    */
   retrieveManyBenefits(
-    benefitId: string,
-    query?: IndividualRetrieveManyBenefitsParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualBenefitsSinglePage, IndividualBenefit>;
-  retrieveManyBenefits(
-    benefitId: string,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualBenefitsSinglePage, IndividualBenefit>;
-  retrieveManyBenefits(
-    benefitId: string,
-    query: IndividualRetrieveManyBenefitsParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualBenefitsSinglePage, IndividualBenefit> {
-    if (isRequestOptions(query)) {
-      return this.retrieveManyBenefits(benefitId, {}, query);
-    }
+    benefitID: string,
+    query: IndividualRetrieveManyBenefitsParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<IndividualBenefitsSinglePage, IndividualBenefit> {
     return this._client.getAPIList(
-      `/employer/benefits/${benefitId}/individuals`,
-      IndividualBenefitsSinglePage,
-      { query, ...options },
+      path`/employer/benefits/${benefitID}/individuals`,
+      SinglePage<IndividualBenefit>,
+      { query, ...options, __security: { bearerAuth: true } },
     );
   }
 
   /**
    * Unenroll individuals from a deduction or contribution
+   *
+   * @example
+   * ```ts
+   * const unenrolledIndividualBenefitResponse =
+   *   await client.hris.benefits.individuals.unenrollMany(
+   *     'benefit_id',
+   *   );
+   * ```
    */
   unenrollMany(
-    benefitId: string,
-    body?: IndividualUnenrollManyParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual>;
-  unenrollMany(
-    benefitId: string,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual>;
-  unenrollMany(
-    benefitId: string,
-    body: IndividualUnenrollManyParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<UnenrolledIndividualsSinglePage, UnenrolledIndividual> {
-    if (isRequestOptions(body)) {
-      return this.unenrollMany(benefitId, {}, body);
-    }
-    return this._client.getAPIList(
-      `/employer/benefits/${benefitId}/individuals`,
-      UnenrolledIndividualsSinglePage,
-      { body, method: 'delete', ...options },
-    );
+    benefitID: string,
+    params: IndividualUnenrollManyParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<UnenrolledIndividualBenefitResponse> {
+    const { entity_ids, ...body } = params ?? {};
+    return this._client.delete(path`/employer/benefits/${benefitID}/individuals`, {
+      query: { entity_ids },
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
-export class EnrolledIndividualsSinglePage extends SinglePage<EnrolledIndividual> {}
+export type IndividualBenefitsSinglePage = SinglePage<IndividualBenefit>;
 
-export class IndividualBenefitsSinglePage extends SinglePage<IndividualBenefit> {}
-
-export class UnenrolledIndividualsSinglePage extends SinglePage<UnenrolledIndividual> {}
-
-export interface EnrolledIndividual {
-  body?: EnrolledIndividual.Body;
-
-  /**
-   * HTTP status code. Either 201 or 200
-   */
-  code?: 200 | 201 | 404 | 403;
-
-  individual_id?: string;
-}
-
-export namespace EnrolledIndividual {
-  export interface Body {
-    /**
-     * A descriptive identifier for the response
-     */
-    finch_code?: string | null;
-
-    /**
-     * Short description in English that provides more information about the response.
-     */
-    message?: string | null;
-
-    /**
-     * Identifier indicating whether the benefit was newly enrolled or updated.
-     */
-    name?: string | null;
-  }
+export interface EnrolledIndividualBenefitResponse {
+  job_id: string;
 }
 
 export interface IndividualBenefit {
-  body?: IndividualBenefit.Body;
+  body: IndividualBenefit.UnionMember0 | IndividualBenefit.BatchError;
 
-  code?: number;
+  code: number;
 
-  individual_id?: string;
+  individual_id: string;
 }
 
 export namespace IndividualBenefit {
-  export interface Body {
+  export interface UnionMember0 {
     /**
      * If the benefit supports annual maximum, the amount in cents for this individual.
      */
-    annual_maximum?: number | null;
+    annual_maximum: number | null;
 
     /**
      * If the benefit supports catch up (401k, 403b, etc.), whether catch up is enabled
      * for this individual.
      */
-    catch_up?: boolean | null;
+    catch_up: boolean | null;
 
-    company_contribution?: BenefitsAPI.BenefitContribution | null;
+    /**
+     * Company contribution configuration. Supports fixed amounts (in cents),
+     * percentage-based contributions (in basis points where 100 = 1%), or tiered
+     * matching structures.
+     */
+    company_contribution:
+      | UnionMember0.UnionMember0
+      | UnionMember0.UnionMember1
+      | UnionMember0.UnionMember2
+      | null;
 
-    employee_deduction?: BenefitsAPI.BenefitContribution | null;
+    /**
+     * Employee deduction configuration. Supports both fixed amounts (in cents) and
+     * percentage-based contributions (in basis points where 100 = 1%).
+     */
+    employee_deduction: UnionMember0.UnionMember0 | UnionMember0.UnionMember1 | null;
 
     /**
      * Type for HSA contribution limit if the benefit is a HSA.
      */
     hsa_contribution_limit?: 'individual' | 'family' | null;
   }
-}
 
-export interface UnenrolledIndividual {
-  body?: UnenrolledIndividual.Body;
+  export namespace UnionMember0 {
+    export interface UnionMember0 {
+      /**
+       * Contribution amount in cents (for type=fixed) or basis points (for type=percent,
+       * where 100 = 1%). Not used for type=tiered.
+       */
+      amount: number;
 
-  /**
-   * HTTP status code
-   */
-  code?: number;
+      /**
+       * Contribution type. Supported values: "fixed" (amount in cents), "percent"
+       * (amount in basis points), or "tiered" (multi-tier matching).
+       */
+      type: 'fixed';
+    }
 
-  individual_id?: string;
-}
+    export interface UnionMember1 {
+      /**
+       * Contribution amount in cents (for type=fixed) or basis points (for type=percent,
+       * where 100 = 1%). Not used for type=tiered.
+       */
+      amount: number;
 
-export namespace UnenrolledIndividual {
-  export interface Body {
-    /**
-     * A descriptive identifier for the response.
-     */
-    finch_code?: string | null;
+      /**
+       * Contribution type. Supported values: "fixed" (amount in cents), "percent"
+       * (amount in basis points), or "tiered" (multi-tier matching).
+       */
+      type: 'percent';
+    }
 
-    /**
-     * Short description in English that provides more information about the response.
-     */
-    message?: string | null;
+    export interface UnionMember2 {
+      /**
+       * Array of tier objects defining employer match tiers based on employee
+       * contribution thresholds. Required when type=tiered.
+       */
+      tiers: Array<UnionMember2.Tier>;
 
-    /**
-     * Identifier indicating whether the benefit was newly enrolled or updated.
-     */
-    name?: string | null;
+      /**
+       * Contribution type. Supported values: "fixed" (amount in cents), "percent"
+       * (amount in basis points), or "tiered" (multi-tier matching).
+       */
+      type: 'tiered';
+    }
+
+    export namespace UnionMember2 {
+      export interface Tier {
+        match: number;
+
+        threshold: number;
+      }
+    }
+
+    export interface UnionMember0 {
+      /**
+       * Contribution amount in cents (for type=fixed) or basis points (for type=percent,
+       * where 100 = 1%).
+       */
+      amount: number;
+
+      /**
+       * Contribution type. Supported values: "fixed" (amount in cents) or "percent"
+       * (amount in basis points).
+       */
+      type: 'fixed';
+    }
+
+    export interface UnionMember1 {
+      /**
+       * Contribution amount in cents (for type=fixed) or basis points (for type=percent,
+       * where 100 = 1%).
+       */
+      amount: number;
+
+      /**
+       * Contribution type. Supported values: "fixed" (amount in cents) or "percent"
+       * (amount in basis points).
+       */
+      type: 'percent';
+    }
+  }
+
+  export interface BatchError {
+    code: number;
+
+    message: string;
+
+    name: string;
+
+    finch_code?: string;
   }
 }
 
+export interface UnenrolledIndividualBenefitResponse {
+  job_id: string;
+}
+
 export interface IndividualEnrolledIDsResponse {
+  /**
+   * The id of the benefit.
+   */
   benefit_id: string;
 
   individual_ids: Array<string>;
 }
 
-export type IndividualEnrollManyParams = Array<IndividualEnrollManyParams.Individual>;
+export interface IndividualEnrollManyParams {
+  /**
+   * Query param: The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+
+  /**
+   * Body param: Array of the individual_id to enroll and a configuration object.
+   */
+  individuals?: Array<IndividualEnrollManyParams.Individual>;
+}
 
 export namespace IndividualEnrollManyParams {
   export interface Individual {
-    configuration?: unknown;
+    configuration?: Individual.Configuration;
 
     /**
      * Finch id (uuidv4) for the individual to enroll
      */
     individual_id?: string;
   }
+
+  export namespace Individual {
+    export interface Configuration {
+      /**
+       * For HSA benefits only - whether the contribution limit is for an individual or
+       * family
+       */
+      annual_contribution_limit?: 'individual' | 'family';
+
+      /**
+       * Maximum annual amount in cents
+       */
+      annual_maximum?: number | null;
+
+      /**
+       * For retirement benefits only - whether catch up contributions are enabled
+       */
+      catch_up?: boolean;
+
+      company_contribution?: Configuration.CompanyContribution;
+
+      /**
+       * The date the enrollment will take effect
+       */
+      effective_date?: string;
+
+      employee_deduction?: Configuration.EmployeeDeduction;
+    }
+
+    export namespace Configuration {
+      export interface CompanyContribution {
+        /**
+         * Amount in cents for fixed type or basis points (1/100th of a percent) for
+         * percent type
+         */
+        amount?: number;
+
+        /**
+         * Array of tier objects for tiered contribution matching (required when type is
+         * tiered)
+         */
+        tiers?: Array<CompanyContribution.Tier>;
+
+        type?: 'fixed' | 'percent' | 'tiered';
+      }
+
+      export namespace CompanyContribution {
+        export interface Tier {
+          /**
+           * The employer match percentage in basis points (0-10000 = 0-100%)
+           */
+          match: number;
+
+          /**
+           * The employee contribution threshold in basis points (0-10000 = 0-100%)
+           */
+          threshold: number;
+        }
+      }
+
+      export interface EmployeeDeduction {
+        /**
+         * Amount in cents for fixed type or basis points (1/100th of a percent) for
+         * percent type
+         */
+        amount?: number;
+
+        type?: 'fixed' | 'percent';
+      }
+    }
+  }
+}
+
+export interface IndividualEnrolledIDsParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
 }
 
 export interface IndividualRetrieveManyBenefitsParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+
   /**
    * comma-delimited list of stable Finch uuids for each individual. If empty,
    * defaults to all individuals
@@ -218,20 +379,26 @@ export interface IndividualRetrieveManyBenefitsParams {
 
 export interface IndividualUnenrollManyParams {
   /**
-   * Array of individual_ids to unenroll.
+   * Query param: The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+
+  /**
+   * Body param: Array of individual_ids to unenroll.
    */
   individual_ids?: Array<string>;
 }
 
-export namespace Individuals {
-  export import EnrolledIndividual = IndividualsAPI.EnrolledIndividual;
-  export import IndividualBenefit = IndividualsAPI.IndividualBenefit;
-  export import UnenrolledIndividual = IndividualsAPI.UnenrolledIndividual;
-  export import IndividualEnrolledIDsResponse = IndividualsAPI.IndividualEnrolledIDsResponse;
-  export import EnrolledIndividualsSinglePage = IndividualsAPI.EnrolledIndividualsSinglePage;
-  export import IndividualBenefitsSinglePage = IndividualsAPI.IndividualBenefitsSinglePage;
-  export import UnenrolledIndividualsSinglePage = IndividualsAPI.UnenrolledIndividualsSinglePage;
-  export import IndividualEnrollManyParams = IndividualsAPI.IndividualEnrollManyParams;
-  export import IndividualRetrieveManyBenefitsParams = IndividualsAPI.IndividualRetrieveManyBenefitsParams;
-  export import IndividualUnenrollManyParams = IndividualsAPI.IndividualUnenrollManyParams;
+export declare namespace Individuals {
+  export {
+    type EnrolledIndividualBenefitResponse as EnrolledIndividualBenefitResponse,
+    type IndividualBenefit as IndividualBenefit,
+    type UnenrolledIndividualBenefitResponse as UnenrolledIndividualBenefitResponse,
+    type IndividualEnrolledIDsResponse as IndividualEnrolledIDsResponse,
+    type IndividualBenefitsSinglePage as IndividualBenefitsSinglePage,
+    type IndividualEnrollManyParams as IndividualEnrollManyParams,
+    type IndividualEnrolledIDsParams as IndividualEnrolledIDsParams,
+    type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
+    type IndividualUnenrollManyParams as IndividualUnenrollManyParams,
+  };
 }

@@ -1,11 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Finch from '@tryfinch/finch-api';
-import { Response } from 'node-fetch';
 
 const client = new Finch({
   accessToken: 'My Access Token',
-  clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
+  clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
@@ -22,17 +21,17 @@ describe('resource directory', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.hris.directory.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Finch.NotFoundError,
-    );
-  });
-
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.hris.directory.list({ limit: 0, offset: 0 }, { path: '/_stainless_unknown_path' }),
+      client.hris.directory.list(
+        {
+          entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+          limit: 0,
+          offset: 0,
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
@@ -47,17 +46,17 @@ describe('resource directory', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('listIndividuals: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.hris.directory.listIndividuals({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Finch.NotFoundError,
-    );
-  });
-
   test('listIndividuals: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.hris.directory.listIndividuals({ limit: 0, offset: 0 }, { path: '/_stainless_unknown_path' }),
+      client.hris.directory.listIndividuals(
+        {
+          entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+          limit: 0,
+          offset: 0,
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 });

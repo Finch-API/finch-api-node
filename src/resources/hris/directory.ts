@@ -1,28 +1,30 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
-import * as DirectoryAPI from './directory';
-import { IndividualsPage, type IndividualsPageParams } from '../../pagination';
+import { APIResource } from '../../core/resource';
+import { IndividualsPage, type IndividualsPageParams, PagePromise } from '../../core/pagination';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Directory extends APIResource {
   /**
    * Read company directory and organization structure
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const individualInDirectory of client.hris.directory.list()) {
+   *   // ...
+   * }
+   * ```
    */
   list(
-    query?: DirectoryListParams,
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualsPage, IndividualInDirectory>;
-  list(options?: Core.RequestOptions): Core.PagePromise<IndividualsPage, IndividualInDirectory>;
-  list(
-    query: DirectoryListParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.PagePromise<IndividualsPage, IndividualInDirectory> {
-    if (isRequestOptions(query)) {
-      return this.list({}, query);
-    }
-    return this._client.getAPIList('/employer/directory', IndividualsPage, { query, ...options });
+    query: DirectoryListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<IndividualsPage, IndividualInDirectory> {
+    return this._client.getAPIList('/employer/directory', IndividualsPage, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -33,39 +35,39 @@ export class Directory extends APIResource {
 
 export interface IndividualInDirectory {
   /**
-   * A stable Finch id (UUID v4) for an individual in the company.
+   * A stable Finch `id` (UUID v4) for an individual in the company.
    */
-  id?: string;
+  id: string;
 
   /**
    * The department object.
    */
-  department?: IndividualInDirectory.Department | null;
+  department: IndividualInDirectory.Department | null;
 
   /**
    * The legal first name of the individual.
    */
-  first_name?: string | null;
+  first_name: string | null;
 
   /**
    * `true` if the individual is an active employee or contractor at the company.
    */
-  is_active?: boolean | null;
+  is_active: boolean | null;
 
   /**
    * The legal last name of the individual.
    */
-  last_name?: string | null;
+  last_name: string | null;
 
   /**
    * The manager object.
    */
-  manager?: IndividualInDirectory.Manager | null;
+  manager: IndividualInDirectory.Manager | null;
 
   /**
    * The legal middle name of the individual.
    */
-  middle_name?: string | null;
+  middle_name: string | null;
 }
 
 export namespace IndividualInDirectory {
@@ -86,16 +88,38 @@ export namespace IndividualInDirectory {
     /**
      * A stable Finch `id` (UUID v4) for an individual in the company.
      */
-    id?: string;
+    id: string;
   }
 }
 
-export interface DirectoryListParams extends IndividualsPageParams {}
+export interface DirectoryListParams extends IndividualsPageParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+}
 
-export interface DirectoryListIndividualsParams extends IndividualsPageParams {}
+export interface DirectoryListIndividualsParams {
+  /**
+   * The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
 
-export namespace Directory {
-  export import IndividualInDirectory = DirectoryAPI.IndividualInDirectory;
-  export import DirectoryListParams = DirectoryAPI.DirectoryListParams;
-  export import DirectoryListIndividualsParams = DirectoryAPI.DirectoryListIndividualsParams;
+  /**
+   * Number of employees to return (defaults to all)
+   */
+  limit?: number;
+
+  /**
+   * Index to start from (defaults to 0)
+   */
+  offset?: number;
+}
+
+export declare namespace Directory {
+  export {
+    type IndividualInDirectory as IndividualInDirectory,
+    type DirectoryListParams as DirectoryListParams,
+    type DirectoryListIndividualsParams as DirectoryListIndividualsParams,
+  };
 }

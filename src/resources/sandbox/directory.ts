@@ -1,19 +1,29 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import * as Core from '../../core';
-import * as DirectoryAPI from './directory';
+import { APIResource } from '../../core/resource';
 import * as HRISAPI from '../hris/hris';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
 
 export class Directory extends APIResource {
   /**
    * Add new individuals to a sandbox company
+   *
+   * @example
+   * ```ts
+   * const directories = await client.sandbox.directory.create();
+   * ```
    */
   create(
-    body: DirectoryCreateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<DirectoryCreateResponse> {
-    return this._client.post('/sandbox/directory', { body, ...options });
+    params: DirectoryCreateParams | null | undefined = undefined,
+    options?: RequestOptions,
+  ): APIPromise<DirectoryCreateResponse> {
+    const { body } = params ?? {};
+    return this._client.post('/sandbox/directory', {
+      body: body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
@@ -22,7 +32,13 @@ export class Directory extends APIResource {
  */
 export type DirectoryCreateResponse = Array<unknown>;
 
-export type DirectoryCreateParams = Array<DirectoryCreateParams.Body>;
+export interface DirectoryCreateParams {
+  /**
+   * Array of individuals to create. Takes all combined fields from `/individual` and
+   * `/employment` endpoints. All fields are optional.
+   */
+  body?: Array<DirectoryCreateParams.Body>;
+}
 
 export namespace DirectoryCreateParams {
   export interface Body {
@@ -36,7 +52,7 @@ export namespace DirectoryCreateParams {
      * employer in the system. Custom fields are not currently supported for assisted
      * connections.
      */
-    custom_fields?: Array<Body.CustomField>;
+    custom_fields?: Array<Body.CustomField> | null;
 
     /**
      * The department object.
@@ -51,6 +67,19 @@ export namespace DirectoryCreateParams {
      * The employment object.
      */
     employment?: Body.Employment | null;
+
+    /**
+     * The detailed employment status of the individual.
+     */
+    employment_status?:
+      | 'active'
+      | 'deceased'
+      | 'leave'
+      | 'onboarding'
+      | 'prehire'
+      | 'retired'
+      | 'terminated'
+      | null;
 
     /**
      * Social Security Number of the individual in **encrypted** format. This field is
@@ -81,6 +110,12 @@ export namespace DirectoryCreateParams {
     first_name?: string | null;
 
     /**
+     * The FLSA status of the individual. Available options: `exempt`, `non_exempt`,
+     * `unknown`.
+     */
+    flsa_status?: 'exempt' | 'non_exempt' | 'unknown' | null;
+
+    /**
      * The gender of the individual.
      */
     gender?: 'female' | 'male' | 'other' | 'decline_to_specify' | null;
@@ -107,6 +142,8 @@ export namespace DirectoryCreateParams {
      */
     last_name?: string | null;
 
+    latest_rehire_date?: string | null;
+
     location?: HRISAPI.Location | null;
 
     /**
@@ -131,7 +168,7 @@ export namespace DirectoryCreateParams {
     /**
      * The source system's unique employment identifier for this individual
      */
-    source_id?: string;
+    source_id?: string | null;
 
     /**
      * Social Security Number of the individual. This field is only available with the
@@ -177,7 +214,8 @@ export namespace DirectoryCreateParams {
      */
     export interface Employment {
       /**
-       * The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
+       * The secondary employment type of the individual. Options: `full_time`,
+       * `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
        */
       subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor' | null;
 
@@ -198,14 +236,16 @@ export namespace DirectoryCreateParams {
     }
 
     export interface PhoneNumber {
-      data?: string;
+      data?: string | null;
 
       type?: 'work' | 'personal' | null;
     }
   }
 }
 
-export namespace Directory {
-  export import DirectoryCreateResponse = DirectoryAPI.DirectoryCreateResponse;
-  export import DirectoryCreateParams = DirectoryAPI.DirectoryCreateParams;
+export declare namespace Directory {
+  export {
+    type DirectoryCreateResponse as DirectoryCreateResponse,
+    type DirectoryCreateParams as DirectoryCreateParams,
+  };
 }

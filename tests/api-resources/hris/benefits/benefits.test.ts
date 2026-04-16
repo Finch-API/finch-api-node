@@ -1,11 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Finch from '@tryfinch/finch-api';
-import { Response } from 'node-fetch';
 
 const client = new Finch({
   accessToken: 'My Access Token',
-  clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
+  clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
@@ -22,18 +21,17 @@ describe('resource benefits', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('create: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.hris.benefits.create({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Finch.NotFoundError,
-    );
-  });
-
   test('create: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.hris.benefits.create(
-        { description: 'description', frequency: 'one_time', type: '401k' },
+        {
+          entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+          company_contribution: { tiers: [{ match: 1, threshold: 1 }], type: 'match' },
+          description: 'description',
+          frequency: 'every_paycheck',
+          type: '457',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Finch.NotFoundError);
@@ -50,10 +48,14 @@ describe('resource benefits', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('retrieve: request options instead of params are passed correctly', async () => {
+  test('retrieve: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.hris.benefits.retrieve('benefit_id', { path: '/_stainless_unknown_path' }),
+      client.hris.benefits.retrieve(
+        'benefit_id',
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 
@@ -68,19 +70,12 @@ describe('resource benefits', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('update: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.hris.benefits.update('benefit_id', { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(Finch.NotFoundError);
-  });
-
   test('update: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.hris.benefits.update(
         'benefit_id',
-        { description: 'description' },
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'], description: 'description' },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Finch.NotFoundError);
@@ -97,11 +92,14 @@ describe('resource benefits', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('list: request options instead of params are passed correctly', async () => {
+  test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.hris.benefits.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Finch.NotFoundError,
-    );
+    await expect(
+      client.hris.benefits.list(
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Finch.NotFoundError);
   });
 
   test('listSupportedBenefits', async () => {
@@ -115,10 +113,13 @@ describe('resource benefits', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('listSupportedBenefits: request options instead of params are passed correctly', async () => {
+  test('listSupportedBenefits: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.hris.benefits.listSupportedBenefits({ path: '/_stainless_unknown_path' }),
+      client.hris.benefits.listSupportedBenefits(
+        { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
+        { path: '/_stainless_unknown_path' },
+      ),
     ).rejects.toThrow(Finch.NotFoundError);
   });
 });

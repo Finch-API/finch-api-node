@@ -1,30 +1,32 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../resource';
-import { isRequestOptions } from '../../core';
-import * as Core from '../../core';
-import * as EmploymentAPI from './employment';
+import { APIResource } from '../../core/resource';
 import * as HRISAPI from '../hris/hris';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Employment extends APIResource {
   /**
    * Update sandbox employment
+   *
+   * @example
+   * ```ts
+   * const employment = await client.sandbox.employment.update(
+   *   'individual_id',
+   * );
+   * ```
    */
   update(
-    individualId: string,
-    body?: EmploymentUpdateParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<EmploymentUpdateResponse>;
-  update(individualId: string, options?: Core.RequestOptions): Core.APIPromise<EmploymentUpdateResponse>;
-  update(
-    individualId: string,
-    body: EmploymentUpdateParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<EmploymentUpdateResponse> {
-    if (isRequestOptions(body)) {
-      return this.update(individualId, {}, body);
-    }
-    return this._client.put(`/sandbox/employment/${individualId}`, { body, ...options });
+    individualID: string,
+    body: EmploymentUpdateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<EmploymentUpdateResponse> {
+    return this._client.put(path`/sandbox/employment/${individualID}`, {
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
@@ -44,7 +46,7 @@ export interface EmploymentUpdateResponse {
    * employer in the system. Custom fields are not currently supported for assisted
    * connections.
    */
-  custom_fields?: Array<EmploymentUpdateResponse.CustomField>;
+  custom_fields?: Array<EmploymentUpdateResponse.CustomField> | null;
 
   /**
    * The department object.
@@ -56,12 +58,31 @@ export interface EmploymentUpdateResponse {
    */
   employment?: EmploymentUpdateResponse.Employment | null;
 
+  /**
+   * The detailed employment status of the individual.
+   */
+  employment_status?:
+    | 'active'
+    | 'deceased'
+    | 'leave'
+    | 'onboarding'
+    | 'prehire'
+    | 'retired'
+    | 'terminated'
+    | null;
+
   end_date?: string | null;
 
   /**
    * The legal first name of the individual.
    */
   first_name?: string | null;
+
+  /**
+   * The FLSA status of the individual. Available options: `exempt`, `non_exempt`,
+   * `unknown`.
+   */
+  flsa_status?: 'exempt' | 'non_exempt' | 'unknown' | null;
 
   /**
    * The employee's income as reported by the provider. This may not always be
@@ -85,6 +106,8 @@ export interface EmploymentUpdateResponse {
    */
   last_name?: string | null;
 
+  latest_rehire_date?: string | null;
+
   location?: HRISAPI.Location | null;
 
   /**
@@ -100,7 +123,7 @@ export interface EmploymentUpdateResponse {
   /**
    * The source system's unique employment identifier for this individual
    */
-  source_id?: string;
+  source_id?: string | null;
 
   start_date?: string | null;
 
@@ -132,7 +155,8 @@ export namespace EmploymentUpdateResponse {
    */
   export interface Employment {
     /**
-     * The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
+     * The secondary employment type of the individual. Options: `full_time`,
+     * `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
      */
     subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor' | null;
 
@@ -164,7 +188,7 @@ export interface EmploymentUpdateParams {
    * employer in the system. Custom fields are not currently supported for assisted
    * connections.
    */
-  custom_fields?: Array<EmploymentUpdateParams.CustomField>;
+  custom_fields?: Array<EmploymentUpdateParams.CustomField> | null;
 
   /**
    * The department object.
@@ -176,12 +200,31 @@ export interface EmploymentUpdateParams {
    */
   employment?: EmploymentUpdateParams.Employment | null;
 
+  /**
+   * The detailed employment status of the individual.
+   */
+  employment_status?:
+    | 'active'
+    | 'deceased'
+    | 'leave'
+    | 'onboarding'
+    | 'prehire'
+    | 'retired'
+    | 'terminated'
+    | null;
+
   end_date?: string | null;
 
   /**
    * The legal first name of the individual.
    */
   first_name?: string | null;
+
+  /**
+   * The FLSA status of the individual. Available options: `exempt`, `non_exempt`,
+   * `unknown`.
+   */
+  flsa_status?: 'exempt' | 'non_exempt' | 'unknown' | null;
 
   /**
    * The employee's income as reported by the provider. This may not always be
@@ -205,6 +248,8 @@ export interface EmploymentUpdateParams {
    */
   last_name?: string | null;
 
+  latest_rehire_date?: string | null;
+
   location?: HRISAPI.Location | null;
 
   /**
@@ -220,7 +265,7 @@ export interface EmploymentUpdateParams {
   /**
    * The source system's unique employment identifier for this individual
    */
-  source_id?: string;
+  source_id?: string | null;
 
   start_date?: string | null;
 
@@ -252,7 +297,8 @@ export namespace EmploymentUpdateParams {
    */
   export interface Employment {
     /**
-     * The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
+     * The secondary employment type of the individual. Options: `full_time`,
+     * `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.
      */
     subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor' | null;
 
@@ -273,7 +319,9 @@ export namespace EmploymentUpdateParams {
   }
 }
 
-export namespace Employment {
-  export import EmploymentUpdateResponse = EmploymentAPI.EmploymentUpdateResponse;
-  export import EmploymentUpdateParams = EmploymentAPI.EmploymentUpdateParams;
+export declare namespace Employment {
+  export {
+    type EmploymentUpdateResponse as EmploymentUpdateResponse,
+    type EmploymentUpdateParams as EmploymentUpdateParams,
+  };
 }

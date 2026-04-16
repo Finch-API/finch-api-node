@@ -1,11 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Finch from '@tryfinch/finch-api';
-import { Response } from 'node-fetch';
 
 const client = new Finch({
   accessToken: 'My Access Token',
-  clientId: '4ab15e51-11ad-49f4-acae-f343b7794375',
+  clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
@@ -23,6 +22,10 @@ describe('resource payments', () => {
   });
 
   test('list: required and optional params', async () => {
-    const response = await client.hris.payments.list({ end_date: '2021-01-01', start_date: '2021-01-01' });
+    const response = await client.hris.payments.list({
+      end_date: '2021-01-01',
+      start_date: '2021-01-01',
+      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+    });
   });
 });
