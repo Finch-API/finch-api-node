@@ -638,7 +638,10 @@ export interface JobCompletionEvent extends BaseWebhookEvent {
     | 'job.benefit_register.completed'
     | 'job.benefit_unenroll.completed'
     | 'job.benefit_update.completed'
-    | 'job.data_sync_all.completed';
+    | 'job.data_sync_all.completed'
+    | 'job.w4_form_employee_sync.completed'
+    | 'job.initial_data_sync_org.succeeded'
+    | 'job.initial_data_sync_payroll.succeeded';
 }
 
 export namespace JobCompletionEvent {
