@@ -1,5 +1,14 @@
 # Changelog
 
+## 9.5.1 (2026-04-16)
+
+Full Changelog: [v9.5.0...v9.5.1](https://github.com/Finch-API/finch-api-node/compare/v9.5.0...v9.5.1)
+
+### Chores
+
+* **deps:** bump flatted from 3.3.2 to 3.4.2 ([#649](https://github.com/Finch-API/finch-api-node/issues/649)) ([baf67df](https://github.com/Finch-API/finch-api-node/commit/baf67df5a6020b6aa15073861bc863b0e9bd70c6))
+* **deps:** bump micromatch from 4.0.5 to 4.0.8 ([#442](https://github.com/Finch-API/finch-api-node/issues/442)) ([5b2e383](https://github.com/Finch-API/finch-api-node/commit/5b2e383037ff25b6d52c1edf5d1adbba569113c2))
+
 ## 9.5.0 (2026-04-13)
 
 Full Changelog: [v9.4.1...v9.5.0](https://github.com/Finch-API/finch-api-node/compare/v9.4.1...v9.5.0)
