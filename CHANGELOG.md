@@ -1,5 +1,13 @@
 # Changelog
 
+## 9.6.1 (2026-04-19)
+
+Full Changelog: [v9.6.0...v9.6.1](https://github.com/Finch-API/finch-api-node/compare/v9.6.0...v9.6.1)
+
+### Chores
+
+* **tests:** bump steady to v0.22.1 ([eb252a1](https://github.com/Finch-API/finch-api-node/commit/eb252a14302517dfce34fccccd5727cc1aa0bb84))
+
 ## 9.6.0 (2026-04-16)
 
 Full Changelog: [v9.5.1...v9.6.0](https://github.com/Finch-API/finch-api-node/compare/v9.5.1...v9.6.0)
