@@ -438,6 +438,11 @@ export interface BaseWebhookEvent {
    * Unique Finch ID of the connection associated with the webhook event.
    */
   connection_id?: string;
+
+  /**
+   * Unique Finch id of the entity for which data has been updated.
+   */
+  entity_id?: string;
 }
 
 export interface CompanyEvent extends BaseWebhookEvent {
