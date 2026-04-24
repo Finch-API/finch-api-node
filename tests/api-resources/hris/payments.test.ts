@@ -6,7 +6,7 @@ const client = new Finch({
   accessToken: 'My Access Token',
   clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+  baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource payments', () => {
@@ -23,9 +23,9 @@ describe('resource payments', () => {
 
   test('list: required and optional params', async () => {
     const response = await client.hris.payments.list({
-      end_date: '2021-01-01',
-      start_date: '2021-01-01',
-      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-    });
+    end_date: '2021-01-01',
+    start_date: '2021-01-01',
+    entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+  });
   });
 });

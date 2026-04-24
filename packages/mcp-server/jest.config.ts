@@ -10,7 +10,9 @@ const config: JestConfigWithTsJest = {
     '^@tryfinch/finch-api-mcp$': '<rootDir>/src/index.ts',
     '^@tryfinch/finch-api-mcp/(.*)$': '<rootDir>/src/$1',
   },
-  modulePathIgnorePatterns: ['<rootDir>/dist/'],
+  modulePathIgnorePatterns: [
+    '<rootDir>/dist/',
+  ],
   testPathIgnorePatterns: ['scripts'],
 };
 

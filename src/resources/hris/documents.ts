@@ -16,11 +16,8 @@ export class Documents extends APIResource {
    * const documents = await client.hris.documents.list();
    * ```
    */
-  list(
-    query: DocumentListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<DocumentListResponse> {
-    return this._client.get('/employer/documents', { query, ...options, __security: { bearerAuth: true } });
+  list(query: DocumentListParams | null | undefined = {}, options?: RequestOptions): APIPromise<DocumentListResponse> {
+    return this._client.get('/employer/documents', { query, ...options, __security: { bearerAuth : true } });
   }
 
   /**
@@ -34,16 +31,8 @@ export class Documents extends APIResource {
    * );
    * ```
    */
-  retreive(
-    documentID: string,
-    query: DocumentRetreiveParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<DocumentRetreiveResponse> {
-    return this._client.get(path`/employer/documents/${documentID}`, {
-      query,
-      ...options,
-      __security: { bearerAuth: true },
-    });
+  retreive(documentID: string, query: DocumentRetreiveParams | null | undefined = {}, options?: RequestOptions): APIPromise<DocumentRetreiveResponse> {
+    return this._client.get(path`/employer/documents/${documentID}`, { query, ...options, __security: { bearerAuth : true } });
   }
 }
 
@@ -179,11 +168,7 @@ export namespace W42020 {
     /**
      * The individual's filing status for tax purposes.
      */
-    filing_status:
-      | 'head_of_household'
-      | 'married_filing_jointly_or_qualifying_surviving_spouse'
-      | 'single_or_married_filing_separately'
-      | null;
+    filing_status: 'head_of_household' | 'married_filing_jointly_or_qualifying_surviving_spouse' | 'single_or_married_filing_separately' | null;
 
     /**
      * The unique identifier for the individual associated with this document.
@@ -212,7 +197,7 @@ export interface DocumentListResponse {
  * A 2020 version of the W-4 tax form containing information on an individual's
  * filing status, dependents, and withholding details.
  */
-export type DocumentRetreiveResponse = W42020 | W42005;
+export type DocumentRetreiveResponse = W42020 | W42005
 
 export interface DocumentListParams {
   /**
@@ -258,6 +243,6 @@ export declare namespace Documents {
     type DocumentListResponse as DocumentListResponse,
     type DocumentRetreiveResponse as DocumentRetreiveResponse,
     type DocumentListParams as DocumentListParams,
-    type DocumentRetreiveParams as DocumentRetreiveParams,
+    type DocumentRetreiveParams as DocumentRetreiveParams
   };
 }

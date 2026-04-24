@@ -16,21 +16,14 @@ export class Directory extends APIResource {
    * }
    * ```
    */
-  list(
-    query: DirectoryListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<IndividualsPage, IndividualInDirectory> {
-    return this._client.getAPIList('/employer/directory', IndividualsPage<IndividualInDirectory>, {
-      query,
-      ...options,
-      __security: { bearerAuth: true },
-    });
+  list(query: DirectoryListParams | null | undefined = {}, options?: RequestOptions): PagePromise<IndividualsPage, IndividualInDirectory> {
+    return this._client.getAPIList('/employer/directory', IndividualsPage<IndividualInDirectory>, { query, ...options, __security: { bearerAuth : true } });
   }
 
   /**
    * @deprecated use `list` instead
    */
-  listIndividuals = this.list;
+  listIndividuals = this.list
 }
 
 export interface IndividualInDirectory {
@@ -120,6 +113,6 @@ export declare namespace Directory {
   export {
     type IndividualInDirectory as IndividualInDirectory,
     type DirectoryListParams as DirectoryListParams,
-    type DirectoryListIndividualsParams as DirectoryListIndividualsParams,
+    type DirectoryListIndividualsParams as DirectoryListIndividualsParams
   };
 }

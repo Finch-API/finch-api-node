@@ -4,7 +4,9 @@ import { APIResource } from '../core/resource';
 import * as Shared from './shared';
 import * as BenefitsAPI from './hris/benefits/benefits';
 
-export class Webhooks extends APIResource {}
+export class Webhooks extends APIResource {
+
+}
 
 export interface AccountUpdateEvent extends BaseWebhookEvent {
   data?: AccountUpdateEvent.Data;
@@ -499,16 +501,7 @@ export namespace IndividualEvent {
 export interface JobCompletionEvent extends BaseWebhookEvent {
   data?: JobCompletionEvent.Data;
 
-  event_type?:
-    | 'job.benefit_create.completed'
-    | 'job.benefit_enroll.completed'
-    | 'job.benefit_register.completed'
-    | 'job.benefit_unenroll.completed'
-    | 'job.benefit_update.completed'
-    | 'job.data_sync_all.completed'
-    | 'job.w4_form_employee_sync.completed'
-    | 'job.initial_data_sync_org.succeeded'
-    | 'job.initial_data_sync_payroll.succeeded';
+  event_type?: 'job.benefit_create.completed' | 'job.benefit_enroll.completed' | 'job.benefit_register.completed' | 'job.benefit_unenroll.completed' | 'job.benefit_update.completed' | 'job.data_sync_all.completed' | 'job.w4_form_employee_sync.completed' | 'job.initial_data_sync_org.succeeded' | 'job.initial_data_sync_payroll.succeeded';
 }
 
 export namespace JobCompletionEvent {
@@ -565,15 +558,7 @@ export namespace PaymentEvent {
   }
 }
 
-export type WebhookEvent =
-  | AccountUpdateEvent
-  | JobCompletionEvent
-  | CompanyEvent
-  | DirectoryEvent
-  | EmploymentEvent
-  | IndividualEvent
-  | PaymentEvent
-  | PayStatementEvent;
+export type WebhookEvent = AccountUpdateEvent | JobCompletionEvent | CompanyEvent | DirectoryEvent | EmploymentEvent | IndividualEvent | PaymentEvent | PayStatementEvent
 
 export declare namespace Webhooks {
   export {
@@ -586,6 +571,6 @@ export declare namespace Webhooks {
     type JobCompletionEvent as JobCompletionEvent,
     type PayStatementEvent as PayStatementEvent,
     type PaymentEvent as PaymentEvent,
-    type WebhookEvent as WebhookEvent,
+    type WebhookEvent as WebhookEvent
   };
 }

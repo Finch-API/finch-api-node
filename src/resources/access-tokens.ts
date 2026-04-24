@@ -9,7 +9,7 @@ export class AccessTokens extends APIResource {
    * Exchange the authorization code for an access token
    */
   create(body: AccessTokenCreateParams, options?: RequestOptions): APIPromise<CreateAccessTokenResponse> {
-    return this._client.post('/auth/token', { body, ...options, __security: {} });
+    return this._client.post('/auth/token', { body, ...options, __security: {  } });
   }
 }
 
@@ -107,6 +107,6 @@ export interface AccessTokenCreateParams {
 export declare namespace AccessTokens {
   export {
     type CreateAccessTokenResponse as CreateAccessTokenResponse,
-    type AccessTokenCreateParams as AccessTokenCreateParams,
+    type AccessTokenCreateParams as AccessTokenCreateParams
   };
 }

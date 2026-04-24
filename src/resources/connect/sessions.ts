@@ -9,21 +9,14 @@ export class Sessions extends APIResource {
    * Create a new connect session for an employer
    */
   new(body: SessionNewParams, options?: RequestOptions): APIPromise<SessionNewResponse> {
-    return this._client.post('/connect/sessions', { body, ...options, __security: { basicAuth: true } });
+    return this._client.post('/connect/sessions', { body, ...options, __security: { basicAuth : true } });
   }
 
   /**
    * Create a new Connect session for reauthenticating an existing connection
    */
-  reauthenticate(
-    body: SessionReauthenticateParams,
-    options?: RequestOptions,
-  ): APIPromise<SessionReauthenticateResponse> {
-    return this._client.post('/connect/sessions/reauthenticate', {
-      body,
-      ...options,
-      __security: { basicAuth: true },
-    });
+  reauthenticate(body: SessionReauthenticateParams, options?: RequestOptions): APIPromise<SessionReauthenticateResponse> {
+    return this._client.post('/connect/sessions/reauthenticate', { body, ...options, __security: { basicAuth : true } });
   }
 }
 
@@ -67,18 +60,7 @@ export interface SessionNewParams {
    * endpoints — `deduction` is a deprecated alias that is still accepted but should
    * not be combined with `benefits`.
    */
-  products: Array<
-    | 'benefits'
-    | 'company'
-    | 'deduction'
-    | 'directory'
-    | 'documents'
-    | 'employment'
-    | 'individual'
-    | 'payment'
-    | 'pay_statement'
-    | 'ssn'
-  >;
+  products: Array<'benefits' | 'company' | 'deduction' | 'directory' | 'documents' | 'employment' | 'individual' | 'payment' | 'pay_statement' | 'ssn'>;
 
   /**
    * Email address of the customer
@@ -146,18 +128,7 @@ export interface SessionReauthenticateParams {
    * `benefits` to access deductions endpoints — `deduction` is a deprecated alias
    * that is still accepted but should not be combined with `benefits`.
    */
-  products?: Array<
-    | 'benefits'
-    | 'company'
-    | 'deduction'
-    | 'directory'
-    | 'documents'
-    | 'employment'
-    | 'individual'
-    | 'payment'
-    | 'pay_statement'
-    | 'ssn'
-  > | null;
+  products?: Array<'benefits' | 'company' | 'deduction' | 'directory' | 'documents' | 'employment' | 'individual' | 'payment' | 'pay_statement' | 'ssn'> | null;
 
   /**
    * The URI to redirect to after the Connect flow is completed
@@ -170,6 +141,6 @@ export declare namespace Sessions {
     type SessionNewResponse as SessionNewResponse,
     type SessionReauthenticateResponse as SessionReauthenticateResponse,
     type SessionNewParams as SessionNewParams,
-    type SessionReauthenticateParams as SessionReauthenticateParams,
+    type SessionReauthenticateParams as SessionReauthenticateParams
   };
 }
