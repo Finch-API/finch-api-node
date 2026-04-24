@@ -64,14 +64,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.accessTokens.create(code: string, client_id?: string, client_secret?: string, redirect_uri?: string): { access_token: string; client_type: 'development' | 'production' | 'sandbox'; connection_id: string; connection_type: 'finch' | 'provider'; entity_ids: string[]; products: string[]; provider_id: string; token_type: string; account_id?: string; company_id?: string; customer_id?: string; customer_name?: string; }`\n\n**post** `/auth/token`\n\nExchange the authorization code for an access token\n\n### Parameters\n\n- `code: string`\n  The authorization code received from the authorization server\n\n- `client_id?: string`\n  The client ID for your application\n\n- `client_secret?: string`\n  The client secret for your application\n\n- `redirect_uri?: string`\n  The redirect URI used in the authorization request (optional)\n\n### Returns\n\n- `{ access_token: string; client_type: 'development' | 'production' | 'sandbox'; connection_id: string; connection_type: 'finch' | 'provider'; entity_ids: string[]; products: string[]; provider_id: string; token_type: string; account_id?: string; company_id?: string; customer_id?: string; customer_name?: string; }`\n\n  - `access_token: string`\n  - `client_type: 'development' | 'production' | 'sandbox'`\n  - `connection_id: string`\n  - `connection_type: 'finch' | 'provider'`\n  - `entity_ids: string[]`\n  - `products: string[]`\n  - `provider_id: string`\n  - `token_type: string`\n  - `account_id?: string`\n  - `company_id?: string`\n  - `customer_id?: string`\n  - `customer_name?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst createAccessTokenResponse = await client.accessTokens.create({ code: 'code' });\n\nconsole.log(createAccessTokenResponse);\n```",
     perLanguage: {
-      go: {
-        method: 'client.AccessTokens.New',
+      typescript: {
+        method: 'client.accessTokens.create',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t\toption.WithClientID("4ab15e51-11ad-49f4-acae-f343b7794375"),\n\t\toption.WithClientSecret("My Client Secret"),\n\t)\n\tcreateAccessTokenResponse, err := client.AccessTokens.New(context.TODO(), finchgo.AccessTokenNewParams{\n\t\tCode: finchgo.F("code"),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", createAccessTokenResponse.ConnectionID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst createAccessTokenResponse = await client.accessTokens.create({ code: 'code' });\n\nconsole.log(createAccessTokenResponse.connection_id);",
       },
-      http: {
+      python: {
+        method: 'access_tokens.create',
         example:
-          'curl https://api.tryfinch.com/auth/token \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "code": "code"\n        }\'',
+          'from finch import Finch\n\nclient = Finch()\ncreate_access_token_response = client.access_tokens.create(\n    code="code",\n)\nprint(create_access_token_response.connection_id)',
       },
       java: {
         method: 'accessTokens().create',
@@ -83,20 +84,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AccessTokenCreateParams\nimport com.tryfinch.api.models.CreateAccessTokenResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: AccessTokenCreateParams = AccessTokenCreateParams.builder()\n        .code("code")\n        .build()\n    val createAccessTokenResponse: CreateAccessTokenResponse = client.accessTokens().create(params)\n}',
       },
-      python: {
-        method: 'access_tokens.create',
+      go: {
+        method: 'client.AccessTokens.New',
         example:
-          'from finch import Finch\n\nclient = Finch()\ncreate_access_token_response = client.access_tokens.create(\n    code="code",\n)\nprint(create_access_token_response.connection_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t\toption.WithClientID("4ab15e51-11ad-49f4-acae-f343b7794375"),\n\t\toption.WithClientSecret("My Client Secret"),\n\t)\n\tcreateAccessTokenResponse, err := client.AccessTokens.New(context.TODO(), finchgo.AccessTokenNewParams{\n\t\tCode: finchgo.F("code"),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", createAccessTokenResponse.ConnectionID)\n}\n',
       },
       ruby: {
         method: 'access_tokens.create',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(\n  access_token: "My Access Token",\n  client_id: "4ab15e51-11ad-49f4-acae-f343b7794375",\n  client_secret: "My Client Secret"\n)\n\ncreate_access_token_response = finch.access_tokens.create(code: "code")\n\nputs(create_access_token_response)',
       },
-      typescript: {
-        method: 'client.accessTokens.create',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst createAccessTokenResponse = await client.accessTokens.create({ code: 'code' });\n\nconsole.log(createAccessTokenResponse.connection_id);",
+          'curl https://api.tryfinch.com/auth/token \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "code": "code"\n        }\'',
       },
     },
   },
@@ -114,14 +114,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.hris.company.retrieve(entity_ids?: string[]): { id: string; accounts: object[]; departments: object[]; ein: string; entity: object; legal_name: string; locations: location[]; primary_email: string; primary_phone_number: string; }`\n\n**get** `/employer/company`\n\nRead basic company data\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n### Returns\n\n- `{ id: string; accounts: { account_name: string; account_number: string; account_type: 'checking' | 'savings'; institution_name: string; routing_number: string; }[]; departments: { name: string; parent: { name: string; }; }[]; ein: string; entity: { subtype: 's_corporation' | 'c_corporation' | 'b_corporation'; type: 'llc' | 'lp' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative'; }; legal_name: string; locations: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }[]; primary_email: string; primary_phone_number: string; }`\n\n  - `id: string`\n  - `accounts: { account_name: string; account_number: string; account_type: 'checking' | 'savings'; institution_name: string; routing_number: string; }[]`\n  - `departments: { name: string; parent: { name: string; }; }[]`\n  - `ein: string`\n  - `entity: { subtype: 's_corporation' | 'c_corporation' | 'b_corporation'; type: 'llc' | 'lp' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative'; }`\n  - `legal_name: string`\n  - `locations: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }[]`\n  - `primary_email: string`\n  - `primary_phone_number: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst company = await client.hris.company.retrieve();\n\nconsole.log(company);\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Company.Get',
+      typescript: {
+        method: 'client.hris.company.retrieve',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tcompany, err := client.HRIS.Company.Get(context.TODO(), finchgo.HRISCompanyGetParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", company.ID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst company = await client.hris.company.retrieve();\n\nconsole.log(company.id);",
       },
-      http: {
+      python: {
+        method: 'hris.company.retrieve',
         example:
-          'curl https://api.tryfinch.com/employer/company \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ncompany = client.hris.company.retrieve()\nprint(company.id)',
       },
       java: {
         method: 'hris().company().retrieve',
@@ -133,20 +134,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.Company\nimport com.tryfinch.api.models.HrisCompanyRetrieveParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val company: Company = client.hris().company().retrieve()\n}',
       },
-      python: {
-        method: 'hris.company.retrieve',
+      go: {
+        method: 'client.HRIS.Company.Get',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ncompany = client.hris.company.retrieve()\nprint(company.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tcompany, err := client.HRIS.Company.Get(context.TODO(), finchgo.HRISCompanyGetParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", company.ID)\n}\n',
       },
       ruby: {
         method: 'hris.company.retrieve',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ncompany = finch.hris.company.retrieve\n\nputs(company)',
       },
-      typescript: {
-        method: 'client.hris.company.retrieve',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst company = await client.hris.company.retrieve();\n\nconsole.log(company.id);",
+          'curl https://api.tryfinch.com/employer/company \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -172,14 +172,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.hris.company.payStatementItem.list(categories?: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'[], end_date?: string, entity_ids?: string[], name?: string, start_date?: string, type?: string): { attributes: object; category: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'; name: string; }`\n\n**get** `/employer/pay-statement-item`\n\nRetrieve a list of detailed pay statement items for the access token's connection account.\n\n\n### Parameters\n\n- `categories?: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'[]`\n  Comma-delimited list of pay statement item categories to filter on. If empty, defaults to all categories.\n\n- `end_date?: string`\n  The end date to retrieve pay statement items by via their last seen pay date in `YYYY-MM-DD` format.\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `name?: string`\n  Case-insensitive partial match search by pay statement item name.\n\n- `start_date?: string`\n  The start date to retrieve pay statement items by via their last seen pay date (inclusive) in `YYYY-MM-DD` format.\n\n- `type?: string`\n  String search by pay statement item type.\n\n### Returns\n\n- `{ attributes: { metadata: object; employer?: boolean; pre_tax?: boolean; type?: string; }; category: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'; name: string; }`\n\n  - `attributes: { metadata: object; employer?: boolean; pre_tax?: boolean; type?: string; }`\n  - `category: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'`\n  - `name: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const payStatementItemListResponse of client.hris.company.payStatementItem.list()) {\n  console.log(payStatementItemListResponse);\n}\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Company.PayStatementItem.List',
+      typescript: {
+        method: 'client.hris.company.payStatementItem.list',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Company.PayStatementItem.List(context.TODO(), finchgo.HRISCompanyPayStatementItemListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const payStatementItemListResponse of client.hris.company.payStatementItem.list()) {\n  console.log(payStatementItemListResponse.attributes);\n}",
       },
-      http: {
+      python: {
+        method: 'hris.company.pay_statement_item.list',
         example:
-          'curl https://api.tryfinch.com/employer/pay-statement-item \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.company.pay_statement_item.list()\npage = page.responses[0]\nprint(page.attributes)',
       },
       java: {
         method: 'hris().company().payStatementItem().list',
@@ -191,20 +192,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemListPage\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisCompanyPayStatementItemListPage = client.hris().company().payStatementItem().list()\n}',
       },
-      python: {
-        method: 'hris.company.pay_statement_item.list',
+      go: {
+        method: 'client.HRIS.Company.PayStatementItem.List',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.company.pay_statement_item.list()\npage = page.responses[0]\nprint(page.attributes)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Company.PayStatementItem.List(context.TODO(), finchgo.HRISCompanyPayStatementItemListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'hris.company.pay_statement_item.list',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.company.pay_statement_item.list\n\nputs(page)',
       },
-      typescript: {
-        method: 'client.hris.company.payStatementItem.list',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const payStatementItemListResponse of client.hris.company.payStatementItem.list()) {\n  console.log(payStatementItemListResponse.attributes);\n}",
+          'curl https://api.tryfinch.com/employer/pay-statement-item \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -230,14 +230,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.hris.company.payStatementItem.rules.create(entity_ids?: string[], attributes?: { metadata?: object; }, conditions?: { field?: string; operator?: 'equals'; value?: string; }[], effective_end_date?: string, effective_start_date?: string, entity_type?: 'pay_statement_item'): { id?: string; attributes?: object; conditions?: object[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n**post** `/employer/pay-statement-item/rule`\n\nCustom rules can be created to associate specific attributes to pay statement items depending on the use case. For example, pay statement items that meet certain conditions can be labeled as a pre-tax 401k. This metadata can be retrieved where pay statement item information is available.\n\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to create the rule for.\n\n- `attributes?: { metadata?: object; }`\n  Specifies the fields to be applied when the condition is met.\n  - `metadata?: object`\n    The metadata to be attached in the entity. It is a key-value pairs where the values can be of any type (string, number, boolean, object, array, etc.).\n\n- `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n\n- `effective_end_date?: string`\n  Specifies when the rules should stop applying rules based on the date.\n\n- `effective_start_date?: string`\n  Specifies when the rule should begin applying based on the date.\n\n- `entity_type?: 'pay_statement_item'`\n  The entity type to which the rule is applied.\n\n### Returns\n\n- `{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n  - `id?: string`\n  - `attributes?: { metadata?: object; }`\n  - `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n  - `created_at?: string`\n  - `effective_end_date?: string`\n  - `effective_start_date?: string`\n  - `entity_type?: 'pay_statement_item'`\n  - `priority?: number`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst rule = await client.hris.company.payStatementItem.rules.create();\n\nconsole.log(rule);\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Company.PayStatementItem.Rules.New',
+      typescript: {
+        method: 'client.hris.company.payStatementItem.rules.create',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\trule, err := client.HRIS.Company.PayStatementItem.Rules.New(context.TODO(), finchgo.HRISCompanyPayStatementItemRuleNewParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", rule.ID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst rule = await client.hris.company.payStatementItem.rules.create();\n\nconsole.log(rule.id);",
       },
-      http: {
+      python: {
+        method: 'hris.company.pay_statement_item.rules.create',
         example:
-          'curl https://api.tryfinch.com/employer/pay-statement-item/rule \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.company.pay_statement_item.rules.create()\nprint(rule.id)',
       },
       java: {
         method: 'hris().company().payStatementItem().rules().create',
@@ -249,20 +250,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleCreateParams\nimport com.tryfinch.api.models.RuleCreateResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val rule: RuleCreateResponse = client.hris().company().payStatementItem().rules().create()\n}',
       },
-      python: {
-        method: 'hris.company.pay_statement_item.rules.create',
+      go: {
+        method: 'client.HRIS.Company.PayStatementItem.Rules.New',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.company.pay_statement_item.rules.create()\nprint(rule.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\trule, err := client.HRIS.Company.PayStatementItem.Rules.New(context.TODO(), finchgo.HRISCompanyPayStatementItemRuleNewParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", rule.ID)\n}\n',
       },
       ruby: {
         method: 'hris.company.pay_statement_item.rules.create',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.company.pay_statement_item.rules.create\n\nputs(rule)',
       },
-      typescript: {
-        method: 'client.hris.company.payStatementItem.rules.create',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst rule = await client.hris.company.payStatementItem.rules.create();\n\nconsole.log(rule.id);",
+          'curl https://api.tryfinch.com/employer/pay-statement-item/rule \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -280,14 +280,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.hris.company.payStatementItem.rules.list(entity_ids?: string[]): { id?: string; attributes?: object; conditions?: object[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n**get** `/employer/pay-statement-item/rule`\n\nList all rules of a connection account.\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to retrieve rules for.\n\n### Returns\n\n- `{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n  - `id?: string`\n  - `attributes?: { metadata?: object; }`\n  - `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n  - `created_at?: string`\n  - `effective_end_date?: string`\n  - `effective_start_date?: string`\n  - `entity_type?: 'pay_statement_item'`\n  - `priority?: number`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const ruleListResponse of client.hris.company.payStatementItem.rules.list()) {\n  console.log(ruleListResponse);\n}\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Company.PayStatementItem.Rules.List',
+      typescript: {
+        method: 'client.hris.company.payStatementItem.rules.list',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Company.PayStatementItem.Rules.List(context.TODO(), finchgo.HRISCompanyPayStatementItemRuleListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const ruleListResponse of client.hris.company.payStatementItem.rules.list()) {\n  console.log(ruleListResponse.id);\n}",
       },
-      http: {
+      python: {
+        method: 'hris.company.pay_statement_item.rules.list',
         example:
-          'curl https://api.tryfinch.com/employer/pay-statement-item/rule \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.company.pay_statement_item.rules.list()\npage = page.responses[0]\nprint(page.id)',
       },
       java: {
         method: 'hris().company().payStatementItem().rules().list',
@@ -299,20 +300,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleListPage\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisCompanyPayStatementItemRuleListPage = client.hris().company().payStatementItem().rules().list()\n}',
       },
-      python: {
-        method: 'hris.company.pay_statement_item.rules.list',
+      go: {
+        method: 'client.HRIS.Company.PayStatementItem.Rules.List',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.company.pay_statement_item.rules.list()\npage = page.responses[0]\nprint(page.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Company.PayStatementItem.Rules.List(context.TODO(), finchgo.HRISCompanyPayStatementItemRuleListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'hris.company.pay_statement_item.rules.list',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.company.pay_statement_item.rules.list\n\nputs(page)',
       },
-      typescript: {
-        method: 'client.hris.company.payStatementItem.rules.list',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const ruleListResponse of client.hris.company.payStatementItem.rules.list()) {\n  console.log(ruleListResponse.id);\n}",
+          'curl https://api.tryfinch.com/employer/pay-statement-item/rule \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -330,14 +330,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.hris.company.payStatementItem.rules.update(rule_id: string, entity_ids?: string[], optionalProperty?: object): { id?: string; attributes?: object; conditions?: object[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n**put** `/employer/pay-statement-item/rule/{rule_id}`\n\nUpdate a rule for a pay statement item.\n\n### Parameters\n\n- `rule_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to update the rule for.\n\n- `optionalProperty?: object`\n\n### Returns\n\n- `{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n  - `id?: string`\n  - `attributes?: { metadata?: object; }`\n  - `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n  - `created_at?: string`\n  - `effective_end_date?: string`\n  - `effective_start_date?: string`\n  - `entity_type?: 'pay_statement_item'`\n  - `priority?: number`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst rule = await client.hris.company.payStatementItem.rules.update('rule_id');\n\nconsole.log(rule);\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Company.PayStatementItem.Rules.Update',
+      typescript: {
+        method: 'client.hris.company.payStatementItem.rules.update',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\trule, err := client.HRIS.Company.PayStatementItem.Rules.Update(\n\t\tcontext.TODO(),\n\t\t"rule_id",\n\t\tfinchgo.HRISCompanyPayStatementItemRuleUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", rule.ID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst rule = await client.hris.company.payStatementItem.rules.update('rule_id');\n\nconsole.log(rule.id);",
       },
-      http: {
+      python: {
+        method: 'hris.company.pay_statement_item.rules.update',
         example:
-          'curl https://api.tryfinch.com/employer/pay-statement-item/rule/$RULE_ID \\\n    -X PUT \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.company.pay_statement_item.rules.update(\n    rule_id="rule_id",\n)\nprint(rule.id)',
       },
       java: {
         method: 'hris().company().payStatementItem().rules().update',
@@ -349,20 +350,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleUpdateParams\nimport com.tryfinch.api.models.RuleUpdateResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val rule: RuleUpdateResponse = client.hris().company().payStatementItem().rules().update("rule_id")\n}',
       },
-      python: {
-        method: 'hris.company.pay_statement_item.rules.update',
+      go: {
+        method: 'client.HRIS.Company.PayStatementItem.Rules.Update',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.company.pay_statement_item.rules.update(\n    rule_id="rule_id",\n)\nprint(rule.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\trule, err := client.HRIS.Company.PayStatementItem.Rules.Update(\n\t\tcontext.TODO(),\n\t\t"rule_id",\n\t\tfinchgo.HRISCompanyPayStatementItemRuleUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", rule.ID)\n}\n',
       },
       ruby: {
         method: 'hris.company.pay_statement_item.rules.update',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.company.pay_statement_item.rules.update("rule_id")\n\nputs(rule)',
       },
-      typescript: {
-        method: 'client.hris.company.payStatementItem.rules.update',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst rule = await client.hris.company.payStatementItem.rules.update('rule_id');\n\nconsole.log(rule.id);",
+          'curl https://api.tryfinch.com/employer/pay-statement-item/rule/$RULE_ID \\\n    -X PUT \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -380,14 +380,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.hris.company.payStatementItem.rules.delete(rule_id: string, entity_ids?: string[]): { id?: string; attributes?: object; conditions?: object[]; created_at?: string; deleted_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n**delete** `/employer/pay-statement-item/rule/{rule_id}`\n\nDelete a rule for a pay statement item.\n\n### Parameters\n\n- `rule_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to delete the rule for.\n\n### Returns\n\n- `{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; deleted_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n  - `id?: string`\n  - `attributes?: { metadata?: object; }`\n  - `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n  - `created_at?: string`\n  - `deleted_at?: string`\n  - `effective_end_date?: string`\n  - `effective_start_date?: string`\n  - `entity_type?: 'pay_statement_item'`\n  - `priority?: number`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst rule = await client.hris.company.payStatementItem.rules.delete('rule_id');\n\nconsole.log(rule);\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Company.PayStatementItem.Rules.Delete',
+      typescript: {
+        method: 'client.hris.company.payStatementItem.rules.delete',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\trule, err := client.HRIS.Company.PayStatementItem.Rules.Delete(\n\t\tcontext.TODO(),\n\t\t"rule_id",\n\t\tfinchgo.HRISCompanyPayStatementItemRuleDeleteParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", rule.ID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst rule = await client.hris.company.payStatementItem.rules.delete('rule_id');\n\nconsole.log(rule.id);",
       },
-      http: {
+      python: {
+        method: 'hris.company.pay_statement_item.rules.delete',
         example:
-          'curl https://api.tryfinch.com/employer/pay-statement-item/rule/$RULE_ID \\\n    -X DELETE \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.company.pay_statement_item.rules.delete(\n    rule_id="rule_id",\n)\nprint(rule.id)',
       },
       java: {
         method: 'hris().company().payStatementItem().rules().delete',
@@ -399,20 +400,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleDeleteParams\nimport com.tryfinch.api.models.RuleDeleteResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val rule: RuleDeleteResponse = client.hris().company().payStatementItem().rules().delete("rule_id")\n}',
       },
-      python: {
-        method: 'hris.company.pay_statement_item.rules.delete',
+      go: {
+        method: 'client.HRIS.Company.PayStatementItem.Rules.Delete',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.company.pay_statement_item.rules.delete(\n    rule_id="rule_id",\n)\nprint(rule.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\trule, err := client.HRIS.Company.PayStatementItem.Rules.Delete(\n\t\tcontext.TODO(),\n\t\t"rule_id",\n\t\tfinchgo.HRISCompanyPayStatementItemRuleDeleteParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", rule.ID)\n}\n',
       },
       ruby: {
         method: 'hris.company.pay_statement_item.rules.delete',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.company.pay_statement_item.rules.delete("rule_id")\n\nputs(rule)',
       },
-      typescript: {
-        method: 'client.hris.company.payStatementItem.rules.delete',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst rule = await client.hris.company.payStatementItem.rules.delete('rule_id');\n\nconsole.log(rule.id);",
+          'curl https://api.tryfinch.com/employer/pay-statement-item/rule/$RULE_ID \\\n    -X DELETE \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -430,14 +430,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.hris.directory.list(entity_ids?: string[], limit?: number, offset?: number): { id: string; department: object; first_name: string; is_active: boolean; last_name: string; manager: object; middle_name: string; }`\n\n**get** `/employer/directory`\n\nRead company directory and organization structure\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `limit?: number`\n  Number of employees to return (defaults to all)\n\n- `offset?: number`\n  Index to start from (defaults to 0)\n\n### Returns\n\n- `{ id: string; department: { name?: string; }; first_name: string; is_active: boolean; last_name: string; manager: { id: string; }; middle_name: string; }`\n\n  - `id: string`\n  - `department: { name?: string; }`\n  - `first_name: string`\n  - `is_active: boolean`\n  - `last_name: string`\n  - `manager: { id: string; }`\n  - `middle_name: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const individualInDirectory of client.hris.directory.list()) {\n  console.log(individualInDirectory);\n}\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Directory.List',
+      typescript: {
+        method: 'client.hris.directory.list',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Directory.List(context.TODO(), finchgo.HRISDirectoryListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const individualInDirectory of client.hris.directory.list()) {\n  console.log(individualInDirectory.id);\n}",
       },
-      http: {
+      python: {
+        method: 'hris.directory.list',
         example:
-          'curl https://api.tryfinch.com/employer/directory \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.directory.list()\npage = page.individuals[0]\nprint(page.id)',
       },
       java: {
         method: 'hris().directory().list',
@@ -449,20 +450,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisDirectoryListPage\nimport com.tryfinch.api.models.HrisDirectoryListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisDirectoryListPage = client.hris().directory().list()\n}',
       },
-      python: {
-        method: 'hris.directory.list',
+      go: {
+        method: 'client.HRIS.Directory.List',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.directory.list()\npage = page.individuals[0]\nprint(page.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Directory.List(context.TODO(), finchgo.HRISDirectoryListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'hris.directory.list',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.directory.list\n\nputs(page)',
       },
-      typescript: {
-        method: 'client.hris.directory.list',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const individualInDirectory of client.hris.directory.list()) {\n  console.log(individualInDirectory.id);\n}",
+          'curl https://api.tryfinch.com/employer/directory \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -475,10 +475,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     stainlessPath: '(resource) hris.directory > (method) list_individuals',
     qualified: 'client.hris.directory.listIndividuals',
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Directory.ListIndividuals',
+      typescript: {
+        method: 'client.hris.directory.listIndividuals',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tresponse, err := client.HRIS.Directory.ListIndividuals(context.TODO(), finchgo.HRISDirectoryListIndividualsParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response.Individuals)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst response = await client.hris.directory.listIndividuals();\n\nconsole.log(response.individuals);",
+      },
+      python: {
+        method: 'hris.directory.list_individuals',
+        example:
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nresponse = client.hris.directory.list_individuals()\nprint(response.individuals)',
       },
       java: {
         method: 'hris().directory().listIndividuals',
@@ -490,20 +495,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.DirectoryListIndividualsResponse\nimport com.tryfinch.api.models.HrisDirectoryListIndividualsParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val response: DirectoryListIndividualsResponse = client.hris().directory().listIndividuals()\n}',
       },
-      python: {
-        method: 'hris.directory.list_individuals',
+      go: {
+        method: 'client.HRIS.Directory.ListIndividuals',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nresponse = client.hris.directory.list_individuals()\nprint(response.individuals)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tresponse, err := client.HRIS.Directory.ListIndividuals(context.TODO(), finchgo.HRISDirectoryListIndividualsParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response.Individuals)\n}\n',
       },
       ruby: {
         method: 'hris.directory.list_individuals',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nresponse = finch.hris.directory.list_individuals\n\nputs(response)',
-      },
-      typescript: {
-        method: 'client.hris.directory.listIndividuals',
-        example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst response = await client.hris.directory.listIndividuals();\n\nconsole.log(response.individuals);",
       },
     },
   },
@@ -525,14 +525,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve_many\n\n`client.hris.individuals.retrieveMany(entity_ids?: string[], options?: { include?: string[]; }, requests?: { individual_id?: string; }[]): { body: individual; code: number; individual_id: string; }`\n\n**post** `/employer/individual`\n\nRead individual data, excluding income and employment data\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `options?: { include?: string[]; }`\n  - `include?: string[]`\n\n- `requests?: { individual_id?: string; }[]`\n\n### Returns\n\n- `{ body: { id: string; dob: string; ethnicity: string; first_name: string; gender: 'female' | 'male' | 'other' | 'decline_to_specify'; last_name: string; middle_name: string; phone_numbers: object[]; preferred_name: string; residence: location; emails?: object[]; encrypted_ssn?: string; ssn?: string; } | { code: number; message: string; name: string; finch_code?: string; }; code: number; individual_id: string; }`\n\n  - `body: { id: string; dob: string; ethnicity: string; first_name: string; gender: 'female' | 'male' | 'other' | 'decline_to_specify'; last_name: string; middle_name: string; phone_numbers: { data: string; type: 'work' | 'personal'; }[]; preferred_name: string; residence: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }; emails?: { data: string; type: 'work' | 'personal'; }[]; encrypted_ssn?: string; ssn?: string; } | { code: number; message: string; name: string; finch_code?: string; }`\n  - `code: number`\n  - `individual_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const individualResponse of client.hris.individuals.retrieveMany()) {\n  console.log(individualResponse);\n}\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Individuals.GetMany',
+      typescript: {
+        method: 'client.hris.individuals.retrieveMany',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Individuals.GetMany(context.TODO(), finchgo.HRISIndividualGetManyParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const individualResponse of client.hris.individuals.retrieveMany()) {\n  console.log(individualResponse.individual_id);\n}",
       },
-      http: {
+      python: {
+        method: 'hris.individuals.retrieve_many',
         example:
-          'curl https://api.tryfinch.com/employer/individual \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.individuals.retrieve_many()\npage = page.responses[0]\nprint(page.individual_id)',
       },
       java: {
         method: 'hris().individuals().retrieveMany',
@@ -544,20 +545,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisIndividualRetrieveManyPage\nimport com.tryfinch.api.models.HrisIndividualRetrieveManyParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisIndividualRetrieveManyPage = client.hris().individuals().retrieveMany()\n}',
       },
-      python: {
-        method: 'hris.individuals.retrieve_many',
+      go: {
+        method: 'client.HRIS.Individuals.GetMany',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.individuals.retrieve_many()\npage = page.responses[0]\nprint(page.individual_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Individuals.GetMany(context.TODO(), finchgo.HRISIndividualGetManyParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'hris.individuals.retrieve_many',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.individuals.retrieve_many\n\nputs(page)',
       },
-      typescript: {
-        method: 'client.hris.individuals.retrieveMany',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const individualResponse of client.hris.individuals.retrieveMany()) {\n  console.log(individualResponse.individual_id);\n}",
+          'curl https://api.tryfinch.com/employer/individual \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -575,14 +575,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve_many\n\n`client.hris.employments.retrieveMany(requests: { individual_id: string; }[], entity_ids?: string[]): { body: employment_data; code: number; individual_id: string; }`\n\n**post** `/employer/employment`\n\nRead individual employment and income data\n\n### Parameters\n\n- `requests: { individual_id: string; }[]`\n  The array of batch requests.\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n### Returns\n\n- `{ body: { id: string; class_code: string; department: object; employment: object; employment_status: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated'; end_date: string; first_name: string; flsa_status: 'exempt' | 'non_exempt' | 'unknown'; is_active: boolean; last_name: string; latest_rehire_date: string; location: location; manager: object; middle_name: string; start_date: string; title: string; custom_fields?: object[]; income?: income; income_history?: income[]; source_id?: string; work_id?: string; } | { code: number; message: string; name: string; finch_code?: string; }; code: number; individual_id: string; }`\n\n  - `body: { id: string; class_code: string; department: { name: string; }; employment: { subtype: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor'; type: 'employee' | 'contractor'; }; employment_status: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated'; end_date: string; first_name: string; flsa_status: 'exempt' | 'non_exempt' | 'unknown'; is_active: boolean; last_name: string; latest_rehire_date: string; location: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }; manager: { id: string; }; middle_name: string; start_date: string; title: string; custom_fields?: { name?: string; value?: string | object[] | object | number | boolean; }[]; income?: { amount: number; currency: string; effective_date: string; unit: string; }; income_history?: { amount: number; currency: string; effective_date: string; unit: string; }[]; source_id?: string; work_id?: string; } | { code: number; message: string; name: string; finch_code?: string; }`\n  - `code: number`\n  - `individual_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const employmentDataResponse of client.hris.employments.retrieveMany({ requests: [{ individual_id: 'individual_id' }] })) {\n  console.log(employmentDataResponse);\n}\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Employments.GetMany',
+      typescript: {
+        method: 'client.hris.employments.retrieveMany',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Employments.GetMany(context.TODO(), finchgo.HRISEmploymentGetManyParams{\n\t\tRequests: finchgo.F([]finchgo.HRISEmploymentGetManyParamsRequest{{\n\t\t\tIndividualID: finchgo.F("individual_id"),\n\t\t}}),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const employmentDataResponse of client.hris.employments.retrieveMany({\n  requests: [{ individual_id: 'individual_id' }],\n})) {\n  console.log(employmentDataResponse.individual_id);\n}",
       },
-      http: {
+      python: {
+        method: 'hris.employments.retrieve_many',
         example:
-          'curl https://api.tryfinch.com/employer/employment \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "requests": [\n            {\n              "individual_id": "individual_id"\n            }\n          ]\n        }\'',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.employments.retrieve_many(\n    requests=[{\n        "individual_id": "individual_id"\n    }],\n)\npage = page.responses[0]\nprint(page.individual_id)',
       },
       java: {
         method: 'hris().employments().retrieveMany',
@@ -594,20 +595,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisEmploymentRetrieveManyPage\nimport com.tryfinch.api.models.HrisEmploymentRetrieveManyParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: HrisEmploymentRetrieveManyParams = HrisEmploymentRetrieveManyParams.builder()\n        .addRequest(HrisEmploymentRetrieveManyParams.Request.builder()\n            .individualId("individual_id")\n            .build())\n        .build()\n    val page: HrisEmploymentRetrieveManyPage = client.hris().employments().retrieveMany(params)\n}',
       },
-      python: {
-        method: 'hris.employments.retrieve_many',
+      go: {
+        method: 'client.HRIS.Employments.GetMany',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.employments.retrieve_many(\n    requests=[{\n        "individual_id": "individual_id"\n    }],\n)\npage = page.responses[0]\nprint(page.individual_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Employments.GetMany(context.TODO(), finchgo.HRISEmploymentGetManyParams{\n\t\tRequests: finchgo.F([]finchgo.HRISEmploymentGetManyParamsRequest{{\n\t\t\tIndividualID: finchgo.F("individual_id"),\n\t\t}}),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'hris.employments.retrieve_many',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.employments.retrieve_many(requests: [{individual_id: "individual_id"}])\n\nputs(page)',
       },
-      typescript: {
-        method: 'client.hris.employments.retrieveMany',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const employmentDataResponse of client.hris.employments.retrieveMany({\n  requests: [{ individual_id: 'individual_id' }],\n})) {\n  console.log(employmentDataResponse.individual_id);\n}",
+          'curl https://api.tryfinch.com/employer/employment \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "requests": [\n            {\n              "individual_id": "individual_id"\n            }\n          ]\n        }\'',
       },
     },
   },
@@ -625,14 +625,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.hris.payments.list(end_date: string, start_date: string, entity_ids?: string[]): { id: string; company_debit: money; debit_date: string; employee_taxes: money; employer_taxes: money; gross_pay: money; individual_ids: string[]; net_pay: money; pay_date: string; pay_frequencies: string[]; pay_group_ids: string[]; pay_period: object; }`\n\n**get** `/employer/payment`\n\nRead payroll and contractor related payments by the company.\n\n### Parameters\n\n- `end_date: string`\n  The end date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format. Filters payments by their **pay_date** field.\n\n- `start_date: string`\n  The start date to retrieve payments by a company (inclusive) in `YYYY-MM-DD` format. Filters payments by their **pay_date** field.\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n### Returns\n\n- `{ id: string; company_debit: { amount: number; currency: string; }; debit_date: string; employee_taxes: { amount: number; currency: string; }; employer_taxes: { amount: number; currency: string; }; gross_pay: { amount: number; currency: string; }; individual_ids: string[]; net_pay: { amount: number; currency: string; }; pay_date: string; pay_frequencies: string[]; pay_group_ids: string[]; pay_period: { end_date: string; start_date: string; }; }`\n\n  - `id: string`\n  - `company_debit: { amount: number; currency: string; }`\n  - `debit_date: string`\n  - `employee_taxes: { amount: number; currency: string; }`\n  - `employer_taxes: { amount: number; currency: string; }`\n  - `gross_pay: { amount: number; currency: string; }`\n  - `individual_ids: string[]`\n  - `net_pay: { amount: number; currency: string; }`\n  - `pay_date: string`\n  - `pay_frequencies: string[]`\n  - `pay_group_ids: string[]`\n  - `pay_period: { end_date: string; start_date: string; }`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const payment of client.hris.payments.list({ end_date: '2021-01-01', start_date: '2021-01-01' })) {\n  console.log(payment);\n}\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Payments.List',
+      typescript: {
+        method: 'client.hris.payments.list',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\t"time"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Payments.List(context.TODO(), finchgo.HRISPaymentListParams{\n\t\tEndDate:   finchgo.F(time.Now()),\n\t\tStartDate: finchgo.F(time.Now()),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const payment of client.hris.payments.list({\n  end_date: '2021-01-01',\n  start_date: '2021-01-01',\n})) {\n  console.log(payment.id);\n}",
       },
-      http: {
+      python: {
+        method: 'hris.payments.list',
         example:
-          'curl https://api.tryfinch.com/employer/payment \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from datetime import date\nfrom finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.payments.list(\n    end_date=date.fromisoformat("2021-01-01"),\n    start_date=date.fromisoformat("2021-01-01"),\n)\npage = page.items[0]\nprint(page.id)',
       },
       java: {
         method: 'hris().payments().list',
@@ -644,20 +645,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPaymentListPage\nimport com.tryfinch.api.models.HrisPaymentListParams\nimport java.time.LocalDate\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: HrisPaymentListParams = HrisPaymentListParams.builder()\n        .endDate(LocalDate.parse("2021-01-01"))\n        .startDate(LocalDate.parse("2021-01-01"))\n        .build()\n    val page: HrisPaymentListPage = client.hris().payments().list(params)\n}',
       },
-      python: {
-        method: 'hris.payments.list',
+      go: {
+        method: 'client.HRIS.Payments.List',
         example:
-          'from datetime import date\nfrom finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.payments.list(\n    end_date=date.fromisoformat("2021-01-01"),\n    start_date=date.fromisoformat("2021-01-01"),\n)\npage = page.items[0]\nprint(page.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\t"time"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Payments.List(context.TODO(), finchgo.HRISPaymentListParams{\n\t\tEndDate:   finchgo.F(time.Now()),\n\t\tStartDate: finchgo.F(time.Now()),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'hris.payments.list',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.payments.list(end_date: "2021-01-01", start_date: "2021-01-01")\n\nputs(page)',
       },
-      typescript: {
-        method: 'client.hris.payments.list',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const payment of client.hris.payments.list({\n  end_date: '2021-01-01',\n  start_date: '2021-01-01',\n})) {\n  console.log(payment.id);\n}",
+          'curl https://api.tryfinch.com/employer/payment \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -679,14 +679,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve_many\n\n`client.hris.payStatements.retrieveMany(requests: { payment_id: string; limit?: number; offset?: number; }[], entity_ids?: string[]): { body: pay_statement_response_body | object | pay_statement_data_sync_in_progress; code: number; payment_id: string; }`\n\n**post** `/employer/pay-statement`\n\nRead detailed pay statements for each individual.\n\nDeduction and contribution types are supported by the payroll systems that supports Benefits.\n\n### Parameters\n\n- `requests: { payment_id: string; limit?: number; offset?: number; }[]`\n  The array of batch requests.\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n### Returns\n\n- `{ body: { paging: object; pay_statements: pay_statement[]; } | { code: number; message: string; name: string; finch_code?: string; } | { code: 202; finch_code: 'data_sync_in_progress'; message: 'The pay statements for this payment are being fetched. Please check back later.'; name: 'accepted'; }; code: number; payment_id: string; }`\n\n  - `body: { paging: { offset: number; count?: number; }; pay_statements: { earnings: object[]; employee_deductions: object[]; employer_contributions: object[]; gross_pay: money; individual_id: string; net_pay: money; payment_method: 'check' | 'direct_deposit' | 'other'; taxes: object[]; total_hours: number; type: 'off_cycle_payroll' | 'one_time_payment' | 'regular_payroll'; }[]; } | { code: number; message: string; name: string; finch_code?: string; } | { code: 202; finch_code: 'data_sync_in_progress'; message: 'The pay statements for this payment are being fetched. Please check back later.'; name: 'accepted'; }`\n  - `code: number`\n  - `payment_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const payStatementResponse of client.hris.payStatements.retrieveMany({ requests: [{ payment_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e' }] })) {\n  console.log(payStatementResponse);\n}\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.PayStatements.GetMany',
+      typescript: {
+        method: 'client.hris.payStatements.retrieveMany',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.PayStatements.GetMany(context.TODO(), finchgo.HRISPayStatementGetManyParams{\n\t\tRequests: finchgo.F([]finchgo.HRISPayStatementGetManyParamsRequest{{\n\t\t\tPaymentID: finchgo.F("182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"),\n\t\t}}),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const payStatementResponse of client.hris.payStatements.retrieveMany({\n  requests: [{ payment_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e' }],\n})) {\n  console.log(payStatementResponse.payment_id);\n}",
       },
-      http: {
+      python: {
+        method: 'hris.pay_statements.retrieve_many',
         example:
-          'curl https://api.tryfinch.com/employer/pay-statement \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "requests": [\n            {\n              "payment_id": "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"\n            }\n          ]\n        }\'',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.pay_statements.retrieve_many(\n    requests=[{\n        "payment_id": "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"\n    }],\n)\npage = page.responses[0]\nprint(page.payment_id)',
       },
       java: {
         method: 'hris().payStatements().retrieveMany',
@@ -698,20 +699,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPayStatementRetrieveManyPage\nimport com.tryfinch.api.models.HrisPayStatementRetrieveManyParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: HrisPayStatementRetrieveManyParams = HrisPayStatementRetrieveManyParams.builder()\n        .addRequest(HrisPayStatementRetrieveManyParams.Request.builder()\n            .paymentId("182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")\n            .build())\n        .build()\n    val page: HrisPayStatementRetrieveManyPage = client.hris().payStatements().retrieveMany(params)\n}',
       },
-      python: {
-        method: 'hris.pay_statements.retrieve_many',
+      go: {
+        method: 'client.HRIS.PayStatements.GetMany',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.pay_statements.retrieve_many(\n    requests=[{\n        "payment_id": "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"\n    }],\n)\npage = page.responses[0]\nprint(page.payment_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.PayStatements.GetMany(context.TODO(), finchgo.HRISPayStatementGetManyParams{\n\t\tRequests: finchgo.F([]finchgo.HRISPayStatementGetManyParamsRequest{{\n\t\t\tPaymentID: finchgo.F("182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"),\n\t\t}}),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'hris.pay_statements.retrieve_many',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.pay_statements.retrieve_many(requests: [{payment_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"}])\n\nputs(page)',
       },
-      typescript: {
-        method: 'client.hris.payStatements.retrieveMany',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const payStatementResponse of client.hris.payStatements.retrieveMany({\n  requests: [{ payment_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e' }],\n})) {\n  console.log(payStatementResponse.payment_id);\n}",
+          'curl https://api.tryfinch.com/employer/pay-statement \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "requests": [\n            {\n              "payment_id": "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"\n            }\n          ]\n        }\'',
       },
     },
   },
@@ -736,14 +736,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.hris.documents.list(entity_ids?: string[], individual_ids?: string[], limit?: number, offset?: number, types?: 'w4_2020' | 'w4_2005'[]): { documents: document_response[]; paging: paging; }`\n\n**get** `/employer/documents`\n\n**Beta:** This endpoint is in beta and may change.\nRetrieve a list of company-wide documents.\n\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `individual_ids?: string[]`\n  Comma-delimited list of stable Finch uuids for each individual. If empty, defaults to all individuals\n\n- `limit?: number`\n  Number of documents to return (defaults to all)\n\n- `offset?: number`\n  Index to start from (defaults to 0)\n\n- `types?: 'w4_2020' | 'w4_2005'[]`\n  Comma-delimited list of document types to filter on. If empty, defaults to all types\n\n### Returns\n\n- `{ documents: { id: string; individual_id: string; type: 'w4_2020' | 'w4_2005'; url: string; year: number; }[]; paging: { offset: number; count?: number; }; }`\n\n  - `documents: { id: string; individual_id: string; type: 'w4_2020' | 'w4_2005'; url: string; year: number; }[]`\n  - `paging: { offset: number; count?: number; }`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst documents = await client.hris.documents.list();\n\nconsole.log(documents);\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Documents.List',
+      typescript: {
+        method: 'client.hris.documents.list',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tdocuments, err := client.HRIS.Documents.List(context.TODO(), finchgo.HRISDocumentListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", documents.Documents)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst documents = await client.hris.documents.list();\n\nconsole.log(documents.documents);",
       },
-      http: {
+      python: {
+        method: 'hris.documents.list',
         example:
-          'curl https://api.tryfinch.com/employer/documents \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ndocuments = client.hris.documents.list()\nprint(documents.documents)',
       },
       java: {
         method: 'hris().documents().list',
@@ -755,20 +756,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.DocumentListResponse\nimport com.tryfinch.api.models.HrisDocumentListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val documents: DocumentListResponse = client.hris().documents().list()\n}',
       },
-      python: {
-        method: 'hris.documents.list',
+      go: {
+        method: 'client.HRIS.Documents.List',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ndocuments = client.hris.documents.list()\nprint(documents.documents)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tdocuments, err := client.HRIS.Documents.List(context.TODO(), finchgo.HRISDocumentListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", documents.Documents)\n}\n',
       },
       ruby: {
         method: 'hris.documents.list',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ndocuments = finch.hris.documents.list\n\nputs(documents)',
       },
-      typescript: {
-        method: 'client.hris.documents.list',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst documents = await client.hris.documents.list();\n\nconsole.log(documents.documents);",
+          'curl https://api.tryfinch.com/employer/documents \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -787,14 +787,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retreive\n\n`client.hris.documents.retreive(document_id: string, entity_ids?: string[]): object | object`\n\n**get** `/employer/documents/{document_id}`\n\n**Beta:** This endpoint is in beta and may change.\nRetrieve details of a specific document by its ID.\n\n\n### Parameters\n\n- `document_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n### Returns\n\n- `{ data: { amount_for_other_dependents: number; amount_for_qualifying_children_under_17: number; deductions: number; extra_withholding: number; filing_status: string; individual_id: string; other_income: number; total_claim_dependent_and_other_credits: number; }; type: 'w4_2020'; year: number; } | { data: { additional_withholding: number; exemption: 'exempt' | 'non_exempt'; filing_status: 'married' | 'married_but_withhold_at_higher_single_rate' | 'single'; individual_id: string; total_number_of_allowances: number; }; type: 'w4_2005'; year: number; }`\n  A 2020 version of the W-4 tax form containing information on an individual's filing status, dependents, and withholding details.\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst response = await client.hris.documents.retreive('document_id');\n\nconsole.log(response);\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Documents.Retreive',
+      typescript: {
+        method: 'client.hris.documents.retreive',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tresponse, err := client.HRIS.Documents.Retreive(\n\t\tcontext.TODO(),\n\t\t"document_id",\n\t\tfinchgo.HRISDocumentRetreiveParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst response = await client.hris.documents.retreive('document_id');\n\nconsole.log(response);",
       },
-      http: {
+      python: {
+        method: 'hris.documents.retreive',
         example:
-          'curl https://api.tryfinch.com/employer/documents/$DOCUMENT_ID \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nresponse = client.hris.documents.retreive(\n    document_id="document_id",\n)\nprint(response)',
       },
       java: {
         method: 'hris().documents().retreive',
@@ -806,20 +807,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.DocumentRetreiveResponse\nimport com.tryfinch.api.models.HrisDocumentRetreiveParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val response: DocumentRetreiveResponse = client.hris().documents().retreive("document_id")\n}',
       },
-      python: {
-        method: 'hris.documents.retreive',
+      go: {
+        method: 'client.HRIS.Documents.Retreive',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nresponse = client.hris.documents.retreive(\n    document_id="document_id",\n)\nprint(response)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tresponse, err := client.HRIS.Documents.Retreive(\n\t\tcontext.TODO(),\n\t\t"document_id",\n\t\tfinchgo.HRISDocumentRetreiveParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response)\n}\n',
       },
       ruby: {
         method: 'hris.documents.retreive',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nresponse = finch.hris.documents.retreive("document_id")\n\nputs(response)',
       },
-      typescript: {
-        method: 'client.hris.documents.retreive',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst response = await client.hris.documents.retreive('document_id');\n\nconsole.log(response);",
+          'curl https://api.tryfinch.com/employer/documents/$DOCUMENT_ID \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -837,14 +837,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.hris.benefits.list(entity_ids?: string[]): { benefit_id: string; description: string; frequency: benefit_frequency; type: benefit_type; company_contribution?: object; }`\n\n**get** `/employer/benefits`\n\nList all company-wide deductions and contributions.\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n### Returns\n\n- `{ benefit_id: string; description: string; frequency: 'every_paycheck' | 'monthly' | 'one_time'; type: string; company_contribution?: { tiers: { match: number; threshold: number; }[]; type: 'match'; }; }`\n\n  - `benefit_id: string`\n  - `description: string`\n  - `frequency: 'every_paycheck' | 'monthly' | 'one_time'`\n  - `type: string`\n  - `company_contribution?: { tiers: { match: number; threshold: number; }[]; type: 'match'; }`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const companyBenefit of client.hris.benefits.list()) {\n  console.log(companyBenefit);\n}\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Benefits.List',
+      typescript: {
+        method: 'client.hris.benefits.list',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Benefits.List(context.TODO(), finchgo.HRISBenefitListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const companyBenefit of client.hris.benefits.list()) {\n  console.log(companyBenefit.benefit_id);\n}",
       },
-      http: {
+      python: {
+        method: 'hris.benefits.list',
         example:
-          'curl https://api.tryfinch.com/employer/benefits \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.benefits.list()\npage = page.items[0]\nprint(page.benefit_id)',
       },
       java: {
         method: 'hris().benefits().list',
@@ -856,20 +857,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitListPage\nimport com.tryfinch.api.models.HrisBenefitListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisBenefitListPage = client.hris().benefits().list()\n}',
       },
-      python: {
-        method: 'hris.benefits.list',
+      go: {
+        method: 'client.HRIS.Benefits.List',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.benefits.list()\npage = page.items[0]\nprint(page.benefit_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Benefits.List(context.TODO(), finchgo.HRISBenefitListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'hris.benefits.list',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.benefits.list\n\nputs(page)',
       },
-      typescript: {
-        method: 'client.hris.benefits.list',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const companyBenefit of client.hris.benefits.list()) {\n  console.log(companyBenefit.benefit_id);\n}",
+          'curl https://api.tryfinch.com/employer/benefits \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -893,14 +893,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.hris.benefits.create(entity_ids?: string[], company_contribution?: { tiers: { match: number; threshold: number; }[]; type: 'match'; }, description?: string, frequency?: 'every_paycheck' | 'monthly' | 'one_time', type?: string): { benefit_id: string; job_id: string; }`\n\n**post** `/employer/benefits`\n\nCreates a new company-wide deduction or contribution. Please use the `/providers` endpoint to view available types for each provider.\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `company_contribution?: { tiers: { match: number; threshold: number; }[]; type: 'match'; }`\n  The company match for this benefit.\n  - `tiers: { match: number; threshold: number; }[]`\n  - `type: 'match'`\n\n- `description?: string`\n  Name of the benefit as it appears in the provider and pay statements. Recommend limiting this to <30 characters due to limitations in specific providers (e.g. Justworks).\n\n- `frequency?: 'every_paycheck' | 'monthly' | 'one_time'`\n  The frequency of the benefit deduction/contribution.\n\n- `type?: string`\n  Type of benefit.\n\n### Returns\n\n- `{ benefit_id: string; job_id: string; }`\n\n  - `benefit_id: string`\n  - `job_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst createCompanyBenefitsResponse = await client.hris.benefits.create();\n\nconsole.log(createCompanyBenefitsResponse);\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Benefits.New',
+      typescript: {
+        method: 'client.hris.benefits.create',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tcreateCompanyBenefitsResponse, err := client.HRIS.Benefits.New(context.TODO(), finchgo.HRISBenefitNewParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", createCompanyBenefitsResponse.BenefitID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst createCompanyBenefitsResponse = await client.hris.benefits.create();\n\nconsole.log(createCompanyBenefitsResponse.benefit_id);",
       },
-      http: {
+      python: {
+        method: 'hris.benefits.create',
         example:
-          'curl https://api.tryfinch.com/employer/benefits \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ncreate_company_benefits_response = client.hris.benefits.create()\nprint(create_company_benefits_response.benefit_id)',
       },
       java: {
         method: 'hris().benefits().create',
@@ -912,20 +913,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.CreateCompanyBenefitsResponse\nimport com.tryfinch.api.models.HrisBenefitCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val createCompanyBenefitsResponse: CreateCompanyBenefitsResponse = client.hris().benefits().create()\n}',
       },
-      python: {
-        method: 'hris.benefits.create',
+      go: {
+        method: 'client.HRIS.Benefits.New',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ncreate_company_benefits_response = client.hris.benefits.create()\nprint(create_company_benefits_response.benefit_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tcreateCompanyBenefitsResponse, err := client.HRIS.Benefits.New(context.TODO(), finchgo.HRISBenefitNewParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", createCompanyBenefitsResponse.BenefitID)\n}\n',
       },
       ruby: {
         method: 'hris.benefits.create',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ncreate_company_benefits_response = finch.hris.benefits.create\n\nputs(create_company_benefits_response)',
       },
-      typescript: {
-        method: 'client.hris.benefits.create',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst createCompanyBenefitsResponse = await client.hris.benefits.create();\n\nconsole.log(createCompanyBenefitsResponse.benefit_id);",
+          'curl https://api.tryfinch.com/employer/benefits \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -943,14 +943,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.hris.benefits.retrieve(benefit_id: string, entity_ids?: string[]): { benefit_id: string; description: string; frequency: benefit_frequency; type: benefit_type; company_contribution?: object; }`\n\n**get** `/employer/benefits/{benefit_id}`\n\nLists deductions and contributions information for a given item\n\n### Parameters\n\n- `benefit_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n### Returns\n\n- `{ benefit_id: string; description: string; frequency: 'every_paycheck' | 'monthly' | 'one_time'; type: string; company_contribution?: { tiers: { match: number; threshold: number; }[]; type: 'match'; }; }`\n\n  - `benefit_id: string`\n  - `description: string`\n  - `frequency: 'every_paycheck' | 'monthly' | 'one_time'`\n  - `type: string`\n  - `company_contribution?: { tiers: { match: number; threshold: number; }[]; type: 'match'; }`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst companyBenefit = await client.hris.benefits.retrieve('benefit_id');\n\nconsole.log(companyBenefit);\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Benefits.Get',
+      typescript: {
+        method: 'client.hris.benefits.retrieve',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tcompanyBenefit, err := client.HRIS.Benefits.Get(\n\t\tcontext.TODO(),\n\t\t"benefit_id",\n\t\tfinchgo.HRISBenefitGetParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", companyBenefit.BenefitID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst companyBenefit = await client.hris.benefits.retrieve('benefit_id');\n\nconsole.log(companyBenefit.benefit_id);",
       },
-      http: {
+      python: {
+        method: 'hris.benefits.retrieve',
         example:
-          'curl https://api.tryfinch.com/employer/benefits/$BENEFIT_ID \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ncompany_benefit = client.hris.benefits.retrieve(\n    benefit_id="benefit_id",\n)\nprint(company_benefit.benefit_id)',
       },
       java: {
         method: 'hris().benefits().retrieve',
@@ -962,20 +963,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.CompanyBenefit\nimport com.tryfinch.api.models.HrisBenefitRetrieveParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val companyBenefit: CompanyBenefit = client.hris().benefits().retrieve("benefit_id")\n}',
       },
-      python: {
-        method: 'hris.benefits.retrieve',
+      go: {
+        method: 'client.HRIS.Benefits.Get',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ncompany_benefit = client.hris.benefits.retrieve(\n    benefit_id="benefit_id",\n)\nprint(company_benefit.benefit_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tcompanyBenefit, err := client.HRIS.Benefits.Get(\n\t\tcontext.TODO(),\n\t\t"benefit_id",\n\t\tfinchgo.HRISBenefitGetParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", companyBenefit.BenefitID)\n}\n',
       },
       ruby: {
         method: 'hris.benefits.retrieve',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ncompany_benefit = finch.hris.benefits.retrieve("benefit_id")\n\nputs(company_benefit)',
       },
-      typescript: {
-        method: 'client.hris.benefits.retrieve',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst companyBenefit = await client.hris.benefits.retrieve('benefit_id');\n\nconsole.log(companyBenefit.benefit_id);",
+          'curl https://api.tryfinch.com/employer/benefits/$BENEFIT_ID \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -992,14 +992,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.hris.benefits.update(benefit_id: string, entity_ids?: string[], description?: string): { benefit_id: string; job_id: string; }`\n\n**post** `/employer/benefits/{benefit_id}`\n\nUpdates an existing company-wide deduction or contribution\n\n### Parameters\n\n- `benefit_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `description?: string`\n  Updated name or description.\n\n### Returns\n\n- `{ benefit_id: string; job_id: string; }`\n\n  - `benefit_id: string`\n  - `job_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst updateCompanyBenefitResponse = await client.hris.benefits.update('benefit_id');\n\nconsole.log(updateCompanyBenefitResponse);\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Benefits.Update',
+      typescript: {
+        method: 'client.hris.benefits.update',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tupdateCompanyBenefitResponse, err := client.HRIS.Benefits.Update(\n\t\tcontext.TODO(),\n\t\t"benefit_id",\n\t\tfinchgo.HRISBenefitUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", updateCompanyBenefitResponse.BenefitID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst updateCompanyBenefitResponse = await client.hris.benefits.update('benefit_id');\n\nconsole.log(updateCompanyBenefitResponse.benefit_id);",
       },
-      http: {
+      python: {
+        method: 'hris.benefits.update',
         example:
-          'curl https://api.tryfinch.com/employer/benefits/$BENEFIT_ID \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nupdate_company_benefit_response = client.hris.benefits.update(\n    benefit_id="benefit_id",\n)\nprint(update_company_benefit_response.benefit_id)',
       },
       java: {
         method: 'hris().benefits().update',
@@ -1011,20 +1012,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitUpdateParams\nimport com.tryfinch.api.models.UpdateCompanyBenefitResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val updateCompanyBenefitResponse: UpdateCompanyBenefitResponse = client.hris().benefits().update("benefit_id")\n}',
       },
-      python: {
-        method: 'hris.benefits.update',
+      go: {
+        method: 'client.HRIS.Benefits.Update',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nupdate_company_benefit_response = client.hris.benefits.update(\n    benefit_id="benefit_id",\n)\nprint(update_company_benefit_response.benefit_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tupdateCompanyBenefitResponse, err := client.HRIS.Benefits.Update(\n\t\tcontext.TODO(),\n\t\t"benefit_id",\n\t\tfinchgo.HRISBenefitUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", updateCompanyBenefitResponse.BenefitID)\n}\n',
       },
       ruby: {
         method: 'hris.benefits.update',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nupdate_company_benefit_response = finch.hris.benefits.update("benefit_id")\n\nputs(update_company_benefit_response)',
       },
-      typescript: {
-        method: 'client.hris.benefits.update',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst updateCompanyBenefitResponse = await client.hris.benefits.update('benefit_id');\n\nconsole.log(updateCompanyBenefitResponse.benefit_id);",
+          'curl https://api.tryfinch.com/employer/benefits/$BENEFIT_ID \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1042,14 +1042,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list_supported_benefits\n\n`client.hris.benefits.listSupportedBenefits(entity_ids?: string[]): { annual_maximum: boolean; company_contribution: 'fixed' | 'percent' | 'tiered'[]; description: string; employee_deduction: 'fixed' | 'percent'[]; frequencies: benefit_frequency[]; catch_up?: boolean; hsa_contribution_limit?: 'family' | 'individual'[]; }`\n\n**get** `/employer/benefits/meta`\n\nGet deductions metadata\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n### Returns\n\n- `{ annual_maximum: boolean; company_contribution: 'fixed' | 'percent' | 'tiered'[]; description: string; employee_deduction: 'fixed' | 'percent'[]; frequencies: 'every_paycheck' | 'monthly' | 'one_time'[]; catch_up?: boolean; hsa_contribution_limit?: 'family' | 'individual'[]; }`\n\n  - `annual_maximum: boolean`\n  - `company_contribution: 'fixed' | 'percent' | 'tiered'[]`\n  - `description: string`\n  - `employee_deduction: 'fixed' | 'percent'[]`\n  - `frequencies: 'every_paycheck' | 'monthly' | 'one_time'[]`\n  - `catch_up?: boolean`\n  - `hsa_contribution_limit?: 'family' | 'individual'[]`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const supportedBenefit of client.hris.benefits.listSupportedBenefits()) {\n  console.log(supportedBenefit);\n}\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Benefits.ListSupportedBenefits',
+      typescript: {
+        method: 'client.hris.benefits.listSupportedBenefits',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Benefits.ListSupportedBenefits(context.TODO(), finchgo.HRISBenefitListSupportedBenefitsParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const supportedBenefit of client.hris.benefits.listSupportedBenefits()) {\n  console.log(supportedBenefit.annual_maximum);\n}",
       },
-      http: {
+      python: {
+        method: 'hris.benefits.list_supported_benefits',
         example:
-          'curl https://api.tryfinch.com/employer/benefits/meta \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.benefits.list_supported_benefits()\npage = page.items[0]\nprint(page.annual_maximum)',
       },
       java: {
         method: 'hris().benefits().listSupportedBenefits',
@@ -1061,20 +1062,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitListSupportedBenefitsPage\nimport com.tryfinch.api.models.HrisBenefitListSupportedBenefitsParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisBenefitListSupportedBenefitsPage = client.hris().benefits().listSupportedBenefits()\n}',
       },
-      python: {
-        method: 'hris.benefits.list_supported_benefits',
+      go: {
+        method: 'client.HRIS.Benefits.ListSupportedBenefits',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.benefits.list_supported_benefits()\npage = page.items[0]\nprint(page.annual_maximum)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Benefits.ListSupportedBenefits(context.TODO(), finchgo.HRISBenefitListSupportedBenefitsParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'hris.benefits.list_supported_benefits',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.benefits.list_supported_benefits\n\nputs(page)',
       },
-      typescript: {
-        method: 'client.hris.benefits.listSupportedBenefits',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const supportedBenefit of client.hris.benefits.listSupportedBenefits()) {\n  console.log(supportedBenefit.annual_maximum);\n}",
+          'curl https://api.tryfinch.com/employer/benefits/meta \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1091,14 +1091,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## enrolled_ids\n\n`client.hris.benefits.individuals.enrolledIDs(benefit_id: string, entity_ids?: string[]): { benefit_id: string; individual_ids: string[]; }`\n\n**get** `/employer/benefits/{benefit_id}/enrolled`\n\nLists individuals currently enrolled in a given deduction.\n\n### Parameters\n\n- `benefit_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n### Returns\n\n- `{ benefit_id: string; individual_ids: string[]; }`\n\n  - `benefit_id: string`\n  - `individual_ids: string[]`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst response = await client.hris.benefits.individuals.enrolledIDs('benefit_id');\n\nconsole.log(response);\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Benefits.Individuals.EnrolledIDs',
+      typescript: {
+        method: 'client.hris.benefits.individuals.enrolledIDs',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tresponse, err := client.HRIS.Benefits.Individuals.EnrolledIDs(\n\t\tcontext.TODO(),\n\t\t"benefit_id",\n\t\tfinchgo.HRISBenefitIndividualEnrolledIDsParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response.BenefitID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst response = await client.hris.benefits.individuals.enrolledIDs('benefit_id');\n\nconsole.log(response.benefit_id);",
       },
-      http: {
+      python: {
+        method: 'hris.benefits.individuals.enrolled_ids',
         example:
-          'curl https://api.tryfinch.com/employer/benefits/$BENEFIT_ID/enrolled \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nresponse = client.hris.benefits.individuals.enrolled_ids(\n    benefit_id="benefit_id",\n)\nprint(response.benefit_id)',
       },
       java: {
         method: 'hris().benefits().individuals().enrolledIds',
@@ -1110,20 +1111,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitIndividualEnrolledIdsParams\nimport com.tryfinch.api.models.IndividualEnrolledIdsResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val response: IndividualEnrolledIdsResponse = client.hris().benefits().individuals().enrolledIds("benefit_id")\n}',
       },
-      python: {
-        method: 'hris.benefits.individuals.enrolled_ids',
+      go: {
+        method: 'client.HRIS.Benefits.Individuals.EnrolledIDs',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nresponse = client.hris.benefits.individuals.enrolled_ids(\n    benefit_id="benefit_id",\n)\nprint(response.benefit_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tresponse, err := client.HRIS.Benefits.Individuals.EnrolledIDs(\n\t\tcontext.TODO(),\n\t\t"benefit_id",\n\t\tfinchgo.HRISBenefitIndividualEnrolledIDsParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response.BenefitID)\n}\n',
       },
       ruby: {
         method: 'hris.benefits.individuals.enrolled_ids',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nresponse = finch.hris.benefits.individuals.enrolled_ids("benefit_id")\n\nputs(response)',
       },
-      typescript: {
-        method: 'client.hris.benefits.individuals.enrolledIDs',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst response = await client.hris.benefits.individuals.enrolledIDs('benefit_id');\n\nconsole.log(response.benefit_id);",
+          'curl https://api.tryfinch.com/employer/benefits/$BENEFIT_ID/enrolled \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1141,14 +1141,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve_many_benefits\n\n`client.hris.benefits.individuals.retrieveManyBenefits(benefit_id: string, entity_ids?: string[], individual_ids?: string): { body: object | object; code: number; individual_id: string; }`\n\n**get** `/employer/benefits/{benefit_id}/individuals`\n\nGet enrollment information for the given individuals.\n\n### Parameters\n\n- `benefit_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `individual_ids?: string`\n  comma-delimited list of stable Finch uuids for each individual. If empty, defaults to all individuals\n\n### Returns\n\n- `{ body: { annual_maximum: number; catch_up: boolean; company_contribution: { amount: number; type: 'fixed'; } | { amount: number; type: 'percent'; } | { tiers: object[]; type: 'tiered'; }; employee_deduction: { amount: number; type: 'fixed'; } | { amount: number; type: 'percent'; }; hsa_contribution_limit?: 'individual' | 'family'; } | { code: number; message: string; name: string; finch_code?: string; }; code: number; individual_id: string; }`\n\n  - `body: { annual_maximum: number; catch_up: boolean; company_contribution: { amount: number; type: 'fixed'; } | { amount: number; type: 'percent'; } | { tiers: { match: number; threshold: number; }[]; type: 'tiered'; }; employee_deduction: { amount: number; type: 'fixed'; } | { amount: number; type: 'percent'; }; hsa_contribution_limit?: 'individual' | 'family'; } | { code: number; message: string; name: string; finch_code?: string; }`\n  - `code: number`\n  - `individual_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const individualBenefit of client.hris.benefits.individuals.retrieveManyBenefits('benefit_id')) {\n  console.log(individualBenefit);\n}\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Benefits.Individuals.GetManyBenefits',
+      typescript: {
+        method: 'client.hris.benefits.individuals.retrieveManyBenefits',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Benefits.Individuals.GetManyBenefits(\n\t\tcontext.TODO(),\n\t\t"benefit_id",\n\t\tfinchgo.HRISBenefitIndividualGetManyBenefitsParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const individualBenefit of client.hris.benefits.individuals.retrieveManyBenefits(\n  'benefit_id',\n)) {\n  console.log(individualBenefit.individual_id);\n}",
       },
-      http: {
+      python: {
+        method: 'hris.benefits.individuals.retrieve_many_benefits',
         example:
-          'curl https://api.tryfinch.com/employer/benefits/$BENEFIT_ID/individuals \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.benefits.individuals.retrieve_many_benefits(\n    benefit_id="benefit_id",\n)\npage = page.items[0]\nprint(page.individual_id)',
       },
       java: {
         method: 'hris().benefits().individuals().retrieveManyBenefits',
@@ -1160,20 +1161,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitIndividualRetrieveManyBenefitsPage\nimport com.tryfinch.api.models.HrisBenefitIndividualRetrieveManyBenefitsParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisBenefitIndividualRetrieveManyBenefitsPage = client.hris().benefits().individuals().retrieveManyBenefits("benefit_id")\n}',
       },
-      python: {
-        method: 'hris.benefits.individuals.retrieve_many_benefits',
+      go: {
+        method: 'client.HRIS.Benefits.Individuals.GetManyBenefits',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.benefits.individuals.retrieve_many_benefits(\n    benefit_id="benefit_id",\n)\npage = page.items[0]\nprint(page.individual_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Benefits.Individuals.GetManyBenefits(\n\t\tcontext.TODO(),\n\t\t"benefit_id",\n\t\tfinchgo.HRISBenefitIndividualGetManyBenefitsParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'hris.benefits.individuals.retrieve_many_benefits',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.benefits.individuals.retrieve_many_benefits("benefit_id")\n\nputs(page)',
       },
-      typescript: {
-        method: 'client.hris.benefits.individuals.retrieveManyBenefits',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const individualBenefit of client.hris.benefits.individuals.retrieveManyBenefits(\n  'benefit_id',\n)) {\n  console.log(individualBenefit.individual_id);\n}",
+          'curl https://api.tryfinch.com/employer/benefits/$BENEFIT_ID/individuals \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1195,9 +1195,10 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## enroll_many\n\n`client.hris.benefits.individuals.enrollMany(benefit_id: string, entity_ids?: string[], individuals?: { configuration?: { annual_contribution_limit?: 'individual' | 'family'; annual_maximum?: number; catch_up?: boolean; company_contribution?: object; effective_date?: string; employee_deduction?: object; }; individual_id?: string; }[]): { job_id: string; }`\n\n**post** `/employer/benefits/{benefit_id}/individuals`\n\nEnroll an individual into a deduction or contribution. This is an overwrite operation. If the employee is already enrolled, the enrollment amounts will be adjusted. Making the same request multiple times will not create new enrollments, but will continue to set the state of the existing enrollment.\n\n### Parameters\n\n- `benefit_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `individuals?: { configuration?: { annual_contribution_limit?: 'individual' | 'family'; annual_maximum?: number; catch_up?: boolean; company_contribution?: { amount?: number; tiers?: { match: number; threshold: number; }[]; type?: 'fixed' | 'percent' | 'tiered'; }; effective_date?: string; employee_deduction?: { amount?: number; type?: 'fixed' | 'percent'; }; }; individual_id?: string; }[]`\n  Array of the individual_id to enroll and a configuration object.\n\n### Returns\n\n- `{ job_id: string; }`\n\n  - `job_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst enrolledIndividualBenefitResponse = await client.hris.benefits.individuals.enrollMany('benefit_id');\n\nconsole.log(enrolledIndividualBenefitResponse);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.hris.benefits.individuals.enrollMany',
         example:
-          'curl https://api.tryfinch.com/employer/benefits/$BENEFIT_ID/individuals \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst enrolledIndividualBenefitResponse = await client.hris.benefits.individuals.enrollMany(\n  'benefit_id',\n);\n\nconsole.log(enrolledIndividualBenefitResponse.job_id);",
       },
       python: {
         method: 'hris.benefits.individuals.enroll_many',
@@ -1209,10 +1210,9 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nenrolled_individual_benefit_response = finch.hris.benefits.individuals.enroll_many("benefit_id")\n\nputs(enrolled_individual_benefit_response)',
       },
-      typescript: {
-        method: 'client.hris.benefits.individuals.enrollMany',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst enrolledIndividualBenefitResponse = await client.hris.benefits.individuals.enrollMany(\n  'benefit_id',\n);\n\nconsole.log(enrolledIndividualBenefitResponse.job_id);",
+          'curl https://api.tryfinch.com/employer/benefits/$BENEFIT_ID/individuals \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1229,14 +1229,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## unenroll_many\n\n`client.hris.benefits.individuals.unenrollMany(benefit_id: string, entity_ids?: string[], individual_ids?: string[]): { job_id: string; }`\n\n**delete** `/employer/benefits/{benefit_id}/individuals`\n\nUnenroll individuals from a deduction or contribution\n\n### Parameters\n\n- `benefit_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `individual_ids?: string[]`\n  Array of individual_ids to unenroll.\n\n### Returns\n\n- `{ job_id: string; }`\n\n  - `job_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst unenrolledIndividualBenefitResponse = await client.hris.benefits.individuals.unenrollMany('benefit_id');\n\nconsole.log(unenrolledIndividualBenefitResponse);\n```",
     perLanguage: {
-      go: {
-        method: 'client.HRIS.Benefits.Individuals.UnenrollMany',
+      typescript: {
+        method: 'client.hris.benefits.individuals.unenrollMany',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tunenrolledIndividualBenefitResponse, err := client.HRIS.Benefits.Individuals.UnenrollMany(\n\t\tcontext.TODO(),\n\t\t"benefit_id",\n\t\tfinchgo.HRISBenefitIndividualUnenrollManyParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", unenrolledIndividualBenefitResponse.JobID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst unenrolledIndividualBenefitResponse = await client.hris.benefits.individuals.unenrollMany(\n  'benefit_id',\n);\n\nconsole.log(unenrolledIndividualBenefitResponse.job_id);",
       },
-      http: {
+      python: {
+        method: 'hris.benefits.individuals.unenroll_many',
         example:
-          'curl https://api.tryfinch.com/employer/benefits/$BENEFIT_ID/individuals \\\n    -X DELETE \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nunenrolled_individual_benefit_response = client.hris.benefits.individuals.unenroll_many(\n    benefit_id="benefit_id",\n)\nprint(unenrolled_individual_benefit_response.job_id)',
       },
       java: {
         method: 'hris().benefits().individuals().unenrollMany',
@@ -1248,20 +1249,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitIndividualUnenrollManyParams\nimport com.tryfinch.api.models.UnenrolledIndividualBenefitResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val unenrolledIndividualBenefitResponse: UnenrolledIndividualBenefitResponse = client.hris().benefits().individuals().unenrollMany("benefit_id")\n}',
       },
-      python: {
-        method: 'hris.benefits.individuals.unenroll_many',
+      go: {
+        method: 'client.HRIS.Benefits.Individuals.UnenrollMany',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nunenrolled_individual_benefit_response = client.hris.benefits.individuals.unenroll_many(\n    benefit_id="benefit_id",\n)\nprint(unenrolled_individual_benefit_response.job_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tunenrolledIndividualBenefitResponse, err := client.HRIS.Benefits.Individuals.UnenrollMany(\n\t\tcontext.TODO(),\n\t\t"benefit_id",\n\t\tfinchgo.HRISBenefitIndividualUnenrollManyParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", unenrolledIndividualBenefitResponse.JobID)\n}\n',
       },
       ruby: {
         method: 'hris.benefits.individuals.unenroll_many',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nunenrolled_individual_benefit_response = finch.hris.benefits.individuals.unenroll_many("benefit_id")\n\nputs(unenrolled_individual_benefit_response)',
       },
-      typescript: {
-        method: 'client.hris.benefits.individuals.unenrollMany',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst unenrolledIndividualBenefitResponse = await client.hris.benefits.individuals.unenrollMany(\n  'benefit_id',\n);\n\nconsole.log(unenrolledIndividualBenefitResponse.job_id);",
+          'curl https://api.tryfinch.com/employer/benefits/$BENEFIT_ID/individuals \\\n    -X DELETE \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1278,13 +1278,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.providers.list(): { id: string; display_name: string; products: string[]; authentication_methods?: object[]; beta?: boolean; icon?: string; logo?: string; manual?: boolean; mfa_required?: boolean; primary_color?: string; }`\n\n**get** `/providers`\n\nReturn details on all available payroll and HR systems.\n\n### Returns\n\n- `{ id: string; display_name: string; products: string[]; authentication_methods?: { type: 'assisted' | 'credential' | 'api_token' | 'api_credential' | 'oauth' | 'api'; benefits_support?: object; supported_fields?: object; }[]; beta?: boolean; icon?: string; logo?: string; manual?: boolean; mfa_required?: boolean; primary_color?: string; }`\n\n  - `id: string`\n  - `display_name: string`\n  - `products: string[]`\n  - `authentication_methods?: { type: 'assisted' | 'credential' | 'api_token' | 'api_credential' | 'oauth' | 'api'; benefits_support?: object; supported_fields?: object; }[]`\n  - `beta?: boolean`\n  - `icon?: string`\n  - `logo?: string`\n  - `manual?: boolean`\n  - `mfa_required?: boolean`\n  - `primary_color?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const providerListResponse of client.providers.list()) {\n  console.log(providerListResponse);\n}\n```",
     perLanguage: {
-      go: {
-        method: 'client.Providers.List',
+      typescript: {
+        method: 'client.providers.list',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient()\n\tpage, err := client.Providers.List(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const providerListResponse of client.providers.list()) {\n  console.log(providerListResponse.id);\n}",
       },
-      http: {
-        example: "curl https://api.tryfinch.com/providers \\\n    -H 'Finch-API-Version: 2020-09-17'",
+      python: {
+        method: 'providers.list',
+        example:
+          'from finch import Finch\n\nclient = Finch()\npage = client.providers.list()\npage = page.items[0]\nprint(page.id)',
       },
       java: {
         method: 'providers().list',
@@ -1296,20 +1298,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.ProviderListPage\nimport com.tryfinch.api.models.ProviderListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.fromEnv()\n\n    val page: ProviderListPage = client.providers().list()\n}',
       },
-      python: {
-        method: 'providers.list',
+      go: {
+        method: 'client.Providers.List',
         example:
-          'from finch import Finch\n\nclient = Finch()\npage = client.providers.list()\npage = page.items[0]\nprint(page.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient()\n\tpage, err := client.Providers.List(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'providers.list',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new\n\npage = finch.providers.list\n\nputs(page)',
       },
-      typescript: {
-        method: 'client.providers.list',
-        example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const providerListResponse of client.providers.list()) {\n  console.log(providerListResponse.id);\n}",
+      http: {
+        example: "curl https://api.tryfinch.com/providers \\\n    -H 'Finch-API-Version: 2020-09-17'",
       },
     },
   },
@@ -1326,14 +1326,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## introspect\n\n`client.account.introspect(): { id: string; client_id: string; client_type: 'development' | 'production' | 'sandbox'; connection_id: string; connection_status: object; connection_type: 'finch' | 'provider'; products: string[]; provider_id: string; account_id?: string; authentication_methods?: object[]; company_id?: string; customer_email?: string; customer_id?: string; customer_name?: string; entities?: object[]; manual?: boolean; payroll_provider_id?: string; username?: string; }`\n\n**get** `/introspect`\n\nRead account information associated with an `access_token`\n\n### Returns\n\n- `{ id: string; client_id: string; client_type: 'development' | 'production' | 'sandbox'; connection_id: string; connection_status: { status: 'pending' | 'processing' | 'connected' | 'error_no_account_setup' | 'error_permissions' | 'reauth'; last_successful_sync?: string | string; message?: string; }; connection_type: 'finch' | 'provider'; products: string[]; provider_id: string; account_id?: string; authentication_methods?: { type: 'assisted' | 'credential' | 'api_token' | 'api_credential' | 'oauth'; connection_status?: { status: connection_status_type; last_successful_sync?: string | string; message?: string; }; products?: string[]; }[]; company_id?: string; customer_email?: string; customer_id?: string; customer_name?: string; entities?: { id: string; name: string; source_id: string; status: string; }[]; manual?: boolean; payroll_provider_id?: string; username?: string; }`\n\n  - `id: string`\n  - `client_id: string`\n  - `client_type: 'development' | 'production' | 'sandbox'`\n  - `connection_id: string`\n  - `connection_status: { status: 'pending' | 'processing' | 'connected' | 'error_no_account_setup' | 'error_permissions' | 'reauth'; last_successful_sync?: string | string; message?: string; }`\n  - `connection_type: 'finch' | 'provider'`\n  - `products: string[]`\n  - `provider_id: string`\n  - `account_id?: string`\n  - `authentication_methods?: { type: 'assisted' | 'credential' | 'api_token' | 'api_credential' | 'oauth'; connection_status?: { status: 'pending' | 'processing' | 'connected' | 'error_no_account_setup' | 'error_permissions' | 'reauth'; last_successful_sync?: string | string; message?: string; }; products?: string[]; }[]`\n  - `company_id?: string`\n  - `customer_email?: string`\n  - `customer_id?: string`\n  - `customer_name?: string`\n  - `entities?: { id: string; name: string; source_id: string; status: string; }[]`\n  - `manual?: boolean`\n  - `payroll_provider_id?: string`\n  - `username?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst introspection = await client.account.introspect();\n\nconsole.log(introspection);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Account.Introspect',
+      typescript: {
+        method: 'client.account.introspect',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tintrospection, err := client.Account.Introspect(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", introspection.ID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst introspection = await client.account.introspect();\n\nconsole.log(introspection.id);",
       },
-      http: {
+      python: {
+        method: 'account.introspect',
         example:
-          'curl https://api.tryfinch.com/introspect \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nintrospection = client.account.introspect()\nprint(introspection.id)',
       },
       java: {
         method: 'account().introspect',
@@ -1345,20 +1346,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AccountIntrospectParams\nimport com.tryfinch.api.models.Introspection\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val introspection: Introspection = client.account().introspect()\n}',
       },
-      python: {
-        method: 'account.introspect',
+      go: {
+        method: 'client.Account.Introspect',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nintrospection = client.account.introspect()\nprint(introspection.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tintrospection, err := client.Account.Introspect(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", introspection.ID)\n}\n',
       },
       ruby: {
         method: 'account.introspect',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nintrospection = finch.account.introspect\n\nputs(introspection)',
       },
-      typescript: {
-        method: 'client.account.introspect',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst introspection = await client.account.introspect();\n\nconsole.log(introspection.id);",
+          'curl https://api.tryfinch.com/introspect \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1374,14 +1374,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## disconnect\n\n`client.account.disconnect(): { status: string; }`\n\n**post** `/disconnect`\n\nDisconnect one or more `access_token`s from your application.\n\n### Returns\n\n- `{ status: string; }`\n\n  - `status: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst disconnectResponse = await client.account.disconnect();\n\nconsole.log(disconnectResponse);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Account.Disconnect',
+      typescript: {
+        method: 'client.account.disconnect',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tdisconnectResponse, err := client.Account.Disconnect(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", disconnectResponse.Status)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst disconnectResponse = await client.account.disconnect();\n\nconsole.log(disconnectResponse.status);",
       },
-      http: {
+      python: {
+        method: 'account.disconnect',
         example:
-          'curl https://api.tryfinch.com/disconnect \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ndisconnect_response = client.account.disconnect()\nprint(disconnect_response.status)',
       },
       java: {
         method: 'account().disconnect',
@@ -1393,20 +1394,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AccountDisconnectParams\nimport com.tryfinch.api.models.DisconnectResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val disconnectResponse: DisconnectResponse = client.account().disconnect()\n}',
       },
-      python: {
-        method: 'account.disconnect',
+      go: {
+        method: 'client.Account.Disconnect',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ndisconnect_response = client.account.disconnect()\nprint(disconnect_response.status)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tdisconnectResponse, err := client.Account.Disconnect(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", disconnectResponse.Status)\n}\n',
       },
       ruby: {
         method: 'account.disconnect',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ndisconnect_response = finch.account.disconnect\n\nputs(disconnect_response)',
       },
-      typescript: {
-        method: 'client.account.disconnect',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst disconnectResponse = await client.account.disconnect();\n\nconsole.log(disconnectResponse.status);",
+          'curl https://api.tryfinch.com/disconnect \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1431,14 +1431,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## forward\n\n`client.requestForwarding.forward(method: string, route: string, data?: string, params?: object, request_headers?: object): { request: object; statusCode: number; data?: string; headers?: object; }`\n\n**post** `/forward`\n\nThe Forward API allows you to make direct requests to an employment system. If Finch's unified API\ndoesn't have a data model that cleanly fits your needs, then Forward allows you to push or pull\ndata models directly against an integration's API.\n\n### Parameters\n\n- `method: string`\n  The HTTP method for the forwarded request. Valid values include: `GET` , `POST` , `PUT` , `DELETE` , and `PATCH`.\n\n- `route: string`\n  The URL route path for the forwarded request. This value must begin with a forward-slash ( / ) and may only contain alphanumeric characters, hyphens, and underscores.\n\n- `data?: string`\n  The body for the forwarded request. This value must be specified as either a string or a valid JSON object.\n\n- `params?: object`\n  The query parameters for the forwarded request. This value must be specified as a valid JSON object rather than a query string.\n\n- `request_headers?: object`\n  The HTTP headers to include on the forwarded request. This value must be specified as an object of key-value pairs. Example: `{\"Content-Type\": \"application/xml\", \"X-API-Version\": \"v1\" }`\n\n### Returns\n\n- `{ request: { method: string; route: string; data?: string | object; headers?: object; params?: object; }; statusCode: number; data?: string; headers?: object; }`\n\n  - `request: { method: string; route: string; data?: string | object; headers?: object; params?: object; }`\n  - `statusCode: number`\n  - `data?: string`\n  - `headers?: object`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst response = await client.requestForwarding.forward({ method: 'method', route: 'route' });\n\nconsole.log(response);\n```",
     perLanguage: {
-      go: {
-        method: 'client.RequestForwarding.Forward',
+      typescript: {
+        method: 'client.requestForwarding.forward',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tresponse, err := client.RequestForwarding.Forward(context.TODO(), finchgo.RequestForwardingForwardParams{\n\t\tMethod: finchgo.F("method"),\n\t\tRoute:  finchgo.F("route"),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response.Request)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst response = await client.requestForwarding.forward({ method: 'method', route: 'route' });\n\nconsole.log(response.request);",
       },
-      http: {
+      python: {
+        method: 'request_forwarding.forward',
         example:
-          'curl https://api.tryfinch.com/forward \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "method": "method",\n          "route": "route"\n        }\'',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nresponse = client.request_forwarding.forward(\n    method="method",\n    route="route",\n)\nprint(response.request)',
       },
       java: {
         method: 'requestForwarding().forward',
@@ -1450,20 +1451,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.RequestForwardingForwardParams\nimport com.tryfinch.api.models.RequestForwardingForwardResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: RequestForwardingForwardParams = RequestForwardingForwardParams.builder()\n        .method("method")\n        .route("route")\n        .build()\n    val response: RequestForwardingForwardResponse = client.requestForwarding().forward(params)\n}',
       },
-      python: {
-        method: 'request_forwarding.forward',
+      go: {
+        method: 'client.RequestForwarding.Forward',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nresponse = client.request_forwarding.forward(\n    method="method",\n    route="route",\n)\nprint(response.request)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tresponse, err := client.RequestForwarding.Forward(context.TODO(), finchgo.RequestForwardingForwardParams{\n\t\tMethod: finchgo.F("method"),\n\t\tRoute:  finchgo.F("route"),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response.Request)\n}\n',
       },
       ruby: {
         method: 'request_forwarding.forward',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nresponse = finch.request_forwarding.forward(method_: "method", route: "route")\n\nputs(response)',
       },
-      typescript: {
-        method: 'client.requestForwarding.forward',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst response = await client.requestForwarding.forward({ method: 'method', route: 'route' });\n\nconsole.log(response.request);",
+          'curl https://api.tryfinch.com/forward \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "method": "method",\n          "route": "route"\n        }\'',
       },
     },
   },
@@ -1482,14 +1482,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.jobs.automated.list(limit?: number, offset?: number): { data: automated_async_job[]; meta: object; }`\n\n**get** `/jobs/automated`\n\nGet all automated jobs. Automated jobs are completed by a machine. By default, jobs are sorted in descending order by submission time. For scheduled jobs such as data syncs, only the next scheduled job is shown.\n\n### Parameters\n\n- `limit?: number`\n  Number of items to return\n\n- `offset?: number`\n  Index to start from (defaults to 0)\n\n### Returns\n\n- `{ data: { completed_at: string; created_at: string; job_id: string; job_url: string; params: object; scheduled_at: string; started_at: string; status: 'pending' | 'in_progress' | 'complete' | 'error' | 'reauth_error' | 'permissions_error'; type: 'data_sync_all' | 'w4_form_employee_sync'; }[]; meta: { quotas?: { data_sync_all?: object; }; }; }`\n\n  - `data: { completed_at: string; created_at: string; job_id: string; job_url: string; params: { individual_id?: string; }; scheduled_at: string; started_at: string; status: 'pending' | 'in_progress' | 'complete' | 'error' | 'reauth_error' | 'permissions_error'; type: 'data_sync_all' | 'w4_form_employee_sync'; }[]`\n  - `meta: { quotas?: { data_sync_all?: { allowed_refreshes?: number; remaining_refreshes?: number; }; }; }`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst automateds = await client.jobs.automated.list();\n\nconsole.log(automateds);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Jobs.Automated.List',
+      typescript: {
+        method: 'client.jobs.automated.list',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tautomateds, err := client.Jobs.Automated.List(context.TODO(), finchgo.JobAutomatedListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", automateds.Data)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst automateds = await client.jobs.automated.list();\n\nconsole.log(automateds.data);",
       },
-      http: {
+      python: {
+        method: 'jobs.automated.list',
         example:
-          'curl https://api.tryfinch.com/jobs/automated \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nautomateds = client.jobs.automated.list()\nprint(automateds.data)',
       },
       java: {
         method: 'jobs().automated().list',
@@ -1501,20 +1502,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AutomatedListResponse\nimport com.tryfinch.api.models.JobAutomatedListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val automateds: AutomatedListResponse = client.jobs().automated().list()\n}',
       },
-      python: {
-        method: 'jobs.automated.list',
+      go: {
+        method: 'client.Jobs.Automated.List',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nautomateds = client.jobs.automated.list()\nprint(automateds.data)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tautomateds, err := client.Jobs.Automated.List(context.TODO(), finchgo.JobAutomatedListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", automateds.Data)\n}\n',
       },
       ruby: {
         method: 'jobs.automated.list',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nautomateds = finch.jobs.automated.list\n\nputs(automateds)',
       },
-      typescript: {
-        method: 'client.jobs.automated.list',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst automateds = await client.jobs.automated.list();\n\nconsole.log(automateds.data);",
+          'curl https://api.tryfinch.com/jobs/automated \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1533,14 +1533,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     response:
       '{ allowed_refreshes: number; remaining_refreshes: number; job_id?: string; job_url?: string; retry_at?: string; }',
     perLanguage: {
-      go: {
-        method: 'client.Jobs.Automated.New',
+      typescript: {
+        method: 'client.jobs.automated.create',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tautomated, err := client.Jobs.Automated.New(context.TODO(), finchgo.JobAutomatedNewParamsDataSyncAll{\n\t\tType: finchgo.F(finchgo.JobAutomatedNewParamsDataSyncAllTypeDataSyncAll),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", automated.JobID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst automated = await client.jobs.automated.create({ type: 'data_sync_all' });\n\nconsole.log(automated.job_id);",
       },
-      http: {
+      python: {
+        method: 'jobs.automated.create',
         example:
-          'curl https://api.tryfinch.com/jobs/automated \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "type": "data_sync_all"\n        }\'',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nautomated = client.jobs.automated.create(\n    type="data_sync_all",\n)\nprint(automated.job_id)',
       },
       java: {
         method: 'jobs().automated().create',
@@ -1552,20 +1553,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.core.JsonValue\nimport com.tryfinch.api.models.AutomatedCreateResponse\nimport com.tryfinch.api.models.JobAutomatedCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: JobAutomatedCreateParams.Body = JobAutomatedCreateParams.Body.ofDataSyncAll()\n    val automated: AutomatedCreateResponse = client.jobs().automated().create(params)\n}',
       },
-      python: {
-        method: 'jobs.automated.create',
+      go: {
+        method: 'client.Jobs.Automated.New',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nautomated = client.jobs.automated.create(\n    type="data_sync_all",\n)\nprint(automated.job_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tautomated, err := client.Jobs.Automated.New(context.TODO(), finchgo.JobAutomatedNewParamsDataSyncAll{\n\t\tType: finchgo.F(finchgo.JobAutomatedNewParamsDataSyncAllTypeDataSyncAll),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", automated.JobID)\n}\n',
       },
       ruby: {
         method: 'jobs.automated.create',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nautomated = finch.jobs.automated.create(body: {type: :data_sync_all})\n\nputs(automated)',
       },
-      typescript: {
-        method: 'client.jobs.automated.create',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst automated = await client.jobs.automated.create({ type: 'data_sync_all' });\n\nconsole.log(automated.job_id);",
+          'curl https://api.tryfinch.com/jobs/automated \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "type": "data_sync_all"\n        }\'',
       },
     },
   },
@@ -1583,14 +1583,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.jobs.automated.retrieve(job_id: string): { completed_at: string; created_at: string; job_id: string; job_url: string; params: object; scheduled_at: string; started_at: string; status: 'pending' | 'in_progress' | 'complete' | 'error' | 'reauth_error' | 'permissions_error'; type: 'data_sync_all' | 'w4_form_employee_sync'; }`\n\n**get** `/jobs/automated/{job_id}`\n\nGet an automated job by `job_id`.\n\n### Parameters\n\n- `job_id: string`\n\n### Returns\n\n- `{ completed_at: string; created_at: string; job_id: string; job_url: string; params: { individual_id?: string; }; scheduled_at: string; started_at: string; status: 'pending' | 'in_progress' | 'complete' | 'error' | 'reauth_error' | 'permissions_error'; type: 'data_sync_all' | 'w4_form_employee_sync'; }`\n\n  - `completed_at: string`\n  - `created_at: string`\n  - `job_id: string`\n  - `job_url: string`\n  - `params: { individual_id?: string; }`\n  - `scheduled_at: string`\n  - `started_at: string`\n  - `status: 'pending' | 'in_progress' | 'complete' | 'error' | 'reauth_error' | 'permissions_error'`\n  - `type: 'data_sync_all' | 'w4_form_employee_sync'`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst automatedAsyncJob = await client.jobs.automated.retrieve('job_id');\n\nconsole.log(automatedAsyncJob);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Jobs.Automated.Get',
+      typescript: {
+        method: 'client.jobs.automated.retrieve',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tautomatedAsyncJob, err := client.Jobs.Automated.Get(context.TODO(), "job_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", automatedAsyncJob.JobID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst automatedAsyncJob = await client.jobs.automated.retrieve('job_id');\n\nconsole.log(automatedAsyncJob.job_id);",
       },
-      http: {
+      python: {
+        method: 'jobs.automated.retrieve',
         example:
-          'curl https://api.tryfinch.com/jobs/automated/$JOB_ID \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nautomated_async_job = client.jobs.automated.retrieve(\n    "job_id",\n)\nprint(automated_async_job.job_id)',
       },
       java: {
         method: 'jobs().automated().retrieve',
@@ -1602,20 +1603,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AutomatedAsyncJob\nimport com.tryfinch.api.models.JobAutomatedRetrieveParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val automatedAsyncJob: AutomatedAsyncJob = client.jobs().automated().retrieve("job_id")\n}',
       },
-      python: {
-        method: 'jobs.automated.retrieve',
+      go: {
+        method: 'client.Jobs.Automated.Get',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nautomated_async_job = client.jobs.automated.retrieve(\n    "job_id",\n)\nprint(automated_async_job.job_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tautomatedAsyncJob, err := client.Jobs.Automated.Get(context.TODO(), "job_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", automatedAsyncJob.JobID)\n}\n',
       },
       ruby: {
         method: 'jobs.automated.retrieve',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nautomated_async_job = finch.jobs.automated.retrieve("job_id")\n\nputs(automated_async_job)',
       },
-      typescript: {
-        method: 'client.jobs.automated.retrieve',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst automatedAsyncJob = await client.jobs.automated.retrieve('job_id');\n\nconsole.log(automatedAsyncJob.job_id);",
+          'curl https://api.tryfinch.com/jobs/automated/$JOB_ID \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1633,14 +1633,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.jobs.manual.retrieve(job_id: string): { body: object[]; job_id: string; status: 'pending' | 'in_progress' | 'error' | 'complete'; }`\n\n**get** `/jobs/manual/{job_id}`\n\nCheck the status and outcome of a job by `job_id`. This includes all deductions jobs including those for both automated and assisted integrations.\n\n### Parameters\n\n- `job_id: string`\n\n### Returns\n\n- `{ body: object[]; job_id: string; status: 'pending' | 'in_progress' | 'error' | 'complete'; }`\n\n  - `body: object[]`\n  - `job_id: string`\n  - `status: 'pending' | 'in_progress' | 'error' | 'complete'`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst manualAsyncJob = await client.jobs.manual.retrieve('job_id');\n\nconsole.log(manualAsyncJob);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Jobs.Manual.Get',
+      typescript: {
+        method: 'client.jobs.manual.retrieve',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tmanualAsyncJob, err := client.Jobs.Manual.Get(context.TODO(), "job_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", manualAsyncJob.JobID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst manualAsyncJob = await client.jobs.manual.retrieve('job_id');\n\nconsole.log(manualAsyncJob.job_id);",
       },
-      http: {
+      python: {
+        method: 'jobs.manual.retrieve',
         example:
-          'curl https://api.tryfinch.com/jobs/manual/$JOB_ID \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nmanual_async_job = client.jobs.manual.retrieve(\n    "job_id",\n)\nprint(manual_async_job.job_id)',
       },
       java: {
         method: 'jobs().manual().retrieve',
@@ -1652,20 +1653,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.JobManualRetrieveParams\nimport com.tryfinch.api.models.ManualAsyncJob\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val manualAsyncJob: ManualAsyncJob = client.jobs().manual().retrieve("job_id")\n}',
       },
-      python: {
-        method: 'jobs.manual.retrieve',
+      go: {
+        method: 'client.Jobs.Manual.Get',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nmanual_async_job = client.jobs.manual.retrieve(\n    "job_id",\n)\nprint(manual_async_job.job_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tmanualAsyncJob, err := client.Jobs.Manual.Get(context.TODO(), "job_id")\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", manualAsyncJob.JobID)\n}\n',
       },
       ruby: {
         method: 'jobs.manual.retrieve',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nmanual_async_job = finch.jobs.manual.retrieve("job_id")\n\nputs(manual_async_job)',
       },
-      typescript: {
-        method: 'client.jobs.manual.retrieve',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst manualAsyncJob = await client.jobs.manual.retrieve('job_id');\n\nconsole.log(manualAsyncJob.job_id);",
+          'curl https://api.tryfinch.com/jobs/manual/$JOB_ID \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1688,14 +1688,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.sandbox.connections.create(provider_id: string, authentication_type?: 'credential' | 'api_token' | 'oauth' | 'assisted', employee_size?: number, products?: string[]): { access_token: string; account_id: string; authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted'; company_id: string; connection_id: string; entity_id: string; products: string[]; provider_id: string; token_type?: string; }`\n\n**post** `/sandbox/connections`\n\nCreate a new connection (new company/provider pair) with a new account\n\n### Parameters\n\n- `provider_id: string`\n  The provider associated with the connection\n\n- `authentication_type?: 'credential' | 'api_token' | 'oauth' | 'assisted'`\n\n- `employee_size?: number`\n  Optional: the size of the employer to be created with this connection. Defaults to 20. Note that if this is higher than 100, historical payroll data will not be generated, and instead only one pay period will be created.\n\n- `products?: string[]`\n\n### Returns\n\n- `{ access_token: string; account_id: string; authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted'; company_id: string; connection_id: string; entity_id: string; products: string[]; provider_id: string; token_type?: string; }`\n\n  - `access_token: string`\n  - `account_id: string`\n  - `authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted'`\n  - `company_id: string`\n  - `connection_id: string`\n  - `entity_id: string`\n  - `products: string[]`\n  - `provider_id: string`\n  - `token_type?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst connection = await client.sandbox.connections.create({ provider_id: 'provider_id' });\n\nconsole.log(connection);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Sandbox.Connections.New',
+      typescript: {
+        method: 'client.sandbox.connections.create',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithClientID("4ab15e51-11ad-49f4-acae-f343b7794375"),\n\t\toption.WithClientSecret("My Client Secret"),\n\t)\n\tconnection, err := client.Sandbox.Connections.New(context.TODO(), finchgo.SandboxConnectionNewParams{\n\t\tProviderID: finchgo.F("provider_id"),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", connection.AccountID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  clientID: process.env['FINCH_CLIENT_ID'], // This is the default and can be omitted\n  clientSecret: process.env['FINCH_CLIENT_SECRET'], // This is the default and can be omitted\n});\n\nconst connection = await client.sandbox.connections.create({ provider_id: 'provider_id' });\n\nconsole.log(connection.account_id);",
       },
-      http: {
+      python: {
+        method: 'sandbox.connections.create',
         example:
-          'curl https://api.tryfinch.com/sandbox/connections \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -u "$FINCH_CLIENT_ID:FINCH_CLIENT_SECRET" \\\n    -d \'{\n          "provider_id": "provider_id"\n        }\'',
+          'import os\nfrom finch import Finch\n\nclient = Finch(\n    client_id=os.environ.get("FINCH_CLIENT_ID"),  # This is the default and can be omitted\n    client_secret=os.environ.get("FINCH_CLIENT_SECRET"),  # This is the default and can be omitted\n)\nconnection = client.sandbox.connections.create(\n    provider_id="provider_id",\n)\nprint(connection.account_id)',
       },
       java: {
         method: 'sandbox().connections().create',
@@ -1707,20 +1708,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.ConnectionCreateResponse\nimport com.tryfinch.api.models.SandboxConnectionCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.fromEnv()\n\n    val params: SandboxConnectionCreateParams = SandboxConnectionCreateParams.builder()\n        .providerId("provider_id")\n        .build()\n    val connection: ConnectionCreateResponse = client.sandbox().connections().create(params)\n}',
       },
-      python: {
-        method: 'sandbox.connections.create',
+      go: {
+        method: 'client.Sandbox.Connections.New',
         example:
-          'import os\nfrom finch import Finch\n\nclient = Finch(\n    client_id=os.environ.get("FINCH_CLIENT_ID"),  # This is the default and can be omitted\n    client_secret=os.environ.get("FINCH_CLIENT_SECRET"),  # This is the default and can be omitted\n)\nconnection = client.sandbox.connections.create(\n    provider_id="provider_id",\n)\nprint(connection.account_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithClientID("4ab15e51-11ad-49f4-acae-f343b7794375"),\n\t\toption.WithClientSecret("My Client Secret"),\n\t)\n\tconnection, err := client.Sandbox.Connections.New(context.TODO(), finchgo.SandboxConnectionNewParams{\n\t\tProviderID: finchgo.F("provider_id"),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", connection.AccountID)\n}\n',
       },
       ruby: {
         method: 'sandbox.connections.create',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(client_id: "4ab15e51-11ad-49f4-acae-f343b7794375", client_secret: "My Client Secret")\n\nconnection = finch.sandbox.connections.create(provider_id: "provider_id")\n\nputs(connection)',
       },
-      typescript: {
-        method: 'client.sandbox.connections.create',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  clientID: process.env['FINCH_CLIENT_ID'], // This is the default and can be omitted\n  clientSecret: process.env['FINCH_CLIENT_SECRET'], // This is the default and can be omitted\n});\n\nconst connection = await client.sandbox.connections.create({ provider_id: 'provider_id' });\n\nconsole.log(connection.account_id);",
+          'curl https://api.tryfinch.com/sandbox/connections \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -u "$FINCH_CLIENT_ID:FINCH_CLIENT_SECRET" \\\n    -d \'{\n          "provider_id": "provider_id"\n        }\'',
       },
     },
   },
@@ -1743,14 +1743,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.sandbox.connections.accounts.create(company_id: string, provider_id: string, authentication_type?: 'credential' | 'api_token' | 'oauth' | 'assisted', products?: string[]): { access_token: string; account_id: string; authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted'; company_id: string; connection_id: string; entity_id: string; products: string[]; provider_id: string; }`\n\n**post** `/sandbox/connections/accounts`\n\nCreate a new account for an existing connection (company/provider pair)\n\n### Parameters\n\n- `company_id: string`\n\n- `provider_id: string`\n  The provider associated with the `access_token`\n\n- `authentication_type?: 'credential' | 'api_token' | 'oauth' | 'assisted'`\n\n- `products?: string[]`\n  Optional, defaults to Organization products (`company`, `directory`, `employment`, `individual`)\n\n### Returns\n\n- `{ access_token: string; account_id: string; authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted'; company_id: string; connection_id: string; entity_id: string; products: string[]; provider_id: string; }`\n\n  - `access_token: string`\n  - `account_id: string`\n  - `authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted'`\n  - `company_id: string`\n  - `connection_id: string`\n  - `entity_id: string`\n  - `products: string[]`\n  - `provider_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst account = await client.sandbox.connections.accounts.create({ company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', provider_id: 'provider_id' });\n\nconsole.log(account);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Sandbox.Connections.Accounts.New',
+      typescript: {
+        method: 'client.sandbox.connections.accounts.create',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithClientID("4ab15e51-11ad-49f4-acae-f343b7794375"),\n\t\toption.WithClientSecret("My Client Secret"),\n\t)\n\taccount, err := client.Sandbox.Connections.Accounts.New(context.TODO(), finchgo.SandboxConnectionAccountNewParams{\n\t\tCompanyID:  finchgo.F("182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"),\n\t\tProviderID: finchgo.F("provider_id"),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", account.AccountID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  clientID: process.env['FINCH_CLIENT_ID'], // This is the default and can be omitted\n  clientSecret: process.env['FINCH_CLIENT_SECRET'], // This is the default and can be omitted\n});\n\nconst account = await client.sandbox.connections.accounts.create({\n  company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',\n  provider_id: 'provider_id',\n});\n\nconsole.log(account.account_id);",
       },
-      http: {
+      python: {
+        method: 'sandbox.connections.accounts.create',
         example:
-          'curl https://api.tryfinch.com/sandbox/connections/accounts \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -u "$FINCH_CLIENT_ID:FINCH_CLIENT_SECRET" \\\n    -d \'{\n          "company_id": "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",\n          "provider_id": "provider_id"\n        }\'',
+          'import os\nfrom finch import Finch\n\nclient = Finch(\n    client_id=os.environ.get("FINCH_CLIENT_ID"),  # This is the default and can be omitted\n    client_secret=os.environ.get("FINCH_CLIENT_SECRET"),  # This is the default and can be omitted\n)\naccount = client.sandbox.connections.accounts.create(\n    company_id="182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",\n    provider_id="provider_id",\n)\nprint(account.account_id)',
       },
       java: {
         method: 'sandbox().connections().accounts().create',
@@ -1762,20 +1763,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AccountCreateResponse\nimport com.tryfinch.api.models.SandboxConnectionAccountCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.fromEnv()\n\n    val params: SandboxConnectionAccountCreateParams = SandboxConnectionAccountCreateParams.builder()\n        .companyId("182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")\n        .providerId("provider_id")\n        .build()\n    val account: AccountCreateResponse = client.sandbox().connections().accounts().create(params)\n}',
       },
-      python: {
-        method: 'sandbox.connections.accounts.create',
+      go: {
+        method: 'client.Sandbox.Connections.Accounts.New',
         example:
-          'import os\nfrom finch import Finch\n\nclient = Finch(\n    client_id=os.environ.get("FINCH_CLIENT_ID"),  # This is the default and can be omitted\n    client_secret=os.environ.get("FINCH_CLIENT_SECRET"),  # This is the default and can be omitted\n)\naccount = client.sandbox.connections.accounts.create(\n    company_id="182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",\n    provider_id="provider_id",\n)\nprint(account.account_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithClientID("4ab15e51-11ad-49f4-acae-f343b7794375"),\n\t\toption.WithClientSecret("My Client Secret"),\n\t)\n\taccount, err := client.Sandbox.Connections.Accounts.New(context.TODO(), finchgo.SandboxConnectionAccountNewParams{\n\t\tCompanyID:  finchgo.F("182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"),\n\t\tProviderID: finchgo.F("provider_id"),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", account.AccountID)\n}\n',
       },
       ruby: {
         method: 'sandbox.connections.accounts.create',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(client_id: "4ab15e51-11ad-49f4-acae-f343b7794375", client_secret: "My Client Secret")\n\naccount = finch.sandbox.connections.accounts.create(\n  company_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",\n  provider_id: "provider_id"\n)\n\nputs(account)',
       },
-      typescript: {
-        method: 'client.sandbox.connections.accounts.create',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  clientID: process.env['FINCH_CLIENT_ID'], // This is the default and can be omitted\n  clientSecret: process.env['FINCH_CLIENT_SECRET'], // This is the default and can be omitted\n});\n\nconst account = await client.sandbox.connections.accounts.create({\n  company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',\n  provider_id: 'provider_id',\n});\n\nconsole.log(account.account_id);",
+          'curl https://api.tryfinch.com/sandbox/connections/accounts \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -u "$FINCH_CLIENT_ID:FINCH_CLIENT_SECRET" \\\n    -d \'{\n          "company_id": "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",\n          "provider_id": "provider_id"\n        }\'',
       },
     },
   },
@@ -1796,14 +1796,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.sandbox.connections.accounts.update(connection_status?: 'pending' | 'processing' | 'connected' | 'error_no_account_setup' | 'error_permissions' | 'reauth'): { account_id: string; authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted'; company_id: string; connection_id: string; entity_id: string; products: string[]; provider_id: string; }`\n\n**put** `/sandbox/connections/accounts`\n\nUpdate an existing sandbox account. Change the connection status to understand how the Finch API responds.\n\n### Parameters\n\n- `connection_status?: 'pending' | 'processing' | 'connected' | 'error_no_account_setup' | 'error_permissions' | 'reauth'`\n\n### Returns\n\n- `{ account_id: string; authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted'; company_id: string; connection_id: string; entity_id: string; products: string[]; provider_id: string; }`\n\n  - `account_id: string`\n  - `authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted'`\n  - `company_id: string`\n  - `connection_id: string`\n  - `entity_id: string`\n  - `products: string[]`\n  - `provider_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst account = await client.sandbox.connections.accounts.update();\n\nconsole.log(account);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Sandbox.Connections.Accounts.Update',
+      typescript: {
+        method: 'client.sandbox.connections.accounts.update',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n\t"github.com/Finch-API/finch-api-go/shared"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\taccount, err := client.Sandbox.Connections.Accounts.Update(context.TODO(), finchgo.SandboxConnectionAccountUpdateParams{\n\t\tConnectionStatus: finchgo.F(shared.ConnectionStatusTypeReauth),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", account.AccountID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst account = await client.sandbox.connections.accounts.update({ connection_status: 'reauth' });\n\nconsole.log(account.account_id);",
       },
-      http: {
+      python: {
+        method: 'sandbox.connections.accounts.update',
         example:
-          'curl https://api.tryfinch.com/sandbox/connections/accounts \\\n    -X PUT \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\naccount = client.sandbox.connections.accounts.update(\n    connection_status="reauth",\n)\nprint(account.account_id)',
       },
       java: {
         method: 'sandbox().connections().accounts().update',
@@ -1815,20 +1816,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AccountUpdateResponse\nimport com.tryfinch.api.models.SandboxConnectionAccountUpdateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val account: AccountUpdateResponse = client.sandbox().connections().accounts().update()\n}',
       },
-      python: {
-        method: 'sandbox.connections.accounts.update',
+      go: {
+        method: 'client.Sandbox.Connections.Accounts.Update',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\naccount = client.sandbox.connections.accounts.update(\n    connection_status="reauth",\n)\nprint(account.account_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n\t"github.com/Finch-API/finch-api-go/shared"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\taccount, err := client.Sandbox.Connections.Accounts.Update(context.TODO(), finchgo.SandboxConnectionAccountUpdateParams{\n\t\tConnectionStatus: finchgo.F(shared.ConnectionStatusTypeReauth),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", account.AccountID)\n}\n',
       },
       ruby: {
         method: 'sandbox.connections.accounts.update',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\naccount = finch.sandbox.connections.accounts.update\n\nputs(account)',
       },
-      typescript: {
-        method: 'client.sandbox.connections.accounts.update',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst account = await client.sandbox.connections.accounts.update({ connection_status: 'reauth' });\n\nconsole.log(account.account_id);",
+          'curl https://api.tryfinch.com/sandbox/connections/accounts \\\n    -X PUT \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1855,14 +1855,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.sandbox.company.update(accounts: { account_name?: string; account_number?: string; account_type?: 'checking' | 'savings'; institution_name?: string; routing_number?: string; }[], departments: { name?: string; parent?: { name?: string; }; }[], ein: string, entity: { subtype?: 's_corporation' | 'c_corporation' | 'b_corporation'; type?: 'llc' | 'lp' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative'; }, legal_name: string, locations: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }[], primary_email: string, primary_phone_number: string): { accounts: object[]; departments: object[]; ein: string; entity: object; legal_name: string; locations: location[]; primary_email: string; primary_phone_number: string; }`\n\n**put** `/sandbox/company`\n\nUpdate a sandbox company's data\n\n### Parameters\n\n- `accounts: { account_name?: string; account_number?: string; account_type?: 'checking' | 'savings'; institution_name?: string; routing_number?: string; }[]`\n  An array of bank account objects associated with the payroll/HRIS system.\n\n- `departments: { name?: string; parent?: { name?: string; }; }[]`\n  The array of company departments.\n\n- `ein: string`\n  The employer identification number.\n\n- `entity: { subtype?: 's_corporation' | 'c_corporation' | 'b_corporation'; type?: 'llc' | 'lp' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative'; }`\n  The entity type object.\n  - `subtype?: 's_corporation' | 'c_corporation' | 'b_corporation'`\n    The tax payer subtype of the company.\n  - `type?: 'llc' | 'lp' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative'`\n    The tax payer type of the company.\n\n- `legal_name: string`\n  The legal name of the company.\n\n- `locations: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }[]`\n\n- `primary_email: string`\n  The email of the main administrator on the account.\n\n- `primary_phone_number: string`\n  The phone number of the main administrator on the account. Format: E.164, with extension where applicable, e.g. `+NNNNNNNNNNN xExtension`\n\n### Returns\n\n- `{ accounts: { account_name?: string; account_number?: string; account_type?: 'checking' | 'savings'; institution_name?: string; routing_number?: string; }[]; departments: { name?: string; parent?: { name?: string; }; }[]; ein: string; entity: { subtype?: 's_corporation' | 'c_corporation' | 'b_corporation'; type?: 'llc' | 'lp' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative'; }; legal_name: string; locations: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }[]; primary_email: string; primary_phone_number: string; }`\n\n  - `accounts: { account_name?: string; account_number?: string; account_type?: 'checking' | 'savings'; institution_name?: string; routing_number?: string; }[]`\n  - `departments: { name?: string; parent?: { name?: string; }; }[]`\n  - `ein: string`\n  - `entity: { subtype?: 's_corporation' | 'c_corporation' | 'b_corporation'; type?: 'llc' | 'lp' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative'; }`\n  - `legal_name: string`\n  - `locations: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }[]`\n  - `primary_email: string`\n  - `primary_phone_number: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst company = await client.sandbox.company.update({\n  accounts: [{}],\n  departments: [{}],\n  ein: 'ein',\n  entity: {},\n  legal_name: 'legal_name',\n  locations: [{\n  city: 'city',\n  country: 'country',\n  line1: 'line1',\n  line2: 'line2',\n  postal_code: 'postal_code',\n  state: 'state',\n}],\n  primary_email: 'dev@stainless.com',\n  primary_phone_number: 'primary_phone_number',\n});\n\nconsole.log(company);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Sandbox.Company.Update',
+      typescript: {
+        method: 'client.sandbox.company.update',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tcompany, err := client.Sandbox.Company.Update(context.TODO(), finchgo.SandboxCompanyUpdateParams{\n\t\tAccounts:    finchgo.F([]finchgo.SandboxCompanyUpdateParamsAccount{{}}),\n\t\tDepartments: finchgo.F([]finchgo.SandboxCompanyUpdateParamsDepartment{{}}),\n\t\tEin:         finchgo.F("ein"),\n\t\tEntity:      finchgo.F(finchgo.SandboxCompanyUpdateParamsEntity{}),\n\t\tLegalName:   finchgo.F("legal_name"),\n\t\tLocations: finchgo.F([]finchgo.LocationParam{{\n\t\t\tCity:       finchgo.F("city"),\n\t\t\tCountry:    finchgo.F("country"),\n\t\t\tLine1:      finchgo.F("line1"),\n\t\t\tLine2:      finchgo.F("line2"),\n\t\t\tPostalCode: finchgo.F("postal_code"),\n\t\t\tState:      finchgo.F("state"),\n\t\t}}),\n\t\tPrimaryEmail:       finchgo.F("dev@stainless.com"),\n\t\tPrimaryPhoneNumber: finchgo.F("primary_phone_number"),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", company.Accounts)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst company = await client.sandbox.company.update({\n  accounts: [{}],\n  departments: [{}],\n  ein: 'ein',\n  entity: {},\n  legal_name: 'legal_name',\n  locations: [\n    {\n      city: 'city',\n      country: 'country',\n      line1: 'line1',\n      line2: 'line2',\n      postal_code: 'postal_code',\n      state: 'state',\n    },\n  ],\n  primary_email: 'dev@stainless.com',\n  primary_phone_number: 'primary_phone_number',\n});\n\nconsole.log(company.accounts);",
       },
-      http: {
+      python: {
+        method: 'sandbox.company.update',
         example:
-          'curl https://api.tryfinch.com/sandbox/company \\\n    -X PUT \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "accounts": [\n            {}\n          ],\n          "departments": [\n            {}\n          ],\n          "ein": "ein",\n          "entity": {},\n          "legal_name": "legal_name",\n          "locations": [\n            {\n              "city": "city",\n              "country": "country",\n              "line1": "line1",\n              "line2": "line2",\n              "postal_code": "postal_code",\n              "state": "state"\n            }\n          ],\n          "primary_email": "dev@stainless.com",\n          "primary_phone_number": "primary_phone_number"\n        }\'',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ncompany = client.sandbox.company.update(\n    accounts=[{}],\n    departments=[{}],\n    ein="ein",\n    entity={},\n    legal_name="legal_name",\n    locations=[{\n        "city": "city",\n        "country": "country",\n        "line1": "line1",\n        "line2": "line2",\n        "postal_code": "postal_code",\n        "state": "state",\n    }],\n    primary_email="dev@stainless.com",\n    primary_phone_number="primary_phone_number",\n)\nprint(company.accounts)',
       },
       java: {
         method: 'sandbox().company().update',
@@ -1874,20 +1875,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.CompanyUpdateResponse\nimport com.tryfinch.api.models.Location\nimport com.tryfinch.api.models.SandboxCompanyUpdateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: SandboxCompanyUpdateParams = SandboxCompanyUpdateParams.builder()\n        .addAccount(SandboxCompanyUpdateParams.Account.builder().build())\n        .addDepartment(SandboxCompanyUpdateParams.Department.builder().build())\n        .ein("ein")\n        .entity(SandboxCompanyUpdateParams.Entity.builder().build())\n        .legalName("legal_name")\n        .addLocation(Location.builder()\n            .city("city")\n            .country("country")\n            .line1("line1")\n            .line2("line2")\n            .postalCode("postal_code")\n            .state("state")\n            .build())\n        .primaryEmail("dev@stainless.com")\n        .primaryPhoneNumber("primary_phone_number")\n        .build()\n    val company: CompanyUpdateResponse = client.sandbox().company().update(params)\n}',
       },
-      python: {
-        method: 'sandbox.company.update',
+      go: {
+        method: 'client.Sandbox.Company.Update',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ncompany = client.sandbox.company.update(\n    accounts=[{}],\n    departments=[{}],\n    ein="ein",\n    entity={},\n    legal_name="legal_name",\n    locations=[{\n        "city": "city",\n        "country": "country",\n        "line1": "line1",\n        "line2": "line2",\n        "postal_code": "postal_code",\n        "state": "state",\n    }],\n    primary_email="dev@stainless.com",\n    primary_phone_number="primary_phone_number",\n)\nprint(company.accounts)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tcompany, err := client.Sandbox.Company.Update(context.TODO(), finchgo.SandboxCompanyUpdateParams{\n\t\tAccounts:    finchgo.F([]finchgo.SandboxCompanyUpdateParamsAccount{{}}),\n\t\tDepartments: finchgo.F([]finchgo.SandboxCompanyUpdateParamsDepartment{{}}),\n\t\tEin:         finchgo.F("ein"),\n\t\tEntity:      finchgo.F(finchgo.SandboxCompanyUpdateParamsEntity{}),\n\t\tLegalName:   finchgo.F("legal_name"),\n\t\tLocations: finchgo.F([]finchgo.LocationParam{{\n\t\t\tCity:       finchgo.F("city"),\n\t\t\tCountry:    finchgo.F("country"),\n\t\t\tLine1:      finchgo.F("line1"),\n\t\t\tLine2:      finchgo.F("line2"),\n\t\t\tPostalCode: finchgo.F("postal_code"),\n\t\t\tState:      finchgo.F("state"),\n\t\t}}),\n\t\tPrimaryEmail:       finchgo.F("dev@stainless.com"),\n\t\tPrimaryPhoneNumber: finchgo.F("primary_phone_number"),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", company.Accounts)\n}\n',
       },
       ruby: {
         method: 'sandbox.company.update',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ncompany = finch.sandbox.company.update(\n  accounts: [{}],\n  departments: [{}],\n  ein: "ein",\n  entity: {},\n  legal_name: "legal_name",\n  locations: [\n    {city: "city", country: "country", line1: "line1", line2: "line2", postal_code: "postal_code", state: "state"}\n  ],\n  primary_email: "dev@stainless.com",\n  primary_phone_number: "primary_phone_number"\n)\n\nputs(company)',
       },
-      typescript: {
-        method: 'client.sandbox.company.update',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst company = await client.sandbox.company.update({\n  accounts: [{}],\n  departments: [{}],\n  ein: 'ein',\n  entity: {},\n  legal_name: 'legal_name',\n  locations: [\n    {\n      city: 'city',\n      country: 'country',\n      line1: 'line1',\n      line2: 'line2',\n      postal_code: 'postal_code',\n      state: 'state',\n    },\n  ],\n  primary_email: 'dev@stainless.com',\n  primary_phone_number: 'primary_phone_number',\n});\n\nconsole.log(company.accounts);",
+          'curl https://api.tryfinch.com/sandbox/company \\\n    -X PUT \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "accounts": [\n            {}\n          ],\n          "departments": [\n            {}\n          ],\n          "ein": "ein",\n          "entity": {},\n          "legal_name": "legal_name",\n          "locations": [\n            {\n              "city": "city",\n              "country": "country",\n              "line1": "line1",\n              "line2": "line2",\n              "postal_code": "postal_code",\n              "state": "state"\n            }\n          ],\n          "primary_email": "dev@stainless.com",\n          "primary_phone_number": "primary_phone_number"\n        }\'',
       },
     },
   },
@@ -1906,14 +1906,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.sandbox.directory.create(body?: { class_code?: string; custom_fields?: { name?: string; value?: object; }[]; department?: { name?: string; }; dob?: string; emails?: { data?: string; type?: 'work' | 'personal'; }[]; employment?: { subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor'; type?: 'employee' | 'contractor'; }; employment_status?: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated'; encrypted_ssn?: string; end_date?: string; ethnicity?: string; first_name?: string; flsa_status?: 'exempt' | 'non_exempt' | 'unknown'; gender?: 'female' | 'male' | 'other' | 'decline_to_specify'; income?: object; income_history?: object[]; is_active?: boolean; last_name?: string; latest_rehire_date?: string; location?: object; manager?: { id?: string; }; middle_name?: string; phone_numbers?: { data?: string; type?: 'work' | 'personal'; }[]; preferred_name?: string; residence?: object; source_id?: string; ssn?: string; start_date?: string; title?: string; }[]): object[]`\n\n**post** `/sandbox/directory`\n\nAdd new individuals to a sandbox company\n\n### Parameters\n\n- `body?: { class_code?: string; custom_fields?: { name?: string; value?: object; }[]; department?: { name?: string; }; dob?: string; emails?: { data?: string; type?: 'work' | 'personal'; }[]; employment?: { subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor'; type?: 'employee' | 'contractor'; }; employment_status?: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated'; encrypted_ssn?: string; end_date?: string; ethnicity?: string; first_name?: string; flsa_status?: 'exempt' | 'non_exempt' | 'unknown'; gender?: 'female' | 'male' | 'other' | 'decline_to_specify'; income?: { amount: number; currency: string; effective_date: string; unit: string; }; income_history?: { amount: number; currency: string; effective_date: string; unit: string; }[]; is_active?: boolean; last_name?: string; latest_rehire_date?: string; location?: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }; manager?: { id?: string; }; middle_name?: string; phone_numbers?: { data?: string; type?: 'work' | 'personal'; }[]; preferred_name?: string; residence?: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }; source_id?: string; ssn?: string; start_date?: string; title?: string; }[]`\n  Array of individuals to create. Takes all combined fields from `/individual` and `/employment` endpoints. All fields are optional.\n\n### Returns\n\n- `object[]`\n  The individuals which were created\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst directories = await client.sandbox.directory.create();\n\nconsole.log(directories);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Sandbox.Directory.New',
+      typescript: {
+        method: 'client.sandbox.directory.create',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tdirectories, err := client.Sandbox.Directory.New(context.TODO(), finchgo.SandboxDirectoryNewParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", directories)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst directories = await client.sandbox.directory.create();\n\nconsole.log(directories);",
       },
-      http: {
+      python: {
+        method: 'sandbox.directory.create',
         example:
-          'curl https://api.tryfinch.com/sandbox/directory \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ndirectories = client.sandbox.directory.create()\nprint(directories)',
       },
       java: {
         method: 'sandbox().directory().create',
@@ -1925,20 +1926,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.DirectoryCreateResponse\nimport com.tryfinch.api.models.SandboxDirectoryCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val directories: List<DirectoryCreateResponse> = client.sandbox().directory().create()\n}',
       },
-      python: {
-        method: 'sandbox.directory.create',
+      go: {
+        method: 'client.Sandbox.Directory.New',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ndirectories = client.sandbox.directory.create()\nprint(directories)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tdirectories, err := client.Sandbox.Directory.New(context.TODO(), finchgo.SandboxDirectoryNewParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", directories)\n}\n',
       },
       ruby: {
         method: 'sandbox.directory.create',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ndirectories = finch.sandbox.directory.create\n\nputs(directories)',
       },
-      typescript: {
-        method: 'client.sandbox.directory.create',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst directories = await client.sandbox.directory.create();\n\nconsole.log(directories);",
+          'curl https://api.tryfinch.com/sandbox/directory \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -1970,14 +1970,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.sandbox.individual.update(individual_id: string, dob?: string, emails?: { data?: string; type?: 'work' | 'personal'; }[], encrypted_ssn?: string, ethnicity?: string, first_name?: string, gender?: 'female' | 'male' | 'other' | 'decline_to_specify', last_name?: string, middle_name?: string, phone_numbers?: { data?: string; type?: 'work' | 'personal'; }[], preferred_name?: string, residence?: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }, ssn?: string): { id?: string; dob?: string; emails?: object[]; encrypted_ssn?: string; ethnicity?: string; first_name?: string; gender?: 'female' | 'male' | 'other' | 'decline_to_specify'; last_name?: string; middle_name?: string; phone_numbers?: object[]; preferred_name?: string; residence?: location; ssn?: string; }`\n\n**put** `/sandbox/individual/{individual_id}`\n\nUpdate sandbox individual\n\n### Parameters\n\n- `individual_id: string`\n\n- `dob?: string`\n\n- `emails?: { data?: string; type?: 'work' | 'personal'; }[]`\n\n- `encrypted_ssn?: string`\n  Social Security Number of the individual in **encrypted** format. This field is only available with the `ssn` scope enabled and the `options: { include: ['ssn'] }` param set in the body.\n\n- `ethnicity?: string`\n  The EEOC-defined ethnicity of the individual.\n\n- `first_name?: string`\n  The legal first name of the individual.\n\n- `gender?: 'female' | 'male' | 'other' | 'decline_to_specify'`\n  The gender of the individual.\n\n- `last_name?: string`\n  The legal last name of the individual.\n\n- `middle_name?: string`\n  The legal middle name of the individual.\n\n- `phone_numbers?: { data?: string; type?: 'work' | 'personal'; }[]`\n\n- `preferred_name?: string`\n  The preferred name of the individual.\n\n- `residence?: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }`\n  - `city: string`\n    City, district, suburb, town, or village.\n  - `country: string`\n    The 2-letter ISO 3166 country code.\n  - `line1: string`\n    Street address or PO box.\n  - `line2: string`\n    Apartment, suite, unit, or building.\n  - `postal_code: string`\n    The postal code or zip code.\n  - `state: string`\n    The state code.\n  - `name?: string`\n  - `source_id?: string`\n\n- `ssn?: string`\n  Social Security Number of the individual. This field is only available with the `ssn` scope enabled and the `options: { include: ['ssn'] }` param set in the body. [Click here to learn more about enabling the SSN field](/developer-resources/Enable-SSN-Field).\n\n### Returns\n\n- `{ id?: string; dob?: string; emails?: { data?: string; type?: 'work' | 'personal'; }[]; encrypted_ssn?: string; ethnicity?: string; first_name?: string; gender?: 'female' | 'male' | 'other' | 'decline_to_specify'; last_name?: string; middle_name?: string; phone_numbers?: { data?: string; type?: 'work' | 'personal'; }[]; preferred_name?: string; residence?: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }; ssn?: string; }`\n\n  - `id?: string`\n  - `dob?: string`\n  - `emails?: { data?: string; type?: 'work' | 'personal'; }[]`\n  - `encrypted_ssn?: string`\n  - `ethnicity?: string`\n  - `first_name?: string`\n  - `gender?: 'female' | 'male' | 'other' | 'decline_to_specify'`\n  - `last_name?: string`\n  - `middle_name?: string`\n  - `phone_numbers?: { data?: string; type?: 'work' | 'personal'; }[]`\n  - `preferred_name?: string`\n  - `residence?: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }`\n  - `ssn?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst individual = await client.sandbox.individual.update('individual_id');\n\nconsole.log(individual);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Sandbox.Individual.Update',
+      typescript: {
+        method: 'client.sandbox.individual.update',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tindividual, err := client.Sandbox.Individual.Update(\n\t\tcontext.TODO(),\n\t\t"individual_id",\n\t\tfinchgo.SandboxIndividualUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", individual.ID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst individual = await client.sandbox.individual.update('individual_id');\n\nconsole.log(individual.id);",
       },
-      http: {
+      python: {
+        method: 'sandbox.individual.update',
         example:
-          'curl https://api.tryfinch.com/sandbox/individual/$INDIVIDUAL_ID \\\n    -X PUT \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nindividual = client.sandbox.individual.update(\n    individual_id="individual_id",\n)\nprint(individual.id)',
       },
       java: {
         method: 'sandbox().individual().update',
@@ -1989,20 +1990,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.IndividualUpdateResponse\nimport com.tryfinch.api.models.SandboxIndividualUpdateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val individual: IndividualUpdateResponse = client.sandbox().individual().update("individual_id")\n}',
       },
-      python: {
-        method: 'sandbox.individual.update',
+      go: {
+        method: 'client.Sandbox.Individual.Update',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nindividual = client.sandbox.individual.update(\n    individual_id="individual_id",\n)\nprint(individual.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tindividual, err := client.Sandbox.Individual.Update(\n\t\tcontext.TODO(),\n\t\t"individual_id",\n\t\tfinchgo.SandboxIndividualUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", individual.ID)\n}\n',
       },
       ruby: {
         method: 'sandbox.individual.update',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nindividual = finch.sandbox.individual.update("individual_id")\n\nputs(individual)',
       },
-      typescript: {
-        method: 'client.sandbox.individual.update',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst individual = await client.sandbox.individual.update('individual_id');\n\nconsole.log(individual.id);",
+          'curl https://api.tryfinch.com/sandbox/individual/$INDIVIDUAL_ID \\\n    -X PUT \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -2041,14 +2041,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.sandbox.employment.update(individual_id: string, class_code?: string, custom_fields?: { name?: string; value?: object; }[], department?: { name?: string; }, employment?: { subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor'; type?: 'employee' | 'contractor'; }, employment_status?: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated', end_date?: string, first_name?: string, flsa_status?: 'exempt' | 'non_exempt' | 'unknown', income?: { amount: number; currency: string; effective_date: string; unit: string; }, income_history?: { amount: number; currency: string; effective_date: string; unit: string; }[], is_active?: boolean, last_name?: string, latest_rehire_date?: string, location?: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }, manager?: { id?: string; }, middle_name?: string, source_id?: string, start_date?: string, title?: string): { id?: string; class_code?: string; custom_fields?: object[]; department?: object; employment?: object; employment_status?: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated'; end_date?: string; first_name?: string; flsa_status?: 'exempt' | 'non_exempt' | 'unknown'; income?: income; income_history?: income[]; is_active?: boolean; last_name?: string; latest_rehire_date?: string; location?: location; manager?: object; middle_name?: string; source_id?: string; start_date?: string; title?: string; }`\n\n**put** `/sandbox/employment/{individual_id}`\n\nUpdate sandbox employment\n\n### Parameters\n\n- `individual_id: string`\n\n- `class_code?: string`\n  Worker's compensation classification code for this employee\n\n- `custom_fields?: { name?: string; value?: object; }[]`\n  Custom fields for the individual. These are fields which are defined by the employer in the system. Custom fields are not currently supported for assisted connections.\n\n- `department?: { name?: string; }`\n  The department object.\n  - `name?: string`\n    The name of the department associated with the individual.\n\n- `employment?: { subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor'; type?: 'employee' | 'contractor'; }`\n  The employment object.\n  - `subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor'`\n    The secondary employment type of the individual. Options: `full_time`, `part_time`, `intern`, `temp`, `seasonal` and `individual_contractor`.\n  - `type?: 'employee' | 'contractor'`\n    The main employment type of the individual.\n\n- `employment_status?: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated'`\n  The detailed employment status of the individual.\n\n- `end_date?: string`\n\n- `first_name?: string`\n  The legal first name of the individual.\n\n- `flsa_status?: 'exempt' | 'non_exempt' | 'unknown'`\n  The FLSA status of the individual. Available options: `exempt`, `non_exempt`, `unknown`.\n\n- `income?: { amount: number; currency: string; effective_date: string; unit: string; }`\n  The employee's income as reported by the provider. This may not always be annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc, depending on what information the provider returns.\n  - `amount: number`\n    The income amount in cents.\n  - `currency: string`\n    The currency code.\n  - `effective_date: string`\n    The date the income amount went into effect.\n  - `unit: string`\n    The income unit of payment. Options: `yearly`, `quarterly`, `monthly`, `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.\n\n- `income_history?: { amount: number; currency: string; effective_date: string; unit: string; }[]`\n  The array of income history.\n\n- `is_active?: boolean`\n  `true` if the individual an an active employee or contractor at the company.\n\n- `last_name?: string`\n  The legal last name of the individual.\n\n- `latest_rehire_date?: string`\n\n- `location?: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }`\n  - `city: string`\n    City, district, suburb, town, or village.\n  - `country: string`\n    The 2-letter ISO 3166 country code.\n  - `line1: string`\n    Street address or PO box.\n  - `line2: string`\n    Apartment, suite, unit, or building.\n  - `postal_code: string`\n    The postal code or zip code.\n  - `state: string`\n    The state code.\n  - `name?: string`\n  - `source_id?: string`\n\n- `manager?: { id?: string; }`\n  The manager object representing the manager of the individual within the org.\n  - `id?: string`\n    A stable Finch `id` (UUID v4) for an individual in the company.\n\n- `middle_name?: string`\n  The legal middle name of the individual.\n\n- `source_id?: string`\n  The source system's unique employment identifier for this individual\n\n- `start_date?: string`\n\n- `title?: string`\n  The current title of the individual.\n\n### Returns\n\n- `{ id?: string; class_code?: string; custom_fields?: { name?: string; value?: object; }[]; department?: { name?: string; }; employment?: { subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor'; type?: 'employee' | 'contractor'; }; employment_status?: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated'; end_date?: string; first_name?: string; flsa_status?: 'exempt' | 'non_exempt' | 'unknown'; income?: { amount: number; currency: string; effective_date: string; unit: string; }; income_history?: { amount: number; currency: string; effective_date: string; unit: string; }[]; is_active?: boolean; last_name?: string; latest_rehire_date?: string; location?: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }; manager?: { id?: string; }; middle_name?: string; source_id?: string; start_date?: string; title?: string; }`\n\n  - `id?: string`\n  - `class_code?: string`\n  - `custom_fields?: { name?: string; value?: object; }[]`\n  - `department?: { name?: string; }`\n  - `employment?: { subtype?: 'full_time' | 'intern' | 'part_time' | 'temp' | 'seasonal' | 'individual_contractor'; type?: 'employee' | 'contractor'; }`\n  - `employment_status?: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated'`\n  - `end_date?: string`\n  - `first_name?: string`\n  - `flsa_status?: 'exempt' | 'non_exempt' | 'unknown'`\n  - `income?: { amount: number; currency: string; effective_date: string; unit: string; }`\n  - `income_history?: { amount: number; currency: string; effective_date: string; unit: string; }[]`\n  - `is_active?: boolean`\n  - `last_name?: string`\n  - `latest_rehire_date?: string`\n  - `location?: { city: string; country: string; line1: string; line2: string; postal_code: string; state: string; name?: string; source_id?: string; }`\n  - `manager?: { id?: string; }`\n  - `middle_name?: string`\n  - `source_id?: string`\n  - `start_date?: string`\n  - `title?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst employment = await client.sandbox.employment.update('individual_id');\n\nconsole.log(employment);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Sandbox.Employment.Update',
+      typescript: {
+        method: 'client.sandbox.employment.update',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\temployment, err := client.Sandbox.Employment.Update(\n\t\tcontext.TODO(),\n\t\t"individual_id",\n\t\tfinchgo.SandboxEmploymentUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", employment.ID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst employment = await client.sandbox.employment.update('individual_id');\n\nconsole.log(employment.id);",
       },
-      http: {
+      python: {
+        method: 'sandbox.employment.update',
         example:
-          'curl https://api.tryfinch.com/sandbox/employment/$INDIVIDUAL_ID \\\n    -X PUT \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nemployment = client.sandbox.employment.update(\n    individual_id="individual_id",\n)\nprint(employment.id)',
       },
       java: {
         method: 'sandbox().employment().update',
@@ -2060,20 +2061,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.EmploymentUpdateResponse\nimport com.tryfinch.api.models.SandboxEmploymentUpdateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val employment: EmploymentUpdateResponse = client.sandbox().employment().update("individual_id")\n}',
       },
-      python: {
-        method: 'sandbox.employment.update',
+      go: {
+        method: 'client.Sandbox.Employment.Update',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nemployment = client.sandbox.employment.update(\n    individual_id="individual_id",\n)\nprint(employment.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\temployment, err := client.Sandbox.Employment.Update(\n\t\tcontext.TODO(),\n\t\t"individual_id",\n\t\tfinchgo.SandboxEmploymentUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", employment.ID)\n}\n',
       },
       ruby: {
         method: 'sandbox.employment.update',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nemployment = finch.sandbox.employment.update("individual_id")\n\nputs(employment)',
       },
-      typescript: {
-        method: 'client.sandbox.employment.update',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst employment = await client.sandbox.employment.update('individual_id');\n\nconsole.log(employment.id);",
+          'curl https://api.tryfinch.com/sandbox/employment/$INDIVIDUAL_ID \\\n    -X PUT \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -2094,14 +2094,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.sandbox.payment.create(end_date?: string, pay_statements?: { individual_id: string; earnings?: { amount?: number; hours?: number; name?: string; type?: string; }[]; employee_deductions?: { amount?: number; name?: string; pre_tax?: boolean; type?: string; }[]; employer_contributions?: { amount?: number; name?: string; type?: string; }[]; gross_pay?: number; net_pay?: number; payment_method?: 'check' | 'direct_deposit' | 'other'; taxes?: { amount?: number; employer?: boolean; name?: string; type?: 'federal' | 'fica' | 'local' | 'state'; }[]; total_hours?: number; type?: 'off_cycle_payroll' | 'one_time_payment' | 'regular_payroll'; }[], start_date?: string): { pay_date: string; payment_id: string; }`\n\n**post** `/sandbox/payment`\n\nAdd a new sandbox payment\n\n### Parameters\n\n- `end_date?: string`\n\n- `pay_statements?: { individual_id: string; earnings?: { amount?: number; hours?: number; name?: string; type?: string; }[]; employee_deductions?: { amount?: number; name?: string; pre_tax?: boolean; type?: string; }[]; employer_contributions?: { amount?: number; name?: string; type?: string; }[]; gross_pay?: number; net_pay?: number; payment_method?: 'check' | 'direct_deposit' | 'other'; taxes?: { amount?: number; employer?: boolean; name?: string; type?: 'federal' | 'fica' | 'local' | 'state'; }[]; total_hours?: number; type?: 'off_cycle_payroll' | 'one_time_payment' | 'regular_payroll'; }[]`\n  Array of pay statements to include in the payment.\n\n- `start_date?: string`\n\n### Returns\n\n- `{ pay_date: string; payment_id: string; }`\n\n  - `pay_date: string`\n  - `payment_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst payment = await client.sandbox.payment.create();\n\nconsole.log(payment);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Sandbox.Payment.New',
+      typescript: {
+        method: 'client.sandbox.payment.create',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpayment, err := client.Sandbox.Payment.New(context.TODO(), finchgo.SandboxPaymentNewParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", payment.PaymentID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst payment = await client.sandbox.payment.create();\n\nconsole.log(payment.payment_id);",
       },
-      http: {
+      python: {
+        method: 'sandbox.payment.create',
         example:
-          'curl https://api.tryfinch.com/sandbox/payment \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npayment = client.sandbox.payment.create()\nprint(payment.payment_id)',
       },
       java: {
         method: 'sandbox().payment().create',
@@ -2113,20 +2114,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.PaymentCreateResponse\nimport com.tryfinch.api.models.SandboxPaymentCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val payment: PaymentCreateResponse = client.sandbox().payment().create()\n}',
       },
-      python: {
-        method: 'sandbox.payment.create',
+      go: {
+        method: 'client.Sandbox.Payment.New',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npayment = client.sandbox.payment.create()\nprint(payment.payment_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpayment, err := client.Sandbox.Payment.New(context.TODO(), finchgo.SandboxPaymentNewParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", payment.PaymentID)\n}\n',
       },
       ruby: {
         method: 'sandbox.payment.create',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npayment = finch.sandbox.payment.create\n\nputs(payment)',
       },
-      typescript: {
-        method: 'client.sandbox.payment.create',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst payment = await client.sandbox.payment.create();\n\nconsole.log(payment.payment_id);",
+          'curl https://api.tryfinch.com/sandbox/payment \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -2143,14 +2143,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.sandbox.jobs.create(type: 'data_sync_all'): { allowed_refreshes: number; job_id: string; job_url: string; remaining_refreshes: number; }`\n\n**post** `/sandbox/jobs`\n\nEnqueue a new sandbox job\n\n### Parameters\n\n- `type: 'data_sync_all'`\n  The type of job to start. Currently the only supported type is `data_sync_all`\n\n### Returns\n\n- `{ allowed_refreshes: number; job_id: string; job_url: string; remaining_refreshes: number; }`\n\n  - `allowed_refreshes: number`\n  - `job_id: string`\n  - `job_url: string`\n  - `remaining_refreshes: number`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst job = await client.sandbox.jobs.create({ type: 'data_sync_all' });\n\nconsole.log(job);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Sandbox.Jobs.New',
+      typescript: {
+        method: 'client.sandbox.jobs.create',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tjob, err := client.Sandbox.Jobs.New(context.TODO(), finchgo.SandboxJobNewParams{\n\t\tType: finchgo.F(finchgo.SandboxJobNewParamsTypeDataSyncAll),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", job.JobID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst job = await client.sandbox.jobs.create({ type: 'data_sync_all' });\n\nconsole.log(job.job_id);",
       },
-      http: {
+      python: {
+        method: 'sandbox.jobs.create',
         example:
-          'curl https://api.tryfinch.com/sandbox/jobs \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "type": "data_sync_all"\n        }\'',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\njob = client.sandbox.jobs.create(\n    type="data_sync_all",\n)\nprint(job.job_id)',
       },
       java: {
         method: 'sandbox().jobs().create',
@@ -2162,20 +2163,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.JobCreateResponse\nimport com.tryfinch.api.models.SandboxJobCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: SandboxJobCreateParams = SandboxJobCreateParams.builder()\n        .type(SandboxJobCreateParams.Type.DATA_SYNC_ALL)\n        .build()\n    val job: JobCreateResponse = client.sandbox().jobs().create(params)\n}',
       },
-      python: {
-        method: 'sandbox.jobs.create',
+      go: {
+        method: 'client.Sandbox.Jobs.New',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\njob = client.sandbox.jobs.create(\n    type="data_sync_all",\n)\nprint(job.job_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tjob, err := client.Sandbox.Jobs.New(context.TODO(), finchgo.SandboxJobNewParams{\n\t\tType: finchgo.F(finchgo.SandboxJobNewParamsTypeDataSyncAll),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", job.JobID)\n}\n',
       },
       ruby: {
         method: 'sandbox.jobs.create',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\njob = finch.sandbox.jobs.create(type: :data_sync_all)\n\nputs(job)',
       },
-      typescript: {
-        method: 'client.sandbox.jobs.create',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst job = await client.sandbox.jobs.create({ type: 'data_sync_all' });\n\nconsole.log(job.job_id);",
+          'curl https://api.tryfinch.com/sandbox/jobs \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "type": "data_sync_all"\n        }\'',
       },
     },
   },
@@ -2192,14 +2192,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.sandbox.jobs.configuration.retrieve(): object[]`\n\n**get** `/sandbox/jobs/configuration`\n\nGet configurations for sandbox jobs\n\n### Returns\n\n- `{ completion_status: 'complete' | 'reauth_error' | 'permissions_error' | 'error'; type: 'data_sync_all'; }[]`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst sandboxJobConfigurations = await client.sandbox.jobs.configuration.retrieve();\n\nconsole.log(sandboxJobConfigurations);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Sandbox.Jobs.Configuration.Get',
+      typescript: {
+        method: 'client.sandbox.jobs.configuration.retrieve',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tsandboxJobConfigurations, err := client.Sandbox.Jobs.Configuration.Get(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", sandboxJobConfigurations)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst sandboxJobConfigurations = await client.sandbox.jobs.configuration.retrieve();\n\nconsole.log(sandboxJobConfigurations);",
       },
-      http: {
+      python: {
+        method: 'sandbox.jobs.configuration.retrieve',
         example:
-          'curl https://api.tryfinch.com/sandbox/jobs/configuration \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nsandbox_job_configurations = client.sandbox.jobs.configuration.retrieve()\nprint(sandbox_job_configurations)',
       },
       java: {
         method: 'sandbox().jobs().configuration().retrieve',
@@ -2211,20 +2212,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.SandboxJobConfiguration\nimport com.tryfinch.api.models.SandboxJobConfigurationRetrieveParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val sandboxJobConfigurations: List<SandboxJobConfiguration> = client.sandbox().jobs().configuration().retrieve()\n}',
       },
-      python: {
-        method: 'sandbox.jobs.configuration.retrieve',
+      go: {
+        method: 'client.Sandbox.Jobs.Configuration.Get',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nsandbox_job_configurations = client.sandbox.jobs.configuration.retrieve()\nprint(sandbox_job_configurations)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tsandboxJobConfigurations, err := client.Sandbox.Jobs.Configuration.Get(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", sandboxJobConfigurations)\n}\n',
       },
       ruby: {
         method: 'sandbox.jobs.configuration.retrieve',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nsandbox_job_configurations = finch.sandbox.jobs.configuration.retrieve\n\nputs(sandbox_job_configurations)',
       },
-      typescript: {
-        method: 'client.sandbox.jobs.configuration.retrieve',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst sandboxJobConfigurations = await client.sandbox.jobs.configuration.retrieve();\n\nconsole.log(sandboxJobConfigurations);",
+          'curl https://api.tryfinch.com/sandbox/jobs/configuration \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -2245,14 +2245,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.sandbox.jobs.configuration.update(completion_status: 'complete' | 'reauth_error' | 'permissions_error' | 'error', type: 'data_sync_all'): { completion_status: 'complete' | 'reauth_error' | 'permissions_error' | 'error'; type: 'data_sync_all'; }`\n\n**put** `/sandbox/jobs/configuration`\n\nUpdate configurations for sandbox jobs\n\n### Parameters\n\n- `completion_status: 'complete' | 'reauth_error' | 'permissions_error' | 'error'`\n\n- `type: 'data_sync_all'`\n\n### Returns\n\n- `{ completion_status: 'complete' | 'reauth_error' | 'permissions_error' | 'error'; type: 'data_sync_all'; }`\n\n  - `completion_status: 'complete' | 'reauth_error' | 'permissions_error' | 'error'`\n  - `type: 'data_sync_all'`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst sandboxJobConfiguration = await client.sandbox.jobs.configuration.update({ completion_status: 'complete', type: 'data_sync_all' });\n\nconsole.log(sandboxJobConfiguration);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Sandbox.Jobs.Configuration.Update',
+      typescript: {
+        method: 'client.sandbox.jobs.configuration.update',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tsandboxJobConfiguration, err := client.Sandbox.Jobs.Configuration.Update(context.TODO(), finchgo.SandboxJobConfigurationUpdateParams{\n\t\tCompletionStatus: finchgo.F(finchgo.SandboxJobConfigurationUpdateParamsCompletionStatusComplete),\n\t\tType:             finchgo.F(finchgo.SandboxJobConfigurationUpdateParamsTypeDataSyncAll),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", sandboxJobConfiguration.CompletionStatus)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst sandboxJobConfiguration = await client.sandbox.jobs.configuration.update({\n  completion_status: 'complete',\n  type: 'data_sync_all',\n});\n\nconsole.log(sandboxJobConfiguration.completion_status);",
       },
-      http: {
+      python: {
+        method: 'sandbox.jobs.configuration.update',
         example:
-          'curl https://api.tryfinch.com/sandbox/jobs/configuration \\\n    -X PUT \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "completion_status": "complete",\n          "type": "data_sync_all"\n        }\'',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nsandbox_job_configuration = client.sandbox.jobs.configuration.update(\n    completion_status="complete",\n    type="data_sync_all",\n)\nprint(sandbox_job_configuration.completion_status)',
       },
       java: {
         method: 'sandbox().jobs().configuration().update',
@@ -2264,20 +2265,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.SandboxJobConfiguration\nimport com.tryfinch.api.models.SandboxJobConfigurationUpdateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: SandboxJobConfiguration = SandboxJobConfiguration.builder()\n        .completionStatus(SandboxJobConfiguration.CompletionStatus.COMPLETE)\n        .type(SandboxJobConfiguration.Type.DATA_SYNC_ALL)\n        .build()\n    val sandboxJobConfiguration: SandboxJobConfiguration = client.sandbox().jobs().configuration().update(params)\n}',
       },
-      python: {
-        method: 'sandbox.jobs.configuration.update',
+      go: {
+        method: 'client.Sandbox.Jobs.Configuration.Update',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nsandbox_job_configuration = client.sandbox.jobs.configuration.update(\n    completion_status="complete",\n    type="data_sync_all",\n)\nprint(sandbox_job_configuration.completion_status)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tsandboxJobConfiguration, err := client.Sandbox.Jobs.Configuration.Update(context.TODO(), finchgo.SandboxJobConfigurationUpdateParams{\n\t\tCompletionStatus: finchgo.F(finchgo.SandboxJobConfigurationUpdateParamsCompletionStatusComplete),\n\t\tType:             finchgo.F(finchgo.SandboxJobConfigurationUpdateParamsTypeDataSyncAll),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", sandboxJobConfiguration.CompletionStatus)\n}\n',
       },
       ruby: {
         method: 'sandbox.jobs.configuration.update',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nsandbox_job_configuration = finch.sandbox.jobs.configuration.update(completion_status: :complete, type: :data_sync_all)\n\nputs(sandbox_job_configuration)',
       },
-      typescript: {
-        method: 'client.sandbox.jobs.configuration.update',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst sandboxJobConfiguration = await client.sandbox.jobs.configuration.update({\n  completion_status: 'complete',\n  type: 'data_sync_all',\n});\n\nconsole.log(sandboxJobConfiguration.completion_status);",
+          'curl https://api.tryfinch.com/sandbox/jobs/configuration \\\n    -X PUT \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "completion_status": "complete",\n          "type": "data_sync_all"\n        }\'',
       },
     },
   },
@@ -2294,14 +2294,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.payroll.payGroups.list(entity_ids?: string[], individual_id?: string, pay_frequencies?: string[]): { id: string; name: string; pay_frequencies: string[]; }`\n\n**get** `/employer/pay-groups`\n\nRead company pay groups and frequencies\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `individual_id?: string`\n\n- `pay_frequencies?: string[]`\n\n### Returns\n\n- `{ id: string; name: string; pay_frequencies: string[]; }`\n\n  - `id: string`\n  - `name: string`\n  - `pay_frequencies: string[]`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const payGroupListResponse of client.payroll.payGroups.list()) {\n  console.log(payGroupListResponse);\n}\n```",
     perLanguage: {
-      go: {
-        method: 'client.Payroll.PayGroups.List',
+      typescript: {
+        method: 'client.payroll.payGroups.list',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.Payroll.PayGroups.List(context.TODO(), finchgo.PayrollPayGroupListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const payGroupListResponse of client.payroll.payGroups.list()) {\n  console.log(payGroupListResponse.id);\n}",
       },
-      http: {
+      python: {
+        method: 'payroll.pay_groups.list',
         example:
-          'curl https://api.tryfinch.com/employer/pay-groups \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.payroll.pay_groups.list()\npage = page.items[0]\nprint(page.id)',
       },
       java: {
         method: 'payroll().payGroups().list',
@@ -2313,20 +2314,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.PayrollPayGroupListPage\nimport com.tryfinch.api.models.PayrollPayGroupListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: PayrollPayGroupListPage = client.payroll().payGroups().list()\n}',
       },
-      python: {
-        method: 'payroll.pay_groups.list',
+      go: {
+        method: 'client.Payroll.PayGroups.List',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.payroll.pay_groups.list()\npage = page.items[0]\nprint(page.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.Payroll.PayGroups.List(context.TODO(), finchgo.PayrollPayGroupListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'payroll.pay_groups.list',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.payroll.pay_groups.list\n\nputs(page)',
       },
-      typescript: {
-        method: 'client.payroll.payGroups.list',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const payGroupListResponse of client.payroll.payGroups.list()) {\n  console.log(payGroupListResponse.id);\n}",
+          'curl https://api.tryfinch.com/employer/pay-groups \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -2343,14 +2343,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.payroll.payGroups.retrieve(pay_group_id: string, entity_ids?: string[]): { id: string; individual_ids: string[]; name: string; pay_frequencies: string[]; }`\n\n**get** `/employer/pay-groups/{pay_group_id}`\n\nRead information from a single pay group\n\n### Parameters\n\n- `pay_group_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n### Returns\n\n- `{ id: string; individual_ids: string[]; name: string; pay_frequencies: string[]; }`\n\n  - `id: string`\n  - `individual_ids: string[]`\n  - `name: string`\n  - `pay_frequencies: string[]`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst payGroup = await client.payroll.payGroups.retrieve('pay_group_id');\n\nconsole.log(payGroup);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Payroll.PayGroups.Get',
+      typescript: {
+        method: 'client.payroll.payGroups.retrieve',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpayGroup, err := client.Payroll.PayGroups.Get(\n\t\tcontext.TODO(),\n\t\t"pay_group_id",\n\t\tfinchgo.PayrollPayGroupGetParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", payGroup.ID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst payGroup = await client.payroll.payGroups.retrieve('pay_group_id');\n\nconsole.log(payGroup.id);",
       },
-      http: {
+      python: {
+        method: 'payroll.pay_groups.retrieve',
         example:
-          'curl https://api.tryfinch.com/employer/pay-groups/$PAY_GROUP_ID \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npay_group = client.payroll.pay_groups.retrieve(\n    pay_group_id="pay_group_id",\n)\nprint(pay_group.id)',
       },
       java: {
         method: 'payroll().payGroups().retrieve',
@@ -2362,20 +2363,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.PayGroupRetrieveResponse\nimport com.tryfinch.api.models.PayrollPayGroupRetrieveParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val payGroup: PayGroupRetrieveResponse = client.payroll().payGroups().retrieve("pay_group_id")\n}',
       },
-      python: {
-        method: 'payroll.pay_groups.retrieve',
+      go: {
+        method: 'client.Payroll.PayGroups.Get',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npay_group = client.payroll.pay_groups.retrieve(\n    pay_group_id="pay_group_id",\n)\nprint(pay_group.id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpayGroup, err := client.Payroll.PayGroups.Get(\n\t\tcontext.TODO(),\n\t\t"pay_group_id",\n\t\tfinchgo.PayrollPayGroupGetParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", payGroup.ID)\n}\n',
       },
       ruby: {
         method: 'payroll.pay_groups.retrieve',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npay_group = finch.payroll.pay_groups.retrieve("pay_group_id")\n\nputs(pay_group)',
       },
-      typescript: {
-        method: 'client.payroll.payGroups.retrieve',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst payGroup = await client.payroll.payGroups.retrieve('pay_group_id');\n\nconsole.log(payGroup.id);",
+          'curl https://api.tryfinch.com/employer/pay-groups/$PAY_GROUP_ID \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
@@ -2402,14 +2402,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## new\n\n`client.connect.sessions.new(customer_id: string, customer_name: string, products: string[], customer_email?: string, integration?: { provider: string; auth_method?: 'assisted' | 'credential' | 'oauth' | 'api_token'; }, manual?: boolean, minutes_to_expire?: number, redirect_uri?: string, sandbox?: 'finch' | 'provider'): { connect_url: string; session_id: string; }`\n\n**post** `/connect/sessions`\n\nCreate a new connect session for an employer\n\n### Parameters\n\n- `customer_id: string`\n  Unique identifier for the customer\n\n- `customer_name: string`\n  Name of the customer\n\n- `products: string[]`\n  The Finch products to request access to. Use `benefits` to access deductions endpoints — `deduction` is a deprecated alias that is still accepted but should not be combined with `benefits`.\n\n- `customer_email?: string`\n  Email address of the customer\n\n- `integration?: { provider: string; auth_method?: 'assisted' | 'credential' | 'oauth' | 'api_token'; }`\n  Integration configuration for the connect session\n  - `provider: string`\n    The provider to integrate with\n  - `auth_method?: 'assisted' | 'credential' | 'oauth' | 'api_token'`\n    The authentication method to use\n\n- `manual?: boolean`\n  Enable manual authentication mode\n\n- `minutes_to_expire?: number`\n  The number of minutes until the session expires (defaults to 129,600, which is 90 days)\n\n- `redirect_uri?: string`\n  The URI to redirect to after the Connect flow is completed\n\n- `sandbox?: 'finch' | 'provider'`\n  Sandbox mode for testing\n\n### Returns\n\n- `{ connect_url: string; session_id: string; }`\n\n  - `connect_url: string`\n  - `session_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst response = await client.connect.sessions.new({\n  customer_id: 'x',\n  customer_name: 'x',\n  products: ['benefits'],\n});\n\nconsole.log(response);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Connect.Sessions.New',
+      typescript: {
+        method: 'client.connect.sessions.new',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithClientID("4ab15e51-11ad-49f4-acae-f343b7794375"),\n\t\toption.WithClientSecret("My Client Secret"),\n\t)\n\tresponse, err := client.Connect.Sessions.New(context.TODO(), finchgo.ConnectSessionNewParams{\n\t\tCustomerID:   finchgo.F("x"),\n\t\tCustomerName: finchgo.F("x"),\n\t\tProducts:     finchgo.F([]finchgo.ConnectSessionNewParamsProduct{finchgo.ConnectSessionNewParamsProductBenefits}),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response.SessionID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  clientID: process.env['FINCH_CLIENT_ID'], // This is the default and can be omitted\n  clientSecret: process.env['FINCH_CLIENT_SECRET'], // This is the default and can be omitted\n});\n\nconst response = await client.connect.sessions.new({\n  customer_id: 'x',\n  customer_name: 'x',\n  products: ['benefits'],\n});\n\nconsole.log(response.session_id);",
       },
-      http: {
+      python: {
+        method: 'connect.sessions.new',
         example:
-          'curl https://api.tryfinch.com/connect/sessions \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -u "$FINCH_CLIENT_ID:FINCH_CLIENT_SECRET" \\\n    -d \'{\n          "customer_id": "x",\n          "customer_name": "x",\n          "products": [\n            "benefits"\n          ]\n        }\'',
+          'import os\nfrom finch import Finch\n\nclient = Finch(\n    client_id=os.environ.get("FINCH_CLIENT_ID"),  # This is the default and can be omitted\n    client_secret=os.environ.get("FINCH_CLIENT_SECRET"),  # This is the default and can be omitted\n)\nresponse = client.connect.sessions.new(\n    customer_id="x",\n    customer_name="x",\n    products=["benefits"],\n)\nprint(response.session_id)',
       },
       java: {
         method: 'connect().sessions().new_',
@@ -2421,20 +2422,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.ConnectSessionNewParams\nimport com.tryfinch.api.models.SessionNewResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.fromEnv()\n\n    val params: ConnectSessionNewParams = ConnectSessionNewParams.builder()\n        .customerId("x")\n        .customerName("x")\n        .addProduct(ConnectSessionNewParams.ConnectProducts.BENEFITS)\n        .build()\n    val response: SessionNewResponse = client.connect().sessions().new(params)\n}',
       },
-      python: {
-        method: 'connect.sessions.new',
+      go: {
+        method: 'client.Connect.Sessions.New',
         example:
-          'import os\nfrom finch import Finch\n\nclient = Finch(\n    client_id=os.environ.get("FINCH_CLIENT_ID"),  # This is the default and can be omitted\n    client_secret=os.environ.get("FINCH_CLIENT_SECRET"),  # This is the default and can be omitted\n)\nresponse = client.connect.sessions.new(\n    customer_id="x",\n    customer_name="x",\n    products=["benefits"],\n)\nprint(response.session_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithClientID("4ab15e51-11ad-49f4-acae-f343b7794375"),\n\t\toption.WithClientSecret("My Client Secret"),\n\t)\n\tresponse, err := client.Connect.Sessions.New(context.TODO(), finchgo.ConnectSessionNewParams{\n\t\tCustomerID:   finchgo.F("x"),\n\t\tCustomerName: finchgo.F("x"),\n\t\tProducts:     finchgo.F([]finchgo.ConnectSessionNewParamsProduct{finchgo.ConnectSessionNewParamsProductBenefits}),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response.SessionID)\n}\n',
       },
       ruby: {
         method: 'connect.sessions.new',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(client_id: "4ab15e51-11ad-49f4-acae-f343b7794375", client_secret: "My Client Secret")\n\nresponse = finch.connect.sessions.new(customer_id: "x", customer_name: "x", products: [:benefits])\n\nputs(response)',
       },
-      typescript: {
-        method: 'client.connect.sessions.new',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  clientID: process.env['FINCH_CLIENT_ID'], // This is the default and can be omitted\n  clientSecret: process.env['FINCH_CLIENT_SECRET'], // This is the default and can be omitted\n});\n\nconst response = await client.connect.sessions.new({\n  customer_id: 'x',\n  customer_name: 'x',\n  products: ['benefits'],\n});\n\nconsole.log(response.session_id);",
+          'curl https://api.tryfinch.com/connect/sessions \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -u "$FINCH_CLIENT_ID:FINCH_CLIENT_SECRET" \\\n    -d \'{\n          "customer_id": "x",\n          "customer_name": "x",\n          "products": [\n            "benefits"\n          ]\n        }\'',
       },
     },
   },
@@ -2456,14 +2456,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## reauthenticate\n\n`client.connect.sessions.reauthenticate(connection_id: string, minutes_to_expire?: number, products?: string[], redirect_uri?: string): { connect_url: string; session_id: string; }`\n\n**post** `/connect/sessions/reauthenticate`\n\nCreate a new Connect session for reauthenticating an existing connection\n\n### Parameters\n\n- `connection_id: string`\n  The ID of the existing connection to reauthenticate\n\n- `minutes_to_expire?: number`\n  The number of minutes until the session expires (defaults to 43,200, which is 30 days)\n\n- `products?: string[]`\n  The products to request access to (optional for reauthentication). Use `benefits` to access deductions endpoints — `deduction` is a deprecated alias that is still accepted but should not be combined with `benefits`.\n\n- `redirect_uri?: string`\n  The URI to redirect to after the Connect flow is completed\n\n### Returns\n\n- `{ connect_url: string; session_id: string; }`\n\n  - `connect_url: string`\n  - `session_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst response = await client.connect.sessions.reauthenticate({ connection_id: 'connection_id' });\n\nconsole.log(response);\n```",
     perLanguage: {
-      go: {
-        method: 'client.Connect.Sessions.Reauthenticate',
+      typescript: {
+        method: 'client.connect.sessions.reauthenticate',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithClientID("4ab15e51-11ad-49f4-acae-f343b7794375"),\n\t\toption.WithClientSecret("My Client Secret"),\n\t)\n\tresponse, err := client.Connect.Sessions.Reauthenticate(context.TODO(), finchgo.ConnectSessionReauthenticateParams{\n\t\tConnectionID: finchgo.F("connection_id"),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response.SessionID)\n}\n',
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  clientID: process.env['FINCH_CLIENT_ID'], // This is the default and can be omitted\n  clientSecret: process.env['FINCH_CLIENT_SECRET'], // This is the default and can be omitted\n});\n\nconst response = await client.connect.sessions.reauthenticate({ connection_id: 'connection_id' });\n\nconsole.log(response.session_id);",
       },
-      http: {
+      python: {
+        method: 'connect.sessions.reauthenticate',
         example:
-          'curl https://api.tryfinch.com/connect/sessions/reauthenticate \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -u "$FINCH_CLIENT_ID:FINCH_CLIENT_SECRET" \\\n    -d \'{\n          "connection_id": "connection_id"\n        }\'',
+          'import os\nfrom finch import Finch\n\nclient = Finch(\n    client_id=os.environ.get("FINCH_CLIENT_ID"),  # This is the default and can be omitted\n    client_secret=os.environ.get("FINCH_CLIENT_SECRET"),  # This is the default and can be omitted\n)\nresponse = client.connect.sessions.reauthenticate(\n    connection_id="connection_id",\n)\nprint(response.session_id)',
       },
       java: {
         method: 'connect().sessions().reauthenticate',
@@ -2475,20 +2476,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.ConnectSessionReauthenticateParams\nimport com.tryfinch.api.models.SessionReauthenticateResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.fromEnv()\n\n    val params: ConnectSessionReauthenticateParams = ConnectSessionReauthenticateParams.builder()\n        .connectionId("connection_id")\n        .build()\n    val response: SessionReauthenticateResponse = client.connect().sessions().reauthenticate(params)\n}',
       },
-      python: {
-        method: 'connect.sessions.reauthenticate',
+      go: {
+        method: 'client.Connect.Sessions.Reauthenticate',
         example:
-          'import os\nfrom finch import Finch\n\nclient = Finch(\n    client_id=os.environ.get("FINCH_CLIENT_ID"),  # This is the default and can be omitted\n    client_secret=os.environ.get("FINCH_CLIENT_SECRET"),  # This is the default and can be omitted\n)\nresponse = client.connect.sessions.reauthenticate(\n    connection_id="connection_id",\n)\nprint(response.session_id)',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithClientID("4ab15e51-11ad-49f4-acae-f343b7794375"),\n\t\toption.WithClientSecret("My Client Secret"),\n\t)\n\tresponse, err := client.Connect.Sessions.Reauthenticate(context.TODO(), finchgo.ConnectSessionReauthenticateParams{\n\t\tConnectionID: finchgo.F("connection_id"),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response.SessionID)\n}\n',
       },
       ruby: {
         method: 'connect.sessions.reauthenticate',
         example:
           'require "finch_api"\n\nfinch = FinchAPI::Client.new(client_id: "4ab15e51-11ad-49f4-acae-f343b7794375", client_secret: "My Client Secret")\n\nresponse = finch.connect.sessions.reauthenticate(connection_id: "connection_id")\n\nputs(response)',
       },
-      typescript: {
-        method: 'client.connect.sessions.reauthenticate',
+      http: {
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  clientID: process.env['FINCH_CLIENT_ID'], // This is the default and can be omitted\n  clientSecret: process.env['FINCH_CLIENT_SECRET'], // This is the default and can be omitted\n});\n\nconst response = await client.connect.sessions.reauthenticate({ connection_id: 'connection_id' });\n\nconsole.log(response.session_id);",
+          'curl https://api.tryfinch.com/connect/sessions/reauthenticate \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -u "$FINCH_CLIENT_ID:FINCH_CLIENT_SECRET" \\\n    -d \'{\n          "connection_id": "connection_id"\n        }\'',
       },
     },
   },
