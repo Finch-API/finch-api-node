@@ -2,13 +2,7 @@
 
 import { APIResource } from '../../core/resource';
 import * as SessionsAPI from './sessions';
-import {
-  SessionNewParams,
-  SessionNewResponse,
-  SessionReauthenticateParams,
-  SessionReauthenticateResponse,
-  Sessions,
-} from './sessions';
+import { SessionNewParams, SessionNewResponse, SessionReauthenticateParams, SessionReauthenticateResponse, Sessions } from './sessions';
 
 export class Connect extends APIResource {
   sessions: SessionsAPI.Sessions = new SessionsAPI.Sessions(this._client);
@@ -22,6 +16,6 @@ export declare namespace Connect {
     type SessionNewResponse as SessionNewResponse,
     type SessionReauthenticateResponse as SessionReauthenticateResponse,
     type SessionNewParams as SessionNewParams,
-    type SessionReauthenticateParams as SessionReauthenticateParams,
+    type SessionReauthenticateParams as SessionReauthenticateParams
   };
 }

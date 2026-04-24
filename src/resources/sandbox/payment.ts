@@ -13,11 +13,8 @@ export class Payment extends APIResource {
    * const payment = await client.sandbox.payment.create();
    * ```
    */
-  create(
-    body: PaymentCreateParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<PaymentCreateResponse> {
-    return this._client.post('/sandbox/payment', { body, ...options, __security: { bearerAuth: true } });
+  create(body: PaymentCreateParams | null | undefined = {}, options?: RequestOptions): APIPromise<PaymentCreateResponse> {
+    return this._client.post('/sandbox/payment', { body, ...options, __security: { bearerAuth : true } });
   }
 }
 
@@ -75,20 +72,7 @@ export namespace PaymentCreateParams {
 
       name?: string;
 
-      type?:
-        | 'bonus'
-        | 'commission'
-        | 'double_overtime'
-        | 'other'
-        | 'overtime'
-        | 'pto'
-        | 'reimbursement'
-        | 'salary'
-        | 'severance'
-        | 'sick'
-        | 'tips'
-        | 'wage'
-        | '1099';
+      type?: 'bonus' | 'commission' | 'double_overtime' | 'other' | 'overtime' | 'pto' | 'reimbursement' | 'salary' | 'severance' | 'sick' | 'tips' | 'wage' | '1099';
     }
 
     export interface EmployeeDeduction {
@@ -101,26 +85,7 @@ export namespace PaymentCreateParams {
 
       pre_tax?: boolean;
 
-      type?:
-        | '457'
-        | '401k'
-        | '401k_roth'
-        | '401k_loan'
-        | '403b'
-        | '403b_roth'
-        | '457_roth'
-        | 'commuter'
-        | 'custom_post_tax'
-        | 'custom_pre_tax'
-        | 'fsa_dependent_care'
-        | 'fsa_medical'
-        | 'hsa_post'
-        | 'hsa_pre'
-        | 's125_dental'
-        | 's125_medical'
-        | 's125_vision'
-        | 'simple'
-        | 'simple_ira';
+      type?: '457' | '401k' | '401k_roth' | '401k_loan' | '403b' | '403b_roth' | '457_roth' | 'commuter' | 'custom_post_tax' | 'custom_pre_tax' | 'fsa_dependent_care' | 'fsa_medical' | 'hsa_post' | 'hsa_pre' | 's125_dental' | 's125_medical' | 's125_vision' | 'simple' | 'simple_ira';
     }
 
     export interface EmployerContribution {
@@ -131,26 +96,7 @@ export namespace PaymentCreateParams {
        */
       name?: string;
 
-      type?:
-        | '457'
-        | '401k'
-        | '401k_roth'
-        | '401k_loan'
-        | '403b'
-        | '403b_roth'
-        | '457_roth'
-        | 'commuter'
-        | 'custom_post_tax'
-        | 'custom_pre_tax'
-        | 'fsa_dependent_care'
-        | 'fsa_medical'
-        | 'hsa_post'
-        | 'hsa_pre'
-        | 's125_dental'
-        | 's125_medical'
-        | 's125_vision'
-        | 'simple'
-        | 'simple_ira';
+      type?: '457' | '401k' | '401k_roth' | '401k_loan' | '403b' | '403b_roth' | '457_roth' | 'commuter' | 'custom_post_tax' | 'custom_pre_tax' | 'fsa_dependent_care' | 'fsa_medical' | 'hsa_post' | 'hsa_pre' | 's125_dental' | 's125_medical' | 's125_vision' | 'simple' | 'simple_ira';
     }
 
     export interface Tax {
@@ -168,6 +114,6 @@ export namespace PaymentCreateParams {
 export declare namespace Payment {
   export {
     type PaymentCreateResponse as PaymentCreateResponse,
-    type PaymentCreateParams as PaymentCreateParams,
+    type PaymentCreateParams as PaymentCreateParams
   };
 }

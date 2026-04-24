@@ -1,12 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export type ConnectionStatusType =
-  | 'pending'
-  | 'processing'
-  | 'connected'
-  | 'error_no_account_setup'
-  | 'error_permissions'
-  | 'reauth';
+
+export type ConnectionStatusType = 'pending' | 'processing' | 'connected' | 'error_no_account_setup' | 'error_permissions' | 'reauth'
 
 /**
  * - `supported`: This operation is supported by both the provider and Finch
@@ -17,11 +12,7 @@ export type ConnectionStatusType =
  * - `client_access_only`: This behavior is supported by the provider, but only
  *   available to the client and not to Finch
  */
-export type OperationSupport =
-  | 'supported'
-  | 'not_supported_by_finch'
-  | 'not_supported_by_provider'
-  | 'client_access_only';
+export type OperationSupport = 'supported' | 'not_supported_by_finch' | 'not_supported_by_provider' | 'client_access_only'
 
 export interface OperationSupportMatrix {
   /**

@@ -21,18 +21,9 @@ export class Individuals extends APIResource {
    *   );
    * ```
    */
-  enrollMany(
-    benefitID: string,
-    params: IndividualEnrollManyParams | null | undefined = undefined,
-    options?: RequestOptions,
-  ): APIPromise<EnrolledIndividualBenefitResponse> {
-    const { entity_ids, individuals } = params ?? {};
-    return this._client.post(path`/employer/benefits/${benefitID}/individuals`, {
-      query: { entity_ids },
-      body: individuals,
-      ...options,
-      __security: { bearerAuth: true },
-    });
+  enrollMany(benefitID: string, params: IndividualEnrollManyParams | null | undefined = undefined, options?: RequestOptions): APIPromise<EnrolledIndividualBenefitResponse> {
+    const { entity_ids, individuals } = params ?? {}
+    return this._client.post(path`/employer/benefits/${benefitID}/individuals`, { query: { entity_ids }, body: individuals, ...options, __security: { bearerAuth : true } });
   }
 
   /**
@@ -46,16 +37,8 @@ export class Individuals extends APIResource {
    *   );
    * ```
    */
-  enrolledIDs(
-    benefitID: string,
-    query: IndividualEnrolledIDsParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<IndividualEnrolledIDsResponse> {
-    return this._client.get(path`/employer/benefits/${benefitID}/enrolled`, {
-      query,
-      ...options,
-      __security: { bearerAuth: true },
-    });
+  enrolledIDs(benefitID: string, query: IndividualEnrolledIDsParams | null | undefined = {}, options?: RequestOptions): APIPromise<IndividualEnrolledIDsResponse> {
+    return this._client.get(path`/employer/benefits/${benefitID}/enrolled`, { query, ...options, __security: { bearerAuth : true } });
   }
 
   /**
@@ -71,16 +54,8 @@ export class Individuals extends APIResource {
    * }
    * ```
    */
-  retrieveManyBenefits(
-    benefitID: string,
-    query: IndividualRetrieveManyBenefitsParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<IndividualBenefitsSinglePage, IndividualBenefit> {
-    return this._client.getAPIList(
-      path`/employer/benefits/${benefitID}/individuals`,
-      SinglePage<IndividualBenefit>,
-      { query, ...options, __security: { bearerAuth: true } },
-    );
+  retrieveManyBenefits(benefitID: string, query: IndividualRetrieveManyBenefitsParams | null | undefined = {}, options?: RequestOptions): PagePromise<IndividualBenefitsSinglePage, IndividualBenefit> {
+    return this._client.getAPIList(path`/employer/benefits/${benefitID}/individuals`, SinglePage<IndividualBenefit>, { query, ...options, __security: { bearerAuth : true } });
   }
 
   /**
@@ -94,22 +69,13 @@ export class Individuals extends APIResource {
    *   );
    * ```
    */
-  unenrollMany(
-    benefitID: string,
-    params: IndividualUnenrollManyParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<UnenrolledIndividualBenefitResponse> {
-    const { entity_ids, ...body } = params ?? {};
-    return this._client.delete(path`/employer/benefits/${benefitID}/individuals`, {
-      query: { entity_ids },
-      body,
-      ...options,
-      __security: { bearerAuth: true },
-    });
+  unenrollMany(benefitID: string, params: IndividualUnenrollManyParams | null | undefined = {}, options?: RequestOptions): APIPromise<UnenrolledIndividualBenefitResponse> {
+    const { entity_ids, ...body } = params ?? {}
+    return this._client.delete(path`/employer/benefits/${benefitID}/individuals`, { query: { entity_ids }, body, ...options, __security: { bearerAuth : true } });
   }
 }
 
-export type IndividualBenefitsSinglePage = SinglePage<IndividualBenefit>;
+export type IndividualBenefitsSinglePage = SinglePage<IndividualBenefit>
 
 export interface EnrolledIndividualBenefitResponse {
   job_id: string;
@@ -141,11 +107,7 @@ export namespace IndividualBenefit {
      * percentage-based contributions (in basis points where 100 = 1%), or tiered
      * matching structures.
      */
-    company_contribution:
-      | UnionMember0.UnionMember0
-      | UnionMember0.UnionMember1
-      | UnionMember0.UnionMember2
-      | null;
+    company_contribution: UnionMember0.UnionMember0 | UnionMember0.UnionMember1 | UnionMember0.UnionMember2 | null;
 
     /**
      * Employee deduction configuration. Supports both fixed amounts (in cents) and
@@ -399,6 +361,6 @@ export declare namespace Individuals {
     type IndividualEnrollManyParams as IndividualEnrollManyParams,
     type IndividualEnrolledIDsParams as IndividualEnrolledIDsParams,
     type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
-    type IndividualUnenrollManyParams as IndividualUnenrollManyParams,
+    type IndividualUnenrollManyParams as IndividualUnenrollManyParams
   };
 }

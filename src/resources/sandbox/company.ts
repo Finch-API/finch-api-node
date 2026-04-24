@@ -33,7 +33,7 @@ export class Company extends APIResource {
    * ```
    */
   update(body: CompanyUpdateParams, options?: RequestOptions): APIPromise<CompanyUpdateResponse> {
-    return this._client.put('/sandbox/company', { body, ...options, __security: { bearerAuth: true } });
+    return this._client.put('/sandbox/company', { body, ...options, __security: { bearerAuth : true } });
   }
 }
 
@@ -142,15 +142,7 @@ export namespace CompanyUpdateResponse {
     /**
      * The tax payer type of the company.
      */
-    type?:
-      | 'llc'
-      | 'lp'
-      | 'corporation'
-      | 'sole_proprietor'
-      | 'non_profit'
-      | 'partnership'
-      | 'cooperative'
-      | null;
+    type?: 'llc' | 'lp' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative' | null;
   }
 }
 
@@ -259,21 +251,13 @@ export namespace CompanyUpdateParams {
     /**
      * The tax payer type of the company.
      */
-    type?:
-      | 'llc'
-      | 'lp'
-      | 'corporation'
-      | 'sole_proprietor'
-      | 'non_profit'
-      | 'partnership'
-      | 'cooperative'
-      | null;
+    type?: 'llc' | 'lp' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative' | null;
   }
 }
 
 export declare namespace Company {
   export {
     type CompanyUpdateResponse as CompanyUpdateResponse,
-    type CompanyUpdateParams as CompanyUpdateParams,
+    type CompanyUpdateParams as CompanyUpdateParams
   };
 }

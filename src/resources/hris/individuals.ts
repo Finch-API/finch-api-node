@@ -17,24 +17,15 @@ export class Individuals extends APIResource {
    * }
    * ```
    */
-  retrieveMany(
-    params: IndividualRetrieveManyParams | null | undefined = {},
-    options?: RequestOptions,
-  ): PagePromise<IndividualResponsesPage, IndividualResponse> {
-    const { entity_ids, ...body } = params ?? {};
-    return this._client.getAPIList('/employer/individual', ResponsesPage<IndividualResponse>, {
-      query: { entity_ids },
-      body,
-      method: 'post',
-      ...options,
-      __security: { bearerAuth: true },
-    });
+  retrieveMany(params: IndividualRetrieveManyParams | null | undefined = {}, options?: RequestOptions): PagePromise<IndividualResponsesPage, IndividualResponse> {
+    const { entity_ids, ...body } = params ?? {}
+    return this._client.getAPIList('/employer/individual', ResponsesPage<IndividualResponse>, { query: { entity_ids }, body, method: 'post', ...options, __security: { bearerAuth : true } });
   }
 }
 
-export type IndividualResponsesPage = ResponsesPage<IndividualResponse>;
+export type IndividualResponsesPage = ResponsesPage<IndividualResponse>
 
-export type Individual = Individual.UnionMember0 | Individual.BatchError;
+export type Individual = Individual.UnionMember0 | Individual.BatchError
 
 export namespace Individual {
   export interface UnionMember0 {
@@ -48,16 +39,7 @@ export namespace Individual {
     /**
      * The EEOC-defined ethnicity of the individual.
      */
-    ethnicity:
-      | 'asian'
-      | 'white'
-      | 'black_or_african_american'
-      | 'native_hawaiian_or_pacific_islander'
-      | 'american_indian_or_alaska_native'
-      | 'hispanic_or_latino'
-      | 'two_or_more_races'
-      | 'decline_to_specify'
-      | null;
+    ethnicity: 'asian' | 'white' | 'black_or_african_american' | 'native_hawaiian_or_pacific_islander' | 'american_indian_or_alaska_native' | 'hispanic_or_latino' | 'two_or_more_races' | 'decline_to_specify' | null;
 
     /**
      * The legal first name of the individual.
@@ -171,6 +153,6 @@ export declare namespace Individuals {
     type Individual as Individual,
     type IndividualResponse as IndividualResponse,
     type IndividualResponsesPage as IndividualResponsesPage,
-    type IndividualRetrieveManyParams as IndividualRetrieveManyParams,
+    type IndividualRetrieveManyParams as IndividualRetrieveManyParams
   };
 }

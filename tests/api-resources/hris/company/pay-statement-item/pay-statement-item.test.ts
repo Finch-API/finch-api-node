@@ -6,7 +6,7 @@ const client = new Finch({
   accessToken: 'My Access Token',
   clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+  baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource payStatementItem', () => {
@@ -23,18 +23,15 @@ describe('resource payStatementItem', () => {
 
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.hris.company.payStatementItem.list(
-        {
-          categories: ['earnings'],
-          end_date: '2024-07-01',
-          entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-          name: 'name',
-          start_date: '2024-01-01',
-          type: 'base_compensation',
-        },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(Finch.NotFoundError);
+    await expect(client.hris.company.payStatementItem.list({
+    categories: ['earnings'],
+    end_date: '2024-07-01',
+    entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+    name: 'name',
+    start_date: '2024-01-01',
+    type: 'base_compensation',
+  }, { path: '/_stainless_unknown_path' }))
+      .rejects
+      .toThrow(Finch.NotFoundError);
   });
 });

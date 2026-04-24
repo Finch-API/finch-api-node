@@ -9,14 +9,11 @@ export class Providers extends APIResource {
    * Return details on all available payroll and HR systems.
    */
   list(options?: RequestOptions): PagePromise<ProviderListResponsesSinglePage, ProviderListResponse> {
-    return this._client.getAPIList('/providers', SinglePage<ProviderListResponse>, {
-      ...options,
-      __security: { bearerAuth: true },
-    });
+    return this._client.getAPIList('/providers', SinglePage<ProviderListResponse>, { ...options, __security: { bearerAuth : true } });
   }
 }
 
-export type ProviderListResponsesSinglePage = SinglePage<ProviderListResponse>;
+export type ProviderListResponsesSinglePage = SinglePage<ProviderListResponse>
 
 export interface Provider {
   /**
@@ -168,6 +165,6 @@ export declare namespace Providers {
   export {
     type Provider as Provider,
     type ProviderListResponse as ProviderListResponse,
-    type ProviderListResponsesSinglePage as ProviderListResponsesSinglePage,
+    type ProviderListResponsesSinglePage as ProviderListResponsesSinglePage
   };
 }

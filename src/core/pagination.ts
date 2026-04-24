@@ -89,8 +89,7 @@ export class PagePromise<
     super(
       client,
       request,
-      async (client, props) =>
-        new Page(client, props.response, await defaultParseResponse(client, props), props.options),
+      async (client, props) => new Page(client, props.response, await defaultParseResponse(client, props), props.options)
     );
   }
 
@@ -114,12 +113,7 @@ export type SinglePageResponse<Item> = Item[];
 export class SinglePage<Item> extends AbstractPage<Item> {
   items: Array<Item>;
 
-  constructor(
-    client: Finch,
-    response: Response,
-    body: SinglePageResponse<Item>,
-    options: FinalRequestOptions,
-  ) {
+  constructor(client: Finch, response: Response, body: SinglePageResponse<Item>, options: FinalRequestOptions) {
     super(client, response, body, options);
 
     this.items = body || [];
@@ -141,12 +135,7 @@ export interface ResponsesPageResponse<Item> {
 export class ResponsesPage<Item> extends AbstractPage<Item> implements ResponsesPageResponse<Item> {
   responses: Array<Item>;
 
-  constructor(
-    client: Finch,
-    response: Response,
-    body: ResponsesPageResponse<Item>,
-    options: FinalRequestOptions,
-  ) {
+  constructor(client: Finch, response: Response, body: ResponsesPageResponse<Item>, options: FinalRequestOptions) {
     super(client, response, body, options);
 
     this.responses = body.responses || [];
@@ -182,10 +171,7 @@ export interface IndividualsPageParams {
   offset?: number;
 }
 
-export class IndividualsPage
-  extends AbstractPage<DirectoryAPI.IndividualInDirectory>
-  implements IndividualsPageResponse
-{
+export class IndividualsPage extends AbstractPage<DirectoryAPI.IndividualInDirectory> implements IndividualsPageResponse {
   /**
    * The array of employees.
    */
@@ -193,12 +179,7 @@ export class IndividualsPage
 
   paging: Shared.Paging;
 
-  constructor(
-    client: Finch,
-    response: Response,
-    body: IndividualsPageResponse,
-    options: FinalRequestOptions,
-  ) {
+  constructor(client: Finch, response: Response, body: IndividualsPageResponse, options: FinalRequestOptions) {
     super(client, response, body, options);
 
     this.individuals = body.individuals || [];
@@ -221,15 +202,15 @@ export class IndividualsPage
 
     if (currentCount < totalCount) {
       return {
-        ...this.options,
-        query: {
-          ...maybeObj(this.options.query),
-          offset: currentCount,
-        },
-      };
+      ...this.options,
+      query: {
+        ...maybeObj(this.options.query),
+        offset: currentCount,
+      },
+    };
     }
 
-    return null;
+    return null
   }
 }
 
@@ -279,14 +260,14 @@ export class Page<Item> extends AbstractPage<Item> implements PageResponse<Item>
 
     if (currentCount < totalCount) {
       return {
-        ...this.options,
-        query: {
-          ...maybeObj(this.options.query),
-          offset: currentCount,
-        },
-      };
+      ...this.options,
+      query: {
+        ...maybeObj(this.options.query),
+        offset: currentCount,
+      },
+    };
     }
 
-    return null;
+    return null
   }
 }

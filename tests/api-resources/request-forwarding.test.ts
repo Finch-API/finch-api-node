@@ -6,7 +6,7 @@ const client = new Finch({
   accessToken: 'My Access Token',
   clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+  baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource requestForwarding', () => {
@@ -23,11 +23,11 @@ describe('resource requestForwarding', () => {
 
   test('forward: required and optional params', async () => {
     const response = await client.requestForwarding.forward({
-      method: 'method',
-      route: 'route',
-      data: 'data',
-      params: { foo: 'bar' },
-      request_headers: { foo: 'bar' },
-    });
+    method: 'method',
+    route: 'route',
+    data: 'data',
+    params: { foo: 'bar' },
+    request_headers: { foo: 'bar' },
+  });
   });
 });
