@@ -6,7 +6,7 @@ const client = new Finch({
   accessToken: 'My Access Token',
   clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
-  baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource configuration', () => {
@@ -22,7 +22,10 @@ describe('resource configuration', () => {
   });
 
   test('update: only required params', async () => {
-    const responsePromise = client.sandbox.jobs.configuration.update({ completion_status: 'complete', type: 'data_sync_all' });
+    const responsePromise = client.sandbox.jobs.configuration.update({
+      completion_status: 'complete',
+      type: 'data_sync_all',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -33,6 +36,9 @@ describe('resource configuration', () => {
   });
 
   test('update: required and optional params', async () => {
-    const response = await client.sandbox.jobs.configuration.update({ completion_status: 'complete', type: 'data_sync_all' });
+    const response = await client.sandbox.jobs.configuration.update({
+      completion_status: 'complete',
+      type: 'data_sync_all',
+    });
   });
 });

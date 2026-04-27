@@ -32,7 +32,7 @@ export class AccessTokens extends APIResource {
       body: bodyWithReplacements,
       ...options,
       headers: headersWithReplacements,
-      __security: {  },
+      __security: {},
     });
   }
 }
@@ -131,6 +131,6 @@ export interface AccessTokenCreateParams {
 export declare namespace AccessTokens {
   export {
     type CreateAccessTokenResponse as CreateAccessTokenResponse,
-    type AccessTokenCreateParams as AccessTokenCreateParams
+    type AccessTokenCreateParams as AccessTokenCreateParams,
   };
 }

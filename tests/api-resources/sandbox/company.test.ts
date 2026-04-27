@@ -6,28 +6,30 @@ const client = new Finch({
   accessToken: 'My Access Token',
   clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
-  baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource company', () => {
   test('update: only required params', async () => {
     const responsePromise = client.sandbox.company.update({
-    accounts: [{}],
-    departments: [{}],
-    ein: 'ein',
-    entity: {},
-    legal_name: 'legal_name',
-    locations: [{
-    city: 'city',
-    country: 'country',
-    line1: 'line1',
-    line2: 'line2',
-    postal_code: 'postal_code',
-    state: 'state',
-  }],
-    primary_email: 'dev@stainless.com',
-    primary_phone_number: 'primary_phone_number',
-  });
+      accounts: [{}],
+      departments: [{}],
+      ein: 'ein',
+      entity: {},
+      legal_name: 'legal_name',
+      locations: [
+        {
+          city: 'city',
+          country: 'country',
+          line1: 'line1',
+          line2: 'line2',
+          postal_code: 'postal_code',
+          state: 'state',
+        },
+      ],
+      primary_email: 'dev@stainless.com',
+      primary_phone_number: 'primary_phone_number',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -39,32 +41,38 @@ describe('resource company', () => {
 
   test('update: required and optional params', async () => {
     const response = await client.sandbox.company.update({
-    accounts: [{
-    account_name: 'account_name',
-    account_number: 'account_number',
-    account_type: 'checking',
-    institution_name: 'institution_name',
-    routing_number: 'routing_number',
-  }],
-    departments: [{
-    name: 'name',
-    parent: { name: 'name' },
-  }],
-    ein: 'ein',
-    entity: { subtype: 's_corporation', type: 'llc' },
-    legal_name: 'legal_name',
-    locations: [{
-    city: 'city',
-    country: 'country',
-    line1: 'line1',
-    line2: 'line2',
-    postal_code: 'postal_code',
-    state: 'state',
-    name: 'name',
-    source_id: 'source_id',
-  }],
-    primary_email: 'dev@stainless.com',
-    primary_phone_number: 'primary_phone_number',
-  });
+      accounts: [
+        {
+          account_name: 'account_name',
+          account_number: 'account_number',
+          account_type: 'checking',
+          institution_name: 'institution_name',
+          routing_number: 'routing_number',
+        },
+      ],
+      departments: [
+        {
+          name: 'name',
+          parent: { name: 'name' },
+        },
+      ],
+      ein: 'ein',
+      entity: { subtype: 's_corporation', type: 'llc' },
+      legal_name: 'legal_name',
+      locations: [
+        {
+          city: 'city',
+          country: 'country',
+          line1: 'line1',
+          line2: 'line2',
+          postal_code: 'postal_code',
+          state: 'state',
+          name: 'name',
+          source_id: 'source_id',
+        },
+      ],
+      primary_email: 'dev@stainless.com',
+      primary_phone_number: 'primary_phone_number',
+    });
   });
 });

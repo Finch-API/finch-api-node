@@ -59,8 +59,8 @@ function getTSDiagnostics(code: string): string[] {
   const codeWithImport = [
     'import { Finch } from "@tryfinch/finch-api";',
     functionSource.type === 'declaration' ?
-      `async function run(${functionSource.client}: Finch)` :
-      `const run: (${functionSource.client}: Finch) => Promise<unknown> =`,
+      `async function run(${functionSource.client}: Finch)`
+    : `const run: (${functionSource.client}: Finch) => Promise<unknown> =`,
     functionSource.code,
   ].join('\n');
   const sourcePath = path.resolve('code.ts');
@@ -108,53 +108,53 @@ function getTSDiagnostics(code: string): string[] {
 
 const fuse = new Fuse(
   [
-    "client.accessTokens.create",
-    "client.hris.company.retrieve",
-    "client.hris.company.payStatementItem.list",
-    "client.hris.company.payStatementItem.rules.create",
-    "client.hris.company.payStatementItem.rules.delete",
-    "client.hris.company.payStatementItem.rules.list",
-    "client.hris.company.payStatementItem.rules.update",
-    "client.hris.directory.list",
-    "client.hris.directory.listIndividuals",
-    "client.hris.individuals.retrieveMany",
-    "client.hris.employments.retrieveMany",
-    "client.hris.payments.list",
-    "client.hris.payStatements.retrieveMany",
-    "client.hris.documents.list",
-    "client.hris.documents.retreive",
-    "client.hris.benefits.create",
-    "client.hris.benefits.list",
-    "client.hris.benefits.listSupportedBenefits",
-    "client.hris.benefits.retrieve",
-    "client.hris.benefits.update",
-    "client.hris.benefits.individuals.enrollMany",
-    "client.hris.benefits.individuals.enrolledIDs",
-    "client.hris.benefits.individuals.retrieveManyBenefits",
-    "client.hris.benefits.individuals.unenrollMany",
-    "client.providers.list",
-    "client.account.disconnect",
-    "client.account.introspect",
-    "client.requestForwarding.forward",
-    "client.jobs.automated.create",
-    "client.jobs.automated.list",
-    "client.jobs.automated.retrieve",
-    "client.jobs.manual.retrieve",
-    "client.sandbox.connections.create",
-    "client.sandbox.connections.accounts.create",
-    "client.sandbox.connections.accounts.update",
-    "client.sandbox.company.update",
-    "client.sandbox.directory.create",
-    "client.sandbox.individual.update",
-    "client.sandbox.employment.update",
-    "client.sandbox.payment.create",
-    "client.sandbox.jobs.create",
-    "client.sandbox.jobs.configuration.retrieve",
-    "client.sandbox.jobs.configuration.update",
-    "client.payroll.payGroups.list",
-    "client.payroll.payGroups.retrieve",
-    "client.connect.sessions.new",
-    "client.connect.sessions.reauthenticate"
+    'client.accessTokens.create',
+    'client.hris.company.retrieve',
+    'client.hris.company.payStatementItem.list',
+    'client.hris.company.payStatementItem.rules.create',
+    'client.hris.company.payStatementItem.rules.delete',
+    'client.hris.company.payStatementItem.rules.list',
+    'client.hris.company.payStatementItem.rules.update',
+    'client.hris.directory.list',
+    'client.hris.directory.listIndividuals',
+    'client.hris.individuals.retrieveMany',
+    'client.hris.employments.retrieveMany',
+    'client.hris.payments.list',
+    'client.hris.payStatements.retrieveMany',
+    'client.hris.documents.list',
+    'client.hris.documents.retreive',
+    'client.hris.benefits.create',
+    'client.hris.benefits.list',
+    'client.hris.benefits.listSupportedBenefits',
+    'client.hris.benefits.retrieve',
+    'client.hris.benefits.update',
+    'client.hris.benefits.individuals.enrollMany',
+    'client.hris.benefits.individuals.enrolledIDs',
+    'client.hris.benefits.individuals.retrieveManyBenefits',
+    'client.hris.benefits.individuals.unenrollMany',
+    'client.providers.list',
+    'client.account.disconnect',
+    'client.account.introspect',
+    'client.requestForwarding.forward',
+    'client.jobs.automated.create',
+    'client.jobs.automated.list',
+    'client.jobs.automated.retrieve',
+    'client.jobs.manual.retrieve',
+    'client.sandbox.connections.create',
+    'client.sandbox.connections.accounts.create',
+    'client.sandbox.connections.accounts.update',
+    'client.sandbox.company.update',
+    'client.sandbox.directory.create',
+    'client.sandbox.individual.update',
+    'client.sandbox.employment.update',
+    'client.sandbox.payment.create',
+    'client.sandbox.jobs.create',
+    'client.sandbox.jobs.configuration.retrieve',
+    'client.sandbox.jobs.configuration.update',
+    'client.payroll.payGroups.list',
+    'client.payroll.payGroups.retrieve',
+    'client.connect.sessions.new',
+    'client.connect.sessions.reauthenticate',
   ],
   { threshold: 1, shouldSort: true },
 );
@@ -237,7 +237,12 @@ function parseError(code: string, error: unknown): string | undefined {
     // Deno uses V8; the first "<anonymous>:LINE:COLUMN" is the top of stack.
     const lineNumber = error.stack?.match(/<anonymous>:([0-9]+):[0-9]+/)?.[1];
     // -1 for the zero-based indexing
-    const line = lineNumber && code.split('\n').at(parseInt(lineNumber, 10) - 1)?.trim();
+    const line =
+      lineNumber &&
+      code
+        .split('\n')
+        .at(parseInt(lineNumber, 10) - 1)
+        ?.trim();
     return line ? `${message}\n  at line ${lineNumber}\n    ${line}` : message;
   } catch {
     return message;
@@ -249,8 +254,9 @@ const fetch = async (req: Request): Promise<Response> => {
 
   const runFunctionSource = code ? getRunFunctionSource(code) : null;
   if (!runFunctionSource) {
-    const message = code
-      ? 'The code is missing a top-level `run` function.'
+    const message =
+      code ?
+        'The code is missing a top-level `run` function.'
       : 'The code argument is missing. Provide one containing a top-level `run` function.';
     return Response.json(
       {
@@ -295,7 +301,7 @@ const fetch = async (req: Request): Promise<Response> => {
   try {
     let run_ = async (client: any) => {};
     run_ = (await tseval(`${code}\nexport default run;`)).default;
-    const result = await run_(makeSdkProxy(client, { path: ["client"] }));
+    const result = await run_(makeSdkProxy(client, { path: ['client'] }));
     return Response.json({
       is_error: false,
       result,

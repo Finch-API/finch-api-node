@@ -2,7 +2,18 @@
 
 import { APIResource } from '../../../../core/resource';
 import * as RulesAPI from './rules';
-import { RuleCreateParams, RuleCreateResponse, RuleDeleteParams, RuleDeleteResponse, RuleListParams, RuleListResponse, RuleListResponsesPage, RuleUpdateParams, RuleUpdateResponse, Rules } from './rules';
+import {
+  RuleCreateParams,
+  RuleCreateResponse,
+  RuleDeleteParams,
+  RuleDeleteResponse,
+  RuleListParams,
+  RuleListResponse,
+  RuleListResponsesPage,
+  RuleUpdateParams,
+  RuleUpdateResponse,
+  Rules,
+} from './rules';
 import { PagePromise, ResponsesPage } from '../../../../core/pagination';
 import { RequestOptions } from '../../../../internal/request-options';
 
@@ -21,12 +32,19 @@ export class PayStatementItem extends APIResource {
    * }
    * ```
    */
-  list(query: PayStatementItemListParams | null | undefined = {}, options?: RequestOptions): PagePromise<PayStatementItemListResponsesPage, PayStatementItemListResponse> {
-    return this._client.getAPIList('/employer/pay-statement-item', ResponsesPage<PayStatementItemListResponse>, { query, ...options, __security: { bearerAuth : true } });
+  list(
+    query: PayStatementItemListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<PayStatementItemListResponsesPage, PayStatementItemListResponse> {
+    return this._client.getAPIList(
+      '/employer/pay-statement-item',
+      ResponsesPage<PayStatementItemListResponse>,
+      { query, ...options, __security: { bearerAuth: true } },
+    );
   }
 }
 
-export type PayStatementItemListResponsesPage = ResponsesPage<PayStatementItemListResponse>
+export type PayStatementItemListResponsesPage = ResponsesPage<PayStatementItemListResponse>;
 
 export interface PayStatementItemListResponse {
   /**
@@ -116,7 +134,7 @@ export declare namespace PayStatementItem {
   export {
     type PayStatementItemListResponse as PayStatementItemListResponse,
     type PayStatementItemListResponsesPage as PayStatementItemListResponsesPage,
-    type PayStatementItemListParams as PayStatementItemListParams
+    type PayStatementItemListParams as PayStatementItemListParams,
   };
 
   export {
@@ -129,6 +147,6 @@ export declare namespace PayStatementItem {
     type RuleCreateParams as RuleCreateParams,
     type RuleUpdateParams as RuleUpdateParams,
     type RuleListParams as RuleListParams,
-    type RuleDeleteParams as RuleDeleteParams
+    type RuleDeleteParams as RuleDeleteParams,
   };
 }

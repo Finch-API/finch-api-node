@@ -10,19 +10,34 @@ export class PayGroups extends APIResource {
   /**
    * Read information from a single pay group
    */
-  retrieve(payGroupID: string, query: PayGroupRetrieveParams | null | undefined = {}, options?: RequestOptions): APIPromise<PayGroupRetrieveResponse> {
-    return this._client.get(path`/employer/pay-groups/${payGroupID}`, { query, ...options, __security: { bearerAuth : true } });
+  retrieve(
+    payGroupID: string,
+    query: PayGroupRetrieveParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<PayGroupRetrieveResponse> {
+    return this._client.get(path`/employer/pay-groups/${payGroupID}`, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
    * Read company pay groups and frequencies
    */
-  list(query: PayGroupListParams | null | undefined = {}, options?: RequestOptions): PagePromise<PayGroupListResponsesSinglePage, PayGroupListResponse> {
-    return this._client.getAPIList('/employer/pay-groups', SinglePage<PayGroupListResponse>, { query, ...options, __security: { bearerAuth : true } });
+  list(
+    query: PayGroupListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<PayGroupListResponsesSinglePage, PayGroupListResponse> {
+    return this._client.getAPIList('/employer/pay-groups', SinglePage<PayGroupListResponse>, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
-export type PayGroupListResponsesSinglePage = SinglePage<PayGroupListResponse>
+export type PayGroupListResponsesSinglePage = SinglePage<PayGroupListResponse>;
 
 export interface PayGroupRetrieveResponse {
   /**
@@ -40,7 +55,17 @@ export interface PayGroupRetrieveResponse {
   /**
    * List of pay frequencies associated with this pay group
    */
-  pay_frequencies: Array<'annually' | 'bi_weekly' | 'daily' | 'monthly' | 'other' | 'quarterly' | 'semi_annually' | 'semi_monthly' | 'weekly'>;
+  pay_frequencies: Array<
+    | 'annually'
+    | 'bi_weekly'
+    | 'daily'
+    | 'monthly'
+    | 'other'
+    | 'quarterly'
+    | 'semi_annually'
+    | 'semi_monthly'
+    | 'weekly'
+  >;
 }
 
 export interface PayGroupListResponse {
@@ -57,7 +82,17 @@ export interface PayGroupListResponse {
   /**
    * List of pay frequencies associated with this pay group
    */
-  pay_frequencies: Array<'annually' | 'bi_weekly' | 'daily' | 'monthly' | 'other' | 'quarterly' | 'semi_annually' | 'semi_monthly' | 'weekly'>;
+  pay_frequencies: Array<
+    | 'annually'
+    | 'bi_weekly'
+    | 'daily'
+    | 'monthly'
+    | 'other'
+    | 'quarterly'
+    | 'semi_annually'
+    | 'semi_monthly'
+    | 'weekly'
+  >;
 }
 
 export interface PayGroupRetrieveParams {
@@ -84,6 +119,6 @@ export declare namespace PayGroups {
     type PayGroupListResponse as PayGroupListResponse,
     type PayGroupListResponsesSinglePage as PayGroupListResponsesSinglePage,
     type PayGroupRetrieveParams as PayGroupRetrieveParams,
-    type PayGroupListParams as PayGroupListParams
+    type PayGroupListParams as PayGroupListParams,
   };
 }

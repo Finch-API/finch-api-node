@@ -21,11 +21,15 @@ export class Payments extends APIResource {
    * ```
    */
   list(query: PaymentListParams, options?: RequestOptions): PagePromise<PaymentsSinglePage, Payment> {
-    return this._client.getAPIList('/employer/payment', SinglePage<Payment>, { query, ...options, __security: { bearerAuth : true } });
+    return this._client.getAPIList('/employer/payment', SinglePage<Payment>, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
-export type PaymentsSinglePage = SinglePage<Payment>
+export type PaymentsSinglePage = SinglePage<Payment>;
 
 export interface Payment {
   /**
@@ -55,7 +59,17 @@ export interface Payment {
   /**
    * List of pay frequencies associated with this payment.
    */
-  pay_frequencies: Array<'annually' | 'bi_weekly' | 'daily' | 'monthly' | 'other' | 'quarterly' | 'semi_annually' | 'semi_monthly' | 'weekly'> | null;
+  pay_frequencies: Array<
+    | 'annually'
+    | 'bi_weekly'
+    | 'daily'
+    | 'monthly'
+    | 'other'
+    | 'quarterly'
+    | 'semi_annually'
+    | 'semi_monthly'
+    | 'weekly'
+  > | null;
 
   /**
    * Array of the Finch id (uuidv4) of every pay group associated with this payment.
@@ -102,6 +116,6 @@ export declare namespace Payments {
   export {
     type Payment as Payment,
     type PaymentsSinglePage as PaymentsSinglePage,
-    type PaymentListParams as PaymentListParams
+    type PaymentListParams as PaymentListParams,
   };
 }

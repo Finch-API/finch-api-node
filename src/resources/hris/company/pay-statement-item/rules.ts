@@ -19,9 +19,17 @@ export class Rules extends APIResource {
    *   await client.hris.company.payStatementItem.rules.create();
    * ```
    */
-  create(params: RuleCreateParams | null | undefined = {}, options?: RequestOptions): APIPromise<RuleCreateResponse> {
-    const { entity_ids, ...body } = params ?? {}
-    return this._client.post('/employer/pay-statement-item/rule', { query: { entity_ids }, body, ...options, __security: { bearerAuth : true } });
+  create(
+    params: RuleCreateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<RuleCreateResponse> {
+    const { entity_ids, ...body } = params ?? {};
+    return this._client.post('/employer/pay-statement-item/rule', {
+      query: { entity_ids },
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -35,9 +43,18 @@ export class Rules extends APIResource {
    *   );
    * ```
    */
-  update(ruleID: string, params: RuleUpdateParams | null | undefined = {}, options?: RequestOptions): APIPromise<RuleUpdateResponse> {
-    const { entity_ids, ...body } = params ?? {}
-    return this._client.put(path`/employer/pay-statement-item/rule/${ruleID}`, { query: { entity_ids }, body, ...options, __security: { bearerAuth : true } });
+  update(
+    ruleID: string,
+    params: RuleUpdateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<RuleUpdateResponse> {
+    const { entity_ids, ...body } = params ?? {};
+    return this._client.put(path`/employer/pay-statement-item/rule/${ruleID}`, {
+      query: { entity_ids },
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -51,8 +68,15 @@ export class Rules extends APIResource {
    * }
    * ```
    */
-  list(query: RuleListParams | null | undefined = {}, options?: RequestOptions): PagePromise<RuleListResponsesPage, RuleListResponse> {
-    return this._client.getAPIList('/employer/pay-statement-item/rule', ResponsesPage<RuleListResponse>, { query, ...options, __security: { bearerAuth : true } });
+  list(
+    query: RuleListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<RuleListResponsesPage, RuleListResponse> {
+    return this._client.getAPIList('/employer/pay-statement-item/rule', ResponsesPage<RuleListResponse>, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -66,13 +90,21 @@ export class Rules extends APIResource {
    *   );
    * ```
    */
-  delete(ruleID: string, params: RuleDeleteParams | null | undefined = {}, options?: RequestOptions): APIPromise<RuleDeleteResponse> {
-    const { entity_ids } = params ?? {}
-    return this._client.delete(path`/employer/pay-statement-item/rule/${ruleID}`, { query: { entity_ids }, ...options, __security: { bearerAuth : true } });
+  delete(
+    ruleID: string,
+    params: RuleDeleteParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<RuleDeleteResponse> {
+    const { entity_ids } = params ?? {};
+    return this._client.delete(path`/employer/pay-statement-item/rule/${ruleID}`, {
+      query: { entity_ids },
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
-export type RuleListResponsesPage = ResponsesPage<RuleListResponse>
+export type RuleListResponsesPage = ResponsesPage<RuleListResponse>;
 
 export interface RuleCreateResponse {
   /**
@@ -474,6 +506,6 @@ export declare namespace Rules {
     type RuleCreateParams as RuleCreateParams,
     type RuleUpdateParams as RuleUpdateParams,
     type RuleListParams as RuleListParams,
-    type RuleDeleteParams as RuleDeleteParams
+    type RuleDeleteParams as RuleDeleteParams,
   };
 }

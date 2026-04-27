@@ -19,7 +19,11 @@ export class Accounts extends APIResource {
    * ```
    */
   create(body: AccountCreateParams, options?: RequestOptions): APIPromise<AccountCreateResponse> {
-    return this._client.post('/sandbox/connections/accounts', { body, ...options, __security: { basicAuth : true } });
+    return this._client.post('/sandbox/connections/accounts', {
+      body,
+      ...options,
+      __security: { basicAuth: true },
+    });
   }
 
   /**
@@ -34,8 +38,15 @@ export class Accounts extends APIResource {
    *   });
    * ```
    */
-  update(body: AccountUpdateParams | null | undefined = {}, options?: RequestOptions): APIPromise<AccountUpdateResponse> {
-    return this._client.put('/sandbox/connections/accounts', { body, ...options, __security: { bearerAuth : true } });
+  update(
+    body: AccountUpdateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<AccountUpdateResponse> {
+    return this._client.put('/sandbox/connections/accounts', {
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
@@ -133,6 +144,6 @@ export declare namespace Accounts {
     type AccountCreateResponse as AccountCreateResponse,
     type AccountUpdateResponse as AccountUpdateResponse,
     type AccountCreateParams as AccountCreateParams,
-    type AccountUpdateParams as AccountUpdateParams
+    type AccountUpdateParams as AccountUpdateParams,
   };
 }

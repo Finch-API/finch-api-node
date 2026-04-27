@@ -3,12 +3,19 @@
 import { APIResource } from '../../../core/resource';
 import * as HRISAPI from '../hris';
 import * as PayStatementItemAPI from './pay-statement-item/pay-statement-item';
-import { PayStatementItem, PayStatementItemListParams, PayStatementItemListResponse, PayStatementItemListResponsesPage } from './pay-statement-item/pay-statement-item';
+import {
+  PayStatementItem,
+  PayStatementItemListParams,
+  PayStatementItemListResponse,
+  PayStatementItemListResponsesPage,
+} from './pay-statement-item/pay-statement-item';
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 
 export class CompanyResource extends APIResource {
-  payStatementItem: PayStatementItemAPI.PayStatementItem = new PayStatementItemAPI.PayStatementItem(this._client);
+  payStatementItem: PayStatementItemAPI.PayStatementItem = new PayStatementItemAPI.PayStatementItem(
+    this._client,
+  );
 
   /**
    * Read basic company data
@@ -18,8 +25,11 @@ export class CompanyResource extends APIResource {
    * const company = await client.hris.company.retrieve();
    * ```
    */
-  retrieve(query: CompanyRetrieveParams | null | undefined = {}, options?: RequestOptions): APIPromise<Company> {
-    return this._client.get('/employer/company', { query, ...options, __security: { bearerAuth : true } });
+  retrieve(
+    query: CompanyRetrieveParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<Company> {
+    return this._client.get('/employer/company', { query, ...options, __security: { bearerAuth: true } });
   }
 }
 
@@ -133,7 +143,15 @@ export namespace Company {
     /**
      * The tax payer type of the company.
      */
-    type: 'llc' | 'lp' | 'corporation' | 'sole_proprietor' | 'non_profit' | 'partnership' | 'cooperative' | null;
+    type:
+      | 'llc'
+      | 'lp'
+      | 'corporation'
+      | 'sole_proprietor'
+      | 'non_profit'
+      | 'partnership'
+      | 'cooperative'
+      | null;
   }
 }
 
@@ -147,15 +165,12 @@ export interface CompanyRetrieveParams {
 CompanyResource.PayStatementItem = PayStatementItem;
 
 export declare namespace CompanyResource {
-  export {
-    type Company as Company,
-    type CompanyRetrieveParams as CompanyRetrieveParams
-  };
+  export { type Company as Company, type CompanyRetrieveParams as CompanyRetrieveParams };
 
   export {
     PayStatementItem as PayStatementItem,
     type PayStatementItemListResponse as PayStatementItemListResponse,
     type PayStatementItemListResponsesPage as PayStatementItemListResponsesPage,
-    type PayStatementItemListParams as PayStatementItemListParams
+    type PayStatementItemListParams as PayStatementItemListParams,
   };
 }

@@ -11,8 +11,11 @@ export class RequestForwarding extends APIResource {
    * Forward allows you to push or pull data models directly against an integration's
    * API.
    */
-  forward(body: RequestForwardingForwardParams, options?: RequestOptions): APIPromise<RequestForwardingForwardResponse> {
-    return this._client.post('/forward', { body, ...options, __security: { bearerAuth : true } });
+  forward(
+    body: RequestForwardingForwardParams,
+    options?: RequestOptions,
+  ): APIPromise<RequestForwardingForwardResponse> {
+    return this._client.post('/forward', { body, ...options, __security: { bearerAuth: true } });
   }
 }
 
@@ -114,6 +117,6 @@ export interface RequestForwardingForwardParams {
 export declare namespace RequestForwarding {
   export {
     type RequestForwardingForwardResponse as RequestForwardingForwardResponse,
-    type RequestForwardingForwardParams as RequestForwardingForwardParams
+    type RequestForwardingForwardParams as RequestForwardingForwardParams,
   };
 }

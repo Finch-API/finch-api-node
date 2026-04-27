@@ -3,7 +3,18 @@
 import { APIResource } from '../../../core/resource';
 import * as Shared from '../../shared';
 import * as IndividualsAPI from './individuals';
-import { EnrolledIndividualBenefitResponse, IndividualBenefit, IndividualBenefitsSinglePage, IndividualEnrollManyParams, IndividualEnrolledIDsParams, IndividualEnrolledIDsResponse, IndividualRetrieveManyBenefitsParams, IndividualUnenrollManyParams, Individuals, UnenrolledIndividualBenefitResponse } from './individuals';
+import {
+  EnrolledIndividualBenefitResponse,
+  IndividualBenefit,
+  IndividualBenefitsSinglePage,
+  IndividualEnrollManyParams,
+  IndividualEnrolledIDsParams,
+  IndividualEnrolledIDsResponse,
+  IndividualRetrieveManyBenefitsParams,
+  IndividualUnenrollManyParams,
+  Individuals,
+  UnenrolledIndividualBenefitResponse,
+} from './individuals';
 import { APIPromise } from '../../../core/api-promise';
 import { PagePromise, SinglePage } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
@@ -22,9 +33,17 @@ export class Benefits extends APIResource {
    *   await client.hris.benefits.create();
    * ```
    */
-  create(params: BenefitCreateParams | null | undefined = {}, options?: RequestOptions): APIPromise<CreateCompanyBenefitsResponse> {
-    const { entity_ids, ...body } = params ?? {}
-    return this._client.post('/employer/benefits', { query: { entity_ids }, body, ...options, __security: { bearerAuth : true } });
+  create(
+    params: BenefitCreateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<CreateCompanyBenefitsResponse> {
+    const { entity_ids, ...body } = params ?? {};
+    return this._client.post('/employer/benefits', {
+      query: { entity_ids },
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -37,8 +56,16 @@ export class Benefits extends APIResource {
    * );
    * ```
    */
-  retrieve(benefitID: string, query: BenefitRetrieveParams | null | undefined = {}, options?: RequestOptions): APIPromise<CompanyBenefit> {
-    return this._client.get(path`/employer/benefits/${benefitID}`, { query, ...options, __security: { bearerAuth : true } });
+  retrieve(
+    benefitID: string,
+    query: BenefitRetrieveParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<CompanyBenefit> {
+    return this._client.get(path`/employer/benefits/${benefitID}`, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -50,9 +77,18 @@ export class Benefits extends APIResource {
    *   await client.hris.benefits.update('benefit_id');
    * ```
    */
-  update(benefitID: string, params: BenefitUpdateParams | null | undefined = {}, options?: RequestOptions): APIPromise<UpdateCompanyBenefitResponse> {
-    const { entity_ids, ...body } = params ?? {}
-    return this._client.post(path`/employer/benefits/${benefitID}`, { query: { entity_ids }, body, ...options, __security: { bearerAuth : true } });
+  update(
+    benefitID: string,
+    params: BenefitUpdateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<UpdateCompanyBenefitResponse> {
+    const { entity_ids, ...body } = params ?? {};
+    return this._client.post(path`/employer/benefits/${benefitID}`, {
+      query: { entity_ids },
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -66,8 +102,15 @@ export class Benefits extends APIResource {
    * }
    * ```
    */
-  list(query: BenefitListParams | null | undefined = {}, options?: RequestOptions): PagePromise<CompanyBenefitsSinglePage, CompanyBenefit> {
-    return this._client.getAPIList('/employer/benefits', SinglePage<CompanyBenefit>, { query, ...options, __security: { bearerAuth : true } });
+  list(
+    query: BenefitListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<CompanyBenefitsSinglePage, CompanyBenefit> {
+    return this._client.getAPIList('/employer/benefits', SinglePage<CompanyBenefit>, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 
   /**
@@ -81,16 +124,26 @@ export class Benefits extends APIResource {
    * }
    * ```
    */
-  listSupportedBenefits(query: BenefitListSupportedBenefitsParams | null | undefined = {}, options?: RequestOptions): PagePromise<SupportedBenefitsSinglePage, SupportedBenefit> {
-    return this._client.getAPIList('/employer/benefits/meta', SinglePage<SupportedBenefit>, { query, ...options, __security: { bearerAuth : true } });
+  listSupportedBenefits(
+    query: BenefitListSupportedBenefitsParams | null | undefined = {},
+    options?: RequestOptions,
+  ): PagePromise<SupportedBenefitsSinglePage, SupportedBenefit> {
+    return this._client.getAPIList('/employer/benefits/meta', SinglePage<SupportedBenefit>, {
+      query,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
-export type CompanyBenefitsSinglePage = SinglePage<CompanyBenefit>
+export type CompanyBenefitsSinglePage = SinglePage<CompanyBenefit>;
 
-export type SupportedBenefitsSinglePage = SinglePage<SupportedBenefit>
+export type SupportedBenefitsSinglePage = SinglePage<SupportedBenefit>;
 
-export type BenefitContribution = BenefitContribution.UnionMember0 | BenefitContribution.UnionMember1 | BenefitContribution.UnionMember2
+export type BenefitContribution =
+  | BenefitContribution.UnionMember0
+  | BenefitContribution.UnionMember1
+  | BenefitContribution.UnionMember2;
 
 export namespace BenefitContribution {
   export interface UnionMember0 {
@@ -148,12 +201,32 @@ export interface BenefitFeaturesAndOperations {
 /**
  * The frequency of the benefit deduction/contribution.
  */
-export type BenefitFrequency = 'every_paycheck' | 'monthly' | 'one_time' | null
+export type BenefitFrequency = 'every_paycheck' | 'monthly' | 'one_time' | null;
 
 /**
  * Type of benefit.
  */
-export type BenefitType = '457' | '401k' | '401k_roth' | '401k_loan' | '403b' | '403b_roth' | '457_roth' | 'commuter' | 'custom_post_tax' | 'custom_pre_tax' | 'fsa_dependent_care' | 'fsa_medical' | 'hsa_post' | 'hsa_pre' | 's125_dental' | 's125_medical' | 's125_vision' | 'simple' | 'simple_ira' | null
+export type BenefitType =
+  | '457'
+  | '401k'
+  | '401k_roth'
+  | '401k_loan'
+  | '403b'
+  | '403b_roth'
+  | '457_roth'
+  | 'commuter'
+  | 'custom_post_tax'
+  | 'custom_pre_tax'
+  | 'fsa_dependent_care'
+  | 'fsa_medical'
+  | 'hsa_post'
+  | 'hsa_pre'
+  | 's125_dental'
+  | 's125_medical'
+  | 's125_vision'
+  | 'simple'
+  | 'simple_ira'
+  | null;
 
 /**
  * Each benefit type and their supported features. If the benefit type is not
@@ -184,7 +257,7 @@ export interface BenefitsSupport {
 
   simple_ira?: BenefitFeaturesAndOperations | null;
 
-[k: string]: BenefitFeaturesAndOperations | null | undefined
+  [k: string]: BenefitFeaturesAndOperations | null | undefined;
 }
 
 export interface CompanyBenefit {
@@ -295,7 +368,7 @@ export interface UpdateCompanyBenefitResponse {
 /**
  * @deprecated use `BenefitContribution` instead
  */
-export type BenfitContribution = BenefitContribution | null
+export type BenfitContribution = BenefitContribution | null;
 
 export interface BenefitCreateParams {
   /**
@@ -399,7 +472,7 @@ export declare namespace Benefits {
     type BenefitRetrieveParams as BenefitRetrieveParams,
     type BenefitUpdateParams as BenefitUpdateParams,
     type BenefitListParams as BenefitListParams,
-    type BenefitListSupportedBenefitsParams as BenefitListSupportedBenefitsParams
+    type BenefitListSupportedBenefitsParams as BenefitListSupportedBenefitsParams,
   };
 
   export {
@@ -412,6 +485,6 @@ export declare namespace Benefits {
     type IndividualEnrollManyParams as IndividualEnrollManyParams,
     type IndividualEnrolledIDsParams as IndividualEnrolledIDsParams,
     type IndividualRetrieveManyBenefitsParams as IndividualRetrieveManyBenefitsParams,
-    type IndividualUnenrollManyParams as IndividualUnenrollManyParams
+    type IndividualUnenrollManyParams as IndividualUnenrollManyParams,
   };
 }

@@ -38,42 +38,42 @@ export declare namespace Sandbox {
   export {
     Connections as Connections,
     type ConnectionCreateResponse as ConnectionCreateResponse,
-    type ConnectionCreateParams as ConnectionCreateParams
+    type ConnectionCreateParams as ConnectionCreateParams,
   };
 
   export {
     Company as Company,
     type CompanyUpdateResponse as CompanyUpdateResponse,
-    type CompanyUpdateParams as CompanyUpdateParams
+    type CompanyUpdateParams as CompanyUpdateParams,
   };
 
   export {
     Directory as Directory,
     type DirectoryCreateResponse as DirectoryCreateResponse,
-    type DirectoryCreateParams as DirectoryCreateParams
+    type DirectoryCreateParams as DirectoryCreateParams,
   };
 
   export {
     Individual as Individual,
     type IndividualUpdateResponse as IndividualUpdateResponse,
-    type IndividualUpdateParams as IndividualUpdateParams
+    type IndividualUpdateParams as IndividualUpdateParams,
   };
 
   export {
     Employment as Employment,
     type EmploymentUpdateResponse as EmploymentUpdateResponse,
-    type EmploymentUpdateParams as EmploymentUpdateParams
+    type EmploymentUpdateParams as EmploymentUpdateParams,
   };
 
   export {
     Payment as Payment,
     type PaymentCreateResponse as PaymentCreateResponse,
-    type PaymentCreateParams as PaymentCreateParams
+    type PaymentCreateParams as PaymentCreateParams,
   };
 
   export {
     Jobs as Jobs,
     type JobCreateResponse as JobCreateResponse,
-    type JobCreateParams as JobCreateParams
+    type JobCreateParams as JobCreateParams,
   };
 }

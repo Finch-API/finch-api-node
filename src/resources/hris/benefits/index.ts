@@ -1,4 +1,35 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Benefits, type BenefitContribution, type BenefitFeaturesAndOperations, type BenefitFrequency, type BenefitType, type BenefitsSupport, type CompanyBenefit, type CreateCompanyBenefitsResponse, type SupportPerBenefitType, type SupportedBenefit, type UpdateCompanyBenefitResponse, type BenfitContribution, type BenefitCreateParams, type BenefitRetrieveParams, type BenefitUpdateParams, type BenefitListParams, type BenefitListSupportedBenefitsParams, type CompanyBenefitsSinglePage, type SupportedBenefitsSinglePage } from './benefits';;
-export { Individuals, type EnrolledIndividualBenefitResponse, type IndividualBenefit, type UnenrolledIndividualBenefitResponse, type IndividualEnrolledIDsResponse, type IndividualEnrollManyParams, type IndividualEnrolledIDsParams, type IndividualRetrieveManyBenefitsParams, type IndividualUnenrollManyParams, type IndividualBenefitsSinglePage } from './individuals';;
+export {
+  Benefits,
+  type BenefitContribution,
+  type BenefitFeaturesAndOperations,
+  type BenefitFrequency,
+  type BenefitType,
+  type BenefitsSupport,
+  type CompanyBenefit,
+  type CreateCompanyBenefitsResponse,
+  type SupportPerBenefitType,
+  type SupportedBenefit,
+  type UpdateCompanyBenefitResponse,
+  type BenfitContribution,
+  type BenefitCreateParams,
+  type BenefitRetrieveParams,
+  type BenefitUpdateParams,
+  type BenefitListParams,
+  type BenefitListSupportedBenefitsParams,
+  type CompanyBenefitsSinglePage,
+  type SupportedBenefitsSinglePage,
+} from './benefits';
+export {
+  Individuals,
+  type EnrolledIndividualBenefitResponse,
+  type IndividualBenefit,
+  type UnenrolledIndividualBenefitResponse,
+  type IndividualEnrolledIDsResponse,
+  type IndividualEnrollManyParams,
+  type IndividualEnrolledIDsParams,
+  type IndividualRetrieveManyBenefitsParams,
+  type IndividualUnenrollManyParams,
+  type IndividualBenefitsSinglePage,
+} from './individuals';
