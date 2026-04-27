@@ -14,16 +14,23 @@ export class Directory extends APIResource {
    * const directories = await client.sandbox.directory.create();
    * ```
    */
-  create(params: DirectoryCreateParams | null | undefined = undefined, options?: RequestOptions): APIPromise<DirectoryCreateResponse> {
-    const { body } = params ?? {}
-    return this._client.post('/sandbox/directory', { body: body, ...options, __security: { bearerAuth : true } });
+  create(
+    params: DirectoryCreateParams | null | undefined = undefined,
+    options?: RequestOptions,
+  ): APIPromise<DirectoryCreateResponse> {
+    const { body } = params ?? {};
+    return this._client.post('/sandbox/directory', {
+      body: body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
 /**
  * The individuals which were created
  */
-export type DirectoryCreateResponse = Array<unknown>
+export type DirectoryCreateResponse = Array<unknown>;
 
 export interface DirectoryCreateParams {
   /**
@@ -64,7 +71,15 @@ export namespace DirectoryCreateParams {
     /**
      * The detailed employment status of the individual.
      */
-    employment_status?: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated' | null;
+    employment_status?:
+      | 'active'
+      | 'deceased'
+      | 'leave'
+      | 'onboarding'
+      | 'prehire'
+      | 'retired'
+      | 'terminated'
+      | null;
 
     /**
      * Social Security Number of the individual in **encrypted** format. This field is
@@ -78,7 +93,16 @@ export namespace DirectoryCreateParams {
     /**
      * The EEOC-defined ethnicity of the individual.
      */
-    ethnicity?: 'asian' | 'white' | 'black_or_african_american' | 'native_hawaiian_or_pacific_islander' | 'american_indian_or_alaska_native' | 'hispanic_or_latino' | 'two_or_more_races' | 'decline_to_specify' | null;
+    ethnicity?:
+      | 'asian'
+      | 'white'
+      | 'black_or_african_american'
+      | 'native_hawaiian_or_pacific_islander'
+      | 'american_indian_or_alaska_native'
+      | 'hispanic_or_latino'
+      | 'two_or_more_races'
+      | 'decline_to_specify'
+      | null;
 
     /**
      * The legal first name of the individual.
@@ -222,6 +246,6 @@ export namespace DirectoryCreateParams {
 export declare namespace Directory {
   export {
     type DirectoryCreateResponse as DirectoryCreateResponse,
-    type DirectoryCreateParams as DirectoryCreateParams
+    type DirectoryCreateParams as DirectoryCreateParams,
   };
 }

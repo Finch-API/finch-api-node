@@ -17,8 +17,16 @@ export class Employment extends APIResource {
    * );
    * ```
    */
-  update(individualID: string, body: EmploymentUpdateParams | null | undefined = {}, options?: RequestOptions): APIPromise<EmploymentUpdateResponse> {
-    return this._client.put(path`/sandbox/employment/${individualID}`, { body, ...options, __security: { bearerAuth : true } });
+  update(
+    individualID: string,
+    body: EmploymentUpdateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<EmploymentUpdateResponse> {
+    return this._client.put(path`/sandbox/employment/${individualID}`, {
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
@@ -53,7 +61,15 @@ export interface EmploymentUpdateResponse {
   /**
    * The detailed employment status of the individual.
    */
-  employment_status?: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated' | null;
+  employment_status?:
+    | 'active'
+    | 'deceased'
+    | 'leave'
+    | 'onboarding'
+    | 'prehire'
+    | 'retired'
+    | 'terminated'
+    | null;
 
   end_date?: string | null;
 
@@ -187,7 +203,15 @@ export interface EmploymentUpdateParams {
   /**
    * The detailed employment status of the individual.
    */
-  employment_status?: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated' | null;
+  employment_status?:
+    | 'active'
+    | 'deceased'
+    | 'leave'
+    | 'onboarding'
+    | 'prehire'
+    | 'retired'
+    | 'terminated'
+    | null;
 
   end_date?: string | null;
 
@@ -298,6 +322,6 @@ export namespace EmploymentUpdateParams {
 export declare namespace Employment {
   export {
     type EmploymentUpdateResponse as EmploymentUpdateResponse,
-    type EmploymentUpdateParams as EmploymentUpdateParams
+    type EmploymentUpdateParams as EmploymentUpdateParams,
   };
 }

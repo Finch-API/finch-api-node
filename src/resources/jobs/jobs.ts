@@ -2,7 +2,14 @@
 
 import { APIResource } from '../../core/resource';
 import * as AutomatedAPI from './automated';
-import { Automated, AutomatedAsyncJob, AutomatedCreateParams, AutomatedCreateResponse, AutomatedListParams, AutomatedListResponse } from './automated';
+import {
+  Automated,
+  AutomatedAsyncJob,
+  AutomatedCreateParams,
+  AutomatedCreateResponse,
+  AutomatedListParams,
+  AutomatedListResponse,
+} from './automated';
 import * as ManualAPI from './manual';
 import { Manual, ManualAsyncJob } from './manual';
 
@@ -21,11 +28,8 @@ export declare namespace Jobs {
     type AutomatedCreateResponse as AutomatedCreateResponse,
     type AutomatedListResponse as AutomatedListResponse,
     type AutomatedCreateParams as AutomatedCreateParams,
-    type AutomatedListParams as AutomatedListParams
+    type AutomatedListParams as AutomatedListParams,
   };
 
-  export {
-    Manual as Manual,
-    type ManualAsyncJob as ManualAsyncJob
-  };
+  export { Manual as Manual, type ManualAsyncJob as ManualAsyncJob };
 }

@@ -2,19 +2,73 @@
 
 import { APIResource } from '../../core/resource';
 import * as DirectoryAPI from './directory';
-import { Directory, DirectoryListIndividualsParams, DirectoryListParams, IndividualInDirectory } from './directory';
+import {
+  Directory,
+  DirectoryListIndividualsParams,
+  DirectoryListParams,
+  IndividualInDirectory,
+} from './directory';
 import * as DocumentsAPI from './documents';
-import { DocumentListParams, DocumentListResponse, DocumentResponse, DocumentRetreiveParams, DocumentRetreiveResponse, Documents, W42005, W42020 } from './documents';
+import {
+  DocumentListParams,
+  DocumentListResponse,
+  DocumentResponse,
+  DocumentRetreiveParams,
+  DocumentRetreiveResponse,
+  Documents,
+  W42005,
+  W42020,
+} from './documents';
 import * as EmploymentsAPI from './employments';
-import { EmploymentData, EmploymentDataResponse, EmploymentDataResponsesPage, EmploymentRetrieveManyParams, Employments } from './employments';
+import {
+  EmploymentData,
+  EmploymentDataResponse,
+  EmploymentDataResponsesPage,
+  EmploymentRetrieveManyParams,
+  Employments,
+} from './employments';
 import * as IndividualsAPI from './individuals';
-import { Individual, IndividualResponse, IndividualResponsesPage, IndividualRetrieveManyParams, Individuals } from './individuals';
+import {
+  Individual,
+  IndividualResponse,
+  IndividualResponsesPage,
+  IndividualRetrieveManyParams,
+  Individuals,
+} from './individuals';
 import * as PayStatementsAPI from './pay-statements';
-import { PayStatement, PayStatementDataSyncInProgress, PayStatementResponse, PayStatementResponseBody, PayStatementResponsesPage, PayStatementRetrieveManyParams, PayStatements } from './pay-statements';
+import {
+  PayStatement,
+  PayStatementDataSyncInProgress,
+  PayStatementResponse,
+  PayStatementResponseBody,
+  PayStatementResponsesPage,
+  PayStatementRetrieveManyParams,
+  PayStatements,
+} from './pay-statements';
 import * as PaymentsAPI from './payments';
 import { Payment, PaymentListParams, Payments, PaymentsSinglePage } from './payments';
 import * as BenefitsAPI from './benefits/benefits';
-import { BenefitContribution, BenefitCreateParams, BenefitFeaturesAndOperations, BenefitFrequency, BenefitListParams, BenefitListSupportedBenefitsParams, BenefitRetrieveParams, BenefitType, BenefitUpdateParams, Benefits, BenefitsSupport, BenfitContribution, CompanyBenefit, CompanyBenefitsSinglePage, CreateCompanyBenefitsResponse, SupportPerBenefitType, SupportedBenefit, SupportedBenefitsSinglePage, UpdateCompanyBenefitResponse } from './benefits/benefits';
+import {
+  BenefitContribution,
+  BenefitCreateParams,
+  BenefitFeaturesAndOperations,
+  BenefitFrequency,
+  BenefitListParams,
+  BenefitListSupportedBenefitsParams,
+  BenefitRetrieveParams,
+  BenefitType,
+  BenefitUpdateParams,
+  Benefits,
+  BenefitsSupport,
+  BenfitContribution,
+  CompanyBenefit,
+  CompanyBenefitsSinglePage,
+  CreateCompanyBenefitsResponse,
+  SupportPerBenefitType,
+  SupportedBenefit,
+  SupportedBenefitsSinglePage,
+  UpdateCompanyBenefitResponse,
+} from './benefits/benefits';
 import * as CompanyAPI from './company/company';
 import { Company, CompanyResource, CompanyRetrieveParams } from './company/company';
 
@@ -54,7 +108,17 @@ export interface Income {
    * The income unit of payment. Options: `yearly`, `quarterly`, `monthly`,
    * `semi_monthly`, `bi_weekly`, `weekly`, `daily`, `hourly`, and `fixed`.
    */
-  unit: 'yearly' | 'quarterly' | 'monthly' | 'semi_monthly' | 'bi_weekly' | 'weekly' | 'daily' | 'hourly' | 'fixed' | null;
+  unit:
+    | 'yearly'
+    | 'quarterly'
+    | 'monthly'
+    | 'semi_monthly'
+    | 'bi_weekly'
+    | 'weekly'
+    | 'daily'
+    | 'hourly'
+    | 'fixed'
+    | null;
 }
 
 export interface Location {
@@ -112,23 +176,19 @@ HRIS.Documents = Documents;
 HRIS.Benefits = Benefits;
 
 export declare namespace HRIS {
-  export {
-    type Income as Income,
-    type Location as Location,
-    type Money as Money
-  };
+  export { type Income as Income, type Location as Location, type Money as Money };
 
   export {
     CompanyResource as CompanyResource,
     type Company as Company,
-    type CompanyRetrieveParams as CompanyRetrieveParams
+    type CompanyRetrieveParams as CompanyRetrieveParams,
   };
 
   export {
     Directory as Directory,
     type IndividualInDirectory as IndividualInDirectory,
     type DirectoryListParams as DirectoryListParams,
-    type DirectoryListIndividualsParams as DirectoryListIndividualsParams
+    type DirectoryListIndividualsParams as DirectoryListIndividualsParams,
   };
 
   export {
@@ -136,7 +196,7 @@ export declare namespace HRIS {
     type Individual as Individual,
     type IndividualResponse as IndividualResponse,
     type IndividualResponsesPage as IndividualResponsesPage,
-    type IndividualRetrieveManyParams as IndividualRetrieveManyParams
+    type IndividualRetrieveManyParams as IndividualRetrieveManyParams,
   };
 
   export {
@@ -144,14 +204,14 @@ export declare namespace HRIS {
     type EmploymentData as EmploymentData,
     type EmploymentDataResponse as EmploymentDataResponse,
     type EmploymentDataResponsesPage as EmploymentDataResponsesPage,
-    type EmploymentRetrieveManyParams as EmploymentRetrieveManyParams
+    type EmploymentRetrieveManyParams as EmploymentRetrieveManyParams,
   };
 
   export {
     Payments as Payments,
     type Payment as Payment,
     type PaymentsSinglePage as PaymentsSinglePage,
-    type PaymentListParams as PaymentListParams
+    type PaymentListParams as PaymentListParams,
   };
 
   export {
@@ -161,7 +221,7 @@ export declare namespace HRIS {
     type PayStatementResponse as PayStatementResponse,
     type PayStatementResponseBody as PayStatementResponseBody,
     type PayStatementResponsesPage as PayStatementResponsesPage,
-    type PayStatementRetrieveManyParams as PayStatementRetrieveManyParams
+    type PayStatementRetrieveManyParams as PayStatementRetrieveManyParams,
   };
 
   export {
@@ -172,7 +232,7 @@ export declare namespace HRIS {
     type DocumentListResponse as DocumentListResponse,
     type DocumentRetreiveResponse as DocumentRetreiveResponse,
     type DocumentListParams as DocumentListParams,
-    type DocumentRetreiveParams as DocumentRetreiveParams
+    type DocumentRetreiveParams as DocumentRetreiveParams,
   };
 
   export {
@@ -194,6 +254,6 @@ export declare namespace HRIS {
     type BenefitRetrieveParams as BenefitRetrieveParams,
     type BenefitUpdateParams as BenefitUpdateParams,
     type BenefitListParams as BenefitListParams,
-    type BenefitListSupportedBenefitsParams as BenefitListSupportedBenefitsParams
+    type BenefitListSupportedBenefitsParams as BenefitListSupportedBenefitsParams,
   };
 }

@@ -29,13 +29,22 @@ export class PayStatements extends APIResource {
    * }
    * ```
    */
-  retrieveMany(params: PayStatementRetrieveManyParams, options?: RequestOptions): PagePromise<PayStatementResponsesPage, PayStatementResponse> {
-    const { entity_ids, ...body } = params
-    return this._client.getAPIList('/employer/pay-statement', ResponsesPage<PayStatementResponse>, { query: { entity_ids }, body, method: 'post', ...options, __security: { bearerAuth : true } });
+  retrieveMany(
+    params: PayStatementRetrieveManyParams,
+    options?: RequestOptions,
+  ): PagePromise<PayStatementResponsesPage, PayStatementResponse> {
+    const { entity_ids, ...body } = params;
+    return this._client.getAPIList('/employer/pay-statement', ResponsesPage<PayStatementResponse>, {
+      query: { entity_ids },
+      body,
+      method: 'post',
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
-export type PayStatementResponsesPage = ResponsesPage<PayStatementResponse>
+export type PayStatementResponsesPage = ResponsesPage<PayStatementResponse>;
 
 export interface PayStatement {
   /**
@@ -106,7 +115,21 @@ export namespace PayStatement {
     /**
      * The type of earning.
      */
-    type: 'salary' | 'wage' | 'reimbursement' | 'overtime' | 'severance' | 'double_overtime' | 'pto' | 'sick' | 'bonus' | 'commission' | 'tips' | '1099' | 'other' | null;
+    type:
+      | 'salary'
+      | 'wage'
+      | 'reimbursement'
+      | 'overtime'
+      | 'severance'
+      | 'double_overtime'
+      | 'pto'
+      | 'sick'
+      | 'bonus'
+      | 'commission'
+      | 'tips'
+      | '1099'
+      | 'other'
+      | null;
 
     attributes?: Earning.Attributes | null;
   }
@@ -326,6 +349,6 @@ export declare namespace PayStatements {
     type PayStatementResponse as PayStatementResponse,
     type PayStatementResponseBody as PayStatementResponseBody,
     type PayStatementResponsesPage as PayStatementResponsesPage,
-    type PayStatementRetrieveManyParams as PayStatementRetrieveManyParams
+    type PayStatementRetrieveManyParams as PayStatementRetrieveManyParams,
   };
 }

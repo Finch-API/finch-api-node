@@ -15,7 +15,7 @@ export class Configuration extends APIResource {
    * ```
    */
   retrieve(options?: RequestOptions): APIPromise<ConfigurationRetrieveResponse> {
-    return this._client.get('/sandbox/jobs/configuration', { ...options, __security: { bearerAuth : true } });
+    return this._client.get('/sandbox/jobs/configuration', { ...options, __security: { bearerAuth: true } });
   }
 
   /**
@@ -31,7 +31,11 @@ export class Configuration extends APIResource {
    * ```
    */
   update(body: ConfigurationUpdateParams, options?: RequestOptions): APIPromise<SandboxJobConfiguration> {
-    return this._client.put('/sandbox/jobs/configuration', { body, ...options, __security: { bearerAuth : true } });
+    return this._client.put('/sandbox/jobs/configuration', {
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
@@ -41,7 +45,7 @@ export interface SandboxJobConfiguration {
   type: 'data_sync_all';
 }
 
-export type ConfigurationRetrieveResponse = Array<SandboxJobConfiguration>
+export type ConfigurationRetrieveResponse = Array<SandboxJobConfiguration>;
 
 export interface ConfigurationUpdateParams {
   completion_status: 'complete' | 'reauth_error' | 'permissions_error' | 'error';
@@ -53,6 +57,6 @@ export declare namespace Configuration {
   export {
     type SandboxJobConfiguration as SandboxJobConfiguration,
     type ConfigurationRetrieveResponse as ConfigurationRetrieveResponse,
-    type ConfigurationUpdateParams as ConfigurationUpdateParams
+    type ConfigurationUpdateParams as ConfigurationUpdateParams,
   };
 }

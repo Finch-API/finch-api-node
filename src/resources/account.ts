@@ -10,14 +10,14 @@ export class Account extends APIResource {
    * Disconnect one or more `access_token`s from your application.
    */
   disconnect(options?: RequestOptions): APIPromise<DisconnectResponse> {
-    return this._client.post('/disconnect', { ...options, __security: { bearerAuth : true } });
+    return this._client.post('/disconnect', { ...options, __security: { bearerAuth: true } });
   }
 
   /**
    * Read account information associated with an `access_token`
    */
   introspect(options?: RequestOptions): APIPromise<Introspection> {
-    return this._client.get('/introspect', { ...options, __security: { bearerAuth : true } });
+    return this._client.get('/introspect', { ...options, __security: { bearerAuth: true } });
   }
 }
 
@@ -184,13 +184,17 @@ export namespace Introspection {
     /**
      * The status of the entity connection
      */
-    status: 'pending' | 'processing' | 'connected' | 'error_no_account_setup' | 'error_permissions' | 'reauth' | 'disconnected';
+    status:
+      | 'pending'
+      | 'processing'
+      | 'connected'
+      | 'error_no_account_setup'
+      | 'error_permissions'
+      | 'reauth'
+      | 'disconnected';
   }
 }
 
 export declare namespace Account {
-  export {
-    type DisconnectResponse as DisconnectResponse,
-    type Introspection as Introspection
-  };
+  export { type DisconnectResponse as DisconnectResponse, type Introspection as Introspection };
 }

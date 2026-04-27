@@ -2,7 +2,13 @@
 
 import { APIResource } from '../../../core/resource';
 import * as AccountsAPI from './accounts';
-import { AccountCreateParams, AccountCreateResponse, AccountUpdateParams, AccountUpdateResponse, Accounts } from './accounts';
+import {
+  AccountCreateParams,
+  AccountCreateResponse,
+  AccountUpdateParams,
+  AccountUpdateResponse,
+  Accounts,
+} from './accounts';
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 
@@ -20,7 +26,7 @@ export class Connections extends APIResource {
    * ```
    */
   create(body: ConnectionCreateParams, options?: RequestOptions): APIPromise<ConnectionCreateResponse> {
-    return this._client.post('/sandbox/connections', { body, ...options, __security: { basicAuth : true } });
+    return this._client.post('/sandbox/connections', { body, ...options, __security: { basicAuth: true } });
   }
 }
 
@@ -84,7 +90,7 @@ Connections.Accounts = Accounts;
 export declare namespace Connections {
   export {
     type ConnectionCreateResponse as ConnectionCreateResponse,
-    type ConnectionCreateParams as ConnectionCreateParams
+    type ConnectionCreateParams as ConnectionCreateParams,
   };
 
   export {
@@ -92,6 +98,6 @@ export declare namespace Connections {
     type AccountCreateResponse as AccountCreateResponse,
     type AccountUpdateResponse as AccountUpdateResponse,
     type AccountCreateParams as AccountCreateParams,
-    type AccountUpdateParams as AccountUpdateParams
+    type AccountUpdateParams as AccountUpdateParams,
   };
 }

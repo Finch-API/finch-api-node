@@ -23,14 +23,14 @@ export class Automated extends APIResource {
    * access to this endpoint, please contact your Finch account manager.
    */
   create(body: AutomatedCreateParams, options?: RequestOptions): APIPromise<AutomatedCreateResponse> {
-    return this._client.post('/jobs/automated', { body, ...options, __security: { bearerAuth : true } });
+    return this._client.post('/jobs/automated', { body, ...options, __security: { bearerAuth: true } });
   }
 
   /**
    * Get an automated job by `job_id`.
    */
   retrieve(jobID: string, options?: RequestOptions): APIPromise<AutomatedAsyncJob> {
-    return this._client.get(path`/jobs/automated/${jobID}`, { ...options, __security: { bearerAuth : true } });
+    return this._client.get(path`/jobs/automated/${jobID}`, { ...options, __security: { bearerAuth: true } });
   }
 
   /**
@@ -38,8 +38,11 @@ export class Automated extends APIResource {
    * jobs are sorted in descending order by submission time. For scheduled jobs such
    * as data syncs, only the next scheduled job is shown.
    */
-  list(query: AutomatedListParams | null | undefined = {}, options?: RequestOptions): APIPromise<AutomatedListResponse> {
-    return this._client.get('/jobs/automated', { query, ...options, __security: { bearerAuth : true } });
+  list(
+    query: AutomatedListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<AutomatedListResponse> {
+    return this._client.get('/jobs/automated', { query, ...options, __security: { bearerAuth: true } });
   }
 }
 
@@ -168,7 +171,9 @@ export namespace AutomatedListResponse {
   }
 }
 
-export type AutomatedCreateParams = AutomatedCreateParams.DataSyncAll | AutomatedCreateParams.W4FormEmployeeSync
+export type AutomatedCreateParams =
+  | AutomatedCreateParams.DataSyncAll
+  | AutomatedCreateParams.W4FormEmployeeSync;
 
 export declare namespace AutomatedCreateParams {
   export interface DataSyncAll {
@@ -215,6 +220,6 @@ export declare namespace Automated {
     type AutomatedCreateResponse as AutomatedCreateResponse,
     type AutomatedListResponse as AutomatedListResponse,
     type AutomatedCreateParams as AutomatedCreateParams,
-    type AutomatedListParams as AutomatedListParams
+    type AutomatedListParams as AutomatedListParams,
   };
 }

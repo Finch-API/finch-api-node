@@ -19,15 +19,24 @@ export class Employments extends APIResource {
    * }
    * ```
    */
-  retrieveMany(params: EmploymentRetrieveManyParams, options?: RequestOptions): PagePromise<EmploymentDataResponsesPage, EmploymentDataResponse> {
-    const { entity_ids, ...body } = params
-    return this._client.getAPIList('/employer/employment', ResponsesPage<EmploymentDataResponse>, { query: { entity_ids }, body, method: 'post', ...options, __security: { bearerAuth : true } });
+  retrieveMany(
+    params: EmploymentRetrieveManyParams,
+    options?: RequestOptions,
+  ): PagePromise<EmploymentDataResponsesPage, EmploymentDataResponse> {
+    const { entity_ids, ...body } = params;
+    return this._client.getAPIList('/employer/employment', ResponsesPage<EmploymentDataResponse>, {
+      query: { entity_ids },
+      body,
+      method: 'post',
+      ...options,
+      __security: { bearerAuth: true },
+    });
   }
 }
 
-export type EmploymentDataResponsesPage = ResponsesPage<EmploymentDataResponse>
+export type EmploymentDataResponsesPage = ResponsesPage<EmploymentDataResponse>;
 
-export type EmploymentData = EmploymentData.UnionMember0 | EmploymentData.BatchError
+export type EmploymentData = EmploymentData.UnionMember0 | EmploymentData.BatchError;
 
 export namespace EmploymentData {
   export interface UnionMember0 {
@@ -54,7 +63,15 @@ export namespace EmploymentData {
     /**
      * The detailed employment status of the individual.
      */
-    employment_status: 'active' | 'deceased' | 'leave' | 'onboarding' | 'prehire' | 'retired' | 'terminated' | null;
+    employment_status:
+      | 'active'
+      | 'deceased'
+      | 'leave'
+      | 'onboarding'
+      | 'prehire'
+      | 'retired'
+      | 'terminated'
+      | null;
 
     end_date: string | null;
 
@@ -224,6 +241,6 @@ export declare namespace Employments {
     type EmploymentData as EmploymentData,
     type EmploymentDataResponse as EmploymentDataResponse,
     type EmploymentDataResponsesPage as EmploymentDataResponsesPage,
-    type EmploymentRetrieveManyParams as EmploymentRetrieveManyParams
+    type EmploymentRetrieveManyParams as EmploymentRetrieveManyParams,
   };
 }

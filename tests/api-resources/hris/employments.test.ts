@@ -6,12 +6,14 @@ const client = new Finch({
   accessToken: 'My Access Token',
   clientID: '4ab15e51-11ad-49f4-acae-f343b7794375',
   clientSecret: 'My Client Secret',
-  baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource employments', () => {
   test('retrieveMany: only required params', async () => {
-    const responsePromise = client.hris.employments.retrieveMany({ requests: [{ individual_id: 'individual_id' }] });
+    const responsePromise = client.hris.employments.retrieveMany({
+      requests: [{ individual_id: 'individual_id' }],
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,6 +24,9 @@ describe('resource employments', () => {
   });
 
   test('retrieveMany: required and optional params', async () => {
-    const response = await client.hris.employments.retrieveMany({ requests: [{ individual_id: 'individual_id' }], entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] });
+    const response = await client.hris.employments.retrieveMany({
+      requests: [{ individual_id: 'individual_id' }],
+      entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+    });
   });
 });
