@@ -1,5 +1,27 @@
 # Changelog
 
+## 9.7.0 (2026-04-30)
+
+Full Changelog: [v9.6.0...v9.7.0](https://github.com/Finch-API/finch-api-node/compare/v9.6.0...v9.7.0)
+
+### Features
+
+* **api:** api update ([51aa59a](https://github.com/Finch-API/finch-api-node/commit/51aa59a567ed110144dd1fc6b20308fe026ebef0))
+* support setting headers via env ([ffa9adb](https://github.com/Finch-API/finch-api-node/commit/ffa9adb334e3a8930dde00608afc58ca975bfb02))
+
+
+### Chores
+
+* avoid formatting file that gets changed during releases ([962ce5e](https://github.com/Finch-API/finch-api-node/commit/962ce5ec60fc31eb23821b042294210f93f46e88))
+* **format:** run eslint and prettier separately ([52be6e9](https://github.com/Finch-API/finch-api-node/commit/52be6e9efd286c77afe5e4ce130135aaa728c596))
+* **formatter:** run prettier and eslint separately ([b9fffd8](https://github.com/Finch-API/finch-api-node/commit/b9fffd84d80648d59f2ba5c6df4eb57e8ff8d811))
+* **internal:** codegen related update ([e6ec464](https://github.com/Finch-API/finch-api-node/commit/e6ec464462e2e672cffa8c4ab8596ad0d24e54f8))
+* **internal:** codegen related update ([fbbc840](https://github.com/Finch-API/finch-api-node/commit/fbbc840e907f54c6403793a483153aaad9f163dd))
+* **internal:** more robust bootstrap script ([4560fc4](https://github.com/Finch-API/finch-api-node/commit/4560fc4bdad42bc154a70db139d761dcc507431c))
+* **internal:** update docs ordering ([acb12fa](https://github.com/Finch-API/finch-api-node/commit/acb12fa8891902545beec8cf7d34015a24a53b98))
+* restructure docs search code ([5fb6a84](https://github.com/Finch-API/finch-api-node/commit/5fb6a84b620902bbe6695d5bf91d98dd5b89c92b))
+* **tests:** bump steady to v0.22.1 ([eb252a1](https://github.com/Finch-API/finch-api-node/commit/eb252a14302517dfce34fccccd5727cc1aa0bb84))
+
 ## 9.6.0 (2026-04-16)
 
 Full Changelog: [v9.5.1...v9.6.0](https://github.com/Finch-API/finch-api-node/compare/v9.5.1...v9.6.0)
