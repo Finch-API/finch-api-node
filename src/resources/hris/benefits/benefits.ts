@@ -141,12 +141,12 @@ export type CompanyBenefitsSinglePage = SinglePage<CompanyBenefit>;
 export type SupportedBenefitsSinglePage = SinglePage<SupportedBenefit>;
 
 export type BenefitContribution =
-  | BenefitContribution.UnionMember0
-  | BenefitContribution.UnionMember1
-  | BenefitContribution.UnionMember2;
+  | BenefitContribution.BenefitContributionFixed
+  | BenefitContribution.BenefitContributionPercent
+  | BenefitContribution.BenefitContributionTiered;
 
 export namespace BenefitContribution {
-  export interface UnionMember0 {
+  export interface BenefitContributionFixed {
     /**
      * Contribution amount in cents.
      */
@@ -158,7 +158,7 @@ export namespace BenefitContribution {
     type: 'fixed';
   }
 
-  export interface UnionMember1 {
+  export interface BenefitContributionPercent {
     /**
      * Contribution amount in basis points (1/100th of a percent).
      */
@@ -170,12 +170,12 @@ export namespace BenefitContribution {
     type: 'percent';
   }
 
-  export interface UnionMember2 {
+  export interface BenefitContributionTiered {
     /**
      * Array of tier objects defining employer match tiers based on employee
      * contribution thresholds.
      */
-    tiers: Array<UnionMember2.Tier>;
+    tiers: Array<BenefitContributionTiered.Tier>;
 
     /**
      * Tiered contribution type (only valid for company_contribution).
@@ -183,7 +183,7 @@ export namespace BenefitContribution {
     type: 'tiered';
   }
 
-  export namespace UnionMember2 {
+  export namespace BenefitContributionTiered {
     export interface Tier {
       match: number;
 
