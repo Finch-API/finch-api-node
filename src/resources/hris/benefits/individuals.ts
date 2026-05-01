@@ -116,7 +116,7 @@ export interface EnrolledIndividualBenefitResponse {
 }
 
 export interface IndividualBenefit {
-  body: IndividualBenefit.UnionMember0 | IndividualBenefit.BatchError;
+  body: IndividualBenefit.IndividualBenefit | IndividualBenefit.BatchError;
 
   code: number;
 
@@ -124,7 +124,7 @@ export interface IndividualBenefit {
 }
 
 export namespace IndividualBenefit {
-  export interface UnionMember0 {
+  export interface IndividualBenefit {
     /**
      * If the benefit supports annual maximum, the amount in cents for this individual.
      */
@@ -142,16 +142,19 @@ export namespace IndividualBenefit {
      * matching structures.
      */
     company_contribution:
-      | UnionMember0.UnionMember0
-      | UnionMember0.UnionMember1
-      | UnionMember0.UnionMember2
+      | IndividualBenefit.CompanyContributionFixed
+      | IndividualBenefit.CompanyContributionPercent
+      | IndividualBenefit.CompanyContributionTiered
       | null;
 
     /**
      * Employee deduction configuration. Supports both fixed amounts (in cents) and
      * percentage-based contributions (in basis points where 100 = 1%).
      */
-    employee_deduction: UnionMember0.UnionMember0 | UnionMember0.UnionMember1 | null;
+    employee_deduction:
+      | IndividualBenefit.EmployeeDeductionContributionFixed
+      | IndividualBenefit.EmployeeDeductionContributionPercent
+      | null;
 
     /**
      * Type for HSA contribution limit if the benefit is a HSA.
@@ -159,8 +162,8 @@ export namespace IndividualBenefit {
     hsa_contribution_limit?: 'individual' | 'family' | null;
   }
 
-  export namespace UnionMember0 {
-    export interface UnionMember0 {
+  export namespace IndividualBenefit {
+    export interface CompanyContributionFixed {
       /**
        * Contribution amount in cents (for type=fixed) or basis points (for type=percent,
        * where 100 = 1%). Not used for type=tiered.
@@ -174,7 +177,7 @@ export namespace IndividualBenefit {
       type: 'fixed';
     }
 
-    export interface UnionMember1 {
+    export interface CompanyContributionPercent {
       /**
        * Contribution amount in cents (for type=fixed) or basis points (for type=percent,
        * where 100 = 1%). Not used for type=tiered.
@@ -188,12 +191,12 @@ export namespace IndividualBenefit {
       type: 'percent';
     }
 
-    export interface UnionMember2 {
+    export interface CompanyContributionTiered {
       /**
        * Array of tier objects defining employer match tiers based on employee
        * contribution thresholds. Required when type=tiered.
        */
-      tiers: Array<UnionMember2.Tier>;
+      tiers: Array<CompanyContributionTiered.Tier>;
 
       /**
        * Contribution type. Supported values: "fixed" (amount in cents), "percent"
@@ -202,7 +205,7 @@ export namespace IndividualBenefit {
       type: 'tiered';
     }
 
-    export namespace UnionMember2 {
+    export namespace CompanyContributionTiered {
       export interface Tier {
         match: number;
 
@@ -210,7 +213,7 @@ export namespace IndividualBenefit {
       }
     }
 
-    export interface UnionMember0 {
+    export interface EmployeeDeductionContributionFixed {
       /**
        * Contribution amount in cents (for type=fixed) or basis points (for type=percent,
        * where 100 = 1%).
@@ -224,7 +227,7 @@ export namespace IndividualBenefit {
       type: 'fixed';
     }
 
-    export interface UnionMember1 {
+    export interface EmployeeDeductionContributionPercent {
       /**
        * Contribution amount in cents (for type=fixed) or basis points (for type=percent,
        * where 100 = 1%).
