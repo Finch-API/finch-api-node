@@ -1,5 +1,26 @@
 # Changelog
 
+## 9.8.0 (2026-05-07)
+
+Full Changelog: [v9.7.0...v9.8.0](https://github.com/Finch-API/finch-api-node/compare/v9.7.0...v9.8.0)
+
+### Features
+
+* **api:** api update ([d7d9819](https://github.com/Finch-API/finch-api-node/commit/d7d9819bda80e1c61335163a151d836b4d743551))
+* **api:** change auth to npm to oidc ([04f1246](https://github.com/Finch-API/finch-api-node/commit/04f1246dd787aec10cf13f78ad1ab910a234ebf6))
+
+
+### Chores
+
+* redact api-key headers in debug logs ([b1b7308](https://github.com/Finch-API/finch-api-node/commit/b1b7308927f0ad5e2ce0b2b50e2f37bdb8f430df))
+
+
+### Documentation
+
+* clarify forwards compat behavior ([d055d7d](https://github.com/Finch-API/finch-api-node/commit/d055d7daad62c8de922201b4a009f1babc488716))
+* update logging docs ([f3c8c59](https://github.com/Finch-API/finch-api-node/commit/f3c8c591d0514b08c3336979a96afb6fc9862bbc))
+* update with proxy auth info ([da2dfc8](https://github.com/Finch-API/finch-api-node/commit/da2dfc828d54bf3c734df9c96b6fe111d2e4f32b))
+
 ## 9.7.0 (2026-04-30)
 
 Full Changelog: [v9.6.0...v9.7.0](https://github.com/Finch-API/finch-api-node/compare/v9.6.0...v9.7.0)
