@@ -2,7 +2,13 @@
 
 export * from './shared';
 export { AccessTokens, type CreateAccessTokenResponse, type AccessTokenCreateParams } from './access-tokens';
-export { Account, type DisconnectResponse, type Introspection } from './account';
+export {
+  Account,
+  type DisconnectEntityResponse,
+  type DisconnectResponse,
+  type Introspection,
+  type AccountDisconnectEntityParams,
+} from './account';
 export { Connect } from './connect/connect';
 export { HRIS, type Income, type Location, type Money } from './hris/hris';
 export { Jobs } from './jobs/jobs';

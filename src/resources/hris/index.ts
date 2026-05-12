@@ -9,6 +9,7 @@ export {
   type BenefitsSupport,
   type CompanyBenefit,
   type CreateCompanyBenefitsResponse,
+  type RegisterCompanyBenefitResponse,
   type SupportPerBenefitType,
   type SupportedBenefit,
   type UpdateCompanyBenefitResponse,
@@ -18,6 +19,7 @@ export {
   type BenefitUpdateParams,
   type BenefitListParams,
   type BenefitListSupportedBenefitsParams,
+  type BenefitRegisterParams,
   type CompanyBenefitsSinglePage,
   type SupportedBenefitsSinglePage,
 } from './benefits/index';

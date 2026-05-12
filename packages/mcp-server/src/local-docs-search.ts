@@ -1079,6 +1079,61 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     },
   },
   {
+    name: 'register',
+    endpoint: '/employer/benefits/register',
+    httpMethod: 'post',
+    summary: 'Register Deduction',
+    description:
+      "Register existing benefits from the customer on the provider, on Finch's end. Please use the `/provider` endpoint to view available types for each provider.",
+    stainlessPath: '(resource) hris.benefits > (method) register',
+    qualified: 'client.hris.benefits.register',
+    params: [
+      'entity_ids?: string[];',
+      'description?: string;',
+      "frequency?: 'every_paycheck' | 'monthly' | 'one_time';",
+      'type?: string;',
+    ],
+    response: '{ benefit_id: string; job_id: string; }',
+    markdown:
+      "## register\n\n`client.hris.benefits.register(entity_ids?: string[], description?: string, frequency?: 'every_paycheck' | 'monthly' | 'one_time', type?: string): { benefit_id: string; job_id: string; }`\n\n**post** `/employer/benefits/register`\n\nRegister existing benefits from the customer on the provider, on Finch's end. Please use the `/provider` endpoint to view available types for each provider.\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `description?: string`\n\n- `frequency?: 'every_paycheck' | 'monthly' | 'one_time'`\n  The frequency of the benefit deduction/contribution.\n\n- `type?: string`\n  Type of benefit.\n\n### Returns\n\n- `{ benefit_id: string; job_id: string; }`\n\n  - `benefit_id: string`\n  - `job_id: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst registerCompanyBenefitResponse = await client.hris.benefits.register();\n\nconsole.log(registerCompanyBenefitResponse);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.hris.benefits.register',
+        example:
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst registerCompanyBenefitResponse = await client.hris.benefits.register();\n\nconsole.log(registerCompanyBenefitResponse.benefit_id);",
+      },
+      python: {
+        method: 'hris.benefits.register',
+        example:
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nregister_company_benefit_response = client.hris.benefits.register()\nprint(register_company_benefit_response.benefit_id)',
+      },
+      java: {
+        method: 'hris().benefits().register',
+        example:
+          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.HrisBenefitRegisterParams;\nimport com.tryfinch.api.models.RegisterCompanyBenefitResponse;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        RegisterCompanyBenefitResponse registerCompanyBenefitResponse = client.hris().benefits().register();\n    }\n}',
+      },
+      kotlin: {
+        method: 'hris().benefits().register',
+        example:
+          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitRegisterParams\nimport com.tryfinch.api.models.RegisterCompanyBenefitResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val registerCompanyBenefitResponse: RegisterCompanyBenefitResponse = client.hris().benefits().register()\n}',
+      },
+      go: {
+        method: 'client.HRIS.Benefits.Register',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tregisterCompanyBenefitResponse, err := client.HRIS.Benefits.Register(context.TODO(), finchgo.HRISBenefitRegisterParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", registerCompanyBenefitResponse.BenefitID)\n}\n',
+      },
+      ruby: {
+        method: 'hris.benefits.register',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nregister_company_benefit_response = finch.hris.benefits.register\n\nputs(register_company_benefit_response)',
+      },
+      http: {
+        example:
+          'curl https://api.tryfinch.com/employer/benefits/register \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+      },
+    },
+  },
+  {
     name: 'enrolled_ids',
     endpoint: '/employer/benefits/{benefit_id}/enrolled',
     httpMethod: 'get',
@@ -1417,6 +1472,56 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       http: {
         example:
           'curl https://api.tryfinch.com/disconnect \\\n    -X POST \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
+      },
+    },
+  },
+  {
+    name: 'disconnect_entity',
+    endpoint: '/disconnect-entity',
+    httpMethod: 'post',
+    summary: 'Disconnect Entity',
+    description:
+      'Disconnect entity(s) from a connection without affecting other entities associated with the same connection.',
+    stainlessPath: '(resource) account > (method) disconnect_entity',
+    qualified: 'client.account.disconnectEntity',
+    params: ['entity_ids: string[];'],
+    response: '{ status: string; }',
+    markdown:
+      "## disconnect_entity\n\n`client.account.disconnectEntity(entity_ids: string[]): { status: string; }`\n\n**post** `/disconnect-entity`\n\nDisconnect entity(s) from a connection without affecting other entities associated with the same connection.\n\n### Parameters\n\n- `entity_ids: string[]`\n  Array of entity UUIDs to disconnect. At least one entity ID must be provided.\n\n### Returns\n\n- `{ status: string; }`\n\n  - `status: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst disconnectEntityResponse = await client.account.disconnectEntity({ entity_ids: ['3c90c3cc-0d44-4b50-8888-8dd25736052a', '5e6f7a8b-9c10-4d11-a12b-c13d14e15f16'] });\n\nconsole.log(disconnectEntityResponse);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.account.disconnectEntity',
+        example:
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst disconnectEntityResponse = await client.account.disconnectEntity({\n  entity_ids: ['3c90c3cc-0d44-4b50-8888-8dd25736052a', '5e6f7a8b-9c10-4d11-a12b-c13d14e15f16'],\n});\n\nconsole.log(disconnectEntityResponse.status);",
+      },
+      python: {
+        method: 'account.disconnect_entity',
+        example:
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ndisconnect_entity_response = client.account.disconnect_entity(\n    entity_ids=["3c90c3cc-0d44-4b50-8888-8dd25736052a", "5e6f7a8b-9c10-4d11-a12b-c13d14e15f16"],\n)\nprint(disconnect_entity_response.status)',
+      },
+      java: {
+        method: 'account().disconnectEntity',
+        example:
+          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.AccountDisconnectEntityParams;\nimport com.tryfinch.api.models.DisconnectEntityResponse;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        AccountDisconnectEntityParams params = AccountDisconnectEntityParams.builder()\n            .addEntityId("3c90c3cc-0d44-4b50-8888-8dd25736052a")\n            .addEntityId("5e6f7a8b-9c10-4d11-a12b-c13d14e15f16")\n            .build();\n        DisconnectEntityResponse disconnectEntityResponse = client.account().disconnectEntity(params);\n    }\n}',
+      },
+      kotlin: {
+        method: 'account().disconnectEntity',
+        example:
+          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AccountDisconnectEntityParams\nimport com.tryfinch.api.models.DisconnectEntityResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: AccountDisconnectEntityParams = AccountDisconnectEntityParams.builder()\n        .addEntityId("3c90c3cc-0d44-4b50-8888-8dd25736052a")\n        .addEntityId("5e6f7a8b-9c10-4d11-a12b-c13d14e15f16")\n        .build()\n    val disconnectEntityResponse: DisconnectEntityResponse = client.account().disconnectEntity(params)\n}',
+      },
+      go: {
+        method: 'client.Account.DisconnectEntity',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tdisconnectEntityResponse, err := client.Account.DisconnectEntity(context.TODO(), finchgo.AccountDisconnectEntityParams{\n\t\tEntityIDs: finchgo.F([]string{"3c90c3cc-0d44-4b50-8888-8dd25736052a", "5e6f7a8b-9c10-4d11-a12b-c13d14e15f16"}),\n\t})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", disconnectEntityResponse.Status)\n}\n',
+      },
+      ruby: {
+        method: 'account.disconnect_entity',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ndisconnect_entity_response = finch.account.disconnect_entity(\n  entity_ids: ["3c90c3cc-0d44-4b50-8888-8dd25736052a", "5e6f7a8b-9c10-4d11-a12b-c13d14e15f16"]\n)\n\nputs(disconnect_entity_response)',
+      },
+      http: {
+        example:
+          'curl https://api.tryfinch.com/disconnect-entity \\\n    -H \'Content-Type: application/json\' \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN" \\\n    -d \'{\n          "entity_ids": [\n            "3c90c3cc-0d44-4b50-8888-8dd25736052a",\n            "5e6f7a8b-9c10-4d11-a12b-c13d14e15f16"\n          ]\n        }\'',
       },
     },
   },

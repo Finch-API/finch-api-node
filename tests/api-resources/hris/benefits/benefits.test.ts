@@ -122,4 +122,30 @@ describe('resource benefits', () => {
       ),
     ).rejects.toThrow(Finch.NotFoundError);
   });
+
+  test('register', async () => {
+    const responsePromise = client.hris.benefits.register();
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  test('register: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.hris.benefits.register(
+        {
+          entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
+          description: 'description',
+          frequency: 'every_paycheck',
+          type: '457',
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Finch.NotFoundError);
+  });
 });

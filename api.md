@@ -149,6 +149,7 @@ Types:
 - <code><a href="./src/resources/hris/benefits/benefits.ts">BenefitsSupport</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">CompanyBenefit</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">CreateCompanyBenefitsResponse</a></code>
+- <code><a href="./src/resources/hris/benefits/benefits.ts">RegisterCompanyBenefitResponse</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">SupportPerBenefitType</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">SupportedBenefit</a></code>
 - <code><a href="./src/resources/hris/benefits/benefits.ts">UpdateCompanyBenefitResponse</a></code>
@@ -161,6 +162,7 @@ Methods:
 - <code title="post /employer/benefits/{benefit_id}">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">update</a>(benefitID, { ...params }) -> UpdateCompanyBenefitResponse</code>
 - <code title="get /employer/benefits">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">list</a>({ ...params }) -> CompanyBenefitsSinglePage</code>
 - <code title="get /employer/benefits/meta">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">listSupportedBenefits</a>({ ...params }) -> SupportedBenefitsSinglePage</code>
+- <code title="post /employer/benefits/register">client.hris.benefits.<a href="./src/resources/hris/benefits/benefits.ts">register</a>({ ...params }) -> RegisterCompanyBenefitResponse</code>
 
 ### Individuals
 
@@ -193,12 +195,14 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/account.ts">DisconnectEntityResponse</a></code>
 - <code><a href="./src/resources/account.ts">DisconnectResponse</a></code>
 - <code><a href="./src/resources/account.ts">Introspection</a></code>
 
 Methods:
 
 - <code title="post /disconnect">client.account.<a href="./src/resources/account.ts">disconnect</a>() -> DisconnectResponse</code>
+- <code title="post /disconnect-entity">client.account.<a href="./src/resources/account.ts">disconnectEntity</a>({ ...params }) -> DisconnectEntityResponse</code>
 - <code title="get /introspect">client.account.<a href="./src/resources/account.ts">introspect</a>() -> Introspection</code>
 
 # Webhooks
