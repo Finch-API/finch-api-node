@@ -129,6 +129,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/employer/benefits/meta',
   },
   {
+    clientCallName: 'client.hris.benefits.register',
+    fullyQualifiedName: 'hris.benefits.register',
+    httpMethod: 'post',
+    httpPath: '/employer/benefits/register',
+  },
+  {
     clientCallName: 'client.hris.benefits.individuals.enrollMany',
     fullyQualifiedName: 'hris.benefits.individuals.enrollMany',
     httpMethod: 'post',
@@ -163,6 +169,12 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'account.disconnect',
     httpMethod: 'post',
     httpPath: '/disconnect',
+  },
+  {
+    clientCallName: 'client.account.disconnectEntity',
+    fullyQualifiedName: 'account.disconnectEntity',
+    httpMethod: 'post',
+    httpPath: '/disconnect-entity',
   },
   {
     clientCallName: 'client.account.introspect',

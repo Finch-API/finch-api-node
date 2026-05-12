@@ -28,7 +28,13 @@ import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import { AccessTokenCreateParams, AccessTokens, CreateAccessTokenResponse } from './resources/access-tokens';
-import { Account, DisconnectResponse, Introspection } from './resources/account';
+import {
+  Account,
+  AccountDisconnectEntityParams,
+  DisconnectEntityResponse,
+  DisconnectResponse,
+  Introspection,
+} from './resources/account';
 import {
   Provider,
   ProviderListResponse,
@@ -932,8 +938,10 @@ export declare namespace Finch {
 
   export {
     Account as Account,
+    type DisconnectEntityResponse as DisconnectEntityResponse,
     type DisconnectResponse as DisconnectResponse,
     type Introspection as Introspection,
+    type AccountDisconnectEntityParams as AccountDisconnectEntityParams,
   };
 
   export {

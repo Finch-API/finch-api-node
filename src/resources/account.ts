@@ -8,17 +8,57 @@ import { RequestOptions } from '../internal/request-options';
 export class Account extends APIResource {
   /**
    * Disconnect one or more `access_token`s from your application.
+   *
+   * @example
+   * ```ts
+   * const disconnectResponse =
+   *   await client.account.disconnect();
+   * ```
    */
   disconnect(options?: RequestOptions): APIPromise<DisconnectResponse> {
     return this._client.post('/disconnect', { ...options, __security: { bearerAuth: true } });
   }
 
   /**
+   * Disconnect entity(s) from a connection without affecting other entities
+   * associated with the same connection.
+   *
+   * @example
+   * ```ts
+   * const disconnectEntityResponse =
+   *   await client.account.disconnectEntity({
+   *     entity_ids: [
+   *       '3c90c3cc-0d44-4b50-8888-8dd25736052a',
+   *       '5e6f7a8b-9c10-4d11-a12b-c13d14e15f16',
+   *     ],
+   *   });
+   * ```
+   */
+  disconnectEntity(
+    body: AccountDisconnectEntityParams,
+    options?: RequestOptions,
+  ): APIPromise<DisconnectEntityResponse> {
+    return this._client.post('/disconnect-entity', { body, ...options, __security: { bearerAuth: true } });
+  }
+
+  /**
    * Read account information associated with an `access_token`
+   *
+   * @example
+   * ```ts
+   * const introspection = await client.account.introspect();
+   * ```
    */
   introspect(options?: RequestOptions): APIPromise<Introspection> {
     return this._client.get('/introspect', { ...options, __security: { bearerAuth: true } });
   }
+}
+
+export interface DisconnectEntityResponse {
+  /**
+   * If the request is successful, Finch will return "success" (HTTP 200 status).
+   */
+  status: string;
 }
 
 export interface DisconnectResponse {
@@ -195,6 +235,18 @@ export namespace Introspection {
   }
 }
 
+export interface AccountDisconnectEntityParams {
+  /**
+   * Array of entity UUIDs to disconnect. At least one entity ID must be provided.
+   */
+  entity_ids: Array<string>;
+}
+
 export declare namespace Account {
-  export { type DisconnectResponse as DisconnectResponse, type Introspection as Introspection };
+  export {
+    type DisconnectEntityResponse as DisconnectEntityResponse,
+    type DisconnectResponse as DisconnectResponse,
+    type Introspection as Introspection,
+    type AccountDisconnectEntityParams as AccountDisconnectEntityParams,
+  };
 }
