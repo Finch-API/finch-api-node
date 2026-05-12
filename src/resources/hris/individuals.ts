@@ -34,10 +34,10 @@ export class Individuals extends APIResource {
 
 export type IndividualResponsesPage = ResponsesPage<IndividualResponse>;
 
-export type Individual = Individual.Individual | Individual.BatchError;
+export type Individual = Individual.IndividualResponseBody | Individual.BatchError;
 
 export namespace Individual {
-  export interface Individual {
+  export interface IndividualResponseBody {
     /**
      * A stable Finch `id` (UUID v4) for an individual in the company.
      */
@@ -79,7 +79,7 @@ export namespace Individual {
      */
     middle_name: string | null;
 
-    phone_numbers: Array<Individual.PhoneNumber | null> | null;
+    phone_numbers: Array<IndividualResponseBody.PhoneNumber | null> | null;
 
     /**
      * The preferred name of the individual.
@@ -88,7 +88,7 @@ export namespace Individual {
 
     residence: HRISAPI.Location | null;
 
-    emails?: Array<Individual.Email> | null;
+    emails?: Array<IndividualResponseBody.Email> | null;
 
     /**
      * Social Security Number of the individual in **encrypted** format. This field is
@@ -106,7 +106,7 @@ export namespace Individual {
     ssn?: string | null;
   }
 
-  export namespace Individual {
+  export namespace IndividualResponseBody {
     export interface PhoneNumber {
       data: string | null;
 
