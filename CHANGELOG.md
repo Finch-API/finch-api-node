@@ -1,5 +1,13 @@
 # Changelog
 
+## 9.10.0 (2026-05-12)
+
+Full Changelog: [v9.9.0...v9.10.0](https://github.com/Finch-API/finch-api-node/compare/v9.9.0...v9.10.0)
+
+### Features
+
+* **api:** add register benefits method ([4720df6](https://github.com/Finch-API/finch-api-node/commit/4720df6f2050e3c9c2aeea2c73e1d22e175d523a))
+
 ## 9.9.0 (2026-05-12)
 
 Full Changelog: [v9.8.0...v9.9.0](https://github.com/Finch-API/finch-api-node/compare/v9.8.0...v9.9.0)
