@@ -29,12 +29,7 @@ describe('resource directory', () => {
           body: [
             {
               class_code: 'class_code',
-              custom_fields: [
-                {
-                  name: 'name',
-                  value: {},
-                },
-              ],
+              custom_fields: [{ name: 'name', value: 'string' }],
               department: { name: 'name' },
               dob: 'dob',
               emails: [{ data: 'data', type: 'work' }],

@@ -190,7 +190,7 @@ export namespace DirectoryCreateParams {
     export interface CustomField {
       name?: string | null;
 
-      value?: unknown;
+      value?: string | null | Array<unknown> | null | unknown | number | null | boolean | null;
     }
 
     /**

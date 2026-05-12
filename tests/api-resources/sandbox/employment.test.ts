@@ -28,12 +28,7 @@ describe('resource employment', () => {
         'individual_id',
         {
           class_code: 'class_code',
-          custom_fields: [
-            {
-              name: 'name',
-              value: {},
-            },
-          ],
+          custom_fields: [{ name: 'name', value: 'string' }],
           department: { name: 'name' },
           employment: { subtype: 'full_time', type: 'employee' },
           employment_status: 'active',
@@ -70,7 +65,7 @@ describe('resource employment', () => {
           manager: { id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e' },
           middle_name: 'middle_name',
           source_id: 'source_id',
-          start_date: 'start_date',
+          start_date: '3/4/2020',
           title: 'title',
         },
         { path: '/_stainless_unknown_path' },
