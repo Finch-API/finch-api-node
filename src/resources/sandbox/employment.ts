@@ -14,6 +14,7 @@ export class Employment extends APIResource {
    * ```ts
    * const employment = await client.sandbox.employment.update(
    *   'individual_id',
+   *   { start_date: '3/4/2020' },
    * );
    * ```
    */
@@ -137,7 +138,7 @@ export namespace EmploymentUpdateResponse {
   export interface CustomField {
     name?: string | null;
 
-    value?: unknown;
+    value?: string | null | Array<unknown> | null | unknown | number | null | boolean | null;
   }
 
   /**
@@ -279,7 +280,7 @@ export namespace EmploymentUpdateParams {
   export interface CustomField {
     name?: string | null;
 
-    value?: unknown;
+    value?: string | null | Array<unknown> | null | unknown | number | null | boolean | null;
   }
 
   /**

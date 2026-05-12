@@ -36,10 +36,10 @@ export class Employments extends APIResource {
 
 export type EmploymentDataResponsesPage = ResponsesPage<EmploymentDataResponse>;
 
-export type EmploymentData = EmploymentData.EmploymentData | EmploymentData.BatchError;
+export type EmploymentData = EmploymentData.EmploymentDataResponseBody | EmploymentData.BatchError;
 
 export namespace EmploymentData {
-  export interface EmploymentData {
+  export interface EmploymentDataResponseBody {
     /**
      * A stable Finch `id` (UUID v4) for an individual in the company.
      */
@@ -53,12 +53,12 @@ export namespace EmploymentData {
     /**
      * The department object.
      */
-    department: EmploymentData.Department | null;
+    department: EmploymentDataResponseBody.Department | null;
 
     /**
      * The employment object.
      */
-    employment: EmploymentData.Employment | null;
+    employment: EmploymentDataResponseBody.Employment | null;
 
     /**
      * The detailed employment status of the individual.
@@ -103,7 +103,7 @@ export namespace EmploymentData {
     /**
      * The manager object representing the manager of the individual within the org.
      */
-    manager: EmploymentData.Manager | null;
+    manager: EmploymentDataResponseBody.Manager | null;
 
     /**
      * The legal middle name of the individual.
@@ -122,7 +122,7 @@ export namespace EmploymentData {
      * employer in the system. Custom fields are not currently supported for assisted
      * connections.
      */
-    custom_fields?: Array<EmploymentData.CustomField> | null;
+    custom_fields?: Array<EmploymentDataResponseBody.CustomField> | null;
 
     /**
      * The employee's income as reported by the provider. This may not always be
@@ -147,7 +147,7 @@ export namespace EmploymentData {
     work_id?: string | null;
   }
 
-  export namespace EmploymentData {
+  export namespace EmploymentDataResponseBody {
     /**
      * The department object.
      */
