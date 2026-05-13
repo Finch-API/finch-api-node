@@ -478,32 +478,32 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       typescript: {
         method: 'client.hris.directory.listIndividuals',
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst response = await client.hris.directory.listIndividuals();\n\nconsole.log(response.individuals);",
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const individualInDirectory of client.hris.directory.listIndividuals()) {\n  console.log(individualInDirectory.id);\n}",
       },
       python: {
         method: 'hris.directory.list_individuals',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nresponse = client.hris.directory.list_individuals()\nprint(response.individuals)',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.directory.list_individuals()\npage = page.individuals[0]\nprint(page.id)',
       },
       java: {
         method: 'hris().directory().listIndividuals',
         example:
-          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.DirectoryListIndividualsResponse;\nimport com.tryfinch.api.models.HrisDirectoryListIndividualsParams;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        DirectoryListIndividualsResponse response = client.hris().directory().listIndividuals();\n    }\n}',
+          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.HrisDirectoryListIndividualsPage;\nimport com.tryfinch.api.models.HrisDirectoryListIndividualsParams;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        HrisDirectoryListIndividualsPage page = client.hris().directory().listIndividuals();\n    }\n}',
       },
       kotlin: {
         method: 'hris().directory().listIndividuals',
         example:
-          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.DirectoryListIndividualsResponse\nimport com.tryfinch.api.models.HrisDirectoryListIndividualsParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val response: DirectoryListIndividualsResponse = client.hris().directory().listIndividuals()\n}',
+          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisDirectoryListIndividualsPage\nimport com.tryfinch.api.models.HrisDirectoryListIndividualsParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisDirectoryListIndividualsPage = client.hris().directory().listIndividuals()\n}',
       },
       go: {
         method: 'client.HRIS.Directory.ListIndividuals',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tresponse, err := client.HRIS.Directory.ListIndividuals(context.TODO(), finchgo.HRISDirectoryListIndividualsParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", response.Individuals)\n}\n',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Directory.ListIndividuals(context.TODO(), finchgo.HRISDirectoryListIndividualsParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
         method: 'hris.directory.list_individuals',
         example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nresponse = finch.hris.directory.list_individuals\n\nputs(response)',
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.directory.list_individuals\n\nputs(page)',
       },
     },
   },
