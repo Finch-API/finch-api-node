@@ -105,6 +105,7 @@ client.example.list(undefined, { headers: { ... } });
 - `client.hris.benefits.update()`
 - `client.hris.benefits.list()`
 - `client.hris.benefits.listSupportedBenefits()`
+- `client.hris.benefits.register()`
 - `client.hris.benefits.individuals.enrollMany()`
 - `client.hris.benefits.individuals.enrolledIDs()`
 - `client.hris.benefits.individuals.retrieveManyBenefits()`

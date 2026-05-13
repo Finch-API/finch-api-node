@@ -134,6 +134,29 @@ export class Benefits extends APIResource {
       __security: { bearerAuth: true },
     });
   }
+
+  /**
+   * Register existing benefits from the customer on the provider, on Finch's end.
+   * Please use the `/provider` endpoint to view available types for each provider.
+   *
+   * @example
+   * ```ts
+   * const registerCompanyBenefitResponse =
+   *   await client.hris.benefits.register();
+   * ```
+   */
+  register(
+    params: BenefitRegisterParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<RegisterCompanyBenefitResponse> {
+    const { entity_ids, ...body } = params ?? {};
+    return this._client.post('/employer/benefits/register', {
+      query: { entity_ids },
+      body,
+      ...options,
+      __security: { bearerAuth: true },
+    });
+  }
 }
 
 export type CompanyBenefitsSinglePage = SinglePage<CompanyBenefit>;
@@ -312,6 +335,15 @@ export interface CreateCompanyBenefitsResponse {
   job_id: string;
 }
 
+export interface RegisterCompanyBenefitResponse {
+  /**
+   * The id of the benefit.
+   */
+  benefit_id: string;
+
+  job_id: string;
+}
+
 export interface SupportPerBenefitType {
   company_benefits?: Shared.OperationSupportMatrix;
 
@@ -451,6 +483,28 @@ export interface BenefitListSupportedBenefitsParams {
   entity_ids?: Array<string>;
 }
 
+export interface BenefitRegisterParams {
+  /**
+   * Query param: The entity IDs to specify which entities' data to access.
+   */
+  entity_ids?: Array<string>;
+
+  /**
+   * Body param
+   */
+  description?: string;
+
+  /**
+   * Body param: The frequency of the benefit deduction/contribution.
+   */
+  frequency?: BenefitFrequency | null;
+
+  /**
+   * Body param: Type of benefit.
+   */
+  type?: BenefitType | null;
+}
+
 Benefits.Individuals = Individuals;
 
 export declare namespace Benefits {
@@ -462,6 +516,7 @@ export declare namespace Benefits {
     type BenefitsSupport as BenefitsSupport,
     type CompanyBenefit as CompanyBenefit,
     type CreateCompanyBenefitsResponse as CreateCompanyBenefitsResponse,
+    type RegisterCompanyBenefitResponse as RegisterCompanyBenefitResponse,
     type SupportPerBenefitType as SupportPerBenefitType,
     type SupportedBenefit as SupportedBenefit,
     type UpdateCompanyBenefitResponse as UpdateCompanyBenefitResponse,
@@ -473,6 +528,7 @@ export declare namespace Benefits {
     type BenefitUpdateParams as BenefitUpdateParams,
     type BenefitListParams as BenefitListParams,
     type BenefitListSupportedBenefitsParams as BenefitListSupportedBenefitsParams,
+    type BenefitRegisterParams as BenefitRegisterParams,
   };
 
   export {

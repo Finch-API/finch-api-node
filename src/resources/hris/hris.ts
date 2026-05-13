@@ -55,6 +55,7 @@ import {
   BenefitFrequency,
   BenefitListParams,
   BenefitListSupportedBenefitsParams,
+  BenefitRegisterParams,
   BenefitRetrieveParams,
   BenefitType,
   BenefitUpdateParams,
@@ -64,6 +65,7 @@ import {
   CompanyBenefit,
   CompanyBenefitsSinglePage,
   CreateCompanyBenefitsResponse,
+  RegisterCompanyBenefitResponse,
   SupportPerBenefitType,
   SupportedBenefit,
   SupportedBenefitsSinglePage,
@@ -244,6 +246,7 @@ export declare namespace HRIS {
     type BenefitsSupport as BenefitsSupport,
     type CompanyBenefit as CompanyBenefit,
     type CreateCompanyBenefitsResponse as CreateCompanyBenefitsResponse,
+    type RegisterCompanyBenefitResponse as RegisterCompanyBenefitResponse,
     type SupportPerBenefitType as SupportPerBenefitType,
     type SupportedBenefit as SupportedBenefit,
     type UpdateCompanyBenefitResponse as UpdateCompanyBenefitResponse,
@@ -255,5 +258,6 @@ export declare namespace HRIS {
     type BenefitUpdateParams as BenefitUpdateParams,
     type BenefitListParams as BenefitListParams,
     type BenefitListSupportedBenefitsParams as BenefitListSupportedBenefitsParams,
+    type BenefitRegisterParams as BenefitRegisterParams,
   };
 }
