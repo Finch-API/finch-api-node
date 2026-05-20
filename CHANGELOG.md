@@ -1,5 +1,23 @@
 # Changelog
 
+## 9.11.0 (2026-05-18)
+
+Full Changelog: [v9.10.1...v9.11.0](https://github.com/Finch-API/finch-api-node/compare/v9.10.1...v9.11.0)
+
+### Features
+
+* **api:** add enroll many ([189493c](https://github.com/Finch-API/finch-api-node/commit/189493ce9ddeb12108e270a6af61181233ae5dce))
+
+
+### Bug Fixes
+
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([7697cf3](https://github.com/Finch-API/finch-api-node/commit/7697cf3bc25074ec873fa0a82b53b2626f481ea8))
+
+
+### Chores
+
+* **tests:** remove redundant File import ([2586040](https://github.com/Finch-API/finch-api-node/commit/2586040b1f1724ebf1c1c79977bec5bb9556c19d))
+
 ## 9.10.1 (2026-05-13)
 
 Full Changelog: [v9.10.0...v9.10.1](https://github.com/Finch-API/finch-api-node/compare/v9.10.0...v9.10.1)

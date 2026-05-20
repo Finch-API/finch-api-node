@@ -1270,6 +1270,11 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.EnrolledIndividualBenefitResponse\nimport com.tryfinch.api.models.HrisBenefitIndividualEnrollManyParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val enrolledIndividualBenefitResponse: EnrolledIndividualBenefitResponse = client.hris().benefits().individuals().enrollMany("benefit_id")\n}',
       },
+      go: {
+        method: 'client.HRIS.Benefits.Individuals.EnrollMany',
+        example:
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tenrolledIndividualBenefitResponse, err := client.HRIS.Benefits.Individuals.EnrollMany(\n\t\tcontext.TODO(),\n\t\t"benefit_id",\n\t\tfinchgo.HRISBenefitIndividualEnrollManyParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", enrolledIndividualBenefitResponse.JobID)\n}\n',
+      },
       ruby: {
         method: 'hris.benefits.individuals.enroll_many',
         example:
