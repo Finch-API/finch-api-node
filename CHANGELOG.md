@@ -1,5 +1,13 @@
 # Changelog
 
+## 9.11.2 (2026-05-28)
+
+Full Changelog: [v9.11.1...v9.11.2](https://github.com/Finch-API/finch-api-node/compare/v9.11.1...v9.11.2)
+
+### Bug Fixes
+
+* **mcp:** use `pure-lockfile` when building mcp server ([eced552](https://github.com/Finch-API/finch-api-node/commit/eced55261dcb8ad68bd5b01575cadde6e94c10a7))
+
 ## 9.11.1 (2026-05-27)
 
 Full Changelog: [v9.11.0...v9.11.1](https://github.com/Finch-API/finch-api-node/compare/v9.11.0...v9.11.1)
