@@ -1,5 +1,13 @@
 # Changelog
 
+## 9.12.0 (2026-06-09)
+
+Full Changelog: [v9.11.2...v9.12.0](https://github.com/Finch-API/finch-api-node/compare/v9.11.2...v9.12.0)
+
+### Features
+
+* **api:** api update ([2ff057f](https://github.com/Finch-API/finch-api-node/commit/2ff057f6be606920674dcfe3844c0d3995519769))
+
 ## 9.11.2 (2026-05-28)
 
 Full Changelog: [v9.11.1...v9.11.2](https://github.com/Finch-API/finch-api-node/compare/v9.11.1...v9.11.2)
