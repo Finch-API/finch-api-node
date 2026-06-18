@@ -1,5 +1,13 @@
 # Changelog
 
+## 9.12.1 (2026-06-16)
+
+Full Changelog: [v9.12.0...v9.12.1](https://github.com/Finch-API/finch-api-node/compare/v9.12.0...v9.12.1)
+
+### Bug Fixes
+
+* **client:** send content-type header for requests with an omitted optional body ([94c0b7f](https://github.com/Finch-API/finch-api-node/commit/94c0b7f440454ae4eff4a12dae821142f9c6e728))
+
 ## 9.12.0 (2026-06-09)
 
 Full Changelog: [v9.11.2...v9.12.0](https://github.com/Finch-API/finch-api-node/compare/v9.11.2...v9.12.0)
