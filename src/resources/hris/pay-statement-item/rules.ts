@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../../core/resource';
-import { APIPromise } from '../../../../core/api-promise';
-import { PagePromise, ResponsesPage } from '../../../../core/pagination';
-import { RequestOptions } from '../../../../internal/request-options';
-import { path } from '../../../../internal/utils/path';
+import { APIResource } from '../../../core/resource';
+import { APIPromise } from '../../../core/api-promise';
+import { PagePromise, ResponsesPage } from '../../../core/pagination';
+import { RequestOptions } from '../../../internal/request-options';
+import { path } from '../../../internal/utils/path';
 
 export class Rules extends APIResource {
   /**
@@ -16,7 +16,7 @@ export class Rules extends APIResource {
    * @example
    * ```ts
    * const rule =
-   *   await client.hris.company.payStatementItem.rules.create();
+   *   await client.hris.payStatementItem.rules.create();
    * ```
    */
   create(
@@ -38,7 +38,7 @@ export class Rules extends APIResource {
    * @example
    * ```ts
    * const rule =
-   *   await client.hris.company.payStatementItem.rules.update(
+   *   await client.hris.payStatementItem.rules.update(
    *     'rule_id',
    *   );
    * ```
@@ -63,7 +63,7 @@ export class Rules extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const ruleListResponse of client.hris.company.payStatementItem.rules.list()) {
+   * for await (const ruleListResponse of client.hris.payStatementItem.rules.list()) {
    *   // ...
    * }
    * ```
@@ -85,7 +85,7 @@ export class Rules extends APIResource {
    * @example
    * ```ts
    * const rule =
-   *   await client.hris.company.payStatementItem.rules.delete(
+   *   await client.hris.payStatementItem.rules.delete(
    *     'rule_id',
    *   );
    * ```

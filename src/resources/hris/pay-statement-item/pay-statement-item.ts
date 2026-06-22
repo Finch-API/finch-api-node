@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../../core/resource';
+import { APIResource } from '../../../core/resource';
 import * as RulesAPI from './rules';
 import {
   RuleCreateParams,
@@ -14,8 +14,8 @@ import {
   RuleUpdateResponse,
   Rules,
 } from './rules';
-import { PagePromise, ResponsesPage } from '../../../../core/pagination';
-import { RequestOptions } from '../../../../internal/request-options';
+import { PagePromise, ResponsesPage } from '../../../core/pagination';
+import { RequestOptions } from '../../../internal/request-options';
 
 export class PayStatementItem extends APIResource {
   rules: RulesAPI.Rules = new RulesAPI.Rules(this._client);
@@ -27,7 +27,7 @@ export class PayStatementItem extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const payStatementItemListResponse of client.hris.company.payStatementItem.list()) {
+   * for await (const payStatementItemListResponse of client.hris.payStatementItem.list()) {
    *   // ...
    * }
    * ```

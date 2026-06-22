@@ -23,7 +23,7 @@ export {
   type CompanyBenefitsSinglePage,
   type SupportedBenefitsSinglePage,
 } from './benefits/index';
-export { CompanyResource, type Company, type CompanyRetrieveParams } from './company/index';
+export { CompanyResource, type Company, type CompanyRetrieveParams } from './company';
 export {
   Directory,
   type IndividualInDirectory,
@@ -55,6 +55,12 @@ export {
   type IndividualRetrieveManyParams,
   type IndividualResponsesPage,
 } from './individuals';
+export {
+  PayStatementItem,
+  type PayStatementItemListResponse,
+  type PayStatementItemListParams,
+  type PayStatementItemListResponsesPage,
+} from './pay-statement-item/index';
 export {
   PayStatements,
   type PayStatement,
