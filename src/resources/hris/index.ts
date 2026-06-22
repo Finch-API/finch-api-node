@@ -58,9 +58,9 @@ export {
 export {
   PayStatements,
   type PayStatement,
+  type PayStatementData,
   type PayStatementDataSyncInProgress,
   type PayStatementResponse,
-  type PayStatementResponseBody,
   type PayStatementRetrieveManyParams,
   type PayStatementResponsesPage,
 } from './pay-statements';

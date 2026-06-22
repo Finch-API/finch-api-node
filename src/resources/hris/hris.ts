@@ -38,9 +38,9 @@ import {
 import * as PayStatementsAPI from './pay-statements';
 import {
   PayStatement,
+  PayStatementData,
   PayStatementDataSyncInProgress,
   PayStatementResponse,
-  PayStatementResponseBody,
   PayStatementResponsesPage,
   PayStatementRetrieveManyParams,
   PayStatements,
@@ -219,9 +219,9 @@ export declare namespace HRIS {
   export {
     PayStatements as PayStatements,
     type PayStatement as PayStatement,
+    type PayStatementData as PayStatementData,
     type PayStatementDataSyncInProgress as PayStatementDataSyncInProgress,
     type PayStatementResponse as PayStatementResponse,
-    type PayStatementResponseBody as PayStatementResponseBody,
     type PayStatementResponsesPage as PayStatementResponsesPage,
     type PayStatementRetrieveManyParams as PayStatementRetrieveManyParams,
   };
