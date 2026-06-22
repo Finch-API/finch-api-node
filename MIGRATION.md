@@ -90,11 +90,11 @@ client.example.list(undefined, { headers: { ... } });
 <summary>This affects the following methods</summary>
 
 - `client.hris.company.retrieve()`
-- `client.hris.company.payStatementItem.list()`
-- `client.hris.company.payStatementItem.rules.create()`
-- `client.hris.company.payStatementItem.rules.update()`
-- `client.hris.company.payStatementItem.rules.list()`
-- `client.hris.company.payStatementItem.rules.delete()`
+- `client.hris.payStatementItem.list()`
+- `client.hris.payStatementItem.rules.create()`
+- `client.hris.payStatementItem.rules.update()`
+- `client.hris.payStatementItem.rules.list()`
+- `client.hris.payStatementItem.rules.delete()`
 - `client.hris.directory.list()`
 - `client.hris.directory.listIndividuals()`
 - `client.hris.individuals.retrieveMany()`

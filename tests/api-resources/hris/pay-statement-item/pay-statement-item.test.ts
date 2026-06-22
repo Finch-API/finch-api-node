@@ -11,7 +11,7 @@ const client = new Finch({
 
 describe('resource payStatementItem', () => {
   test('list', async () => {
-    const responsePromise = client.hris.company.payStatementItem.list();
+    const responsePromise = client.hris.payStatementItem.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -24,7 +24,7 @@ describe('resource payStatementItem', () => {
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.hris.company.payStatementItem.list(
+      client.hris.payStatementItem.list(
         {
           categories: ['earnings'],
           end_date: '2024-07-01',
