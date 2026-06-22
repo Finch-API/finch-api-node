@@ -1,6 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
+import * as CompanyAPI from './company';
+import { Company, CompanyResource, CompanyRetrieveParams } from './company';
 import * as DirectoryAPI from './directory';
 import {
   Directory,
@@ -71,11 +73,19 @@ import {
   SupportedBenefitsSinglePage,
   UpdateCompanyBenefitResponse,
 } from './benefits/benefits';
-import * as CompanyAPI from './company/company';
-import { Company, CompanyResource, CompanyRetrieveParams } from './company/company';
+import * as PayStatementItemAPI from './pay-statement-item/pay-statement-item';
+import {
+  PayStatementItem,
+  PayStatementItemListParams,
+  PayStatementItemListResponse,
+  PayStatementItemListResponsesPage,
+} from './pay-statement-item/pay-statement-item';
 
 export class HRIS extends APIResource {
   company: CompanyAPI.CompanyResource = new CompanyAPI.CompanyResource(this._client);
+  payStatementItem: PayStatementItemAPI.PayStatementItem = new PayStatementItemAPI.PayStatementItem(
+    this._client,
+  );
   directory: DirectoryAPI.Directory = new DirectoryAPI.Directory(this._client);
   individuals: IndividualsAPI.Individuals = new IndividualsAPI.Individuals(this._client);
   employments: EmploymentsAPI.Employments = new EmploymentsAPI.Employments(this._client);
@@ -169,6 +179,7 @@ export interface Money {
 }
 
 HRIS.CompanyResource = CompanyResource;
+HRIS.PayStatementItem = PayStatementItem;
 HRIS.Directory = Directory;
 HRIS.Individuals = Individuals;
 HRIS.Employments = Employments;
@@ -184,6 +195,13 @@ export declare namespace HRIS {
     CompanyResource as CompanyResource,
     type Company as Company,
     type CompanyRetrieveParams as CompanyRetrieveParams,
+  };
+
+  export {
+    PayStatementItem as PayStatementItem,
+    type PayStatementItemListResponse as PayStatementItemListResponse,
+    type PayStatementItemListResponsesPage as PayStatementItemListResponsesPage,
+    type PayStatementItemListParams as PayStatementItemListParams,
   };
 
   export {

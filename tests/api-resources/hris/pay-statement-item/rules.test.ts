@@ -11,7 +11,7 @@ const client = new Finch({
 
 describe('resource rules', () => {
   test('create', async () => {
-    const responsePromise = client.hris.company.payStatementItem.rules.create();
+    const responsePromise = client.hris.payStatementItem.rules.create();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -24,7 +24,7 @@ describe('resource rules', () => {
   test('create: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.hris.company.payStatementItem.rules.create(
+      client.hris.payStatementItem.rules.create(
         {
           entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
           attributes: { metadata: { foo: 'bar' } },
@@ -45,7 +45,7 @@ describe('resource rules', () => {
   });
 
   test('update', async () => {
-    const responsePromise = client.hris.company.payStatementItem.rules.update('rule_id');
+    const responsePromise = client.hris.payStatementItem.rules.update('rule_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -58,7 +58,7 @@ describe('resource rules', () => {
   test('update: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.hris.company.payStatementItem.rules.update(
+      client.hris.payStatementItem.rules.update(
         'rule_id',
         {
           entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
@@ -70,7 +70,7 @@ describe('resource rules', () => {
   });
 
   test('list', async () => {
-    const responsePromise = client.hris.company.payStatementItem.rules.list();
+    const responsePromise = client.hris.payStatementItem.rules.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -83,7 +83,7 @@ describe('resource rules', () => {
   test('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.hris.company.payStatementItem.rules.list(
+      client.hris.payStatementItem.rules.list(
         { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
         { path: '/_stainless_unknown_path' },
       ),
@@ -91,7 +91,7 @@ describe('resource rules', () => {
   });
 
   test('delete', async () => {
-    const responsePromise = client.hris.company.payStatementItem.rules.delete('rule_id');
+    const responsePromise = client.hris.payStatementItem.rules.delete('rule_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -104,7 +104,7 @@ describe('resource rules', () => {
   test('delete: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.hris.company.payStatementItem.rules.delete(
+      client.hris.payStatementItem.rules.delete(
         'rule_id',
         { entity_ids: ['550e8400-e29b-41d4-a716-446655440000'] },
         { path: '/_stainless_unknown_path' },

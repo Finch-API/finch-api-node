@@ -157,8 +157,8 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     summary: 'Pay Statement Item',
     description:
       "Retrieve a list of detailed pay statement items for the access token's connection account.\n",
-    stainlessPath: '(resource) hris.company.pay_statement_item > (method) list',
-    qualified: 'client.hris.company.payStatementItem.list',
+    stainlessPath: '(resource) hris.pay_statement_item > (method) list',
+    qualified: 'client.hris.payStatementItem.list',
     params: [
       "categories?: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'[];",
       'end_date?: string;',
@@ -170,37 +170,37 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     response:
       "{ attributes: { metadata: object; employer?: boolean; pre_tax?: boolean; type?: string; }; category: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'; name: string; }",
     markdown:
-      "## list\n\n`client.hris.company.payStatementItem.list(categories?: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'[], end_date?: string, entity_ids?: string[], name?: string, start_date?: string, type?: string): { attributes: object; category: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'; name: string; }`\n\n**get** `/employer/pay-statement-item`\n\nRetrieve a list of detailed pay statement items for the access token's connection account.\n\n\n### Parameters\n\n- `categories?: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'[]`\n  Comma-delimited list of pay statement item categories to filter on. If empty, defaults to all categories.\n\n- `end_date?: string`\n  The end date to retrieve pay statement items by via their last seen pay date in `YYYY-MM-DD` format.\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `name?: string`\n  Case-insensitive partial match search by pay statement item name.\n\n- `start_date?: string`\n  The start date to retrieve pay statement items by via their last seen pay date (inclusive) in `YYYY-MM-DD` format.\n\n- `type?: string`\n  String search by pay statement item type.\n\n### Returns\n\n- `{ attributes: { metadata: object; employer?: boolean; pre_tax?: boolean; type?: string; }; category: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'; name: string; }`\n\n  - `attributes: { metadata: object; employer?: boolean; pre_tax?: boolean; type?: string; }`\n  - `category: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'`\n  - `name: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const payStatementItemListResponse of client.hris.company.payStatementItem.list()) {\n  console.log(payStatementItemListResponse);\n}\n```",
+      "## list\n\n`client.hris.payStatementItem.list(categories?: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'[], end_date?: string, entity_ids?: string[], name?: string, start_date?: string, type?: string): { attributes: object; category: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'; name: string; }`\n\n**get** `/employer/pay-statement-item`\n\nRetrieve a list of detailed pay statement items for the access token's connection account.\n\n\n### Parameters\n\n- `categories?: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'[]`\n  Comma-delimited list of pay statement item categories to filter on. If empty, defaults to all categories.\n\n- `end_date?: string`\n  The end date to retrieve pay statement items by via their last seen pay date in `YYYY-MM-DD` format.\n\n- `entity_ids?: string[]`\n  The entity IDs to specify which entities' data to access.\n\n- `name?: string`\n  Case-insensitive partial match search by pay statement item name.\n\n- `start_date?: string`\n  The start date to retrieve pay statement items by via their last seen pay date (inclusive) in `YYYY-MM-DD` format.\n\n- `type?: string`\n  String search by pay statement item type.\n\n### Returns\n\n- `{ attributes: { metadata: object; employer?: boolean; pre_tax?: boolean; type?: string; }; category: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'; name: string; }`\n\n  - `attributes: { metadata: object; employer?: boolean; pre_tax?: boolean; type?: string; }`\n  - `category: 'earnings' | 'taxes' | 'employee_deductions' | 'employer_contributions'`\n  - `name: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const payStatementItemListResponse of client.hris.payStatementItem.list()) {\n  console.log(payStatementItemListResponse);\n}\n```",
     perLanguage: {
       typescript: {
-        method: 'client.hris.company.payStatementItem.list',
+        method: 'client.hris.payStatementItem.list',
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const payStatementItemListResponse of client.hris.company.payStatementItem.list()) {\n  console.log(payStatementItemListResponse.attributes);\n}",
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const payStatementItemListResponse of client.hris.payStatementItem.list()) {\n  console.log(payStatementItemListResponse.attributes);\n}",
       },
       python: {
-        method: 'hris.company.pay_statement_item.list',
+        method: 'hris.pay_statement_item.list',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.company.pay_statement_item.list()\npage = page.responses[0]\nprint(page.attributes)',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.pay_statement_item.list()\npage = page.responses[0]\nprint(page.attributes)',
       },
       java: {
-        method: 'hris().company().payStatementItem().list',
+        method: 'hris().payStatementItem().list',
         example:
-          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemListPage;\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemListParams;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        HrisCompanyPayStatementItemListPage page = client.hris().company().payStatementItem().list();\n    }\n}',
+          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.HrisPayStatementItemListPage;\nimport com.tryfinch.api.models.HrisPayStatementItemListParams;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        HrisPayStatementItemListPage page = client.hris().payStatementItem().list();\n    }\n}',
       },
       kotlin: {
-        method: 'hris().company().payStatementItem().list',
+        method: 'hris().payStatementItem().list',
         example:
-          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemListPage\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisCompanyPayStatementItemListPage = client.hris().company().payStatementItem().list()\n}',
+          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPayStatementItemListPage\nimport com.tryfinch.api.models.HrisPayStatementItemListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisPayStatementItemListPage = client.hris().payStatementItem().list()\n}',
       },
       go: {
-        method: 'client.HRIS.Company.PayStatementItem.List',
+        method: 'client.HRIS.PayStatementItem.List',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Company.PayStatementItem.List(context.TODO(), finchgo.HRISCompanyPayStatementItemListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.PayStatementItem.List(context.TODO(), finchgo.HRISPayStatementItemListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
-        method: 'hris.company.pay_statement_item.list',
+        method: 'hris.pay_statement_item.list',
         example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.company.pay_statement_item.list\n\nputs(page)',
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.pay_statement_item.list\n\nputs(page)',
       },
       http: {
         example:
@@ -215,8 +215,8 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     summary: 'Create Rule',
     description:
       'Custom rules can be created to associate specific attributes to pay statement items depending on the use case. For example, pay statement items that meet certain conditions can be labeled as a pre-tax 401k. This metadata can be retrieved where pay statement item information is available.\n',
-    stainlessPath: '(resource) hris.company.pay_statement_item.rules > (method) create',
-    qualified: 'client.hris.company.payStatementItem.rules.create',
+    stainlessPath: '(resource) hris.pay_statement_item.rules > (method) create',
+    qualified: 'client.hris.payStatementItem.rules.create',
     params: [
       'entity_ids?: string[];',
       'attributes?: { metadata?: object; };',
@@ -228,37 +228,37 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     response:
       "{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }",
     markdown:
-      "## create\n\n`client.hris.company.payStatementItem.rules.create(entity_ids?: string[], attributes?: { metadata?: object; }, conditions?: { field?: string; operator?: 'equals'; value?: string; }[], effective_end_date?: string, effective_start_date?: string, entity_type?: 'pay_statement_item'): { id?: string; attributes?: object; conditions?: object[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n**post** `/employer/pay-statement-item/rule`\n\nCustom rules can be created to associate specific attributes to pay statement items depending on the use case. For example, pay statement items that meet certain conditions can be labeled as a pre-tax 401k. This metadata can be retrieved where pay statement item information is available.\n\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to create the rule for.\n\n- `attributes?: { metadata?: object; }`\n  Specifies the fields to be applied when the condition is met.\n  - `metadata?: object`\n    The metadata to be attached in the entity. It is a key-value pairs where the values can be of any type (string, number, boolean, object, array, etc.).\n\n- `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n\n- `effective_end_date?: string`\n  Specifies when the rules should stop applying rules based on the date.\n\n- `effective_start_date?: string`\n  Specifies when the rule should begin applying based on the date.\n\n- `entity_type?: 'pay_statement_item'`\n  The entity type to which the rule is applied.\n\n### Returns\n\n- `{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n  - `id?: string`\n  - `attributes?: { metadata?: object; }`\n  - `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n  - `created_at?: string`\n  - `effective_end_date?: string`\n  - `effective_start_date?: string`\n  - `entity_type?: 'pay_statement_item'`\n  - `priority?: number`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst rule = await client.hris.company.payStatementItem.rules.create();\n\nconsole.log(rule);\n```",
+      "## create\n\n`client.hris.payStatementItem.rules.create(entity_ids?: string[], attributes?: { metadata?: object; }, conditions?: { field?: string; operator?: 'equals'; value?: string; }[], effective_end_date?: string, effective_start_date?: string, entity_type?: 'pay_statement_item'): { id?: string; attributes?: object; conditions?: object[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n**post** `/employer/pay-statement-item/rule`\n\nCustom rules can be created to associate specific attributes to pay statement items depending on the use case. For example, pay statement items that meet certain conditions can be labeled as a pre-tax 401k. This metadata can be retrieved where pay statement item information is available.\n\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to create the rule for.\n\n- `attributes?: { metadata?: object; }`\n  Specifies the fields to be applied when the condition is met.\n  - `metadata?: object`\n    The metadata to be attached in the entity. It is a key-value pairs where the values can be of any type (string, number, boolean, object, array, etc.).\n\n- `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n\n- `effective_end_date?: string`\n  Specifies when the rules should stop applying rules based on the date.\n\n- `effective_start_date?: string`\n  Specifies when the rule should begin applying based on the date.\n\n- `entity_type?: 'pay_statement_item'`\n  The entity type to which the rule is applied.\n\n### Returns\n\n- `{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n  - `id?: string`\n  - `attributes?: { metadata?: object; }`\n  - `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n  - `created_at?: string`\n  - `effective_end_date?: string`\n  - `effective_start_date?: string`\n  - `entity_type?: 'pay_statement_item'`\n  - `priority?: number`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst rule = await client.hris.payStatementItem.rules.create();\n\nconsole.log(rule);\n```",
     perLanguage: {
       typescript: {
-        method: 'client.hris.company.payStatementItem.rules.create',
+        method: 'client.hris.payStatementItem.rules.create',
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst rule = await client.hris.company.payStatementItem.rules.create();\n\nconsole.log(rule.id);",
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst rule = await client.hris.payStatementItem.rules.create();\n\nconsole.log(rule.id);",
       },
       python: {
-        method: 'hris.company.pay_statement_item.rules.create',
+        method: 'hris.pay_statement_item.rules.create',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.company.pay_statement_item.rules.create()\nprint(rule.id)',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.pay_statement_item.rules.create()\nprint(rule.id)',
       },
       java: {
-        method: 'hris().company().payStatementItem().rules().create',
+        method: 'hris().payStatementItem().rules().create',
         example:
-          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleCreateParams;\nimport com.tryfinch.api.models.RuleCreateResponse;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        RuleCreateResponse rule = client.hris().company().payStatementItem().rules().create();\n    }\n}',
+          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.HrisPayStatementItemRuleCreateParams;\nimport com.tryfinch.api.models.RuleCreateResponse;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        RuleCreateResponse rule = client.hris().payStatementItem().rules().create();\n    }\n}',
       },
       kotlin: {
-        method: 'hris().company().payStatementItem().rules().create',
+        method: 'hris().payStatementItem().rules().create',
         example:
-          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleCreateParams\nimport com.tryfinch.api.models.RuleCreateResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val rule: RuleCreateResponse = client.hris().company().payStatementItem().rules().create()\n}',
+          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPayStatementItemRuleCreateParams\nimport com.tryfinch.api.models.RuleCreateResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val rule: RuleCreateResponse = client.hris().payStatementItem().rules().create()\n}',
       },
       go: {
-        method: 'client.HRIS.Company.PayStatementItem.Rules.New',
+        method: 'client.HRIS.PayStatementItem.Rules.New',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\trule, err := client.HRIS.Company.PayStatementItem.Rules.New(context.TODO(), finchgo.HRISCompanyPayStatementItemRuleNewParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", rule.ID)\n}\n',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\trule, err := client.HRIS.PayStatementItem.Rules.New(context.TODO(), finchgo.HRISPayStatementItemRuleNewParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", rule.ID)\n}\n',
       },
       ruby: {
-        method: 'hris.company.pay_statement_item.rules.create',
+        method: 'hris.pay_statement_item.rules.create',
         example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.company.pay_statement_item.rules.create\n\nputs(rule)',
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.pay_statement_item.rules.create\n\nputs(rule)',
       },
       http: {
         example:
@@ -272,43 +272,43 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     httpMethod: 'get',
     summary: 'Get Rules',
     description: 'List all rules of a connection account.',
-    stainlessPath: '(resource) hris.company.pay_statement_item.rules > (method) list',
-    qualified: 'client.hris.company.payStatementItem.rules.list',
+    stainlessPath: '(resource) hris.pay_statement_item.rules > (method) list',
+    qualified: 'client.hris.payStatementItem.rules.list',
     params: ['entity_ids?: string[];'],
     response:
       "{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }",
     markdown:
-      "## list\n\n`client.hris.company.payStatementItem.rules.list(entity_ids?: string[]): { id?: string; attributes?: object; conditions?: object[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n**get** `/employer/pay-statement-item/rule`\n\nList all rules of a connection account.\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to retrieve rules for.\n\n### Returns\n\n- `{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n  - `id?: string`\n  - `attributes?: { metadata?: object; }`\n  - `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n  - `created_at?: string`\n  - `effective_end_date?: string`\n  - `effective_start_date?: string`\n  - `entity_type?: 'pay_statement_item'`\n  - `priority?: number`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const ruleListResponse of client.hris.company.payStatementItem.rules.list()) {\n  console.log(ruleListResponse);\n}\n```",
+      "## list\n\n`client.hris.payStatementItem.rules.list(entity_ids?: string[]): { id?: string; attributes?: object; conditions?: object[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n**get** `/employer/pay-statement-item/rule`\n\nList all rules of a connection account.\n\n### Parameters\n\n- `entity_ids?: string[]`\n  The entity IDs to retrieve rules for.\n\n### Returns\n\n- `{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n  - `id?: string`\n  - `attributes?: { metadata?: object; }`\n  - `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n  - `created_at?: string`\n  - `effective_end_date?: string`\n  - `effective_start_date?: string`\n  - `entity_type?: 'pay_statement_item'`\n  - `priority?: number`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const ruleListResponse of client.hris.payStatementItem.rules.list()) {\n  console.log(ruleListResponse);\n}\n```",
     perLanguage: {
       typescript: {
-        method: 'client.hris.company.payStatementItem.rules.list',
+        method: 'client.hris.payStatementItem.rules.list',
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const ruleListResponse of client.hris.company.payStatementItem.rules.list()) {\n  console.log(ruleListResponse.id);\n}",
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\n// Automatically fetches more pages as needed.\nfor await (const ruleListResponse of client.hris.payStatementItem.rules.list()) {\n  console.log(ruleListResponse.id);\n}",
       },
       python: {
-        method: 'hris.company.pay_statement_item.rules.list',
+        method: 'hris.pay_statement_item.rules.list',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.company.pay_statement_item.rules.list()\npage = page.responses[0]\nprint(page.id)',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.pay_statement_item.rules.list()\npage = page.responses[0]\nprint(page.id)',
       },
       java: {
-        method: 'hris().company().payStatementItem().rules().list',
+        method: 'hris().payStatementItem().rules().list',
         example:
-          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleListPage;\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleListParams;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        HrisCompanyPayStatementItemRuleListPage page = client.hris().company().payStatementItem().rules().list();\n    }\n}',
+          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.HrisPayStatementItemRuleListPage;\nimport com.tryfinch.api.models.HrisPayStatementItemRuleListParams;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        HrisPayStatementItemRuleListPage page = client.hris().payStatementItem().rules().list();\n    }\n}',
       },
       kotlin: {
-        method: 'hris().company().payStatementItem().rules().list',
+        method: 'hris().payStatementItem().rules().list',
         example:
-          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleListPage\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisCompanyPayStatementItemRuleListPage = client.hris().company().payStatementItem().rules().list()\n}',
+          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPayStatementItemRuleListPage\nimport com.tryfinch.api.models.HrisPayStatementItemRuleListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisPayStatementItemRuleListPage = client.hris().payStatementItem().rules().list()\n}',
       },
       go: {
-        method: 'client.HRIS.Company.PayStatementItem.Rules.List',
+        method: 'client.HRIS.PayStatementItem.Rules.List',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.Company.PayStatementItem.Rules.List(context.TODO(), finchgo.HRISCompanyPayStatementItemRuleListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\tpage, err := client.HRIS.PayStatementItem.Rules.List(context.TODO(), finchgo.HRISPayStatementItemRuleListParams{})\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       ruby: {
-        method: 'hris.company.pay_statement_item.rules.list',
+        method: 'hris.pay_statement_item.rules.list',
         example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.company.pay_statement_item.rules.list\n\nputs(page)',
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.pay_statement_item.rules.list\n\nputs(page)',
       },
       http: {
         example:
@@ -322,43 +322,43 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     httpMethod: 'put',
     summary: 'Update Rule',
     description: 'Update a rule for a pay statement item.',
-    stainlessPath: '(resource) hris.company.pay_statement_item.rules > (method) update',
-    qualified: 'client.hris.company.payStatementItem.rules.update',
+    stainlessPath: '(resource) hris.pay_statement_item.rules > (method) update',
+    qualified: 'client.hris.payStatementItem.rules.update',
     params: ['rule_id: string;', 'entity_ids?: string[];', 'optionalProperty?: object;'],
     response:
       "{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }",
     markdown:
-      "## update\n\n`client.hris.company.payStatementItem.rules.update(rule_id: string, entity_ids?: string[], optionalProperty?: object): { id?: string; attributes?: object; conditions?: object[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n**put** `/employer/pay-statement-item/rule/{rule_id}`\n\nUpdate a rule for a pay statement item.\n\n### Parameters\n\n- `rule_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to update the rule for.\n\n- `optionalProperty?: object`\n\n### Returns\n\n- `{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n  - `id?: string`\n  - `attributes?: { metadata?: object; }`\n  - `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n  - `created_at?: string`\n  - `effective_end_date?: string`\n  - `effective_start_date?: string`\n  - `entity_type?: 'pay_statement_item'`\n  - `priority?: number`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst rule = await client.hris.company.payStatementItem.rules.update('rule_id');\n\nconsole.log(rule);\n```",
+      "## update\n\n`client.hris.payStatementItem.rules.update(rule_id: string, entity_ids?: string[], optionalProperty?: object): { id?: string; attributes?: object; conditions?: object[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n**put** `/employer/pay-statement-item/rule/{rule_id}`\n\nUpdate a rule for a pay statement item.\n\n### Parameters\n\n- `rule_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to update the rule for.\n\n- `optionalProperty?: object`\n\n### Returns\n\n- `{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n  - `id?: string`\n  - `attributes?: { metadata?: object; }`\n  - `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n  - `created_at?: string`\n  - `effective_end_date?: string`\n  - `effective_start_date?: string`\n  - `entity_type?: 'pay_statement_item'`\n  - `priority?: number`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst rule = await client.hris.payStatementItem.rules.update('rule_id');\n\nconsole.log(rule);\n```",
     perLanguage: {
       typescript: {
-        method: 'client.hris.company.payStatementItem.rules.update',
+        method: 'client.hris.payStatementItem.rules.update',
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst rule = await client.hris.company.payStatementItem.rules.update('rule_id');\n\nconsole.log(rule.id);",
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst rule = await client.hris.payStatementItem.rules.update('rule_id');\n\nconsole.log(rule.id);",
       },
       python: {
-        method: 'hris.company.pay_statement_item.rules.update',
+        method: 'hris.pay_statement_item.rules.update',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.company.pay_statement_item.rules.update(\n    rule_id="rule_id",\n)\nprint(rule.id)',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.pay_statement_item.rules.update(\n    rule_id="rule_id",\n)\nprint(rule.id)',
       },
       java: {
-        method: 'hris().company().payStatementItem().rules().update',
+        method: 'hris().payStatementItem().rules().update',
         example:
-          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleUpdateParams;\nimport com.tryfinch.api.models.RuleUpdateResponse;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        RuleUpdateResponse rule = client.hris().company().payStatementItem().rules().update("rule_id");\n    }\n}',
+          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.HrisPayStatementItemRuleUpdateParams;\nimport com.tryfinch.api.models.RuleUpdateResponse;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        RuleUpdateResponse rule = client.hris().payStatementItem().rules().update("rule_id");\n    }\n}',
       },
       kotlin: {
-        method: 'hris().company().payStatementItem().rules().update',
+        method: 'hris().payStatementItem().rules().update',
         example:
-          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleUpdateParams\nimport com.tryfinch.api.models.RuleUpdateResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val rule: RuleUpdateResponse = client.hris().company().payStatementItem().rules().update("rule_id")\n}',
+          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPayStatementItemRuleUpdateParams\nimport com.tryfinch.api.models.RuleUpdateResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val rule: RuleUpdateResponse = client.hris().payStatementItem().rules().update("rule_id")\n}',
       },
       go: {
-        method: 'client.HRIS.Company.PayStatementItem.Rules.Update',
+        method: 'client.HRIS.PayStatementItem.Rules.Update',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\trule, err := client.HRIS.Company.PayStatementItem.Rules.Update(\n\t\tcontext.TODO(),\n\t\t"rule_id",\n\t\tfinchgo.HRISCompanyPayStatementItemRuleUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", rule.ID)\n}\n',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\trule, err := client.HRIS.PayStatementItem.Rules.Update(\n\t\tcontext.TODO(),\n\t\t"rule_id",\n\t\tfinchgo.HRISPayStatementItemRuleUpdateParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", rule.ID)\n}\n',
       },
       ruby: {
-        method: 'hris.company.pay_statement_item.rules.update',
+        method: 'hris.pay_statement_item.rules.update',
         example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.company.pay_statement_item.rules.update("rule_id")\n\nputs(rule)',
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.pay_statement_item.rules.update("rule_id")\n\nputs(rule)',
       },
       http: {
         example:
@@ -372,43 +372,43 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     httpMethod: 'delete',
     summary: 'Delete Rule',
     description: 'Delete a rule for a pay statement item.',
-    stainlessPath: '(resource) hris.company.pay_statement_item.rules > (method) delete',
-    qualified: 'client.hris.company.payStatementItem.rules.delete',
+    stainlessPath: '(resource) hris.pay_statement_item.rules > (method) delete',
+    qualified: 'client.hris.payStatementItem.rules.delete',
     params: ['rule_id: string;', 'entity_ids?: string[];'],
     response:
       "{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; deleted_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }",
     markdown:
-      "## delete\n\n`client.hris.company.payStatementItem.rules.delete(rule_id: string, entity_ids?: string[]): { id?: string; attributes?: object; conditions?: object[]; created_at?: string; deleted_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n**delete** `/employer/pay-statement-item/rule/{rule_id}`\n\nDelete a rule for a pay statement item.\n\n### Parameters\n\n- `rule_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to delete the rule for.\n\n### Returns\n\n- `{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; deleted_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n  - `id?: string`\n  - `attributes?: { metadata?: object; }`\n  - `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n  - `created_at?: string`\n  - `deleted_at?: string`\n  - `effective_end_date?: string`\n  - `effective_start_date?: string`\n  - `entity_type?: 'pay_statement_item'`\n  - `priority?: number`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst rule = await client.hris.company.payStatementItem.rules.delete('rule_id');\n\nconsole.log(rule);\n```",
+      "## delete\n\n`client.hris.payStatementItem.rules.delete(rule_id: string, entity_ids?: string[]): { id?: string; attributes?: object; conditions?: object[]; created_at?: string; deleted_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n**delete** `/employer/pay-statement-item/rule/{rule_id}`\n\nDelete a rule for a pay statement item.\n\n### Parameters\n\n- `rule_id: string`\n\n- `entity_ids?: string[]`\n  The entity IDs to delete the rule for.\n\n### Returns\n\n- `{ id?: string; attributes?: { metadata?: object; }; conditions?: { field?: string; operator?: 'equals'; value?: string; }[]; created_at?: string; deleted_at?: string; effective_end_date?: string; effective_start_date?: string; entity_type?: 'pay_statement_item'; priority?: number; updated_at?: string; }`\n\n  - `id?: string`\n  - `attributes?: { metadata?: object; }`\n  - `conditions?: { field?: string; operator?: 'equals'; value?: string; }[]`\n  - `created_at?: string`\n  - `deleted_at?: string`\n  - `effective_end_date?: string`\n  - `effective_start_date?: string`\n  - `entity_type?: 'pay_statement_item'`\n  - `priority?: number`\n  - `updated_at?: string`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst rule = await client.hris.payStatementItem.rules.delete('rule_id');\n\nconsole.log(rule);\n```",
     perLanguage: {
       typescript: {
-        method: 'client.hris.company.payStatementItem.rules.delete',
+        method: 'client.hris.payStatementItem.rules.delete',
         example:
-          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst rule = await client.hris.company.payStatementItem.rules.delete('rule_id');\n\nconsole.log(rule.id);",
+          "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch({\n  accessToken: 'My Access Token',\n});\n\nconst rule = await client.hris.payStatementItem.rules.delete('rule_id');\n\nconsole.log(rule.id);",
       },
       python: {
-        method: 'hris.company.pay_statement_item.rules.delete',
+        method: 'hris.pay_statement_item.rules.delete',
         example:
-          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.company.pay_statement_item.rules.delete(\n    rule_id="rule_id",\n)\nprint(rule.id)',
+          'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.pay_statement_item.rules.delete(\n    rule_id="rule_id",\n)\nprint(rule.id)',
       },
       java: {
-        method: 'hris().company().payStatementItem().rules().delete',
+        method: 'hris().payStatementItem().rules().delete',
         example:
-          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleDeleteParams;\nimport com.tryfinch.api.models.RuleDeleteResponse;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        RuleDeleteResponse rule = client.hris().company().payStatementItem().rules().delete("rule_id");\n    }\n}',
+          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.HrisPayStatementItemRuleDeleteParams;\nimport com.tryfinch.api.models.RuleDeleteResponse;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        RuleDeleteResponse rule = client.hris().payStatementItem().rules().delete("rule_id");\n    }\n}',
       },
       kotlin: {
-        method: 'hris().company().payStatementItem().rules().delete',
+        method: 'hris().payStatementItem().rules().delete',
         example:
-          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisCompanyPayStatementItemRuleDeleteParams\nimport com.tryfinch.api.models.RuleDeleteResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val rule: RuleDeleteResponse = client.hris().company().payStatementItem().rules().delete("rule_id")\n}',
+          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPayStatementItemRuleDeleteParams\nimport com.tryfinch.api.models.RuleDeleteResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val rule: RuleDeleteResponse = client.hris().payStatementItem().rules().delete("rule_id")\n}',
       },
       go: {
-        method: 'client.HRIS.Company.PayStatementItem.Rules.Delete',
+        method: 'client.HRIS.PayStatementItem.Rules.Delete',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\trule, err := client.HRIS.Company.PayStatementItem.Rules.Delete(\n\t\tcontext.TODO(),\n\t\t"rule_id",\n\t\tfinchgo.HRISCompanyPayStatementItemRuleDeleteParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", rule.ID)\n}\n',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go"\n\t"github.com/Finch-API/finch-api-go/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t)\n\trule, err := client.HRIS.PayStatementItem.Rules.Delete(\n\t\tcontext.TODO(),\n\t\t"rule_id",\n\t\tfinchgo.HRISPayStatementItemRuleDeleteParams{},\n\t)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", rule.ID)\n}\n',
       },
       ruby: {
-        method: 'hris.company.pay_statement_item.rules.delete',
+        method: 'hris.pay_statement_item.rules.delete',
         example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.company.pay_statement_item.rules.delete("rule_id")\n\nputs(rule)',
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.pay_statement_item.rules.delete("rule_id")\n\nputs(rule)',
       },
       http: {
         example:
