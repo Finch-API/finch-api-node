@@ -261,6 +261,26 @@ export namespace PayStatement {
   }
 }
 
+export interface PayStatementData {
+  paging: PayStatementData.Paging;
+
+  pay_statements: Array<PayStatement>;
+}
+
+export namespace PayStatementData {
+  export interface Paging {
+    /**
+     * The current start index of the returned list of elements
+     */
+    offset: number;
+
+    /**
+     * The total number of elements for the entire query (not just the given page)
+     */
+    count?: number;
+  }
+}
+
 export interface PayStatementDataSyncInProgress {
   code: 202;
 
@@ -272,7 +292,7 @@ export interface PayStatementDataSyncInProgress {
 }
 
 export interface PayStatementResponse {
-  body: PayStatementResponseBody | PayStatementResponse.BatchError | PayStatementDataSyncInProgress;
+  body: PayStatementData | PayStatementResponse.BatchError | PayStatementDataSyncInProgress;
 
   code: number;
 
@@ -288,26 +308,6 @@ export namespace PayStatementResponse {
     name: string;
 
     finch_code?: string;
-  }
-}
-
-export interface PayStatementResponseBody {
-  paging: PayStatementResponseBody.Paging;
-
-  pay_statements: Array<PayStatement>;
-}
-
-export namespace PayStatementResponseBody {
-  export interface Paging {
-    /**
-     * The current start index of the returned list of elements
-     */
-    offset: number;
-
-    /**
-     * The total number of elements for the entire query (not just the given page)
-     */
-    count?: number;
   }
 }
 
@@ -345,9 +345,9 @@ export namespace PayStatementRetrieveManyParams {
 export declare namespace PayStatements {
   export {
     type PayStatement as PayStatement,
+    type PayStatementData as PayStatementData,
     type PayStatementDataSyncInProgress as PayStatementDataSyncInProgress,
     type PayStatementResponse as PayStatementResponse,
-    type PayStatementResponseBody as PayStatementResponseBody,
     type PayStatementResponsesPage as PayStatementResponsesPage,
     type PayStatementRetrieveManyParams as PayStatementRetrieveManyParams,
   };
