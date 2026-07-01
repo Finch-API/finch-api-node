@@ -108,7 +108,7 @@ export namespace PayStatement {
     hours: number | null;
 
     /**
-     * The exact name of the deduction from the pay statement.
+     * The exact name of the earning from the pay statement.
      */
     name: string | null;
 
