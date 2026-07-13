@@ -27,7 +27,7 @@ describe('resource directory', () => {
       client.hris.directory.list(
         {
           entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-          limit: 0,
+          limit: 10000,
           offset: 0,
         },
         { path: '/_stainless_unknown_path' },
@@ -52,7 +52,7 @@ describe('resource directory', () => {
       client.hris.directory.listIndividuals(
         {
           entity_ids: ['550e8400-e29b-41d4-a716-446655440000'],
-          limit: 0,
+          limit: 10000,
           offset: 0,
         },
         { path: '/_stainless_unknown_path' },

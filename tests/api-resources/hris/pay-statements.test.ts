@@ -12,7 +12,7 @@ const client = new Finch({
 describe('resource payStatements', () => {
   test('retrieveMany: only required params', async () => {
     const responsePromise = client.hris.payStatements.retrieveMany({
-      requests: [{ payment_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e' }],
+      requests: [{ payment_id: 'fc8b024e-d373-4c9c-80fc-f1625383d142' }],
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -27,8 +27,8 @@ describe('resource payStatements', () => {
     const response = await client.hris.payStatements.retrieveMany({
       requests: [
         {
-          payment_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-          limit: 50,
+          payment_id: 'fc8b024e-d373-4c9c-80fc-f1625383d142',
+          limit: 100,
           offset: 0,
         },
       ],

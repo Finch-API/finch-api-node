@@ -1,5 +1,18 @@
 # Changelog
 
+## 10.2.0 (2026-07-13)
+
+Full Changelog: [v10.1.1...v10.2.0](https://github.com/Finch-API/finch-api-node/compare/v10.1.1...v10.2.0)
+
+### Features
+
+* **api:** api update ([08ac7b8](https://github.com/Finch-API/finch-api-node/commit/08ac7b8f028ebc199b3adcb4de3d71702ca3e92c))
+
+
+### Bug Fixes
+
+* **ci:** bump @arethetypeswrong/cli to ^0.18.0 and run CI workflows on Node 24 ([eba627c](https://github.com/Finch-API/finch-api-node/commit/eba627cb871da059cce759df9ee810424af09fd1))
+
 ## 10.1.1 (2026-07-10)
 
 Full Changelog: [v10.1.0...v10.1.1](https://github.com/Finch-API/finch-api-node/compare/v10.1.0...v10.1.1)
