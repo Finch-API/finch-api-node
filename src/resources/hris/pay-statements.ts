@@ -20,7 +20,9 @@ export class PayStatements extends APIResource {
    *   {
    *     requests: [
    *       {
-   *         payment_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+   *         payment_id: 'fc8b024e-d373-4c9c-80fc-f1625383d142',
+   *         limit: 100,
+   *         offset: 0,
    *       },
    *     ],
    *   },
@@ -313,7 +315,7 @@ export namespace PayStatementResponse {
 
 export interface PayStatementRetrieveManyParams {
   /**
-   * Body param: The array of batch requests.
+   * Body param: The array of batch requests. Maximum 10 payment_ids per request.
    */
   requests: Array<PayStatementRetrieveManyParams.Request>;
 
@@ -331,7 +333,7 @@ export namespace PayStatementRetrieveManyParams {
     payment_id: string;
 
     /**
-     * Number of pay statements to return (defaults to all).
+     * Number of pay statements to return (defaults to 100, maximum 5000).
      */
     limit?: number;
 
