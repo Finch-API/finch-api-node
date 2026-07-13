@@ -97,7 +97,6 @@ client.example.list(undefined, { headers: { ... } });
 - `client.hris.payStatementItem.rules.delete()`
 - `client.hris.directory.list()`
 - `client.hris.directory.listIndividuals()`
-- `client.hris.individuals.retrieveMany()`
 - `client.hris.documents.list()`
 - `client.hris.documents.retreive()`
 - `client.hris.benefits.create()`

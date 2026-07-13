@@ -215,7 +215,7 @@ export interface EmploymentDataResponse {
 
 export interface EmploymentRetrieveManyParams {
   /**
-   * Body param: The array of batch requests.
+   * Body param: The array of batch requests. Maximum 10000 items per request.
    */
   requests: Array<EmploymentRetrieveManyParams.Request>;
 
@@ -228,9 +228,7 @@ export interface EmploymentRetrieveManyParams {
 export namespace EmploymentRetrieveManyParams {
   export interface Request {
     /**
-     * A stable Finch `id` (UUID v4) for an individual in the company. There is no
-     * limit to the number of `individual_id` to send per request. It is preferantial
-     * to send all ids in a single request for Finch to optimize provider rate-limits.
+     * A stable Finch `id` (UUID v4) for an individual in the company.
      */
     individual_id: string;
   }

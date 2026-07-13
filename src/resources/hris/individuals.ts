@@ -12,16 +12,18 @@ export class Individuals extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const individualResponse of client.hris.individuals.retrieveMany()) {
+   * for await (const individualResponse of client.hris.individuals.retrieveMany(
+   *   { requests: [{ individual_id: 'individual_id' }] },
+   * )) {
    *   // ...
    * }
    * ```
    */
   retrieveMany(
-    params: IndividualRetrieveManyParams | null | undefined = {},
+    params: IndividualRetrieveManyParams,
     options?: RequestOptions,
   ): PagePromise<IndividualResponsesPage, IndividualResponse> {
-    const { entity_ids, ...body } = params ?? {};
+    const { entity_ids, ...body } = params;
     return this._client.getAPIList('/employer/individual', ResponsesPage<IndividualResponse>, {
       query: { entity_ids },
       body,
@@ -141,6 +143,11 @@ export interface IndividualResponse {
 
 export interface IndividualRetrieveManyParams {
   /**
+   * Body param: The array of batch requests. Maximum 10000 items per request.
+   */
+  requests: Array<IndividualRetrieveManyParams.Request>;
+
+  /**
    * Query param: The entity IDs to specify which entities' data to access.
    */
   entity_ids?: Array<string>;
@@ -149,20 +156,15 @@ export interface IndividualRetrieveManyParams {
    * Body param
    */
   options?: IndividualRetrieveManyParams.Options | null;
-
-  /**
-   * Body param
-   */
-  requests?: Array<IndividualRetrieveManyParams.Request>;
 }
 
 export namespace IndividualRetrieveManyParams {
-  export interface Options {
-    include?: Array<string>;
+  export interface Request {
+    individual_id: string;
   }
 
-  export interface Request {
-    individual_id?: string;
+  export interface Options {
+    include?: Array<string>;
   }
 }
 
