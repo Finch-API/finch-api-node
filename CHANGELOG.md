@@ -1,5 +1,13 @@
 # Changelog
 
+## 10.1.1 (2026-07-10)
+
+Full Changelog: [v10.1.0...v10.1.1](https://github.com/Finch-API/finch-api-node/compare/v10.1.0...v10.1.1)
+
+### Chores
+
+* **internal:** codegen related update ([977d79a](https://github.com/Finch-API/finch-api-node/commit/977d79ac00a3a6da5a485958df1e0eaa755f3ab2))
+
 ## 10.1.0 (2026-07-01)
 
 Full Changelog: [v10.0.0...v10.1.0](https://github.com/Finch-API/finch-api-node/compare/v10.0.0...v10.1.0)
