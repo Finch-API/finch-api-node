@@ -1,5 +1,13 @@
 # Changelog
 
+## 10.3.0 (2026-07-15)
+
+Full Changelog: [v10.2.0...v10.3.0](https://github.com/Finch-API/finch-api-node/compare/v10.2.0...v10.3.0)
+
+### Features
+
+* **api:** api update ([0752db2](https://github.com/Finch-API/finch-api-node/commit/0752db20bab9e544cf5a2bfe073bd15ab9bdedef))
+
 ## 10.2.0 (2026-07-13)
 
 Full Changelog: [v10.1.1...v10.2.0](https://github.com/Finch-API/finch-api-node/compare/v10.1.1...v10.2.0)
