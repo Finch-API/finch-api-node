@@ -409,7 +409,8 @@ export namespace RuleDeleteResponse {
 
 export interface RuleCreateParams {
   /**
-   * Query param: The entity IDs to create the rule for.
+   * Query param: The entity IDs to create the rule for. Provide exactly one entity
+   * ID per request; a maximum of one is accepted.
    */
   entity_ids?: Array<string>;
 
@@ -472,7 +473,8 @@ export namespace RuleCreateParams {
 
 export interface RuleUpdateParams {
   /**
-   * Query param: The entity IDs to update the rule for.
+   * Query param: The entity IDs to update the rule for. Provide exactly one entity
+   * ID per request; a maximum of one is accepted.
    */
   entity_ids?: Array<string>;
 
@@ -484,14 +486,16 @@ export interface RuleUpdateParams {
 
 export interface RuleListParams {
   /**
-   * The entity IDs to retrieve rules for.
+   * The entity IDs to retrieve rules for. Provide exactly one entity ID per request;
+   * a maximum of one is accepted.
    */
   entity_ids?: Array<string>;
 }
 
 export interface RuleDeleteParams {
   /**
-   * The entity IDs to delete the rule for.
+   * The entity IDs to delete the rule for. Provide exactly one entity ID per
+   * request; a maximum of one is accepted.
    */
   entity_ids?: Array<string>;
 }

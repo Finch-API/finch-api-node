@@ -88,8 +88,7 @@ export interface CreateAccessTokenResponse {
   account_id?: string;
 
   /**
-   * @deprecated [DEPRECATED] Use `connection_id` to identify the connection instead
-   * of this company ID
+   * The Finch UUID of the company associated with the `access_token`.
    */
   company_id?: string;
 

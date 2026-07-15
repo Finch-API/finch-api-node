@@ -404,7 +404,8 @@ export type BenfitContribution = BenefitContribution | null;
 
 export interface BenefitCreateParams {
   /**
-   * Query param: The entity IDs to specify which entities' data to access.
+   * Query param: The entity IDs to specify which entities' data to access. Provide
+   * exactly one entity ID per request; a maximum of one is accepted.
    */
   entity_ids?: Array<string>;
 
@@ -452,14 +453,16 @@ export namespace BenefitCreateParams {
 
 export interface BenefitRetrieveParams {
   /**
-   * The entity IDs to specify which entities' data to access.
+   * The entity IDs to specify which entities' data to access. Provide exactly one
+   * entity ID per request; a maximum of one is accepted.
    */
   entity_ids?: Array<string>;
 }
 
 export interface BenefitUpdateParams {
   /**
-   * Query param: The entity IDs to specify which entities' data to access.
+   * Query param: The entity IDs to specify which entities' data to access. Provide
+   * exactly one entity ID per request; a maximum of one is accepted.
    */
   entity_ids?: Array<string>;
 
@@ -471,21 +474,24 @@ export interface BenefitUpdateParams {
 
 export interface BenefitListParams {
   /**
-   * The entity IDs to specify which entities' data to access.
+   * The entity IDs to specify which entities' data to access. Provide exactly one
+   * entity ID per request; a maximum of one is accepted.
    */
   entity_ids?: Array<string>;
 }
 
 export interface BenefitListSupportedBenefitsParams {
   /**
-   * The entity IDs to specify which entities' data to access.
+   * The entity IDs to specify which entities' data to access. Provide exactly one
+   * entity ID per request; a maximum of one is accepted.
    */
   entity_ids?: Array<string>;
 }
 
 export interface BenefitRegisterParams {
   /**
-   * Query param: The entity IDs to specify which entities' data to access.
+   * Query param: The entity IDs to specify which entities' data to access. Provide
+   * exactly one entity ID per request; a maximum of one is accepted.
    */
   entity_ids?: Array<string>;
 
