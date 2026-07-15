@@ -428,9 +428,7 @@ export interface BaseWebhookEvent {
   account_id: string;
 
   /**
-   * @deprecated [DEPRECATED] Unique Finch ID of the company for which data has been
-   * updated. Use `connection_id` instead to identify the connection associated with
-   * this event.
+   * Unique Finch ID of the company for which data has been updated.
    */
   company_id: string;
 

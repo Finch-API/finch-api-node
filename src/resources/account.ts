@@ -118,8 +118,7 @@ export interface Introspection {
   authentication_methods?: Array<Introspection.AuthenticationMethod>;
 
   /**
-   * @deprecated [DEPRECATED] Use `connection_id` to associate tokens with a Finch
-   * connection instead of this company ID
+   * The Finch UUID of the company associated with the `access_token`.
    */
   company_id?: string;
 

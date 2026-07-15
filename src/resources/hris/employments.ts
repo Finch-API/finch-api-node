@@ -220,7 +220,8 @@ export interface EmploymentRetrieveManyParams {
   requests: Array<EmploymentRetrieveManyParams.Request>;
 
   /**
-   * Query param: The entity IDs to specify which entities' data to access.
+   * Query param: The entity IDs to specify which entities' data to access. Provide
+   * exactly one entity ID per request; a maximum of one is accepted.
    */
   entity_ids?: Array<string>;
 }

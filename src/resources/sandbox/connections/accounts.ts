@@ -62,8 +62,7 @@ export interface AccountCreateResponse {
   authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted';
 
   /**
-   * @deprecated [DEPRECATED] Use `connection_id` to associate a connection with an
-   * access token
+   * The Finch UUID of the company associated with the `access_token`.
    */
   company_id: string;
 
@@ -95,8 +94,7 @@ export interface AccountUpdateResponse {
   authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted';
 
   /**
-   * @deprecated [DEPRECATED] Use `connection_id` to associate a connection with an
-   * access token
+   * The Finch UUID of the company associated with the `access_token`.
    */
   company_id: string;
 
