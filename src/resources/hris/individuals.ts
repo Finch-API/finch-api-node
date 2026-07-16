@@ -77,6 +77,12 @@ export namespace Individual {
     last_name: string | null;
 
     /**
+     * The employee's marital status, used for beneficiary designation and spousal
+     * consent workflows.
+     */
+    marital_status: 'single' | 'married' | 'divorced' | 'widowed' | 'domestic_partner' | 'unknown' | null;
+
+    /**
      * The legal middle name of the individual.
      */
     middle_name: string | null;
