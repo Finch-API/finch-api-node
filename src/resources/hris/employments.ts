@@ -87,9 +87,21 @@ export namespace EmploymentData {
     flsa_status: 'exempt' | 'non_exempt' | 'unknown' | null;
 
     /**
+     * IRS flag indicating whether the employee is classified as a Highly Compensated
+     * Employee for nondiscrimination testing purposes (ADP/ACP tests). US-only.
+     */
+    highly_compensated_employee: boolean | null;
+
+    /**
      * `true` if the individual an an active employee or contractor at the company.
      */
     is_active: boolean | null;
+
+    /**
+     * IRS flag indicating whether the employee is classified as a Key Employee for
+     * top-heavy testing purposes. US-only.
+     */
+    key_employee: boolean | null;
 
     /**
      * The legal last name of the individual.
@@ -116,6 +128,17 @@ export namespace EmploymentData {
      * The current title of the individual.
      */
     title: string | null;
+
+    /**
+     * The code identifying the union the employee is a member of, as configured in the
+     * payroll system.
+     */
+    union_code: string | null;
+
+    /**
+     * The local chapter or local number within the employee's union.
+     */
+    union_local: string | null;
 
     /**
      * Custom fields for the individual. These are fields which are defined by the
