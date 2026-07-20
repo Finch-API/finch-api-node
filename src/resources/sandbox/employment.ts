@@ -86,6 +86,12 @@ export interface EmploymentUpdateResponse {
   flsa_status?: 'exempt' | 'non_exempt' | 'unknown' | null;
 
   /**
+   * IRS flag indicating whether the employee is classified as a Highly Compensated
+   * Employee for nondiscrimination testing purposes (ADP/ACP tests). US-only.
+   */
+  highly_compensated_employee?: boolean | null;
+
+  /**
    * The employee's income as reported by the provider. This may not always be
    * annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc,
    * depending on what information the provider returns.
@@ -101,6 +107,12 @@ export interface EmploymentUpdateResponse {
    * `true` if the individual an an active employee or contractor at the company.
    */
   is_active?: boolean | null;
+
+  /**
+   * IRS flag indicating whether the employee is classified as a Key Employee for
+   * top-heavy testing purposes. US-only.
+   */
+  key_employee?: boolean | null;
 
   /**
    * The legal last name of the individual.
@@ -132,6 +144,17 @@ export interface EmploymentUpdateResponse {
    * The current title of the individual.
    */
   title?: string | null;
+
+  /**
+   * The code identifying the union the employee is a member of, as configured in the
+   * payroll system.
+   */
+  union_code?: string | null;
+
+  /**
+   * The local chapter or local number within the employee's union.
+   */
+  union_local?: string | null;
 }
 
 export namespace EmploymentUpdateResponse {
@@ -228,6 +251,12 @@ export interface EmploymentUpdateParams {
   flsa_status?: 'exempt' | 'non_exempt' | 'unknown' | null;
 
   /**
+   * IRS flag indicating whether the employee is classified as a Highly Compensated
+   * Employee for nondiscrimination testing purposes (ADP/ACP tests). US-only.
+   */
+  highly_compensated_employee?: boolean | null;
+
+  /**
    * The employee's income as reported by the provider. This may not always be
    * annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc,
    * depending on what information the provider returns.
@@ -243,6 +272,12 @@ export interface EmploymentUpdateParams {
    * `true` if the individual an an active employee or contractor at the company.
    */
   is_active?: boolean | null;
+
+  /**
+   * IRS flag indicating whether the employee is classified as a Key Employee for
+   * top-heavy testing purposes. US-only.
+   */
+  key_employee?: boolean | null;
 
   /**
    * The legal last name of the individual.
@@ -274,6 +309,17 @@ export interface EmploymentUpdateParams {
    * The current title of the individual.
    */
   title?: string | null;
+
+  /**
+   * The code identifying the union the employee is a member of, as configured in the
+   * payroll system.
+   */
+  union_code?: string | null;
+
+  /**
+   * The local chapter or local number within the employee's union.
+   */
+  union_local?: string | null;
 }
 
 export namespace EmploymentUpdateParams {

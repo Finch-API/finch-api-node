@@ -35,6 +35,7 @@ describe('resource employment', () => {
           end_date: 'end_date',
           first_name: 'first_name',
           flsa_status: 'exempt',
+          highly_compensated_employee: true,
           income: {
             amount: 0,
             currency: 'currency',
@@ -50,6 +51,7 @@ describe('resource employment', () => {
             },
           ],
           is_active: true,
+          key_employee: true,
           last_name: 'last_name',
           latest_rehire_date: 'latest_rehire_date',
           location: {
@@ -67,6 +69,8 @@ describe('resource employment', () => {
           source_id: 'source_id',
           start_date: '3/4/2020',
           title: 'title',
+          union_code: 'union_code',
+          union_local: 'union_local',
         },
         { path: '/_stainless_unknown_path' },
       ),

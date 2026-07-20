@@ -1,5 +1,14 @@
 # Changelog
 
+## 10.4.0 (2026-07-17)
+
+Full Changelog: [v10.3.0...v10.4.0](https://github.com/Finch-API/finch-api-node/compare/v10.3.0...v10.4.0)
+
+### Features
+
+* **api:** api update ([5fb5c12](https://github.com/Finch-API/finch-api-node/commit/5fb5c125557d63d4c5e1fc8a113ab6a0c4819f10))
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([7bd08c2](https://github.com/Finch-API/finch-api-node/commit/7bd08c22033cf8a0aeda29bbf068012b62165544))
+
 ## 10.3.0 (2026-07-15)
 
 Full Changelog: [v10.2.0...v10.3.0](https://github.com/Finch-API/finch-api-node/compare/v10.2.0...v10.3.0)

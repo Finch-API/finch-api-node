@@ -41,6 +41,7 @@ describe('resource directory', () => {
               first_name: 'first_name',
               flsa_status: 'exempt',
               gender: 'female',
+              highly_compensated_employee: true,
               income: {
                 amount: 0,
                 currency: 'currency',
@@ -56,6 +57,7 @@ describe('resource directory', () => {
                 },
               ],
               is_active: true,
+              key_employee: true,
               last_name: 'last_name',
               latest_rehire_date: 'latest_rehire_date',
               location: {
@@ -69,6 +71,7 @@ describe('resource directory', () => {
                 source_id: 'source_id',
               },
               manager: { id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e' },
+              marital_status: 'single',
               middle_name: 'middle_name',
               phone_numbers: [{ data: 'data', type: 'work' }],
               preferred_name: 'preferred_name',
@@ -86,6 +89,8 @@ describe('resource directory', () => {
               ssn: 'ssn',
               start_date: 'start_date',
               title: 'title',
+              union_code: 'union_code',
+              union_local: 'union_local',
             },
           ],
         },

@@ -121,6 +121,12 @@ export namespace DirectoryCreateParams {
     gender?: 'female' | 'male' | 'other' | 'decline_to_specify' | null;
 
     /**
+     * IRS flag indicating whether the employee is classified as a Highly Compensated
+     * Employee for nondiscrimination testing purposes (ADP/ACP tests). US-only.
+     */
+    highly_compensated_employee?: boolean | null;
+
+    /**
      * The employee's income as reported by the provider. This may not always be
      * annualized income, but may be in units of bi-weekly, semi-monthly, daily, etc,
      * depending on what information the provider returns.
@@ -138,6 +144,12 @@ export namespace DirectoryCreateParams {
     is_active?: boolean | null;
 
     /**
+     * IRS flag indicating whether the employee is classified as a Key Employee for
+     * top-heavy testing purposes. US-only.
+     */
+    key_employee?: boolean | null;
+
+    /**
      * The legal last name of the individual.
      */
     last_name?: string | null;
@@ -150,6 +162,12 @@ export namespace DirectoryCreateParams {
      * The manager object representing the manager of the individual within the org.
      */
     manager?: Body.Manager | null;
+
+    /**
+     * The employee's marital status, used for beneficiary designation and spousal
+     * consent workflows.
+     */
+    marital_status?: 'single' | 'married' | 'divorced' | 'widowed' | 'domestic_partner' | 'unknown' | null;
 
     /**
      * The legal middle name of the individual.
@@ -184,6 +202,17 @@ export namespace DirectoryCreateParams {
      * The current title of the individual.
      */
     title?: string | null;
+
+    /**
+     * The code identifying the union the employee is a member of, as configured in the
+     * payroll system.
+     */
+    union_code?: string | null;
+
+    /**
+     * The local chapter or local number within the employee's union.
+     */
+    union_local?: string | null;
   }
 
   export namespace Body {

@@ -34,6 +34,7 @@ describe('resource individual', () => {
           first_name: 'first_name',
           gender: 'female',
           last_name: 'last_name',
+          marital_status: 'single',
           middle_name: 'middle_name',
           phone_numbers: [{ data: 'data', type: 'work' }],
           preferred_name: 'preferred_name',
