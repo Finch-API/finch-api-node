@@ -77,6 +77,9 @@ export interface SessionNewParams {
     | 'individual'
     | 'payment'
     | 'pay_statement'
+    | 'plans'
+    | 'plans_dependents'
+    | 'plans_enrollments'
     | 'recordkeeping'
     | 'ssn'
   >;
@@ -157,6 +160,9 @@ export interface SessionReauthenticateParams {
     | 'individual'
     | 'payment'
     | 'pay_statement'
+    | 'plans'
+    | 'plans_dependents'
+    | 'plans_enrollments'
     | 'recordkeeping'
     | 'ssn'
   > | null;
