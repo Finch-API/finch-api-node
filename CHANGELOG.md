@@ -1,5 +1,23 @@
 # Changelog
 
+## 10.5.0 (2026-07-30)
+
+Full Changelog: [v10.4.0...v10.5.0](https://github.com/Finch-API/finch-api-node/compare/v10.4.0...v10.5.0)
+
+### Features
+
+* **api:** api update ([3802231](https://github.com/Finch-API/finch-api-node/commit/3802231c0790d8c82188ab633fb8a6087ebd90bb))
+
+
+### Bug Fixes
+
+* **stlc:** stop hand-edited CI workflows from blocking seals and builds ([74d7c0a](https://github.com/Finch-API/finch-api-node/commit/74d7c0ac1c75fa168a40b31c84ccd0dd64e1bf7c))
+
+
+### Chores
+
+* **internal:** codegen related update ([558ccd1](https://github.com/Finch-API/finch-api-node/commit/558ccd1f5b92f82c5c289ff02b64074e6e4f0826))
+
 ## 10.4.0 (2026-07-17)
 
 Full Changelog: [v10.3.0...v10.4.0](https://github.com/Finch-API/finch-api-node/compare/v10.3.0...v10.4.0)
