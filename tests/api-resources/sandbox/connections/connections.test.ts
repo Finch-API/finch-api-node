@@ -26,7 +26,7 @@ describe('resource connections', () => {
   test.skip('create: required and optional params', async () => {
     const response = await client.sandbox.connections.create({
       provider_id: 'provider_id',
-      authentication_type: 'credential',
+      authentication_type: 'api_token',
       employee_size: 0,
       products: ['string'],
     });

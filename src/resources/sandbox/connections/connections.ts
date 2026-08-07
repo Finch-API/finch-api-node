@@ -33,37 +33,21 @@ export class Connections extends APIResource {
 export interface ConnectionCreateResponse {
   access_token: string;
 
-  /**
-   * @deprecated [DEPRECATED] Use `connection_id` to associate a connection with an
-   * access token
-   */
   account_id: string;
 
-  authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted';
+  authentication_type: 'api_token' | 'assisted' | 'credential' | 'oauth';
 
-  /**
-   * The Finch UUID of the company associated with the `access_token`.
-   */
-  company_id: string;
+  company_id: string | null;
 
-  /**
-   * The ID of the new connection
-   */
   connection_id: string;
 
-  /**
-   * The ID of the entity for this connection
-   */
   entity_id: string;
 
   products: Array<string>;
 
-  /**
-   * The ID of the provider associated with the `access_token`.
-   */
   provider_id: string;
 
-  token_type?: string;
+  token_type: string;
 }
 
 export interface ConnectionCreateParams {
@@ -72,7 +56,7 @@ export interface ConnectionCreateParams {
    */
   provider_id: string;
 
-  authentication_type?: 'credential' | 'api_token' | 'oauth' | 'assisted';
+  authentication_type?: 'api_token' | 'assisted' | 'credential' | 'oauth';
 
   /**
    * Optional: the size of the employer to be created with this connection. Defaults
