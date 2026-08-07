@@ -30,7 +30,7 @@ describe('resource accounts', () => {
     const response = await client.sandbox.connections.accounts.create({
       company_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       provider_id: 'provider_id',
-      authentication_type: 'credential',
+      authentication_type: 'api_token',
       products: ['string'],
     });
   });

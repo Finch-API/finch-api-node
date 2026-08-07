@@ -59,7 +59,7 @@ export interface AccountCreateResponse {
    */
   account_id: string;
 
-  authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted';
+  authentication_type: 'api_token' | 'assisted' | 'credential' | 'oauth';
 
   /**
    * The Finch UUID of the company associated with the `access_token`.
@@ -91,7 +91,7 @@ export interface AccountUpdateResponse {
    */
   account_id: string;
 
-  authentication_type: 'credential' | 'api_token' | 'oauth' | 'assisted';
+  authentication_type: 'api_token' | 'assisted' | 'credential' | 'oauth';
 
   /**
    * The Finch UUID of the company associated with the `access_token`.
@@ -124,7 +124,7 @@ export interface AccountCreateParams {
    */
   provider_id: string;
 
-  authentication_type?: 'credential' | 'api_token' | 'oauth' | 'assisted';
+  authentication_type?: 'api_token' | 'assisted' | 'credential' | 'oauth';
 
   /**
    * Optional, defaults to Organization products (`company`, `directory`,
