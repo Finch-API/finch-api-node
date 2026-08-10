@@ -37,8 +37,6 @@ export interface ConnectionCreateResponse {
 
   authentication_type: 'api_token' | 'assisted' | 'credential' | 'oauth';
 
-  company_id: string | null;
-
   connection_id: string;
 
   entity_id: string;
@@ -48,6 +46,8 @@ export interface ConnectionCreateResponse {
   provider_id: string;
 
   token_type: string;
+
+  company_id?: string | null;
 }
 
 export interface ConnectionCreateParams {
