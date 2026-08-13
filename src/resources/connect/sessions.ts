@@ -106,6 +106,13 @@ export interface SessionNewParams {
   minutes_to_expire?: number | null;
 
   /**
+   * Optional recordkeeping configuration. Can only be provided when the
+   * `recordkeeping` product is requested. Currently supports `recordkeeper` set to
+   * `voya`.
+   */
+  recordkeeping?: SessionNewParams.Recordkeeping | null;
+
+  /**
    * The URI to redirect to after the Connect flow is completed
    */
   redirect_uri?: string | null;
@@ -130,6 +137,23 @@ export namespace SessionNewParams {
      * The authentication method to use
      */
     auth_method?: 'assisted' | 'credential' | 'oauth' | 'api_token' | null;
+  }
+
+  /**
+   * Optional recordkeeping configuration. Can only be provided when the
+   * `recordkeeping` product is requested. Currently supports `recordkeeper` set to
+   * `voya`.
+   */
+  export interface Recordkeeping {
+    /**
+     * The plan identifier used by the recordkeeper
+     */
+    plan_id: string;
+
+    /**
+     * The recordkeeper to configure for this connection
+     */
+    recordkeeper: 'voya';
   }
 }
 
