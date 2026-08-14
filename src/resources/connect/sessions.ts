@@ -108,7 +108,7 @@ export interface SessionNewParams {
   /**
    * Optional recordkeeping configuration. Can only be provided when the
    * `recordkeeping` product is requested. Currently supports `recordkeeper` set to
-   * `voya`.
+   * `voya` or `empower`.
    */
   recordkeeping?: SessionNewParams.Recordkeeping | null;
 
@@ -142,18 +142,18 @@ export namespace SessionNewParams {
   /**
    * Optional recordkeeping configuration. Can only be provided when the
    * `recordkeeping` product is requested. Currently supports `recordkeeper` set to
-   * `voya`.
+   * `voya` or `empower`.
    */
   export interface Recordkeeping {
     /**
-     * The plan identifier used by the recordkeeper
-     */
-    plan_id: string;
-
-    /**
      * The recordkeeper to configure for this connection
      */
-    recordkeeper: 'voya';
+    recordkeeper: 'voya' | 'empower';
+
+    /**
+     * The plan identifier used by the recordkeeper
+     */
+    plan_id?: string | null;
   }
 }
 
