@@ -36,7 +36,7 @@ describe('resource sessions', () => {
       integration: { provider: 'provider', auth_method: 'assisted' },
       manual: true,
       minutes_to_expire: 1,
-      recordkeeping: { plan_id: 'x', recordkeeper: 'voya' },
+      recordkeeping: { recordkeeper: 'voya', plan_id: 'x' },
       redirect_uri: 'redirect_uri',
       sandbox: 'finch',
     });
