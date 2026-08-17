@@ -1,5 +1,20 @@
 # Changelog
 
+## 10.8.0 (2026-08-17)
+
+Full Changelog: [v10.7.0...v10.8.0](https://github.com/Finch-API/finch-api-node/compare/v10.7.0...v10.8.0)
+
+### Features
+
+* **api:** api update ([2a6e6ed](https://github.com/Finch-API/finch-api-node/commit/2a6e6ed38e0b12e9b4b7309f93d728227898c7a9))
+* **api:** api update ([ed00e74](https://github.com/Finch-API/finch-api-node/commit/ed00e7478e17c23149637566e76bc829c163d64d))
+* **api:** api update ([7701852](https://github.com/Finch-API/finch-api-node/commit/7701852ab2c03992a68e9fbc2ab5a12d03b66cc8))
+
+
+### Chores
+
+* **internal:** codegen related update ([880d9cd](https://github.com/Finch-API/finch-api-node/commit/880d9cdc6cc16ed9df743c6f35fd11cc931235d0))
+
 ## 10.7.0 (2026-08-07)
 
 Full Changelog: [v10.6.0...v10.7.0](https://github.com/Finch-API/finch-api-node/compare/v10.6.0...v10.7.0)
