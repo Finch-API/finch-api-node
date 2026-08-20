@@ -1,5 +1,20 @@
 # Changelog
 
+## [10.8.0](https://github.com/Finch-API/finch-api-node/compare/v10.7.0...v10.8.0) (2026-08-20)
+
+
+### Features
+
+* **stainless:** migrate SDK generation from Stainless SaaS to self-hosted stlc - PLAT-3989 ([1254277](https://github.com/Finch-API/finch-api-node/commit/125427710e7ba61562f0a5d55111e43baf4c464d))
+
+
+### Chores
+
+* **deps:** bump @babel/core from 7.28.6 to 7.29.7 ([#3](https://github.com/Finch-API/finch-api-node/issues/3)) ([45e749c](https://github.com/Finch-API/finch-api-node/commit/45e749c32aa4bdb46f1c84fc7943d7eb2bcd6b92))
+* **deps:** bump ajv from 6.12.6 to 6.15.0 ([#2](https://github.com/Finch-API/finch-api-node/issues/2)) ([184fc1c](https://github.com/Finch-API/finch-api-node/commit/184fc1c280e55bf178a01c4d88cfda246f3eeada))
+* **deps:** bump diff from 4.0.2 to 4.0.4 ([#4](https://github.com/Finch-API/finch-api-node/issues/4)) ([a75e854](https://github.com/Finch-API/finch-api-node/commit/a75e854dd064ab0fbcc07a8f471bff9ca5d6744c))
+* **deps:** bump picomatch from 2.3.1 to 2.3.2 ([#1](https://github.com/Finch-API/finch-api-node/issues/1)) ([b04eace](https://github.com/Finch-API/finch-api-node/commit/b04eacee5d70fa643cca67cbe8272afa89f43d79))
+
 ## 10.7.0 (2026-08-07)
 
 Full Changelog: [v10.6.0...v10.7.0](https://github.com/Finch-API/finch-api-node/compare/v10.6.0...v10.7.0)
