@@ -106,6 +106,13 @@ export interface SessionNewParams {
   minutes_to_expire?: number | null;
 
   /**
+   * Optional recordkeeping configuration. Can only be provided when the
+   * `recordkeeping` product is requested. Currently supports `recordkeeper` set to
+   * `voya`, `empower`, `fidelity`, or `transamerica`.
+   */
+  recordkeeping?: SessionNewParams.Recordkeeping | null;
+
+  /**
    * The URI to redirect to after the Connect flow is completed
    */
   redirect_uri?: string | null;
@@ -130,6 +137,23 @@ export namespace SessionNewParams {
      * The authentication method to use
      */
     auth_method?: 'assisted' | 'credential' | 'oauth' | 'api_token' | null;
+  }
+
+  /**
+   * Optional recordkeeping configuration. Can only be provided when the
+   * `recordkeeping` product is requested. Currently supports `recordkeeper` set to
+   * `voya`, `empower`, `fidelity`, or `transamerica`.
+   */
+  export interface Recordkeeping {
+    /**
+     * The recordkeeper to configure for this connection
+     */
+    recordkeeper: 'voya' | 'empower' | 'fidelity' | 'transamerica';
+
+    /**
+     * The plan identifier used by the recordkeeper
+     */
+    plan_id?: string | null;
   }
 }
 
