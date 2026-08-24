@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.8.1](https://github.com/Finch-API/finch-api-node/compare/v10.8.0...v10.8.1) (2026-08-21)
+
+
+### Bug Fixes
+
+* **stainless:** prevent codegen release deadlock - PLAT-3989 ([77a3faf](https://github.com/Finch-API/finch-api-node/commit/77a3faf048029d6ec6e7d28051cfa93dcb815e52))
+
 ## [10.8.0](https://github.com/Finch-API/finch-api-node/compare/v10.7.0...v10.8.0) (2026-08-20)
 
 
