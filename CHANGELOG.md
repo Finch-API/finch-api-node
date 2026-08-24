@@ -1,5 +1,14 @@
 # Changelog
 
+## [10.8.2](https://github.com/Finch-API/finch-api-node/compare/v10.8.1...v10.8.2) (2026-08-24)
+
+
+### Chores
+
+* **api:** rebuild SDK ([b2e55b4](https://github.com/Finch-API/finch-api-node/commit/b2e55b4b0e8d261f45633cf0eb2ffb5c97f18e12))
+* **api:** rebuild SDK ([11732d0](https://github.com/Finch-API/finch-api-node/commit/11732d030c10d9dc6f158f34d6366c8c3ad525cd))
+* **api:** rebuild SDK ([9050e9e](https://github.com/Finch-API/finch-api-node/commit/9050e9e8cd831f55d5ccc4f3b619b61e34248b5d))
+
 ## [10.8.1](https://github.com/Finch-API/finch-api-node/compare/v10.8.0...v10.8.1) (2026-08-21)
 
 
