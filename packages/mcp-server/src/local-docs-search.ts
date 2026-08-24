@@ -79,15 +79,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AccessTokenCreateParams\nimport com.tryfinch.api.models.CreateAccessTokenResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: AccessTokenCreateParams = AccessTokenCreateParams.builder()\n        .code("code")\n        .build()\n    val createAccessTokenResponse: CreateAccessTokenResponse = client.accessTokens().create(params)\n}',
       },
-      ruby: {
-        method: 'access_tokens.create',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(\n  access_token: "My Access Token",\n  client_id: "4ab15e51-11ad-49f4-acae-f343b7794375",\n  client_secret: "My Client Secret"\n)\n\ncreate_access_token_response = finch.access_tokens.create(code: "code")\n\nputs(create_access_token_response)',
-      },
       python: {
         method: 'access_tokens.create',
         example:
           'from finch import Finch\n\nclient = Finch()\ncreate_access_token_response = client.access_tokens.create(\n    code="code",\n)\nprint(create_access_token_response.connection_id)',
+      },
+      ruby: {
+        method: 'access_tokens.create',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(\n  access_token: "My Access Token",\n  client_id: "4ab15e51-11ad-49f4-acae-f343b7794375",\n  client_secret: "My Client Secret"\n)\n\ncreate_access_token_response = finch.access_tokens.create(code: "code")\n\nputs(create_access_token_response)',
       },
       typescript: {
         method: 'client.accessTokens.create',
@@ -129,15 +129,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.Company\nimport com.tryfinch.api.models.HrisCompanyRetrieveParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val company: Company = client.hris().company().retrieve()\n}',
       },
-      ruby: {
-        method: 'hris.company.retrieve',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ncompany = finch.hris.company.retrieve\n\nputs(company)',
-      },
       python: {
         method: 'hris.company.retrieve',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ncompany = client.hris.company.retrieve()\nprint(company.id)',
+      },
+      ruby: {
+        method: 'hris.company.retrieve',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ncompany = finch.hris.company.retrieve\n\nputs(company)',
       },
       typescript: {
         method: 'client.hris.company.retrieve',
@@ -187,15 +187,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPayStatementItemListPage\nimport com.tryfinch.api.models.HrisPayStatementItemListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisPayStatementItemListPage = client.hris().payStatementItem().list()\n}',
       },
-      ruby: {
-        method: 'hris.pay_statement_item.list',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.pay_statement_item.list\n\nputs(page)',
-      },
       python: {
         method: 'hris.pay_statement_item.list',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.pay_statement_item.list()\npage = page.responses[0]\nprint(page.attributes)',
+      },
+      ruby: {
+        method: 'hris.pay_statement_item.list',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.pay_statement_item.list\n\nputs(page)',
       },
       typescript: {
         method: 'client.hris.payStatementItem.list',
@@ -245,15 +245,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPayStatementItemRuleCreateParams\nimport com.tryfinch.api.models.RuleCreateResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val rule: RuleCreateResponse = client.hris().payStatementItem().rules().create()\n}',
       },
-      ruby: {
-        method: 'hris.pay_statement_item.rules.create',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.pay_statement_item.rules.create\n\nputs(rule)',
-      },
       python: {
         method: 'hris.pay_statement_item.rules.create',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.pay_statement_item.rules.create()\nprint(rule.id)',
+      },
+      ruby: {
+        method: 'hris.pay_statement_item.rules.create',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.pay_statement_item.rules.create\n\nputs(rule)',
       },
       typescript: {
         method: 'client.hris.payStatementItem.rules.create',
@@ -295,15 +295,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPayStatementItemRuleListPage\nimport com.tryfinch.api.models.HrisPayStatementItemRuleListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisPayStatementItemRuleListPage = client.hris().payStatementItem().rules().list()\n}',
       },
-      ruby: {
-        method: 'hris.pay_statement_item.rules.list',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.pay_statement_item.rules.list\n\nputs(page)',
-      },
       python: {
         method: 'hris.pay_statement_item.rules.list',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.pay_statement_item.rules.list()\npage = page.responses[0]\nprint(page.id)',
+      },
+      ruby: {
+        method: 'hris.pay_statement_item.rules.list',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.pay_statement_item.rules.list\n\nputs(page)',
       },
       typescript: {
         method: 'client.hris.payStatementItem.rules.list',
@@ -345,15 +345,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPayStatementItemRuleUpdateParams\nimport com.tryfinch.api.models.RuleUpdateResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val rule: RuleUpdateResponse = client.hris().payStatementItem().rules().update("rule_id")\n}',
       },
-      ruby: {
-        method: 'hris.pay_statement_item.rules.update',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.pay_statement_item.rules.update("rule_id")\n\nputs(rule)',
-      },
       python: {
         method: 'hris.pay_statement_item.rules.update',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.pay_statement_item.rules.update(\n    rule_id="rule_id",\n)\nprint(rule.id)',
+      },
+      ruby: {
+        method: 'hris.pay_statement_item.rules.update',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.pay_statement_item.rules.update("rule_id")\n\nputs(rule)',
       },
       typescript: {
         method: 'client.hris.payStatementItem.rules.update',
@@ -395,15 +395,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPayStatementItemRuleDeleteParams\nimport com.tryfinch.api.models.RuleDeleteResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val rule: RuleDeleteResponse = client.hris().payStatementItem().rules().delete("rule_id")\n}',
       },
-      ruby: {
-        method: 'hris.pay_statement_item.rules.delete',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.pay_statement_item.rules.delete("rule_id")\n\nputs(rule)',
-      },
       python: {
         method: 'hris.pay_statement_item.rules.delete',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nrule = client.hris.pay_statement_item.rules.delete(\n    rule_id="rule_id",\n)\nprint(rule.id)',
+      },
+      ruby: {
+        method: 'hris.pay_statement_item.rules.delete',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nrule = finch.hris.pay_statement_item.rules.delete("rule_id")\n\nputs(rule)',
       },
       typescript: {
         method: 'client.hris.payStatementItem.rules.delete',
@@ -445,15 +445,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisDirectoryListPage\nimport com.tryfinch.api.models.HrisDirectoryListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisDirectoryListPage = client.hris().directory().list()\n}',
       },
-      ruby: {
-        method: 'hris.directory.list',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.directory.list\n\nputs(page)',
-      },
       python: {
         method: 'hris.directory.list',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.directory.list()\npage = page.individuals[0]\nprint(page.id)',
+      },
+      ruby: {
+        method: 'hris.directory.list',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.directory.list\n\nputs(page)',
       },
       typescript: {
         method: 'client.hris.directory.list',
@@ -490,15 +490,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisDirectoryListIndividualsPage\nimport com.tryfinch.api.models.HrisDirectoryListIndividualsParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisDirectoryListIndividualsPage = client.hris().directory().listIndividuals()\n}',
       },
-      ruby: {
-        method: 'hris.directory.list_individuals',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.directory.list_individuals\n\nputs(page)',
-      },
       python: {
         method: 'hris.directory.list_individuals',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.directory.list_individuals()\npage = page.individuals[0]\nprint(page.id)',
+      },
+      ruby: {
+        method: 'hris.directory.list_individuals',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.directory.list_individuals\n\nputs(page)',
       },
       typescript: {
         method: 'client.hris.directory.listIndividuals',
@@ -540,15 +540,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisIndividualRetrieveManyPage\nimport com.tryfinch.api.models.HrisIndividualRetrieveManyParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: HrisIndividualRetrieveManyParams = HrisIndividualRetrieveManyParams.builder()\n        .addRequest(HrisIndividualRetrieveManyParams.Request.builder()\n            .individualId("individual_id")\n            .build())\n        .build()\n    val page: HrisIndividualRetrieveManyPage = client.hris().individuals().retrieveMany(params)\n}',
       },
-      ruby: {
-        method: 'hris.individuals.retrieve_many',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.individuals.retrieve_many(requests: [{individual_id: "individual_id"}])\n\nputs(page)',
-      },
       python: {
         method: 'hris.individuals.retrieve_many',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.individuals.retrieve_many(\n    requests=[{\n        "individual_id": "individual_id"\n    }],\n)\npage = page.responses[0]\nprint(page.individual_id)',
+      },
+      ruby: {
+        method: 'hris.individuals.retrieve_many',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.individuals.retrieve_many(requests: [{individual_id: "individual_id"}])\n\nputs(page)',
       },
       typescript: {
         method: 'client.hris.individuals.retrieveMany',
@@ -590,15 +590,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisEmploymentRetrieveManyPage\nimport com.tryfinch.api.models.HrisEmploymentRetrieveManyParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: HrisEmploymentRetrieveManyParams = HrisEmploymentRetrieveManyParams.builder()\n        .addRequest(HrisEmploymentRetrieveManyParams.Request.builder()\n            .individualId("individual_id")\n            .build())\n        .build()\n    val page: HrisEmploymentRetrieveManyPage = client.hris().employments().retrieveMany(params)\n}',
       },
-      ruby: {
-        method: 'hris.employments.retrieve_many',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.employments.retrieve_many(requests: [{individual_id: "individual_id"}])\n\nputs(page)',
-      },
       python: {
         method: 'hris.employments.retrieve_many',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.employments.retrieve_many(\n    requests=[{\n        "individual_id": "individual_id"\n    }],\n)\npage = page.responses[0]\nprint(page.individual_id)',
+      },
+      ruby: {
+        method: 'hris.employments.retrieve_many',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.employments.retrieve_many(requests: [{individual_id: "individual_id"}])\n\nputs(page)',
       },
       typescript: {
         method: 'client.hris.employments.retrieveMany',
@@ -640,15 +640,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPaymentListPage\nimport com.tryfinch.api.models.HrisPaymentListParams\nimport java.time.LocalDate\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: HrisPaymentListParams = HrisPaymentListParams.builder()\n        .endDate(LocalDate.parse("2021-01-01"))\n        .startDate(LocalDate.parse("2021-01-01"))\n        .build()\n    val page: HrisPaymentListPage = client.hris().payments().list(params)\n}',
       },
-      ruby: {
-        method: 'hris.payments.list',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.payments.list(end_date: "2021-01-01", start_date: "2021-01-01")\n\nputs(page)',
-      },
       python: {
         method: 'hris.payments.list',
         example:
           'from datetime import date\nfrom finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.payments.list(\n    end_date=date.fromisoformat("2021-01-01"),\n    start_date=date.fromisoformat("2021-01-01"),\n)\npage = page.items[0]\nprint(page.id)',
+      },
+      ruby: {
+        method: 'hris.payments.list',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.payments.list(end_date: "2021-01-01", start_date: "2021-01-01")\n\nputs(page)',
       },
       typescript: {
         method: 'client.hris.payments.list',
@@ -694,15 +694,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisPayStatementRetrieveManyPage\nimport com.tryfinch.api.models.HrisPayStatementRetrieveManyParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: HrisPayStatementRetrieveManyParams = HrisPayStatementRetrieveManyParams.builder()\n        .addRequest(HrisPayStatementRetrieveManyParams.Request.builder()\n            .paymentId("fc8b024e-d373-4c9c-80fc-f1625383d142")\n            .build())\n        .build()\n    val page: HrisPayStatementRetrieveManyPage = client.hris().payStatements().retrieveMany(params)\n}',
       },
-      ruby: {
-        method: 'hris.pay_statements.retrieve_many',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.pay_statements.retrieve_many(requests: [{payment_id: "fc8b024e-d373-4c9c-80fc-f1625383d142"}])\n\nputs(page)',
-      },
       python: {
         method: 'hris.pay_statements.retrieve_many',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.pay_statements.retrieve_many(\n    requests=[{\n        "payment_id": "fc8b024e-d373-4c9c-80fc-f1625383d142",\n        "limit": 100,\n        "offset": 0,\n    }],\n)\npage = page.responses[0]\nprint(page.payment_id)',
+      },
+      ruby: {
+        method: 'hris.pay_statements.retrieve_many',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.pay_statements.retrieve_many(requests: [{payment_id: "fc8b024e-d373-4c9c-80fc-f1625383d142"}])\n\nputs(page)',
       },
       typescript: {
         method: 'client.hris.payStatements.retrieveMany',
@@ -751,15 +751,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.DocumentListResponse\nimport com.tryfinch.api.models.HrisDocumentListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val documents: DocumentListResponse = client.hris().documents().list()\n}',
       },
-      ruby: {
-        method: 'hris.documents.list',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ndocuments = finch.hris.documents.list\n\nputs(documents)',
-      },
       python: {
         method: 'hris.documents.list',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ndocuments = client.hris.documents.list()\nprint(documents.documents)',
+      },
+      ruby: {
+        method: 'hris.documents.list',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ndocuments = finch.hris.documents.list\n\nputs(documents)',
       },
       typescript: {
         method: 'client.hris.documents.list',
@@ -802,15 +802,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.DocumentRetreiveResponse\nimport com.tryfinch.api.models.HrisDocumentRetreiveParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val response: DocumentRetreiveResponse = client.hris().documents().retreive("document_id")\n}',
       },
-      ruby: {
-        method: 'hris.documents.retreive',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nresponse = finch.hris.documents.retreive("document_id")\n\nputs(response)',
-      },
       python: {
         method: 'hris.documents.retreive',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nresponse = client.hris.documents.retreive(\n    document_id="document_id",\n)\nprint(response)',
+      },
+      ruby: {
+        method: 'hris.documents.retreive',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nresponse = finch.hris.documents.retreive("document_id")\n\nputs(response)',
       },
       typescript: {
         method: 'client.hris.documents.retreive',
@@ -852,15 +852,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitListPage\nimport com.tryfinch.api.models.HrisBenefitListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisBenefitListPage = client.hris().benefits().list()\n}',
       },
-      ruby: {
-        method: 'hris.benefits.list',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.benefits.list\n\nputs(page)',
-      },
       python: {
         method: 'hris.benefits.list',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.benefits.list()\npage = page.items[0]\nprint(page.benefit_id)',
+      },
+      ruby: {
+        method: 'hris.benefits.list',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.benefits.list\n\nputs(page)',
       },
       typescript: {
         method: 'client.hris.benefits.list',
@@ -908,15 +908,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.CreateCompanyBenefitsResponse\nimport com.tryfinch.api.models.HrisBenefitCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val createCompanyBenefitsResponse: CreateCompanyBenefitsResponse = client.hris().benefits().create()\n}',
       },
-      ruby: {
-        method: 'hris.benefits.create',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ncreate_company_benefits_response = finch.hris.benefits.create\n\nputs(create_company_benefits_response)',
-      },
       python: {
         method: 'hris.benefits.create',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ncreate_company_benefits_response = client.hris.benefits.create()\nprint(create_company_benefits_response.benefit_id)',
+      },
+      ruby: {
+        method: 'hris.benefits.create',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ncreate_company_benefits_response = finch.hris.benefits.create\n\nputs(create_company_benefits_response)',
       },
       typescript: {
         method: 'client.hris.benefits.create',
@@ -958,15 +958,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.CompanyBenefit\nimport com.tryfinch.api.models.HrisBenefitRetrieveParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val companyBenefit: CompanyBenefit = client.hris().benefits().retrieve("benefit_id")\n}',
       },
-      ruby: {
-        method: 'hris.benefits.retrieve',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ncompany_benefit = finch.hris.benefits.retrieve("benefit_id")\n\nputs(company_benefit)',
-      },
       python: {
         method: 'hris.benefits.retrieve',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ncompany_benefit = client.hris.benefits.retrieve(\n    benefit_id="benefit_id",\n)\nprint(company_benefit.benefit_id)',
+      },
+      ruby: {
+        method: 'hris.benefits.retrieve',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ncompany_benefit = finch.hris.benefits.retrieve("benefit_id")\n\nputs(company_benefit)',
       },
       typescript: {
         method: 'client.hris.benefits.retrieve',
@@ -1007,15 +1007,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitUpdateParams\nimport com.tryfinch.api.models.UpdateCompanyBenefitResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val updateCompanyBenefitResponse: UpdateCompanyBenefitResponse = client.hris().benefits().update("benefit_id")\n}',
       },
-      ruby: {
-        method: 'hris.benefits.update',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nupdate_company_benefit_response = finch.hris.benefits.update("benefit_id")\n\nputs(update_company_benefit_response)',
-      },
       python: {
         method: 'hris.benefits.update',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nupdate_company_benefit_response = client.hris.benefits.update(\n    benefit_id="benefit_id",\n)\nprint(update_company_benefit_response.benefit_id)',
+      },
+      ruby: {
+        method: 'hris.benefits.update',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nupdate_company_benefit_response = finch.hris.benefits.update("benefit_id")\n\nputs(update_company_benefit_response)',
       },
       typescript: {
         method: 'client.hris.benefits.update',
@@ -1057,15 +1057,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitListSupportedBenefitsPage\nimport com.tryfinch.api.models.HrisBenefitListSupportedBenefitsParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisBenefitListSupportedBenefitsPage = client.hris().benefits().listSupportedBenefits()\n}',
       },
-      ruby: {
-        method: 'hris.benefits.list_supported_benefits',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.benefits.list_supported_benefits\n\nputs(page)',
-      },
       python: {
         method: 'hris.benefits.list_supported_benefits',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.benefits.list_supported_benefits()\npage = page.items[0]\nprint(page.annual_maximum)',
+      },
+      ruby: {
+        method: 'hris.benefits.list_supported_benefits',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.benefits.list_supported_benefits\n\nputs(page)',
       },
       typescript: {
         method: 'client.hris.benefits.listSupportedBenefits',
@@ -1112,15 +1112,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitRegisterParams\nimport com.tryfinch.api.models.RegisterCompanyBenefitResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val registerCompanyBenefitResponse: RegisterCompanyBenefitResponse = client.hris().benefits().register()\n}',
       },
-      ruby: {
-        method: 'hris.benefits.register',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nregister_company_benefit_response = finch.hris.benefits.register\n\nputs(register_company_benefit_response)',
-      },
       python: {
         method: 'hris.benefits.register',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nregister_company_benefit_response = client.hris.benefits.register()\nprint(register_company_benefit_response.benefit_id)',
+      },
+      ruby: {
+        method: 'hris.benefits.register',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nregister_company_benefit_response = finch.hris.benefits.register\n\nputs(register_company_benefit_response)',
       },
       typescript: {
         method: 'client.hris.benefits.register',
@@ -1161,15 +1161,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitIndividualEnrolledIdsParams\nimport com.tryfinch.api.models.IndividualEnrolledIdsResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val response: IndividualEnrolledIdsResponse = client.hris().benefits().individuals().enrolledIds("benefit_id")\n}',
       },
-      ruby: {
-        method: 'hris.benefits.individuals.enrolled_ids',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nresponse = finch.hris.benefits.individuals.enrolled_ids("benefit_id")\n\nputs(response)',
-      },
       python: {
         method: 'hris.benefits.individuals.enrolled_ids',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nresponse = client.hris.benefits.individuals.enrolled_ids(\n    benefit_id="benefit_id",\n)\nprint(response.benefit_id)',
+      },
+      ruby: {
+        method: 'hris.benefits.individuals.enrolled_ids',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nresponse = finch.hris.benefits.individuals.enrolled_ids("benefit_id")\n\nputs(response)',
       },
       typescript: {
         method: 'client.hris.benefits.individuals.enrolledIDs',
@@ -1211,15 +1211,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitIndividualRetrieveManyBenefitsPage\nimport com.tryfinch.api.models.HrisBenefitIndividualRetrieveManyBenefitsParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: HrisBenefitIndividualRetrieveManyBenefitsPage = client.hris().benefits().individuals().retrieveManyBenefits("benefit_id")\n}',
       },
-      ruby: {
-        method: 'hris.benefits.individuals.retrieve_many_benefits',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.benefits.individuals.retrieve_many_benefits("benefit_id")\n\nputs(page)',
-      },
       python: {
         method: 'hris.benefits.individuals.retrieve_many_benefits',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.hris.benefits.individuals.retrieve_many_benefits(\n    benefit_id="benefit_id",\n)\npage = page.items[0]\nprint(page.individual_id)',
+      },
+      ruby: {
+        method: 'hris.benefits.individuals.retrieve_many_benefits',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.benefits.individuals.retrieve_many_benefits("benefit_id")\n\nputs(page)',
       },
       typescript: {
         method: 'client.hris.benefits.individuals.retrieveManyBenefits',
@@ -1265,15 +1265,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.EnrolledIndividualBenefitResponse\nimport com.tryfinch.api.models.HrisBenefitIndividualEnrollManyParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val enrolledIndividualBenefitResponse: EnrolledIndividualBenefitResponse = client.hris().benefits().individuals().enrollMany("benefit_id")\n}',
       },
-      ruby: {
-        method: 'hris.benefits.individuals.enroll_many',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nenrolled_individual_benefit_response = finch.hris.benefits.individuals.enroll_many("benefit_id")\n\nputs(enrolled_individual_benefit_response)',
-      },
       python: {
         method: 'hris.benefits.individuals.enroll_many',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nenrolled_individual_benefit_response = client.hris.benefits.individuals.enroll_many(\n    benefit_id="benefit_id",\n)\nprint(enrolled_individual_benefit_response.job_id)',
+      },
+      ruby: {
+        method: 'hris.benefits.individuals.enroll_many',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nenrolled_individual_benefit_response = finch.hris.benefits.individuals.enroll_many("benefit_id")\n\nputs(enrolled_individual_benefit_response)',
       },
       typescript: {
         method: 'client.hris.benefits.individuals.enrollMany',
@@ -1314,15 +1314,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisBenefitIndividualUnenrollManyParams\nimport com.tryfinch.api.models.UnenrolledIndividualBenefitResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val unenrolledIndividualBenefitResponse: UnenrolledIndividualBenefitResponse = client.hris().benefits().individuals().unenrollMany("benefit_id")\n}',
       },
-      ruby: {
-        method: 'hris.benefits.individuals.unenroll_many',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nunenrolled_individual_benefit_response = finch.hris.benefits.individuals.unenroll_many("benefit_id")\n\nputs(unenrolled_individual_benefit_response)',
-      },
       python: {
         method: 'hris.benefits.individuals.unenroll_many',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nunenrolled_individual_benefit_response = client.hris.benefits.individuals.unenroll_many(\n    benefit_id="benefit_id",\n)\nprint(unenrolled_individual_benefit_response.job_id)',
+      },
+      ruby: {
+        method: 'hris.benefits.individuals.unenroll_many',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nunenrolled_individual_benefit_response = finch.hris.benefits.individuals.unenroll_many("benefit_id")\n\nputs(unenrolled_individual_benefit_response)',
       },
       typescript: {
         method: 'client.hris.benefits.individuals.unenrollMany',
@@ -1363,15 +1363,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.ProviderListPage\nimport com.tryfinch.api.models.ProviderListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.fromEnv()\n\n    val page: ProviderListPage = client.providers().list()\n}',
       },
-      ruby: {
-        method: 'providers.list',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new\n\npage = finch.providers.list\n\nputs(page)',
-      },
       python: {
         method: 'providers.list',
         example:
           'from finch import Finch\n\nclient = Finch()\npage = client.providers.list()\npage = page.items[0]\nprint(page.id)',
+      },
+      ruby: {
+        method: 'providers.list',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new\n\npage = finch.providers.list\n\nputs(page)',
       },
       typescript: {
         method: 'client.providers.list',
@@ -1411,15 +1411,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AccountIntrospectParams\nimport com.tryfinch.api.models.Introspection\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val introspection: Introspection = client.account().introspect()\n}',
       },
-      ruby: {
-        method: 'account.introspect',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nintrospection = finch.account.introspect\n\nputs(introspection)',
-      },
       python: {
         method: 'account.introspect',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nintrospection = client.account.introspect()\nprint(introspection.id)',
+      },
+      ruby: {
+        method: 'account.introspect',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nintrospection = finch.account.introspect\n\nputs(introspection)',
       },
       typescript: {
         method: 'client.account.introspect',
@@ -1459,15 +1459,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AccountDisconnectParams\nimport com.tryfinch.api.models.DisconnectResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val disconnectResponse: DisconnectResponse = client.account().disconnect()\n}',
       },
-      ruby: {
-        method: 'account.disconnect',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ndisconnect_response = finch.account.disconnect\n\nputs(disconnect_response)',
-      },
       python: {
         method: 'account.disconnect',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ndisconnect_response = client.account.disconnect()\nprint(disconnect_response.status)',
+      },
+      ruby: {
+        method: 'account.disconnect',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ndisconnect_response = finch.account.disconnect\n\nputs(disconnect_response)',
       },
       typescript: {
         method: 'client.account.disconnect',
@@ -1509,15 +1509,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AccountDisconnectEntityParams\nimport com.tryfinch.api.models.DisconnectEntityResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: AccountDisconnectEntityParams = AccountDisconnectEntityParams.builder()\n        .addEntityId("3c90c3cc-0d44-4b50-8888-8dd25736052a")\n        .addEntityId("5e6f7a8b-9c10-4d11-a12b-c13d14e15f16")\n        .build()\n    val disconnectEntityResponse: DisconnectEntityResponse = client.account().disconnectEntity(params)\n}',
       },
-      ruby: {
-        method: 'account.disconnect_entity',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ndisconnect_entity_response = finch.account.disconnect_entity(\n  entity_ids: ["3c90c3cc-0d44-4b50-8888-8dd25736052a", "5e6f7a8b-9c10-4d11-a12b-c13d14e15f16"]\n)\n\nputs(disconnect_entity_response)',
-      },
       python: {
         method: 'account.disconnect_entity',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ndisconnect_entity_response = client.account.disconnect_entity(\n    entity_ids=["3c90c3cc-0d44-4b50-8888-8dd25736052a", "5e6f7a8b-9c10-4d11-a12b-c13d14e15f16"],\n)\nprint(disconnect_entity_response.status)',
+      },
+      ruby: {
+        method: 'account.disconnect_entity',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ndisconnect_entity_response = finch.account.disconnect_entity(\n  entity_ids: ["3c90c3cc-0d44-4b50-8888-8dd25736052a", "5e6f7a8b-9c10-4d11-a12b-c13d14e15f16"]\n)\n\nputs(disconnect_entity_response)',
       },
       typescript: {
         method: 'client.account.disconnectEntity',
@@ -1566,15 +1566,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.RequestForwardingForwardParams\nimport com.tryfinch.api.models.RequestForwardingForwardResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: RequestForwardingForwardParams = RequestForwardingForwardParams.builder()\n        .method("method")\n        .route("route")\n        .build()\n    val response: RequestForwardingForwardResponse = client.requestForwarding().forward(params)\n}',
       },
-      ruby: {
-        method: 'request_forwarding.forward',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nresponse = finch.request_forwarding.forward(method_: "method", route: "route")\n\nputs(response)',
-      },
       python: {
         method: 'request_forwarding.forward',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nresponse = client.request_forwarding.forward(\n    method="method",\n    route="route",\n)\nprint(response.request)',
+      },
+      ruby: {
+        method: 'request_forwarding.forward',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nresponse = finch.request_forwarding.forward(method_: "method", route: "route")\n\nputs(response)',
       },
       typescript: {
         method: 'client.requestForwarding.forward',
@@ -1617,15 +1617,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AutomatedListResponse\nimport com.tryfinch.api.models.JobAutomatedListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val automateds: AutomatedListResponse = client.jobs().automated().list()\n}',
       },
-      ruby: {
-        method: 'jobs.automated.list',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nautomateds = finch.jobs.automated.list\n\nputs(automateds)',
-      },
       python: {
         method: 'jobs.automated.list',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nautomateds = client.jobs.automated.list()\nprint(automateds.data)',
+      },
+      ruby: {
+        method: 'jobs.automated.list',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nautomateds = finch.jobs.automated.list\n\nputs(automateds)',
       },
       typescript: {
         method: 'client.jobs.automated.list',
@@ -1668,15 +1668,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AutomatedCreateResponse\nimport com.tryfinch.api.models.JobAutomatedCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: JobAutomatedCreateParams.Body = JobAutomatedCreateParams.Body.ofDataSyncAll()\n    val automated: AutomatedCreateResponse = client.jobs().automated().create(params)\n}',
       },
-      ruby: {
-        method: 'jobs.automated.create',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nautomated = finch.jobs.automated.create(body: {type: :data_sync_all})\n\nputs(automated)',
-      },
       python: {
         method: 'jobs.automated.create',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nautomated = client.jobs.automated.create(\n    type="data_sync_all",\n)\nprint(automated.job_id)',
+      },
+      ruby: {
+        method: 'jobs.automated.create',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nautomated = finch.jobs.automated.create(body: {type: :data_sync_all})\n\nputs(automated)',
       },
       typescript: {
         method: 'client.jobs.automated.create',
@@ -1718,15 +1718,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AutomatedAsyncJob\nimport com.tryfinch.api.models.JobAutomatedRetrieveParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val automatedAsyncJob: AutomatedAsyncJob = client.jobs().automated().retrieve("job_id")\n}',
       },
-      ruby: {
-        method: 'jobs.automated.retrieve',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nautomated_async_job = finch.jobs.automated.retrieve("job_id")\n\nputs(automated_async_job)',
-      },
       python: {
         method: 'jobs.automated.retrieve',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nautomated_async_job = client.jobs.automated.retrieve(\n    "job_id",\n)\nprint(automated_async_job.job_id)',
+      },
+      ruby: {
+        method: 'jobs.automated.retrieve',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nautomated_async_job = finch.jobs.automated.retrieve("job_id")\n\nputs(automated_async_job)',
       },
       typescript: {
         method: 'client.jobs.automated.retrieve',
@@ -1768,15 +1768,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.JobManualRetrieveParams\nimport com.tryfinch.api.models.ManualAsyncJob\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val manualAsyncJob: ManualAsyncJob = client.jobs().manual().retrieve("job_id")\n}',
       },
-      ruby: {
-        method: 'jobs.manual.retrieve',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nmanual_async_job = finch.jobs.manual.retrieve("job_id")\n\nputs(manual_async_job)',
-      },
       python: {
         method: 'jobs.manual.retrieve',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nmanual_async_job = client.jobs.manual.retrieve(\n    "job_id",\n)\nprint(manual_async_job.job_id)',
+      },
+      ruby: {
+        method: 'jobs.manual.retrieve',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nmanual_async_job = finch.jobs.manual.retrieve("job_id")\n\nputs(manual_async_job)',
       },
       typescript: {
         method: 'client.jobs.manual.retrieve',
@@ -1823,15 +1823,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.ConnectionCreateResponse\nimport com.tryfinch.api.models.SandboxConnectionCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.fromEnv()\n\n    val params: SandboxConnectionCreateParams = SandboxConnectionCreateParams.builder()\n        .providerId("provider_id")\n        .build()\n    val connection: ConnectionCreateResponse = client.sandbox().connections().create(params)\n}',
       },
-      ruby: {
-        method: 'sandbox.connections.create',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(client_id: "4ab15e51-11ad-49f4-acae-f343b7794375", client_secret: "My Client Secret")\n\nconnection = finch.sandbox.connections.create(provider_id: "provider_id")\n\nputs(connection)',
-      },
       python: {
         method: 'sandbox.connections.create',
         example:
           'import os\nfrom finch import Finch\n\nclient = Finch(\n    client_id=os.environ.get("FINCH_CLIENT_ID"),  # This is the default and can be omitted\n    client_secret=os.environ.get("FINCH_CLIENT_SECRET"),  # This is the default and can be omitted\n)\nconnection = client.sandbox.connections.create(\n    provider_id="provider_id",\n)\nprint(connection.account_id)',
+      },
+      ruby: {
+        method: 'sandbox.connections.create',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(client_id: "4ab15e51-11ad-49f4-acae-f343b7794375", client_secret: "My Client Secret")\n\nconnection = finch.sandbox.connections.create(provider_id: "provider_id")\n\nputs(connection)',
       },
       typescript: {
         method: 'client.sandbox.connections.create',
@@ -1878,15 +1878,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AccountCreateResponse\nimport com.tryfinch.api.models.SandboxConnectionAccountCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.fromEnv()\n\n    val params: SandboxConnectionAccountCreateParams = SandboxConnectionAccountCreateParams.builder()\n        .companyId("182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")\n        .providerId("provider_id")\n        .build()\n    val account: AccountCreateResponse = client.sandbox().connections().accounts().create(params)\n}',
       },
-      ruby: {
-        method: 'sandbox.connections.accounts.create',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(client_id: "4ab15e51-11ad-49f4-acae-f343b7794375", client_secret: "My Client Secret")\n\naccount = finch.sandbox.connections.accounts.create(\n  company_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",\n  provider_id: "provider_id"\n)\n\nputs(account)',
-      },
       python: {
         method: 'sandbox.connections.accounts.create',
         example:
           'import os\nfrom finch import Finch\n\nclient = Finch(\n    client_id=os.environ.get("FINCH_CLIENT_ID"),  # This is the default and can be omitted\n    client_secret=os.environ.get("FINCH_CLIENT_SECRET"),  # This is the default and can be omitted\n)\naccount = client.sandbox.connections.accounts.create(\n    company_id="182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",\n    provider_id="provider_id",\n)\nprint(account.account_id)',
+      },
+      ruby: {
+        method: 'sandbox.connections.accounts.create',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(client_id: "4ab15e51-11ad-49f4-acae-f343b7794375", client_secret: "My Client Secret")\n\naccount = finch.sandbox.connections.accounts.create(\n  company_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",\n  provider_id: "provider_id"\n)\n\nputs(account)',
       },
       typescript: {
         method: 'client.sandbox.connections.accounts.create',
@@ -1931,15 +1931,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.AccountUpdateResponse\nimport com.tryfinch.api.models.SandboxConnectionAccountUpdateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val account: AccountUpdateResponse = client.sandbox().connections().accounts().update()\n}',
       },
-      ruby: {
-        method: 'sandbox.connections.accounts.update',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\naccount = finch.sandbox.connections.accounts.update\n\nputs(account)',
-      },
       python: {
         method: 'sandbox.connections.accounts.update',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\naccount = client.sandbox.connections.accounts.update(\n    connection_status="reauth",\n)\nprint(account.account_id)',
+      },
+      ruby: {
+        method: 'sandbox.connections.accounts.update',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\naccount = finch.sandbox.connections.accounts.update\n\nputs(account)',
       },
       typescript: {
         method: 'client.sandbox.connections.accounts.update',
@@ -1990,15 +1990,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.CompanyUpdateResponse\nimport com.tryfinch.api.models.Location\nimport com.tryfinch.api.models.SandboxCompanyUpdateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: SandboxCompanyUpdateParams = SandboxCompanyUpdateParams.builder()\n        .addAccount(SandboxCompanyUpdateParams.Account.builder().build())\n        .addDepartment(SandboxCompanyUpdateParams.Department.builder().build())\n        .ein("ein")\n        .entity(SandboxCompanyUpdateParams.Entity.builder().build())\n        .legalName("legal_name")\n        .addLocation(Location.builder()\n            .city("city")\n            .country("country")\n            .line1("line1")\n            .line2("line2")\n            .postalCode("postal_code")\n            .state("state")\n            .build())\n        .primaryEmail("dev@stainless.com")\n        .primaryPhoneNumber("primary_phone_number")\n        .build()\n    val company: CompanyUpdateResponse = client.sandbox().company().update(params)\n}',
       },
-      ruby: {
-        method: 'sandbox.company.update',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ncompany = finch.sandbox.company.update(\n  accounts: [{}],\n  departments: [{}],\n  ein: "ein",\n  entity: {},\n  legal_name: "legal_name",\n  locations: [\n    {city: "city", country: "country", line1: "line1", line2: "line2", postal_code: "postal_code", state: "state"}\n  ],\n  primary_email: "dev@stainless.com",\n  primary_phone_number: "primary_phone_number"\n)\n\nputs(company)',
-      },
       python: {
         method: 'sandbox.company.update',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ncompany = client.sandbox.company.update(\n    accounts=[{}],\n    departments=[{}],\n    ein="ein",\n    entity={},\n    legal_name="legal_name",\n    locations=[{\n        "city": "city",\n        "country": "country",\n        "line1": "line1",\n        "line2": "line2",\n        "postal_code": "postal_code",\n        "state": "state",\n    }],\n    primary_email="dev@stainless.com",\n    primary_phone_number="primary_phone_number",\n)\nprint(company.accounts)',
+      },
+      ruby: {
+        method: 'sandbox.company.update',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ncompany = finch.sandbox.company.update(\n  accounts: [{}],\n  departments: [{}],\n  ein: "ein",\n  entity: {},\n  legal_name: "legal_name",\n  locations: [\n    {city: "city", country: "country", line1: "line1", line2: "line2", postal_code: "postal_code", state: "state"}\n  ],\n  primary_email: "dev@stainless.com",\n  primary_phone_number: "primary_phone_number"\n)\n\nputs(company)',
       },
       typescript: {
         method: 'client.sandbox.company.update',
@@ -2041,15 +2041,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.DirectoryCreateResponse\nimport com.tryfinch.api.models.SandboxDirectoryCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val directories: List<DirectoryCreateResponse> = client.sandbox().directory().create()\n}',
       },
-      ruby: {
-        method: 'sandbox.directory.create',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ndirectories = finch.sandbox.directory.create\n\nputs(directories)',
-      },
       python: {
         method: 'sandbox.directory.create',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\ndirectories = client.sandbox.directory.create()\nprint(directories)',
+      },
+      ruby: {
+        method: 'sandbox.directory.create',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\ndirectories = finch.sandbox.directory.create\n\nputs(directories)',
       },
       typescript: {
         method: 'client.sandbox.directory.create',
@@ -2106,15 +2106,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.IndividualUpdateResponse\nimport com.tryfinch.api.models.SandboxIndividualUpdateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val individual: IndividualUpdateResponse = client.sandbox().individual().update("individual_id")\n}',
       },
-      ruby: {
-        method: 'sandbox.individual.update',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nindividual = finch.sandbox.individual.update("individual_id")\n\nputs(individual)',
-      },
       python: {
         method: 'sandbox.individual.update',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nindividual = client.sandbox.individual.update(\n    individual_id="individual_id",\n)\nprint(individual.id)',
+      },
+      ruby: {
+        method: 'sandbox.individual.update',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nindividual = finch.sandbox.individual.update("individual_id")\n\nputs(individual)',
       },
       typescript: {
         method: 'client.sandbox.individual.update',
@@ -2181,15 +2181,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.EmploymentUpdateResponse\nimport com.tryfinch.api.models.SandboxEmploymentUpdateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val employment: EmploymentUpdateResponse = client.sandbox().employment().update("individual_id")\n}',
       },
-      ruby: {
-        method: 'sandbox.employment.update',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nemployment = finch.sandbox.employment.update("individual_id")\n\nputs(employment)',
-      },
       python: {
         method: 'sandbox.employment.update',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nemployment = client.sandbox.employment.update(\n    individual_id="individual_id",\n    start_date="3/4/2020",\n)\nprint(employment.id)',
+      },
+      ruby: {
+        method: 'sandbox.employment.update',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nemployment = finch.sandbox.employment.update("individual_id")\n\nputs(employment)',
       },
       typescript: {
         method: 'client.sandbox.employment.update',
@@ -2234,15 +2234,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.PaymentCreateResponse\nimport com.tryfinch.api.models.SandboxPaymentCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val payment: PaymentCreateResponse = client.sandbox().payment().create()\n}',
       },
-      ruby: {
-        method: 'sandbox.payment.create',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npayment = finch.sandbox.payment.create\n\nputs(payment)',
-      },
       python: {
         method: 'sandbox.payment.create',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npayment = client.sandbox.payment.create()\nprint(payment.payment_id)',
+      },
+      ruby: {
+        method: 'sandbox.payment.create',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npayment = finch.sandbox.payment.create\n\nputs(payment)',
       },
       typescript: {
         method: 'client.sandbox.payment.create',
@@ -2283,15 +2283,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.JobCreateResponse\nimport com.tryfinch.api.models.SandboxJobCreateParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: SandboxJobCreateParams = SandboxJobCreateParams.builder()\n        .type(SandboxJobCreateParams.Type.DATA_SYNC_ALL)\n        .build()\n    val job: JobCreateResponse = client.sandbox().jobs().create(params)\n}',
       },
-      ruby: {
-        method: 'sandbox.jobs.create',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\njob = finch.sandbox.jobs.create(type: :data_sync_all)\n\nputs(job)',
-      },
       python: {
         method: 'sandbox.jobs.create',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\njob = client.sandbox.jobs.create(\n    type="data_sync_all",\n)\nprint(job.job_id)',
+      },
+      ruby: {
+        method: 'sandbox.jobs.create',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\njob = finch.sandbox.jobs.create(type: :data_sync_all)\n\nputs(job)',
       },
       typescript: {
         method: 'client.sandbox.jobs.create',
@@ -2332,15 +2332,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.SandboxJobConfiguration\nimport com.tryfinch.api.models.SandboxJobConfigurationRetrieveParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val sandboxJobConfigurations: List<SandboxJobConfiguration> = client.sandbox().jobs().configuration().retrieve()\n}',
       },
-      ruby: {
-        method: 'sandbox.jobs.configuration.retrieve',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nsandbox_job_configurations = finch.sandbox.jobs.configuration.retrieve\n\nputs(sandbox_job_configurations)',
-      },
       python: {
         method: 'sandbox.jobs.configuration.retrieve',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nsandbox_job_configurations = client.sandbox.jobs.configuration.retrieve()\nprint(sandbox_job_configurations)',
+      },
+      ruby: {
+        method: 'sandbox.jobs.configuration.retrieve',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nsandbox_job_configurations = finch.sandbox.jobs.configuration.retrieve\n\nputs(sandbox_job_configurations)',
       },
       typescript: {
         method: 'client.sandbox.jobs.configuration.retrieve',
@@ -2385,15 +2385,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.SandboxJobConfiguration\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val params: SandboxJobConfiguration = SandboxJobConfiguration.builder()\n        .completionStatus(SandboxJobConfiguration.CompletionStatus.COMPLETE)\n        .type(SandboxJobConfiguration.Type.DATA_SYNC_ALL)\n        .build()\n    val sandboxJobConfiguration: SandboxJobConfiguration = client.sandbox().jobs().configuration().update(params)\n}',
       },
-      ruby: {
-        method: 'sandbox.jobs.configuration.update',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nsandbox_job_configuration = finch.sandbox.jobs.configuration.update(completion_status: :complete, type: :data_sync_all)\n\nputs(sandbox_job_configuration)',
-      },
       python: {
         method: 'sandbox.jobs.configuration.update',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\nsandbox_job_configuration = client.sandbox.jobs.configuration.update(\n    completion_status="complete",\n    type="data_sync_all",\n)\nprint(sandbox_job_configuration.completion_status)',
+      },
+      ruby: {
+        method: 'sandbox.jobs.configuration.update',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\nsandbox_job_configuration = finch.sandbox.jobs.configuration.update(completion_status: :complete, type: :data_sync_all)\n\nputs(sandbox_job_configuration)',
       },
       typescript: {
         method: 'client.sandbox.jobs.configuration.update',
@@ -2434,15 +2434,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.PayrollPayGroupListPage\nimport com.tryfinch.api.models.PayrollPayGroupListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: PayrollPayGroupListPage = client.payroll().payGroups().list()\n}',
       },
-      ruby: {
-        method: 'payroll.pay_groups.list',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.payroll.pay_groups.list\n\nputs(page)',
-      },
       python: {
         method: 'payroll.pay_groups.list',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npage = client.payroll.pay_groups.list()\npage = page.items[0]\nprint(page.id)',
+      },
+      ruby: {
+        method: 'payroll.pay_groups.list',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.payroll.pay_groups.list\n\nputs(page)',
       },
       typescript: {
         method: 'client.payroll.payGroups.list',
@@ -2483,15 +2483,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.PayGroupRetrieveResponse\nimport com.tryfinch.api.models.PayrollPayGroupRetrieveParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val payGroup: PayGroupRetrieveResponse = client.payroll().payGroups().retrieve("pay_group_id")\n}',
       },
-      ruby: {
-        method: 'payroll.pay_groups.retrieve',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npay_group = finch.payroll.pay_groups.retrieve("pay_group_id")\n\nputs(pay_group)',
-      },
       python: {
         method: 'payroll.pay_groups.retrieve',
         example:
           'from finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\npay_group = client.payroll.pay_groups.retrieve(\n    pay_group_id="pay_group_id",\n)\nprint(pay_group.id)',
+      },
+      ruby: {
+        method: 'payroll.pay_groups.retrieve',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npay_group = finch.payroll.pay_groups.retrieve("pay_group_id")\n\nputs(pay_group)',
       },
       typescript: {
         method: 'client.payroll.payGroups.retrieve',
@@ -2543,15 +2543,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.ConnectSessionNewParams\nimport com.tryfinch.api.models.SessionNewResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.fromEnv()\n\n    val params: ConnectSessionNewParams = ConnectSessionNewParams.builder()\n        .customerId("x")\n        .customerName("x")\n        .addProduct(ConnectSessionNewParams.ConnectProducts.BENEFITS)\n        .build()\n    val response: SessionNewResponse = client.connect().sessions().new(params)\n}',
       },
-      ruby: {
-        method: 'connect.sessions.new',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(client_id: "4ab15e51-11ad-49f4-acae-f343b7794375", client_secret: "My Client Secret")\n\nresponse = finch.connect.sessions.new(customer_id: "x", customer_name: "x", products: [:benefits])\n\nputs(response)',
-      },
       python: {
         method: 'connect.sessions.new',
         example:
           'import os\nfrom finch import Finch\n\nclient = Finch(\n    client_id=os.environ.get("FINCH_CLIENT_ID"),  # This is the default and can be omitted\n    client_secret=os.environ.get("FINCH_CLIENT_SECRET"),  # This is the default and can be omitted\n)\nresponse = client.connect.sessions.new(\n    customer_id="x",\n    customer_name="x",\n    products=["benefits"],\n)\nprint(response.session_id)',
+      },
+      ruby: {
+        method: 'connect.sessions.new',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(client_id: "4ab15e51-11ad-49f4-acae-f343b7794375", client_secret: "My Client Secret")\n\nresponse = finch.connect.sessions.new(customer_id: "x", customer_name: "x", products: [:benefits])\n\nputs(response)',
       },
       typescript: {
         method: 'client.connect.sessions.new',
@@ -2597,15 +2597,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.ConnectSessionReauthenticateParams\nimport com.tryfinch.api.models.SessionReauthenticateResponse\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.fromEnv()\n\n    val params: ConnectSessionReauthenticateParams = ConnectSessionReauthenticateParams.builder()\n        .connectionId("connection_id")\n        .build()\n    val response: SessionReauthenticateResponse = client.connect().sessions().reauthenticate(params)\n}',
       },
-      ruby: {
-        method: 'connect.sessions.reauthenticate',
-        example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new(client_id: "4ab15e51-11ad-49f4-acae-f343b7794375", client_secret: "My Client Secret")\n\nresponse = finch.connect.sessions.reauthenticate(connection_id: "connection_id")\n\nputs(response)',
-      },
       python: {
         method: 'connect.sessions.reauthenticate',
         example:
           'import os\nfrom finch import Finch\n\nclient = Finch(\n    client_id=os.environ.get("FINCH_CLIENT_ID"),  # This is the default and can be omitted\n    client_secret=os.environ.get("FINCH_CLIENT_SECRET"),  # This is the default and can be omitted\n)\nresponse = client.connect.sessions.reauthenticate(\n    connection_id="connection_id",\n)\nprint(response.session_id)',
+      },
+      ruby: {
+        method: 'connect.sessions.reauthenticate',
+        example:
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(client_id: "4ab15e51-11ad-49f4-acae-f343b7794375", client_secret: "My Client Secret")\n\nresponse = finch.connect.sessions.reauthenticate(connection_id: "connection_id")\n\nputs(response)',
       },
       typescript: {
         method: 'client.connect.sessions.reauthenticate',
@@ -2637,14 +2637,14 @@ const EMBEDDED_READMES: { language: string; content: string }[] = [
       '# Finch Kotlin API Library\n\n<!-- x-release-please-start-version -->\n[![Maven Central](https://img.shields.io/maven-central/v/com.tryfinch.api/finch-kotlin)](https://central.sonatype.com/artifact/com.tryfinch.api/finch-kotlin/9.8.1)\n[![javadoc](https://javadoc.io/badge2/com.tryfinch.api/finch-kotlin/javadoc.svg)](https://javadoc.io/doc/com.tryfinch.api/finch-kotlin/9.8.1)\n<!-- x-release-please-end -->\n\nThe Finch Kotlin SDK provides convenient access to the [Finch REST API](https://developer.tryfinch.com/)   from applications written in Kotlin.\n\nThe Finch Kotlin SDK is similar to the Finch Java SDK but with minor differences that       make it more ergonomic for use in Kotlin, such as nullable values instead of `Optional`,       `Sequence` instead of `Stream`, and suspend functions instead of `CompletableFuture`.\n\nIt is generated with [Stainless](https://www.stainless.com/).\n\n## MCP Server\n\nUse the Finch MCP Server to enable AI assistants to interact with this API, allowing them to explore endpoints, make test requests, and use documentation to help integrate this SDK into your application.\n\n[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=%40tryfinch%2Ffinch-api-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB0cnlmaW5jaC9maW5jaC1hcGktbWNwIl0sImVudiI6eyJGSU5DSF9BQ0NFU1NfVE9LRU4iOiJNeSBBY2Nlc3MgVG9rZW4iLCJGSU5DSF9DTElFTlRfSUQiOiI0YWIxNWU1MS0xMWFkLTQ5ZjQtYWNhZS1mMzQzYjc3OTQzNzUiLCJGSU5DSF9DTElFTlRfU0VDUkVUIjoiTXkgQ2xpZW50IFNlY3JldCIsIkZJTkNIX1dFQkhPT0tfU0VDUkVUIjoiTXkgV2ViaG9vayBTZWNyZXQifX0)\n[![Install in VS Code](https://img.shields.io/badge/_-Add_to_VS_Code-blue?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHBhdGggZmlsbD0iI0VFRSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMzAuMjM1IDM5Ljg4NGEyLjQ5MSAyLjQ5MSAwIDAgMS0xLjc4MS0uNzNMMTIuNyAyNC43OGwtMy40NiAyLjYyNC0zLjQwNiAyLjU4MmExLjY2NSAxLjY2NSAwIDAgMS0xLjA4Mi4zMzggMS42NjQgMS42NjQgMCAwIDEtMS4wNDYtLjQzMWwtMi4yLTJhMS42NjYgMS42NjYgMCAwIDEgMC0yLjQ2M0w3LjQ1OCAyMCA0LjY3IDE3LjQ1MyAxLjUwNyAxNC41N2ExLjY2NSAxLjY2NSAwIDAgMSAwLTIuNDYzbDIuMi0yYTEuNjY1IDEuNjY1IDAgMCAxIDIuMTMtLjA5N2w2Ljg2MyA1LjIwOUwyOC40NTIuODQ0YTIuNDg4IDIuNDg4IDAgMCAxIDEuODQxLS43MjljLjM1MS4wMDkuNjk5LjA5MSAxLjAxOS4yNDVsOC4yMzYgMy45NjFhMi41IDIuNSAwIDAgMSAxLjQxNSAyLjI1M3YuMDk5LS4wNDVWMzMuMzd2LS4wNDUuMDk1YTIuNTAxIDIuNTAxIDAgMCAxLTEuNDE2IDIuMjU3bC04LjIzNSAzLjk2MWEyLjQ5MiAyLjQ5MiAwIDAgMS0xLjA3Ny4yNDZabS43MTYtMjguOTQ3LTExLjk0OCA5LjA2MiAxMS45NTIgOS4wNjUtLjAwNC0xOC4xMjdaIi8+PC9zdmc+)](https://vscode.stainless.com/mcp/%7B%22name%22%3A%22%40tryfinch%2Ffinch-api-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40tryfinch%2Ffinch-api-mcp%22%5D%2C%22env%22%3A%7B%22FINCH_ACCESS_TOKEN%22%3A%22My%20Access%20Token%22%2C%22FINCH_CLIENT_ID%22%3A%224ab15e51-11ad-49f4-acae-f343b7794375%22%2C%22FINCH_CLIENT_SECRET%22%3A%22My%20Client%20Secret%22%2C%22FINCH_WEBHOOK_SECRET%22%3A%22My%20Webhook%20Secret%22%7D%7D)\n\n> Note: You may need to set environment variables in your MCP client.\n\n<!-- x-release-please-start-version -->\n\nThe REST API documentation can be found on [developer.tryfinch.com](https://developer.tryfinch.com/). KDocs are available on [javadoc.io](https://javadoc.io/doc/com.tryfinch.api/finch-kotlin/9.8.1).\n\n<!-- x-release-please-end -->\n\n## Installation\n\n<!-- x-release-please-start-version -->\n\n### Gradle\n\n~~~kotlin\nimplementation("com.tryfinch.api:finch-kotlin:9.8.1")\n~~~\n\n### Maven\n\n~~~xml\n<dependency>\n  <groupId>com.tryfinch.api</groupId>\n  <artifactId>finch-kotlin</artifactId>\n  <version>9.8.1</version>\n</dependency>\n~~~\n\n<!-- x-release-please-end -->\n\n## Requirements\n\nThis library requires Java 8 or later.\n\n## Usage\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisDirectoryListPage\nimport com.tryfinch.api.models.HrisDirectoryListParams\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    // Configures using the `finch.clientId`, `finch.clientSecret`, `finch.webhookSecret` and `finch.baseUrl` system properties\n    // Or configures using the `FINCH_CLIENT_ID`, `FINCH_CLIENT_SECRET`, `FINCH_WEBHOOK_SECRET` and `FINCH_BASE_URL` environment variables\n    .fromEnv()\n    .accessToken("My Access Token")\n    .build()\n\nval page: HrisDirectoryListPage = client.hris().directory().list()\n```\n\n## Client configuration\n\nConfigure the client using system properties or environment variables:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    // Configures using the `finch.clientId`, `finch.clientSecret`, `finch.webhookSecret` and `finch.baseUrl` system properties\n    // Or configures using the `FINCH_CLIENT_ID`, `FINCH_CLIENT_SECRET`, `FINCH_WEBHOOK_SECRET` and `FINCH_BASE_URL` environment variables\n    .fromEnv()\n    .accessToken("My Access Token")\n    .build()\n```\n\nOr manually:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    .accessToken("My Access Token")\n    .build()\n```\n\nOr using a combination of the two approaches:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    // Configures using the `finch.clientId`, `finch.clientSecret`, `finch.webhookSecret` and `finch.baseUrl` system properties\n    // Or configures using the `FINCH_CLIENT_ID`, `FINCH_CLIENT_SECRET`, `FINCH_WEBHOOK_SECRET` and `FINCH_BASE_URL` environment variables\n    .fromEnv()\n    .accessToken("My Access Token")\n    .build()\n```\n\nSee this table for the available options:\n\n| Setter          | System property       | Environment variable   | Required | Default value                |\n| --------------- | --------------------- | ---------------------- | -------- | ---------------------------- |\n| `clientId`      | `finch.clientId`      | `FINCH_CLIENT_ID`      | false    | -                            |\n| `clientSecret`  | `finch.clientSecret`  | `FINCH_CLIENT_SECRET`  | false    | -                            |\n| `webhookSecret` | `finch.webhookSecret` | `FINCH_WEBHOOK_SECRET` | false    | -                            |\n| `baseUrl`       | `finch.baseUrl`       | `FINCH_BASE_URL`       | true     | `"https://api.tryfinch.com"` |\n\nSystem properties take precedence over environment variables.\n\n> [!TIP]\n> Don\'t create more than one client in the same application. Each client has a connection pool and\n> thread pools, which are more efficient to share between requests.\n\n### Modifying configuration\n\nTo temporarily use a modified client configuration, while reusing the same connection and thread       pools, call `withOptions()` on any client or service:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\n\nval clientWithOptions: FinchClient = client.withOptions {\n    it.baseUrl("https://example.com")\n    it.maxRetries(42)\n}\n```\n\nThe `withOptions()` method does not affect the original client or service.\n\n## Requests and responses\n\nTo send a request to the Finch API, build an instance of some `Params` class and pass it to the     corresponding client method. When the response is received, it will be deserialized into an instance of     a Kotlin class.\n\nFor example, `client.hris().directory().list(...)` should be called with an instance of `HrisDirectoryListParams`, and it     will return an instance of `HrisDirectoryListPage`.\n\n## Immutability\n\nEach class in the SDK has an associated   [builder](https://blogs.oracle.com/javamagazine/post/exploring-joshua-blochs-builder-design-pattern-in-java)   or factory method for constructing it.\n\nEach class is [immutable](https://docs.oracle.com/javase/tutorial/essential/concurrency/immutable.html)   once constructed. If the class has an associated builder, then it has a `toBuilder()` method, which can   be used to convert it back to a builder for making a modified copy.\n\nBecause each class is immutable, builder modification will _never_ affect already built class instances.\n\n## Asynchronous execution\n\nThe default client is synchronous. To switch to asynchronous execution, call the `async()` method:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.HrisDirectoryListPageAsync\nimport com.tryfinch.api.models.HrisDirectoryListParams\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    // Configures using the `finch.clientId`, `finch.clientSecret`, `finch.webhookSecret` and `finch.baseUrl` system properties\n    // Or configures using the `FINCH_CLIENT_ID`, `FINCH_CLIENT_SECRET`, `FINCH_WEBHOOK_SECRET` and `FINCH_BASE_URL` environment variables\n    .fromEnv()\n    .accessToken("My Access Token")\n    .build()\n\nval page: HrisDirectoryListPageAsync = client.async().hris().directory().list()\n```\n\nOr create an asynchronous client from the beginning:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClientAsync\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClientAsync\nimport com.tryfinch.api.models.HrisDirectoryListPageAsync\nimport com.tryfinch.api.models.HrisDirectoryListParams\n\nval client: FinchClientAsync = FinchOkHttpClientAsync.builder()\n    // Configures using the `finch.clientId`, `finch.clientSecret`, `finch.webhookSecret` and `finch.baseUrl` system properties\n    // Or configures using the `FINCH_CLIENT_ID`, `FINCH_CLIENT_SECRET`, `FINCH_WEBHOOK_SECRET` and `FINCH_BASE_URL` environment variables\n    .fromEnv()\n    .accessToken("My Access Token")\n    .build()\n\nval page: HrisDirectoryListPageAsync = client.hris().directory().list()\n```\n\nThe asynchronous client supports the same options as the synchronous one, except most methods are [suspending](https://kotlinlang.org/docs/coroutines-guide.html).\n\n\n\n\n\n\n\n## Raw responses\n\nThe SDK defines methods that deserialize responses into instances of Kotlin classes.       However, these methods don\'t provide access to the response headers, status code, or the raw response       body.\n\nTo access this data, prefix any HTTP method call on a client or service with `withRawResponse()`:\n\n```kotlin\nimport com.tryfinch.api.core.http.Headers\nimport com.tryfinch.api.core.http.HttpResponseFor\nimport com.tryfinch.api.models.HrisDirectoryListPage\nimport com.tryfinch.api.models.HrisDirectoryListParams\n\nval page: HttpResponseFor<HrisDirectoryListPage> = client.hris().directory().withRawResponse().list()\n\nval statusCode: Int = page.statusCode()\nval headers: Headers = page.headers()\n```\n\nYou can still deserialize the response into an instance of a Kotlin class if needed:\n\n```kotlin\nimport com.tryfinch.api.models.HrisDirectoryListPage\n\nval parsedPage: HrisDirectoryListPage = page.parse()\n```\n\n## Error handling\n\nThe SDK throws custom unchecked exception types:\n\n- [`FinchServiceException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/FinchServiceException.kt): Base class for HTTP errors. See this table for which exception       subclass is thrown for each HTTP status code:\n\n  | Status | Exception                                          |\n  | ------ | -------------------------------------------------- |\n  | 400    | [`BadRequestException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/BadRequestException.kt)           |\n  | 401    | [`UnauthorizedException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/UnauthorizedException.kt)         |\n  | 403    | [`PermissionDeniedException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/PermissionDeniedException.kt)     |\n  | 404    | [`NotFoundException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/NotFoundException.kt)             |\n  | 422    | [`UnprocessableEntityException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/UnprocessableEntityException.kt)  |\n  | 429    | [`RateLimitException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/RateLimitException.kt)            |\n  | 5xx    | [`InternalServerException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/InternalServerException.kt)       |\n  | others | [`UnexpectedStatusCodeException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/UnexpectedStatusCodeException.kt) |\n\n- [`FinchIoException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/FinchIoException.kt): I/O networking errors.\n\n- [`FinchRetryableException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/FinchRetryableException.kt): Generic error indicating a failure that could be retried by the client.\n\n- [`FinchInvalidDataException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/FinchInvalidDataException.kt): Failure to interpret successfully parsed data. For example,       when accessing a property that\'s supposed to be required, but the API unexpectedly omitted it from the       response.\n\n- [`FinchException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/FinchException.kt): Base class for all exceptions. Most errors will result in one of the       previously mentioned ones, but completely generic errors may be thrown using the base class.\n\n## Pagination\n\nThe SDK defines methods that return a paginated lists of results. It provides convenient ways to access     the results either one page at a time or item-by-item across all pages.\n\n### Auto-pagination\n\nTo iterate through all results across all pages, use the `autoPager()` method, which automatically     fetches more pages as needed.\n\nWhen using the synchronous client, the method returns a [`Sequence`](https://kotlinlang.org/docs/sequences.html)\n\n```kotlin\nimport com.tryfinch.api.models.HrisDirectoryListPage\n\nval page: HrisDirectoryListPage = client.hris().directory().list()\npage.autoPager()\n    .take(50)\n    .forEach { directory -> println(directory) }\n```\n\nWhen using the asynchronous client, the method returns a [`Flow`](https://kotlinlang.org/docs/flow.html):\n\n```kotlin\nimport com.tryfinch.api.models.HrisDirectoryListPageAsync\n\nval page: HrisDirectoryListPageAsync = client.async().hris().directory().list()\npage.autoPager()\n    .take(50)\n    .forEach { directory -> println(directory) }\n```\n\n### Manual pagination\n\nTo access individual page items and manually request the next page, use the `items()`,\n`hasNextPage()`, and `nextPage()` methods:\n\n```kotlin\nimport com.tryfinch.api.models.HrisDirectoryListPage\nimport com.tryfinch.api.models.IndividualInDirectory\n\nval page: HrisDirectoryListPage = client.hris().directory().list()\nwhile (true) {\n    for (directory in page.items()) {\n        println(directory)\n    }\n\n    if (!page.hasNextPage()) {\n        break\n    }\n\n    page = page.nextPage()\n}\n```\n\n## Logging\n\nEnable logging by setting the `FINCH_LOG` environment variable to   `info`:\n\n```sh\nexport FINCH_LOG=info\n```\n\nOr to `debug` for more verbose logging:\n\n```sh\nexport FINCH_LOG=debug\n```\n\nOr configure the client manually using the `logLevel` method:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.core.LogLevel\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    .fromEnv()\n    .logLevel(LogLevel.INFO)\n    .accessToken("My Access Token")\n    .build()\n```\n\n## ProGuard and R8\n\nAlthough the SDK uses reflection, it is still usable with     [ProGuard](https://github.com/Guardsquare/proguard) and     [R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) because     `finch-kotlin-core` is published with a     [configuration file](finch-kotlin-core/src/main/resources/META-INF/proguard/finch-kotlin-core.pro) containing     [keep rules](https://www.guardsquare.com/manual/configuration/usage).\n\nProGuard and R8 should automatically detect and use the published rules, but you can also manually copy     the keep rules if necessary.\n\n\n\n\n\n## Jackson\n\nThe SDK depends on [Jackson](https://github.com/FasterXML/jackson) for JSON     serialization/deserialization. It is compatible with version 2.13.4 or higher,     but depends on version 2.18.2 by default.\n\nThe SDK throws an exception if it detects an incompatible Jackson version at runtime (e.g. if the     default version was overridden in your Maven or Gradle config).\n\nIf the SDK threw an exception, but you\'re _certain_ the version is compatible, then disable the version     check using the `checkJacksonVersionCompatibility` on [`FinchOkHttpClient`](finch-kotlin-client-okhttp/src/main/kotlin/com/tryfinch/api/client/okhttp/FinchOkHttpClient.kt) or     [`FinchOkHttpClientAsync`](finch-kotlin-client-okhttp/src/main/kotlin/com/tryfinch/api/client/okhttp/FinchOkHttpClientAsync.kt).\n\n> [!CAUTION]\n> We make no guarantee that the SDK works correctly when the Jackson version check is disabled.\n\nAlso note that there are bugs in older Jackson versions that can affect the SDK. We don\'t work around all     Jackson bugs ([example](https://github.com/FasterXML/jackson-databind/issues/3240)) and expect users to     upgrade Jackson for those instead.\n\n## Network options\n\n### Retries\n\nThe SDK automatically retries 2 times by default, with a short exponential backoff between requests.\n\nOnly the following error types are retried:\n- Connection errors (for example, due to a network connectivity problem)\n- 408 Request Timeout\n- 409 Conflict\n- 429 Rate Limit\n- 5xx Internal\n\nThe API may also explicitly instruct the SDK to retry or not retry a request.\n\nTo set a custom number of retries, configure the client using the `maxRetries` method:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    .fromEnv()\n    .maxRetries(4)\n    .accessToken("My Access Token")\n    .build()\n```\n\n### Timeouts\n\nRequests time out after 1 minute by default.\n\nTo set a custom timeout, configure the method call using the `timeout` method:\n\n```kotlin\nimport com.tryfinch.api.models.HrisDirectoryListPage\n\nval page: HrisDirectoryListPage = client.hris().directory().list(RequestOptions.builder().timeout(Duration.ofSeconds(30)).build())\n```\n\nOr configure the default for all method calls at the client level:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport java.time.Duration\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    .fromEnv()\n    .timeout(Duration.ofSeconds(30))\n    .accessToken("My Access Token")\n    .build()\n```\n\n### Proxies\n\nTo route requests through a proxy, configure the client using the `proxy` method:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport java.net.InetSocketAddress\nimport java.net.Proxy\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    .fromEnv()\n    .proxy(Proxy(\n      Proxy.Type.HTTP, InetSocketAddress(\n        "https://example.com", 8080\n      )\n    ))\n    .accessToken("My Access Token")\n    .build()\n```\n\nIf the proxy responds with `407 Proxy Authentication Required`, supply credentials by also   configuring `proxyAuthenticator`:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.core.http.ProxyAuthenticator\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    .fromEnv()\n    .proxy(...)\n    // Or a custom implementation of `ProxyAuthenticator`.\n    .proxyAuthenticator(ProxyAuthenticator.basic("username", "password"))\n    .accessToken("My Access Token")\n    .build()\n```\n\n### Connection pooling\n\nTo customize the underlying OkHttp connection pool, configure the client using the   `maxIdleConnections` and `keepAliveDuration` methods:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport java.time.Duration\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    .fromEnv()\n    // If `maxIdleConnections` is set, then `keepAliveDuration` must be set, and vice versa.\n    .maxIdleConnections(10)\n    .keepAliveDuration(Duration.ofMinutes(2))\n    .accessToken("My Access Token")\n    .build()\n```\n\nIf both options are unset, OkHttp\'s default connection pool settings are used.\n\n### HTTPS\n\n> [!NOTE]\n> Most applications should not call these methods, and instead use the system defaults. The defaults include\n> special optimizations that can be lost if the implementations are modified.\n\nTo configure how HTTPS connections are secured, configure the client using the `sslSocketFactory`,   `trustManager`, and `hostnameVerifier` methods:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    .fromEnv()\n    // If `sslSocketFactory` is set, then `trustManager` must be set, and vice versa.\n    .sslSocketFactory(yourSSLSocketFactory)\n    .trustManager(yourTrustManager)\n    .hostnameVerifier(yourHostnameVerifier)\n    .accessToken("My Access Token")\n    .build()\n```\n\n\n\n### Custom HTTP client\n\nThe SDK consists of three artifacts:\n- `finch-kotlin-core`\n  - Contains core SDK logic\n  - Does not depend on [OkHttp](https://square.github.io/okhttp)\n  - Exposes [`FinchClient`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/client/FinchClient.kt), [`FinchClientAsync`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/client/FinchClientAsync.kt),             [`FinchClientImpl`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/client/FinchClientImpl.kt), and [`FinchClientAsyncImpl`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/client/FinchClientAsyncImpl.kt), all of which can             work with any HTTP client\n- `finch-kotlin-client-okhttp`\n  - Depends on [OkHttp](https://square.github.io/okhttp)\n  - Exposes [`FinchOkHttpClient`](finch-kotlin-client-okhttp/src/main/kotlin/com/tryfinch/api/client/okhttp/FinchOkHttpClient.kt) and [`FinchOkHttpClientAsync`](finch-kotlin-client-okhttp/src/main/kotlin/com/tryfinch/api/client/okhttp/FinchOkHttpClientAsync.kt), which             provide a way to construct [`FinchClientImpl`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/client/FinchClientImpl.kt) and             [`FinchClientAsyncImpl`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/client/FinchClientAsyncImpl.kt), respectively, using OkHttp\n- `finch-kotlin`\n  - Depends on and exposes the APIs of both `finch-kotlin-core` and `finch-kotlin-client-okhttp`\n  - Does not have its own logic\n\nThis structure allows replacing the SDK\'s default HTTP client without pulling in unnecessary dependencies.\n\n#### Customized [`OkHttpClient`](https://square.github.io/okhttp/3.x/okhttp/okhttp3/OkHttpClient.html)\n\n> [!TIP]\n> Try the available [network options](#network-options) before replacing the default client.\n\nTo use a customized `OkHttpClient`:\n\n1. Replace your [`finch-kotlin` dependency](#installation) with `finch-kotlin-core`\n2. Copy `finch-kotlin-client-okhttp`\'s [`OkHttpClient`](finch-kotlin-client-okhttp/src/main/kotlin/com/tryfinch/api/client/okhttp/OkHttpClient.kt) class into your code and        customize it\n3. Construct [`FinchClientImpl`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/client/FinchClientImpl.kt) or [`FinchClientAsyncImpl`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/client/FinchClientAsyncImpl.kt), similarly to        [`FinchOkHttpClient`](finch-kotlin-client-okhttp/src/main/kotlin/com/tryfinch/api/client/okhttp/FinchOkHttpClient.kt) or [`FinchOkHttpClientAsync`](finch-kotlin-client-okhttp/src/main/kotlin/com/tryfinch/api/client/okhttp/FinchOkHttpClientAsync.kt), using your        customized client\n\n### Completely custom HTTP client\n\nTo use a completely custom HTTP client:\n\n1. Replace your [`finch-kotlin` dependency](#installation) with `finch-kotlin-core`\n2. Write a class that implements the [`HttpClient`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/core/http/HttpClient.kt) interface\n3. Construct [`FinchClientImpl`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/client/FinchClientImpl.kt) or [`FinchClientAsyncImpl`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/client/FinchClientAsyncImpl.kt), similarly to        [`FinchOkHttpClient`](finch-kotlin-client-okhttp/src/main/kotlin/com/tryfinch/api/client/okhttp/FinchOkHttpClient.kt) or [`FinchOkHttpClientAsync`](finch-kotlin-client-okhttp/src/main/kotlin/com/tryfinch/api/client/okhttp/FinchOkHttpClientAsync.kt), using your new        client class\n\n## Undocumented API functionality\n\nThe SDK is typed for convenient usage of the documented API. However, it also supports working with undocumented or not yet supported parts of the API.\n\n### Parameters\n\nTo set undocumented parameters, call the `putAdditionalHeader`, `putAdditionalQueryParam`, or       `putAdditionalBodyProperty` methods on any `Params` class:\n\n```kotlin\nimport com.tryfinch.api.core.JsonValue\nimport com.tryfinch.api.models.HrisDirectoryListParams\n\nval params: HrisDirectoryListParams = HrisDirectoryListParams.builder()\n    .putAdditionalHeader("Secret-Header", "42")\n    .putAdditionalQueryParam("secret_query_param", "42")\n    .putAdditionalBodyProperty("secretProperty", JsonValue.from("42"))\n    .build()\n```\n\nThese can be accessed on the built object later using the `_additionalHeaders()`,       `_additionalQueryParams()`, and `_additionalBodyProperties()` methods.\n\nTo set a documented parameter or property to an undocumented or not yet supported _value_, pass a       [`JsonValue`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/core/Values.kt) object to its setter:\n\n```kotlin\nimport com.tryfinch.api.models.HrisDirectoryListParams\n\nval params: HrisDirectoryListParams = HrisDirectoryListParams.builder().build()\n```\n\nThe most straightforward way to create a [`JsonValue`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/core/Values.kt) is using its       `from(...)` method:\n\n```kotlin\nimport com.tryfinch.api.core.JsonValue\n\n// Create primitive JSON values\nval nullValue: JsonValue = JsonValue.from(null)\nval booleanValue: JsonValue = JsonValue.from(true)\nval numberValue: JsonValue = JsonValue.from(42)\nval stringValue: JsonValue = JsonValue.from("Hello World!")\n\n// Create a JSON array value equivalent to `["Hello", "World"]`\nval arrayValue: JsonValue = JsonValue.from(listOf(\n  "Hello", "World"\n))\n\n// Create a JSON object value equivalent to `{ "a": 1, "b": 2 }`\nval objectValue: JsonValue = JsonValue.from(mapOf(\n  "a" to 1, "b" to 2\n))\n\n// Create an arbitrarily nested JSON equivalent to:\n// {\n//   "a": [1, 2],\n//   "b": [3, 4]\n// }\nval complexValue: JsonValue = JsonValue.from(mapOf(\n  "a" to listOf(\n    1, 2\n  ), "b" to listOf(\n    3, 4\n  )\n))\n```\n\nNormally a `Builder` class\'s `build` method will throw         [`IllegalStateException`](https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html)         if any required parameter or property is unset.\n\nTo forcibly omit a required parameter or property, pass [`JsonMissing`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/core/Values.kt):\n\n```kotlin\nimport com.tryfinch.api.core.JsonMissing\nimport com.tryfinch.api.models.AccessTokenCreateParams\nimport com.tryfinch.api.models.HrisDirectoryListParams\n\nval params: HrisDirectoryListParams = AccessTokenCreateParams.builder()\n    .code(JsonMissing.of())\n    .build()\n```\n\n### Response properties\n\nTo access undocumented response properties, call the `_additionalProperties()` method:\n\n```kotlin\nimport com.tryfinch.api.core.JsonBoolean\nimport com.tryfinch.api.core.JsonNull\nimport com.tryfinch.api.core.JsonNumber\nimport com.tryfinch.api.core.JsonValue\n\nval additionalProperties: Map<String, JsonValue> = client.accessTokens().create(params)._additionalProperties()\nval secretPropertyValue: JsonValue = additionalProperties.get("secretProperty")\n\nval result = when (secretPropertyValue) {\n    is JsonNull -> "It\'s null!"\n    is JsonBoolean -> "It\'s a boolean!"\n    is JsonNumber -> "It\'s a number!"\n    // Other types include `JsonMissing`, `JsonString`, `JsonArray`, and `JsonObject`\n    else -> "It\'s something else!"\n}\n```\n\nTo access a property\'s raw JSON value, which may be undocumented, call its `_` prefixed method:\n\n```kotlin\nimport com.tryfinch.api.core.JsonField\n\nval code: JsonField<String> = client.accessTokens().create(params)._code()\n\nif (code.isMissing()) {\n  // The property is absent from the JSON response\n} else if (code.isNull()) {\n  // The property was set to literal null\n} else {\n  // Check if value was provided as a string\n  // Other methods include `asNumber()`, `asBoolean()`, etc.\n  val jsonString: String? = code.asString();\n\n  // Try to deserialize into a custom type\n  val myObject: MyClass = code.asUnknown()!!.convert(MyClass::class.java)\n}\n```\n\n### Response validation\n\nIn rare cases, the API may return a response that doesn\'t match the expected type. For example, the SDK     may expect a property to contain a `String`, but the API could return something else.\n\nBy default, the SDK will not throw an exception in this case. It will throw     [`FinchInvalidDataException`](finch-kotlin-core/src/main/kotlin/com/tryfinch/api/errors/FinchInvalidDataException.kt) only if you directly access the property.\n\nValidating the response is _not_ forwards compatible with new types from the API for existing fields.\n\nIf you would still prefer to check that the response is completely well-typed upfront, then either call     `validate()`:\n\n```kotlin\nimport com.tryfinch.api.models.CreateAccessTokenResponse\n\nval createAccessTokenResponse: CreateAccessTokenResponse = client.accessTokens().create(params).validate()\n```\n\nOr configure the method call to validate the response using the `responseValidation` method:\n\n```kotlin\nimport com.tryfinch.api.models.HrisDirectoryListPage\n\nval page: HrisDirectoryListPage = client.hris().directory().list(RequestOptions.builder().responseValidation(true).build())\n```\n\nOr configure the default for all method calls at the client level:\n\n```kotlin\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\n\nval client: FinchClient = FinchOkHttpClient.builder()\n    .fromEnv()\n    .responseValidation(true)\n    .accessToken("My Access Token")\n    .build()\n```\n\n## FAQ\n\n### Why don\'t you use plain `enum` classes?\n\nKotlin `enum` classes are not trivially   [forwards compatible](https://www.stainless.com/blog/making-java-enums-forwards-compatible). Using them in   the SDK could cause runtime exceptions if the API is updated to respond with a new enum value.\n\n### Why do you represent fields using `JsonField<T>` instead of just plain `T`?\n\nUsing `JsonField<T>` enables a few features:\n\n- Allowing usage of [undocumented API functionality](#undocumented-api-functionality)\n- Lazily [validating the API response against the expected shape](#response-validation)\n- Representing absent vs explicitly null values\n\n### Why don\'t you use [`data` classes](https://kotlinlang.org/docs/data-classes.html)?\n\nIt is not [backwards compatible to add new fields to a data class](https://kotlinlang.org/docs/api-guidelines-backward-compatibility.html#avoid-using-data-classes-in-your-api)   and we don\'t want to introduce a breaking change every time we add a field to a class.\n\n### Why don\'t you use checked exceptions?\n\nChecked exceptions are widely considered a mistake in the Java programming language. In fact, they were   omitted from Kotlin for this reason.\n\nChecked exceptions:\n\n- Are verbose to handle\n- Encourage error handling at the wrong level of abstraction, where nothing can be done about the error\n- Are tedious to propagate due to the [function coloring problem](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function)\n- Don\'t play well with lambdas (also due to the function coloring problem)\n\n## Semantic versioning\n\nThis package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) conventions, though certain backwards-incompatible changes may be released as minor versions:\n\n1. Changes to library internals which are technically public but not intended or documented for external use. _(Please open a GitHub issue to let us know if you are relying on such internals.)_\n2. Changes that we do not expect to impact the vast majority of users in practice.\n\nWe take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.\n\nWe are keen for your feedback; please open an [issue](https://www.github.com/Finch-API/finch-api-kotlin/issues) with questions, bugs, or suggestions.\n',
   },
   {
-    language: 'ruby',
-    content:
-      '# Finch Ruby API library\n\nThe Finch Ruby library provides convenient access to the Finch REST API from any Ruby 3.2.0+ application. It ships with comprehensive types & docstrings in Yard, RBS, and RBI – [see below](https://github.com/Finch-API/finch-api-ruby#Sorbet) for usage with Sorbet. The standard library\'s `net/http` is used as the HTTP transport, with connection pooling via the `connection_pool` gem.\n\n\n\nIt is generated with [Stainless](https://www.stainless.com/).\n\n## MCP Server\n\nUse the Finch MCP Server to enable AI assistants to interact with this API, allowing them to explore endpoints, make test requests, and use documentation to help integrate this SDK into your application.\n\n[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=%40tryfinch%2Ffinch-api-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB0cnlmaW5jaC9maW5jaC1hcGktbWNwIl0sImVudiI6eyJGSU5DSF9BQ0NFU1NfVE9LRU4iOiJNeSBBY2Nlc3MgVG9rZW4iLCJGSU5DSF9DTElFTlRfSUQiOiI0YWIxNWU1MS0xMWFkLTQ5ZjQtYWNhZS1mMzQzYjc3OTQzNzUiLCJGSU5DSF9DTElFTlRfU0VDUkVUIjoiTXkgQ2xpZW50IFNlY3JldCIsIkZJTkNIX1dFQkhPT0tfU0VDUkVUIjoiTXkgV2ViaG9vayBTZWNyZXQifX0)\n[![Install in VS Code](https://img.shields.io/badge/_-Add_to_VS_Code-blue?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHBhdGggZmlsbD0iI0VFRSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMzAuMjM1IDM5Ljg4NGEyLjQ5MSAyLjQ5MSAwIDAgMS0xLjc4MS0uNzNMMTIuNyAyNC43OGwtMy40NiAyLjYyNC0zLjQwNiAyLjU4MmExLjY2NSAxLjY2NSAwIDAgMS0xLjA4Mi4zMzggMS42NjQgMS42NjQgMCAwIDEtMS4wNDYtLjQzMWwtMi4yLTJhMS42NjYgMS42NjYgMCAwIDEgMC0yLjQ2M0w3LjQ1OCAyMCA0LjY3IDE3LjQ1MyAxLjUwNyAxNC41N2ExLjY2NSAxLjY2NSAwIDAgMSAwLTIuNDYzbDIuMi0yYTEuNjY1IDEuNjY1IDAgMCAxIDIuMTMtLjA5N2w2Ljg2MyA1LjIwOUwyOC40NTIuODQ0YTIuNDg4IDIuNDg4IDAgMCAxIDEuODQxLS43MjljLjM1MS4wMDkuNjk5LjA5MSAxLjAxOS4yNDVsOC4yMzYgMy45NjFhMi41IDIuNSAwIDAgMSAxLjQxNSAyLjI1M3YuMDk5LS4wNDVWMzMuMzd2LS4wNDUuMDk1YTIuNTAxIDIuNTAxIDAgMCAxLTEuNDE2IDIuMjU3bC04LjIzNSAzLjk2MWEyLjQ5MiAyLjQ5MiAwIDAgMS0xLjA3Ny4yNDZabS43MTYtMjguOTQ3LTExLjk0OCA5LjA2MiAxMS45NTIgOS4wNjUtLjAwNC0xOC4xMjdaIi8+PC9zdmc+)](https://vscode.stainless.com/mcp/%7B%22name%22%3A%22%40tryfinch%2Ffinch-api-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40tryfinch%2Ffinch-api-mcp%22%5D%2C%22env%22%3A%7B%22FINCH_ACCESS_TOKEN%22%3A%22My%20Access%20Token%22%2C%22FINCH_CLIENT_ID%22%3A%224ab15e51-11ad-49f4-acae-f343b7794375%22%2C%22FINCH_CLIENT_SECRET%22%3A%22My%20Client%20Secret%22%2C%22FINCH_WEBHOOK_SECRET%22%3A%22My%20Webhook%20Secret%22%7D%7D)\n\n> Note: You may need to set environment variables in your MCP client.\n\n## Documentation\n\nDocumentation for releases of this gem can be found [on RubyDoc](https://gemdocs.org/gems/finch-api).\n\nThe REST API documentation can be found on [developer.tryfinch.com](https://developer.tryfinch.com/).\n\n## Installation\n\nTo use this gem, install via Bundler by adding the following to your application\'s `Gemfile`:\n\n<!-- x-release-please-start-version -->\n\n```ruby\ngem "finch-api", "~> 0.1.0.pre.alpha.56"\n```\n\n<!-- x-release-please-end -->\n\n## Usage\n\n```ruby\nrequire "bundler/setup"\nrequire "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.directory.list\n\nputs(page.id)\n```\n\n\n\n### Pagination\n\nList methods in the Finch API are paginated.\n\nThis library provides auto-paginating iterators with each list response, so you do not have to request successive pages manually:\n\n```ruby\npage = finch.hris.directory.list\n\n# Fetch single item from page.\ndirectory = page.individuals[0]\nputs(directory.id)\n\n# Automatically fetches more pages as needed.\npage.auto_paging_each do |directory|\n  puts(directory.id)\nend\n```\n\nAlternatively, you can use the `#next_page?` and `#next_page` methods for more granular control working with pages.\n\n```ruby\nif page.next_page?\n  new_page = page.next_page\n  puts(new_page.individuals[0].id)\nend\n```\n\n\n\n### Handling errors\n\nWhen the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `FinchAPI::Errors::APIError` will be thrown:\n\n```ruby\nbegin\n  company = finch.hris.company.retrieve\nrescue FinchAPI::Errors::APIConnectionError => e\n  puts("The server could not be reached")\n  puts(e.cause)  # an underlying Exception, likely raised within `net/http`\nrescue FinchAPI::Errors::RateLimitError => e\n  puts("A 429 status code was received; we should back off a bit.")\nrescue FinchAPI::Errors::APIStatusError => e\n  puts("Another non-200-range status code was received")\n  puts(e.status)\nend\n```\n\nError codes are as follows:\n\n| Cause            | Error Type                 |\n| ---------------- | -------------------------- |\n| HTTP 400         | `BadRequestError`          |\n| HTTP 401         | `AuthenticationError`      |\n| HTTP 403         | `PermissionDeniedError`    |\n| HTTP 404         | `NotFoundError`            |\n| HTTP 409         | `ConflictError`            |\n| HTTP 422         | `UnprocessableEntityError` |\n| HTTP 429         | `RateLimitError`           |\n| HTTP >= 500      | `InternalServerError`      |\n| Other HTTP error | `APIStatusError`           |\n| Timeout          | `APITimeoutError`          |\n| Network error    | `APIConnectionError`       |\n\n### Retries\n\nCertain errors will be automatically retried 2 times by default, with a short exponential backoff.\n\nConnection errors (for example, due to a network connectivity problem), 408 Request Timeout, 409 Conflict, 429 Rate Limit, >=500 Internal errors, and timeouts will all be retried by default.\n\nYou can use the `max_retries` option to configure or disable this:\n\n```ruby\n# Configure the default for all requests:\nfinch = FinchAPI::Client.new(\n  max_retries: 0 # default is 2\n)\n\n# Or, configure per-request:\nfinch.hris.directory.list(request_options: {max_retries: 5})\n```\n\n### Timeouts\n\nBy default, requests will time out after 60 seconds. You can use the timeout option to configure or disable this:\n\n```ruby\n# Configure the default for all requests:\nfinch = FinchAPI::Client.new(\n  timeout: nil # default is 60\n)\n\n# Or, configure per-request:\nfinch.hris.directory.list(request_options: {timeout: 5})\n```\n\nOn timeout, `FinchAPI::Errors::APITimeoutError` is raised.\n\nNote that requests that time out are retried by default.\n\n## Advanced concepts\n\n### BaseModel\n\nAll parameter and response objects inherit from `FinchAPI::Internal::Type::BaseModel`, which provides several conveniences, including:\n\n1. All fields, including unknown ones, are accessible with `obj[:prop]` syntax, and can be destructured with `obj => {prop: prop}` or pattern-matching syntax.\n\n2. Structural equivalence for equality; if two API calls return the same values, comparing the responses with == will return true.\n\n3. Both instances and the classes themselves can be pretty-printed.\n\n4. Helpers such as `#to_h`, `#deep_to_h`, `#to_json`, and `#to_yaml`.\n\n### Making custom or undocumented requests\n\n#### Undocumented properties\n\nYou can send undocumented parameters to any endpoint, and read undocumented response properties, like so:\n\nNote: the `extra_` parameters of the same name overrides the documented parameters.\n\n```ruby\npage =\n  finch.hris.directory.list(\n    request_options: {\n      extra_query: {my_query_parameter: value},\n      extra_body: {my_body_parameter: value},\n      extra_headers: {"my-header": value}\n    }\n  )\n\nputs(page[:my_undocumented_property])\n```\n\n#### Undocumented request params\n\nIf you want to explicitly send an extra param, you can do so with the `extra_query`, `extra_body`, and `extra_headers` under the `request_options:` parameter when making a request, as seen in the examples above.\n\n#### Undocumented endpoints\n\nTo make requests to undocumented endpoints while retaining the benefit of auth, retries, and so on, you can make requests using `client.request`, like so:\n\n```ruby\nresponse = client.request(\n  method: :post,\n  path: \'/undocumented/endpoint\',\n  query: {"dog": "woof"},\n  headers: {"useful-header": "interesting-value"},\n  body: {"hello": "world"}\n)\n```\n\n### Concurrency & connection pooling\n\nThe `FinchAPI::Client` instances are threadsafe, but are only are fork-safe when there are no in-flight HTTP requests.\n\nEach instance of `FinchAPI::Client` has its own HTTP connection pool with a default size of 99. As such, we recommend instantiating the client once per application in most settings.\n\nWhen all available connections from the pool are checked out, requests wait for a new connection to become available, with queue time counting towards the request timeout.\n\nUnless otherwise specified, other classes in the SDK do not have locks protecting their underlying data structure.\n\n## Sorbet\n\nThis library provides comprehensive [RBI](https://sorbet.org/docs/rbi) definitions, and has no dependency on sorbet-runtime.\n\nYou can provide typesafe request parameters like so:\n\n```ruby\nfinch.hris.directory.list \n```\n\nOr, equivalently:\n\n```ruby\n# Hashes work, but are not typesafe:\nfinch.hris.directory.list\n\n# You can also splat a full Params class:\nparams = FinchAPI::HRIS::DirectoryListParams.new\nfinch.hris.directory.list(**params)\n```\n\n### Enums\n\nSince this library does not depend on `sorbet-runtime`, it cannot provide [`T::Enum`](https://sorbet.org/docs/tenum) instances. Instead, we provide "tagged symbols" instead, which is always a primitive at runtime:\n\n```ruby\n# :every_paycheck\nputs(FinchAPI::HRIS::BenefitFrequency::EVERY_PAYCHECK)\n\n# Revealed type: `T.all(FinchAPI::HRIS::BenefitFrequency, Symbol)`\nT.reveal_type(FinchAPI::HRIS::BenefitFrequency::EVERY_PAYCHECK)\n```\n\nEnum parameters have a "relaxed" type, so you can either pass in enum constants or their literal value:\n\n```ruby\n# Using the enum constants preserves the tagged type information:\nfinch.hris.benefits.create(\n  frequency: FinchAPI::HRIS::BenefitFrequency::EVERY_PAYCHECK,\n  # …\n)\n\n# Literal values are also permissible:\nfinch.hris.benefits.create(\n  frequency: :every_paycheck,\n  # …\n)\n```\n\n## Versioning\n\nThis package follows [SemVer](https://semver.org/spec/v2.0.0.html) conventions. As the library is in initial development and has a major version of `0`, APIs may change at any time.\n\nThis package considers improvements to the (non-runtime) `*.rbi` and `*.rbs` type definitions to be non-breaking changes.\n\n## Requirements\n\nRuby 3.2.0 or higher.\n\n## Contributing\n\nSee [the contributing documentation](https://github.com/Finch-API/finch-api-ruby/tree/main/CONTRIBUTING.md).\n',
-  },
-  {
     language: 'python',
     content:
       '# Finch Python API library\n\n<!-- prettier-ignore -->\n[![PyPI version](https://img.shields.io/pypi/v/finch-api.svg?label=pypi%20(stable))](https://pypi.org/project/finch-api/)\n\nThe Finch Python library provides convenient access to the Finch REST API from any Python 3.9+\napplication. The library includes type definitions for all request params and response fields,\nand offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).\n\n\n\nIt is generated with [Stainless](https://www.stainless.com/).\n\n## MCP Server\n\nUse the Finch MCP Server to enable AI assistants to interact with this API, allowing them to explore endpoints, make test requests, and use documentation to help integrate this SDK into your application.\n\n[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=%40tryfinch%2Ffinch-api-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB0cnlmaW5jaC9maW5jaC1hcGktbWNwIl0sImVudiI6eyJGSU5DSF9BQ0NFU1NfVE9LRU4iOiJNeSBBY2Nlc3MgVG9rZW4iLCJGSU5DSF9DTElFTlRfSUQiOiI0YWIxNWU1MS0xMWFkLTQ5ZjQtYWNhZS1mMzQzYjc3OTQzNzUiLCJGSU5DSF9DTElFTlRfU0VDUkVUIjoiTXkgQ2xpZW50IFNlY3JldCIsIkZJTkNIX1dFQkhPT0tfU0VDUkVUIjoiTXkgV2ViaG9vayBTZWNyZXQifX0)\n[![Install in VS Code](https://img.shields.io/badge/_-Add_to_VS_Code-blue?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHBhdGggZmlsbD0iI0VFRSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMzAuMjM1IDM5Ljg4NGEyLjQ5MSAyLjQ5MSAwIDAgMS0xLjc4MS0uNzNMMTIuNyAyNC43OGwtMy40NiAyLjYyNC0zLjQwNiAyLjU4MmExLjY2NSAxLjY2NSAwIDAgMS0xLjA4Mi4zMzggMS42NjQgMS42NjQgMCAwIDEtMS4wNDYtLjQzMWwtMi4yLTJhMS42NjYgMS42NjYgMCAwIDEgMC0yLjQ2M0w3LjQ1OCAyMCA0LjY3IDE3LjQ1MyAxLjUwNyAxNC41N2ExLjY2NSAxLjY2NSAwIDAgMSAwLTIuNDYzbDIuMi0yYTEuNjY1IDEuNjY1IDAgMCAxIDIuMTMtLjA5N2w2Ljg2MyA1LjIwOUwyOC40NTIuODQ0YTIuNDg4IDIuNDg4IDAgMCAxIDEuODQxLS43MjljLjM1MS4wMDkuNjk5LjA5MSAxLjAxOS4yNDVsOC4yMzYgMy45NjFhMi41IDIuNSAwIDAgMSAxLjQxNSAyLjI1M3YuMDk5LS4wNDVWMzMuMzd2LS4wNDUuMDk1YTIuNTAxIDIuNTAxIDAgMCAxLTEuNDE2IDIuMjU3bC04LjIzNSAzLjk2MWEyLjQ5MiAyLjQ5MiAwIDAgMS0xLjA3Ny4yNDZabS43MTYtMjguOTQ3LTExLjk0OCA5LjA2MiAxMS45NTIgOS4wNjUtLjAwNC0xOC4xMjdaIi8+PC9zdmc+)](https://vscode.stainless.com/mcp/%7B%22name%22%3A%22%40tryfinch%2Ffinch-api-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40tryfinch%2Ffinch-api-mcp%22%5D%2C%22env%22%3A%7B%22FINCH_ACCESS_TOKEN%22%3A%22My%20Access%20Token%22%2C%22FINCH_CLIENT_ID%22%3A%224ab15e51-11ad-49f4-acae-f343b7794375%22%2C%22FINCH_CLIENT_SECRET%22%3A%22My%20Client%20Secret%22%2C%22FINCH_WEBHOOK_SECRET%22%3A%22My%20Webhook%20Secret%22%7D%7D)\n\n> Note: You may need to set environment variables in your MCP client.\n\n## Documentation\n\nThe REST API documentation can be found on [developer.tryfinch.com](https://developer.tryfinch.com/). The full API of this library can be found in [api.md](api.md).\n\n## Installation\n\n```sh\n# install from PyPI\npip install finch-api\n```\n\n## Usage\n\nThe full API of this library can be found in [api.md](api.md).\n\n```python\nfrom finch import Finch\n\nclient = Finch(\n    access_token="My Access Token",\n)\n\npage = client.hris.directory.list()\nprint(page.individuals)\n```\n\n\n\n## Async usage\n\nSimply import `AsyncFinch` instead of `Finch` and use `await` with each API call:\n\n```python\nimport asyncio\nfrom finch import AsyncFinch\n\nclient = AsyncFinch(\n    access_token="My Access Token",\n)\n\nasync def main() -> None:\n  page = await client.hris.directory.list()\n  print(page.individuals)\n\nasyncio.run(main())\n```\n\nFunctionality between the synchronous and asynchronous clients is otherwise identical.\n\n### With aiohttp\n\nBy default, the async client uses `httpx` for HTTP requests. However, for improved concurrency performance you may also use `aiohttp` as the HTTP backend.\n\nYou can enable this by installing `aiohttp`:\n\n```sh\n# install from PyPI\npip install finch-api[aiohttp]\n```\n\nThen you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:\n\n```python\nimport asyncio\nfrom finch import DefaultAioHttpClient\nfrom finch import AsyncFinch\n\nasync def main() -> None:\n  async with AsyncFinch(\n    access_token="My Access Token",\n    http_client=DefaultAioHttpClient(),\n) as client:\n    page = await client.hris.directory.list()\n    print(page.individuals)\n\nasyncio.run(main())\n```\n\n\n\n## Using types\n\nNested request parameters are [TypedDicts](https://docs.python.org/3/library/typing.html#typing.TypedDict). Responses are [Pydantic models](https://docs.pydantic.dev) which also provide helper methods for things like:\n\n- Serializing back into JSON, `model.to_json()`\n- Converting to a dictionary, `model.to_dict()`\n\nTyped requests and responses provide autocomplete and documentation within your editor. If you would like to see type errors in VS Code to help catch bugs earlier, set `python.analysis.typeCheckingMode` to `basic`.\n\n## Pagination\n\nList methods in the Finch API are paginated.\n\nThis library provides auto-paginating iterators with each list response, so you do not have to request successive pages manually:\n\n```python\nfrom finch import Finch\n\nclient = Finch()\n\nall_directories = []\n# Automatically fetches more pages as needed.\nfor directory in client.hris.directory.list():\n    # Do something with directory here\n    all_directories.append(directory)\nprint(all_directories)\n```\n\nOr, asynchronously:\n\n```python\nimport asyncio\nfrom finch import AsyncFinch\n\nclient = AsyncFinch()\n\nasync def main() -> None:\n    all_directories = []\n    # Iterate through items across all pages, issuing requests as needed.\n    async for directory in client.hris.directory.list():\n        all_directories.append(directory)\n    print(all_directories)\n\nasyncio.run(main())\n```\n\nAlternatively, you can use the `.has_next_page()`, `.next_page_info()`, or  `.get_next_page()` methods for more granular control working with pages:\n\n```python\nfirst_page = await client.hris.directory.list()\nif first_page.has_next_page():\n    print(f"will fetch next page using these details: {first_page.next_page_info()}")\n    next_page = await first_page.get_next_page()\n    print(f"number of items we just fetched: {len(next_page.individuals)}")\n\n# Remove `await` for non-async usage.\n```\n\nOr just work directly with the returned data:\n\n```python\nfirst_page = await client.hris.directory.list()\n\nprint(f"the current start offset for this page: {first_page.paging.offset}") # => "the current start offset for this page: 1"\nfor directory in first_page.individuals:\n    print(directory.id)\n\n# Remove `await` for non-async usage.\n```\n\n\n\n\n\n## Handling errors\n\nWhen the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `finch.APIConnectionError` is raised.\n\nWhen the API returns a non-success status code (that is, 4xx or 5xx\nresponse), a subclass of `finch.APIStatusError` is raised, containing `status_code` and `response` properties.\n\nAll errors inherit from `finch.APIError`.\n\n```python\nimport finch\nfrom finch import Finch\n\nclient = Finch()\n\ntry:\n    client.hris.company.retrieve()\nexcept finch.APIConnectionError as e:\n    print("The server could not be reached")\n    print(e.__cause__) # an underlying Exception, likely raised within httpx.\nexcept finch.RateLimitError as e:\n    print("A 429 status code was received; we should back off a bit.")\nexcept finch.APIStatusError as e:\n    print("Another non-200-range status code was received")\n    print(e.status_code)\n    print(e.response)\n```\n\nError codes are as follows:\n\n| Status Code | Error Type                 |\n| ----------- | -------------------------- |\n| 400         | `BadRequestError`          |\n| 401         | `AuthenticationError`      |\n| 403         | `PermissionDeniedError`    |\n| 404         | `NotFoundError`            |\n| 422         | `UnprocessableEntityError` |\n| 429         | `RateLimitError`           |\n| >=500       | `InternalServerError`      |\n| N/A         | `APIConnectionError`       |\n\n### Retries\n\nCertain errors are automatically retried 2 times by default, with a short exponential backoff.\nConnection errors (for example, due to a network connectivity problem), 408 Request Timeout, 409 Conflict,\n429 Rate Limit, and >=500 Internal errors are all retried by default.\n\nYou can use the `max_retries` option to configure or disable retry settings:\n\n```python\nfrom finch import Finch\n\n# Configure the default for all requests:\nclient = Finch(\n    # default is 2\n    max_retries=0,\n)\n\n# Or, configure per-request:\nclient.with_options(max_retries = 5).hris.directory.list()\n```\n\n### Timeouts\n\nBy default requests time out after 1 minute. You can configure this with a `timeout` option,\nwhich accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/timeouts/#fine-tuning-the-configuration) object:\n\n```python\nfrom finch import Finch\n\n# Configure the default for all requests:\nclient = Finch(\n    # 20 seconds (default is 1 minute)\n    timeout=20.0,\n)\n\n# More granular control:\nclient = Finch(\n    timeout=httpx.Timeout(60.0, read=5.0, write=10.0, connect=2.0),\n)\n\n# Override per-request:\nclient.with_options(timeout = 5.0).hris.directory.list()\n```\n\nOn timeout, an `APITimeoutError` is thrown.\n\nNote that requests that time out are [retried twice by default](#retries).\n\n## Default Headers\n\nWe automatically send the `Finch-API-Version` header set to `2020-09-17`.\n\nIf you need to, you can override it by setting default headers per-request or on the client object.\n\nBe aware that doing so may result in incorrect types and other unexpected or undefined behavior in the SDK.\n\n```python\nfrom finch import Finch\n\nclient = Finch(\n    default_headers={\n        "Finch-API-Version": "My-Custom-Value"\n    },\n)\n```\n\n## Advanced\n\n### Logging\n\nWe use the standard library [`logging`](https://docs.python.org/3/library/logging.html) module.\n\nYou can enable logging by setting the environment variable `FINCH_LOG` to `info`.\n\n```shell\n$ export FINCH_LOG=info\n```\n\nOr to `debug` for more verbose logging.\n\n### How to tell whether `None` means `null` or missing\n\nIn an API response, a field may be explicitly `null`, or missing entirely; in either case, its value is `None` in this library. You can differentiate the two cases with `.model_fields_set`:\n\n```py\nif response.my_field is None:\n  if \'my_field\' not in response.model_fields_set:\n    print(\'Got json like {}, without a "my_field" key present at all.\')\n  else:\n    print(\'Got json like {"my_field": null}.\')\n```\n\n### Accessing raw response data (e.g. headers)\n\nThe "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,\n\n```py\nfrom finch import Finch\n\nclient = Finch()\nresponse = client.hris.directory.with_raw_response.list()\nprint(response.headers.get(\'X-My-Header\'))\n\ndirectory = response.parse()  # get the object that `hris.directory.list()` would have returned\nprint(directory.id)\n```\n\nThese methods return a [`LegacyAPIResponse`](https://github.com/Finch-API/finch-api-python/tree/main/src/finch/_legacy_response.py) object. This is a legacy class as we\'re changing it slightly in the next major version.\n\nFor the sync client this will mostly be the same with the exception\nof `content` & `text` will be methods instead of properties. In the\nasync client, all methods will be async.\n\nA migration script will be provided & the migration in general should\nbe smooth.\n\n#### `.with_streaming_response`\n\nThe above interface eagerly reads the full response body when you make the request, which may not always be what you want.\n\nTo stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.\n\nAs such, `.with_streaming_response` methods return a different [`APIResponse`](https://github.com/Finch-API/finch-api-python/tree/main/src/finch/_response.py) object, and the async client returns an [`AsyncAPIResponse`](https://github.com/Finch-API/finch-api-python/tree/main/src/finch/_response.py) object.\n\n```python\nwith client.hris.directory.with_streaming_response.list() as response :\n    print(response.headers.get(\'X-My-Header\'))\n\n    for line in response.iter_lines():\n      print(line)\n```\n\nThe context manager is required so that the response will reliably be closed.\n\n### Making custom/undocumented requests\n\nThis library is typed for convenient access to the documented API.\n\nIf you need to access undocumented endpoints, params, or response properties, the library can still be used.\n\n#### Undocumented endpoints\n\nTo make requests to undocumented endpoints, you can make requests using `client.get`, `client.post`, and other\nhttp verbs. Options on the client will be respected (such as retries) when making this request.\n\n```py\nimport httpx\n\nresponse = client.post(\n    "/foo",\n    cast_to=httpx.Response,\n    body={"my_param": True},\n)\n\nprint(response.headers.get("x-foo"))\n```\n\n#### Undocumented request params\n\nIf you want to explicitly send an extra param, you can do so with the `extra_query`, `extra_body`, and `extra_headers` request\noptions.\n\n#### Undocumented response properties\n\nTo access undocumented response properties, you can access the extra fields like `response.unknown_prop`. You\ncan also get all the extra fields on the Pydantic model as a dict with\n[`response.model_extra`](https://docs.pydantic.dev/latest/api/base_model/#pydantic.BaseModel.model_extra).\n\n### Configuring the HTTP client\n\nYou can directly override the [httpx client](https://www.python-httpx.org/api/#client) to customize it for your use case, including:\n\n- Support for [proxies](https://www.python-httpx.org/advanced/proxies/)\n- Custom [transports](https://www.python-httpx.org/advanced/transports/)\n- Additional [advanced](https://www.python-httpx.org/advanced/clients/) functionality\n\n```python\nimport httpx\nfrom finch import Finch, DefaultHttpxClient\n\nclient = Finch(\n    # Or use the `FINCH_BASE_URL` env var\n    base_url="http://my.test.server.example.com:8083",\n    http_client=DefaultHttpxClient(proxy="http://my.test.proxy.example.com", transport=httpx.HTTPTransport(local_address="0.0.0.0")),\n)\n```\n\nYou can also customize the client on a per-request basis by using `with_options()`:\n\n```python\nclient.with_options(http_client=DefaultHttpxClient(...))\n```\n\n### Managing HTTP resources\n\nBy default the library closes underlying HTTP connections whenever the client is [garbage collected](https://docs.python.org/3/reference/datamodel.html#object.__del__). You can manually close the client using the `.close()` method if desired, or with a context manager that closes when exiting.\n\n```py\nfrom finch import Finch\n\nwith Finch() as client:\n  # make requests here\n  ...\n\n# HTTP client is now closed\n```\n\n## Versioning\n\nThis package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) conventions, though certain backwards-incompatible changes may be released as minor versions:\n\n1. Changes that only affect static types, without breaking runtime behavior.\n2. Changes to library internals which are technically public but not intended or documented for external use. _(Please open a GitHub issue to let us know if you are relying on such internals.)_\n3. Changes that we do not expect to impact the vast majority of users in practice.\n\nWe take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.\n\nWe are keen for your feedback; please open an [issue](https://www.github.com/Finch-API/finch-api-python/issues) with questions, bugs, or suggestions.\n\n### Determining the installed version\n\nIf you\'ve upgraded to the latest version but aren\'t seeing any new features you were expecting then your python environment is likely still using an older version.\n\nYou can determine the version that is being used at runtime with:\n\n```py\nimport finch\nprint(finch.__version__)\n```\n\n## Requirements\n\nPython 3.9 or higher.\n\n## Contributing\n\nSee [the contributing documentation](./CONTRIBUTING.md).\n',
+  },
+  {
+    language: 'ruby',
+    content:
+      '# Finch Ruby API library\n\nThe Finch Ruby library provides convenient access to the Finch REST API from any Ruby 3.2.0+ application. It ships with comprehensive types & docstrings in Yard, RBS, and RBI – [see below](https://github.com/Finch-API/finch-api-ruby#Sorbet) for usage with Sorbet. The standard library\'s `net/http` is used as the HTTP transport, with connection pooling via the `connection_pool` gem.\n\n\n\nIt is generated with [Stainless](https://www.stainless.com/).\n\n## MCP Server\n\nUse the Finch MCP Server to enable AI assistants to interact with this API, allowing them to explore endpoints, make test requests, and use documentation to help integrate this SDK into your application.\n\n[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=%40tryfinch%2Ffinch-api-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB0cnlmaW5jaC9maW5jaC1hcGktbWNwIl0sImVudiI6eyJGSU5DSF9BQ0NFU1NfVE9LRU4iOiJNeSBBY2Nlc3MgVG9rZW4iLCJGSU5DSF9DTElFTlRfSUQiOiI0YWIxNWU1MS0xMWFkLTQ5ZjQtYWNhZS1mMzQzYjc3OTQzNzUiLCJGSU5DSF9DTElFTlRfU0VDUkVUIjoiTXkgQ2xpZW50IFNlY3JldCIsIkZJTkNIX1dFQkhPT0tfU0VDUkVUIjoiTXkgV2ViaG9vayBTZWNyZXQifX0)\n[![Install in VS Code](https://img.shields.io/badge/_-Add_to_VS_Code-blue?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHBhdGggZmlsbD0iI0VFRSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMzAuMjM1IDM5Ljg4NGEyLjQ5MSAyLjQ5MSAwIDAgMS0xLjc4MS0uNzNMMTIuNyAyNC43OGwtMy40NiAyLjYyNC0zLjQwNiAyLjU4MmExLjY2NSAxLjY2NSAwIDAgMS0xLjA4Mi4zMzggMS42NjQgMS42NjQgMCAwIDEtMS4wNDYtLjQzMWwtMi4yLTJhMS42NjYgMS42NjYgMCAwIDEgMC0yLjQ2M0w3LjQ1OCAyMCA0LjY3IDE3LjQ1MyAxLjUwNyAxNC41N2ExLjY2NSAxLjY2NSAwIDAgMSAwLTIuNDYzbDIuMi0yYTEuNjY1IDEuNjY1IDAgMCAxIDIuMTMtLjA5N2w2Ljg2MyA1LjIwOUwyOC40NTIuODQ0YTIuNDg4IDIuNDg4IDAgMCAxIDEuODQxLS43MjljLjM1MS4wMDkuNjk5LjA5MSAxLjAxOS4yNDVsOC4yMzYgMy45NjFhMi41IDIuNSAwIDAgMSAxLjQxNSAyLjI1M3YuMDk5LS4wNDVWMzMuMzd2LS4wNDUuMDk1YTIuNTAxIDIuNTAxIDAgMCAxLTEuNDE2IDIuMjU3bC04LjIzNSAzLjk2MWEyLjQ5MiAyLjQ5MiAwIDAgMS0xLjA3Ny4yNDZabS43MTYtMjguOTQ3LTExLjk0OCA5LjA2MiAxMS45NTIgOS4wNjUtLjAwNC0xOC4xMjdaIi8+PC9zdmc+)](https://vscode.stainless.com/mcp/%7B%22name%22%3A%22%40tryfinch%2Ffinch-api-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40tryfinch%2Ffinch-api-mcp%22%5D%2C%22env%22%3A%7B%22FINCH_ACCESS_TOKEN%22%3A%22My%20Access%20Token%22%2C%22FINCH_CLIENT_ID%22%3A%224ab15e51-11ad-49f4-acae-f343b7794375%22%2C%22FINCH_CLIENT_SECRET%22%3A%22My%20Client%20Secret%22%2C%22FINCH_WEBHOOK_SECRET%22%3A%22My%20Webhook%20Secret%22%7D%7D)\n\n> Note: You may need to set environment variables in your MCP client.\n\n## Documentation\n\nDocumentation for releases of this gem can be found [on RubyDoc](https://gemdocs.org/gems/finch-api).\n\nThe REST API documentation can be found on [developer.tryfinch.com](https://developer.tryfinch.com/).\n\n## Installation\n\nTo use this gem, install via Bundler by adding the following to your application\'s `Gemfile`:\n\n<!-- x-release-please-start-version -->\n\n```ruby\ngem "finch-api", "~> 0.1.0.pre.alpha.57"\n```\n\n<!-- x-release-please-end -->\n\n## Usage\n\n```ruby\nrequire "bundler/setup"\nrequire "finch_api"\n\nfinch = FinchAPI::Client.new(access_token: "My Access Token")\n\npage = finch.hris.directory.list\n\nputs(page.id)\n```\n\n\n\n### Pagination\n\nList methods in the Finch API are paginated.\n\nThis library provides auto-paginating iterators with each list response, so you do not have to request successive pages manually:\n\n```ruby\npage = finch.hris.directory.list\n\n# Fetch single item from page.\ndirectory = page.individuals[0]\nputs(directory.id)\n\n# Automatically fetches more pages as needed.\npage.auto_paging_each do |directory|\n  puts(directory.id)\nend\n```\n\nAlternatively, you can use the `#next_page?` and `#next_page` methods for more granular control working with pages.\n\n```ruby\nif page.next_page?\n  new_page = page.next_page\n  puts(new_page.individuals[0].id)\nend\n```\n\n\n\n### Handling errors\n\nWhen the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `FinchAPI::Errors::APIError` will be thrown:\n\n```ruby\nbegin\n  company = finch.hris.company.retrieve\nrescue FinchAPI::Errors::APIConnectionError => e\n  puts("The server could not be reached")\n  puts(e.cause)  # an underlying Exception, likely raised within `net/http`\nrescue FinchAPI::Errors::RateLimitError => e\n  puts("A 429 status code was received; we should back off a bit.")\nrescue FinchAPI::Errors::APIStatusError => e\n  puts("Another non-200-range status code was received")\n  puts(e.status)\nend\n```\n\nError codes are as follows:\n\n| Cause            | Error Type                 |\n| ---------------- | -------------------------- |\n| HTTP 400         | `BadRequestError`          |\n| HTTP 401         | `AuthenticationError`      |\n| HTTP 403         | `PermissionDeniedError`    |\n| HTTP 404         | `NotFoundError`            |\n| HTTP 409         | `ConflictError`            |\n| HTTP 422         | `UnprocessableEntityError` |\n| HTTP 429         | `RateLimitError`           |\n| HTTP >= 500      | `InternalServerError`      |\n| Other HTTP error | `APIStatusError`           |\n| Timeout          | `APITimeoutError`          |\n| Network error    | `APIConnectionError`       |\n\n### Retries\n\nCertain errors will be automatically retried 2 times by default, with a short exponential backoff.\n\nConnection errors (for example, due to a network connectivity problem), 408 Request Timeout, 409 Conflict, 429 Rate Limit, >=500 Internal errors, and timeouts will all be retried by default.\n\nYou can use the `max_retries` option to configure or disable this:\n\n```ruby\n# Configure the default for all requests:\nfinch = FinchAPI::Client.new(\n  max_retries: 0 # default is 2\n)\n\n# Or, configure per-request:\nfinch.hris.directory.list(request_options: {max_retries: 5})\n```\n\n### Timeouts\n\nBy default, requests will time out after 60 seconds. You can use the timeout option to configure or disable this:\n\n```ruby\n# Configure the default for all requests:\nfinch = FinchAPI::Client.new(\n  timeout: nil # default is 60\n)\n\n# Or, configure per-request:\nfinch.hris.directory.list(request_options: {timeout: 5})\n```\n\nOn timeout, `FinchAPI::Errors::APITimeoutError` is raised.\n\nNote that requests that time out are retried by default.\n\n## Advanced concepts\n\n### BaseModel\n\nAll parameter and response objects inherit from `FinchAPI::Internal::Type::BaseModel`, which provides several conveniences, including:\n\n1. All fields, including unknown ones, are accessible with `obj[:prop]` syntax, and can be destructured with `obj => {prop: prop}` or pattern-matching syntax.\n\n2. Structural equivalence for equality; if two API calls return the same values, comparing the responses with == will return true.\n\n3. Both instances and the classes themselves can be pretty-printed.\n\n4. Helpers such as `#to_h`, `#deep_to_h`, `#to_json`, and `#to_yaml`.\n\n### Making custom or undocumented requests\n\n#### Undocumented properties\n\nYou can send undocumented parameters to any endpoint, and read undocumented response properties, like so:\n\nNote: the `extra_` parameters of the same name overrides the documented parameters.\n\n```ruby\npage =\n  finch.hris.directory.list(\n    request_options: {\n      extra_query: {my_query_parameter: value},\n      extra_body: {my_body_parameter: value},\n      extra_headers: {"my-header": value}\n    }\n  )\n\nputs(page[:my_undocumented_property])\n```\n\n#### Undocumented request params\n\nIf you want to explicitly send an extra param, you can do so with the `extra_query`, `extra_body`, and `extra_headers` under the `request_options:` parameter when making a request, as seen in the examples above.\n\n#### Undocumented endpoints\n\nTo make requests to undocumented endpoints while retaining the benefit of auth, retries, and so on, you can make requests using `client.request`, like so:\n\n```ruby\nresponse = client.request(\n  method: :post,\n  path: \'/undocumented/endpoint\',\n  query: {"dog": "woof"},\n  headers: {"useful-header": "interesting-value"},\n  body: {"hello": "world"}\n)\n```\n\n### Concurrency & connection pooling\n\nThe `FinchAPI::Client` instances are threadsafe, but are only are fork-safe when there are no in-flight HTTP requests.\n\nEach instance of `FinchAPI::Client` has its own HTTP connection pool with a default size of 99. As such, we recommend instantiating the client once per application in most settings.\n\nWhen all available connections from the pool are checked out, requests wait for a new connection to become available, with queue time counting towards the request timeout.\n\nUnless otherwise specified, other classes in the SDK do not have locks protecting their underlying data structure.\n\n## Sorbet\n\nThis library provides comprehensive [RBI](https://sorbet.org/docs/rbi) definitions, and has no dependency on sorbet-runtime.\n\nYou can provide typesafe request parameters like so:\n\n```ruby\nfinch.hris.directory.list \n```\n\nOr, equivalently:\n\n```ruby\n# Hashes work, but are not typesafe:\nfinch.hris.directory.list\n\n# You can also splat a full Params class:\nparams = FinchAPI::HRIS::DirectoryListParams.new\nfinch.hris.directory.list(**params)\n```\n\n### Enums\n\nSince this library does not depend on `sorbet-runtime`, it cannot provide [`T::Enum`](https://sorbet.org/docs/tenum) instances. Instead, we provide "tagged symbols" instead, which is always a primitive at runtime:\n\n```ruby\n# :every_paycheck\nputs(FinchAPI::HRIS::BenefitFrequency::EVERY_PAYCHECK)\n\n# Revealed type: `T.all(FinchAPI::HRIS::BenefitFrequency, Symbol)`\nT.reveal_type(FinchAPI::HRIS::BenefitFrequency::EVERY_PAYCHECK)\n```\n\nEnum parameters have a "relaxed" type, so you can either pass in enum constants or their literal value:\n\n```ruby\n# Using the enum constants preserves the tagged type information:\nfinch.hris.benefits.create(\n  frequency: FinchAPI::HRIS::BenefitFrequency::EVERY_PAYCHECK,\n  # …\n)\n\n# Literal values are also permissible:\nfinch.hris.benefits.create(\n  frequency: :every_paycheck,\n  # …\n)\n```\n\n## Versioning\n\nThis package follows [SemVer](https://semver.org/spec/v2.0.0.html) conventions. As the library is in initial development and has a major version of `0`, APIs may change at any time.\n\nThis package considers improvements to the (non-runtime) `*.rbi` and `*.rbs` type definitions to be non-breaking changes.\n\n## Requirements\n\nRuby 3.2.0 or higher.\n\n## Contributing\n\nSee [the contributing documentation](https://github.com/Finch-API/finch-api-ruby/tree/main/CONTRIBUTING.md).\n',
   },
   {
     language: 'typescript',
