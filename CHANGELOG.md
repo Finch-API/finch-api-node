@@ -1,5 +1,28 @@
 # Changelog
 
+## [10.8.3](https://github.com/Finch-API/finch-api-node/compare/v10.8.2...v10.8.3) (2026-09-03)
+
+
+### Bug Fixes
+
+* **stlc:** deploy empty-seal re-anchor fix ([f13be3b](https://github.com/Finch-API/finch-api-node/commit/f13be3b1918ef6f145e77e597bf080c49b72a2fc))
+
+
+### Chores
+
+* **api:** rebuild SDK ([b8a0153](https://github.com/Finch-API/finch-api-node/commit/b8a0153ba8d4aed5c6632066ea1fd48ca8183117))
+* **api:** rebuild SDK ([23c4705](https://github.com/Finch-API/finch-api-node/commit/23c470505213cb971b004c40ec8107d4bbcf5b81))
+* **api:** rebuild SDK ([87b948a](https://github.com/Finch-API/finch-api-node/commit/87b948a1b23d424a2e0ab485ebccaba43143ed23))
+* **api:** rebuild SDK ([02bc7f0](https://github.com/Finch-API/finch-api-node/commit/02bc7f0f58868322147a12eb1432b6551bea9ad6))
+* **api:** rebuild SDK ([c525a28](https://github.com/Finch-API/finch-api-node/commit/c525a28ede666aa5fb96225ce348a24b94fe04ed))
+* **api:** rebuild SDK ([93bde19](https://github.com/Finch-API/finch-api-node/commit/93bde19cbadf4a24eb10ad8176d7aa292bde993a))
+* **api:** rebuild SDK ([f3a9829](https://github.com/Finch-API/finch-api-node/commit/f3a98293f9fefb7c71fe82ce694c0d90ac51717c))
+* **api:** rebuild SDK ([7326e0e](https://github.com/Finch-API/finch-api-node/commit/7326e0e5cb01da1c3c16fb01701bf38ad8718079))
+* **deps:** bump @humanfs/node from 0.16.6 to 0.16.8 ([b106153](https://github.com/Finch-API/finch-api-node/commit/b1061537cbc4a25859f75bcc7b5eb8ca3e87755d))
+* **deps:** bump @humanfs/node from 0.16.6 to 0.16.8 ([6982ec2](https://github.com/Finch-API/finch-api-node/commit/6982ec21364df07b5831a82656853f01d44faff5))
+* **deps:** bump browserslist from 4.28.1 to 4.28.8 ([4034656](https://github.com/Finch-API/finch-api-node/commit/40346562eb953d1487ffd675516d1c19aad851e7))
+* **deps:** bump browserslist from 4.28.1 to 4.28.8 ([c6737c0](https://github.com/Finch-API/finch-api-node/commit/c6737c007d775fe1b7bde98c13ad589b971d9a6d))
+
 ## [10.8.2](https://github.com/Finch-API/finch-api-node/compare/v10.8.1...v10.8.2) (2026-08-24)
 
 
