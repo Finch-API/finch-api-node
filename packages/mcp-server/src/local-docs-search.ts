@@ -1351,22 +1351,22 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       go: {
         method: 'client.Providers.List',
         example:
-          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go/v2"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient()\n\tpage, err := client.Providers.List(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
+          'package main\n\nimport (\n\t"context"\n\t"fmt"\n\n\t"github.com/Finch-API/finch-api-go/v2"\n\t"github.com/Finch-API/finch-api-go/v2/option"\n)\n\nfunc main() {\n\tclient := finchgo.NewClient(\n\t\toption.WithAccessToken("My Access Token"),\n\t\toption.WithClientID("4ab15e51-11ad-49f4-acae-f343b7794375"),\n\t\toption.WithClientSecret("My Client Secret"),\n\t)\n\tpage, err := client.Providers.List(context.TODO())\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\tfmt.Printf("%+v\\n", page)\n}\n',
       },
       java: {
         method: 'providers().list',
         example:
-          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.ProviderListPage;\nimport com.tryfinch.api.models.ProviderListParams;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.fromEnv();\n\n        ProviderListPage page = client.providers().list();\n    }\n}',
+          'package com.tryfinch.api.example;\n\nimport com.tryfinch.api.client.FinchClient;\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient;\nimport com.tryfinch.api.models.ProviderListPage;\nimport com.tryfinch.api.models.ProviderListParams;\n\npublic final class Main {\n    private Main() {}\n\n    public static void main(String[] args) {\n        FinchClient client = FinchOkHttpClient.builder()\n            .fromEnv()\n            .accessToken("My Access Token")\n            .build();\n\n        ProviderListPage page = client.providers().list();\n    }\n}',
       },
       kotlin: {
         method: 'providers().list',
         example:
-          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.ProviderListPage\nimport com.tryfinch.api.models.ProviderListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.fromEnv()\n\n    val page: ProviderListPage = client.providers().list()\n}',
+          'package com.tryfinch.api.example\n\nimport com.tryfinch.api.client.FinchClient\nimport com.tryfinch.api.client.okhttp.FinchOkHttpClient\nimport com.tryfinch.api.models.ProviderListPage\nimport com.tryfinch.api.models.ProviderListParams\n\nfun main() {\n    val client: FinchClient = FinchOkHttpClient.builder()\n        .fromEnv()\n        .accessToken("My Access Token")\n        .build()\n\n    val page: ProviderListPage = client.providers().list()\n}',
       },
       ruby: {
         method: 'providers.list',
         example:
-          'require "finch_api"\n\nfinch = FinchAPI::Client.new\n\npage = finch.providers.list\n\nputs(page)',
+          'require "finch_api"\n\nfinch = FinchAPI::Client.new(\n  access_token: "My Access Token",\n  client_id: "4ab15e51-11ad-49f4-acae-f343b7794375",\n  client_secret: "My Client Secret"\n)\n\npage = finch.providers.list\n\nputs(page)',
       },
       python: {
         method: 'providers.list',
@@ -1379,7 +1379,8 @@ const EMBEDDED_METHODS: MethodEntry[] = [
           "import Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\n// Automatically fetches more pages as needed.\nfor await (const providerListResponse of client.providers.list()) {\n  console.log(providerListResponse.id);\n}",
       },
       http: {
-        example: "curl https://api.tryfinch.com/providers \\\n    -H 'Finch-API-Version: 2020-09-17'",
+        example:
+          'curl https://api.tryfinch.com/providers \\\n    -H \'Finch-API-Version: 2020-09-17\' \\\n    -H "Authorization: Bearer $ACCESS_TOKEN"',
       },
     },
   },
