@@ -11,7 +11,7 @@ export class Providers extends APIResource {
   list(options?: RequestOptions): PagePromise<ProviderListResponsesSinglePage, ProviderListResponse> {
     return this._client.getAPIList('/providers', SinglePage<ProviderListResponse>, {
       ...options,
-      __security: { bearerAuth: true },
+      __security: {},
     });
   }
 }
