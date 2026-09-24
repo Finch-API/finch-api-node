@@ -1,5 +1,48 @@
 # Changelog
 
+## [10.9.0](https://github.com/Finch-API/finch-api-node/compare/v10.8.2...v10.9.0) (2026-09-24)
+
+
+### Features
+
+* **manifest:** declare location name support across provider manifests - INT-3541 ([8bf024f](https://github.com/Finch-API/finch-api-node/commit/8bf024fcf62c89f79c2bc3c4870b529990ff50b9))
+* **UDF:** [DDR-411] udfs in plan enrollments ([51672fd](https://github.com/Finch-API/finch-api-node/commit/51672fd9d393ecf45b04898e0d78c3dade6eb93f))
+* **UDF:** [DDR-667] udf in payment endpoint ([7d3798f](https://github.com/Finch-API/finch-api-node/commit/7d3798f88f29c474a1ff0aa45580e0fa914d2cd6))
+
+
+### Bug Fixes
+
+* **stlc:** deploy empty-seal re-anchor fix ([f13be3b](https://github.com/Finch-API/finch-api-node/commit/f13be3b1918ef6f145e77e597bf080c49b72a2fc))
+
+
+### Chores
+
+* **api:** rebuild SDK ([35b6ccd](https://github.com/Finch-API/finch-api-node/commit/35b6ccd6e54513d0cb09890a5c0acdcd2b58ed0c))
+* **api:** rebuild SDK ([8246bbd](https://github.com/Finch-API/finch-api-node/commit/8246bbd20cfa514bba934b8f7a7038069421e336))
+* **api:** rebuild SDK ([7a01b85](https://github.com/Finch-API/finch-api-node/commit/7a01b85e352a953c009e38462f7424da306b2cb0))
+* **api:** rebuild SDK ([495cc50](https://github.com/Finch-API/finch-api-node/commit/495cc504291ffebc9facf8e6f82261a9212a6b0e))
+* **api:** rebuild SDK ([9672400](https://github.com/Finch-API/finch-api-node/commit/9672400092b68f72273f7a8db6422b568f4c08ea))
+* **api:** rebuild SDK ([66ae933](https://github.com/Finch-API/finch-api-node/commit/66ae933bdf144847fdd274b32e90bb97210e7cbb))
+* **api:** rebuild SDK ([fc87247](https://github.com/Finch-API/finch-api-node/commit/fc87247ff76c0d5ac6b8687d0c956a4871767ae1))
+* **api:** rebuild SDK ([d09fb2b](https://github.com/Finch-API/finch-api-node/commit/d09fb2b086a1f1029b466ad9e59b3a6c2b747331))
+* **api:** rebuild SDK ([5847e1f](https://github.com/Finch-API/finch-api-node/commit/5847e1f57327a56c0e2b085e87daa15699f95017))
+* **api:** rebuild SDK ([fec4d6f](https://github.com/Finch-API/finch-api-node/commit/fec4d6f0d6cc2176b690f535f86ec5564162e511))
+* **api:** rebuild SDK ([4bf663e](https://github.com/Finch-API/finch-api-node/commit/4bf663e4060a3c06d25694efd4a966de3bc67ad9))
+* **api:** rebuild SDK ([3ccc85d](https://github.com/Finch-API/finch-api-node/commit/3ccc85db8b9fb176b8b906902777913bbed8aba2))
+* **api:** rebuild SDK ([4f9a50e](https://github.com/Finch-API/finch-api-node/commit/4f9a50ed618b5bb22bc42c8dc555cf4af30cdac8))
+* **api:** rebuild SDK ([b8a0153](https://github.com/Finch-API/finch-api-node/commit/b8a0153ba8d4aed5c6632066ea1fd48ca8183117))
+* **api:** rebuild SDK ([23c4705](https://github.com/Finch-API/finch-api-node/commit/23c470505213cb971b004c40ec8107d4bbcf5b81))
+* **api:** rebuild SDK ([87b948a](https://github.com/Finch-API/finch-api-node/commit/87b948a1b23d424a2e0ab485ebccaba43143ed23))
+* **api:** rebuild SDK ([02bc7f0](https://github.com/Finch-API/finch-api-node/commit/02bc7f0f58868322147a12eb1432b6551bea9ad6))
+* **api:** rebuild SDK ([c525a28](https://github.com/Finch-API/finch-api-node/commit/c525a28ede666aa5fb96225ce348a24b94fe04ed))
+* **api:** rebuild SDK ([93bde19](https://github.com/Finch-API/finch-api-node/commit/93bde19cbadf4a24eb10ad8176d7aa292bde993a))
+* **api:** rebuild SDK ([f3a9829](https://github.com/Finch-API/finch-api-node/commit/f3a98293f9fefb7c71fe82ce694c0d90ac51717c))
+* **api:** rebuild SDK ([7326e0e](https://github.com/Finch-API/finch-api-node/commit/7326e0e5cb01da1c3c16fb01701bf38ad8718079))
+* **deps:** bump @humanfs/node from 0.16.6 to 0.16.8 ([b106153](https://github.com/Finch-API/finch-api-node/commit/b1061537cbc4a25859f75bcc7b5eb8ca3e87755d))
+* **deps:** bump @humanfs/node from 0.16.6 to 0.16.8 ([6982ec2](https://github.com/Finch-API/finch-api-node/commit/6982ec21364df07b5831a82656853f01d44faff5))
+* **deps:** bump browserslist from 4.28.1 to 4.28.8 ([4034656](https://github.com/Finch-API/finch-api-node/commit/40346562eb953d1487ffd675516d1c19aad851e7))
+* **deps:** bump browserslist from 4.28.1 to 4.28.8 ([c6737c0](https://github.com/Finch-API/finch-api-node/commit/c6737c007d775fe1b7bde98c13ad589b971d9a6d))
+
 ## [10.8.2](https://github.com/Finch-API/finch-api-node/compare/v10.8.1...v10.8.2) (2026-08-24)
 
 
