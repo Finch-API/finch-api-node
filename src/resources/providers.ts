@@ -85,9 +85,504 @@ export namespace Provider {
     benefits_support?: { [key: string]: unknown };
 
     /**
-     * The supported fields for each Finch product
+     * The supported data fields returned by our HR, payroll, and benefits endpoints
      */
-    supported_fields?: { [key: string]: unknown };
+    supported_fields?: AuthenticationMethod.SupportedFields | null;
+  }
+
+  export namespace AuthenticationMethod {
+    /**
+     * The supported data fields returned by our HR, payroll, and benefits endpoints
+     */
+    export interface SupportedFields {
+      company?: SupportedFields.Company;
+
+      directory?: SupportedFields.Directory;
+
+      employment?: SupportedFields.Employment;
+
+      individual?: SupportedFields.Individual;
+
+      pay_group?: SupportedFields.PayGroup;
+
+      pay_statement?: SupportedFields.PayStatement;
+
+      payment?: SupportedFields.Payment;
+
+      plan_dependents?: SupportedFields.PlanDependents;
+
+      plan_enrollments?: SupportedFields.PlanEnrollments;
+
+      plans?: SupportedFields.Plans;
+    }
+
+    export namespace SupportedFields {
+      export interface Company {
+        id?: boolean;
+
+        accounts?: Company.Accounts;
+
+        departments?: Company.Departments;
+
+        ein?: boolean;
+
+        entity?: Company.Entity;
+
+        legal_name?: boolean;
+
+        locations?: Company.Locations;
+
+        primary_email?: boolean;
+
+        primary_phone_number?: boolean;
+      }
+
+      export namespace Company {
+        export interface Accounts {
+          account_name?: boolean;
+
+          account_number?: boolean;
+
+          account_type?: boolean;
+
+          institution_name?: boolean;
+
+          routing_number?: boolean;
+        }
+
+        export interface Departments {
+          name?: boolean;
+
+          parent?: Departments.Parent;
+        }
+
+        export namespace Departments {
+          export interface Parent {
+            name?: boolean;
+          }
+        }
+
+        export interface Entity {
+          subtype?: boolean;
+
+          type?: boolean;
+        }
+
+        export interface Locations {
+          city?: boolean;
+
+          country?: boolean;
+
+          line1?: boolean;
+
+          line2?: boolean;
+
+          postal_code?: boolean;
+
+          state?: boolean;
+        }
+      }
+
+      export interface Directory {
+        individuals?: Directory.Individuals;
+
+        paging?: Directory.Paging;
+      }
+
+      export namespace Directory {
+        export interface Individuals {
+          id?: boolean;
+
+          department?: boolean | null;
+
+          first_name?: boolean;
+
+          is_active?: boolean;
+
+          last_name?: boolean;
+
+          manager?: Individuals.Manager;
+
+          middle_name?: boolean;
+        }
+
+        export namespace Individuals {
+          export interface Manager {
+            id?: boolean;
+          }
+        }
+
+        export interface Paging {
+          count?: boolean;
+
+          offset?: boolean;
+        }
+      }
+
+      export interface Employment {
+        id?: boolean;
+
+        class_code?: boolean;
+
+        custom_fields?: boolean;
+
+        department?: Employment.Department;
+
+        employment?: Employment.Employment;
+
+        employment_status?: boolean;
+
+        end_date?: boolean;
+
+        first_name?: boolean;
+
+        income?: Employment.Income;
+
+        income_history?: boolean;
+
+        is_active?: boolean;
+
+        last_name?: boolean;
+
+        location?: Employment.Location;
+
+        manager?: Employment.Manager | null;
+
+        middle_name?: boolean;
+
+        start_date?: boolean;
+
+        title?: boolean;
+      }
+
+      export namespace Employment {
+        export interface Department {
+          name?: boolean;
+        }
+
+        export interface Employment {
+          subtype?: boolean;
+
+          type?: boolean;
+        }
+
+        export interface Income {
+          amount?: boolean;
+
+          currency?: boolean;
+
+          unit?: boolean;
+        }
+
+        export interface Location {
+          city?: boolean;
+
+          country?: boolean;
+
+          line1?: boolean;
+
+          line2?: boolean;
+
+          postal_code?: boolean;
+
+          state?: boolean;
+        }
+
+        export interface Manager {
+          id?: boolean;
+        }
+      }
+
+      export interface Individual {
+        id?: boolean;
+
+        dob?: boolean;
+
+        emails?: Individual.Emails;
+
+        encrypted_ssn?: boolean;
+
+        ethnicity?: boolean;
+
+        first_name?: boolean;
+
+        gender?: boolean;
+
+        last_name?: boolean;
+
+        middle_name?: boolean;
+
+        phone_numbers?: Individual.PhoneNumbers;
+
+        preferred_name?: boolean;
+
+        residence?: Individual.Residence;
+
+        ssn?: boolean;
+      }
+
+      export namespace Individual {
+        export interface Emails {
+          data?: boolean;
+
+          type?: boolean;
+        }
+
+        export interface PhoneNumbers {
+          data?: boolean;
+
+          type?: boolean;
+        }
+
+        export interface Residence {
+          city?: boolean;
+
+          country?: boolean;
+
+          line1?: boolean;
+
+          line2?: boolean;
+
+          postal_code?: boolean;
+
+          state?: boolean;
+        }
+      }
+
+      export interface PayGroup {
+        id?: boolean;
+
+        individual_ids?: boolean;
+
+        name?: boolean;
+
+        pay_frequencies?: boolean;
+      }
+
+      export interface PayStatement {
+        paging?: PayStatement.Paging;
+
+        pay_statements?: PayStatement.PayStatements;
+      }
+
+      export namespace PayStatement {
+        export interface Paging {
+          count: boolean;
+
+          offset: boolean;
+        }
+
+        export interface PayStatements {
+          earnings?: PayStatements.Earnings;
+
+          employee_deductions?: PayStatements.EmployeeDeductions;
+
+          employer_contributions?: PayStatements.EmployerContributions;
+
+          gross_pay?: boolean;
+
+          individual_id?: boolean;
+
+          net_pay?: boolean;
+
+          payment_method?: boolean;
+
+          taxes?: PayStatements.Taxes;
+
+          total_hours?: boolean;
+
+          type?: boolean;
+        }
+
+        export namespace PayStatements {
+          export interface Earnings {
+            amount?: boolean;
+
+            currency?: boolean;
+
+            name?: boolean;
+
+            type?: boolean;
+          }
+
+          export interface EmployeeDeductions {
+            amount?: boolean;
+
+            currency?: boolean;
+
+            name?: boolean;
+
+            pre_tax?: boolean;
+
+            type?: boolean;
+          }
+
+          export interface EmployerContributions {
+            amount?: boolean;
+
+            currency?: boolean;
+
+            name?: boolean;
+          }
+
+          export interface Taxes {
+            amount?: boolean;
+
+            currency?: boolean;
+
+            employer?: boolean;
+
+            name?: boolean;
+
+            type?: boolean;
+          }
+        }
+      }
+
+      export interface Payment {
+        id?: boolean;
+
+        company_debit?: boolean;
+
+        debit_date?: boolean;
+
+        employee_taxes?: boolean;
+
+        employer_taxes?: boolean;
+
+        gross_pay?: boolean;
+
+        individual_ids?: boolean;
+
+        net_pay?: boolean;
+
+        pay_date?: boolean;
+
+        pay_frequencies?: boolean;
+
+        pay_group_ids?: boolean;
+
+        pay_period?: Payment.PayPeriod;
+      }
+
+      export namespace Payment {
+        export interface PayPeriod {
+          end_date?: boolean;
+
+          start_date?: boolean;
+        }
+      }
+
+      export interface PlanDependents {
+        coverage?: PlanDependents.Coverage;
+
+        date_of_birth?: boolean;
+
+        dependent_id?: boolean;
+
+        first_name?: boolean;
+
+        gender?: boolean;
+
+        last_name?: boolean;
+
+        middle_name?: boolean;
+
+        ssn?: boolean;
+      }
+
+      export namespace PlanDependents {
+        export interface Coverage {
+          enrollments?: Coverage.Enrollments;
+
+          individual_id?: boolean;
+
+          relationship_to_individual?: boolean;
+        }
+
+        export namespace Coverage {
+          export interface Enrollments {
+            id?: boolean;
+
+            type?: boolean;
+          }
+        }
+      }
+
+      export interface PlanEnrollments {
+        id?: boolean;
+
+        contributions?: PlanEnrollments.Contributions;
+
+        coverage_end_date?: boolean;
+
+        coverage_start_date?: boolean;
+
+        coverage_tier?: boolean;
+
+        dependent_ids?: boolean;
+
+        individual_id?: boolean;
+
+        plan_id?: boolean;
+
+        status?: boolean;
+      }
+
+      export namespace PlanEnrollments {
+        export interface Contributions {
+          employee_contribution?: Contributions.EmployeeContribution;
+
+          employer_contribution?: Contributions.EmployerContribution;
+
+          frequency?: boolean;
+        }
+
+        export namespace Contributions {
+          export interface EmployeeContribution {
+            amount?: boolean;
+
+            currency?: boolean;
+          }
+
+          export interface EmployerContribution {
+            amount?: boolean;
+
+            currency?: boolean;
+          }
+        }
+      }
+
+      export interface Plans {
+        id?: boolean;
+
+        carrier?: Plans.Carrier;
+
+        coverage_tiers?: boolean;
+
+        deduction_codes?: boolean;
+
+        description?: boolean;
+
+        end_date?: boolean;
+
+        name?: boolean;
+
+        network_type?: boolean;
+
+        start_date?: boolean;
+
+        type?: boolean;
+      }
+
+      export namespace Plans {
+        export interface Carrier {
+          id?: boolean;
+
+          name?: boolean;
+        }
+      }
+    }
   }
 }
 
@@ -158,9 +653,504 @@ export namespace ProviderListResponse {
     benefits_support?: { [key: string]: unknown };
 
     /**
-     * The supported fields for each Finch product
+     * The supported data fields returned by our HR, payroll, and benefits endpoints
      */
-    supported_fields?: { [key: string]: unknown };
+    supported_fields?: AuthenticationMethod.SupportedFields | null;
+  }
+
+  export namespace AuthenticationMethod {
+    /**
+     * The supported data fields returned by our HR, payroll, and benefits endpoints
+     */
+    export interface SupportedFields {
+      company?: SupportedFields.Company;
+
+      directory?: SupportedFields.Directory;
+
+      employment?: SupportedFields.Employment;
+
+      individual?: SupportedFields.Individual;
+
+      pay_group?: SupportedFields.PayGroup;
+
+      pay_statement?: SupportedFields.PayStatement;
+
+      payment?: SupportedFields.Payment;
+
+      plan_dependents?: SupportedFields.PlanDependents;
+
+      plan_enrollments?: SupportedFields.PlanEnrollments;
+
+      plans?: SupportedFields.Plans;
+    }
+
+    export namespace SupportedFields {
+      export interface Company {
+        id?: boolean;
+
+        accounts?: Company.Accounts;
+
+        departments?: Company.Departments;
+
+        ein?: boolean;
+
+        entity?: Company.Entity;
+
+        legal_name?: boolean;
+
+        locations?: Company.Locations;
+
+        primary_email?: boolean;
+
+        primary_phone_number?: boolean;
+      }
+
+      export namespace Company {
+        export interface Accounts {
+          account_name?: boolean;
+
+          account_number?: boolean;
+
+          account_type?: boolean;
+
+          institution_name?: boolean;
+
+          routing_number?: boolean;
+        }
+
+        export interface Departments {
+          name?: boolean;
+
+          parent?: Departments.Parent;
+        }
+
+        export namespace Departments {
+          export interface Parent {
+            name?: boolean;
+          }
+        }
+
+        export interface Entity {
+          subtype?: boolean;
+
+          type?: boolean;
+        }
+
+        export interface Locations {
+          city?: boolean;
+
+          country?: boolean;
+
+          line1?: boolean;
+
+          line2?: boolean;
+
+          postal_code?: boolean;
+
+          state?: boolean;
+        }
+      }
+
+      export interface Directory {
+        individuals?: Directory.Individuals;
+
+        paging?: Directory.Paging;
+      }
+
+      export namespace Directory {
+        export interface Individuals {
+          id?: boolean;
+
+          department?: boolean | null;
+
+          first_name?: boolean;
+
+          is_active?: boolean;
+
+          last_name?: boolean;
+
+          manager?: Individuals.Manager;
+
+          middle_name?: boolean;
+        }
+
+        export namespace Individuals {
+          export interface Manager {
+            id?: boolean;
+          }
+        }
+
+        export interface Paging {
+          count?: boolean;
+
+          offset?: boolean;
+        }
+      }
+
+      export interface Employment {
+        id?: boolean;
+
+        class_code?: boolean;
+
+        custom_fields?: boolean;
+
+        department?: Employment.Department;
+
+        employment?: Employment.Employment;
+
+        employment_status?: boolean;
+
+        end_date?: boolean;
+
+        first_name?: boolean;
+
+        income?: Employment.Income;
+
+        income_history?: boolean;
+
+        is_active?: boolean;
+
+        last_name?: boolean;
+
+        location?: Employment.Location;
+
+        manager?: Employment.Manager | null;
+
+        middle_name?: boolean;
+
+        start_date?: boolean;
+
+        title?: boolean;
+      }
+
+      export namespace Employment {
+        export interface Department {
+          name?: boolean;
+        }
+
+        export interface Employment {
+          subtype?: boolean;
+
+          type?: boolean;
+        }
+
+        export interface Income {
+          amount?: boolean;
+
+          currency?: boolean;
+
+          unit?: boolean;
+        }
+
+        export interface Location {
+          city?: boolean;
+
+          country?: boolean;
+
+          line1?: boolean;
+
+          line2?: boolean;
+
+          postal_code?: boolean;
+
+          state?: boolean;
+        }
+
+        export interface Manager {
+          id?: boolean;
+        }
+      }
+
+      export interface Individual {
+        id?: boolean;
+
+        dob?: boolean;
+
+        emails?: Individual.Emails;
+
+        encrypted_ssn?: boolean;
+
+        ethnicity?: boolean;
+
+        first_name?: boolean;
+
+        gender?: boolean;
+
+        last_name?: boolean;
+
+        middle_name?: boolean;
+
+        phone_numbers?: Individual.PhoneNumbers;
+
+        preferred_name?: boolean;
+
+        residence?: Individual.Residence;
+
+        ssn?: boolean;
+      }
+
+      export namespace Individual {
+        export interface Emails {
+          data?: boolean;
+
+          type?: boolean;
+        }
+
+        export interface PhoneNumbers {
+          data?: boolean;
+
+          type?: boolean;
+        }
+
+        export interface Residence {
+          city?: boolean;
+
+          country?: boolean;
+
+          line1?: boolean;
+
+          line2?: boolean;
+
+          postal_code?: boolean;
+
+          state?: boolean;
+        }
+      }
+
+      export interface PayGroup {
+        id?: boolean;
+
+        individual_ids?: boolean;
+
+        name?: boolean;
+
+        pay_frequencies?: boolean;
+      }
+
+      export interface PayStatement {
+        paging?: PayStatement.Paging;
+
+        pay_statements?: PayStatement.PayStatements;
+      }
+
+      export namespace PayStatement {
+        export interface Paging {
+          count: boolean;
+
+          offset: boolean;
+        }
+
+        export interface PayStatements {
+          earnings?: PayStatements.Earnings;
+
+          employee_deductions?: PayStatements.EmployeeDeductions;
+
+          employer_contributions?: PayStatements.EmployerContributions;
+
+          gross_pay?: boolean;
+
+          individual_id?: boolean;
+
+          net_pay?: boolean;
+
+          payment_method?: boolean;
+
+          taxes?: PayStatements.Taxes;
+
+          total_hours?: boolean;
+
+          type?: boolean;
+        }
+
+        export namespace PayStatements {
+          export interface Earnings {
+            amount?: boolean;
+
+            currency?: boolean;
+
+            name?: boolean;
+
+            type?: boolean;
+          }
+
+          export interface EmployeeDeductions {
+            amount?: boolean;
+
+            currency?: boolean;
+
+            name?: boolean;
+
+            pre_tax?: boolean;
+
+            type?: boolean;
+          }
+
+          export interface EmployerContributions {
+            amount?: boolean;
+
+            currency?: boolean;
+
+            name?: boolean;
+          }
+
+          export interface Taxes {
+            amount?: boolean;
+
+            currency?: boolean;
+
+            employer?: boolean;
+
+            name?: boolean;
+
+            type?: boolean;
+          }
+        }
+      }
+
+      export interface Payment {
+        id?: boolean;
+
+        company_debit?: boolean;
+
+        debit_date?: boolean;
+
+        employee_taxes?: boolean;
+
+        employer_taxes?: boolean;
+
+        gross_pay?: boolean;
+
+        individual_ids?: boolean;
+
+        net_pay?: boolean;
+
+        pay_date?: boolean;
+
+        pay_frequencies?: boolean;
+
+        pay_group_ids?: boolean;
+
+        pay_period?: Payment.PayPeriod;
+      }
+
+      export namespace Payment {
+        export interface PayPeriod {
+          end_date?: boolean;
+
+          start_date?: boolean;
+        }
+      }
+
+      export interface PlanDependents {
+        coverage?: PlanDependents.Coverage;
+
+        date_of_birth?: boolean;
+
+        dependent_id?: boolean;
+
+        first_name?: boolean;
+
+        gender?: boolean;
+
+        last_name?: boolean;
+
+        middle_name?: boolean;
+
+        ssn?: boolean;
+      }
+
+      export namespace PlanDependents {
+        export interface Coverage {
+          enrollments?: Coverage.Enrollments;
+
+          individual_id?: boolean;
+
+          relationship_to_individual?: boolean;
+        }
+
+        export namespace Coverage {
+          export interface Enrollments {
+            id?: boolean;
+
+            type?: boolean;
+          }
+        }
+      }
+
+      export interface PlanEnrollments {
+        id?: boolean;
+
+        contributions?: PlanEnrollments.Contributions;
+
+        coverage_end_date?: boolean;
+
+        coverage_start_date?: boolean;
+
+        coverage_tier?: boolean;
+
+        dependent_ids?: boolean;
+
+        individual_id?: boolean;
+
+        plan_id?: boolean;
+
+        status?: boolean;
+      }
+
+      export namespace PlanEnrollments {
+        export interface Contributions {
+          employee_contribution?: Contributions.EmployeeContribution;
+
+          employer_contribution?: Contributions.EmployerContribution;
+
+          frequency?: boolean;
+        }
+
+        export namespace Contributions {
+          export interface EmployeeContribution {
+            amount?: boolean;
+
+            currency?: boolean;
+          }
+
+          export interface EmployerContribution {
+            amount?: boolean;
+
+            currency?: boolean;
+          }
+        }
+      }
+
+      export interface Plans {
+        id?: boolean;
+
+        carrier?: Plans.Carrier;
+
+        coverage_tiers?: boolean;
+
+        deduction_codes?: boolean;
+
+        description?: boolean;
+
+        end_date?: boolean;
+
+        name?: boolean;
+
+        network_type?: boolean;
+
+        start_date?: boolean;
+
+        type?: boolean;
+      }
+
+      export namespace Plans {
+        export interface Carrier {
+          id?: boolean;
+
+          name?: boolean;
+        }
+      }
+    }
   }
 }
 
