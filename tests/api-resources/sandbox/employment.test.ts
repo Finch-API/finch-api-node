@@ -27,6 +27,7 @@ describe('resource employment', () => {
       client.sandbox.employment.update(
         'individual_id',
         {
+          benefit_eligibility_class: 'benefit_eligibility_class',
           class_code: 'class_code',
           custom_fields: [{ name: 'name', value: 'string' }],
           department: { name: 'name' },

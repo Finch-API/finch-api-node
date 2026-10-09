@@ -46,6 +46,13 @@ export namespace EmploymentData {
     id: string;
 
     /**
+     * The employer defined benefit eligibility class that groups an employee into a
+     * set of eligible benefit plans, as stored by the provider. Null when not
+     * configured.
+     */
+    benefit_eligibility_class: string | null;
+
+    /**
      * Worker's compensation classification code for this employee
      */
     class_code: string | null;
