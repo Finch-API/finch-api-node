@@ -113,6 +113,11 @@ export namespace IndividualUpdateResponse {
   }
 
   export interface PhoneNumber {
+    /**
+     * The phone number. Format: E.164, with extension where applicable, e.g.
+     * `+NNNNNNNNNNN xExtension`. If the number cannot be parsed, the raw value from
+     * the provider is returned.
+     */
     data?: string | null;
 
     type?: 'work' | 'personal' | null;
@@ -197,6 +202,11 @@ export namespace IndividualUpdateParams {
   }
 
   export interface PhoneNumber {
+    /**
+     * The phone number. Format: E.164, with extension where applicable, e.g.
+     * `+NNNNNNNNNNN xExtension`. If the number cannot be parsed, the raw value from
+     * the provider is returned.
+     */
     data?: string | null;
 
     type?: 'work' | 'personal' | null;
