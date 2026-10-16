@@ -43,6 +43,13 @@ export interface DirectoryCreateParams {
 export namespace DirectoryCreateParams {
   export interface Body {
     /**
+     * The employer defined benefit eligibility class that groups an employee into a
+     * set of eligible benefit plans, as stored by the provider. Null when not
+     * configured.
+     */
+    benefit_eligibility_class?: string | null;
+
+    /**
      * Worker's compensation classification code for this employee
      */
     class_code?: string | null;
@@ -265,6 +272,11 @@ export namespace DirectoryCreateParams {
     }
 
     export interface PhoneNumber {
+      /**
+       * The phone number. Format: E.164, with extension where applicable, e.g.
+       * `+NNNNNNNNNNN xExtension`. If the number cannot be parsed, the raw value from
+       * the provider is returned.
+       */
       data?: string | null;
 
       type?: 'work' | 'personal' | null;

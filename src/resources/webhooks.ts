@@ -166,7 +166,7 @@ export namespace AccountUpdateEvent {
       benefits_support?: BenefitsAPI.BenefitsSupport | null;
 
       /**
-       * The supported data fields returned by our HR and payroll endpoints
+       * The supported data fields returned by our HR, payroll, and benefits endpoints
        */
       supported_fields?: AuthenticationMethod.SupportedFields | null;
 
@@ -178,7 +178,7 @@ export namespace AccountUpdateEvent {
 
     export namespace AuthenticationMethod {
       /**
-       * The supported data fields returned by our HR and payroll endpoints
+       * The supported data fields returned by our HR, payroll, and benefits endpoints
        */
       export interface SupportedFields {
         company?: SupportedFields.Company;
@@ -194,6 +194,12 @@ export namespace AccountUpdateEvent {
         pay_statement?: SupportedFields.PayStatement;
 
         payment?: SupportedFields.Payment;
+
+        plan_dependents?: SupportedFields.PlanDependents;
+
+        plan_enrollments?: SupportedFields.PlanEnrollments;
+
+        plans?: SupportedFields.Plans;
       }
 
       export namespace SupportedFields {
@@ -273,7 +279,7 @@ export namespace AccountUpdateEvent {
           export interface Individuals {
             id?: boolean;
 
-            department?: boolean;
+            department?: boolean | null;
 
             first_name?: boolean;
 
@@ -326,7 +332,7 @@ export namespace AccountUpdateEvent {
 
           location?: Employment.Location;
 
-          manager?: Employment.Manager;
+          manager?: Employment.Manager | null;
 
           middle_name?: boolean;
 
@@ -550,6 +556,116 @@ export namespace AccountUpdateEvent {
             end_date?: boolean;
 
             start_date?: boolean;
+          }
+        }
+
+        export interface PlanDependents {
+          coverage?: PlanDependents.Coverage;
+
+          date_of_birth?: boolean;
+
+          dependent_id?: boolean;
+
+          first_name?: boolean;
+
+          gender?: boolean;
+
+          last_name?: boolean;
+
+          middle_name?: boolean;
+
+          ssn?: boolean;
+        }
+
+        export namespace PlanDependents {
+          export interface Coverage {
+            enrollments?: Coverage.Enrollments;
+
+            individual_id?: boolean;
+
+            relationship_to_individual?: boolean;
+          }
+
+          export namespace Coverage {
+            export interface Enrollments {
+              id?: boolean;
+
+              type?: boolean;
+            }
+          }
+        }
+
+        export interface PlanEnrollments {
+          id?: boolean;
+
+          contributions?: PlanEnrollments.Contributions;
+
+          coverage_end_date?: boolean;
+
+          coverage_start_date?: boolean;
+
+          coverage_tier?: boolean;
+
+          dependent_ids?: boolean;
+
+          individual_id?: boolean;
+
+          plan_id?: boolean;
+
+          status?: boolean;
+        }
+
+        export namespace PlanEnrollments {
+          export interface Contributions {
+            employee_contribution?: Contributions.EmployeeContribution;
+
+            employer_contribution?: Contributions.EmployerContribution;
+
+            frequency?: boolean;
+          }
+
+          export namespace Contributions {
+            export interface EmployeeContribution {
+              amount?: boolean;
+
+              currency?: boolean;
+            }
+
+            export interface EmployerContribution {
+              amount?: boolean;
+
+              currency?: boolean;
+            }
+          }
+        }
+
+        export interface Plans {
+          id?: boolean;
+
+          carrier?: Plans.Carrier;
+
+          coverage_tiers?: boolean;
+
+          deduction_codes?: boolean;
+
+          description?: boolean;
+
+          end_date?: boolean;
+
+          name?: boolean;
+
+          network_type?: boolean;
+
+          start_date?: boolean;
+
+          type?: boolean;
+        }
+
+        export namespace Plans {
+          export interface Carrier {
+            id?: boolean;
+
+            name?: boolean;
           }
         }
       }
