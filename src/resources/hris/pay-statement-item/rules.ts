@@ -410,7 +410,9 @@ export namespace RuleDeleteResponse {
 export interface RuleCreateParams {
   /**
    * Query param: The entity IDs to create the rule for. Provide exactly one entity
-   * ID per request; a maximum of one is accepted.
+   * ID per request; a maximum of one is accepted. Required when the connection has
+   * more than one entity — omitting it returns a `400` `invalid_request_error`.
+   * Optional for single-entity connections.
    */
   entity_ids?: Array<string>;
 
@@ -474,7 +476,9 @@ export namespace RuleCreateParams {
 export interface RuleUpdateParams {
   /**
    * Query param: The entity IDs to update the rule for. Provide exactly one entity
-   * ID per request; a maximum of one is accepted.
+   * ID per request; a maximum of one is accepted. Required when the connection has
+   * more than one entity — omitting it returns a `400` `invalid_request_error`.
+   * Optional for single-entity connections.
    */
   entity_ids?: Array<string>;
 
@@ -487,7 +491,9 @@ export interface RuleUpdateParams {
 export interface RuleListParams {
   /**
    * The entity IDs to retrieve rules for. Provide exactly one entity ID per request;
-   * a maximum of one is accepted.
+   * a maximum of one is accepted. Required when the connection has more than one
+   * entity — omitting it returns a `400` `invalid_request_error`. Optional for
+   * single-entity connections.
    */
   entity_ids?: Array<string>;
 }
@@ -495,7 +501,9 @@ export interface RuleListParams {
 export interface RuleDeleteParams {
   /**
    * The entity IDs to delete the rule for. Provide exactly one entity ID per
-   * request; a maximum of one is accepted.
+   * request; a maximum of one is accepted. Required when the connection has more
+   * than one entity — omitting it returns a `400` `invalid_request_error`. Optional
+   * for single-entity connections.
    */
   entity_ids?: Array<string>;
 }
