@@ -269,7 +269,9 @@ export interface IndividualEnrolledIDsResponse {
 export interface IndividualEnrollManyParams {
   /**
    * Query param: The entity IDs to specify which entities' data to access. Provide
-   * exactly one entity ID per request; a maximum of one is accepted.
+   * exactly one entity ID per request; a maximum of one is accepted. Required when
+   * the connection has more than one entity — omitting it returns a `400`
+   * `invalid_request_error`. Optional for single-entity connections.
    */
   entity_ids?: Array<string>;
 
@@ -364,7 +366,9 @@ export namespace IndividualEnrollManyParams {
 export interface IndividualEnrolledIDsParams {
   /**
    * The entity IDs to specify which entities' data to access. Provide exactly one
-   * entity ID per request; a maximum of one is accepted.
+   * entity ID per request; a maximum of one is accepted. Required when the
+   * connection has more than one entity — omitting it returns a `400`
+   * `invalid_request_error`. Optional for single-entity connections.
    */
   entity_ids?: Array<string>;
 }
@@ -372,7 +376,9 @@ export interface IndividualEnrolledIDsParams {
 export interface IndividualRetrieveManyBenefitsParams {
   /**
    * The entity IDs to specify which entities' data to access. Provide exactly one
-   * entity ID per request; a maximum of one is accepted.
+   * entity ID per request; a maximum of one is accepted. Required when the
+   * connection has more than one entity — omitting it returns a `400`
+   * `invalid_request_error`. Optional for single-entity connections.
    */
   entity_ids?: Array<string>;
 
@@ -386,7 +392,9 @@ export interface IndividualRetrieveManyBenefitsParams {
 export interface IndividualUnenrollManyParams {
   /**
    * Query param: The entity IDs to specify which entities' data to access. Provide
-   * exactly one entity ID per request; a maximum of one is accepted.
+   * exactly one entity ID per request; a maximum of one is accepted. Required when
+   * the connection has more than one entity — omitting it returns a `400`
+   * `invalid_request_error`. Optional for single-entity connections.
    */
   entity_ids?: Array<string>;
 

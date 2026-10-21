@@ -405,7 +405,9 @@ export type BenfitContribution = BenefitContribution | null;
 export interface BenefitCreateParams {
   /**
    * Query param: The entity IDs to specify which entities' data to access. Provide
-   * exactly one entity ID per request; a maximum of one is accepted.
+   * exactly one entity ID per request; a maximum of one is accepted. Required when
+   * the connection has more than one entity — omitting it returns a `400`
+   * `invalid_request_error`. Optional for single-entity connections.
    */
   entity_ids?: Array<string>;
 
@@ -454,7 +456,9 @@ export namespace BenefitCreateParams {
 export interface BenefitRetrieveParams {
   /**
    * The entity IDs to specify which entities' data to access. Provide exactly one
-   * entity ID per request; a maximum of one is accepted.
+   * entity ID per request; a maximum of one is accepted. Required when the
+   * connection has more than one entity — omitting it returns a `400`
+   * `invalid_request_error`. Optional for single-entity connections.
    */
   entity_ids?: Array<string>;
 }
@@ -462,7 +466,9 @@ export interface BenefitRetrieveParams {
 export interface BenefitUpdateParams {
   /**
    * Query param: The entity IDs to specify which entities' data to access. Provide
-   * exactly one entity ID per request; a maximum of one is accepted.
+   * exactly one entity ID per request; a maximum of one is accepted. Required when
+   * the connection has more than one entity — omitting it returns a `400`
+   * `invalid_request_error`. Optional for single-entity connections.
    */
   entity_ids?: Array<string>;
 
@@ -475,7 +481,9 @@ export interface BenefitUpdateParams {
 export interface BenefitListParams {
   /**
    * The entity IDs to specify which entities' data to access. Provide exactly one
-   * entity ID per request; a maximum of one is accepted.
+   * entity ID per request; a maximum of one is accepted. Required when the
+   * connection has more than one entity — omitting it returns a `400`
+   * `invalid_request_error`. Optional for single-entity connections.
    */
   entity_ids?: Array<string>;
 }
@@ -483,7 +491,9 @@ export interface BenefitListParams {
 export interface BenefitListSupportedBenefitsParams {
   /**
    * The entity IDs to specify which entities' data to access. Provide exactly one
-   * entity ID per request; a maximum of one is accepted.
+   * entity ID per request; a maximum of one is accepted. Required when the
+   * connection has more than one entity — omitting it returns a `400`
+   * `invalid_request_error`. Optional for single-entity connections.
    */
   entity_ids?: Array<string>;
 }
@@ -491,7 +501,9 @@ export interface BenefitListSupportedBenefitsParams {
 export interface BenefitRegisterParams {
   /**
    * Query param: The entity IDs to specify which entities' data to access. Provide
-   * exactly one entity ID per request; a maximum of one is accepted.
+   * exactly one entity ID per request; a maximum of one is accepted. Required when
+   * the connection has more than one entity — omitting it returns a `400`
+   * `invalid_request_error`. Optional for single-entity connections.
    */
   entity_ids?: Array<string>;
 
