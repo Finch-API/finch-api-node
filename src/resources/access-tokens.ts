@@ -122,7 +122,10 @@ export interface AccessTokenCreateParams {
   client_secret?: string;
 
   /**
-   * The redirect URI used in the authorization request (optional)
+   * The redirect URI used when creating the Connect session. Required if the
+   * authorization code came from the redirect flow, and it must match the
+   * `redirect_uri` used to create the session. Omit it if the code came from the
+   * embedded flow (Connect SDK).
    */
   redirect_uri?: string;
 }
