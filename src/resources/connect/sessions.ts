@@ -167,7 +167,7 @@ export interface SessionReauthenticateParams {
 
   /**
    * The number of minutes until the session expires (defaults to 43,200, which is 30
-   * days)
+   * days). Must be between 1 and 129,600 (90 days).
    */
   minutes_to_expire?: number;
 
