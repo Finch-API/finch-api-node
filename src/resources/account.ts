@@ -113,14 +113,14 @@ export interface Introspection {
    * @deprecated [DEPRECATED] Use `connection_id` to associate tokens with a Finch
    * connection instead of this account ID
    */
-  account_id?: string;
+  account_id?: string | null;
 
   authentication_methods?: Array<Introspection.AuthenticationMethod>;
 
   /**
    * The Finch UUID of the company associated with the `access_token`.
    */
-  company_id?: string;
+  company_id?: string | null;
 
   /**
    * The email of your customer you provided to Finch when a connect session was
