@@ -1750,9 +1750,10 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     stainlessPath: '(resource) jobs.manual > (method) retrieve',
     qualified: 'client.jobs.manual.retrieve',
     params: ['job_id: string;'],
-    response: "{ body: object[]; job_id: string; status: 'pending' | 'in_progress' | 'error' | 'complete'; }",
+    response:
+      "{ body: object[]; job_id: string; sla_deadline: string; status: 'pending' | 'in_progress' | 'error' | 'complete'; }",
     markdown:
-      "## retrieve\n\n`client.jobs.manual.retrieve(job_id: string): { body: object[]; job_id: string; status: 'pending' | 'in_progress' | 'error' | 'complete'; }`\n\n**get** `/jobs/manual/{job_id}`\n\nCheck the status and outcome of a job by `job_id`. This includes all deductions jobs including those for both automated and assisted integrations.\n\n### Parameters\n\n- `job_id: string`\n\n### Returns\n\n- `{ body: object[]; job_id: string; status: 'pending' | 'in_progress' | 'error' | 'complete'; }`\n\n  - `body: object[]`\n  - `job_id: string`\n  - `status: 'pending' | 'in_progress' | 'error' | 'complete'`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst manualAsyncJob = await client.jobs.manual.retrieve('job_id');\n\nconsole.log(manualAsyncJob);\n```",
+      "## retrieve\n\n`client.jobs.manual.retrieve(job_id: string): { body: object[]; job_id: string; sla_deadline: string; status: 'pending' | 'in_progress' | 'error' | 'complete'; }`\n\n**get** `/jobs/manual/{job_id}`\n\nCheck the status and outcome of a job by `job_id`. This includes all deductions jobs including those for both automated and assisted integrations.\n\n### Parameters\n\n- `job_id: string`\n\n### Returns\n\n- `{ body: object[]; job_id: string; sla_deadline: string; status: 'pending' | 'in_progress' | 'error' | 'complete'; }`\n\n  - `body: object[]`\n  - `job_id: string`\n  - `sla_deadline: string`\n  - `status: 'pending' | 'in_progress' | 'error' | 'complete'`\n\n### Example\n\n```typescript\nimport Finch from '@tryfinch/finch-api';\n\nconst client = new Finch();\n\nconst manualAsyncJob = await client.jobs.manual.retrieve('job_id');\n\nconsole.log(manualAsyncJob);\n```",
     perLanguage: {
       go: {
         method: 'client.Jobs.Manual.Get',

@@ -23,6 +23,12 @@ export interface ManualAsyncJob {
 
   job_id: string;
 
+  /**
+   * The datetime by which the job is expected to be completed. Only returned for
+   * jobs that include requests Finch processes manually (assisted).
+   */
+  sla_deadline: string;
+
   status: 'pending' | 'in_progress' | 'error' | 'complete';
 }
 

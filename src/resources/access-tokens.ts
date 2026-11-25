@@ -85,12 +85,12 @@ export interface CreateAccessTokenResponse {
    * @deprecated [DEPRECATED] Use `connection_id` to identify the connection instead
    * of this account ID
    */
-  account_id?: string;
+  account_id?: string | null;
 
   /**
    * The Finch UUID of the company associated with the `access_token`.
    */
-  company_id?: string;
+  company_id?: string | null;
 
   /**
    * The ID of your customer you provided to Finch when a connect session was created
